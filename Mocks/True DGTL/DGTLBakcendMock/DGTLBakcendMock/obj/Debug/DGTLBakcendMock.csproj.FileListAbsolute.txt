@@ -1,0 +1,14 @@
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.exe.config
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\System.Web.Http.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\System.Web.Http.SelfHost.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBakcendMock.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBakcendMock.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\Fleck.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBakcendMock.csprojResolveAssemblyReference.cache
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.DataAccessLayer.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBakcendMock.DataAccessLayer.pdb

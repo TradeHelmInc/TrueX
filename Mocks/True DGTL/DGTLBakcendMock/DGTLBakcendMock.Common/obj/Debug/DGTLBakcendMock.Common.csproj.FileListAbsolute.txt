@@ -1,0 +1,4 @@
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\DGTLBakcendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\DGTLBakcendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBakcendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBakcendMock.Common.pdb

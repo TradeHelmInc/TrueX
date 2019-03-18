@@ -1,0 +1,9 @@
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\DGTLBackendMock.DataAccessLayer.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\DGTLBackendMock.DataAccessLayer.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\Fleck.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\obj\Debug\DGTLBackendMock.DataAccessLayer.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\obj\Debug\DGTLBackendMock.DataAccessLayer.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\obj\Debug\DGTLBackendMock.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\DGTLBackendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\bin\Debug\DGTLBackendMock.Common.pdb
