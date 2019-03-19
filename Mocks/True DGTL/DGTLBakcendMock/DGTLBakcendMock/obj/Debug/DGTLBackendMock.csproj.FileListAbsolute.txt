@@ -13,3 +13,6 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DG
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBackendMock.exe
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBackendMock.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBackendMock.exe.config
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBackendMock.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\obj\Debug\DGTLBackendMock.pdb

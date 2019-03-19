@@ -38,6 +38,7 @@ namespace DGTLBackendMockClient
 
         protected static async void DoLogin()
         {
+            int Sender = Convert.ToInt32(ConfigurationManager.AppSettings["Sender"]);
             string UUID = ConfigurationManager.AppSettings["UUID"];
             string UserId = ConfigurationManager.AppSettings["UserId"];
             string Password = ConfigurationManager.AppSettings["Password"];
@@ -45,7 +46,7 @@ namespace DGTLBackendMockClient
             WebSocketLoginMessage login = new WebSocketLoginMessage()
             {
                 Msg = "ClientLogin",
-                Sender = 23,
+                Sender = Sender,
                 UUID = UUID,
                 UserId = UserId,
                 Password = Password
@@ -58,6 +59,8 @@ namespace DGTLBackendMockClient
                                                         {
                                                             NullValueHandling = NullValueHandling.Ignore
                                                         });
+
+            DoLog(string.Format("Sending: {0}",strMsg));
 
 
             byte[] msgArray = Encoding.ASCII.GetBytes(strMsg);

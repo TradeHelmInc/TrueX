@@ -1,0 +1,12 @@
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendAPIClient.exe.config
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendAPIClient.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendAPIClient.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.csprojResolveAssemblyReference.cache
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendMock.DataAccessLayer.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\Fleck.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\DGTLBackendMock.DataAccessLayer.pdb

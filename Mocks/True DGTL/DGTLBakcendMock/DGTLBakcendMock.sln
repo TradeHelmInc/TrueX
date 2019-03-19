@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CF6604EE-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLBackendMockClient", "DGTLBackendMockClient\DGTLBackendMockClient.csproj", "{DC2ABCBB-4C52-494A-98BA-F831B4190D0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLBackendAPIClient", "DGTLBackendAPIClient\DGTLBackendAPIClient.csproj", "{D5BD331A-6D29-4B04-969A-66F113B1C7F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,11 +35,16 @@ Global
 		{DC2ABCBB-4C52-494A-98BA-F831B4190D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2ABCBB-4C52-494A-98BA-F831B4190D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC2ABCBB-4C52-494A-98BA-F831B4190D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DC2ABCBB-4C52-494A-98BA-F831B4190D0E} = {CF6604EE-C02E-4F11-B668-4D6CEBF0FC57}
+		{D5BD331A-6D29-4B04-969A-66F113B1C7F6} = {CF6604EE-C02E-4F11-B668-4D6CEBF0FC57}
 	EndGlobalSection
 EndGlobal
