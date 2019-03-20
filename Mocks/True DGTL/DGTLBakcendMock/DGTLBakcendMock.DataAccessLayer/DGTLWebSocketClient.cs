@@ -1,5 +1,7 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
+using DGTLBackendMock.Common.DTO.SecurityList;
+using DGTLBackendMock.Common.DTO.Subscription;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -66,22 +68,54 @@ namespace DGTLBackendMock.DataAccessLayer
                         }
                         while (!webSocketResp.EndOfMessage);
 
-                        WebSocketMessage wsResp = JsonConvert.DeserializeObject<WebSocketMessage>(resp);
+                        if (resp != "")
+                        {
+                            WebSocketMessage wsResp = JsonConvert.DeserializeObject<WebSocketMessage>(resp);
 
-                        if (wsResp.Msg == "ClientLoginResponse")
-                        {
-                            ClientLoginResponse loginReponse = JsonConvert.DeserializeObject<ClientLoginResponse>(resp);
-                            OnEvent(loginReponse);
-                        }
-                        else if (wsResp.Msg == "ClientReject")
-                        {
-                            ClientReject loginRejected = JsonConvert.DeserializeObject<ClientReject>(resp);
-                            OnEvent(loginRejected);
-                        }
-                        else
-                        {
-                            UnknownMessage unknownMsg = new UnknownMessage() { Msg = "UnknownMsg", Reason = string.Format("Unknown message: {0}", resp) };
-                            OnEvent(unknownMsg);
+                            if (wsResp.Msg == "ClientLoginResponse")
+                            {
+                                ClientLoginResponse loginReponse = JsonConvert.DeserializeObject<ClientLoginResponse>(resp);
+                                OnEvent(loginReponse);
+                            }
+                            else if (wsResp.Msg == "ClientReject")
+                            {
+                                ClientReject loginRejected = JsonConvert.DeserializeObject<ClientReject>(resp);
+                                OnEvent(loginRejected);
+                            }
+                            else if (wsResp.Msg == "ClientLogoutResponse")
+                            {
+                                ClientLogoutResponse logoutReponse = JsonConvert.DeserializeObject<ClientLogoutResponse>(resp);
+                                OnEvent(logoutReponse);
+                            }
+                            else if (wsResp.Msg == "SubscriptionResponse")
+                            {
+                                SubscriptionResponse subscrResponse = JsonConvert.DeserializeObject<SubscriptionResponse>(resp);
+                                OnEvent(subscrResponse);
+                            }
+                            else if (wsResp.Msg == "AccountRecord")
+                                OnEvent(JsonConvert.DeserializeObject<AccountRecord>(resp));
+                            else if (wsResp.Msg == "DailySettlementPrice")
+                                OnEvent(JsonConvert.DeserializeObject<DailySettlementPrice>(resp));
+                            else if (wsResp.Msg == "FirmRecord")
+                                OnEvent(JsonConvert.DeserializeObject<FirmRecord>(resp));
+                            else if (wsResp.Msg == "OfficialFixingPrice")
+                                OnEvent(JsonConvert.DeserializeObject<OfficialFixingPrice>(resp));
+                            else if (wsResp.Msg == "RefereceRateMsg")
+                                OnEvent(JsonConvert.DeserializeObject<RefereceRateMsg>(resp));
+                            else if (wsResp.Msg == "SecurityMasterRecord")
+                                OnEvent(JsonConvert.DeserializeObject<SecurityMasterRecord>(resp));
+                            else if (wsResp.Msg == "UserRecord")
+                                OnEvent(JsonConvert.DeserializeObject<UserRecord>(resp));
+                            else
+                            {
+                                UnknownMessage unknownMsg = new UnknownMessage()
+                                {
+                                    Msg = "UnknownMsg",
+                                    Resp = resp,
+                                    Reason = string.Format("Unknown message: {0}", resp)
+                                };
+                                OnEvent(unknownMsg);
+                            }
                         }
                     }
                     else

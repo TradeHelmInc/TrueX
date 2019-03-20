@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth
 {
-    public class WebSocketMessage 
+    public class ClientLogoutResponse : WebSocketMessage
     {
-        public string Msg { get; set; }
+        public int Time { get; set; }
 
-        public int Sender { get; set; }
-
-      
+        public string UserId { get; set; }
     }
 }

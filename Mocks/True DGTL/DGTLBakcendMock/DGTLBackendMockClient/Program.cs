@@ -1,4 +1,5 @@
-﻿using DGTLBackendMock.Common.DTO.Auth;
+﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Auth;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

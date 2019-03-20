@@ -40,10 +40,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
+    <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\ClientReject.cs" />
+    <Compile Include="DTO\Auth\WebSocketHeartbeatMessage.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
-    <Compile Include="DTO\Auth\WebSocketMessage.cs" />
+    <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
+    <Compile Include="DTO\SecurityList\AccountRecord.cs" />
+    <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
+    <Compile Include="DTO\SecurityList\FirmRecord.cs" />
+    <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />
+    <Compile Include="DTO\SecurityList\RefereceRateMsg.cs" />
+    <Compile Include="DTO\SecurityList\SecurityMasterRecord.cs" />
+    <Compile Include="DTO\SecurityList\UserRecord.cs" />
+    <Compile Include="DTO\Subscription\SubscriptionMsg.cs" />
+    <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />
+    <Compile Include="DTO\WebSocketMessage.cs" />
     <Compile Include="DTO\ErrorMessage.cs" />
+    <Compile Include="DTO\Subscription\WebSocketSubscribeMessage.cs" />
     <Compile Include="DTO\UnknownMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

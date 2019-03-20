@@ -1,4 +1,5 @@
-﻿using DGTLBackendMock.Common.DTO.Auth;
+﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Auth;
 using Fleck;
 using Newtonsoft.Json;
 using System;
@@ -91,16 +92,68 @@ namespace DGTLBakcendMock.DataAccessLayer
                                    NullValueHandling = NullValueHandling.Ignore
                                });
                         socket.Send(rejMsg);
+                        socket.Close();
                     }
 
                 }
+                else if (wsResp.Msg == "ClientHeartbeat")
+                { 
+                    //We do nothing as the DGTL server does
+                
+                }
+                else if (wsResp.Msg == "ClientLogout")
+                {
+
+
+                    ClientLogoutResponse logout = new ClientLogoutResponse()
+                    {
+                        Msg = "ClientLogoutResponse",
+                        UserId = "0",
+                        Sender = 1,
+                        Time = 0
+                    };
+
+                    string logoutRespMsg = JsonConvert.SerializeObject(logout, Newtonsoft.Json.Formatting.None,
+                               new JsonSerializerSettings
+                               {
+                                   NullValueHandling = NullValueHandling.Ignore
+                               });
+                    socket.Send(logoutRespMsg);
+                    socket.Close();
+                }
                 else
-                    throw new Exception(string.Format("Message not implemented {0}", wsResp.Msg));
+                {
+                    UnknownMessage unknownMsg = new UnknownMessage()
+                    {
+                        Msg = "MessageReject",
+                        Reason = string.Format("Unknown message type {0}", wsResp.Msg)
+
+                    };
+
+                    string strUnknownMsg = JsonConvert.SerializeObject(unknownMsg, Newtonsoft.Json.Formatting.None,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+                    socket.Send(strUnknownMsg);
+                }
 
             }
             catch (Exception ex)
             {
-                //TODO: Fatal error processing websocket request
+                UnknownMessage errorMsg = new UnknownMessage()
+                {
+                    Msg = "MessageReject",
+                    Reason = string.Format("Error processing message: {0}", ex.Message)
+
+                };
+
+                string strErrorMsg = JsonConvert.SerializeObject(errorMsg, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+                socket.Send(strErrorMsg);
             }
 
         }
