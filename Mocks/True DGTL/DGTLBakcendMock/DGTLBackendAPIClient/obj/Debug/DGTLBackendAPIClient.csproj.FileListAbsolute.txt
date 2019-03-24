@@ -10,3 +10,4 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.exe
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\obj\Debug\DGTLBackendAPIClient.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendAPIClient\bin\Debug\input\SecurityMasterRecord.json

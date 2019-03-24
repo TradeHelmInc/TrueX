@@ -39,10 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\ClientReject.cs" />
-    <Compile Include="DTO\Auth\WebSocketHeartbeatMessage.cs" />
+    <Compile Include="DTO\Auth\ClientHeartbeatResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
     <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
     <Compile Include="DTO\SecurityList\AccountRecord.cs" />

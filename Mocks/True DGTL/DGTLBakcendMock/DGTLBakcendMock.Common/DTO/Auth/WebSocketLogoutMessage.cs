@@ -10,6 +10,6 @@ namespace DGTLBackendMock.Common.DTO.Auth
     {
         public string UserId { get; set; }
 
-        public string JWToken { get; set; }
+        public string JsonWebToken { get; set; }
     }
 }

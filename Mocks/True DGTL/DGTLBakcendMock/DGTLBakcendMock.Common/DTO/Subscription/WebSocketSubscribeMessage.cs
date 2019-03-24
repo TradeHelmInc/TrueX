@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.Subscription
 
         public string UserId { get; set; }
 
-        public string JWToken { get; set; }
+        public string JsonWebToken { get; set; }
 
         public string Service { get; set; }
 

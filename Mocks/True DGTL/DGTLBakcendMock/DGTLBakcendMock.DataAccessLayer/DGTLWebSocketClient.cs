@@ -40,7 +40,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Public Methods
 
-        public async void Connect()
+        public async Task<bool> Connect()
         {
 
             SubscriptionWebSocket = new ClientWebSocket();
@@ -48,6 +48,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             Thread respThread = new Thread(ReadResponses);
             respThread.Start(new object[] { });
+            return true;
         }
 
         public async void ReadResponses(object param)
@@ -92,6 +93,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 SubscriptionResponse subscrResponse = JsonConvert.DeserializeObject<SubscriptionResponse>(resp);
                                 OnEvent(subscrResponse);
                             }
+                            else if (wsResp.Msg == "ClientHeartbeatRequest")
+                                OnEvent(JsonConvert.DeserializeObject<ClientHeartbeatRequest>(resp));
                             else if (wsResp.Msg == "AccountRecord")
                                 OnEvent(JsonConvert.DeserializeObject<AccountRecord>(resp));
                             else if (wsResp.Msg == "DailySettlementPrice")

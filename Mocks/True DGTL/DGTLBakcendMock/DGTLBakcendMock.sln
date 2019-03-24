@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLBackendMockClient", "DG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLBackendAPIClient", "DGTLBackendAPIClient\DGTLBackendAPIClient.csproj", "{D5BD331A-6D29-4B04-969A-66F113B1C7F6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "POCs", "POCs", "{439D2ECF-5BF9-406D-8E23-AE80E22CE6F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLSecurityListPOC", "DGTLSecurityListPOC\DGTLSecurityListPOC.csproj", "{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGTLBackendMock.BusinessEntities", "DGTLBackendMock.BusinessEntities\DGTLBackendMock.BusinessEntities.csproj", "{6FB17190-B92F-42C4-B0B0-FB646007ED85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,14 @@ Global
 		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5BD331A-6D29-4B04-969A-66F113B1C7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB17190-B92F-42C4-B0B0-FB646007ED85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB17190-B92F-42C4-B0B0-FB646007ED85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB17190-B92F-42C4-B0B0-FB646007ED85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB17190-B92F-42C4-B0B0-FB646007ED85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +60,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DC2ABCBB-4C52-494A-98BA-F831B4190D0E} = {CF6604EE-C02E-4F11-B668-4D6CEBF0FC57}
 		{D5BD331A-6D29-4B04-969A-66F113B1C7F6} = {CF6604EE-C02E-4F11-B668-4D6CEBF0FC57}
+		{AC9CFBED-E4BA-437E-820F-D0E8F9D5743C} = {439D2ECF-5BF9-406D-8E23-AE80E22CE6F6}
 	EndGlobalSection
 EndGlobal

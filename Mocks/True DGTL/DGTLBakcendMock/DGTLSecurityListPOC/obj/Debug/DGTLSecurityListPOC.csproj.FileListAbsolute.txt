@@ -1,0 +1,15 @@
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\input\SecurityMasterRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLSecurityListPOC.exe.config
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLSecurityListPOC.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLSecurityListPOC.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.DataAccessLayer.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\Fleck.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.DataAccessLayer.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\obj\Debug\DGTLSecurityListPOC.csprojResolveAssemblyReference.cache
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\obj\Debug\DGTLSecurityListPOC.exe
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\obj\Debug\DGTLSecurityListPOC.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.BusinessEntities.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.BusinessEntities.pdb

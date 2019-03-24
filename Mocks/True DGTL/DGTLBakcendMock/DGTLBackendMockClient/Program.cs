@@ -97,7 +97,7 @@ namespace DGTLBackendMockClient
                         {
                             ClientLoginResponse loginReponse = JsonConvert.DeserializeObject<ClientLoginResponse>(resp);
 
-                            DoLog(string.Format("Client {0} succesfully logged. Token {1}", loginReponse.UserId, loginReponse.JWToken));
+                            DoLog(string.Format("Client {0} succesfully logged. Token {1}", loginReponse.UserId, loginReponse.JsonWebToken));
                         }
                         else if (wsResp.Msg == "ClientReject")
                         {

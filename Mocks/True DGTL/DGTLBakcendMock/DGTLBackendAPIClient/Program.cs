@@ -40,7 +40,6 @@ namespace DGTLBackendAPIClient
             Console.WriteLine();
             Console.WriteLine("-------------- Enter Commands to Invoke -------------- ");
             Console.WriteLine("LoginClient <userId> <UUID> <Password>");
-            Console.WriteLine("ClientHeartbeat (Cxt credentials will be used)");
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("-CLEAR");
@@ -66,9 +65,9 @@ namespace DGTLBackendAPIClient
             {
                 ClientLoginResponse loginResp = (ClientLoginResponse)msg;
 
-                if (loginResp.JWToken != null)
+                if (loginResp.JsonWebToken != null)
                 {
-                    JWTToken = loginResp.JWToken;
+                    JWTToken = loginResp.JsonWebToken;
                     UUID = loginResp.UUID;
                     UserId = loginResp.UserId;
                 }
@@ -103,10 +102,16 @@ namespace DGTLBackendAPIClient
 
                 ProcessJsonMessage<ClientLogoutResponse>((ClientLogoutResponse)msg);
             }
+            else if (msg is ClientHeartbeatRequest)
+            {
+                ClientHeartbeatRequest heartBeatReq = (ClientHeartbeatRequest)msg;
+                ProcessJsonMessage<ClientHeartbeatRequest>((ClientHeartbeatRequest)msg);
+                ProcessHeartbeat(heartBeatReq.seqnum);
+            }
             else if (msg is UnknownMessage)
             {
                 UnknownMessage unknownMsg = (UnknownMessage)msg;
-          
+
                 DoLog(string.Format("<<unknown {0}", unknownMsg.Resp));
 
             }
@@ -151,7 +156,7 @@ namespace DGTLBackendAPIClient
         }
 
 
-        private static void ProcessHeartbeat(string[] param)
+        private static void ProcessHeartbeat(int seqNum)
         {
 
             if (JWTToken == null)
@@ -160,27 +165,22 @@ namespace DGTLBackendAPIClient
                 return;
             }
 
-            if (param.Length == 1)
+            ClientHeartbeatResponse heartbeat = new ClientHeartbeatResponse()
             {
-                WebSocketHeartbeatMessage heartbeat = new WebSocketHeartbeatMessage()
-                {
-                    Msg = "ClientHeartbeat",
-                    Sender = 0,
-                    UUID = UUID,
-                    JWToken = JWTToken,
-                    PingPong = "ping"
-                };
+                Msg = "ClientHeartbeatResponse",
+                Sender = 0,
+                UserId = UserId,
+                JsonWebToken = JWTToken,
+                seqnum = seqNum
+            };
 
-                string strMsg = JsonConvert.SerializeObject(heartbeat, Newtonsoft.Json.Formatting.None,
-                                                 new JsonSerializerSettings
-                                                 {
-                                                     NullValueHandling = NullValueHandling.Ignore
-                                                 });
+            string strMsg = JsonConvert.SerializeObject(heartbeat, Newtonsoft.Json.Formatting.None,
+                                             new JsonSerializerSettings
+                                             {
+                                                 NullValueHandling = NullValueHandling.Ignore
+                                             });
 
-                DoSend(strMsg);
-            }
-            else
-                DoLog(string.Format("Missing mandatory parameters for Heartbeat message"));
+            DoSend(strMsg);
 
         }
 
@@ -200,7 +200,7 @@ namespace DGTLBackendAPIClient
                     Msg = "ClientLogout",
                     Sender = 0,
                     UserId = UserId,
-                    JWToken = JWTToken,
+                    JsonWebToken = JWTToken,
                 };
 
                 string strMsg = JsonConvert.SerializeObject(logout, Newtonsoft.Json.Formatting.None,
@@ -239,7 +239,7 @@ namespace DGTLBackendAPIClient
                     Sender = 0,
                     UserId = UserId,
                     SubscriptionType = "S",
-                    JWToken = JWTToken,
+                    JsonWebToken = JWTToken,
                     Service = param[1],
                     ServiceKey = param.Length == 3 ? param[2] : "*"
                 };
@@ -268,10 +268,7 @@ namespace DGTLBackendAPIClient
             {
                 ProcessLoginClient(param);
             }
-            else if (mainCmd == "ClientHeartbeat")
-            {
-                ProcessHeartbeat(param);
-            }
+          
             else if (mainCmd == "LogoutClient")
             {
                 ProcessLogoutClient(param);

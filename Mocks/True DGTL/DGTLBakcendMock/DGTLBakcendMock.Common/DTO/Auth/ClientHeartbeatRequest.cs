@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth
 {
-    public class WebSocketHeartbeatMessage : WebSocketMessage
+    public class ClientHeartbeatRequest : WebSocketMessage
     {
+        public int Time { get; set; }
+
         public string UUID { get; set; }
 
-        public string JWToken { get; set; }
+        public string UserId { get; set; }
 
-        public string PingPong { get; set; }
+        public int seqnum { get; set; }
     }
 }
