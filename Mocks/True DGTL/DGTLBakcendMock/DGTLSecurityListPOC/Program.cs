@@ -28,7 +28,9 @@ namespace DGTLSecurityListPOC
 
         protected static DateTime SecurityMasterRecordRequestStartTime { get; set; }
 
-        protected static int _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS = 1;        
+        protected static int _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS = 1;
+
+        protected static bool SubscriptionTAFinished { get; set; }
 
         #endregion
 
@@ -106,9 +108,9 @@ namespace DGTLSecurityListPOC
             DoLog(" ");
         }
 
-        private static void ShowSecurityList(List<Security> securities)
+        private static void ShowSecurityList(List<Security> securities, string secType, string symbol)
         {
-            DoLog("================== SHOWING Seleted Securities for Product and Pair==================");
+            DoLog(string.Format("================== SHOWING Seleted Securities for Product {0} and Pair {1}==================", secType,symbol));
             foreach (Security security in securities)
                 DoLog(string.Format("-Symbol:{0} Description:{1}", security.Symbol, security.Description));
 
@@ -148,10 +150,10 @@ namespace DGTLSecurityListPOC
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
 
-                if (!securities.Any(x => x.Symbol == "XBT-USD"))
+                if (!securities.Any(x => x.Symbol == security.CurrencyPair))
                 {
                     //here, the Id field, is not called Code. It's usually called Symbol
-                    securities.Add(new Security() { Symbol = "XBT-USD", Description = "XBT-USD" });
+                    securities.Add(new Security() { Symbol = security.CurrencyPair, Description = security.CurrencyPair });
                 }
 
             }
@@ -168,14 +170,14 @@ namespace DGTLSecurityListPOC
             List<Security> securities = new List<Security>();
 
             //5.2.2 - Still missing to filter the underlying as we have no field for it!!!
-            foreach (SecurityMasterRecord secMasterRecord in SecurityMasterRecords.Where(x=>x.AssetClass==secType))
+            foreach (SecurityMasterRecord secMasterRecord in SecurityMasterRecords.Where(x=>x.AssetClass==secType && x.CurrencyPair==symbol))
             {
                 securities.Add(new Security() { Symbol = secMasterRecord.Symbol, Description = secMasterRecord.Description });
                 
             }
 
             //5.2.3 - Showing all the derivatives (contracts) available for secType (prodcut) and symbol (pair) selected
-            ShowSecurityList(securities);
+            ShowSecurityList(securities, secType, symbol);
 
         
         }
@@ -185,7 +187,7 @@ namespace DGTLSecurityListPOC
             while (true)
             {
                 TimeSpan elapsed = DateTime.Now - SecurityMasterRecordRequestStartTime;
-                if (elapsed.TotalSeconds > _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS)
+                if (elapsed.TotalSeconds > _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS || SubscriptionTAFinished)
                 {
                     //5-Now we have all the securities We can process them
                     //5.1 We process the product combo
@@ -195,7 +197,7 @@ namespace DGTLSecurityListPOC
                     ProcessPairCombo();
 
                     //5.3 We process the security list. Swaps (SWP) for XBT-USD symbol 
-                    ProcessSecurityList("SWP","XBT-USD");
+                    ProcessSecurityList("SWP", "USD-XBT");
 
                     break;
                 }
@@ -218,11 +220,20 @@ namespace DGTLSecurityListPOC
                 DoLog(string.Format("Client successfully logged with token {0}", loginResp.JsonWebToken));
                 //3- Once Logged we request the security master record. We set the request timestamp for timeout calculation
                 SecurityMasterRecordRequestStartTime = DateTime.Now;
+                SubscriptionTAFinished = false;
                 RequestSecurityMasterList();
 
                 //3.1- We launch the thread that will process all the securities once everything is available
                 Thread processSecurityMasterRecordThread=new Thread(ProcessSecurityMasterRecordThread);
                 processSecurityMasterRecordThread.Start();
+            }
+            else if (msg is SubscriptionResponse)
+            {
+                SubscriptionResponse subscrResp = (SubscriptionResponse)msg;
+                if (subscrResp.Service == "TA")
+                {
+                    SubscriptionTAFinished = true;
+                }
             }
             else if (msg is SecurityMasterRecord)
             {
@@ -230,13 +241,19 @@ namespace DGTLSecurityListPOC
                 //4-Every time we get a security, if the arrival time is less than timeout time, we update the list that hold
                 //all the securities
                 TimeSpan elapsed = DateTime.Now - SecurityMasterRecordRequestStartTime;
-                if (elapsed.TotalSeconds < _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS)
+                if (elapsed.TotalSeconds < _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS && !SubscriptionTAFinished)
+                {
                     SecurityMasterRecords.Add(security);
+                }
                 else
-                { 
+                {
                     //4.1- Here the security arrive after the timeout. We have to set some warning in the logs to check 
                     //     if we have to recalibrate the timeout threshold
-                    DoLog(string.Format("TC1-Security Master Record arrived after timeout expiration!:{0}",security.Symbol));
+                    if (SubscriptionTAFinished)
+                        DoLog(string.Format("TC1-Security Master Record arrived afte subscription response succesfull received!:{0}", security.Symbol));
+                    else if (elapsed.TotalSeconds > _SECURITY_MASTER_RECORD_TIMOUT_IN_SECONDS )
+                        DoLog(string.Format("TC2-Security Master Record arrived after timeout expiration!:{0}", security.Symbol));
+
                 }
             }
         }

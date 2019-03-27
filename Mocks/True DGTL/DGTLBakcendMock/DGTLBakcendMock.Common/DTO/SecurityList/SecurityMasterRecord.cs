@@ -17,11 +17,21 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
         public string AssetClass { get; set; }
 
+        public string CurrencyPair { get; set; }
+
         public decimal MinPrice { get; set; }
 
         public decimal MaxPrice { get; set; }
 
         public decimal MinPriceIncrement { get; set; }
+
+        public decimal MinSize { get; set; }
+
+        public decimal MaxSize { get; set; }
+
+        public decimal LotSize { get; set; }
+
+        public string Platform { get; set; }
 
         public string MaturityDate { get; set; }
 
