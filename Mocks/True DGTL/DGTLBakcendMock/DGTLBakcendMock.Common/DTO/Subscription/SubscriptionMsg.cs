@@ -16,6 +16,8 @@ namespace DGTLBackendMock.Common.DTO.Subscription
 
         public string Service { get; set; }
 
+        public string ServiceKey { get; set; }
+
         public string Symbol { get; set; }
     }
 }

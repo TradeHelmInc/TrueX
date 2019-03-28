@@ -46,6 +46,9 @@
     <Compile Include="DTO\Auth\ClientHeartbeatResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
     <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
+    <Compile Include="DTO\MarketData\DepthOfBook.cs" />
+    <Compile Include="DTO\MarketData\LastSale.cs" />
+    <Compile Include="DTO\MarketData\Quote.cs" />
     <Compile Include="DTO\SecurityList\AccountRecord.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
     <Compile Include="DTO\SecurityList\FirmRecord.cs" />

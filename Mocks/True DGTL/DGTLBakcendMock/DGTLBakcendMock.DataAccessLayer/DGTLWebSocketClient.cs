@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
+using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using Newtonsoft.Json;
@@ -109,6 +110,10 @@ namespace DGTLBackendMock.DataAccessLayer
                                 OnEvent(JsonConvert.DeserializeObject<SecurityMasterRecord>(resp));
                             else if (wsResp.Msg == "UserRecord")
                                 OnEvent(JsonConvert.DeserializeObject<UserRecord>(resp));
+                            else if (wsResp.Msg == "LastSale")
+                                OnEvent(JsonConvert.DeserializeObject<LastSale>(resp));
+                            else if (wsResp.Msg == "Quote")
+                                OnEvent(JsonConvert.DeserializeObject<Quote>(resp));
                             else
                             {
                                 UnknownMessage unknownMsg = new UnknownMessage()

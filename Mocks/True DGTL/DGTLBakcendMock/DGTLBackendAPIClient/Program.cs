@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
+using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.DataAccessLayer;
@@ -92,6 +93,10 @@ namespace DGTLBackendAPIClient
                 ProcessJsonMessage<SecurityMasterRecord>((SecurityMasterRecord)msg);
             else if (msg is UserRecord)
                 ProcessJsonMessage<UserRecord>((UserRecord)msg);
+            else if (msg is LastSale)
+                ProcessJsonMessage<LastSale>((LastSale)msg);
+            else if (msg is Quote)
+                ProcessJsonMessage<Quote>((Quote)msg);
             else if (msg is ClientLogoutResponse)
             {
                 ClientLogoutResponse logoutResp = (ClientLogoutResponse)msg;
@@ -106,7 +111,7 @@ namespace DGTLBackendAPIClient
             {
                 ClientHeartbeatRequest heartBeatReq = (ClientHeartbeatRequest)msg;
                 ProcessJsonMessage<ClientHeartbeatRequest>((ClientHeartbeatRequest)msg);
-                ProcessHeartbeat(heartBeatReq.seqnum);
+                ProcessHeartbeat(heartBeatReq.SeqNum);
             }
             else if (msg is UnknownMessage)
             {
@@ -171,7 +176,7 @@ namespace DGTLBackendAPIClient
                 Sender = 0,
                 UserId = UserId,
                 JsonWebToken = JWTToken,
-                seqnum = seqNum
+                SeqNum = seqNum
             };
 
             string strMsg = JsonConvert.SerializeObject(heartbeat, Newtonsoft.Json.Formatting.None,

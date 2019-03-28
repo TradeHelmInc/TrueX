@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
+using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using Fleck;
@@ -24,6 +25,10 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
 
+        protected LastSale[] LastSales { get; set; }
+
+        protected Quote[] Quotes { get; set; }
+
         public int HeartbeatSeqNum { get; set; }
 
         public bool UserLogged { get; set; }
@@ -42,7 +47,11 @@ namespace DGTLBakcendMock.DataAccessLayer
             UserLogged = false;
 
             LoadSecurityMasterRecords();
-        
+
+            LoadLastSales();
+
+            LoadQuotes();
+
         }
 
 
@@ -56,6 +65,22 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             SecurityMasterRecords = JsonConvert.DeserializeObject<SecurityMasterRecord[]>(strSecurityMasterRecords);
+        }
+
+        private void LoadLastSales()
+        {
+            string strLastSales = File.ReadAllText(@".\input\LastSales.json");
+
+            //Aca le metemos que serialize el contenido
+            LastSales = JsonConvert.DeserializeObject<LastSale[]>(strLastSales);
+        }
+
+        private void LoadQuotes()
+        {
+            string strQuotes = File.ReadAllText(@".\input\Quotes.json");
+
+            //Aca le metemos que serialize el contenido
+            Quotes = JsonConvert.DeserializeObject<Quote[]>(strQuotes);
         }
 
         private void ProcessClientLoginMock(IWebSocketConnection socket, string m)
@@ -126,6 +151,92 @@ namespace DGTLBakcendMock.DataAccessLayer
         
         }
 
+        private void LastSaleThread(object param) 
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            string symbol = (string)paramArray[1];
+
+            try
+            {
+                while (true)
+                {
+                    LastSale lastSale = LastSales.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    if (lastSale != null)
+                    {
+                        string strLastSale = JsonConvert.SerializeObject(lastSale, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        socket.Send(strLastSale);
+                        Thread.Sleep(3000);//3 seconds
+                    }
+                    else
+                    { 
+                        //TODO: Log no tenemos MD para este symbol
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            { 
+                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+            
+            }
+        }
+
+        private void QuoteThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            string symbol = (string)paramArray[1];
+
+            try
+            {
+                while (true)
+                {
+                    Quote quote = Quotes.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    if (quote != null)
+                    {
+                        string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        socket.Send(strQuote);
+                        Thread.Sleep(3000);//3 seconds
+                    }
+                    else
+                    {
+                        //TODO: Log no tenemos MD para este symbol
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+
+            }
+        }
+
+        private void ProcessLastSale(IWebSocketConnection socket,string symbol)
+        {
+            Thread ProcessLastSaleThread = new Thread(LastSaleThread);
+            ProcessLastSaleThread.Start(new object[] { socket, symbol });
+        
+        }
+
+        private void ProcessQuote(IWebSocketConnection socket, string symbol)
+        {
+            Thread ProcessQuoteThread = new Thread(QuoteThread);
+            ProcessQuoteThread.Start(new object[] { socket, symbol });
+
+        }
+
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket)
         {
             foreach (SecurityMasterRecord sec in SecurityMasterRecords)
@@ -150,6 +261,17 @@ namespace DGTLBakcendMock.DataAccessLayer
                 ProcessSecurityMasterRecord(socket);
                 
             }
+            else if (subscrMsg.Service == "LS")
+            {
+                if(subscrMsg.ServiceKey!=null)
+                    ProcessLastSale(socket,subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "LQ")
+            {
+                if (subscrMsg.ServiceKey != null)
+                    ProcessQuote(socket, subscrMsg.ServiceKey);
+            }
+
         }
 
         #endregion
@@ -171,7 +293,7 @@ namespace DGTLBakcendMock.DataAccessLayer
                             Msg = "ClientHeartbeatRequest",
                             UserId = "user1",
                             Sender = 0,
-                            seqnum = HeartbeatSeqNum,
+                            SeqNum = HeartbeatSeqNum,
                             Time = 0,
                             UUID = "user1"
 

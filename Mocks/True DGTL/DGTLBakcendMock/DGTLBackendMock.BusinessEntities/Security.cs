@@ -8,8 +8,14 @@ namespace DGTLBackendMock.BusinessEntities
 {
     public class Security
     {
+        #region Public Attributes
+
         public string Symbol { get; set; }
 
         public string Description { get; set; }
+
+        public MarketData MarketData { get; set; }
+
+        #endregion
     }
 }
