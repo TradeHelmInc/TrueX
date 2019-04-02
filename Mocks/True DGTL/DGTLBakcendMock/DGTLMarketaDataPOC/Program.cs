@@ -42,44 +42,45 @@ namespace DGTLMarketaDataPOC
             DGTLWebSocketClient.Send(strMsg);
         }
 
+        private static void DoSubscribe(string service,string symbolToRequest)
+        {
+            WebSocketSubscribeMessage subscribe = new WebSocketSubscribeMessage()
+            {
+                Msg = "Subscribe",
+                Sender = 0,
+                UserId = ClientLoginResponse.UserId,
+                SubscriptionType = "S",
+                JsonWebToken = ClientLoginResponse.JsonWebToken,
+                Service = service,
+                ServiceKey = symbolToRequest
+            };
+
+            string strSubscribeMsg = JsonConvert.SerializeObject(subscribe, Newtonsoft.Json.Formatting.None,
+                                           new JsonSerializerSettings
+                                           {
+                                               NullValueHandling = NullValueHandling.Ignore
+                                           });
+
+            DoSend(strSubscribeMsg);
+        
+     
+        }
+
+
         private static void RequestMarketData(Security security)
         {
-            WebSocketSubscribeMessage LSSubscribe = new WebSocketSubscribeMessage()
-            {
-                Msg = "Subscribe",
-                Sender = 0,
-                UserId = ClientLoginResponse.UserId,
-                SubscriptionType = "S",
-                JsonWebToken = ClientLoginResponse.JsonWebToken,
-                Service = "LS",
-                ServiceKey = security.Symbol
-            };
 
-            WebSocketSubscribeMessage LQSubscribe = new WebSocketSubscribeMessage()
-            {
-                Msg = "Subscribe",
-                Sender = 0,
-                UserId = ClientLoginResponse.UserId,
-                SubscriptionType = "S",
-                JsonWebToken = ClientLoginResponse.JsonWebToken,
-                Service = "LQ",
-                ServiceKey = security.Symbol
-            };
+            DoSubscribe("LS", security.Symbol);
+            Thread.Sleep(1000);
+            DoSubscribe("LQ", security.Symbol);
+            Thread.Sleep(1000);
 
-            string strLSMsg = JsonConvert.SerializeObject(LSSubscribe, Newtonsoft.Json.Formatting.None,
-                                             new JsonSerializerSettings
-                                             {
-                                                 NullValueHandling = NullValueHandling.Ignore
-                                             });
-
-            string strLQMsg = JsonConvert.SerializeObject(LQSubscribe, Newtonsoft.Json.Formatting.None,
-                                             new JsonSerializerSettings
-                                             {
-                                                 NullValueHandling = NullValueHandling.Ignore
-                                             });
-
-            DoSend(strLSMsg);
-            DoSend(strLQMsg);
+            if (security.SecurityType != Security._SPOT)
+                DoSubscribe("FD", security.Symbol);
+            Thread.Sleep(1000);
+            if (security.SecurityType != Security._SPOT)
+                DoSubscribe("FP", security.Underlying);
+         
         }
 
         private static void LoginClient(string userId, string UUID, string password)
@@ -116,6 +117,8 @@ namespace DGTLMarketaDataPOC
             DoLog(string.Format("Low= {0}", Security.MarketData.TradingSessionLowPrice.HasValue ? Security.MarketData.TradingSessionLowPrice.Value.ToString("0.##") : "-"));
             DoLog(string.Format("Change= {0}%", Security.MarketData.NetChgPrevDay.HasValue ? Security.MarketData.NetChgPrevDay.Value.ToString("0.##") : "-"));
             DoLog(string.Format("24H Volume= {0}", Security.MarketData.NominalVolume.HasValue ? Security.MarketData.NominalVolume.Value.ToString("0.######") : "-"));
+            DoLog(string.Format("Daily Settlement Price= {0}", Security.MarketData.SettlementPrice.HasValue ? Security.MarketData.SettlementPrice.Value.ToString("0.##") : "-"));
+            DoLog(string.Format("FIX Price= {0}", Security.MarketData.FIXPrice.HasValue ? Security.MarketData.FIXPrice.Value.ToString("0.##") : "-"));
             DoLog("");
         }
 
@@ -180,7 +183,32 @@ namespace DGTLMarketaDataPOC
                   }
                   MarketDataRefresh();
             }
-            //4.3 --> Missing 2 services for DailySettlemetPrice FIX Price. Will be added later
+            else if (msg is DailySettlementPrice)
+            {
+                //4.3 DailySettlementPrice event arrived! We update the security in memory with the following fields
+                DailySettlementPrice DSP = (DailySettlementPrice)msg;
+                lock (Security)
+                {
+                    Security.MarketData.SettlementPrice = DSP.Price;
+                }
+                MarketDataRefresh();
+            }
+            else if (msg is OfficialFixingPrice)
+            {
+                //4.4 DailySettlementPrice event arrived! We update the security in memory with the following fields
+                OfficialFixingPrice fixingPrice = (OfficialFixingPrice)msg;
+                lock (Security)
+                {
+                    Security.MarketData.FIXPrice = fixingPrice.Price;
+                }
+                MarketDataRefresh();
+            }
+            else if (msg is SubscriptionResponse)
+            {
+                SubscriptionResponse subscrResp = (SubscriptionResponse)msg;
+                //We have to process this message to be sure that the subscription was fully processed
+
+            }
         }
 
         #endregion
@@ -193,8 +221,16 @@ namespace DGTLMarketaDataPOC
             string UserId = ConfigurationManager.AppSettings["UserId"];
             string Password = ConfigurationManager.AppSettings["Password"];
             string Symbol = ConfigurationManager.AppSettings["Symbol"];
+            string Underlying = ConfigurationManager.AppSettings["Underlying"];
+            string SecurityType = ConfigurationManager.AppSettings["SecurityType"];
 
-            Security = new Security() { Symbol = Symbol, Description = Symbol, MarketData = new MarketData() };
+            Security = new Security() 
+                                    {
+                                        Symbol = Symbol, 
+                                        Description = Symbol, 
+                                        Underlying = Underlying, 
+                                        SecurityType=SecurityType, MarketData = new MarketData() 
+                                    };
 
 
             //1- We do all the logging and connection procedure

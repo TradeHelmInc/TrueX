@@ -30,7 +30,7 @@ namespace DGTLBackendMock.BusinessEntities
 
         public decimal? SettlementPrice { get; set; }
 
-        public decimal? FIXRate { get; set; }//?
+        public decimal? FIXPrice { get; set; }//?
 
         public DateTime? LastTradeDateTime { get; set; }
 

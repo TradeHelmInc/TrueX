@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="input\DailySettlementPrice.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="input\OfficialFixingPrice.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="input\Quotes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

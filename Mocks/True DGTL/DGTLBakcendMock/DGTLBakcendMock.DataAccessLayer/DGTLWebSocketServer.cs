@@ -29,6 +29,10 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         protected Quote[] Quotes { get; set; }
 
+        protected DailySettlementPrice[] DailySettlementPrices { get; set; }
+
+        protected OfficialFixingPrice[] OfficialFixingPrices { get; set; }
+
         public int HeartbeatSeqNum { get; set; }
 
         public bool UserLogged { get; set; }
@@ -51,6 +55,10 @@ namespace DGTLBakcendMock.DataAccessLayer
             LoadLastSales();
 
             LoadQuotes();
+
+            LoadDailySettlementPrices();
+
+            LoadOfficialFixingPrices();
 
         }
 
@@ -81,6 +89,22 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             Quotes = JsonConvert.DeserializeObject<Quote[]>(strQuotes);
+        }
+
+        private void LoadDailySettlementPrices()
+        {
+            string strDaylySettlementPrices = File.ReadAllText(@".\input\DailySettlementPrice.json");
+
+            //Aca le metemos que serialize el contenido
+            DailySettlementPrices = JsonConvert.DeserializeObject<DailySettlementPrice[]>(strDaylySettlementPrices);
+        }
+
+        private void LoadOfficialFixingPrices()
+        {
+            string strOfficialFixingPrices = File.ReadAllText(@".\input\OfficialFixingPrice.json");
+
+            //Aca le metemos que serialize el contenido
+            OfficialFixingPrices = JsonConvert.DeserializeObject<OfficialFixingPrice[]>(strOfficialFixingPrices);
         }
 
         private void ProcessClientLoginMock(IWebSocketConnection socket, string m)
@@ -156,6 +180,7 @@ namespace DGTLBakcendMock.DataAccessLayer
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
             string symbol = (string)paramArray[1];
+            bool subscResp = false;
 
             try
             {
@@ -172,6 +197,12 @@ namespace DGTLBakcendMock.DataAccessLayer
 
                         socket.Send(strLastSale);
                         Thread.Sleep(3000);//3 seconds
+                        if (!subscResp)
+                        {
+                            ProcessSubscriptionResponse(socket, "LS", symbol);
+                            Thread.Sleep(2000);
+                            subscResp = true;
+                        }
                     }
                     else
                     { 
@@ -192,6 +223,7 @@ namespace DGTLBakcendMock.DataAccessLayer
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
             string symbol = (string)paramArray[1];
+            bool subscResp = false;
 
             try
             {
@@ -208,6 +240,98 @@ namespace DGTLBakcendMock.DataAccessLayer
 
                         socket.Send(strQuote);
                         Thread.Sleep(3000);//3 seconds
+                        if (!subscResp)
+                        {
+                            ProcessSubscriptionResponse(socket, "LQ", symbol);
+                            Thread.Sleep(2000);
+                            subscResp = true;
+                        }
+                    }
+                    else
+                    {
+                        //TODO: Log no tenemos MD para este symbol
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+
+            }
+        }
+
+        private void DailySettlementThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            string symbol = (string)paramArray[1];
+            bool subscResp = false;
+
+            try
+            {
+                while (true)
+                {
+                    DailySettlementPrice dailySettl= DailySettlementPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    if (dailySettl != null)
+                    {
+                        string strDailySettl = JsonConvert.SerializeObject(dailySettl, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        socket.Send(strDailySettl);
+                        Thread.Sleep(3000);//3 seconds
+                        if (!subscResp)
+                        {
+                            ProcessSubscriptionResponse(socket, "FP", symbol);
+                            Thread.Sleep(2000);
+                            subscResp = true;
+                        }
+                    }
+                    else
+                    {
+                        //TODO: Log no tenemos MD para este symbol
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+
+            }
+        }
+
+        private void DailyOfficialFixingPriceThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            string symbol = (string)paramArray[1];
+            bool subscResp = false;
+
+            try
+            {
+                while (true)
+                {
+                    OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    if (officialFixingPrice != null)
+                    {
+                        string strOfficialFixingPrice  = JsonConvert.SerializeObject(officialFixingPrice, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        socket.Send(strOfficialFixingPrice);
+                        Thread.Sleep(3000);//3 seconds
+                        if (!subscResp)
+                        {
+                            ProcessSubscriptionResponse(socket, "FD", symbol);
+                            Thread.Sleep(2000);
+                            subscResp = true;
+                        }
                     }
                     else
                     {
@@ -237,6 +361,41 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         }
 
+        private void ProcessDailySettlement(IWebSocketConnection socket, string symbol)
+        {
+            Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
+            ProcessDailySettlementThread.Start(new object[] { socket, symbol });
+
+        }
+
+        private void ProcessOficialFixingPrice(IWebSocketConnection socket, string symbol)
+        {
+            Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
+            ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, symbol });
+        }
+
+        private void ProcessSubscriptionResponse(IWebSocketConnection socket, string service,string serviceKey)
+        {
+            SubscriptionResponse resp = new SubscriptionResponse()
+            {
+                Message = "",
+                Success = true,
+                Service = service,
+                ServiceKey = serviceKey,
+                Msg = "SubscriptionResponse"
+
+            };
+
+            string strSubscResp = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
+                         new JsonSerializerSettings
+                         {
+                             NullValueHandling = NullValueHandling.Ignore
+                         });
+
+            socket.Send(strSubscResp);
+        
+        }
+
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket)
         {
             foreach (SecurityMasterRecord sec in SecurityMasterRecords)
@@ -250,6 +409,8 @@ namespace DGTLBakcendMock.DataAccessLayer
 
                 socket.Send(secMasterRecord);
             }
+            Thread.Sleep(2000);
+            ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*");
         }
 
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
@@ -270,6 +431,16 @@ namespace DGTLBakcendMock.DataAccessLayer
             {
                 if (subscrMsg.ServiceKey != null)
                     ProcessQuote(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "FP")
+            {
+                if (subscrMsg.ServiceKey != null)
+                    ProcessOficialFixingPrice(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "FD")
+            {
+                if (subscrMsg.ServiceKey != null)
+                    ProcessDailySettlement(socket, subscrMsg.ServiceKey);
             }
 
         }
