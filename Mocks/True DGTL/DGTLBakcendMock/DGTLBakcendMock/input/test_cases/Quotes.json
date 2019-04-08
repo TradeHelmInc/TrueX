@@ -1,0 +1,5 @@
+﻿[
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "Bid" : 100.36,  "BidSize" : 44.7885,  "Ask" : 100.38,  "AskSize" : 2.7015},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-X19",  "Bid" : null,  "BidSize" : null,  "Ask" : null,  "AskSize" : null},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-X18"}
+]

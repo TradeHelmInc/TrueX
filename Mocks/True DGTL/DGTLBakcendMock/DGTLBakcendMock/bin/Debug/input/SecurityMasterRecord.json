@@ -9,6 +9,8 @@
 ,
 {"Description":"XBT x USD Cash Forward November 2018","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20181130","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-X18","Msg":"SecurityMasterRecord"}
 ,
+{"Description":"XBT x USD Cash Forward November 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191130","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-X19","Msg":"SecurityMasterRecord"}
+,
 {"Description":"TEST NDF PRODUCT","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20501230","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-SPOT-TEST-TST","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}

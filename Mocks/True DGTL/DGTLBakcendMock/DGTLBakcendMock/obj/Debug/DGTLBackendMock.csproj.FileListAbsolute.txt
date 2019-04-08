@@ -33,3 +33,15 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\Quotes.json
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\DaIlySettlementPrice.json
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\OfficialFixingPrice.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\AccountRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\UserRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\AccountRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\DailySettlementPrice.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\LastSales.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\OfficialFixingPrice.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\Quotes.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\SecurityMasterRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\test_cases\UserRecord.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\ToolsShared.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBackendMock.BusinessEntities.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBackendMock.BusinessEntities.pdb

@@ -33,6 +33,9 @@
     <Reference Include="Fleck">
       <HintPath>..\packages\Fleck.0.14.0.59\lib\net40\Fleck.dll</HintPath>
     </Reference>
+    <Reference Include="MDFShared">
+      <HintPath>..\packages\MDFShared.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -43,6 +46,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToolsShared">
+      <HintPath>..\packages\ToolsShared.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DGTLWebSocketClient.cs" />
@@ -50,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DGTLBackendMock.BusinessEntities\DGTLBackendMock.BusinessEntities.csproj">
+      <Project>{6fb17190-b92f-42c4-b0b0-fb646007ed85}</Project>
+      <Name>DGTLBackendMock.BusinessEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DGTLBakcendMock.Common\DGTLBackendMock.Common.csproj">
       <Project>{0e8a08a6-67b0-4883-b8ec-4f14b0cf966f}</Project>
       <Name>DGTLBackendMock.Common</Name>

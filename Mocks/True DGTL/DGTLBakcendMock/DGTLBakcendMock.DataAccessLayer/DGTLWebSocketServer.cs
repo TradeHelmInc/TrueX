@@ -1,4 +1,5 @@
-﻿using DGTLBackendMock.Common.DTO;
+﻿using DGTLBackendMock.BusinessEntities;
+using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
@@ -12,9 +13,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ToolsShared.Logging;
 
 namespace DGTLBakcendMock.DataAccessLayer
 {
+    public enum MessageType { Information, Debug, Error, Exception, EndLog };
+
     public class DGTLWebSocketServer
     {
         #region Protected Attributes
@@ -33,9 +37,15 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         protected OfficialFixingPrice[] OfficialFixingPrices { get; set; }
 
+        protected UserRecord[] UserRecords { get; set; }
+
+        protected AccountRecord[] AccountRecords { get; set; }
+
         public int HeartbeatSeqNum { get; set; }
 
         public bool UserLogged { get; set; }
+
+        protected ILogSource Logger;
 
         #endregion
 
@@ -50,15 +60,38 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             UserLogged = false;
 
-            LoadSecurityMasterRecords();
+            Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
+            {
+                FilePattern = "Log.{0:yyyy-MM-dd}.log",
+                DeleteDays = 20
+            };
 
-            LoadLastSales();
+            DoLog("Initializing Mock Server...", MessageType.Information);
 
-            LoadQuotes();
+            try
+            {
+                DoLog("Initializing all collections...", MessageType.Information);
 
-            LoadDailySettlementPrices();
+                LoadUserRecords();
 
-            LoadOfficialFixingPrices();
+                LoadAccountRecords();
+
+                LoadSecurityMasterRecords();
+
+                LoadLastSales();
+
+                LoadQuotes();
+
+                LoadDailySettlementPrices();
+
+                LoadOfficialFixingPrices();
+
+                DoLog("Collections Initialized...", MessageType.Information);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error initializing collections: {0}...",ex.Message), MessageType.Error);
+            }
 
         }
 
@@ -66,6 +99,27 @@ namespace DGTLBakcendMock.DataAccessLayer
         #endregion
 
         #region Private Methods
+
+        private void DoLog(string msg, MessageType type)
+        {
+            Logger.Debug(msg, type);
+        }
+
+        private void LoadAccountRecords()
+        {
+            string strAccountRecords = File.ReadAllText(@".\input\AccountRecord.json");
+
+            //Aca le metemos que serialize el contenido
+            AccountRecords = JsonConvert.DeserializeObject<AccountRecord[]>(strAccountRecords);
+        }
+
+        private void LoadUserRecords()
+        {
+            string strUserRecords = File.ReadAllText(@".\input\UserRecord.json");
+
+            //Aca le metemos que serialize el contenido
+            UserRecords = JsonConvert.DeserializeObject<UserRecord[]>(strUserRecords);
+        }
 
         private void LoadSecurityMasterRecords()
         {
@@ -111,7 +165,12 @@ namespace DGTLBakcendMock.DataAccessLayer
         {
             WebSocketLoginMessage wsLogin = JsonConvert.DeserializeObject<WebSocketLoginMessage>(m);
 
-            if (wsLogin.UserId == "user1" && wsLogin.Password == "test123")
+
+            UserRecord loggedUser = UserRecords.Where(x => x.UserId == wsLogin.UserId).FirstOrDefault();
+
+            DoLog(string.Format("Incoming Login request for user {0}", wsLogin.UUID), MessageType.Information);
+
+            if (loggedUser != null)
             {
                 ClientLoginResponse resp = new ClientLoginResponse()
                 {
@@ -123,6 +182,8 @@ namespace DGTLBakcendMock.DataAccessLayer
 
 
                 };
+
+                DoLog(string.Format("user {0} Successfully logged in", wsLogin.UUID), MessageType.Information);
 
                 string respMsg = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
                                                new JsonSerializerSettings
@@ -144,6 +205,8 @@ namespace DGTLBakcendMock.DataAccessLayer
                     RejectReason = string.Format("Invalid user or password")
                 };
 
+                DoLog(string.Format("user {0} Rejected because of wrong user or password", wsLogin.UUID), MessageType.Information);
+
                 string rejMsg = JsonConvert.SerializeObject(reject, Newtonsoft.Json.Formatting.None,
                        new JsonSerializerSettings
                        {
@@ -164,6 +227,8 @@ namespace DGTLBakcendMock.DataAccessLayer
                 Sender = 1,
                 Time = 0
             };
+
+            
 
             string logoutRespMsg = JsonConvert.SerializeObject(logout, Newtonsoft.Json.Formatting.None,
                        new JsonSerializerSettings
@@ -205,16 +270,15 @@ namespace DGTLBakcendMock.DataAccessLayer
                         }
                     }
                     else
-                    { 
-                        //TODO: Log no tenemos MD para este symbol
+                    {
+                        DoLog(string.Format("Last Sales not found for symbol {0}...", symbol), MessageType.Information);
                         break;
                     }
                 }
             }
             catch (Exception ex)
-            { 
-                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
-            
+            {
+                DoLog(string.Format("Critical error processing last sales message: {0}...", ex.Message), MessageType.Error);
             }
         }
 
@@ -249,15 +313,14 @@ namespace DGTLBakcendMock.DataAccessLayer
                     }
                     else
                     {
-                        //TODO: Log no tenemos MD para este symbol
+                        DoLog(string.Format("Quotes not found for symbol {0}...", symbol), MessageType.Information);
                         break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
-
+                DoLog(string.Format("Critical error processing quote message: {0}...", ex.Message), MessageType.Error);
             }
         }
 
@@ -292,16 +355,40 @@ namespace DGTLBakcendMock.DataAccessLayer
                     }
                     else
                     {
-                        //TODO: Log no tenemos MD para este symbol
+                        DoLog(string.Format("Daily Settlement Price not found for symbol {0}...", symbol), MessageType.Information);
                         break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+                DoLog(string.Format("Critical error processing daily settlement price message: {0}...", ex.Message), MessageType.Error);
 
             }
+        }
+
+        private void EvalDailyOfficialFixingPriceWarnings(string symbol)
+        {
+            SecurityMasterRecord security = SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault();
+
+            if (security.AssetClass == Security._SPOT)
+            { 
+                //WE shouldn't have this service requested for a spot currency
+                DoLog(string.Format("WARNING1 - Daily Official Fixing Price requested for spot currency! : {0}", symbol), MessageType.Error);
+            }
+        
+        }
+
+        private void EvalDailySettlementPriceWarnings(string symbol)
+        {
+            SecurityMasterRecord security = SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault();
+
+            if (security.AssetClass == Security._SPOT)
+            {
+                //WE shouldn't have this service requested for a spot currency
+                DoLog(string.Format("WARNING2 - Daily Settlement Price requested for spot currency! : {0}", symbol), MessageType.Error);
+            }
+
         }
 
         private void DailyOfficialFixingPriceThread(object param)
@@ -335,14 +422,14 @@ namespace DGTLBakcendMock.DataAccessLayer
                     }
                     else
                     {
-                        //TODO: Log no tenemos MD para este symbol
+                        DoLog(string.Format("Official Fixing Price not found for symbol {0}...", symbol), MessageType.Information);
                         break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                //TODO: Log: Hubo algún problema procesando los LastSales--> Desconectar y todo
+                DoLog(string.Format("Critical error processing daily settlement price message: {0}...", ex.Message), MessageType.Error);
 
             }
         }
@@ -363,13 +450,65 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         private void ProcessDailySettlement(IWebSocketConnection socket, string symbol)
         {
+            EvalDailySettlementPriceWarnings(symbol);
             Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
             ProcessDailySettlementThread.Start(new object[] { socket, symbol });
 
         }
 
+        private void DoSend<T>(IWebSocketConnection socket, T entity)
+        {
+            string strUserRecord = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.None,
+                              new JsonSerializerSettings
+                              {
+                                  NullValueHandling = NullValueHandling.Ignore
+                              });
+
+            socket.Send(strUserRecord);
+        
+        }
+
+        private void ProcessUserRecord(IWebSocketConnection socket, string userId)
+        {
+            if (userId != "*")
+            {
+
+                UserRecord userRecord = UserRecords.Where(x => x.UserId == userId).FirstOrDefault();
+
+                if (userRecord != null)
+                    DoSend<UserRecord>(socket, userRecord);
+            }
+            else
+            {
+                foreach (UserRecord userRecord in UserRecords)
+                {
+                    DoSend<UserRecord>(socket, userRecord);
+                }
+            
+            }
+            ProcessSubscriptionResponse(socket, "TB", userId);
+        }
+
+        private void ProcessAccountRecord(IWebSocketConnection socket, string key)
+        {
+            if (key != "*")
+            {
+                if (key.EndsWith("@*"))
+                    key = key.Replace("@*", "");
+
+                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.AccountKey == key).ToList();
+
+                accountRecords.ForEach(x => DoSend<AccountRecord>(socket,x));
+            }
+            else
+                AccountRecords.ToList().ForEach(x => DoSend<AccountRecord>(socket, x));
+
+            ProcessSubscriptionResponse(socket, "TD", key);
+        }
+
         private void ProcessOficialFixingPrice(IWebSocketConnection socket, string symbol)
         {
+            EvalDailyOfficialFixingPriceWarnings(symbol);
             Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
             ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, symbol });
         }
@@ -417,6 +556,9 @@ namespace DGTLBakcendMock.DataAccessLayer
         {
             SubscriptionMsg subscrMsg = JsonConvert.DeserializeObject<SubscriptionMsg>(m);
 
+            DoLog(string.Format("Incoming subscription for service {0}", subscrMsg.Service), MessageType.Information);
+
+
             if (subscrMsg.Service == "TA")
             {
                 ProcessSecurityMasterRecord(socket);
@@ -441,6 +583,20 @@ namespace DGTLBakcendMock.DataAccessLayer
             {
                 if (subscrMsg.ServiceKey != null)
                     ProcessDailySettlement(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "TB")
+            {
+                ProcessUserRecord(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "TD")
+            {
+                ProcessAccountRecord(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "CU")
+            {
+                //TODO: ProcessAccountRecord
+                //if (subscrMsg.ServiceKey != null)
+                //    ProcessDailySettlement(socket, subscrMsg.ServiceKey);
             }
 
         }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.SecurityList
 {
+
+
     public class SecurityMasterRecord : SubscriptionMsg
     {
         public string Description { get; set; }

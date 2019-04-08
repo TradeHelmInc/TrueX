@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Account\AccountRecord.cs" />
+    <Compile Include="DTO\Account\CreditUsageRecord.cs" />
+    <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />

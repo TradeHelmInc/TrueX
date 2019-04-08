@@ -1,0 +1,11 @@
+﻿[
+{"AccountKey":"579693223","UniqueId":"5e0deb5e-9a64-c134-d1ed-2e3caedcb86c","RouteId":"1e9b934c-44cd-11c4-dd88-0ef905fa6c2c","EPNickName":"TF1","CFNickName":"TESTFIRM1","CreditLimit":500000000.0,"MaxNotional":50000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+
+,{"AccountKey":"548346919","UniqueId":"a211d1d2-3a1b-f124-299c-ebfcb13f68ce","RouteId":"947f2fae-c698-3494-4116-f8bb4615443c","EPNickName":"VIRT_STD_ACCT1","CFNickName":"VIRT_STD_ACCT1","CreditLimit":50000000.0,"MaxNotional":500000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+
+,{"AccountKey":"548346919","UniqueId":"af90ee21-87a5-e8c4-69bf-d526d389b9a2","RouteId":"0050dd90-aa58-a844-7dd4-8b4da726dacc","EPNickName":"a","CFNickName":"a","CreditLimit":100000000.0,"MaxNotional":50000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+
+,{"AccountKey":"848320620","UniqueId":"fb676f42-14ed-7a64-d187-b37a4980fb16","RouteId":"948d9e34-8569-9d84-5d20-a4e9bc00eb20","EPNickName":"Reg_Firms_CCP_1","CFNickName":"Reg_Firms_CCP_1","CreditLimit":1000000000000.0,"MaxNotional":1000000000000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+
+,{"AccountKey":"848320620","UniqueId":"8df4ef65-99d5-45a4-99d7-d62b3c2e60fe","RouteId":"1cadc034-9c03-e2b4-9daf-16d1e0f6cf4d","EPNickName":"Ops_Firm_CCP_1","CFNickName":"Ops_Firm_CCP_1","CreditLimit":1000000000000.0,"MaxNotional":1000000000000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+]
