@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Account
 {
-    public class AccountRecord
+    public class AccountRecord : WebSocketMessage
     {
         #region Public Attributes
 

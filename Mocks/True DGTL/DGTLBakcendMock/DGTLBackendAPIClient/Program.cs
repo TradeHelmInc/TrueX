@@ -1,4 +1,5 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;

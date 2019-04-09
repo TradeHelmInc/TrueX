@@ -12,3 +12,4 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLOrderEntryPanelPOC\obj\Debug\DGTLOrderEntryPanelPOC.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLOrderEntryPanelPOC\obj\Debug\DGTLOrderEntryPanelPOC.exe
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLOrderEntryPanelPOC\obj\Debug\DGTLOrderEntryPanelPOC.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLOrderEntryPanelPOC\bin\Debug\ToolsShared.dll

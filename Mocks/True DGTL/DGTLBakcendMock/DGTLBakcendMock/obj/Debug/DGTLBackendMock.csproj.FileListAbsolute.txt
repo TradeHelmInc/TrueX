@@ -45,3 +45,4 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\ToolsShared.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBackendMock.BusinessEntities.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\DGTLBackendMock.BusinessEntities.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json

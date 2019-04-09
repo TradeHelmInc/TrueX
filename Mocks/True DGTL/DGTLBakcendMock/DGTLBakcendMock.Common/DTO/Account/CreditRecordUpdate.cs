@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Account
 {
-    public class CreditUsageRecord
+    public class CreditRecordUpdate : WebSocketMessage
     {
         #region Public Attributes
 
+        public string FirmId { get; set; }
 
+        public string RouteId { get; set; }
+
+        public double CreditUsed { get; set; }
 
         #endregion
     }

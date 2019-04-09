@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Account
 {
-    public class FirmRecord
+    public class FirmRecord : WebSocketMessage
     {
         #region Public Attributes
 

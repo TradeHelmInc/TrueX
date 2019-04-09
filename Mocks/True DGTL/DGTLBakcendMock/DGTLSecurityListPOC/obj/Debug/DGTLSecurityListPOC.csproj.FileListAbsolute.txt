@@ -12,3 +12,4 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\obj\Debug\DGTLSecurityListPOC.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.BusinessEntities.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\DGTLBackendMock.BusinessEntities.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLSecurityListPOC\bin\Debug\ToolsShared.dll

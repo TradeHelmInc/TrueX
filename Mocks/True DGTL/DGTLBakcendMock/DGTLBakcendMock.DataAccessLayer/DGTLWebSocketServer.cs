@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.BusinessEntities;
 using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
@@ -40,6 +41,8 @@ namespace DGTLBakcendMock.DataAccessLayer
         protected UserRecord[] UserRecords { get; set; }
 
         protected AccountRecord[] AccountRecords { get; set; }
+
+        protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
 
         public int HeartbeatSeqNum { get; set; }
 
@@ -86,6 +89,8 @@ namespace DGTLBakcendMock.DataAccessLayer
 
                 LoadOfficialFixingPrices();
 
+                LoadCreditRecordUpdates();
+
                 DoLog("Collections Initialized...", MessageType.Information);
             }
             catch (Exception ex)
@@ -111,6 +116,14 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             AccountRecords = JsonConvert.DeserializeObject<AccountRecord[]>(strAccountRecords);
+        }
+
+        private void LoadCreditRecordUpdates()
+        {
+            string strCreditRecordUpdate = File.ReadAllText(@".\input\CreditRecordUpdate.json");
+
+            //Aca le metemos que serialize el contenido
+            CreditRecordUpdates = JsonConvert.DeserializeObject<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[]>(strCreditRecordUpdate);
         }
 
         private void LoadUserRecords()
@@ -506,6 +519,23 @@ namespace DGTLBakcendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "TD", key);
         }
 
+        private void ProcessCreditRecordUpdates(IWebSocketConnection socket, string key)
+        {
+            if (key != "*")
+            {
+                if (key.EndsWith("@*"))
+                    key = key.Replace("@*", "");
+
+                DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == key).FirstOrDefault();
+
+                if (creditRecordUpdate != null)
+                    DoSend<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate>(socket, creditRecordUpdate);
+            }
+            
+
+            ProcessSubscriptionResponse(socket, "CU", key);
+        }
+
         private void ProcessOficialFixingPrice(IWebSocketConnection socket, string symbol)
         {
             EvalDailyOfficialFixingPriceWarnings(symbol);
@@ -594,9 +624,7 @@ namespace DGTLBakcendMock.DataAccessLayer
             }
             else if (subscrMsg.Service == "CU")
             {
-                //TODO: ProcessAccountRecord
-                //if (subscrMsg.ServiceKey != null)
-                //    ProcessDailySettlement(socket, subscrMsg.ServiceKey);
+                ProcessCreditRecordUpdates(socket, subscrMsg.ServiceKey);
             }
 
         }

@@ -1,4 +1,5 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.SecurityList;
@@ -98,6 +99,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 OnEvent(JsonConvert.DeserializeObject<ClientHeartbeatRequest>(resp));
                             else if (wsResp.Msg == "AccountRecord")
                                 OnEvent(JsonConvert.DeserializeObject<AccountRecord>(resp));
+                            else if (wsResp.Msg == "CreditRecordUpdate")
+                                OnEvent(JsonConvert.DeserializeObject<CreditRecordUpdate>(resp));
                             else if (wsResp.Msg == "DailySettlementPrice")
                                 OnEvent(JsonConvert.DeserializeObject<DailySettlementPrice>(resp));
                             else if (wsResp.Msg == "FirmRecord")
