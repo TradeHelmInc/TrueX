@@ -1,0 +1,13 @@
+﻿[
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921421385,  "Action" : 0,  "BidOrAsk" : "A",  "Price" : 101.15,  "Size" : 40.772}
+,
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921422405,  "Action" : 0,  "BidOrAsk" : "A",  "Price" : 101.41,  "Size" : 16.9065}
+,
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921415833,  "Action" : 0,  "BidOrAsk" : "A",  "Price" : 101.17,  "Size" : 9.052}
+,
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921421385,  "Action" : 0,  "BidOrAsk" : "B",  "Price" : 100.15,  "Size" : 30.772}
+,
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921422405,  "Action" : 0,  "BidOrAsk" : "B",  "Price" : 100.41,  "Size" : 26.9065}
+,
+{  "Msg" : "DepthOfBook",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "DepthTime" : 1554921415833,  "Action" : 0,  "BidOrAsk" : "B",  "Price" : 100.17,  "Size" : 7.052}
+]

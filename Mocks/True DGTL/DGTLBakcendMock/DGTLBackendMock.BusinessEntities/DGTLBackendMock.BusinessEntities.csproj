@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="enums\OrderBookEntryType.cs" />
     <Compile Include="MarketData.cs" />
+    <Compile Include="PriceLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="SecurityType.cs" />

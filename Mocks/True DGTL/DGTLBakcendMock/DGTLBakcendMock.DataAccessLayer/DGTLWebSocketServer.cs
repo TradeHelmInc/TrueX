@@ -42,6 +42,8 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         protected AccountRecord[] AccountRecords { get; set; }
 
+        protected DepthOfBook[] DepthOfBooks { get; set; }
+
         protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
 
         public int HeartbeatSeqNum { get; set; }
@@ -51,7 +53,6 @@ namespace DGTLBakcendMock.DataAccessLayer
         protected ILogSource Logger;
 
         #endregion
-
 
         #region Constructors
 
@@ -90,6 +91,8 @@ namespace DGTLBakcendMock.DataAccessLayer
                 LoadOfficialFixingPrices();
 
                 LoadCreditRecordUpdates();
+
+                LoadDepthOfBooks();
 
                 DoLog("Collections Initialized...", MessageType.Information);
             }
@@ -156,6 +159,14 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             Quotes = JsonConvert.DeserializeObject<Quote[]>(strQuotes);
+        }
+
+        private void LoadDepthOfBooks()
+        {
+            string strDepthOfBooks = File.ReadAllText(@".\input\DepthOfBook.json");
+
+            //Aca le metemos que serialize el contenido
+            DepthOfBooks = JsonConvert.DeserializeObject<DepthOfBook[]>(strDepthOfBooks);
         }
 
         private void LoadDailySettlementPrices()
@@ -519,6 +530,19 @@ namespace DGTLBakcendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "TD", key);
         }
 
+        private void ProcessOrderBookDepth(IWebSocketConnection socket, string key)
+        {
+
+            List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == key).ToList();
+
+            depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
+
+            //Now we have to launch something to create deltas (insert, change, remove)
+
+            ProcessSubscriptionResponse(socket, "LD", key);
+        }
+
+
         private void ProcessCreditRecordUpdates(IWebSocketConnection socket, string key)
         {
             if (key != "*")
@@ -625,6 +649,10 @@ namespace DGTLBakcendMock.DataAccessLayer
             else if (subscrMsg.Service == "CU")
             {
                 ProcessCreditRecordUpdates(socket, subscrMsg.ServiceKey);
+            }
+            else if (subscrMsg.Service == "LD")
+            {
+                ProcessOrderBookDepth(socket, subscrMsg.ServiceKey);
             }
 
         }

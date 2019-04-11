@@ -117,6 +117,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 OnEvent(JsonConvert.DeserializeObject<LastSale>(resp));
                             else if (wsResp.Msg == "Quote")
                                 OnEvent(JsonConvert.DeserializeObject<Quote>(resp));
+                            else if (wsResp.Msg == "DepthOfBook")
+                                OnEvent(JsonConvert.DeserializeObject<DepthOfBook>(resp));
                             else
                             {
                                 UnknownMessage unknownMsg = new UnknownMessage()

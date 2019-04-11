@@ -40,6 +40,8 @@ namespace DGTLBackendMock.BusinessEntities
 
         public decimal? NetChgPrevDay { get; set; }
 
+        public List<PriceLevel> OrderBook { get; set; }
+
         #endregion
     }
 }
