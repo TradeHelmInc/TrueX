@@ -105,7 +105,7 @@ namespace DGTLOrderBookPOC
             lock (Security)
             {
 
-                if (depthOfBookDelta.Action == DepthOfBook._ACTION_SNAPSHOT)
+                if (depthOfBookDelta.cAction == DepthOfBook._ACTION_SNAPSHOT)
                 {
                     InitialSnapshotReceived = true;
                     //We have the initial snapshot for a given price level. 
@@ -130,19 +130,20 @@ namespace DGTLOrderBookPOC
                     }
 
                 }
-                else if (depthOfBookDelta.Action == DepthOfBook._ACTION_INSERT)
+                else if (depthOfBookDelta.cAction == DepthOfBook._ACTION_INSERT)
                 {
-
-
-                    //Behavior is quite the same when you have an INSERT action
-                    // If the price level existed, we just update (+=) its quantity
-                    //Otherwise, we just created
+                    InitialSnapshotReceived = true;
+                    // If the price level existed, we create the price level but a HUGE warning (WARNING3) should be logged
                     PriceLevel pl = Security.MarketData.OrderBook.Where(x => x.Price == depthOfBookDelta.Price
                                                                             && x.IsBidOrAsk(depthOfBookDelta.IsBid()))
                                                                  .FirstOrDefault();
-
                     if (pl != null)
+                    {
                         pl.Size += depthOfBookDelta.Size;
+                        DoLog(string.Format("WARNING3 - Received ADD DepthOfBook message for a price level that existed. Price Level = {0}",
+                              depthOfBookDelta.Price.ToString("0.##")));
+
+                    }
                     else
                     {
                         PriceLevel newPl = new PriceLevel()
@@ -154,11 +155,9 @@ namespace DGTLOrderBookPOC
 
                         Security.MarketData.OrderBook.Add(newPl);
                     }
-
-                
                 
                 }
-                else if (depthOfBookDelta.Action == DepthOfBook._ACTION_CHANGE)
+                else if (depthOfBookDelta.cAction == DepthOfBook._ACTION_CHANGE)
                 {
                     PriceLevel pl = Security.MarketData.OrderBook.Where(x => x.Price == depthOfBookDelta.Price
                                                         && x.IsBidOrAsk(depthOfBookDelta.IsBid()))
@@ -168,7 +167,7 @@ namespace DGTLOrderBookPOC
                     else
                     {
                         //This is not ok, we receive a PriceLevel for a Price that didn't exist. 
-                        //We create the price level, but we log a HUGE warning (WARNING3)
+                        //We create the price level, but we log a HUGE warning (WARNING4)
                         PriceLevel newPl = new PriceLevel()
                         {
                             Price = depthOfBookDelta.Price,
@@ -176,12 +175,15 @@ namespace DGTLOrderBookPOC
                             OrderBookEntryType = depthOfBookDelta.IsBid() ? OrderBookEntryType.Bid : OrderBookEntryType.Ask
                         };
                         Security.MarketData.OrderBook.Add(newPl);
-                    
+
+                        DoLog(string.Format("WARNING4 - Received CHANGE DepthOfBook message for a price level that did not exist. Price Level = {0}",
+                                            depthOfBookDelta.Price.ToString("0.##")));
+
                     }
                 
                 
                 }
-                else if (depthOfBookDelta.Action == DepthOfBook._ACTION_CHANGE)
+                else if (depthOfBookDelta.cAction == DepthOfBook._ACTION_REMOVE)
                 {
                     PriceLevel pl = Security.MarketData.OrderBook.Where(x => x.Price == depthOfBookDelta.Price
                                         && x.IsBidOrAsk(depthOfBookDelta.IsBid()))
@@ -192,7 +194,9 @@ namespace DGTLOrderBookPOC
                     else
                     { 
                         //Another HUGE warning. We receive a message to delete a price level that didn't exist
-                        //We have to log another HUGE warning (Warning4)
+                        //We have to log another HUGE warning (WARNING5)
+                        DoLog(string.Format("WARNING5 - Received REMOVE DepthOfBook message for a price level that did not exist. Price Level = {0}",
+                                            depthOfBookDelta.Price.ToString("0.##")));
                     
                     }
                 

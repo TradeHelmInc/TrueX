@@ -98,6 +98,8 @@ namespace DGTLBackendAPIClient
                 ProcessJsonMessage<LastSale>((LastSale)msg);
             else if (msg is Quote)
                 ProcessJsonMessage<Quote>((Quote)msg);
+            else if (msg is DepthOfBook)
+                ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
             else if (msg is ClientLogoutResponse)
             {
                 ClientLogoutResponse logoutResp = (ClientLogoutResponse)msg;

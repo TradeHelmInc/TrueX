@@ -12,21 +12,21 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         #region Actions
 
-        public static string _ACTION_SNAPSHOT = "0";
+        public static char _ACTION_SNAPSHOT = '0';
 
-        public static string _ACTION_INSERT = "A";
+        public static char _ACTION_INSERT = 'N';
 
-        public static string _ACTION_CHANGE = "C";
+        public static char _ACTION_CHANGE = 'C';
 
-        public static string _ACTION_REMOVE = "R";
+        public static char _ACTION_REMOVE = 'R';
 
         #endregion
 
         #region Bid Or Ask
 
-        public static string _BID_ENTRY = "B";
+        public static char _BID_ENTRY = 'B';
 
-        public static string _ASK_ENTRY = "A";
+        public static char _ASK_ENTRY = 'A';
 
         #endregion
 
@@ -39,9 +39,27 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         public long DepthTime { get; set; }
 
-        public string Action { get; set; }//Action A -> Add, C->Change R-Remove, 0-> Initial Snapshot
 
-        public string BidOrAsk { get; set; }//B -> Bid, A -> Ask
+        private byte action;
+        public byte Action 
+        {
+            get { return action; }
+            set { action = Convert.ToByte(value); } 
+        }//Action A -> Add, C->Change R-Remove, 0-> Initial Snapshot
+
+        public char cAction { get { return Convert.ToChar(Action); } set { Action = Convert.ToByte(value); } }
+
+        private byte bidOrAsk;
+        public byte BidOrAsk 
+        {
+            get { return bidOrAsk; }
+            set {
+                bidOrAsk = Convert.ToByte(value);
+            
+            }
+        }//B -> Bid, A -> Ask
+
+        public char cBidOrAsk { get { return Convert.ToChar(BidOrAsk); } set { BidOrAsk = Convert.ToByte(value); } }
 
         public int Index { get; set; }
 
@@ -55,7 +73,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         public bool IsBid()
         {
-            return BidOrAsk == _BID_ENTRY;
+            return Convert.ToChar( BidOrAsk) == _BID_ENTRY;
         }
 
         #endregion
