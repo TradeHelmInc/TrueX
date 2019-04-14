@@ -56,6 +56,9 @@
     <None Include="input\AccountRecord.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="input\SecurityMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="input\DepthOfBook.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -112,8 +115,16 @@
       <Project>{f4f4ce7d-3e52-487a-8fd5-2dfabb127db0}</Project>
       <Name>DGTLBackendMock.DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex\zHFT.InstructionBasedMarketClient.BitMex.csproj">
+      <Project>{572a78cd-f121-4ded-9153-4c1112838fec}</Project>
+      <Name>zHFT.InstructionBasedMarketClient.BitMex</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BitMex\incomingBitmex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

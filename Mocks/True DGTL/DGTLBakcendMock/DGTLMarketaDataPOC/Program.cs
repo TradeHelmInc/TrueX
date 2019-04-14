@@ -108,6 +108,8 @@ namespace DGTLMarketaDataPOC
         private static void MarketDataRefresh()
         {
             DoLog(string.Format("=================Refreshing Security {0} =================", Security.Symbol));
+            DoLog(string.Format("Last Trade = {0}", Security.MarketData.Trade.HasValue ? Security.MarketData.Trade.Value.ToString("0.##") : "-"));
+            DoLog(string.Format("Last Trade Size = {0}", Security.MarketData.MDTradeSize.HasValue ? Security.MarketData.MDTradeSize.Value.ToString("0.####") : "-"));
             DoLog(string.Format("Best Bid Price = {0}", Security.MarketData.BestBidPrice.HasValue ? Security.MarketData.BestBidPrice.Value.ToString("0.##") : "-"));
             DoLog(string.Format("Best Bid Size = {0}", Security.MarketData.BestBidSize.HasValue ? Security.MarketData.BestBidSize.Value.ToString("0.########") : "-"));
             DoLog(string.Format("Best Ask Price = {0}", Security.MarketData.BestAskPrice.HasValue ? Security.MarketData.BestAskPrice.Value.ToString("0.##") : "-"));

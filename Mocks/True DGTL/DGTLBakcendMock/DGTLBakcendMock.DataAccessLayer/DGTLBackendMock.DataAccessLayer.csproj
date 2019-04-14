@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DGTLWebSocketBaseServer.cs" />
     <Compile Include="DGTLWebSocketClient.cs" />
     <Compile Include="DGTLWebSocketServer.cs" />
+    <Compile Include="DGTLWebSocketSimulatedServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +65,14 @@
     <ProjectReference Include="..\DGTLBakcendMock.Common\DGTLBackendMock.Common.csproj">
       <Project>{0e8a08a6-67b0-4883-b8ec-4f14b0cf966f}</Project>
       <Name>DGTLBackendMock.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fwk\zHFT.Main.BusinessEntities\zHFT.Main.BusinessEntities.csproj">
+      <Project>{97f7f85d-864c-44ed-8901-547f2f693427}</Project>
+      <Name>zHFT.Main.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fwk\zHFT.Main.Common\zHFT.Main.Common.csproj">
+      <Project>{4a57ed3b-774d-4344-b091-3328838f57f5}</Project>
+      <Name>zHFT.Main.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

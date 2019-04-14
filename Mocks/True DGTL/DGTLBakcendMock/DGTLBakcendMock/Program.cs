@@ -1,4 +1,5 @@
-﻿using Fleck;
+﻿using DGTLBackendMock.DataAccessLayer;
+using Fleck;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -28,6 +29,9 @@ namespace DGTLBakcendMock
         {
 
             string WebSocketAdddress = ConfigurationManager.AppSettings["WebSocketAdddress"];
+            string mode = ConfigurationManager.AppSettings["Mode"];
+            string marketDataConfigFile = ConfigurationManager.AppSettings["MarketDataConfigFile"];
+            string marketDataModule = ConfigurationManager.AppSettings["MarketDataModule"];
 
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12
@@ -37,11 +41,22 @@ namespace DGTLBakcendMock
 
             try
             {
-                DGTLBakcendMock.DataAccessLayer.DGTLWebSocketServer server = new DGTLBakcendMock.DataAccessLayer.DGTLWebSocketServer(WebSocketAdddress);
-
-                server.Start();
-              
-                DoLog(" Service Successfully Started...");
+                if (mode.ToUpper() == "JSON")
+                {
+                    DGTLWebSocketServer server = new DGTLWebSocketServer(WebSocketAdddress);
+                    server.Start();
+                    DoLog(" Service Successfully Started...");
+                }
+                else if (mode.ToUpper() == "SIMULATED")
+                {
+                    DGTLWebSocketSimulatedServer server = new DGTLWebSocketSimulatedServer(WebSocketAdddress, 
+                                                                                           marketDataModule, 
+                                                                                           marketDataConfigFile);
+                    server.Start();
+                    DoLog(" Service Successfully Started...");
+                }
+                else
+                    throw new Exception(string.Format("Unknown mock mode {0}",mode));
 
             }
             catch (Exception ex)

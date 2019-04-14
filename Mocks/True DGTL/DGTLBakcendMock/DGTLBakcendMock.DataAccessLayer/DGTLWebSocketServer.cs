@@ -16,17 +16,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using ToolsShared.Logging;
 
-namespace DGTLBakcendMock.DataAccessLayer
+namespace DGTLBackendMock.DataAccessLayer
 {
-    public enum MessageType { Information, Debug, Error, Exception, EndLog };
-
-    public class DGTLWebSocketServer
+    
+    public class DGTLWebSocketServer : DGTLWebSocketBaseServer
     {
         #region Protected Attributes
-
-        protected string URL { get; set; }
-
-        protected Fleck.WebSocketServer WebSocketServer { get; set; }
 
         protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
 
@@ -38,19 +33,11 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         protected OfficialFixingPrice[] OfficialFixingPrices { get; set; }
 
-        protected UserRecord[] UserRecords { get; set; }
-
         protected AccountRecord[] AccountRecords { get; set; }
 
         protected DepthOfBook[] DepthOfBooks { get; set; }
 
         protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
-
-        public int HeartbeatSeqNum { get; set; }
-
-        public bool UserLogged { get; set; }
-
-        protected ILogSource Logger;
 
         #endregion
 
@@ -103,15 +90,9 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         }
 
-
         #endregion
 
         #region Private Methods
-
-        private void DoLog(string msg, MessageType type)
-        {
-            Logger.Debug(msg, type);
-        }
 
         private void LoadAccountRecords()
         {
@@ -127,14 +108,6 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             CreditRecordUpdates = JsonConvert.DeserializeObject<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[]>(strCreditRecordUpdate);
-        }
-
-        private void LoadUserRecords()
-        {
-            string strUserRecords = File.ReadAllText(@".\input\UserRecord.json");
-
-            //Aca le metemos que serialize el contenido
-            UserRecords = JsonConvert.DeserializeObject<UserRecord[]>(strUserRecords);
         }
 
         private void LoadSecurityMasterRecords()
@@ -183,85 +156,6 @@ namespace DGTLBakcendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             OfficialFixingPrices = JsonConvert.DeserializeObject<OfficialFixingPrice[]>(strOfficialFixingPrices);
-        }
-
-        private void ProcessClientLoginMock(IWebSocketConnection socket, string m)
-        {
-            WebSocketLoginMessage wsLogin = JsonConvert.DeserializeObject<WebSocketLoginMessage>(m);
-
-
-            UserRecord loggedUser = UserRecords.Where(x => x.UserId == wsLogin.UserId).FirstOrDefault();
-
-            DoLog(string.Format("Incoming Login request for user {0}", wsLogin.UUID), MessageType.Information);
-
-            if (loggedUser != null)
-            {
-                ClientLoginResponse resp = new ClientLoginResponse()
-                {
-                    Msg = "ClientLoginResponse",
-                    Sender = wsLogin.Sender,
-                    UUID = wsLogin.UUID,
-                    UserId = wsLogin.UserId,
-                    JsonWebToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI"
-
-
-                };
-
-                DoLog(string.Format("user {0} Successfully logged in", wsLogin.UUID), MessageType.Information);
-
-                string respMsg = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
-                                               new JsonSerializerSettings
-                                               {
-                                                   NullValueHandling = NullValueHandling.Ignore
-                                               });
-
-                UserLogged = true;
-                socket.Send(respMsg);
-            }
-            else
-            {
-                ClientReject reject = new ClientReject()
-                {
-                    Msg = "ClientReject",
-                    Sender = wsLogin.Sender,
-                    UUID = wsLogin.UUID,
-                    UserId = wsLogin.UserId,
-                    RejectReason = string.Format("Invalid user or password")
-                };
-
-                DoLog(string.Format("user {0} Rejected because of wrong user or password", wsLogin.UUID), MessageType.Information);
-
-                string rejMsg = JsonConvert.SerializeObject(reject, Newtonsoft.Json.Formatting.None,
-                       new JsonSerializerSettings
-                       {
-                           NullValueHandling = NullValueHandling.Ignore
-                       });
-                socket.Send(rejMsg);
-                socket.Close();
-            }
-        }
-
-        private void ProcessClientLogoutMock(IWebSocketConnection socket)
-        {
-
-            ClientLogoutResponse logout = new ClientLogoutResponse()
-            {
-                Msg = "ClientLogoutResponse",
-                UserId = "0",
-                Sender = 1,
-                Time = 0
-            };
-
-            
-
-            string logoutRespMsg = JsonConvert.SerializeObject(logout, Newtonsoft.Json.Formatting.None,
-                       new JsonSerializerSettings
-                       {
-                           NullValueHandling = NullValueHandling.Ignore
-                       });
-            socket.Send(logoutRespMsg);
-            socket.Close();
-        
         }
 
         private void LastSaleThread(object param) 
@@ -480,38 +374,7 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         }
 
-        private void DoSend<T>(IWebSocketConnection socket, T entity)
-        {
-            string strUserRecord = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.None,
-                              new JsonSerializerSettings
-                              {
-                                  NullValueHandling = NullValueHandling.Ignore
-                              });
-
-            socket.Send(strUserRecord);
         
-        }
-
-        private void ProcessUserRecord(IWebSocketConnection socket, string userId)
-        {
-            if (userId != "*")
-            {
-
-                UserRecord userRecord = UserRecords.Where(x => x.UserId == userId).FirstOrDefault();
-
-                if (userRecord != null)
-                    DoSend<UserRecord>(socket, userRecord);
-            }
-            else
-            {
-                foreach (UserRecord userRecord in UserRecords)
-                {
-                    DoSend<UserRecord>(socket, userRecord);
-                }
-            
-            }
-            ProcessSubscriptionResponse(socket, "TB", userId);
-        }
 
         private void ProcessAccountRecord(IWebSocketConnection socket, string key)
         {
@@ -565,28 +428,6 @@ namespace DGTLBakcendMock.DataAccessLayer
             EvalDailyOfficialFixingPriceWarnings(symbol);
             Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
             ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, symbol });
-        }
-
-        private void ProcessSubscriptionResponse(IWebSocketConnection socket, string service,string serviceKey)
-        {
-            SubscriptionResponse resp = new SubscriptionResponse()
-            {
-                Message = "",
-                Success = true,
-                Service = service,
-                ServiceKey = serviceKey,
-                Msg = "SubscriptionResponse"
-
-            };
-
-            string strSubscResp = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
-                         new JsonSerializerSettings
-                         {
-                             NullValueHandling = NullValueHandling.Ignore
-                         });
-
-            socket.Send(strSubscResp);
-        
         }
 
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket)
@@ -659,55 +500,9 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         #endregion
 
-        #region Thread Methods
-
-        private void ClientHeartbeatThread(object param)
-        {
-            IWebSocketConnection socket = (IWebSocketConnection)param;
-
-            while (socket.IsAvailable)
-            {
-                try
-                {
-                    if (UserLogged)
-                    {
-                        ClientHeartbeatRequest heartbeatReq = new ClientHeartbeatRequest()
-                        {
-                            Msg = "ClientHeartbeatRequest",
-                            UserId = "user1",
-                            Sender = 0,
-                            SeqNum = HeartbeatSeqNum,
-                            Time = 0,
-                            UUID = "user1"
-
-                        };
-
-
-                        string strHeartbeatReq = JsonConvert.SerializeObject(heartbeatReq, Newtonsoft.Json.Formatting.None,
-                              new JsonSerializerSettings
-                              {
-                                  NullValueHandling = NullValueHandling.Ignore
-                              });
-                        socket.Send(strHeartbeatReq);
-                        HeartbeatSeqNum++;
-                    }
-
-                    Thread.Sleep(2000);
-                }
-                catch (Exception ex)
-                {
-                    socket.Close();
-                }
-            }
-        
-        
-        }
-
-        #endregion
-
         #region Protected Methods
 
-        protected  void OnOpen(IWebSocketConnection socket)
+        protected override  void OnOpen(IWebSocketConnection socket)
         {
             //socket.Send("Connection Opened");
             Thread heartbeatThread = new Thread(ClientHeartbeatThread);
@@ -715,13 +510,13 @@ namespace DGTLBakcendMock.DataAccessLayer
             heartbeatThread.Start(socket);
         }
 
-        protected void OnClose(IWebSocketConnection socket)
+        protected override void OnClose(IWebSocketConnection socket)
         {
 
 
         }
 
-        protected void OnMessage(IWebSocketConnection socket, string m)
+        protected override void OnMessage(IWebSocketConnection socket, string m)
         {
             try
             {
@@ -787,20 +582,5 @@ namespace DGTLBakcendMock.DataAccessLayer
 
         #endregion
 
-        #region Public Methods
-
-        public void Start()
-        {
-            WebSocketServer = new Fleck.WebSocketServer(URL);
-            WebSocketServer.Start(socket =>
-            {
-                socket.OnOpen = () => OnOpen(socket);
-                socket.OnClose = () => OnClose(socket);
-                socket.OnMessage = m => OnMessage(socket, m);
-            });
-        
-        }
-
-        #endregion
     }
 }
