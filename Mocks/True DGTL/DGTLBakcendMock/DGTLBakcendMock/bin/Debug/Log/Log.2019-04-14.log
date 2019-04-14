@@ -247,3 +247,7 @@
 2019-04-14 17:16:09  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Sell Size=4 Price=5225.5 TickDirection=ZeroMinusTick
 2019-04-14 17:16:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3242 Best Ask Price=5235.5
 2019-04-14 17:17:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3287 Best Ask Price=5235.5
+2019-04-14 17:17:18  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3286 Best Ask Price=5235.5
+2019-04-14 17:17:27  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3290 Best Ask Price=5235.5
+2019-04-14 17:17:38  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3495 Best Ask Price=5235.5
+2019-04-14 17:17:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3513 Best Ask Price=5235.5
