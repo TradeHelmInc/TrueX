@@ -177,7 +177,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                             if (secMapping.PendingLSResponse)
                             {
-                                ProcessSubscriptionResponse(socket, "SubscriptionResponse", secMapping.IncomingSymbol);
+                                ProcessSubscriptionResponse(socket, "LS", secMapping.IncomingSymbol);
                                 secMapping.PendingLSResponse = false;
                             }
                     
@@ -194,6 +194,75 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void ProcessLastQuoteThread(object param)
+        {
+            object[] parameters = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
+            SecurityMapping secMapping = (SecurityMapping)parameters[1];
+
+            try
+            {
+                while (true)
+                {
+                    lock (secMapping)
+                    {
+                        if (secMapping.PublishedMarketData != null)
+                        {
+                            Quote quote = new Quote()
+                            {
+                                Msg = "Quote",
+                                Sender = 0,
+                                Ask = secMapping.PublishedMarketData.BestAskPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketData.BestAskPrice) : null,
+                                AskSize = secMapping.PublishedMarketData.BestAskSize,
+                                Bid = secMapping.PublishedMarketData.BestBidPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketData.BestBidPrice) : null,
+                                BidSize = secMapping.PublishedMarketData.BestBidSize
+                            };
+
+                            string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
+                                   new JsonSerializerSettings
+                                   {
+                                       NullValueHandling = NullValueHandling.Ignore
+                                   });
+
+                            socket.Send(strQuote);
+
+
+
+                            if (secMapping.PendingLQResponse)
+                            {
+                                ProcessSubscriptionResponse(socket, "LQ", secMapping.IncomingSymbol);
+                                secMapping.PendingLQResponse = false;
+                            }
+
+                        }
+
+                    }
+                    Thread.Sleep(1000);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error publishingLastSale thread:{0}", ex.Message), MessageType.Error);
+
+            }
+        }
+
+        private void SubscribeMarketData(SecurityMapping secMapping)
+        {
+
+            Security sec = new Security()
+            {
+                Symbol = secMapping.OutgoingSymbol,
+                SecType = Security.GetSecurityType("FUT"),
+                Currency = "USD",
+            };
+
+            MarketDataRequestWrapper wrapper = new MarketDataRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
+            MarketDataRequestCounter++;
+            MarketDataModule.ProcessMessage(wrapper);
+
+        }
+
         private void ProcessLastSale(IWebSocketConnection socket, string symbol)
         {
             try
@@ -201,23 +270,44 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
                 {
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
-                    Security sec = new Security()
+
+                    if (!secMapping.SubscribedMarketData())
                     {
-                        Symbol = secMapping.OutgoingSymbol,
-                        SecType = Security.GetSecurityType("FUT"),
-                        Currency ="USD",
-                    };
-
-                    MarketDataRequestWrapper wrapper = new MarketDataRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
-                    MarketDataRequestCounter++;
-                    MarketDataModule.ProcessMessage(wrapper);
-
-                    secMapping.SubscribedLS = true;
-                    secMapping.PendingLSResponse = true;
+                        SubscribeMarketData(secMapping);
+                        secMapping.SubscribedLS = true;
+                        secMapping.PendingLSResponse = true;
+                    }
 
                     Thread processLastSaleThread = new Thread(ProcessLastSaleThread);
                     processLastSaleThread.Start(new object[] { socket, secMapping });
-                
+                  
+                }
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*", false, ex.Message);
+            }
+        }
+
+        private void ProcessLastQuote(IWebSocketConnection socket, string symbol)
+        {
+            try
+            {
+                if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
+                {
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+
+                    if (!secMapping.SubscribedMarketData())
+                    {
+                        SubscribeMarketData(secMapping);
+                        secMapping.SubscribedLS = true;
+                        secMapping.PendingLSResponse = true;
+                    
+                    }
+
+                    Thread processLastQuoteThread = new Thread(ProcessLastQuoteThread);
+                    processLastQuoteThread.Start(new object[] { socket, secMapping });
+
                 }
 
 
@@ -247,8 +337,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             else if (subscrMsg.Service == "LQ")
             {
-                //if (subscrMsg.ServiceKey != null)
-                //    ProcessQuote(socket, subscrMsg.ServiceKey);
+                if (subscrMsg.ServiceKey != null)
+                    ProcessLastQuote(socket, subscrMsg.ServiceKey);
             }
             else if (subscrMsg.Service == "FP")
             {

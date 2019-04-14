@@ -18,12 +18,30 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool SubscribedLQ { get; set; }
 
+        public bool SubscribedFD { get; set; }
+
+        public bool SubscribedFP { get; set; }
+
         public bool PendingLSResponse { get; set; }
 
         public bool PendingLQResponse { get; set; }
 
+        public bool PendingFDResponse { get; set; }
+
+        public bool PendingFPResponse { get; set; }
+
         public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketData { get; set; }
 
+
+        #endregion
+
+        #region Public Methods
+
+        public bool SubscribedMarketData()
+        {
+            return SubscribedLS || SubscribedLQ || SubscribedFP || SubscribedFD;
+        
+        }
 
         #endregion
     }

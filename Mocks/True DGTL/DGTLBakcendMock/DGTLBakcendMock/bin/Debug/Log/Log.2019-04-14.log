@@ -251,3 +251,86 @@
 2019-04-14 17:17:27  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3290 Best Ask Price=5235.5
 2019-04-14 17:17:38  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3495 Best Ask Price=5235.5
 2019-04-14 17:17:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=70 Best Bid Price=5225.5 Best Ask Size=3513 Best Ask Price=5235.5
+2019-04-14 17:40:42  :: Initializing Mock Simulated Server...
+2019-04-14 17:40:42  :: Initializing all collections...
+2019-04-14 17:40:43  :: 4/14/2019 5:40:43 PMBaseCommunicationModule.LoadConfig
+2019-04-14 17:40:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-14 17:40:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-14 17:40:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-14 17:40:45  :: Collections Initialized...
+2019-04-14 17:41:00  :: Incoming Login request for user MM1_CLOBUI
+2019-04-14 17:41:00  :: user MM1_CLOBUI Successfully logged in
+2019-04-14 17:41:00  :: Incoming subscription for service LS
+2019-04-14 17:41:00  :: @Incoming Bitmex:Requesting market data por symbol XBTM19
+2019-04-14 17:41:00  :: Successfully subscribed to orderBookL2 event on symbol XBTM19
+2019-04-14 17:41:00  :: Successfully subscribed to trade event on symbol XBTM19
+2019-04-14 17:41:00  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Sell Size=9 Price=5225.5 TickDirection=MinusTick
+2019-04-14 17:41:01  :: Incoming subscription for service LQ
+2019-04-14 17:41:10  :: Incoming subscription for service FD
+2019-04-14 17:41:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=41 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:41:11  :: Incoming subscription for service FP
+2019-04-14 17:41:36  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=41 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:41:36  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=41 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:41:36  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=41 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5234.5
+2019-04-14 17:42:17  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5234.5
+2019-04-14 17:42:17  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Sell Size=5 Price=5225.5 TickDirection=ZeroMinusTick
+2019-04-14 17:43:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:39  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:39  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:43:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:44:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=31209 Best Ask Price=5235.5
+2019-04-14 17:44:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=31209 Best Ask Price=5235.5
+2019-04-14 17:44:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:20  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:34  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:34  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=31209 Best Ask Price=5235.5
+2019-04-14 17:44:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:44:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:44:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:44:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:44:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=6 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:44:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:45:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:45:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:45:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:45:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:45:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=31209 Best Ask Price=5235.5
+2019-04-14 17:45:19  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:45:19  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:45:40  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:45:40  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:46:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:10  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=31209 Best Ask Price=5235.5
+2019-04-14 17:46:59  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=4051 Best Ask Price=5235.5
+2019-04-14 17:46:59  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:47:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:47:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
+2019-04-14 17:47:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=36 Best Bid Price=5225.5 Best Ask Size=27158 Best Ask Price=5235
