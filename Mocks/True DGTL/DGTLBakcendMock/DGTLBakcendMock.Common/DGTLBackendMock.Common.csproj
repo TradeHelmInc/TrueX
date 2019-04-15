@@ -52,6 +52,8 @@
     <Compile Include="DTO\MarketData\DepthOfBook.cs" />
     <Compile Include="DTO\MarketData\LastSale.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderAck.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
     <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />
     <Compile Include="DTO\SecurityList\RefereceRateMsg.cs" />

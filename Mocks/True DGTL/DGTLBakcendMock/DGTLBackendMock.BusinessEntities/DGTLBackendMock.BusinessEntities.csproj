@@ -40,7 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="enums\OrderBookEntryType.cs" />
+    <Compile Include="enums\OrdType.cs" />
+    <Compile Include="enums\Side.cs" />
+    <Compile Include="enums\TimeInForce.cs" />
     <Compile Include="MarketData.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="PriceLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.cs" />
