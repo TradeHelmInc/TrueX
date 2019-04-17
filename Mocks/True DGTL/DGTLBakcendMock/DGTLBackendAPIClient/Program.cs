@@ -2,6 +2,7 @@
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
+using DGTLBackendMock.Common.DTO.OrderRouting;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.DataAccessLayer;
@@ -44,6 +45,7 @@ namespace DGTLBackendAPIClient
             Console.WriteLine("LoginClient <userId> <UUID> <Password>");
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
+            Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("-CLEAR");
             Console.WriteLine();
         
@@ -98,8 +100,12 @@ namespace DGTLBackendAPIClient
                 ProcessJsonMessage<LastSale>((LastSale)msg);
             else if (msg is Quote)
                 ProcessJsonMessage<Quote>((Quote)msg);
+            else if (msg is CreditRecordUpdate)
+                ProcessJsonMessage<CreditRecordUpdate>((CreditRecordUpdate)msg);
             else if (msg is DepthOfBook)
                 ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
+            else if (msg is LegacyOrderAck)
+                ProcessJsonMessage<LegacyOrderAck>((LegacyOrderAck)msg);
             else if (msg is ClientLogoutResponse)
             {
                 ClientLogoutResponse logoutResp = (ClientLogoutResponse)msg;
@@ -265,6 +271,56 @@ namespace DGTLBackendAPIClient
         
         }
 
+        private static string BuildClOrdId()
+        {
+            //We will use the total milliseconds in today
+
+            TimeSpan elapsed = DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+
+            string clOrdId = elapsed.TotalMilliseconds.ToString();
+
+            return clOrdId;
+        }
+
+        private static void ProcessRouteOrder(string[] param)
+        {
+            if (JWTToken == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 1)
+            {
+                LegacyOrderReq legacyOrdReq = new LegacyOrderReq()
+                {
+                    Msg = "LegacyOrderReq",
+                    Sender = 0,
+                    JsonWebToken = JWTToken,
+                    UserId = UserId,
+                    ClOrderId = BuildClOrdId(),
+                    AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : null,
+                    InstrumentId = "XBT-USD",
+                    Price = 5000,
+                    cSide = 'B',//Buy
+                    Quantity = 1,
+                    cTimeInForce = '0',//Day
+                    cOrderType = '1',//Limit
+                };
+
+                string strMsg = JsonConvert.SerializeObject(legacyOrdReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for LegacyOrderReq message"));
+
+        }
+
         private static void ProcessCommand(string cmd)
         {
 
@@ -284,6 +340,10 @@ namespace DGTLBackendAPIClient
             else if (mainCmd == "Subscribe")
             {
                 ProcessSubscribe(param);
+            }
+            else if (mainCmd == "RouteOrder")
+            {
+                ProcessRouteOrder(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR") 
             {

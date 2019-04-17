@@ -97,6 +97,25 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             HandleGenericSubscription(subcrResp);
         }
 
+
+        protected void SendOrderBookEntries(string action, 
+                                            zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] bids,
+                                            zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] asks)
+        {
+            foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bid in bids)
+            {
+                BitmexMarketDataOrderBookEntryWrapper wrapper = new BitmexMarketDataOrderBookEntryWrapper(action, bid, true);
+                OnMessageRcv(wrapper);
+            }
+
+            foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry ask in asks)
+            {
+                BitmexMarketDataOrderBookEntryWrapper wrapper = new BitmexMarketDataOrderBookEntryWrapper(action, ask, false);
+                OnMessageRcv(wrapper);
+            }
+        
+        }
+
         //We update an orderBook in memory and publish
         protected  void UpdateOrderBook(WebSocketSubscriptionEvent subscrEvent)
         {
@@ -104,9 +123,11 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
             try
             {
-                OrderBookEntry[] bids = orderBookEvent.data.Where(x => x.IsBuy()).OrderByDescending(x => x.price).ToArray();
-                OrderBookEntry[] asks = orderBookEvent.data.Where(x => x.IsSell()).OrderBy(x => x.price).ToArray();
+                zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] bids = orderBookEvent.data.Where(x => x.IsBuy()).OrderByDescending(x => x.price).ToArray();
+                zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] asks = orderBookEvent.data.Where(x => x.IsSell()).OrderBy(x => x.price).ToArray();
 
+
+                SendOrderBookEntries(orderBookEvent.action, bids, asks);
                 OrderBookHandler.DoUpdateOrderBooks(orderBookEvent.action, bids, asks);
 
                 string symbol = "";
@@ -122,8 +143,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                     Security sec = ActiveSecurities.Values.Where(x => x.Symbol == symbol).FirstOrDefault();
 
                     OrderBookDictionary dict = OrderBookHandler.OrderBooks[symbol];
-                    OrderBookEntry bestBid = dict.Entries.Values.Where(x => x.IsBuy() && x.size > 0).OrderByDescending(x => x.price).FirstOrDefault();
-                    OrderBookEntry bestAsk = dict.Entries.Values.Where(x => x.IsSell() && x.size > 0).OrderBy(x => x.price).FirstOrDefault();
+                    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestBid = dict.Entries.Values.Where(x => x.IsBuy() && x.size > 0).OrderByDescending(x => x.price).FirstOrDefault();
+                    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestAsk = dict.Entries.Values.Where(x => x.IsSell() && x.size > 0).OrderBy(x => x.price).FirstOrDefault();
 
                     sec.MarketData.BestBidPrice = Convert.ToDouble(bestBid.price);
                     sec.MarketData.BestBidSize = Convert.ToInt64(bestBid.size);

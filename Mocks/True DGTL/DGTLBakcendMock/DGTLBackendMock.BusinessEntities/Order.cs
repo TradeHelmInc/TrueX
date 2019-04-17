@@ -27,7 +27,7 @@ namespace DGTLBackendMock.BusinessEntities
 
         public OrdType OrdType { get; set; }
 
-        public double? OrderQty { get; set; }
+        public double OrderQty { get; set; }
 
         public double? Price { get; set; }
 

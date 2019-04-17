@@ -42,6 +42,18 @@ namespace DGTLBackendMock.Common.Util
         }
         #endregion
 
+        public OrderBookEntry GetOrderBookEntry(Wrapper wrapper)
+        {
+            OrderBookEntry entry = new OrderBookEntry();
+            entry.MDEntryType = (MDEntryType)wrapper.GetField(MarketDataOrderBookEntryFields.MDEntryType);
+            entry.MDUpdateAction = (MDUpdateAction)wrapper.GetField(MarketDataOrderBookEntryFields.MDUpdateAction);
+            entry.Symbol = (ValidateField(wrapper, MarketDataOrderBookEntryFields.Symbol) ? Convert.ToString(wrapper.GetField(MarketDataOrderBookEntryFields.Symbol)) : null);
+            entry.MDEntrySize = (ValidateField(wrapper, MarketDataOrderBookEntryFields.MDEntrySize) ? Convert.ToDecimal(wrapper.GetField(MarketDataOrderBookEntryFields.MDEntrySize)) : 0);
+            entry.MDEntryPx = (ValidateField(wrapper, MarketDataOrderBookEntryFields.MDEntryPx) ? Convert.ToDecimal(wrapper.GetField(MarketDataOrderBookEntryFields.MDEntryPx)) : 0);
+
+            return entry;
+        }
+
         public MarketData GetMarketData(Wrapper wrapper)
         {
             MarketData md = new MarketData();

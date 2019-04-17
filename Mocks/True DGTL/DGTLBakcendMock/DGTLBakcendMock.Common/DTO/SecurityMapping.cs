@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using zHFT.Main.BusinessEntities.Market_Data;
 
 namespace DGTLBackendMock.Common.DTO
 {
     public class SecurityMapping
     {
+        #region Constructor
+
+        public SecurityMapping()
+        {
+            OrderBookEntriesToPublish = new Queue<OrderBookEntry>();
+        }
+
+        #endregion
+
         #region Public Attributs
 
         public string IncomingSymbol { get; set; }
@@ -22,6 +32,8 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool SubscribedFP { get; set; }
 
+        public bool SubscribedLD { get; set; }
+
         public bool PendingLSResponse { get; set; }
 
         public bool PendingLQResponse { get; set; }
@@ -30,8 +42,11 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool PendingFPResponse { get; set; }
 
+        public bool PendingLDResponse { get; set; }
+
         public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketData { get; set; }
 
+        public Queue<OrderBookEntry> OrderBookEntriesToPublish { get; set; }
 
         #endregion
 
@@ -39,7 +54,7 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool SubscribedMarketData()
         {
-            return SubscribedLS || SubscribedLQ || SubscribedFP || SubscribedFD;
+            return SubscribedLS || SubscribedLQ || SubscribedFP || SubscribedFD || SubscribedLD;
         
         }
 

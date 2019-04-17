@@ -60,6 +60,20 @@ namespace DGTLOrderRoutingPOC
             DGTLWebSocketClient.Send(strMsg);
         }
 
+        private static void ShowOrderAck(LegacyOrderAck orderAckMsg)
+        {
+            DoLog("========== Order Ack Message ==========");
+            DoLog(string.Format("OrderId:{0}", orderAckMsg.OrderId));
+            DoLog(string.Format("UserId:{0}", orderAckMsg.UserId));
+            DoLog(string.Format("ClOrderId:{0}", orderAckMsg.ClOrderId));
+            DoLog(string.Format("InstrumentId:{0}", orderAckMsg.InstrumentId));
+            DoLog(string.Format("Status:{0}", orderAckMsg.Status));
+            DoLog(string.Format("Price:{0}", orderAckMsg.Price.HasValue? orderAckMsg.Price.Value.ToString("0.##"):null));
+            DoLog(string.Format("Left Qty.:{0}", orderAckMsg.LeftQty.ToString("0.##")));
+            DoLog(string.Format("Timestamp:{0}", orderAckMsg.Timestamp));
+            DoLog(string.Format("Order Reject Reason:{0}", orderAckMsg.OrderRejectReason));
+        }
+
         private static void ProcessEvent(WebSocketMessage msg)
         {
             if (msg is ClientLoginResponse)
@@ -71,9 +85,19 @@ namespace DGTLOrderRoutingPOC
                     ClientLoginResponse = loginResp;
                 }
 
-               
-
                 DoLog(string.Format("Client successfully logged with token {0}", loginResp.JsonWebToken));
+
+                DoLog(string.Format("Building and sending order..."));
+
+                Order newOrder = BuildOrder();
+                BuildOrderMessage(newOrder);
+                
+            }
+            else if (msg is LegacyOrderAck)
+            {
+                LegacyOrderAck orderAckMsg = (LegacyOrderAck)msg;
+
+                ShowOrderAck(orderAckMsg);
             }
         }
 
@@ -109,10 +133,21 @@ namespace DGTLOrderRoutingPOC
             return clOrdId;
         }
 
-        private void BuildOrderMessage(Order orderToSend)
+        private static void BuildOrderMessage(Order orderToSend)
         {
 
             LegacyOrderReq orderReq = new LegacyOrderReq();//TODO: Map from orderToSend!!
+            orderReq.AccountId = orderToSend.Account;
+            orderReq.ClOrderId = orderToSend.ClOrdId;
+            orderReq.InstrumentId = orderToSend.Symbol;
+            orderReq.Msg = "LegacyOrderReq";
+            orderReq.cOrderType = orderToSend.OrdType == OrdType.Limit ? LegacyOrderReq._ORD_TYPE_LIMIT : LegacyOrderReq._ORD_TYPE_MARKET;
+            orderReq.Price = orderToSend.Price.HasValue ? (decimal?) Convert.ToDecimal(orderToSend.Price.Value) : null;
+            orderReq.Quantity = Convert.ToDecimal(orderToSend.OrderQty);
+            orderReq.cSide = orderToSend.Side == Side.Buy ? LegacyOrderReq._SIDE_BUY : LegacyOrderReq._SIDE_SELL;
+            orderReq.cTimeInForce =LegacyOrderReq._TIF_DAY;
+            orderReq.UserId = ClientLoginResponse.UserId;
+            orderReq.JsonWebToken = ClientLoginResponse.JsonWebToken;
 
 
             string strLegacyOrderReq = JsonConvert.SerializeObject(orderReq, Newtonsoft.Json.Formatting.None,
@@ -153,8 +188,6 @@ namespace DGTLOrderRoutingPOC
             string UserId = ConfigurationManager.AppSettings["UserId"];
             string Password = ConfigurationManager.AppSettings["Password"];
             string Symbol = ConfigurationManager.AppSettings["Symbol"];
-
-            Order newOrder = BuildOrder();
 
             //1- We do all the logging and connection procedure
             DGTLWebSocketClient = new DGTLWebSocketClient(WebSocketURL, ProcessEvent);

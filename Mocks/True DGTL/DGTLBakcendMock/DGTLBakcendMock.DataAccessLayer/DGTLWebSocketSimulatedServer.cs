@@ -242,7 +242,93 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Error publishingLastSale thread:{0}", ex.Message), MessageType.Error);
+                DoLog(string.Format("Error publishing LastQuote thread:{0}", ex.Message), MessageType.Error);
+
+            }
+        }
+
+        private char GetBidOrAsk(MDEntryType MDEntryType)
+        {
+            if (MDEntryType == MDEntryType.Bid)
+                return DepthOfBook._BID_ENTRY;
+            else if (MDEntryType == MDEntryType.Ask)
+                return DepthOfBook._ASK_ENTRY;
+            else
+                throw new Exception(string.Format("Unknown MDEntryType {0}", MDEntryType));
+        }
+
+        private char GetAction(MDUpdateAction MDUpdateAction)
+        {
+
+            if (MDUpdateAction == MDUpdateAction.New)
+            {
+                return DepthOfBook._ACTION_INSERT;
+            }
+            else if (MDUpdateAction == MDUpdateAction.Change)
+            {
+                return DepthOfBook._ACTION_CHANGE;
+            }
+            else if (MDUpdateAction == MDUpdateAction.Delete)
+            {
+                return DepthOfBook._ACTION_REMOVE;
+            }
+            else
+                throw new Exception(string.Format("Unknown MDUpdateAction {0}", MDUpdateAction));
+        }
+
+        private void ProcessOrderBookDepthThread(object param)
+        {
+            object[] parameters = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
+            SecurityMapping secMapping = (SecurityMapping)parameters[1];
+
+            try
+            {
+                while (true)
+                {
+                    lock (secMapping)
+                    {
+
+                        while (secMapping.OrderBookEntriesToPublish.Count > 0)
+                        {
+
+                            OrderBookEntry obe =   secMapping.OrderBookEntriesToPublish.Dequeue();
+
+                            DepthOfBook depthOfBook = new DepthOfBook()
+                            {
+                                Msg = "DepthOfBook",
+                                Sender = 0,
+                                cAction = GetAction(obe.MDUpdateAction),
+                                cBidOrAsk = GetBidOrAsk(obe.MDEntryType),
+                                DepthTime = 0,
+                                Symbol = secMapping.IncomingSymbol,
+                                Size = obe.MDEntrySize,
+                                Price = obe.MDEntryPx
+                            };
+
+                            string strDepthOfBook = JsonConvert.SerializeObject(depthOfBook, Newtonsoft.Json.Formatting.None,
+                                   new JsonSerializerSettings
+                                   {
+                                       NullValueHandling = NullValueHandling.Ignore
+                                   });
+
+                            socket.Send(strDepthOfBook);
+
+                            if (secMapping.PendingLDResponse)
+                            {
+                                ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol);
+                                secMapping.PendingLDResponse = false;
+                            }
+
+                        
+                        }
+                    }
+                    Thread.Sleep(1000);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error publishing OrderBookDepth thread:{0}", ex.Message), MessageType.Error);
 
             }
         }
@@ -285,7 +371,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*", false, ex.Message);
+                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
             }
         }
 
@@ -314,7 +400,36 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*", false, ex.Message);
+                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
+            }
+        }
+
+        private void ProcessOrderBookDepth(IWebSocketConnection socket, string symbol)
+        {
+            try
+            {
+                if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
+                {
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+
+                    if (!secMapping.SubscribedMarketData())
+                    {
+                        SubscribeMarketData(secMapping);
+                        secMapping.SubscribedLD = true;
+                        secMapping.PendingLDResponse = true;
+
+                    }
+
+                    Thread processOrderBookDepthThread = new Thread(ProcessOrderBookDepthThread);
+                    processOrderBookDepthThread.Start(new object[] { socket, secMapping });
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
             }
         }
 
@@ -364,7 +479,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             else if (subscrMsg.Service == "LD")
             {
-                //ProcessOrderBookDepth(socket, subscrMsg.ServiceKey);
+                ProcessOrderBookDepth(socket, subscrMsg.ServiceKey);
             }
 
         }
@@ -375,30 +490,65 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private CMState OnMarketDataReceived(Wrapper wrapper)
         {
-            MarketData md = MarketDataConverter.GetMarketData(wrapper);
 
-            try
+            if (wrapper.GetAction() == Actions.MARKET_DATA)
             {
-                if (SecurityMappings.Any(x => x.OutgoingSymbol == md.Security.Symbol))
+
+                MarketData md = MarketDataConverter.GetMarketData(wrapper);
+
+                try
                 {
-                    SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == md.Security.Symbol)
-                                                                                  .FirstOrDefault();
-                    if (secMapping.SubscribedLS)
+                    if (SecurityMappings.Any(x => x.OutgoingSymbol == md.Security.Symbol))
                     {
-                        lock (secMapping)
+                        SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == md.Security.Symbol)
+                                                                                      .FirstOrDefault();
+                        if (secMapping.SubscribedLS || secMapping.SubscribedLQ || secMapping.SubscribedFP || secMapping.SubscribedFD)
                         {
-                            secMapping.PublishedMarketData = md;
+                            lock (secMapping)
+                            {
+                                secMapping.PublishedMarketData = md;
+                            }
                         }
                     }
-                }
 
-                //Well, here we have to publish whatever we got as MD!
-                return CMState.BuildSuccess();
+                    //Well, here we have to publish whatever we got as MD!
+                    return CMState.BuildSuccess();
+
+                }
+                catch (Exception ex)
+                {
+                    return CMState.BuildFail(ex);
+                }
             }
-            catch (Exception ex)
+            else if (wrapper.GetAction() == Actions.MARKET_DATA_ORDER_BOOK_ENTRY)
             {
-                return CMState.BuildFail(ex);
+                try
+                {
+                    OrderBookEntry obe = MarketDataConverter.GetOrderBookEntry(wrapper);
+                    if (SecurityMappings.Any(x => x.OutgoingSymbol == obe.Symbol))
+                    {
+                        SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == obe.Symbol).FirstOrDefault();
+
+                        if (secMapping.SubscribedLD)
+                        {
+                            lock (secMapping)
+                            {
+                                secMapping.OrderBookEntriesToPublish.Enqueue(obe);
+                            }
+
+                        }
+
+                    }
+                    return CMState.BuildSuccess();
+                }
+                catch (Exception ex) 
+                {
+                    return CMState.BuildFail(ex);
+                }
             }
+
+            else
+                return CMState.BuildSuccess();
         }
 
         #endregion

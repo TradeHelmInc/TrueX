@@ -1,0 +1,352 @@
+2019-04-16 12:05:40  :: Initializing Mock Simulated Server...
+2019-04-16 12:05:40  :: Initializing all collections...
+2019-04-16 12:05:41  :: 4/16/2019 12:05:41 PMBaseCommunicationModule.LoadConfig
+2019-04-16 12:05:41  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:05:41  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:05:41  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 12:05:45  :: Collections Initialized...
+2019-04-16 12:07:54  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 12:07:54  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 12:07:54  :: Incoming subscription for service LD
+2019-04-16 12:10:51  :: Initializing Mock Simulated Server...
+2019-04-16 12:10:51  :: Initializing all collections...
+2019-04-16 12:10:53  :: 4/16/2019 12:10:53 PMBaseCommunicationModule.LoadConfig
+2019-04-16 12:10:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:10:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:10:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 12:10:56  :: Collections Initialized...
+2019-04-16 12:11:47  :: Initializing Mock Simulated Server...
+2019-04-16 12:11:47  :: Initializing all collections...
+2019-04-16 12:11:47  :: 4/16/2019 12:11:47 PMBaseCommunicationModule.LoadConfig
+2019-04-16 12:11:47  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:11:47  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 12:11:47  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 12:11:50  :: Collections Initialized...
+2019-04-16 12:11:55  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 12:11:55  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 12:11:55  :: Incoming subscription for service LS
+2019-04-16 12:11:55  :: @Incoming Bitmex:Requesting market data por symbol XBTM19
+2019-04-16 12:11:55  :: Successfully subscribed to orderBookL2 event on symbol XBTM19
+2019-04-16 12:11:55  :: Successfully subscribed to trade event on symbol XBTM19
+2019-04-16 12:11:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Buy Size=3 Price=5074 TickDirection=ZeroPlusTick
+2019-04-16 12:11:56  :: Incoming subscription for service LQ
+2019-04-16 12:11:57  :: Incoming subscription for service FD
+2019-04-16 12:12:00  :: Incoming subscription for service FP
+2019-04-16 12:12:00  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=4890 Best Bid Price=4694 Best Ask Size=826 Best Ask Price=5074
+2019-04-16 15:47:24  :: Initializing Mock Simulated Server...
+2019-04-16 15:47:24  :: Initializing all collections...
+2019-04-16 15:47:25  :: 4/16/2019 3:47:25 PMBaseCommunicationModule.LoadConfig
+2019-04-16 15:47:25  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:47:25  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:47:25  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 15:47:27  :: Collections Initialized...
+2019-04-16 15:47:48  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 15:47:48  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 15:47:48  :: Incoming subscription for service LD
+2019-04-16 15:47:48  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 15:47:48  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 15:47:49  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 15:47:49  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5656 TickDirection=MinusTick
+2019-04-16 15:50:52  :: Initializing Mock Simulated Server...
+2019-04-16 15:50:52  :: Initializing all collections...
+2019-04-16 15:50:52  :: 4/16/2019 3:50:52 PMBaseCommunicationModule.LoadConfig
+2019-04-16 15:50:52  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:50:52  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:50:52  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 15:50:56  :: Collections Initialized...
+2019-04-16 15:51:03  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 15:51:03  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 15:51:03  :: Incoming subscription for service LS
+2019-04-16 15:51:03  :: @Incoming Bitmex:Requesting market data por symbol XBTM19
+2019-04-16 15:51:04  :: Successfully subscribed to orderBookL2 event on symbol XBTM19
+2019-04-16 15:51:04  :: Successfully subscribed to trade event on symbol XBTM19
+2019-04-16 15:51:04  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Buy Size=2 Price=5320.5 TickDirection=PlusTick
+2019-04-16 15:51:08  :: Incoming subscription for service LQ
+2019-04-16 15:51:10  :: Incoming subscription for service FD
+2019-04-16 15:51:11  :: Incoming subscription for service FP
+2019-04-16 15:51:46  :: Initializing Mock Simulated Server...
+2019-04-16 15:51:46  :: Initializing all collections...
+2019-04-16 15:51:46  :: 4/16/2019 3:51:46 PMBaseCommunicationModule.LoadConfig
+2019-04-16 15:51:46  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:51:46  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:51:46  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 15:51:50  :: Collections Initialized...
+2019-04-16 15:54:39  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 15:54:39  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 15:54:39  :: Incoming subscription for service LS
+2019-04-16 15:54:39  :: @Incoming Bitmex:Requesting market data por symbol XBTM19
+2019-04-16 15:54:40  :: Successfully subscribed to orderBookL2 event on symbol XBTM19
+2019-04-16 15:54:40  :: Successfully subscribed to trade event on symbol XBTM19
+2019-04-16 15:54:40  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Sell Size=3 Price=5300.5 TickDirection=MinusTick
+2019-04-16 15:54:40  :: Incoming subscription for service LQ
+2019-04-16 15:54:41  :: Incoming subscription for service FD
+2019-04-16 15:55:25  :: Initializing Mock Simulated Server...
+2019-04-16 15:55:25  :: Initializing all collections...
+2019-04-16 15:55:25  :: 4/16/2019 3:55:25 PMBaseCommunicationModule.LoadConfig
+2019-04-16 15:55:25  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:55:25  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:55:25  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 15:55:28  :: Collections Initialized...
+2019-04-16 15:55:39  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 15:55:39  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 15:55:39  :: Incoming subscription for service TB
+2019-04-16 15:55:39  :: Incoming subscription for service TD
+2019-04-16 15:56:18  :: Initializing Mock Simulated Server...
+2019-04-16 15:56:18  :: Initializing all collections...
+2019-04-16 15:56:18  :: 4/16/2019 3:56:18 PMBaseCommunicationModule.LoadConfig
+2019-04-16 15:56:18  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:56:18  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 15:56:19  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 15:56:22  :: Collections Initialized...
+2019-04-16 15:56:47  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 15:56:47  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 15:56:47  :: Incoming subscription for service LD
+2019-04-16 15:56:52  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 15:56:55  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 15:56:55  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 15:56:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5653 TickDirection=PlusTick
+2019-04-16 15:57:33  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56536 Best Bid Price=5649.5 Best Ask Size=337 Best Ask Price=5653
+2019-04-16 15:57:33  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56536 Best Bid Price=5649.5 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 15:57:33  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=9 Price=5653 TickDirection=ZeroPlusTick
+2019-04-16 15:57:33  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56526 Best Bid Price=5649.5 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 15:57:33  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=10 Price=5649.5 TickDirection=MinusTick
+2019-04-16 15:57:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5647 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 15:57:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5647 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 15:57:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56525 Best Bid Price=5647 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 15:57:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56525 Best Bid Price=5647 Best Ask Size=328 Best Ask Price=5653
+2019-04-16 16:00:48  :: Initializing Mock Simulated Server...
+2019-04-16 16:00:48  :: Initializing all collections...
+2019-04-16 16:00:48  :: 4/16/2019 4:00:48 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:00:48  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:00:48  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:00:49  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:00:51  :: Collections Initialized...
+2019-04-16 16:01:01  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:01:01  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:01:01  :: Incoming subscription for service LD
+2019-04-16 16:01:05  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:01:06  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:01:06  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:01:06  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=3 Price=5652.5 TickDirection=PlusTick
+2019-04-16 16:01:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=290 Best Ask Price=5653
+2019-04-16 16:01:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=290 Best Ask Price=5653
+2019-04-16 16:01:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=290 Best Ask Price=5653
+2019-04-16 16:01:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56532 Best Bid Price=5649 Best Ask Size=290 Best Ask Price=5653
+2019-04-16 16:02:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56532 Best Bid Price=5649 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:02:02  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=3 Price=5653 TickDirection=PlusTick
+2019-04-16 16:02:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56527 Best Bid Price=5649 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:02:37  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=5 Price=5649 TickDirection=MinusTick
+2019-04-16 16:02:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56518 Best Bid Price=5649 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:02:42  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=9 Price=5649 TickDirection=ZeroMinusTick
+2019-04-16 16:02:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:02:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:02:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56532 Best Bid Price=5649 Best Ask Size=287 Best Ask Price=5653
+2019-04-16 16:03:30  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56532 Best Bid Price=5649 Best Ask Size=325 Best Ask Price=5653
+2019-04-16 16:03:33  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56532 Best Bid Price=5649 Best Ask Size=5000 Best Ask Price=5652.5
+2019-04-16 16:03:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=5000 Best Ask Price=5652.5
+2019-04-16 16:03:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=5000 Best Ask Price=5652.5
+2019-04-16 16:03:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1 Best Bid Price=5647 Best Ask Size=5000 Best Ask Price=5652.5
+2019-04-16 16:03:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56536 Best Bid Price=5649.5 Best Ask Size=5000 Best Ask Price=5652.5
+2019-04-16 16:05:39  :: Initializing Mock Simulated Server...
+2019-04-16 16:05:39  :: Initializing all collections...
+2019-04-16 16:05:39  :: 4/16/2019 4:05:39 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:05:39  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:05:39  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:05:39  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:05:42  :: Collections Initialized...
+2019-04-16 16:05:58  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:05:58  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:05:59  :: Incoming subscription for service LD
+2019-04-16 16:05:59  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:05:59  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:05:59  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:05:59  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5652.5 TickDirection=PlusTick
+2019-04-16 16:07:09  :: Initializing Mock Simulated Server...
+2019-04-16 16:07:09  :: Initializing all collections...
+2019-04-16 16:07:09  :: 4/16/2019 4:07:09 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:07:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:07:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:07:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:07:12  :: Collections Initialized...
+2019-04-16 16:07:24  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:07:24  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:07:24  :: Incoming subscription for service LD
+2019-04-16 16:07:24  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:07:24  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:07:24  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:07:24  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5652.5 TickDirection=PlusTick
+2019-04-16 16:07:57  :: Initializing Mock Simulated Server...
+2019-04-16 16:07:57  :: Initializing all collections...
+2019-04-16 16:07:57  :: 4/16/2019 4:07:57 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:07:57  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:07:57  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:07:58  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:08:00  :: Collections Initialized...
+2019-04-16 16:08:04  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:08:04  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:08:04  :: Incoming subscription for service LD
+2019-04-16 16:08:04  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:08:05  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:08:05  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:08:05  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=6 Price=5652.5 TickDirection=ZeroPlusTick
+2019-04-16 16:08:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56538 Best Bid Price=5648 Best Ask Size=5027 Best Ask Price=5652.5
+2019-04-16 16:08:26  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56538 Best Bid Price=5648 Best Ask Size=4989 Best Ask Price=5652.5
+2019-04-16 16:08:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56538 Best Bid Price=5648 Best Ask Size=4989 Best Ask Price=5652.5
+2019-04-16 16:08:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5648 Best Ask Size=4989 Best Ask Price=5652.5
+2019-04-16 16:08:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5648 Best Ask Size=4989 Best Ask Price=5652.5
+2019-04-16 16:08:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56539 Best Bid Price=5649.5 Best Ask Size=4989 Best Ask Price=5652.5
+2019-04-16 16:09:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56539 Best Bid Price=5649.5 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:09:11  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5652.5 TickDirection=ZeroPlusTick
+2019-04-16 16:09:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5648 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:09:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5648 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:09:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56561 Best Bid Price=5652 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:10:38  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56558 Best Bid Price=5652 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:10:38  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5652 TickDirection=MinusTick
+2019-04-16 16:10:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5648 Best Ask Size=4987 Best Ask Price=5652.5
+2019-04-16 16:10:52  :: @Incoming Bitmex:Error processing order book :Referencia a objeto no establecida como instancia de un objeto.
+2019-04-16 16:10:52  :: @Incoming Bitmex:Error processing order book :Referencia a objeto no establecida como instancia de un objeto.
+2019-04-16 16:10:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51339 Best Bid Price=5658.5 Best Ask Size=56628 Best Ask Price=5667
+2019-04-16 16:10:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=4987 Price=5652.5 TickDirection=PlusTick
+2019-04-16 16:10:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=287 Price=5653 TickDirection=PlusTick
+2019-04-16 16:10:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=15 Price=5658 TickDirection=PlusTick
+2019-04-16 16:11:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51339 Best Bid Price=5658.5 Best Ask Size=56628 Best Ask Price=5667
+2019-04-16 16:11:05  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=6 Price=5662 TickDirection=PlusTick
+2019-04-16 16:11:35  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51339 Best Bid Price=5658.5 Best Ask Size=56628 Best Ask Price=5667
+2019-04-16 16:11:49  :: @Incoming Bitmex:Error processing order book :Referencia a objeto no establecida como instancia de un objeto.
+2019-04-16 16:11:49  :: @Incoming Bitmex:Error processing order book :Referencia a objeto no establecida como instancia de un objeto.
+2019-04-16 16:11:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:03  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:03  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=56625 Best Ask Price=5666.5
+2019-04-16 16:12:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56625 Best Bid Price=5658 Best Ask Size=15 Best Ask Price=5664
+2019-04-16 16:12:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5657 Best Ask Size=15 Best Ask Price=5664
+2019-04-16 16:12:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=113259 Best Bid Price=5657 Best Ask Size=15 Best Ask Price=5664
+2019-04-16 16:12:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56622 Best Bid Price=5658 Best Ask Size=15 Best Ask Price=5664
+2019-04-16 16:13:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56622 Best Bid Price=5658 Best Ask Size=15 Best Ask Price=5664
+2019-04-16 16:16:12  :: Initializing Mock Simulated Server...
+2019-04-16 16:16:12  :: Initializing all collections...
+2019-04-16 16:16:13  :: 4/16/2019 4:16:13 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:16:13  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:16:13  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:16:13  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:16:16  :: Collections Initialized...
+2019-04-16 16:16:31  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:16:31  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:16:31  :: Incoming subscription for service LD
+2019-04-16 16:16:31  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:16:31  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:16:32  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:16:32  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=38 Price=5664 TickDirection=ZeroPlusTick
+2019-04-16 16:16:32  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56709 Best Bid Price=5666.5 Best Ask Size=30 Best Ask Price=5667
+2019-04-16 16:16:44  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56709 Best Bid Price=5666.5 Best Ask Size=26 Best Ask Price=5667
+2019-04-16 16:16:44  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=4 Price=5667 TickDirection=PlusTick
+2019-04-16 16:16:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5657 Best Ask Size=26 Best Ask Price=5667
+2019-04-16 16:16:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56699 Best Bid Price=5665.5 Best Ask Size=26 Best Ask Price=5667
+2019-04-16 16:17:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56739 Best Bid Price=5665.5 Best Ask Size=26 Best Ask Price=5667
+2019-04-16 16:17:27  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=7 Price=5667 TickDirection=ZeroPlusTick
+2019-04-16 16:17:27  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56739 Best Bid Price=5665.5 Best Ask Size=19 Best Ask Price=5667
+2019-04-16 16:17:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56739 Best Bid Price=5665.5 Best Ask Size=19 Best Ask Price=5667
+2019-04-16 16:17:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=40 Best Bid Price=5665.5 Best Ask Size=19 Best Ask Price=5667
+2019-04-16 16:17:49  :: @Incoming Bitmex:Error processing order book :Referencia a objeto no establecida como instancia de un objeto.
+2019-04-16 16:17:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56643 Best Bid Price=5672.5 Best Ask Size=56767 Best Ask Price=5681
+2019-04-16 16:17:49  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=19 Price=5667 TickDirection=ZeroPlusTick
+2019-04-16 16:17:49  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=45 Price=5670 TickDirection=PlusTick
+2019-04-16 16:17:49  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=60 Price=5672 TickDirection=PlusTick
+2019-04-16 16:17:52  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56635 Best Bid Price=5672.5 Best Ask Size=56767 Best Ask Price=5681
+2019-04-16 16:17:52  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5672.5 TickDirection=PlusTick
+2019-04-16 16:18:43  :: Initializing Mock Simulated Server...
+2019-04-16 16:18:43  :: Initializing all collections...
+2019-04-16 16:18:43  :: 4/16/2019 4:18:43 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:18:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:18:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:18:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:18:46  :: Collections Initialized...
+2019-04-16 16:18:56  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:18:56  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:18:56  :: Incoming subscription for service LD
+2019-04-16 16:18:56  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:18:56  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:18:57  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:18:57  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5679 TickDirection=PlusTick
+2019-04-16 16:18:57  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56741 Best Bid Price=5670 Best Ask Size=56741 Best Ask Price=5678.5
+2019-04-16 16:19:01  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56741 Best Bid Price=5670 Best Ask Size=56736 Best Ask Price=5678.5
+2019-04-16 16:19:01  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5678.5 TickDirection=MinusTick
+2019-04-16 16:19:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5657 Best Ask Size=4998 Best Ask Price=5679
+2019-04-16 16:19:55  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56728 Best Bid Price=5668.5 Best Ask Size=56728 Best Ask Price=5677
+2019-04-16 16:22:35  :: Initializing Mock Simulated Server...
+2019-04-16 16:22:35  :: Initializing all collections...
+2019-04-16 16:22:35  :: 4/16/2019 4:22:35 PMBaseCommunicationModule.LoadConfig
+2019-04-16 16:22:35  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:22:35  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 16:22:36  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 16:22:39  :: Collections Initialized...
+2019-04-16 16:22:46  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 16:22:46  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 16:22:46  :: Incoming subscription for service LD
+2019-04-16 16:22:46  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 16:22:46  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 16:22:47  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 16:22:47  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5672 TickDirection=PlusTick
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56696 Best Bid Price=5663.5 Best Ask Size=56694 Best Ask Price=5672
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56696 Best Bid Price=5663.5 Best Ask Size=56694 Best Ask Price=5672
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=20 Best Bid Price=5663.5 Best Ask Size=20 Best Ask Price=5672
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56700 Best Bid Price=5663.5 Best Ask Size=56700 Best Ask Price=5672
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56700 Best Bid Price=5663.5 Best Ask Size=56700 Best Ask Price=5672
+2019-04-16 16:23:22  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56740 Best Bid Price=5663.5 Best Ask Size=56700 Best Ask Price=5672
+2019-04-16 17:33:52  :: Initializing Mock Simulated Server...
+2019-04-16 17:33:52  :: Initializing all collections...
+2019-04-16 17:33:53  :: 4/16/2019 5:33:53 PMBaseCommunicationModule.LoadConfig
+2019-04-16 17:33:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:33:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:33:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 17:33:56  :: Collections Initialized...
+2019-04-16 17:34:10  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 17:34:10  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 17:34:10  :: Incoming subscription for service LD
+2019-04-16 17:34:10  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-16 17:34:10  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-16 17:34:10  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-16 17:34:10  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5658 TickDirection=PlusTick
+2019-04-16 17:34:12  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=38 Best Bid Price=5652 Best Ask Size=56558 Best Ask Price=5660
+2019-04-16 17:34:22  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 17:34:22  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 17:34:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=38 Best Bid Price=5652 Best Ask Size=300 Best Ask Price=5660.5
+2019-04-16 17:34:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56602 Best Bid Price=5652 Best Ask Size=56864 Best Ask Price=5660.5
+2019-04-16 17:34:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=56602 Best Bid Price=5652 Best Ask Size=56864 Best Ask Price=5660.5
+2019-04-16 17:36:24  :: Initializing Mock Simulated Server...
+2019-04-16 17:36:24  :: Initializing all collections...
+2019-04-16 17:36:24  :: 4/16/2019 5:36:24 PMBaseCommunicationModule.LoadConfig
+2019-04-16 17:36:24  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:36:24  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:36:24  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 17:36:27  :: Collections Initialized...
+2019-04-16 17:36:36  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 17:36:36  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 17:39:56  :: Initializing Mock Simulated Server...
+2019-04-16 17:39:56  :: Initializing all collections...
+2019-04-16 17:39:56  :: 4/16/2019 5:39:56 PMBaseCommunicationModule.LoadConfig
+2019-04-16 17:39:56  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:39:56  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 17:39:56  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 17:39:59  :: Collections Initialized...
+2019-04-16 17:40:15  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 17:40:15  :: user MM1_CLOBUI Successfully logged in
+2019-04-16 18:07:53  :: Initializing Mock Simulated Server...
+2019-04-16 18:07:53  :: Initializing all collections...
+2019-04-16 18:07:54  :: 4/16/2019 6:07:54 PMBaseCommunicationModule.LoadConfig
+2019-04-16 18:07:54  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 18:07:54  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 18:07:54  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 18:07:57  :: Collections Initialized...
+2019-04-16 18:08:17  :: Initializing Mock Simulated Server...
+2019-04-16 18:08:17  :: Initializing all collections...
+2019-04-16 18:08:17  :: 4/16/2019 6:08:17 PMBaseCommunicationModule.LoadConfig
+2019-04-16 18:08:17  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-16 18:08:17  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-16 18:08:17  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-16 18:08:20  :: Collections Initialized...
+2019-04-16 18:08:36  :: Incoming Login request for user MM1_CLOBUI
+2019-04-16 18:08:36  :: user MM1_CLOBUI Successfully logged in

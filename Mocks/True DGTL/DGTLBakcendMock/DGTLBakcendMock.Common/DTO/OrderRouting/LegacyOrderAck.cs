@@ -24,7 +24,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public decimal LeftQty { get; set; }
 
-        public int Timestamp { get; set; }
+        public long Timestamp { get; set; }
 
         public string OrderRejectReason { get; set; }
 
