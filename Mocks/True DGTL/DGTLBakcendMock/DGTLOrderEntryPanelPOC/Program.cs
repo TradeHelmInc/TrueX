@@ -118,7 +118,7 @@ namespace DGTLOrderEntryPanelPOC
             DoLog("================ 1)Showing Account Records Combo ================");
             foreach (AccountRecord accRecord in AccountRecords)
             {
-                DoLog(string.Format("{0}-{1}", accRecord.UniqueId, accRecord.EPNickName));
+                DoLog(string.Format("{0}-{1}", accRecord.AccountId, accRecord.EPNickName));
             }
             DoLog("");
         }

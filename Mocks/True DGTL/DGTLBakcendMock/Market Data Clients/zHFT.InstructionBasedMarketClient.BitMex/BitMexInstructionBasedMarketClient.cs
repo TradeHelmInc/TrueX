@@ -36,6 +36,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
         protected OrderBookHandler OrderBookHandler { get; set; }
 
+        protected Dictionary<long, decimal> PriceLevelIds { get; set; }
+
 
         protected List<zHFT.InstructionBasedMarketClient.BitMex.BE.Security> Securities { get; set; }
 
@@ -98,18 +100,49 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
         }
 
 
+        protected void ProcessPriceLevelIds(string action, zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry entry)
+        { 
+         //First we have to process the price level Ids
+            if (action == "insert" || action == "partial")
+            {
+                if (!PriceLevelIds.ContainsKey(entry.id))
+                    PriceLevelIds.Add(entry.id, entry.price);
+                else
+                    DoLog(string.Format("@{0}:WARNING1:Received INSERT Price Level for a price leven that already existed", BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Error);
+            }
+            else if (action == "update" || action == "delete")
+            {
+
+                if (PriceLevelIds.ContainsKey(entry.id))
+                {
+                    decimal priceLevel = PriceLevelIds[entry.id];
+                    entry.price = priceLevel;
+                }
+                else
+                    DoLog(string.Format("@{0}:WARNING2 :Received UPDATE/REMOVE Price Level for a price leven that did not existed", BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Error);
+
+            }
+            else
+                DoLog(string.Format("Received message for unknown action : {0}", action), Main.Common.Util.Constants.MessageType.Error);
+        }
+
         protected void SendOrderBookEntries(string action, 
                                             zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] bids,
                                             zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry[] asks)
         {
+           
+
+
             foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bid in bids)
             {
+                ProcessPriceLevelIds(action, bid);
                 BitmexMarketDataOrderBookEntryWrapper wrapper = new BitmexMarketDataOrderBookEntryWrapper(action, bid, true);
                 OnMessageRcv(wrapper);
             }
 
             foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry ask in asks)
             {
+                ProcessPriceLevelIds(action, ask);
                 BitmexMarketDataOrderBookEntryWrapper wrapper = new BitmexMarketDataOrderBookEntryWrapper(action, ask, false);
                 OnMessageRcv(wrapper);
             }
@@ -325,6 +358,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                     WSMarketDataManager = new MarketDataManager(BitmexConfiguration.WebsocketURL, true);
 
                     SecurityListManager = new DAL.REST.SecurityListManager(BitmexConfiguration.RESTURL);
+
+                    PriceLevelIds = new Dictionary<long, decimal>();
 
                     Securities = SecurityListManager.GetActiveSecurityList();
 

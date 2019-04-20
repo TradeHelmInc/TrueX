@@ -383,7 +383,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (key.EndsWith("@*"))
                     key = key.Replace("@*", "");
 
-                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.AccountKey == key).ToList();
+                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == key).ToList();
 
                 accountRecords.ForEach(x => DoSend<AccountRecord>(socket,x));
             }

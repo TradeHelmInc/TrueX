@@ -43,6 +43,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers
         {
             if (action == "insert")
                 return MDUpdateAction.New;
+            if (action == "partial")
+                return MDUpdateAction.New;
             else if (action == "update")
                 return MDUpdateAction.Change;
             if (action == "delete")

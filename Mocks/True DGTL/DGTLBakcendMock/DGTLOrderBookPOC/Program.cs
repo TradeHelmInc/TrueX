@@ -81,14 +81,16 @@ namespace DGTLOrderBookPOC
                     List<PriceLevel> asks = Security.MarketData.OrderBook.Where(x => x.OrderBookEntryType == OrderBookEntryType.Ask)
                                                      .OrderBy(x => x.Price).ToList();
 
-                    DoLog("========================================================================================================");
+                    DoLog(string.Format("======================Refreshing Order Book @{0}======================", DateTime.Now.ToString()));
                     DoLog("============ Bids ==============");
                     bids.ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
 
                     DoLog("");
 
                     DoLog("============ Asks ==============");
-                    asks.ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
+                    asks.OrderByDescending(x => x.Price)
+                        .ToList()
+                        .ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
                     DoLog("========================================================================================================");
 
                     DoLog(" ");
@@ -139,7 +141,7 @@ namespace DGTLOrderBookPOC
                                                                  .FirstOrDefault();
                     if (pl != null)
                     {
-                        pl.Size += depthOfBookDelta.Size;
+                        pl.Size = depthOfBookDelta.Size;
                         DoLog(string.Format("WARNING3 - Received ADD DepthOfBook message for a price level that existed. Price Level = {0}",
                               depthOfBookDelta.Price.ToString("0.##")));
 
@@ -163,7 +165,7 @@ namespace DGTLOrderBookPOC
                                                         && x.IsBidOrAsk(depthOfBookDelta.IsBid()))
                                              .FirstOrDefault();
                     if (pl != null)
-                        pl.Size += depthOfBookDelta.Size;
+                        pl.Size = depthOfBookDelta.Size;
                     else
                     {
                         //This is not ok, we receive a PriceLevel for a Price that didn't exist. 
