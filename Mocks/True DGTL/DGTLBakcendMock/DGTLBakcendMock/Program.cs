@@ -33,6 +33,9 @@ namespace DGTLBakcendMock
             string marketDataConfigFile = ConfigurationManager.AppSettings["MarketDataConfigFile"];
             string marketDataModule = ConfigurationManager.AppSettings["MarketDataModule"];
 
+            string orderRoutingConfigFile = ConfigurationManager.AppSettings["OrderRoutingConfigFile"];
+            string orderRoutingModule = ConfigurationManager.AppSettings["OrderRoutingModule"];
+
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12
                                                   | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
@@ -51,7 +54,9 @@ namespace DGTLBakcendMock
                 {
                     DGTLWebSocketSimulatedServer server = new DGTLWebSocketSimulatedServer(WebSocketAdddress, 
                                                                                            marketDataModule, 
-                                                                                           marketDataConfigFile);
+                                                                                           marketDataConfigFile,
+                                                                                           orderRoutingModule,
+                                                                                           orderRoutingConfigFile);
                     server.Start();
                     DoLog(" Service Successfully Started...");
                 }

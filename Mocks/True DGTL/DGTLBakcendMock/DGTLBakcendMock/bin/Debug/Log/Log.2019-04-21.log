@@ -1,0 +1,375 @@
+2019-04-21 12:44:03  :: Initializing Mock Simulated Server...
+2019-04-21 12:44:03  :: Initializing all collections...
+2019-04-21 12:44:03  :: 4/21/2019 12:44:03 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:44:03  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:44:03  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:44:04  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 12:44:13  :: 4/21/2019 12:44:13 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:44:13  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:44:13  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:44:13  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 12:56:15  :: Initializing Mock Simulated Server...
+2019-04-21 12:56:15  :: Initializing all collections...
+2019-04-21 12:56:15  :: 4/21/2019 12:56:15 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:56:15  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:56:15  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:56:15  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 12:56:17  :: 4/21/2019 12:56:17 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:56:17  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:56:17  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:56:17  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 12:56:18  :: Collections Initialized...
+2019-04-21 12:56:53  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 12:56:53  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 12:58:09  :: Initializing Mock Simulated Server...
+2019-04-21 12:58:09  :: Initializing all collections...
+2019-04-21 12:58:09  :: 4/21/2019 12:58:09 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:58:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:58:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 12:58:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 12:58:11  :: 4/21/2019 12:58:11 PMBaseCommunicationModule.LoadConfig
+2019-04-21 12:58:11  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:58:11  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 12:58:11  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 12:58:12  :: Collections Initialized...
+2019-04-21 12:58:24  :: Incoming Login request for user MM2_CLOBUI1
+2019-04-21 12:58:24  :: user MM2_CLOBUI1 Successfully logged in
+2019-04-21 13:00:12  :: Initializing Mock Server...
+2019-04-21 13:00:12  :: Initializing all collections...
+2019-04-21 13:00:12  :: Collections Initialized...
+2019-04-21 13:00:33  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:00:33  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:01:27  :: Initializing Mock Server...
+2019-04-21 13:01:27  :: Initializing all collections...
+2019-04-21 13:01:27  :: Collections Initialized...
+2019-04-21 13:01:44  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:01:44  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:32:07  :: Initializing Mock Server...
+2019-04-21 13:32:07  :: Initializing all collections...
+2019-04-21 13:32:07  :: Collections Initialized...
+2019-04-21 13:32:20  :: Initializing Mock Simulated Server...
+2019-04-21 13:32:20  :: Initializing all collections...
+2019-04-21 13:32:20  :: 4/21/2019 1:32:20 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:32:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:32:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:32:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:32:22  :: 4/21/2019 1:32:22 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:32:22  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:32:22  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:32:22  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:32:23  :: Collections Initialized...
+2019-04-21 13:32:47  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:32:47  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:43:22  :: Initializing Mock Simulated Server...
+2019-04-21 13:43:22  :: Initializing all collections...
+2019-04-21 13:43:22  :: 4/21/2019 1:43:22 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:43:22  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:43:22  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:43:22  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:43:30  :: 4/21/2019 1:43:30 PMOrderRouterBase.LoadConfig
+2019-04-21 13:43:30  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:30  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:30  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:35  :: Successfully subscribed to execution event 
+2019-04-21 13:43:35  :: Collections Initialized...
+2019-04-21 13:43:43  :: Initializing Mock Simulated Server...
+2019-04-21 13:43:43  :: Initializing all collections...
+2019-04-21 13:43:44  :: 4/21/2019 1:43:44 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:43:44  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:43:44  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:43:44  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:43:51  :: 4/21/2019 1:43:51 PMOrderRouterBase.LoadConfig
+2019-04-21 13:43:51  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:51  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:51  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:43:56  :: Successfully subscribed to execution event 
+2019-04-21 13:44:28  :: Collections Initialized...
+2019-04-21 13:44:54  :: Initializing Mock Simulated Server...
+2019-04-21 13:44:54  :: Initializing all collections...
+2019-04-21 13:44:54  :: 4/21/2019 1:44:54 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:44:54  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:44:54  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:44:55  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:44:57  :: 4/21/2019 1:44:57 PMOrderRouterBase.LoadConfig
+2019-04-21 13:44:57  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:44:57  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:44:57  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:44:58  :: Collections Initialized...
+2019-04-21 13:44:58  :: Successfully subscribed to execution event 
+2019-04-21 13:45:24  :: Incoming Login request for user MM2_CLOBUI1
+2019-04-21 13:45:24  :: user MM2_CLOBUI1 Successfully logged in
+2019-04-21 13:45:34  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:46:50  :: Initializing Mock Simulated Server...
+2019-04-21 13:46:50  :: Initializing all collections...
+2019-04-21 13:46:50  :: 4/21/2019 1:46:50 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:46:50  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:46:50  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:46:50  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:46:53  :: 4/21/2019 1:46:53 PMOrderRouterBase.LoadConfig
+2019-04-21 13:46:53  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:46:53  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:46:53  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:46:53  :: Collections Initialized...
+2019-04-21 13:46:54  :: Successfully subscribed to execution event 
+2019-04-21 13:47:03  :: Incoming Login request for user MM2_CLOBUI1
+2019-04-21 13:47:03  :: user MM2_CLOBUI1 Successfully logged in
+2019-04-21 13:47:19  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:48:29  :: Initializing Mock Simulated Server...
+2019-04-21 13:48:29  :: Initializing all collections...
+2019-04-21 13:48:29  :: 4/21/2019 1:48:29 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:48:29  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:48:29  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:48:29  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:48:31  :: 4/21/2019 1:48:31 PMOrderRouterBase.LoadConfig
+2019-04-21 13:48:31  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:48:31  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:48:31  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:48:32  :: Collections Initialized...
+2019-04-21 13:48:33  :: Successfully subscribed to execution event 
+2019-04-21 13:48:46  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:48:46  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:48:55  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:49:41  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:50:43  :: Initializing Mock Simulated Server...
+2019-04-21 13:50:43  :: Initializing all collections...
+2019-04-21 13:50:43  :: 4/21/2019 1:50:43 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:50:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:50:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:50:44  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:50:46  :: 4/21/2019 1:50:46 PMOrderRouterBase.LoadConfig
+2019-04-21 13:50:46  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:50:46  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:50:46  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:50:47  :: Collections Initialized...
+2019-04-21 13:50:47  :: Successfully subscribed to execution event 
+2019-04-21 13:50:59  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:50:59  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:51:10  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:57:00  :: Initializing Mock Simulated Server...
+2019-04-21 13:57:00  :: Initializing all collections...
+2019-04-21 13:57:01  :: 4/21/2019 1:57:01 PMBaseCommunicationModule.LoadConfig
+2019-04-21 13:57:01  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:57:01  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 13:57:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 13:57:03  :: 4/21/2019 1:57:03 PMOrderRouterBase.LoadConfig
+2019-04-21 13:57:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:57:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 13:57:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 13:57:04  :: Collections Initialized...
+2019-04-21 13:57:05  :: Successfully subscribed to execution event 
+2019-04-21 13:57:16  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 13:57:16  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 13:57:21  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 13:57:36  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:06:12  :: Initializing Mock Simulated Server...
+2019-04-21 14:06:12  :: Initializing all collections...
+2019-04-21 14:06:12  :: 4/21/2019 2:06:12 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:06:12  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:06:12  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:06:13  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:06:15  :: 4/21/2019 2:06:15 PMOrderRouterBase.LoadConfig
+2019-04-21 14:06:15  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:06:15  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:06:15  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:06:16  :: Collections Initialized...
+2019-04-21 14:06:17  :: Successfully subscribed to execution event 
+2019-04-21 14:06:30  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:06:30  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:06:37  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:08:33  :: Initializing Mock Simulated Server...
+2019-04-21 14:08:33  :: Initializing all collections...
+2019-04-21 14:08:33  :: 4/21/2019 2:08:33 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:08:33  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:08:33  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:08:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:08:36  :: 4/21/2019 2:08:36 PMOrderRouterBase.LoadConfig
+2019-04-21 14:08:36  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:08:36  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:08:36  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:08:37  :: Collections Initialized...
+2019-04-21 14:08:37  :: Successfully subscribed to execution event 
+2019-04-21 14:09:52  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:09:52  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:10:01  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:12:21  :: Initializing Mock Simulated Server...
+2019-04-21 14:12:21  :: Initializing all collections...
+2019-04-21 14:12:21  :: 4/21/2019 2:12:21 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:12:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:12:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:12:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:12:24  :: 4/21/2019 2:12:24 PMOrderRouterBase.LoadConfig
+2019-04-21 14:12:24  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:12:24  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:12:24  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:12:25  :: Collections Initialized...
+2019-04-21 14:12:25  :: Successfully subscribed to execution event 
+2019-04-21 14:12:38  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:12:38  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:12:46  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:14:01  :: Initializing Mock Simulated Server...
+2019-04-21 14:14:01  :: Initializing all collections...
+2019-04-21 14:14:01  :: 4/21/2019 2:14:01 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:14:01  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:14:01  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:14:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:14:03  :: 4/21/2019 2:14:03 PMOrderRouterBase.LoadConfig
+2019-04-21 14:14:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:14:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:14:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:14:04  :: Collections Initialized...
+2019-04-21 14:14:05  :: Successfully subscribed to execution event 
+2019-04-21 14:14:40  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:14:40  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:14:52  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:16:21  :: Initializing Mock Simulated Server...
+2019-04-21 14:16:21  :: Initializing all collections...
+2019-04-21 14:16:21  :: 4/21/2019 2:16:21 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:16:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:16:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:16:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:16:24  :: 4/21/2019 2:16:24 PMOrderRouterBase.LoadConfig
+2019-04-21 14:16:24  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:16:24  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:16:24  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:16:25  :: Collections Initialized...
+2019-04-21 14:16:25  :: Successfully subscribed to execution event 
+2019-04-21 14:16:40  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:16:40  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:16:48  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:18:00  :: Initializing Mock Simulated Server...
+2019-04-21 14:18:00  :: Initializing all collections...
+2019-04-21 14:18:00  :: 4/21/2019 2:18:00 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:18:00  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:18:00  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:18:00  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:18:03  :: 4/21/2019 2:18:03 PMOrderRouterBase.LoadConfig
+2019-04-21 14:18:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:04  :: Collections Initialized...
+2019-04-21 14:18:04  :: Successfully subscribed to execution event 
+2019-04-21 14:18:12  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:18:12  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:18:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:18:47  :: Initializing Mock Simulated Server...
+2019-04-21 14:18:47  :: Initializing all collections...
+2019-04-21 14:18:47  :: 4/21/2019 2:18:47 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:18:47  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:18:47  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:18:47  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:18:49  :: 4/21/2019 2:18:49 PMOrderRouterBase.LoadConfig
+2019-04-21 14:18:49  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:49  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:49  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:18:50  :: Collections Initialized...
+2019-04-21 14:18:51  :: Successfully subscribed to execution event 
+2019-04-21 14:19:25  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:19:25  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:19:30  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:20:29  :: Initializing Mock Simulated Server...
+2019-04-21 14:20:29  :: Initializing all collections...
+2019-04-21 14:20:30  :: 4/21/2019 2:20:30 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:20:30  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:20:30  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:20:30  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:20:32  :: 4/21/2019 2:20:32 PMOrderRouterBase.LoadConfig
+2019-04-21 14:20:32  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:20:32  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:20:32  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:20:33  :: Collections Initialized...
+2019-04-21 14:20:34  :: Successfully subscribed to execution event 
+2019-04-21 14:20:53  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:20:53  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:20:57  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:22:25  :: Initializing Mock Simulated Server...
+2019-04-21 14:22:25  :: Initializing all collections...
+2019-04-21 14:22:25  :: 4/21/2019 2:22:25 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:22:25  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:22:25  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:22:25  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:22:28  :: 4/21/2019 2:22:28 PMOrderRouterBase.LoadConfig
+2019-04-21 14:22:28  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:22:28  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:22:28  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:22:29  :: Collections Initialized...
+2019-04-21 14:22:29  :: Successfully subscribed to execution event 
+2019-04-21 14:22:40  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:22:40  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:22:44  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:49:36  :: Initializing Mock Simulated Server...
+2019-04-21 14:49:36  :: Initializing all collections...
+2019-04-21 14:49:36  :: 4/21/2019 2:49:36 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:49:36  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:49:36  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:49:37  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:49:39  :: 4/21/2019 2:49:39 PMOrderRouterBase.LoadConfig
+2019-04-21 14:49:39  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:49:39  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:49:39  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:49:40  :: Collections Initialized...
+2019-04-21 14:49:41  :: Successfully subscribed to execution event 
+2019-04-21 14:49:52  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:49:52  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:50:00  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:50:29  :: Initializing Mock Simulated Server...
+2019-04-21 14:50:29  :: Initializing all collections...
+2019-04-21 14:50:29  :: 4/21/2019 2:50:29 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:50:29  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:50:29  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:50:30  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:50:32  :: 4/21/2019 2:50:32 PMOrderRouterBase.LoadConfig
+2019-04-21 14:50:32  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:50:32  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:50:32  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:50:33  :: Collections Initialized...
+2019-04-21 14:50:33  :: Successfully subscribed to execution event 
+2019-04-21 14:50:40  :: Incoming Login request for user MM2_CLOBUI1
+2019-04-21 14:50:40  :: user MM2_CLOBUI1 Successfully logged in
+2019-04-21 14:50:44  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:51:09  :: Initializing Mock Simulated Server...
+2019-04-21 14:51:09  :: Initializing all collections...
+2019-04-21 14:51:09  :: 4/21/2019 2:51:09 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:51:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:51:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:51:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:51:12  :: 4/21/2019 2:51:12 PMOrderRouterBase.LoadConfig
+2019-04-21 14:51:12  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:51:12  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:51:12  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:51:13  :: Collections Initialized...
+2019-04-21 14:51:13  :: Successfully subscribed to execution event 
+2019-04-21 14:51:14  :: Unknown order processing execution report for OrderId 4fa45172-9a2c-c38d-4139-771590b6c70d 
+2019-04-21 14:51:15  :: Unknown order processing execution report for OrderId 38daaa23-77ba-03c5-1f0b-5992e726a385 
+2019-04-21 14:51:37  :: Incoming Login request for user MM2_CLOBUI1
+2019-04-21 14:51:37  :: user MM2_CLOBUI1 Successfully logged in
+2019-04-21 14:51:47  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 14:52:49  :: Initializing Mock Simulated Server...
+2019-04-21 14:52:49  :: Initializing all collections...
+2019-04-21 14:52:49  :: 4/21/2019 2:52:49 PMBaseCommunicationModule.LoadConfig
+2019-04-21 14:52:49  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:52:49  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 14:52:50  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 14:52:52  :: 4/21/2019 2:52:52 PMOrderRouterBase.LoadConfig
+2019-04-21 14:52:52  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:52:52  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 14:52:52  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 14:52:53  :: Collections Initialized...
+2019-04-21 14:52:53  :: Successfully subscribed to execution event 
+2019-04-21 14:53:03  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 14:53:03  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 14:53:07  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-21 15:05:57  :: Initializing Mock Simulated Server...
+2019-04-21 15:05:57  :: Initializing all collections...
+2019-04-21 15:05:58  :: 4/21/2019 3:05:58 PMBaseCommunicationModule.LoadConfig
+2019-04-21 15:05:58  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-21 15:05:58  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-21 15:05:58  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-21 15:06:00  :: 4/21/2019 3:06:00 PMOrderRouterBase.LoadConfig
+2019-04-21 15:06:00  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-21 15:06:00  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-21 15:06:00  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-21 15:06:01  :: Collections Initialized...
+2019-04-21 15:06:01  :: Successfully subscribed to execution event 
+2019-04-21 15:06:14  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-21 15:06:14  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-21 15:06:18  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19

@@ -1,0 +1,442 @@
+2019-04-20 12:32:52  :: Initializing Mock Simulated Server...
+2019-04-20 12:32:52  :: Initializing all collections...
+2019-04-20 12:32:53  :: 4/20/2019 12:32:53 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:32:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:32:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:32:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:32:56  :: Collections Initialized...
+2019-04-20 12:33:08  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:33:08  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:33:08  :: Incoming subscription for service LD
+2019-04-20 12:33:08  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:33:08  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:33:08  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:33:08  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=22 Price=5798.5 TickDirection=ZeroPlusTick
+2019-04-20 12:33:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57778 Best Bid Price=5798.5 Best Ask Size=20 Best Ask Price=5806
+2019-04-20 12:33:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57778 Best Bid Price=5798.5 Best Ask Size=20 Best Ask Price=5806
+2019-04-20 12:36:51  :: Initializing Mock Simulated Server...
+2019-04-20 12:36:51  :: Initializing all collections...
+2019-04-20 12:36:51  :: 4/20/2019 12:36:51 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:36:51  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:36:51  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:36:51  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:36:53  :: Collections Initialized...
+2019-04-20 12:37:06  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:37:06  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:37:06  :: Incoming subscription for service LD
+2019-04-20 12:37:06  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:37:06  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:37:07  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:37:07  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=72 Price=5798.5 TickDirection=ZeroPlusTick
+2019-04-20 12:37:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=112 Best Bid Price=5791.5 Best Ask Size=57921 Best Ask Price=5796.5
+2019-04-20 12:37:42  :: Initializing Mock Simulated Server...
+2019-04-20 12:37:42  :: Initializing all collections...
+2019-04-20 12:37:42  :: 4/20/2019 12:37:42 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:37:42  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:37:42  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:37:42  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:37:44  :: Collections Initialized...
+2019-04-20 12:37:48  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:37:48  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:37:48  :: Incoming subscription for service LD
+2019-04-20 12:37:48  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:37:48  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:37:48  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:37:48  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=72 Price=5798.5 TickDirection=ZeroPlusTick
+2019-04-20 12:37:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5791.5 Best Ask Size=57921 Best Ask Price=5796.5
+2019-04-20 12:37:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5791.5 Best Ask Size=20 Best Ask Price=5806
+2019-04-20 12:38:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5791.5 Best Ask Size=57927 Best Ask Price=5797
+2019-04-20 12:46:40  :: Initializing Mock Simulated Server...
+2019-04-20 12:46:40  :: Initializing all collections...
+2019-04-20 12:46:40  :: 4/20/2019 12:46:40 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:46:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:46:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:46:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:46:42  :: Collections Initialized...
+2019-04-20 12:47:28  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:47:28  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:47:28  :: Incoming subscription for service LD
+2019-04-20 12:47:28  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:47:28  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:47:28  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:47:28  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5791 TickDirection=MinusTick
+2019-04-20 12:47:28  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=143 Best Bid Price=5791 Best Ask Size=57920 Best Ask Price=5792.5
+2019-04-20 12:48:15  :: @Incoming Bitmex:WARNING2 :Received UPDATE/REMOVE Price Level for a price leven that did not existed
+2019-04-20 12:48:16  :: @Incoming Bitmex:WARNING2 :Received UPDATE/REMOVE Price Level for a price leven that did not existed
+2019-04-20 12:48:22  :: @Incoming Bitmex:WARNING2 :Received UPDATE/REMOVE Price Level for a price leven that did not existed
+2019-04-20 12:50:44  :: Initializing Mock Simulated Server...
+2019-04-20 12:50:44  :: Initializing all collections...
+2019-04-20 12:50:45  :: 4/20/2019 12:50:45 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:50:45  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:50:45  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:50:45  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:50:47  :: Collections Initialized...
+2019-04-20 12:51:07  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:51:07  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:51:07  :: Incoming subscription for service LD
+2019-04-20 12:51:07  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:51:08  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:51:08  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:51:08  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=48 Price=5788 TickDirection=MinusTick
+2019-04-20 12:51:17  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57559 Best Ask Price=5788
+2019-04-20 12:51:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57519 Best Ask Price=5788
+2019-04-20 12:51:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57518 Best Ask Price=5788
+2019-04-20 12:51:46  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5788 TickDirection=ZeroMinusTick
+2019-04-20 12:51:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57558 Best Ask Price=5788
+2019-04-20 12:51:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57558 Best Ask Price=5788
+2019-04-20 12:51:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=40 Best Ask Price=5788
+2019-04-20 12:51:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:51:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 12:51:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 12:51:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57870 Best Ask Price=5787.5
+2019-04-20 12:52:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=57870 Best Ask Price=5787.5
+2019-04-20 12:52:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=128 Best Bid Price=5787 Best Ask Size=40 Best Ask Price=5787.5
+2019-04-20 12:52:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=1200 Best Bid Price=5760 Best Ask Size=40 Best Ask Price=5787.5
+2019-04-20 12:52:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57787 Best Bid Price=5774.5 Best Ask Size=57659 Best Ask Price=5783
+2019-04-20 12:52:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=64 Price=5787 TickDirection=MinusTick
+2019-04-20 12:52:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=64 Price=5787 TickDirection=ZeroMinusTick
+2019-04-20 12:52:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57859 Best Bid Price=5774.5 Best Ask Size=57659 Best Ask Price=5783
+2019-04-20 12:52:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57859 Best Bid Price=5774.5 Best Ask Size=57659 Best Ask Price=5783
+2019-04-20 12:52:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57859 Best Bid Price=5774.5 Best Ask Size=57699 Best Ask Price=5783
+2019-04-20 12:53:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57859 Best Bid Price=5774.5 Best Ask Size=57659 Best Ask Price=5783
+2019-04-20 12:55:47  :: Initializing Mock Simulated Server...
+2019-04-20 12:55:47  :: Initializing all collections...
+2019-04-20 12:55:47  :: 4/20/2019 12:55:47 PMBaseCommunicationModule.LoadConfig
+2019-04-20 12:55:47  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:55:47  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 12:55:47  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 12:55:50  :: Collections Initialized...
+2019-04-20 12:56:00  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 12:56:00  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 12:56:00  :: Incoming subscription for service LD
+2019-04-20 12:56:00  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 12:56:00  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 12:56:00  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 12:56:00  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5778.5 TickDirection=PlusTick
+2019-04-20 12:56:01  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57901 Best Bid Price=5778.5 Best Ask Size=16 Best Ask Price=5784
+2019-04-20 12:56:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57901 Best Bid Price=5778.5 Best Ask Size=16 Best Ask Price=5784
+2019-04-20 12:56:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=16 Best Ask Price=5784
+2019-04-20 12:56:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:56:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:56:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=16 Best Ask Price=5784
+2019-04-20 12:57:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=12 Best Ask Price=5784
+2019-04-20 12:57:05  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=4 Price=5784 TickDirection=PlusTick
+2019-04-20 12:57:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=52 Best Ask Price=5784
+2019-04-20 12:57:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=12 Best Ask Price=5784
+2019-04-20 12:57:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=52 Best Ask Price=5784
+2019-04-20 12:57:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=52 Best Ask Price=5784
+2019-04-20 12:57:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=52 Best Ask Price=5784
+2019-04-20 12:58:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=50 Best Ask Price=5784
+2019-04-20 12:58:02  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5784 TickDirection=ZeroPlusTick
+2019-04-20 12:58:14  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5784 TickDirection=ZeroPlusTick
+2019-04-20 12:58:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=45 Best Ask Price=5784
+2019-04-20 12:58:36  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:58:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 12:58:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:58:55  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=70 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:58:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5778.5 TickDirection=MinusTick
+2019-04-20 12:59:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=70 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:59:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=115744 Best Bid Price=5778.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:59:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57837 Best Bid Price=5779.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:59:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57837 Best Bid Price=5779.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 12:59:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57909 Best Bid Price=5779.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 13:00:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=5 Best Ask Price=5784
+2019-04-20 13:00:05  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=6 Price=5779.5 TickDirection=PlusTick
+2019-04-20 13:00:28  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57869 Best Ask Price=5788
+2019-04-20 13:00:28  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57869 Best Ask Price=5788
+2019-04-20 13:00:29  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57869 Best Ask Price=5788
+2019-04-20 13:00:29  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57837 Best Ask Price=5788
+2019-04-20 13:00:29  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57837 Best Ask Price=5788
+2019-04-20 13:00:30  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57837 Best Ask Price=5788
+2019-04-20 13:00:30  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57837 Best Ask Price=5788
+2019-04-20 13:00:30  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57837 Best Ask Price=5788
+2019-04-20 13:00:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=57869 Best Ask Price=5788
+2019-04-20 13:00:31  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=16 Best Ask Price=5786
+2019-04-20 13:00:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:00:49  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=3 Price=5786 TickDirection=PlusTick
+2019-04-20 13:00:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:00:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57903 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:00:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:00:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:01:32  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=70 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:01:32  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5779.5 TickDirection=MinusTick
+2019-04-20 13:01:39  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=62 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:01:39  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5779.5 TickDirection=ZeroMinusTick
+2019-04-20 13:01:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=62 Best Bid Price=5779.5 Best Ask Size=53 Best Ask Price=5786
+2019-04-20 13:01:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=62 Best Bid Price=5779.5 Best Ask Size=57770 Best Ask Price=5781.5
+2019-04-20 13:01:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=62 Best Bid Price=5779.5 Best Ask Size=57770 Best Ask Price=5781.5
+2019-04-20 13:01:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=62 Best Bid Price=5779.5 Best Ask Size=57810 Best Ask Price=5781.5
+2019-04-20 13:01:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5779.5 TickDirection=ZeroMinusTick
+2019-04-20 13:01:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=57810 Best Ask Price=5781.5
+2019-04-20 13:02:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=57770 Best Ask Price=5781.5
+2019-04-20 13:02:47  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=57810 Best Ask Price=5781.5
+2019-04-20 13:02:47  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=57770 Best Ask Price=5781.5
+2019-04-20 13:02:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:02:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:02:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:02:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=59 Best Bid Price=5779.5 Best Ask Size=57787 Best Ask Price=5783
+2019-04-20 13:03:29  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5779.5 TickDirection=ZeroMinusTick
+2019-04-20 13:03:29  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=57787 Best Ask Price=5783
+2019-04-20 13:03:45  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=57827 Best Ask Price=5783
+2019-04-20 13:03:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=57787 Best Ask Price=5783
+2019-04-20 13:03:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=57784 Best Ask Price=5783
+2019-04-20 13:03:50  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=3 Price=5783 TickDirection=PlusTick
+2019-04-20 13:03:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:03:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:03:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:03:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=57813 Best Ask Price=5785.5
+2019-04-20 13:04:40  :: Initializing Mock Simulated Server...
+2019-04-20 13:04:40  :: Initializing all collections...
+2019-04-20 13:04:40  :: 4/20/2019 1:04:40 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:04:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:04:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:04:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:04:42  :: Collections Initialized...
+2019-04-20 13:05:02  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:05:02  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:05:02  :: Incoming subscription for service LD
+2019-04-20 13:05:02  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:05:02  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:05:03  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:05:03  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5785.5 TickDirection=ZeroPlusTick
+2019-04-20 13:05:03  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=51 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:05:16  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=6 Price=5779.5 TickDirection=MinusTick
+2019-04-20 13:05:16  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:05:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:05:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=13 Best Ask Price=5786
+2019-04-20 13:06:06  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:06  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=57830 Best Ask Price=5787.5
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:06:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:06:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:06:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=45 Best Bid Price=5779.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:07:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=10 Best Bid Price=5782.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:07:18  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=10 Best Bid Price=5782.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:07:18  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=20 Best Bid Price=5782.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:07:21  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=10 Best Bid Price=5782.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:07:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=10 Best Bid Price=5782.5 Best Ask Size=16 Best Ask Price=5787
+2019-04-20 13:12:13  :: Initializing Mock Simulated Server...
+2019-04-20 13:12:13  :: Initializing all collections...
+2019-04-20 13:12:13  :: 4/20/2019 1:12:13 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:12:13  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:12:13  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:12:13  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:12:16  :: Collections Initialized...
+2019-04-20 13:13:55  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:13:55  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:13:55  :: Incoming subscription for service LD
+2019-04-20 13:13:55  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:13:55  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:13:55  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:13:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5787 TickDirection=PlusTick
+2019-04-20 13:13:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:15:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:15:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:16:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=68 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:16:21  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=4 Price=5786.5 TickDirection=MinusTick
+2019-04-20 13:16:43  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=68 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:16:43  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:16:43  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:16:43  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=68 Best Bid Price=5786.5 Best Ask Size=42 Best Ask Price=5787
+2019-04-20 13:16:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=68 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:16:50  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5786.5 TickDirection=ZeroMinusTick
+2019-04-20 13:16:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:16:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:16:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:17:53  :: Initializing Mock Simulated Server...
+2019-04-20 13:17:53  :: Initializing all collections...
+2019-04-20 13:17:53  :: 4/20/2019 1:17:53 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:17:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:17:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:17:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:17:56  :: Collections Initialized...
+2019-04-20 13:18:28  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:18:28  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:18:28  :: Incoming subscription for service LD
+2019-04-20 13:18:28  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:18:29  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:18:29  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:18:29  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5786.5 TickDirection=ZeroMinusTick
+2019-04-20 13:18:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:18:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:18:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:18:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:18:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:18:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:18:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:18:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:19:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:19:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:19:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:19:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:19:53  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:19:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=2 Best Ask Price=5787
+2019-04-20 13:20:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=1 Best Ask Price=5787
+2019-04-20 13:20:14  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5787 TickDirection=PlusTick
+2019-04-20 13:20:24  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:20:24  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5787 TickDirection=ZeroPlusTick
+2019-04-20 13:20:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:20:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:21:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=66 Best Bid Price=5786.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:21:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=115907 Best Bid Price=5786.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:21:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57921 Best Bid Price=5787.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:22:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57921 Best Bid Price=5787.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:22:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57993 Best Bid Price=5787.5 Best Ask Size=32 Best Ask Price=5788
+2019-04-20 13:22:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57993 Best Bid Price=5787.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:22:46  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=32 Price=5788 TickDirection=PlusTick
+2019-04-20 13:22:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57993 Best Bid Price=5787.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:22:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5787.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:22:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=115927 Best Bid Price=5787.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:22:56  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:22:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57927 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:23:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57927 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:23:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57999 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:23:51  :: Initializing Mock Simulated Server...
+2019-04-20 13:23:51  :: Initializing all collections...
+2019-04-20 13:23:51  :: 4/20/2019 1:23:51 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:23:51  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:23:51  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:23:51  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:23:54  :: Collections Initialized...
+2019-04-20 13:24:06  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:24:06  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:24:06  :: Incoming subscription for service LD
+2019-04-20 13:24:06  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:24:07  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:24:07  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:24:07  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=32 Price=5788 TickDirection=PlusTick
+2019-04-20 13:24:09  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57999 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:24:39  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57999 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:24:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57999 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:24:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:24:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=72 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:26:20  :: Initializing Mock Simulated Server...
+2019-04-20 13:26:20  :: Initializing all collections...
+2019-04-20 13:26:20  :: 4/20/2019 1:26:20 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:26:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:26:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:26:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:26:23  :: Collections Initialized...
+2019-04-20 13:26:30  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:26:30  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:26:30  :: Incoming subscription for service LD
+2019-04-20 13:26:30  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:26:30  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:26:30  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:26:31  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5788.5 TickDirection=PlusTick
+2019-04-20 13:26:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:26:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:26:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:26:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:27:26  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:28:19  :: Initializing Mock Simulated Server...
+2019-04-20 13:28:19  :: Initializing all collections...
+2019-04-20 13:28:19  :: 4/20/2019 1:28:19 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:28:19  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:28:19  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:28:19  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:28:22  :: Collections Initialized...
+2019-04-20 13:28:30  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:28:30  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:28:30  :: Incoming subscription for service LD
+2019-04-20 13:28:30  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:28:30  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:28:30  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:28:30  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5788.5 TickDirection=PlusTick
+2019-04-20 13:28:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:28:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:28:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:28:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:28:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:29:48  :: Initializing Mock Simulated Server...
+2019-04-20 13:29:48  :: Initializing all collections...
+2019-04-20 13:29:48  :: 4/20/2019 1:29:48 PMBaseCommunicationModule.LoadConfig
+2019-04-20 13:29:48  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:29:48  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-20 13:29:48  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-20 13:29:51  :: Collections Initialized...
+2019-04-20 13:29:54  :: Incoming Login request for user MM1_CLOBUI
+2019-04-20 13:29:54  :: user MM1_CLOBUI Successfully logged in
+2019-04-20 13:29:54  :: Incoming subscription for service LD
+2019-04-20 13:29:54  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-20 13:29:55  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-20 13:29:55  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-20 13:29:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5788.5 TickDirection=PlusTick
+2019-04-20 13:29:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:30:26  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=88 Best Ask Price=5789
+2019-04-20 13:30:45  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:30:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57995 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:30:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:30:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=48 Best Ask Price=5789
+2019-04-20 13:31:31  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:31:31  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=8 Price=5789 TickDirection=PlusTick
+2019-04-20 13:31:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:31:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:31:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:31:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:31:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=64 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:32:44  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5788.5 TickDirection=MinusTick
+2019-04-20 13:32:44  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:32:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:32:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:33:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:33:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57988 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:33:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:33:54  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-20 13:33:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57988 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:34:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57988 Best Bid Price=5788.5 Best Ask Size=80 Best Ask Price=5789
+2019-04-20 13:34:07  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57988 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:34:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57988 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:34:53  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=40 Best Ask Price=5789
+2019-04-20 13:34:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=61 Best Bid Price=5788.5 Best Ask Size=300 Best Ask Price=5798.5
+2019-04-20 13:34:54  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57850 Best Bid Price=5791 Best Ask Size=300 Best Ask Price=5798.5
+2019-04-20 13:34:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=40 Price=5789 TickDirection=PlusTick
+2019-04-20 13:34:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=64 Price=5790 TickDirection=PlusTick
+2019-04-20 13:34:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57850 Best Bid Price=5791 Best Ask Size=300 Best Ask Price=5798.5
+2019-04-20 13:34:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=57922 Best Bid Price=5791 Best Ask Size=300 Best Ask Price=5798.5

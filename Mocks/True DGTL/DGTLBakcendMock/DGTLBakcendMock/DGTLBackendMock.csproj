@@ -119,8 +119,15 @@
       <Project>{572a78cd-f121-4ded-9153-4c1112838fec}</Project>
       <Name>zHFT.InstructionBasedMarketClient.BitMex</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrderRouters\zHFT.OrderRouters.Bitmex\zHFT.OrderRouters.Bitmex.csproj">
+      <Project>{30b3a6ec-dab1-42fd-8c65-7c0c8ebdd223}</Project>
+      <Name>zHFT.OrderRouters.Bitmex</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BitMex\outgoingBitmex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="BitMex\incomingBitmex.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

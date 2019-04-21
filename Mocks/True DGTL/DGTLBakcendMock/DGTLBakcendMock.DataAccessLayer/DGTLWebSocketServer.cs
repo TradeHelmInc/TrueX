@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
+using DGTLBackendMock.Common.DTO.OrderRouting;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using Fleck;
@@ -447,6 +448,38 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*");
         }
 
+        private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
+        {
+
+            LegacyOrderReq legOrdReq = JsonConvert.DeserializeObject<LegacyOrderReq>(m);
+
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            //We send the mock ack
+            LegacyOrderAck legOrdAck = new LegacyOrderAck()
+            {
+                Msg = "LegacyOrderAck",
+                OrderId = elaped.TotalSeconds.ToString(),
+                UserId = legOrdReq.UserId,
+                ClOrderId = legOrdReq.ClOrderId,
+                InstrumentId = legOrdReq.InstrumentId,
+                Status = "new",
+                Price = legOrdReq.Price,
+                LeftQty = legOrdReq.Quantity,
+                Timestamp = Convert.ToInt64(elaped.TotalSeconds),
+            };
+
+
+            string strLegOrdAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+            socket.Send(strLegOrdAck);
+
+        }
+
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
         {
             SubscriptionMsg subscrMsg = JsonConvert.DeserializeObject<SubscriptionMsg>(m);
@@ -536,6 +569,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ProcessClientLogoutMock(socket);
                    
+                }
+                else if (wsResp.Msg == "LegacyOrderReq")
+                {
+
+                    ProcessLegacyOrderReqMock(socket,m);
+
                 }
                 else if (wsResp.Msg == "Subscribe")
                 {

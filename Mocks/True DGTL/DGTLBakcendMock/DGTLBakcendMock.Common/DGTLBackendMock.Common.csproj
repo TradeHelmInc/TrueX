@@ -70,8 +70,10 @@
     <Compile Include="DTO\Subscription\WebSocketSubscribeMessage.cs" />
     <Compile Include="DTO\UnknownMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\AttributeConverter.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
     <Compile Include="Wrappers\MarketDataRequestWrapper.cs" />
+    <Compile Include="Wrappers\NewOrderSingleWrapper.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
