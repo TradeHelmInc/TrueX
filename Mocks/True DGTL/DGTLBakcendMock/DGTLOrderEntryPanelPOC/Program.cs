@@ -52,6 +52,7 @@ namespace DGTLOrderEntryPanelPOC
             {
                 Msg = "Subscribe",
                 Sender = 0,
+                UUID = "OrderEntryPanelPOCUUID",
                 UserId = ClientLoginResponse.UserId,
                 SubscriptionType = "S",
                 JsonWebToken = ClientLoginResponse.JsonWebToken,

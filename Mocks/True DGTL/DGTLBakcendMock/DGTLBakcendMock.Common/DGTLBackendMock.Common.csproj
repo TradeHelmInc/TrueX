@@ -63,7 +63,6 @@
     <Compile Include="DTO\SecurityList\SecurityMasterRecord.cs" />
     <Compile Include="DTO\SecurityList\UserRecord.cs" />
     <Compile Include="DTO\SecurityMapping.cs" />
-    <Compile Include="DTO\Subscription\SubscriptionMsg.cs" />
     <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />
     <Compile Include="DTO\WebSocketMessage.cs" />
     <Compile Include="DTO\ErrorMessage.cs" />

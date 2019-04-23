@@ -75,6 +75,7 @@ namespace DGTLSecurityListPOC
                 Msg = "Subscribe",
                 Sender = 0,
                 UserId = ClientLoginResponse.UserId,
+                UUID = "SecurityListPOCUUID",
                 SubscriptionType = "S",
                 JsonWebToken = ClientLoginResponse.JsonWebToken,
                 Service = "TA",

@@ -93,6 +93,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 };
 
+
                 DoLog(string.Format("user {0} Successfully logged in", wsLogin.UUID), MessageType.Information);
 
                 string respMsg = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
@@ -152,7 +153,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         
 
-        protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, bool success=true, string msg ="")
+        protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, string UUID, bool success=true, string msg ="")
         {
             SubscriptionResponse resp = new SubscriptionResponse()
             {
@@ -160,6 +161,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Success = success,
                 Service = service,
                 ServiceKey = serviceKey,
+                UUID = UUID,
                 Msg = "SubscriptionResponse"
 
             };
@@ -174,12 +176,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        protected void ProcessUserRecord(IWebSocketConnection socket, string userId)
+        protected void ProcessUserRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            if (userId != "*")
+            if (subscrMsg.ServiceKey != "*")
             {
 
-                UserRecord userRecord = UserRecords.Where(x => x.UserId == userId).FirstOrDefault();
+                UserRecord userRecord = UserRecords.Where(x => x.UserId == subscrMsg.ServiceKey).FirstOrDefault();
 
                 if (userRecord != null)
                     DoSend<UserRecord>(socket, userRecord);
@@ -192,7 +194,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
 
             }
-            ProcessSubscriptionResponse(socket, "TB", userId);
+            ProcessSubscriptionResponse(socket, "TB", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
         #endregion

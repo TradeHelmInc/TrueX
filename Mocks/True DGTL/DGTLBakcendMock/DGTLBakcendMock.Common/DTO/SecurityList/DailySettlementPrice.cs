@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.SecurityList
 {
-    public class DailySettlementPrice : SubscriptionMsg
+    public class DailySettlementPrice : WebSocketMessage
     {
+        public string Service { get; set; }
+
+        public string Symbol { get; set; }
+
         public DateTime DSPDate { get; set; }
 
         public string DSPTime { get; set; }

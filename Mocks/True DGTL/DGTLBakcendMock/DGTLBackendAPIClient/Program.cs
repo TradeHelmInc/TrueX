@@ -251,6 +251,7 @@ namespace DGTLBackendAPIClient
                 {
                     Msg = "Subscribe",
                     Sender = 0,
+                    UUID="APIClientUUID",
                     UserId = UserId,
                     SubscriptionType = "S",
                     JsonWebToken = JWTToken,

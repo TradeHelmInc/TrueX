@@ -163,14 +163,14 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            string symbol = (string)paramArray[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
             bool subscResp = false;
 
             try
             {
                 while (true)
                 {
-                    LastSale lastSale = LastSales.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    LastSale lastSale = LastSales.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (lastSale != null)
                     {
                         string strLastSale = JsonConvert.SerializeObject(lastSale, Newtonsoft.Json.Formatting.None,
@@ -183,14 +183,14 @@ namespace DGTLBackendMock.DataAccessLayer
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
-                            ProcessSubscriptionResponse(socket, "LS", symbol);
+                            ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID);
                             Thread.Sleep(2000);
                             subscResp = true;
                         }
                     }
                     else
                     {
-                        DoLog(string.Format("Last Sales not found for symbol {0}...", symbol), MessageType.Information);
+                        DoLog(string.Format("Last Sales not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
                 }
@@ -205,14 +205,14 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            string symbol = (string)paramArray[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
             bool subscResp = false;
 
             try
             {
                 while (true)
                 {
-                    Quote quote = Quotes.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    Quote quote = Quotes.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (quote != null)
                     {
                         string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
@@ -225,14 +225,14 @@ namespace DGTLBackendMock.DataAccessLayer
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
-                            ProcessSubscriptionResponse(socket, "LQ", symbol);
+                            ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
                             Thread.Sleep(2000);
                             subscResp = true;
                         }
                     }
                     else
                     {
-                        DoLog(string.Format("Quotes not found for symbol {0}...", symbol), MessageType.Information);
+                        DoLog(string.Format("Quotes not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
                 }
@@ -247,14 +247,14 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            string symbol = (string)paramArray[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
             bool subscResp = false;
 
             try
             {
                 while (true)
                 {
-                    DailySettlementPrice dailySettl= DailySettlementPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    DailySettlementPrice dailySettl= DailySettlementPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (dailySettl != null)
                     {
                         string strDailySettl = JsonConvert.SerializeObject(dailySettl, Newtonsoft.Json.Formatting.None,
@@ -267,14 +267,14 @@ namespace DGTLBackendMock.DataAccessLayer
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
-                            ProcessSubscriptionResponse(socket, "FP", symbol);
+                            ProcessSubscriptionResponse(socket, "FP", subscrMsg.ServiceKey, subscrMsg.UUID);
                             Thread.Sleep(2000);
                             subscResp = true;
                         }
                     }
                     else
                     {
-                        DoLog(string.Format("Daily Settlement Price not found for symbol {0}...", symbol), MessageType.Information);
+                        DoLog(string.Format("Daily Settlement Price not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
                 }
@@ -314,14 +314,14 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            string symbol = (string)paramArray[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
             bool subscResp = false;
 
             try
             {
                 while (true)
                 {
-                    OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (officialFixingPrice != null)
                     {
                         string strOfficialFixingPrice  = JsonConvert.SerializeObject(officialFixingPrice, Newtonsoft.Json.Formatting.None,
@@ -334,14 +334,14 @@ namespace DGTLBackendMock.DataAccessLayer
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
-                            ProcessSubscriptionResponse(socket, "FD", symbol);
+                            ProcessSubscriptionResponse(socket, "FD", subscrMsg.ServiceKey, subscrMsg.UUID);
                             Thread.Sleep(2000);
                             subscResp = true;
                         }
                     }
                     else
                     {
-                        DoLog(string.Format("Official Fixing Price not found for symbol {0}...", symbol), MessageType.Information);
+                        DoLog(string.Format("Official Fixing Price not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
                 }
@@ -353,85 +353,85 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessLastSale(IWebSocketConnection socket,string symbol)
+        private void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
             Thread ProcessLastSaleThread = new Thread(LastSaleThread);
-            ProcessLastSaleThread.Start(new object[] { socket, symbol });
+            ProcessLastSaleThread.Start(new object[] { socket, subscrMsg});
         
         }
 
-        private void ProcessQuote(IWebSocketConnection socket, string symbol)
+        private void ProcessQuote(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
             Thread ProcessQuoteThread = new Thread(QuoteThread);
-            ProcessQuoteThread.Start(new object[] { socket, symbol });
+            ProcessQuoteThread.Start(new object[] { socket, subscrMsg });
 
         }
 
-        private void ProcessDailySettlement(IWebSocketConnection socket, string symbol)
+        private void ProcessDailySettlement(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            EvalDailySettlementPriceWarnings(symbol);
+            EvalDailySettlementPriceWarnings(subscrMsg.ServiceKey);
             Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
-            ProcessDailySettlementThread.Start(new object[] { socket, symbol });
+            ProcessDailySettlementThread.Start(new object[] { socket, subscrMsg });
 
         }
 
-        
 
-        private void ProcessAccountRecord(IWebSocketConnection socket, string key)
+
+        private void ProcessAccountRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            if (key != "*")
+            if (subscrMsg.ServiceKey != "*")
             {
-                if (key.EndsWith("@*"))
-                    key = key.Replace("@*", "");
+                if (subscrMsg.ServiceKey.EndsWith("@*"))
+                    subscrMsg.ServiceKey = subscrMsg.ServiceKey.Replace("@*", "");
 
-                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == key).ToList();
+                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == subscrMsg.ServiceKey).ToList();
 
                 accountRecords.ForEach(x => DoSend<AccountRecord>(socket,x));
             }
             else
                 AccountRecords.ToList().ForEach(x => DoSend<AccountRecord>(socket, x));
 
-            ProcessSubscriptionResponse(socket, "TD", key);
+            ProcessSubscriptionResponse(socket, "TD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
-        private void ProcessOrderBookDepth(IWebSocketConnection socket, string key)
+        private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
 
-            List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == key).ToList();
+            List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
 
             depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
 
             //Now we have to launch something to create deltas (insert, change, remove)
 
-            ProcessSubscriptionResponse(socket, "LD", key);
+            ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
 
-        private void ProcessCreditRecordUpdates(IWebSocketConnection socket, string key)
+        private void ProcessCreditRecordUpdates(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            if (key != "*")
+            if (subscrMsg.ServiceKey != "*")
             {
-                if (key.EndsWith("@*"))
-                    key = key.Replace("@*", "");
+                if (subscrMsg.ServiceKey.EndsWith("@*"))
+                    subscrMsg.ServiceKey = subscrMsg.ServiceKey.Replace("@*", "");
 
-                DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == key).FirstOrDefault();
+                DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == subscrMsg.ServiceKey).FirstOrDefault();
 
                 if (creditRecordUpdate != null)
                     DoSend<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate>(socket, creditRecordUpdate);
             }
-            
 
-            ProcessSubscriptionResponse(socket, "CU", key);
+
+            ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
-        private void ProcessOficialFixingPrice(IWebSocketConnection socket, string symbol)
+        private void ProcessOficialFixingPrice(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            EvalDailyOfficialFixingPriceWarnings(symbol);
+            EvalDailyOfficialFixingPriceWarnings(subscrMsg.ServiceKey);
             Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
-            ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, symbol });
+            ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, subscrMsg });
         }
 
-        private void ProcessSecurityMasterRecord(IWebSocketConnection socket)
+        private void ProcessSecurityMasterRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             foreach (SecurityMasterRecord sec in SecurityMasterRecords)
             {
@@ -445,7 +445,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 socket.Send(secMasterRecord);
             }
             Thread.Sleep(2000);
-            ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*");
+            ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*", subscrMsg.UUID);
         }
 
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
@@ -482,51 +482,51 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
         {
-            SubscriptionMsg subscrMsg = JsonConvert.DeserializeObject<SubscriptionMsg>(m);
+            WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
             DoLog(string.Format("Incoming subscription for service {0}", subscrMsg.Service), MessageType.Information);
 
 
             if (subscrMsg.Service == "TA")
             {
-                ProcessSecurityMasterRecord(socket);
+                ProcessSecurityMasterRecord(socket, subscrMsg);
                 
             }
             else if (subscrMsg.Service == "LS")
             {
                 if(subscrMsg.ServiceKey!=null)
-                    ProcessLastSale(socket,subscrMsg.ServiceKey);
+                    ProcessLastSale(socket,subscrMsg);
             }
             else if (subscrMsg.Service == "LQ")
             {
                 if (subscrMsg.ServiceKey != null)
-                    ProcessQuote(socket, subscrMsg.ServiceKey);
+                    ProcessQuote(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FP")
             {
                 if (subscrMsg.ServiceKey != null)
-                    ProcessOficialFixingPrice(socket, subscrMsg.ServiceKey);
+                    ProcessOficialFixingPrice(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FD")
             {
                 if (subscrMsg.ServiceKey != null)
-                    ProcessDailySettlement(socket, subscrMsg.ServiceKey);
+                    ProcessDailySettlement(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "TB")
             {
-                ProcessUserRecord(socket, subscrMsg.ServiceKey);
+                ProcessUserRecord(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "TD")
             {
-                ProcessAccountRecord(socket, subscrMsg.ServiceKey);
+                ProcessAccountRecord(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "CU")
             {
-                ProcessCreditRecordUpdates(socket, subscrMsg.ServiceKey);
+                ProcessCreditRecordUpdates(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "LD")
             {
-                ProcessOrderBookDepth(socket, subscrMsg.ServiceKey);
+                ProcessOrderBookDepth(socket, subscrMsg);
             }
 
         }

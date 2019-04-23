@@ -158,7 +158,7 @@ namespace DGTLBackendMock.DataAccessLayer
             SecurityMasterRecords = JsonConvert.DeserializeObject<SecurityMasterRecord[]>(strSecurityMasterRecords);
         }
 
-        private void ProcessSecurityMasterRecord(IWebSocketConnection socket)
+        private void ProcessSecurityMasterRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             foreach (SecurityMasterRecord sec in SecurityMasterRecords)
             {
@@ -172,7 +172,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 socket.Send(secMasterRecord);
             }
             Thread.Sleep(2000);
-            ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*");
+            ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
         }
 
         private void ProcessLastSaleThread(object param)
@@ -180,6 +180,7 @@ namespace DGTLBackendMock.DataAccessLayer
             object[] parameters = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
             SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
 
             try
             {
@@ -212,7 +213,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                             if (secMapping.PendingLSResponse)
                             {
-                                ProcessSubscriptionResponse(socket, "LS", secMapping.IncomingSymbol);
+                                ProcessSubscriptionResponse(socket, "LS", secMapping.IncomingSymbol, subscrMsg.UUID);
                                 secMapping.PendingLSResponse = false;
                             }
                     
@@ -234,6 +235,7 @@ namespace DGTLBackendMock.DataAccessLayer
             object[] parameters = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
             SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
 
             try
             {
@@ -265,7 +267,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                             if (secMapping.PendingLQResponse)
                             {
-                                ProcessSubscriptionResponse(socket, "LQ", secMapping.IncomingSymbol);
+                                ProcessSubscriptionResponse(socket, "LQ", secMapping.IncomingSymbol, subscrMsg.UUID);
                                 secMapping.PendingLQResponse = false;
                             }
 
@@ -379,6 +381,7 @@ namespace DGTLBackendMock.DataAccessLayer
             object[] parameters = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
             SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
 
             try
             {
@@ -414,7 +417,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                             if (secMapping.PendingLDResponse)
                             {
-                                ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol);
+                                ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID);
                                 secMapping.PendingLDResponse = false;
                             }
 
@@ -447,13 +450,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void ProcessLastSale(IWebSocketConnection socket, string symbol)
+        private void ProcessLastSale(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
             {
-                if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
+                if (SecurityMappings.Any(x => x.IncomingSymbol == subscrMsg.ServiceKey))
                 {
-                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 
                     if (!secMapping.SubscribedMarketData())
                     {
@@ -463,23 +466,23 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
 
                     Thread processLastSaleThread = new Thread(ProcessLastSaleThread);
-                    processLastSaleThread.Start(new object[] { socket, secMapping });
+                    processLastSaleThread.Start(new object[] { socket, secMapping, subscrMsg });
                   
                 }
             }
             catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
+                ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             }
         }
 
-        private void ProcessLastQuote(IWebSocketConnection socket, string symbol)
+        private void ProcessLastQuote(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
             {
-                if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
+                if (SecurityMappings.Any(x => x.IncomingSymbol == subscrMsg.ServiceKey))
                 {
-                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 
                     if (!secMapping.SubscribedMarketData())
                     {
@@ -490,7 +493,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
 
                     Thread processLastQuoteThread = new Thread(ProcessLastQuoteThread);
-                    processLastQuoteThread.Start(new object[] { socket, secMapping });
+                    processLastQuoteThread.Start(new object[] { socket, secMapping, subscrMsg });
 
                 }
 
@@ -498,7 +501,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
+                ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             }
         }
 
@@ -539,13 +542,13 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessOrderBookDepth(IWebSocketConnection socket, string symbol)
+        private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
             {
-                if (SecurityMappings.Any(x => x.IncomingSymbol == symbol))
+                if (SecurityMappings.Any(x => x.IncomingSymbol == subscrMsg.ServiceKey))
                 {
-                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 
                     if (!secMapping.SubscribedMarketData())
                     {
@@ -556,7 +559,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
 
                     Thread processOrderBookDepthThread = new Thread(ProcessOrderBookDepthThread);
-                    processOrderBookDepthThread.Start(new object[] { socket, secMapping });
+                    processOrderBookDepthThread.Start(new object[] { socket, secMapping, subscrMsg });
 
                 }
 
@@ -564,57 +567,57 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "SubscriptionResponse", symbol, false, ex.Message);
+                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             }
         }
 
         private void ProcessSubscriptions(IWebSocketConnection socket, string m)
         {
-            SubscriptionMsg subscrMsg = JsonConvert.DeserializeObject<SubscriptionMsg>(m);
+            WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
             DoLog(string.Format("Incoming subscription for service {0}", subscrMsg.Service), MessageType.Information);
 
 
             if (subscrMsg.Service == "TA")
             {
-                ProcessSecurityMasterRecord(socket);
+                ProcessSecurityMasterRecord(socket,subscrMsg);
 
             }
             else if (subscrMsg.Service == "LS")
             {
                 if (subscrMsg.ServiceKey != null)
-                    ProcessLastSale(socket, subscrMsg.ServiceKey);
+                    ProcessLastSale(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "LQ")
             {
                 if (subscrMsg.ServiceKey != null)
-                    ProcessLastQuote(socket, subscrMsg.ServiceKey);
+                    ProcessLastQuote(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FP")
             {
                 //if (subscrMsg.ServiceKey != null)
-                //    ProcessOficialFixingPrice(socket, subscrMsg.ServiceKey);
+                //    ProcessOficialFixingPrice(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FD")
             {
                 //if (subscrMsg.ServiceKey != null)
-                //    ProcessDailySettlement(socket, subscrMsg.ServiceKey);
+                //    ProcessDailySettlement(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "TB")
             {
-                ProcessUserRecord(socket, subscrMsg.ServiceKey);
+                ProcessUserRecord(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "TD")
             {
-                //ProcessAccountRecord(socket, subscrMsg.ServiceKey);
+                //ProcessAccountRecord(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "CU")
             {
-                //ProcessCreditRecordUpdates(socket, subscrMsg.ServiceKey);
+                //ProcessCreditRecordUpdates(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "LD")
             {
-                ProcessOrderBookDepth(socket, subscrMsg.ServiceKey);
+                ProcessOrderBookDepth(socket, subscrMsg);
             }
 
         }

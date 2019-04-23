@@ -1,0 +1,77 @@
+2019-04-22 10:21:48  :: Initializing Mock Simulated Server...
+2019-04-22 10:21:48  :: Initializing all collections...
+2019-04-22 10:21:49  :: 4/22/2019 10:21:49 AMBaseCommunicationModule.LoadConfig
+2019-04-22 10:21:49  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:21:49  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:21:49  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-22 10:21:52  :: 4/22/2019 10:21:52 AMOrderRouterBase.LoadConfig
+2019-04-22 10:21:52  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:21:52  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:21:52  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-22 10:21:53  :: Collections Initialized...
+2019-04-22 10:21:53  :: Successfully subscribed to execution event 
+2019-04-22 10:23:26  :: Incoming Login request for user MM1_CLOBUI
+2019-04-22 10:23:26  :: user MM1_CLOBUI Successfully logged in
+2019-04-22 10:23:26  :: Incoming subscription for service LD
+2019-04-22 10:23:26  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-22 10:23:26  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-22 10:23:27  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-22 10:23:27  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5814 TickDirection=ZeroMinusTick
+2019-04-22 10:23:27  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22634 Best Bid Price=5814 Best Ask Size=5975 Best Ask Price=8776.5
+2019-04-22 10:23:39  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22634 Best Bid Price=5814 Best Ask Size=5973 Best Ask Price=8776.5
+2019-04-22 10:23:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22634 Best Bid Price=5814 Best Ask Size=5972 Best Ask Price=8776.5
+2019-04-22 10:24:05  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22631 Best Bid Price=5814 Best Ask Size=5972 Best Ask Price=8776.5
+2019-04-22 10:24:05  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=3 Price=5814 TickDirection=ZeroMinusTick
+2019-04-22 10:24:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22627 Best Bid Price=5814 Best Ask Size=5972 Best Ask Price=8776.5
+2019-04-22 10:24:13  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=4 Price=5814 TickDirection=ZeroMinusTick
+2019-04-22 10:24:19  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22627 Best Bid Price=5814 Best Ask Size=5973 Best Ask Price=8776.5
+2019-04-22 10:24:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22627 Best Bid Price=5814 Best Ask Size=5972 Best Ask Price=8776.5
+2019-04-22 10:24:59  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=22627 Best Bid Price=5814 Best Ask Size=5975 Best Ask Price=8776.5
+2019-04-22 10:25:20  :: Initializing Mock Simulated Server...
+2019-04-22 10:25:20  :: Initializing all collections...
+2019-04-22 10:25:20  :: 4/22/2019 10:25:20 AMBaseCommunicationModule.LoadConfig
+2019-04-22 10:25:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:25:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:25:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-22 10:25:24  :: 4/22/2019 10:25:24 AMOrderRouterBase.LoadConfig
+2019-04-22 10:25:24  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:25:24  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:25:24  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-22 10:25:25  :: Collections Initialized...
+2019-04-22 10:25:25  :: Successfully subscribed to execution event 
+2019-04-22 10:27:00  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-22 10:27:00  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-22 10:27:08  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-22 10:27:08  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-22 10:27:41  :: Initializing Mock Simulated Server...
+2019-04-22 10:27:41  :: Initializing all collections...
+2019-04-22 10:27:41  :: 4/22/2019 10:27:41 AMBaseCommunicationModule.LoadConfig
+2019-04-22 10:27:41  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:27:41  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:27:41  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-22 10:27:44  :: 4/22/2019 10:27:44 AMOrderRouterBase.LoadConfig
+2019-04-22 10:27:44  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:27:44  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:27:44  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-22 10:27:45  :: Collections Initialized...
+2019-04-22 10:27:46  :: Successfully subscribed to execution event 
+2019-04-22 10:28:12  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-22 10:28:12  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-22 10:28:18  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-22 10:28:18  :: Unknown order processing execution report for OrderId f593987b-5444-bf5a-e37a-0feeb48b5747 
+2019-04-22 10:29:20  :: Initializing Mock Simulated Server...
+2019-04-22 10:29:20  :: Initializing all collections...
+2019-04-22 10:29:20  :: 4/22/2019 10:29:20 AMBaseCommunicationModule.LoadConfig
+2019-04-22 10:29:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:29:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-22 10:29:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-22 10:29:23  :: 4/22/2019 10:29:23 AMOrderRouterBase.LoadConfig
+2019-04-22 10:29:23  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:29:23  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-22 10:29:23  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-22 10:29:24  :: Collections Initialized...
+2019-04-22 10:29:24  :: Successfully subscribed to execution event 
+2019-04-22 10:29:28  :: Incoming Login request for user MM2_CLOBUI2
+2019-04-22 10:29:28  :: user MM2_CLOBUI2 Successfully logged in
+2019-04-22 10:29:33  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-04-22 10:29:34  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19

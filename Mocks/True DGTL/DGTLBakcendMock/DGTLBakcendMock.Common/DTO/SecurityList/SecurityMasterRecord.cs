@@ -9,8 +9,12 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 {
 
 
-    public class SecurityMasterRecord : SubscriptionMsg
+    public class SecurityMasterRecord : WebSocketMessage
     {
+        public string SymbolId { get; set; }
+
+        public string Symbol { get; set; }
+
         public string Description { get; set; }
 
         public string SecurityType { get; set; }

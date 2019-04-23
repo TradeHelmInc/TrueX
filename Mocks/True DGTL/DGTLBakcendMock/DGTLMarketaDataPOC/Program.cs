@@ -48,6 +48,7 @@ namespace DGTLMarketaDataPOC
             {
                 Msg = "Subscribe",
                 Sender = 0,
+                UUID = "MarketDataPOCUUID",
                 UserId = ClientLoginResponse.UserId,
                 SubscriptionType = "S",
                 JsonWebToken = ClientLoginResponse.JsonWebToken,

@@ -43,6 +43,7 @@ namespace DGTLOrderBookPOC
             {
                 Msg = "Subscribe",
                 Sender = 0,
+                UUID = "OrderBookPOCUUID",
                 UserId = ClientLoginResponse.UserId,
                 SubscriptionType = "S",
                 JsonWebToken = ClientLoginResponse.JsonWebToken,
@@ -107,32 +108,7 @@ namespace DGTLOrderBookPOC
             lock (Security)
             {
 
-                if (depthOfBookDelta.cAction == DepthOfBook._ACTION_SNAPSHOT)
-                {
-                    InitialSnapshotReceived = true;
-                    //We have the initial snapshot for a given price level. 
-                    // If it didn't exsist (first snapshot), we just add it to the price level list
-                    // If it existed (maybe because we wanted some snapshot refresh), we just update its quantity
-                    PriceLevel pl = Security.MarketData.OrderBook.Where(x => x.Price == depthOfBookDelta.Price
-                                                                            && x.IsBidOrAsk(depthOfBookDelta.IsBid())).FirstOrDefault();
-
-                    if (pl != null)
-                    {
-                        pl.Size = depthOfBookDelta.Size;
-                    }
-                    else
-                    {
-                        PriceLevel newPl = new PriceLevel()
-                                                            {
-                                                                Price = depthOfBookDelta.Price,
-                                                                Size = depthOfBookDelta.Size,
-                                                                OrderBookEntryType = depthOfBookDelta.IsBid() ? OrderBookEntryType.Bid : OrderBookEntryType.Ask
-                                                            };
-                        Security.MarketData.OrderBook.Add(newPl);
-                    }
-
-                }
-                else if (depthOfBookDelta.cAction == DepthOfBook._ACTION_INSERT)
+                if (depthOfBookDelta.cAction == DepthOfBook._ACTION_INSERT)
                 {
                     InitialSnapshotReceived = true;
                     // If the price level existed, we create the price level but a HUGE warning (WARNING3) should be logged

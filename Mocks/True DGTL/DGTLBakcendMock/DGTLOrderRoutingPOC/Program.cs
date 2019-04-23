@@ -38,6 +38,7 @@ namespace DGTLOrderRoutingPOC
             {
                 Msg = "Subscribe",
                 Sender = 0,
+                UUID = "OrderRoutingPOCUUID",
                 UserId = ClientLoginResponse.UserId,
                 SubscriptionType = "S",
                 JsonWebToken = ClientLoginResponse.JsonWebToken,

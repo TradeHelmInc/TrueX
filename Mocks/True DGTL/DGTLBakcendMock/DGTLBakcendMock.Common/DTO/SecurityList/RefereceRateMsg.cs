@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.SecurityList
 {
-    public class RefereceRateMsg : SubscriptionMsg
+    public class RefereceRateMsg : WebSocketSubscribeMessage
     {
         public DateTime FixingDate { get; set; }
 

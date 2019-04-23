@@ -1,0 +1,121 @@
+2019-04-23 17:16:30  :: Initializing Mock Server...
+2019-04-23 17:16:30  :: Initializing all collections...
+2019-04-23 17:16:30  :: Collections Initialized...
+2019-04-23 17:16:39  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:16:39  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:16:39  :: Incoming subscription for service TA
+2019-04-23 17:16:57  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:16:57  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:16:57  :: Incoming subscription for service LS
+2019-04-23 17:16:57  :: Last Sales not found for symbol SWP-XBT-USD-G19...
+2019-04-23 17:16:58  :: Incoming subscription for service LQ
+2019-04-23 17:16:58  :: Quotes not found for symbol SWP-XBT-USD-G19...
+2019-04-23 17:16:59  :: Incoming subscription for service FD
+2019-04-23 17:17:00  :: Incoming subscription for service FP
+2019-04-23 17:17:12  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:17:12  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:17:12  :: Incoming subscription for service LD
+2019-04-23 17:17:20  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:17:20  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:17:20  :: Incoming subscription for service TB
+2019-04-23 17:17:20  :: Incoming subscription for service TD
+2019-04-23 17:17:20  :: Incoming subscription for service CU
+2019-04-23 17:17:50  :: Initializing Mock Server...
+2019-04-23 17:17:50  :: Initializing all collections...
+2019-04-23 17:17:50  :: Collections Initialized...
+2019-04-23 17:19:19  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-23 17:19:19  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-23 17:19:27  :: Incoming subscription for service LD
+2019-04-23 17:38:13  :: Initializing Mock Server...
+2019-04-23 17:38:13  :: Initializing all collections...
+2019-04-23 17:38:14  :: Collections Initialized...
+2019-04-23 17:38:49  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:38:49  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:38:49  :: Incoming subscription for service LD
+2019-04-23 17:39:24  :: Initializing Mock Server...
+2019-04-23 17:39:24  :: Initializing all collections...
+2019-04-23 17:39:25  :: Collections Initialized...
+2019-04-23 17:40:10  :: Initializing Mock Server...
+2019-04-23 17:40:10  :: Initializing all collections...
+2019-04-23 17:40:11  :: Collections Initialized...
+2019-04-23 17:40:27  :: Incoming Login request for user MM1_CLOBUI2
+2019-04-23 17:40:27  :: user MM1_CLOBUI2 Successfully logged in
+2019-04-23 17:40:31  :: Incoming subscription for service LD
+2019-04-23 17:42:15  :: Initializing Mock Simulated Server...
+2019-04-23 17:42:15  :: Initializing all collections...
+2019-04-23 17:42:16  :: 4/23/2019 5:42:16 PMBaseCommunicationModule.LoadConfig
+2019-04-23 17:42:16  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:42:16  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:42:16  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-23 17:42:21  :: 4/23/2019 5:42:21 PMOrderRouterBase.LoadConfig
+2019-04-23 17:42:21  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:42:21  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:42:21  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-23 17:42:23  :: Collections Initialized...
+2019-04-23 17:42:24  :: Successfully subscribed to execution event 
+2019-04-23 17:44:09  :: Initializing Mock Simulated Server...
+2019-04-23 17:44:09  :: Initializing all collections...
+2019-04-23 17:44:09  :: 4/23/2019 5:44:09 PMBaseCommunicationModule.LoadConfig
+2019-04-23 17:44:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:44:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:44:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-23 17:44:12  :: 4/23/2019 5:44:12 PMOrderRouterBase.LoadConfig
+2019-04-23 17:44:12  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:44:12  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:44:12  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-23 17:44:13  :: Collections Initialized...
+2019-04-23 17:44:14  :: Successfully subscribed to execution event 
+2019-04-23 17:45:16  :: Initializing Mock Simulated Server...
+2019-04-23 17:45:16  :: Initializing all collections...
+2019-04-23 17:45:16  :: 4/23/2019 5:45:16 PMBaseCommunicationModule.LoadConfig
+2019-04-23 17:45:16  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:45:16  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-23 17:45:16  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-23 17:45:21  :: 4/23/2019 5:45:21 PMOrderRouterBase.LoadConfig
+2019-04-23 17:45:21  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:45:21  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-23 17:45:21  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-23 17:45:22  :: Collections Initialized...
+2019-04-23 17:45:23  :: Successfully subscribed to execution event 
+2019-04-23 17:45:35  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:45:35  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:45:35  :: Incoming subscription for service TA
+2019-04-23 17:45:44  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:45:44  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:45:44  :: Incoming subscription for service LS
+2019-04-23 17:45:44  :: @Incoming Bitmex:Requesting market data por symbol XBTM19
+2019-04-23 17:45:45  :: Successfully subscribed to orderBookL2 event on symbol XBTM19
+2019-04-23 17:45:45  :: Successfully subscribed to trade event on symbol XBTM19
+2019-04-23 17:45:45  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Sell Size=2 Price=5811.5 TickDirection=MinusTick
+2019-04-23 17:45:45  :: Incoming subscription for service LQ
+2019-04-23 17:45:46  :: Incoming subscription for service FD
+2019-04-23 17:45:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:47  :: Incoming subscription for service FP
+2019-04-23 17:45:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:49  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:50  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:52  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2999 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:45:56  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:45:56  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:45:56  :: Incoming subscription for service LD
+2019-04-23 17:45:56  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-23 17:45:56  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-23 17:45:56  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-23 17:45:56  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=7 Price=6037.5 TickDirection=MinusTick
+2019-04-23 17:45:56  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=60401 Best Bid Price=6035.5 Best Ask Size=60401 Best Ask Price=6044.5
+2019-04-23 17:46:06  :: Incoming Login request for user MM1_CLOBUI
+2019-04-23 17:46:06  :: user MM1_CLOBUI Successfully logged in
+2019-04-23 17:46:06  :: Incoming subscription for service TB
+2019-04-23 17:46:06  :: Incoming subscription for service TD
+2019-04-23 17:46:06  :: Incoming subscription for service CU
+2019-04-23 17:46:11  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:46:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:46:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:46:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:46:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=378 Best Ask Price=5971
+2019-04-23 17:46:17  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=368 Best Ask Price=5971
+2019-04-23 17:46:17  :: @Incoming Bitmex:NEW TRADE for symbol XBTM19: Side=Buy Size=10 Price=5971 TickDirection=PlusTick
+2019-04-23 17:46:18  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTM19: Best Bid Size=2989 Best Bid Price=5811.5 Best Ask Size=368 Best Ask Price=5971
