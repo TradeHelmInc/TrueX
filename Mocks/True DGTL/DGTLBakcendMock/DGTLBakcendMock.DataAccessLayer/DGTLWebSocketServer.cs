@@ -40,6 +40,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
 
+        protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessDailySettlementThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessDailyOfficialFixingPriceThreads { get; set; }
+
+
+        protected bool Connected { get; set; }
+
+        protected object tLock = new object();
+
         #endregion
 
         #region Constructors
@@ -51,6 +64,16 @@ namespace DGTLBackendMock.DataAccessLayer
             HeartbeatSeqNum = 1;
 
             UserLogged = false;
+
+            Connected = false;
+
+            ProcessLastSaleThreads = new Dictionary<string, Thread>();
+
+            ProcessLastQuoteThreads = new Dictionary<string, Thread>();
+
+            ProcessDailySettlementThreads = new Dictionary<string, Thread>();
+
+            ProcessDailyOfficialFixingPriceThreads = new Dictionary<string, Thread>();
 
             Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
             {
@@ -94,6 +117,53 @@ namespace DGTLBackendMock.DataAccessLayer
         #endregion
 
         #region Private Methods
+
+        private void DoCLoseThread(object p)
+        {
+            lock (tLock)
+            {
+
+                ProcessLastSaleThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessLastSaleThreads.Clear();
+
+                ProcessLastQuoteThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessLastQuoteThreads.Clear();
+
+                ProcessDailyOfficialFixingPriceThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessDailyOfficialFixingPriceThreads.Clear();
+
+                ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessDailySettlementThreads.Clear();
+
+                Connected = false;
+
+                DoLog("Turning threads off on socket disconnection", MessageType.Information);
+            }
+
+        }
+
+        private void DoClose()
+        {
+            Thread doCloseThread = new Thread(DoCLoseThread);
+            doCloseThread.Start();
+        }
+
+        protected  void DoSend<T>(IWebSocketConnection socket, T entity)
+        {
+            string strMsg = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.None,
+                              new JsonSerializerSettings
+                              {
+                                  NullValueHandling = NullValueHandling.Ignore
+                              });
+
+            if (socket.IsAvailable)
+            {
+                socket.Send(strMsg);
+            }
+            else
+                DoClose();
+
+        }
 
         private void LoadAccountRecords()
         {
@@ -173,13 +243,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     LastSale lastSale = LastSales.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (lastSale != null)
                     {
-                        string strLastSale = JsonConvert.SerializeObject(lastSale, Newtonsoft.Json.Formatting.None,
-                                new JsonSerializerSettings
-                                {
-                                    NullValueHandling = NullValueHandling.Ignore
-                                });
-
-                        socket.Send(strLastSale);
+                        DoSend<LastSale>(socket, lastSale);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
@@ -215,13 +279,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Quote quote = Quotes.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (quote != null)
                     {
-                        string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
-                                new JsonSerializerSettings
-                                {
-                                    NullValueHandling = NullValueHandling.Ignore
-                                });
-
-                        socket.Send(strQuote);
+                        DoSend<Quote>(socket, quote);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
@@ -257,13 +315,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     DailySettlementPrice dailySettl= DailySettlementPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (dailySettl != null)
                     {
-                        string strDailySettl = JsonConvert.SerializeObject(dailySettl, Newtonsoft.Json.Formatting.None,
-                                new JsonSerializerSettings
-                                {
-                                    NullValueHandling = NullValueHandling.Ignore
-                                });
-
-                        socket.Send(strDailySettl);
+                        DoSend<DailySettlementPrice>(socket, dailySettl);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
@@ -324,13 +376,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (officialFixingPrice != null)
                     {
-                        string strOfficialFixingPrice  = JsonConvert.SerializeObject(officialFixingPrice, Newtonsoft.Json.Formatting.None,
-                                new JsonSerializerSettings
-                                {
-                                    NullValueHandling = NullValueHandling.Ignore
-                                });
-
-                        socket.Send(strOfficialFixingPrice);
+                        DoSend<OfficialFixingPrice>(socket, officialFixingPrice);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
                         {
@@ -355,23 +401,47 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
-            Thread ProcessLastSaleThread = new Thread(LastSaleThread);
-            ProcessLastSaleThread.Start(new object[] { socket, subscrMsg});
+            if (!ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                lock (tLock)
+                {
+                    Thread ProcessLastSaleThread = new Thread(LastSaleThread);
+                    ProcessLastSaleThread.Start(new object[] { socket, subscrMsg });
+                    ProcessLastSaleThreads.Add(subscrMsg.ServiceKey, ProcessLastSaleThread);    
+                }
+            }
         
         }
 
         private void ProcessQuote(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
-            Thread ProcessQuoteThread = new Thread(QuoteThread);
-            ProcessQuoteThread.Start(new object[] { socket, subscrMsg });
+
+            if (!ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                lock (tLock)
+                {
+                    Thread ProcessQuoteThread = new Thread(QuoteThread);
+                    ProcessQuoteThread.Start(new object[] { socket, subscrMsg });
+                    ProcessLastQuoteThreads.Add(subscrMsg.ServiceKey, ProcessQuoteThread);
+                }
+            }
 
         }
 
         private void ProcessDailySettlement(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             EvalDailySettlementPriceWarnings(subscrMsg.ServiceKey);
-            Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
-            ProcessDailySettlementThread.Start(new object[] { socket, subscrMsg });
+
+
+            if (!ProcessDailySettlementThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                lock (tLock)
+                {
+                    Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
+                    ProcessDailySettlementThread.Start(new object[] { socket, subscrMsg });
+                    ProcessDailySettlementThreads.Add(subscrMsg.ServiceKey, ProcessDailySettlementThread);
+                }
+            }
 
         }
 
@@ -396,13 +466,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-
             List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
-
             depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
-
             //Now we have to launch something to create deltas (insert, change, remove)
-
+            Thread.Sleep(1000);
             ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
@@ -427,22 +494,22 @@ namespace DGTLBackendMock.DataAccessLayer
         private void ProcessOficialFixingPrice(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             EvalDailyOfficialFixingPriceWarnings(subscrMsg.ServiceKey);
-            Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
-            ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, subscrMsg });
+            if (!ProcessDailyOfficialFixingPriceThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                lock (tLock)
+                {
+                    Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
+                    ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, subscrMsg });
+                    ProcessDailyOfficialFixingPriceThreads.Add(subscrMsg.ServiceKey, ProcessDailyOfficialFixingPriceThread);
+                }
+            }
         }
 
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             foreach (SecurityMasterRecord sec in SecurityMasterRecords)
             {
-                string secMasterRecord = JsonConvert.SerializeObject(sec, Newtonsoft.Json.Formatting.None,
-                          new JsonSerializerSettings
-                          {
-                              NullValueHandling = NullValueHandling.Ignore
-                          });
-
-
-                socket.Send(secMasterRecord);
+                DoSend<SecurityMasterRecord>(socket, sec);
             }
             Thread.Sleep(2000);
             ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
@@ -469,15 +536,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Timestamp = Convert.ToInt64(elaped.TotalSeconds),
             };
 
-
-            string strLegOrdAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
-                        new JsonSerializerSettings
-                        {
-                            NullValueHandling = NullValueHandling.Ignore
-                        });
-
-            socket.Send(strLegOrdAck);
-
+            DoSend<LegacyOrderAck>(socket, legOrdAck);
         }
 
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
@@ -537,18 +596,25 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected override  void OnOpen(IWebSocketConnection socket)
         {
-            //socket.Send("Connection Opened");
-            Thread heartbeatThread = new Thread(ClientHeartbeatThread);
+            if (!Connected)
+            {
+                //socket.Send("Connection Opened");
+                Thread heartbeatThread = new Thread(ClientHeartbeatThread);
+                heartbeatThread.Start(socket);
 
-            heartbeatThread.Start(socket);
+                Connected = true;
+            }
+            else
+                socket.Send("Only 1 connection at a time allowed");
         }
 
         protected override void OnClose(IWebSocketConnection socket)
         {
 
-
+            DoClose();
         }
 
+       
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
             try
@@ -591,12 +657,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     };
 
-                    string strUnknownMsg = JsonConvert.SerializeObject(unknownMsg, Newtonsoft.Json.Formatting.None,
-                            new JsonSerializerSettings
-                            {
-                                NullValueHandling = NullValueHandling.Ignore
-                            });
-                    socket.Send(strUnknownMsg);
+                  
+                    DoSend<UnknownMessage>(socket, unknownMsg);
                 }
 
             }
@@ -609,12 +671,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 };
 
-                string strErrorMsg = JsonConvert.SerializeObject(errorMsg, Newtonsoft.Json.Formatting.None,
-                        new JsonSerializerSettings
-                        {
-                            NullValueHandling = NullValueHandling.Ignore
-                        });
-                socket.Send(strErrorMsg);
+                DoSend<UnknownMessage>(socket, errorMsg);
             }
 
         }

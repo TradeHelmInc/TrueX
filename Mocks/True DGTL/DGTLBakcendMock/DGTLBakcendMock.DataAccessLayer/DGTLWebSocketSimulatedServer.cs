@@ -30,6 +30,8 @@ namespace DGTLBackendMock.DataAccessLayer
     {
         #region Protected Attributes
 
+        protected bool Connected { get; set; }
+
         protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
 
         protected SecurityMapping[] SecurityMappings { get; set; }
@@ -40,11 +42,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected MarketDataConverter MarketDataConverter { get; set; }
 
+        protected Dictionary<string, Thread> ExecutionReportThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
+
+        protected Dictionary<string, Thread> ProcessOrderBookDepthThreads { get; set; }
+
+        protected Dictionary<string, Queue<ExecutionReport>> ExecutionReports { get; set; }
+
         protected ExecutionReportConverter ExecutionReportConverter { get; set; }
 
-        protected Thread ExecutionReportThread { get; set; }
-
-        protected Queue<ExecutionReport> ExecutionReports { get; set; }
+       
 
         protected int MarketDataRequestCounter { get; set; }
 
@@ -64,13 +74,23 @@ namespace DGTLBackendMock.DataAccessLayer
 
             MarketDataRequestCounter = 1;
 
-            ExecutionReports = new Queue<ExecutionReport>();
+            Connected = false;
+
+            ExecutionReports = new Dictionary<string, Queue<ExecutionReport>>();
 
             UserLogged = false;
 
             MarketDataConverter = new MarketDataConverter();
 
             ExecutionReportConverter = new ExecutionReportConverter();
+
+            ExecutionReportThreads = new Dictionary<string, Thread>();
+
+            ProcessLastSaleThreads = new Dictionary<string, Thread>();
+
+            ProcessLastQuoteThreads = new Dictionary<string, Thread>();
+
+            ProcessOrderBookDepthThreads = new Dictionary<string, Thread>();
 
             LoadSecurityMappings();
 
@@ -150,6 +170,18 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
+        private void DoSend(IWebSocketConnection socket,string msg)
+        {
+            if (socket.IsAvailable)
+            {
+                socket.Send(msg);
+            }
+            else
+                DoClose();
+        
+        
+        }
+
         private void LoadSecurityMasterRecords()
         {
             string strSecurityMasterRecords = File.ReadAllText(@".\input\SecurityMasterRecord.json");
@@ -169,7 +201,7 @@ namespace DGTLBackendMock.DataAccessLayer
                           });
 
 
-                socket.Send(secMasterRecord);
+                DoSend(socket,secMasterRecord);
             }
             Thread.Sleep(2000);
             ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
@@ -207,7 +239,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                         NullValueHandling = NullValueHandling.Ignore
                                     });
 
-                            socket.Send(strLastSale);
+                             DoSend(socket,strLastSale);
 
                        
 
@@ -262,7 +294,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                        NullValueHandling = NullValueHandling.Ignore
                                    });
 
-                            socket.Send(strQuote);
+                            DoSend(socket,strQuote);
 
 
 
@@ -310,7 +342,7 @@ namespace DGTLBackendMock.DataAccessLayer
                           NullValueHandling = NullValueHandling.Ignore
                       });
 
-                socket.Send(strLegacyOrderAck);
+                DoSend(socket,strLegacyOrderAck);
             }
             catch (Exception ex)
             {
@@ -322,7 +354,8 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             object[] parameters = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
-            string userId = (string)parameters[1];
+            SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            string userId = (string)parameters[2];
 
             try
             {
@@ -332,9 +365,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         while (ExecutionReports.Count > 0)
                         {
-                            ExecutionReport execReport = ExecutionReports.Dequeue();
-
-                            SecurityMapping secMapping = SecurityMappings.Where(x => x.OutgoingSymbol == execReport.Order.Symbol).FirstOrDefault();
+                            ExecutionReport execReport = ExecutionReports[secMapping.IncomingSymbol].Dequeue();
 
                             long timestamp = 0;
 
@@ -363,7 +394,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                       NullValueHandling = NullValueHandling.Ignore
                                   });
 
-                            socket.Send(strLegacyOrderAck);
+                            DoSend(socket,strLegacyOrderAck);
                         
                         }
                     }
@@ -422,7 +453,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                        NullValueHandling = NullValueHandling.Ignore
                                    });
                             firstSent = true;
-                            socket.Send(strDepthOfBook);
+                            DoSend(socket,strDepthOfBook);
 
                         
                         }
@@ -477,8 +508,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     secMapping.SubscribedLS = true;
                     secMapping.PendingLSResponse = true;
-                    Thread processLastSaleThread = new Thread(ProcessLastSaleThread);
-                    processLastSaleThread.Start(new object[] { socket, secMapping, subscrMsg });
+
+                    if (!ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+
+                        lock (ProcessLastSaleThreads)
+                        {
+                            Thread processLastSaleThread = new Thread(ProcessLastSaleThread);
+                            processLastSaleThread.Start(new object[] { socket, secMapping, subscrMsg });
+                            ProcessLastSaleThreads.Add(subscrMsg.ServiceKey, processLastSaleThread);
+                        }
+                    }
                   
                 }
             }
@@ -506,8 +546,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     secMapping.SubscribedLQ = true;
                     secMapping.PendingLQResponse = true;
-                    Thread processLastQuoteThread = new Thread(ProcessLastQuoteThread);
-                    processLastQuoteThread.Start(new object[] { socket, secMapping, subscrMsg });
+
+
+                    if (!ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        lock (ProcessLastQuoteThreads)
+                        {
+                            Thread processLastQuoteThread = new Thread(ProcessLastQuoteThread);
+                            processLastQuoteThread.Start(new object[] { socket, secMapping, subscrMsg });
+                            ProcessLastQuoteThreads.Add(subscrMsg.ServiceKey, processLastQuoteThread);
+                        }
+                    }
 
                 }
 
@@ -529,11 +578,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == legOrdReq.InstrumentId).FirstOrDefault();
 
-
-                    if (ExecutionReportThread == null)
+                    if (!ExecutionReportThreads.ContainsKey(legOrdReq.InstrumentId))
                     {
-                        ExecutionReportThread = new Thread(ProcessExecutionReportsThread);
-                        ExecutionReportThread.Start(new object[] { socket , legOrdReq.UserId });
+                        lock (ExecutionReportThreads)
+                        {
+                            Thread execReportThread = new Thread(ProcessExecutionReportsThread);
+                            execReportThread.Start(new object[] { socket, secMapping, legOrdReq.UserId });
+                            ExecutionReportThreads.Add(legOrdReq.InstrumentId, execReportThread);
+                        }
                     }
 
                     NewOrderSingleWrapper wrapper = new NewOrderSingleWrapper(legOrdReq, secMapping.OutgoingSymbol);
@@ -575,8 +627,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     secMapping.SubscribedLD = true;
                     secMapping.PendingLDResponse = true;
-                    Thread processOrderBookDepthThread = new Thread(ProcessOrderBookDepthThread);
-                    processOrderBookDepthThread.Start(new object[] { socket, secMapping, subscrMsg });
+
+
+                    if (!ProcessOrderBookDepthThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        lock (ProcessOrderBookDepthThreads)
+                        {
+                            Thread processOrderBookDepthThread = new Thread(ProcessOrderBookDepthThread);
+                            processOrderBookDepthThread.Start(new object[] { socket, secMapping, subscrMsg });
+                            ProcessOrderBookDepthThreads.Add(subscrMsg.ServiceKey, processOrderBookDepthThread);
+                        }
+                    }
 
                 }
 
@@ -597,47 +658,104 @@ namespace DGTLBackendMock.DataAccessLayer
                                 subscrMsg.UUID, subscrMsg.SubscriptionType,
                                 subscrMsg.UserId,subscrMsg.JsonWebToken), MessageType.Information);
 
+            if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_SUBSCRIBE)
+            {
+                if (subscrMsg.Service == "TA")
+                {
+                    ProcessSecurityMasterRecord(socket, subscrMsg);
 
-            if (subscrMsg.Service == "TA")
+                }
+                else if (subscrMsg.Service == "LS")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessLastSale(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LQ")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessLastQuote(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FP")
+                {
+                    //if (subscrMsg.ServiceKey != null)
+                    //    ProcessOficialFixingPrice(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FD")
+                {
+                    //if (subscrMsg.ServiceKey != null)
+                    //    ProcessDailySettlement(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TB")
+                {
+                    ProcessUserRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TD")
+                {
+                    //ProcessAccountRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "CU")
+                {
+                    //ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LD")
+                {
+                    ProcessOrderBookDepth(socket, subscrMsg);
+                }
+            }
+            else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_SUBSCRIBE)
             {
-                ProcessSecurityMasterRecord(socket,subscrMsg);
+                lock (SecurityMappings)
+                {
+                    if (subscrMsg.Service == "LS")
+                    {
+                        if (ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
+                        {
+                            ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
+                            ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
+                        }
+                    }
+                    else if (subscrMsg.Service == "LQ")
+                    {
+                        if (ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
+                        {
+                            ProcessLastQuoteThreads[subscrMsg.ServiceKey].Abort();
+                            ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
+                        }
+                    }
+                    else if (subscrMsg.Service == "FP")
+                    {
+                        //if (subscrMsg.ServiceKey != null)
+                        //    ProcessOficialFixingPrice(socket, subscrMsg);
+                    }
+                    else if (subscrMsg.Service == "FD")
+                    {
+                        //if (subscrMsg.ServiceKey != null)
+                        //    ProcessDailySettlement(socket, subscrMsg);
+                    }
+                    else if (subscrMsg.Service == "TB")
+                    {
+                        ProcessUserRecord(socket, subscrMsg);
+                    }
+                    else if (subscrMsg.Service == "TD")
+                    {
+                        //ProcessAccountRecord(socket, subscrMsg);
+                    }
+                    else if (subscrMsg.Service == "CU")
+                    {
+                        //ProcessCreditRecordUpdates(socket, subscrMsg);
+                    }
+                    else if (subscrMsg.Service == "LD")
+                    {
+                        if (ProcessOrderBookDepthThreads.ContainsKey(subscrMsg.ServiceKey))
+                        {
+                            ProcessOrderBookDepthThreads[subscrMsg.ServiceKey].Abort();
+                            ProcessOrderBookDepthThreads.Remove(subscrMsg.ServiceKey);
+                        }
 
-            }
-            else if (subscrMsg.Service == "LS")
-            {
-                if (subscrMsg.ServiceKey != null)
-                    ProcessLastSale(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "LQ")
-            {
-                if (subscrMsg.ServiceKey != null)
-                    ProcessLastQuote(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "FP")
-            {
-                //if (subscrMsg.ServiceKey != null)
-                //    ProcessOficialFixingPrice(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "FD")
-            {
-                //if (subscrMsg.ServiceKey != null)
-                //    ProcessDailySettlement(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TB")
-            {
-                ProcessUserRecord(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TD")
-            {
-                //ProcessAccountRecord(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "CU")
-            {
-                //ProcessCreditRecordUpdates(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "LD")
-            {
-                ProcessOrderBookDepth(socket, subscrMsg);
+                    }
+                }
+            
+            
             }
 
         }
@@ -660,15 +778,48 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ExecutionReport execReport = ExecutionReportConverter.GetExecutionReport(wrapper);
 
-                lock (ExecutionReports)
-                {
-                    ExecutionReports.Enqueue(execReport);
-                }
 
+                if (ExecutionReports.ContainsKey(execReport.Order.Security.Symbol))
+                {
+                    lock (ExecutionReports)
+                    {
+
+                        ExecutionReports[execReport.Order.Security.Symbol].Enqueue(execReport);
+                    }
+                }
                 return CMState.BuildSuccess();
             }
             else
                 return CMState.BuildSuccess();
+        }
+
+        private void DoCLoseThread(object p)
+        {
+            lock (SecurityMappings)
+            {
+                ExecutionReportThreads.Values.ToList().ForEach(x => x.Abort());
+                ExecutionReportThreads.Clear();
+
+                ProcessLastSaleThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessLastSaleThreads.Clear();
+
+                ProcessLastQuoteThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessLastQuoteThreads.Clear();
+
+                ProcessOrderBookDepthThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessOrderBookDepthThreads.Clear();
+
+                Connected = false;
+
+                DoLog("Turning threads off on socket disconnection", MessageType.Information);
+            }
+        
+        }
+
+        private void DoClose()
+        {
+            Thread doCloseThread = new Thread(DoCLoseThread);
+            doCloseThread.Start();
         }
 
         private CMState OnMarketDataReceived(Wrapper wrapper)
@@ -740,16 +891,23 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected override void OnOpen(IWebSocketConnection socket)
         {
-            //socket.Send("Connection Opened");
-            Thread heartbeatThread = new Thread(ClientHeartbeatThread);
+            if (!Connected )
+            {
+                //socket.Send("Connection Opened");
+                Thread heartbeatThread = new Thread(ClientHeartbeatThread);
+                heartbeatThread.Start(socket);
 
-            heartbeatThread.Start(socket);
+                Connected = true;
+            }
+            else
+                socket.Send("Only 1 connection at a time allowed");
         }
+
+       
 
         protected override void OnClose(IWebSocketConnection socket)
         {
-            ExecutionReportThread.Abort();
-            ExecutionReportThread = null;
+            DoClose();
         }
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
@@ -799,7 +957,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             {
                                 NullValueHandling = NullValueHandling.Ignore
                             });
-                    socket.Send(strUnknownMsg);
+                    DoSend(socket,strUnknownMsg);
                 }
 
             }
@@ -817,7 +975,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         {
                             NullValueHandling = NullValueHandling.Ignore
                         });
-                socket.Send(strErrorMsg);
+                DoSend(socket,strErrorMsg);
             }
 
         }

@@ -1,0 +1,340 @@
+2019-04-26 12:25:20  :: Initializing Mock Simulated Server...
+2019-04-26 12:25:20  :: Initializing all collections...
+2019-04-26 12:25:21  :: 4/26/2019 12:25:21 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:25:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:25:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:25:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:25:24  :: 4/26/2019 12:25:24 PMOrderRouterBase.LoadConfig
+2019-04-26 12:25:24  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:25:24  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:25:24  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:25:25  :: Collections Initialized...
+2019-04-26 12:25:26  :: Successfully subscribed to execution event 
+2019-04-26 12:25:38  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:25:38  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:25:38  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:25:38  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:25:38  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:25:38  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:25:38  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:25:39  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:25:39  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=45 Price=5585 TickDirection=PlusTick
+2019-04-26 12:25:39  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:25:39  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:25:39  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:25:40  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:25:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55849 Best Bid Price=5585.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:25:41  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:25:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5566 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:25:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:25:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:25:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55907 Best Bid Price=5586.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:25:58  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55907 Best Bid Price=5586.5 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:26:02  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55907 Best Bid Price=5586.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:26:08  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:26:08  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=4 Price=5586.5 TickDirection=PlusTick
+2019-04-26 12:26:13  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:26:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:26:14  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:26:20  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=72 Best Ask Price=5587
+2019-04-26 12:26:24  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=71 Best Ask Price=5587
+2019-04-26 12:26:37  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=113 Best Ask Price=5587
+2019-04-26 12:26:41  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=71 Best Ask Price=5587
+2019-04-26 12:26:43  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=113 Best Ask Price=5587
+2019-04-26 12:26:44  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55903 Best Bid Price=5586.5 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:26:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5566 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:26:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:26:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55888 Best Bid Price=5584.5 Best Ask Size=114 Best Ask Price=5587
+2019-04-26 12:32:46  :: Initializing Mock Simulated Server...
+2019-04-26 12:32:46  :: Initializing all collections...
+2019-04-26 12:32:46  :: 4/26/2019 12:32:46 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:32:46  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:32:46  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:32:46  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:32:49  :: 4/26/2019 12:32:49 PMOrderRouterBase.LoadConfig
+2019-04-26 12:32:49  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:32:49  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:32:49  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:32:50  :: Collections Initialized...
+2019-04-26 12:32:51  :: Successfully subscribed to execution event 
+2019-04-26 12:33:41  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:33:41  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:33:42  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:33:42  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:33:42  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:33:42  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:33:43  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:33:43  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:33:43  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:33:43  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5582.5 TickDirection=ZeroMinusTick
+2019-04-26 12:33:43  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:33:44  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:33:44  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:33:44  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55865 Best Bid Price=5582.5 Best Ask Size=94 Best Ask Price=5587
+2019-04-26 12:33:45  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:33:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5566 Best Ask Size=94 Best Ask Price=5587
+2019-04-26 12:33:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:33:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:33:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55875 Best Bid Price=5583.5 Best Ask Size=94 Best Ask Price=5587
+2019-04-26 12:36:26  :: Initializing Mock Simulated Server...
+2019-04-26 12:36:26  :: Initializing all collections...
+2019-04-26 12:36:26  :: 4/26/2019 12:36:26 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:36:26  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:36:26  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:36:26  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:36:29  :: 4/26/2019 12:36:29 PMOrderRouterBase.LoadConfig
+2019-04-26 12:36:29  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:36:29  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:36:29  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:36:30  :: Collections Initialized...
+2019-04-26 12:36:31  :: Successfully subscribed to execution event 
+2019-04-26 12:36:41  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:36:41  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:36:41  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:36:41  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:36:41  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:36:41  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:36:41  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:36:42  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:36:42  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5582 TickDirection=MinusTick
+2019-04-26 12:36:42  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:36:42  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:36:46  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:36:46  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:36:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55861 Best Bid Price=5582 Best Ask Size=50 Best Ask Price=5587
+2019-04-26 12:36:47  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:36:55  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5566 Best Ask Size=50 Best Ask Price=5587
+2019-04-26 12:36:55  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55888 Best Bid Price=5584.5 Best Ask Size=50 Best Ask Price=5587
+2019-04-26 12:38:33  :: Initializing Mock Simulated Server...
+2019-04-26 12:38:33  :: Initializing all collections...
+2019-04-26 12:38:33  :: 4/26/2019 12:38:33 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:38:33  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:38:33  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:38:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:38:36  :: 4/26/2019 12:38:36 PMOrderRouterBase.LoadConfig
+2019-04-26 12:38:36  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:38:36  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:38:36  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:38:37  :: Collections Initialized...
+2019-04-26 12:38:37  :: Successfully subscribed to execution event 
+2019-04-26 12:38:45  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:38:45  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:38:45  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:38:45  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:38:45  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:38:45  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:38:45  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:38:46  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:38:46  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5582 TickDirection=MinusTick
+2019-04-26 12:38:46  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55878 Best Bid Price=5583.5 Best Ask Size=92 Best Ask Price=5587
+2019-04-26 12:38:46  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:38:46  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:38:46  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:38:47  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:38:48  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:38:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=15 Best Bid Price=5566 Best Ask Size=92 Best Ask Price=5587
+2019-04-26 12:40:22  :: Initializing Mock Simulated Server...
+2019-04-26 12:40:22  :: Initializing all collections...
+2019-04-26 12:40:23  :: 4/26/2019 12:40:23 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:40:23  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:40:23  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:40:23  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:40:26  :: 4/26/2019 12:40:26 PMOrderRouterBase.LoadConfig
+2019-04-26 12:40:26  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:40:26  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:40:26  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:40:27  :: Collections Initialized...
+2019-04-26 12:40:27  :: Successfully subscribed to execution event 
+2019-04-26 12:40:36  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:40:36  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:40:36  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:40:36  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:40:36  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:40:36  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:40:36  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:40:36  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:40:36  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=8 Price=5579.5 TickDirection=MinusTick
+2019-04-26 12:40:37  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:40:37  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:40:37  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:40:38  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:40:38  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55754 Best Bid Price=5571 Best Ask Size=55788 Best Ask Price=5579.5
+2019-04-26 12:40:39  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:40:44  :: Error publishingLastSale thread:Subproceso anulado.
+2019-04-26 12:40:44  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-04-26 12:43:45  :: Initializing Mock Simulated Server...
+2019-04-26 12:43:45  :: Initializing all collections...
+2019-04-26 12:43:45  :: 4/26/2019 12:43:45 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:43:45  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:43:45  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:43:45  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:43:48  :: 4/26/2019 12:43:48 PMOrderRouterBase.LoadConfig
+2019-04-26 12:43:48  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:43:48  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:43:48  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:43:49  :: Collections Initialized...
+2019-04-26 12:43:49  :: Successfully subscribed to execution event 
+2019-04-26 12:43:59  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:43:59  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:43:59  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:43:59  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:43:59  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:43:59  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:43:59  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:43:59  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:43:59  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=32384 Price=5524 TickDirection=MinusTick
+2019-04-26 12:44:00  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:44:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:44:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:44:01  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:44:01  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55766 Best Bid Price=5572.5 Best Ask Size=42 Best Ask Price=5578.5
+2019-04-26 12:44:02  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:44:09  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55766 Best Bid Price=5572.5 Best Ask Size=42 Best Ask Price=5578.5
+2019-04-26 12:44:13  :: Error publishingLastSale thread:Subproceso anulado.
+2019-04-26 12:44:13  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-04-26 12:44:33  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55766 Best Bid Price=5572.5 Best Ask Size=42 Best Ask Price=5578.5
+2019-04-26 12:44:42  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55766 Best Bid Price=5572.5 Best Ask Size=42 Best Ask Price=5578.5
+2019-04-26 12:44:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=110 Best Bid Price=5504.5 Best Ask Size=42 Best Ask Price=5578.5
+2019-04-26 12:44:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55723 Best Bid Price=5568 Best Ask Size=55723 Best Ask Price=5576.5
+2019-04-26 12:44:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55723 Best Bid Price=5568 Best Ask Size=55723 Best Ask Price=5576.5
+2019-04-26 12:44:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55723 Best Bid Price=5568 Best Ask Size=55765 Best Ask Price=5576.5
+2019-04-26 12:44:58  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:44:58  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:44:58  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:44:58  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:44:59  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:44:59  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:45:00  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:45:01  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:45:18  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:45:18  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:45:18  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:45:18  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-04-26 12:45:18  :: Searching for mappings for ServiceKey=XBT-USD
+2019-04-26 12:45:18  :: Mapping found for Outgoing Symbol=XBTU19
+2019-04-26 12:45:26  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55723 Best Bid Price=5568 Best Ask Size=55723 Best Ask Price=5576.5
+2019-04-26 12:45:27  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1556282727 Symbol=XBT-USD Size=55723 Price=5576.5
+2019-04-26 12:45:27  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-04-26 12:45:42  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:45:42  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:45:42  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:45:42  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-04-26 12:45:42  :: Searching for mappings for ServiceKey=XBT-USD
+2019-04-26 12:45:42  :: Mapping found for Outgoing Symbol=XBTU19
+2019-04-26 12:45:43  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-04-26 12:45:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=110 Best Bid Price=5504.5 Best Ask Size=3 Best Ask Price=5587
+2019-04-26 12:45:51  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-04-26 12:45:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55732 Best Bid Price=5569 Best Ask Size=55732 Best Ask Price=5577.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=66 DepthTime=1556282751 Symbol=XBT-USD Size=0 Price=5568
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=66 DepthTime=1556282751 Symbol=XBT-USD Size=0 Price=5567
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=66 DepthTime=1556282751 Symbol=XBT-USD Size=0 Price=5522
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=66 DepthTime=1556282752 Symbol=XBT-USD Size=0 Price=5497
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=0 Price=5647.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=0 Price=5622.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=0 Price=5577
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=0 Price=5576.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556282752 Symbol=XBT-USD Size=55732 Price=5569
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556282752 Symbol=XBT-USD Size=111464 Price=5568.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556282752 Symbol=XBT-USD Size=278660 Price=5523
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556282752 Symbol=XBT-USD Size=557320 Price=5498
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=55732 Price=5577.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=111464 Price=5578.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=278660 Price=5623.5
+2019-04-26 12:45:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556282752 Symbol=XBT-USD Size=557320 Price=5648.5
+2019-04-26 12:45:51  :: Error publishingLastSale thread:Subproceso anulado.
+2019-04-26 12:45:51  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-04-26 12:45:52  :: Error publishing OrderBookDepth thread:Subproceso anulado.
+2019-04-26 12:45:52  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55732 Best Bid Price=5569 Best Ask Size=55774 Best Ask Price=5577.5
+2019-04-26 12:46:03  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55732 Best Bid Price=5569 Best Ask Size=55732 Best Ask Price=5577.5
+2019-04-26 12:47:28  :: Initializing Mock Simulated Server...
+2019-04-26 12:47:28  :: Initializing all collections...
+2019-04-26 12:47:28  :: 4/26/2019 12:47:28 PMBaseCommunicationModule.LoadConfig
+2019-04-26 12:47:28  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:47:28  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-04-26 12:47:28  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-04-26 12:47:31  :: 4/26/2019 12:47:31 PMOrderRouterBase.LoadConfig
+2019-04-26 12:47:31  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:47:31  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-04-26 12:47:32  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-04-26 12:47:33  :: Collections Initialized...
+2019-04-26 12:47:33  :: Successfully subscribed to execution event 
+2019-04-26 12:47:47  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:47:47  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:47:47  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:47:47  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-04-26 12:47:47  :: Subscription sent for outgoing Symbol=XBTU19
+2019-04-26 12:47:47  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-04-26 12:47:47  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-04-26 12:47:47  :: Successfully subscribed to trade event on symbol XBTU19
+2019-04-26 12:47:47  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=6 Price=5577.5 TickDirection=PlusTick
+2019-04-26 12:47:48  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:47:48  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:47:48  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:47:48  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55741 Best Bid Price=5570 Best Ask Size=89 Best Ask Price=5577.5
+2019-04-26 12:47:49  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:47:50  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:47:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=111578 Best Bid Price=5569 Best Ask Size=89 Best Ask Price=5577.5
+2019-04-26 12:47:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=95 Best Bid Price=5569 Best Ask Size=89 Best Ask Price=5577.5
+2019-04-26 12:47:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=95 Best Bid Price=5569 Best Ask Size=89 Best Ask Price=5577.5
+2019-04-26 12:47:51  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55748 Best Bid Price=5570.5 Best Ask Size=89 Best Ask Price=5577.5
+2019-04-26 12:47:55  :: Error publishingLastSale thread:Subproceso anulado.
+2019-04-26 12:47:55  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-04-26 12:47:55  :: Turning threads off on socket disconnection
+2019-04-26 12:48:03  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 12:48:03  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 12:48:03  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:48:03  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 12:48:04  :: @Incoming Bitmex:Publishing Order Book  for symbol XBTU19: Best Bid Size=55748 Best Bid Price=5570.5 Best Ask Size=131 Best Ask Price=5577.5
+2019-04-26 12:48:04  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:48:04  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 12:48:05  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:48:07  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-04-26 12:48:11  :: Error publishingLastSale thread:Subproceso anulado.
+2019-04-26 12:48:11  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-04-26 12:48:11  :: Turning threads off on socket disconnection
+2019-04-26 15:07:19  :: Initializing Mock Server...
+2019-04-26 15:07:19  :: Initializing all collections...
+2019-04-26 15:07:20  :: Collections Initialized...
+2019-04-26 15:07:29  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 15:07:29  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 15:07:29  :: Incoming subscription for service LS
+2019-04-26 15:07:34  :: Incoming subscription for service LQ
+2019-04-26 15:07:35  :: Incoming subscription for service FD
+2019-04-26 15:07:35  :: Daily Settlement Price not found for symbol XBT-USD...
+2019-04-26 15:07:36  :: Incoming subscription for service FP
+2019-04-26 15:07:37  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 15:07:37  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 15:07:39  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-04-26 15:08:09  :: Initializing Mock Server...
+2019-04-26 15:08:09  :: Initializing all collections...
+2019-04-26 15:08:09  :: Collections Initialized...
+2019-04-26 15:08:22  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 15:08:22  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 15:08:22  :: Incoming subscription for service LS
+2019-04-26 15:08:23  :: Incoming subscription for service LQ
+2019-04-26 15:08:24  :: Incoming subscription for service FD
+2019-04-26 15:08:24  :: Daily Settlement Price not found for symbol XBT-USD...
+2019-04-26 15:08:25  :: Incoming subscription for service FP
+2019-04-26 15:08:25  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 15:08:26  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 15:08:28  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-04-26 15:12:09  :: Initializing Mock Server...
+2019-04-26 15:12:09  :: Initializing all collections...
+2019-04-26 15:12:09  :: Collections Initialized...
+2019-04-26 15:12:49  :: Incoming Login request for user MM1_CLOBUI
+2019-04-26 15:12:49  :: user MM1_CLOBUI Successfully logged in
+2019-04-26 15:12:49  :: Incoming subscription for service LS
+2019-04-26 15:12:50  :: Incoming subscription for service LQ
+2019-04-26 15:12:51  :: Incoming subscription for service FD
+2019-04-26 15:12:51  :: Daily Settlement Price not found for symbol XBT-USD...
+2019-04-26 15:12:52  :: Incoming subscription for service FP
+2019-04-26 15:12:52  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-04-26 15:12:53  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-04-26 15:12:56  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-04-26 15:13:01  :: Critical error processing last sales message: Subproceso anulado....
+2019-04-26 15:13:01  :: Critical error processing quote message: Subproceso anulado....
+2019-04-26 15:13:03  :: Turning threads off on socket disconnection
+2019-04-26 15:13:03  :: Turning threads off on socket disconnection
+2019-04-26 15:13:03  :: Turning threads off on socket disconnection
+2019-04-26 15:13:03  :: Turning threads off on socket disconnection
+2019-04-26 15:13:03  :: Critical error processing daily settlement price message: Subproceso anulado....

@@ -8,6 +8,17 @@ namespace DGTLBackendMock.Common.DTO.Subscription
 {
     public class WebSocketSubscribeMessage : WebSocketMessage
     {
+        #region Public Static Consts
+
+        public static string _SUSBSCRIPTION_TYPE_SUBSCRIBE = "S";
+
+        public static string _SUSBSCRIPTION_TYPE_UNSUBSCRIBE = "U";
+
+
+        #endregion
+
+        #region Public Attributes
+
         public string SubscriptionType { get; set; }
 
         public string UserId { get; set; }
@@ -19,5 +30,7 @@ namespace DGTLBackendMock.Common.DTO.Subscription
         public string Service { get; set; }
 
         public string ServiceKey { get; set; }
+
+        #endregion
     }
 }

@@ -51,13 +51,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void DoSend<T>(IWebSocketConnection socket, T entity)
         {
-            string strUserRecord = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.None,
+            string strMsg = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.None,
                               new JsonSerializerSettings
                               {
                                   NullValueHandling = NullValueHandling.Ignore
                               });
 
-            socket.Send(strUserRecord);
+            socket.Send(strMsg);
 
         }
 
@@ -95,15 +95,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
                 DoLog(string.Format("user {0} Successfully logged in", wsLogin.UUID), MessageType.Information);
-
-                string respMsg = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
-                                               new JsonSerializerSettings
-                                               {
-                                                   NullValueHandling = NullValueHandling.Ignore
-                                               });
-
                 UserLogged = true;
-                socket.Send(respMsg);
+                DoSend<ClientLoginResponse>(socket, resp);
             }
             else
             {
@@ -117,13 +110,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 };
 
                 DoLog(string.Format("user {0} Rejected because of wrong user or password", wsLogin.UUID), MessageType.Information);
-
-                string rejMsg = JsonConvert.SerializeObject(reject, Newtonsoft.Json.Formatting.None,
-                       new JsonSerializerSettings
-                       {
-                           NullValueHandling = NullValueHandling.Ignore
-                       });
-                socket.Send(rejMsg);
+                DoSend<ClientReject>(socket, reject);
                 socket.Close();
             }
         }
@@ -140,15 +127,8 @@ namespace DGTLBackendMock.DataAccessLayer
             };
 
 
-
-            string logoutRespMsg = JsonConvert.SerializeObject(logout, Newtonsoft.Json.Formatting.None,
-                       new JsonSerializerSettings
-                       {
-                           NullValueHandling = NullValueHandling.Ignore
-                       });
-            socket.Send(logoutRespMsg);
+            DoSend<ClientLogoutResponse>(socket, logout);
             socket.Close();
-
         }
 
         
@@ -166,17 +146,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
             };
 
-            string strSubscResp = JsonConvert.SerializeObject(resp, Newtonsoft.Json.Formatting.None,
-                         new JsonSerializerSettings
-                         {
-                             NullValueHandling = NullValueHandling.Ignore
-                         });
-
-            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}",
-                                 resp.UUID,resp.Service,resp.ServiceKey,resp.Success), MessageType.Information);
-
-            socket.Send(strSubscResp);
-
+            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}", resp.UUID,resp.Service,resp.ServiceKey,resp.Success), MessageType.Information);
+            DoSend<SubscriptionResponse>(socket, resp);
         }
 
         protected void ProcessUserRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
@@ -224,14 +195,8 @@ namespace DGTLBackendMock.DataAccessLayer
                             UUID = "user1"
 
                         };
-
-
-                        string strHeartbeatReq = JsonConvert.SerializeObject(heartbeatReq, Newtonsoft.Json.Formatting.None,
-                              new JsonSerializerSettings
-                              {
-                                  NullValueHandling = NullValueHandling.Ignore
-                              });
-                        socket.Send(strHeartbeatReq);
+                    
+                        DoSend<ClientHeartbeatRequest>(socket, heartbeatReq);
                         HeartbeatSeqNum++;
                     }
 
@@ -256,6 +221,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected abstract void OnMessage(IWebSocketConnection socket, string m);
 
+
         #endregion
 
         #region Public Methods
@@ -268,6 +234,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 socket.OnOpen = () => OnOpen(socket);
                 socket.OnClose = () => OnClose(socket);
                 socket.OnMessage = m => OnMessage(socket, m);
+
             });
 
         }
