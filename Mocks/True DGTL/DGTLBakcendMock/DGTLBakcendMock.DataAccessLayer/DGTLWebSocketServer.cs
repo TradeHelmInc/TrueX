@@ -445,7 +445,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 socket.Send(secMasterRecord);
             }
             Thread.Sleep(2000);
-            ProcessSubscriptionResponse(socket, "SubscriptionResponse", "*", subscrMsg.UUID);
+            ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
         }
 
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)

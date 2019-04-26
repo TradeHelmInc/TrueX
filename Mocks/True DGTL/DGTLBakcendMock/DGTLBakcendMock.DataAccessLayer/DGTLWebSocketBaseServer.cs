@@ -172,6 +172,9 @@ namespace DGTLBackendMock.DataAccessLayer
                              NullValueHandling = NullValueHandling.Ignore
                          });
 
+            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}",
+                                 resp.UUID,resp.Service,resp.ServiceKey,resp.Success), MessageType.Information);
+
             socket.Send(strSubscResp);
 
         }

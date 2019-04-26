@@ -13,6 +13,6 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\quickfix_net_messages.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\zHFT.Main.BusinessEntities.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\zHFT.Main.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.csprojResolveAssemblyReference.cache

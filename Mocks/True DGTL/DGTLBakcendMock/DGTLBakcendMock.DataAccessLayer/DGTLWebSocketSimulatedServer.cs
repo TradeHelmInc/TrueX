@@ -186,7 +186,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 while(true)
                 {
-                    lock (secMapping)
+                    lock (SecurityMappings)
                     {
                         if (secMapping.PublishedMarketData != null)
                         {
@@ -241,13 +241,14 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 while (true)
                 {
-                    lock (secMapping)
+                    lock (SecurityMappings)
                     {
                         if (secMapping.PublishedMarketData != null)
                         {
                             Quote quote = new Quote()
                             {
                                 Msg = "Quote",
+                                Symbol=secMapping.IncomingSymbol,
                                 Sender = 0,
                                 Ask = secMapping.PublishedMarketData.BestAskPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketData.BestAskPrice) : null,
                                 AskSize = secMapping.PublishedMarketData.BestAskSize,
@@ -382,18 +383,21 @@ namespace DGTLBackendMock.DataAccessLayer
             IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
             SecurityMapping secMapping = (SecurityMapping)parameters[1];
             WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
+            bool firstSent = false;
 
             try
             {
                 while (true)
                 {
-                    lock (secMapping)
+                    lock (SecurityMappings)
                     {
-
+                       
                         while (secMapping.OrderBookEntriesToPublish.Count > 0)
                         {
 
                             OrderBookEntry obe =   secMapping.OrderBookEntriesToPublish.Dequeue();
+
+                            TimeSpan elapsed =DateTime.Now-new DateTime(1970,1,1);
 
                             DepthOfBook depthOfBook = new DepthOfBook()
                             {
@@ -401,28 +405,33 @@ namespace DGTLBackendMock.DataAccessLayer
                                 Sender = 0,
                                 cAction = AttributeConverter.GetAction(obe.MDUpdateAction),
                                 cBidOrAsk = AttributeConverter.GetBidOrAsk(obe.MDEntryType),
-                                DepthTime = 0,
+                                DepthTime = Convert.ToInt64(elapsed.TotalSeconds),
                                 Symbol = secMapping.IncomingSymbol,
                                 Size = obe.MDEntrySize,
                                 Price = obe.MDEntryPx
                             };
+
+
+                            DoLog(string.Format("DepthOfBook-> Msg={0} Sender={1}  Action={2}  BidOrAsk={3} DepthTime={4} Symbol={5} Size={6} Price={7}",
+                                                 depthOfBook.Msg, depthOfBook.Sender, depthOfBook.Action, depthOfBook.BidOrAsk, depthOfBook.DepthTime, depthOfBook.Symbol, depthOfBook.Size, depthOfBook.Price),
+                                                 MessageType.Information);
 
                             string strDepthOfBook = JsonConvert.SerializeObject(depthOfBook, Newtonsoft.Json.Formatting.None,
                                    new JsonSerializerSettings
                                    {
                                        NullValueHandling = NullValueHandling.Ignore
                                    });
-
+                            firstSent = true;
                             socket.Send(strDepthOfBook);
-
-                            if (secMapping.PendingLDResponse)
-                            {
-                                ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID);
-                                secMapping.PendingLDResponse = false;
-                            }
 
                         
                         }
+                    }
+
+                    if (secMapping.PendingLDResponse && firstSent)
+                    {
+                        ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID);
+                        secMapping.PendingLDResponse = false;
                     }
                     Thread.Sleep(1000);
                 }
@@ -436,7 +445,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void SubscribeMarketData(SecurityMapping secMapping)
         {
-
+            DoLog(string.Format("Subscribing market data for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
             Security sec = new Security()
             {
                 Symbol = secMapping.OutgoingSymbol,
@@ -447,6 +456,8 @@ namespace DGTLBackendMock.DataAccessLayer
             MarketDataRequestWrapper wrapper = new MarketDataRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
             MarketDataRequestCounter++;
             MarketDataModule.ProcessMessage(wrapper);
+
+            DoLog(string.Format("Subscription sent for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
 
         }
 
@@ -461,10 +472,11 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (!secMapping.SubscribedMarketData())
                     {
                         SubscribeMarketData(secMapping);
-                        secMapping.SubscribedLS = true;
-                        secMapping.PendingLSResponse = true;
+                        
                     }
 
+                    secMapping.SubscribedLS = true;
+                    secMapping.PendingLSResponse = true;
                     Thread processLastSaleThread = new Thread(ProcessLastSaleThread);
                     processLastSaleThread.Start(new object[] { socket, secMapping, subscrMsg });
                   
@@ -472,6 +484,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Error subscribing for market data: {0}", ex.Message),MessageType.Information);
                 ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             }
         }
@@ -487,11 +500,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (!secMapping.SubscribedMarketData())
                     {
                         SubscribeMarketData(secMapping);
-                        secMapping.SubscribedLS = true;
-                        secMapping.PendingLSResponse = true;
+                        
                     
                     }
 
+                    secMapping.SubscribedLQ = true;
+                    secMapping.PendingLQResponse = true;
                     Thread processLastQuoteThread = new Thread(ProcessLastQuoteThread);
                     processLastQuoteThread.Start(new object[] { socket, secMapping, subscrMsg });
 
@@ -546,18 +560,21 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             try
             {
+                DoLog(string.Format("Entering ProcessOrderBookDepth for ServiceKey={0}",subscrMsg.ServiceKey), MessageType.Information);
                 if (SecurityMappings.Any(x => x.IncomingSymbol == subscrMsg.ServiceKey))
                 {
+                    DoLog(string.Format("Searching for mappings for ServiceKey={0}",subscrMsg.ServiceKey), MessageType.Information);
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
+                    DoLog(string.Format("Mapping found for Outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
 
                     if (!secMapping.SubscribedMarketData())
                     {
                         SubscribeMarketData(secMapping);
-                        secMapping.SubscribedLD = true;
-                        secMapping.PendingLDResponse = true;
 
                     }
 
+                    secMapping.SubscribedLD = true;
+                    secMapping.PendingLDResponse = true;
                     Thread processOrderBookDepthThread = new Thread(ProcessOrderBookDepthThread);
                     processOrderBookDepthThread.Start(new object[] { socket, secMapping, subscrMsg });
 
@@ -575,7 +592,10 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
-            DoLog(string.Format("Incoming subscription for service {0}", subscrMsg.Service), MessageType.Information);
+            DoLog(string.Format("Incoming subscription for Service: {0} - Service key: {1} - UUID: {2} SubscriptionType: {3} UserId: {4} JsonToken:{5}", 
+                                subscrMsg.Service,subscrMsg.ServiceKey,
+                                subscrMsg.UUID, subscrMsg.SubscriptionType,
+                                subscrMsg.UserId,subscrMsg.JsonWebToken), MessageType.Information);
 
 
             if (subscrMsg.Service == "TA")
@@ -667,7 +687,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                                                                       .FirstOrDefault();
                         if (secMapping.SubscribedLS || secMapping.SubscribedLQ || secMapping.SubscribedFP || secMapping.SubscribedFD)
                         {
-                            lock (secMapping)
+                            lock (SecurityMappings)
                             {
                                 secMapping.PublishedMarketData = md;
                             }
@@ -694,7 +714,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         if (secMapping.SubscribedLD)
                         {
-                            lock (secMapping)
+                            lock (SecurityMappings)
                             {
                                 secMapping.OrderBookEntriesToPublish.Enqueue(obe);
                             }
