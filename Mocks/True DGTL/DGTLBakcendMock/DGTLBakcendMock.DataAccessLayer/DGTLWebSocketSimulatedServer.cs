@@ -359,48 +359,51 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
+                Queue<ExecutionReport> execReports = ExecutionReports[secMapping.IncomingSymbol];
+
                 while (true)
                 {
-                    lock (ExecutionReports)
+                    while (execReports.Count > 0)
                     {
-                        while (ExecutionReports.Count > 0)
+                        ExecutionReport execReport = null;
+                        lock (ExecutionReports)
                         {
-                            ExecutionReport execReport = ExecutionReports[secMapping.IncomingSymbol].Dequeue();
-
-                            long timestamp = 0;
-
-                            if (execReport.TransactTime.HasValue)
-                            {
-                                TimeSpan elapsed = execReport.TransactTime.Value - new DateTime(1970, 1, 1);
-                                timestamp = Convert.ToInt64(elapsed.TotalSeconds);
-                            }
-
-                            LegacyOrderAck legOrdAck = new LegacyOrderAck()
-                            {
-                                Msg = "LegacyOrderAck",
-                                OrderId = execReport.Order.OrderId,
-                                UserId = userId,
-                                ClOrderId =execReport.Order.ClOrdId,
-                                InstrumentId = secMapping.IncomingSymbol,
-                                Status = AttributeConverter.GetExecReportStatus(execReport),
-                                Price = execReport.Order.Price.HasValue?(decimal?)Convert.ToDecimal(execReport.Order.Price):null,
-                                LeftQty = Convert.ToDecimal(execReport.LeavesQty),
-                                Timestamp = timestamp,
-                            };
-
-                            string strLegacyOrderAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
-                                  new JsonSerializerSettings
-                                  {
-                                      NullValueHandling = NullValueHandling.Ignore
-                                  });
-
-                            DoSend(socket,strLegacyOrderAck);
-                        
+                            execReport = execReports.Dequeue();
                         }
-                    }
-                    Thread.Sleep(1000);
-                }
 
+                        long timestamp = 0;
+
+                        if (execReport.TransactTime.HasValue)
+                        {
+                            TimeSpan elapsed = execReport.TransactTime.Value - new DateTime(1970, 1, 1);
+                            timestamp = Convert.ToInt64(elapsed.TotalSeconds);
+                        }
+
+                        LegacyOrderAck legOrdAck = new LegacyOrderAck()
+                        {
+                            Msg = "LegacyOrderAck",
+                            OrderId = execReport.Order.OrderId,
+                            UserId = userId,
+                            ClOrderId =execReport.Order.ClOrdId,
+                            InstrumentId = secMapping.IncomingSymbol,
+                            Status = AttributeConverter.GetExecReportStatus(execReport),
+                            Price = execReport.Order.Price.HasValue?(decimal?)Convert.ToDecimal(execReport.Order.Price):null,
+                            LeftQty = Convert.ToDecimal(execReport.LeavesQty),
+                            Timestamp = timestamp,
+                        };
+
+                        string strLegacyOrderAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        DoSend(socket,strLegacyOrderAck);
+                        
+                    }
+                }
+                Thread.Sleep(1000);
+             
             }
             catch (Exception ex)
             {
@@ -580,12 +583,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     if (!ExecutionReportThreads.ContainsKey(legOrdReq.InstrumentId))
                     {
+                        lock (ExecutionReports)
+                        {
+                            if (!ExecutionReports.ContainsKey(secMapping.IncomingSymbol))
+                                ExecutionReports.Add(secMapping.IncomingSymbol, new Queue<ExecutionReport>());
+                        }
+
                         lock (ExecutionReportThreads)
                         {
                             Thread execReportThread = new Thread(ProcessExecutionReportsThread);
                             execReportThread.Start(new object[] { socket, secMapping, legOrdReq.UserId });
                             ExecutionReportThreads.Add(legOrdReq.InstrumentId, execReportThread);
                         }
+                        
                     }
 
                     NewOrderSingleWrapper wrapper = new NewOrderSingleWrapper(legOrdReq, secMapping.OutgoingSymbol);
@@ -778,13 +788,15 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ExecutionReport execReport = ExecutionReportConverter.GetExecutionReport(wrapper);
 
+                SecurityMapping secMapping = SecurityMappings.Where(x => x.OutgoingSymbol == execReport.Order.Security.Symbol).FirstOrDefault() ;
 
-                if (ExecutionReports.ContainsKey(execReport.Order.Security.Symbol))
+                if (secMapping != null)
                 {
                     lock (ExecutionReports)
                     {
+                        
 
-                        ExecutionReports[execReport.Order.Security.Symbol].Enqueue(execReport);
+                        ExecutionReports[secMapping.IncomingSymbol].Enqueue(execReport);
                     }
                 }
                 return CMState.BuildSuccess();
@@ -808,6 +820,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 ProcessOrderBookDepthThreads.Values.ToList().ForEach(x => x.Abort());
                 ProcessOrderBookDepthThreads.Clear();
+
+                ExecutionReports.Clear();
 
                 Connected = false;
 

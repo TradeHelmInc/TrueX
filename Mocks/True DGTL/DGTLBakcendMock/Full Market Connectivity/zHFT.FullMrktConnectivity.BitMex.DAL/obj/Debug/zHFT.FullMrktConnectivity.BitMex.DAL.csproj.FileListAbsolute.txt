@@ -14,6 +14,7 @@ C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatfor
 C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatform\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\zHFT.Main.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\zHFT.FullMrktConnectivity.BitMex.DAL.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\zHFT.FullMrktConnectivity.BitMex.DAL.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\Newtonsoft.Json.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\zHFT.FullMrktConnectivity.BitMex.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\zHFT.Main.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\MDFShared.dll
@@ -25,4 +26,3 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\obj\Debug\zHFT.FullMrktConnectivity.BitMex.DAL.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\obj\Debug\zHFT.FullMrktConnectivity.BitMex.DAL.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\obj\Debug\zHFT.FullMrktConnectivity.BitMex.DAL.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.DAL\bin\Debug\Newtonsoft.Json.dll

@@ -69,6 +69,6 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\bin\Debug\quickfix_net_messages.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\bin\Debug\zHFT.Main.BusinessEntities.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\bin\Debug\zHFT.Main.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\obj\Debug\zHFT.InstructionBasedMarketClient.Common.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\obj\Debug\zHFT.InstructionBasedMarketClient.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\obj\Debug\zHFT.InstructionBasedMarketClient.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.Common\obj\Debug\zHFT.InstructionBasedMarketClient.Common.csprojResolveAssemblyReference.cache

@@ -17,11 +17,10 @@ C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatfor
 C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatform\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.FullMrktConnectivity.BitMex.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatform\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.dll
 C:\Users\zimzum\Desktop\Projects\Seeking Bias\HFTPlatform\hftplatform\HFTPlatform\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.csprojResolveAssemblyReference.cache
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.dll
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\MDFShared.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\Newtonsoft.Json.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.FullMrktConnectivity.BitMex.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.Main.BusinessEntities.dll
@@ -34,5 +33,6 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.Main.BusinessEntities.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.Main.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\zHFT.MarketClient.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\MDFShared.dll
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.csprojResolveAssemblyReference.cache
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.dll
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.Common\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.Common.pdb
