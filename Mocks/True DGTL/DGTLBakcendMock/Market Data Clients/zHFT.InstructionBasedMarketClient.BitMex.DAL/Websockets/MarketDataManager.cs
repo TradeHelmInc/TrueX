@@ -39,6 +39,19 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.DAL.Websockets
             
         }
 
+        public void UnsubscribeOrderBookL2(string symbol)
+        {
+            WebSocketSubscriptionRequest request = new WebSocketSubscriptionRequest()
+            {
+                op = "unsubscribe",
+                args = new string[] { string.Format("{0}:{1}", _ORDERBOOK_L2, symbol) }
+
+            };
+
+            InvokeWebSocket(request).Wait();
+
+        }
+
 
         public void SubscribeTrades(string symbol, string quoteSymbol)
         {
@@ -65,14 +78,15 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.DAL.Websockets
             InvokeWebSocket(request).Wait();
         }
 
-        public void SubscribeTradeBins(string symbol)
+        public void UnsubscribeTrades(string symbol)
         {
             WebSocketSubscriptionRequest request = new WebSocketSubscriptionRequest()
             {
-                op = "subscribe",
-                args = new string[] { string.Format("{0}:{1}", _1_DAY_TRADE_BINS, symbol) }
+                op = "unsubscribe",
+                args = new string[] { string.Format("{0}:{1}", _TRADE, symbol) }
 
             };
+
             InvokeWebSocket(request).Wait();
         }
 

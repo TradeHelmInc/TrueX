@@ -229,20 +229,52 @@ namespace DGTLBackendMock.DataAccessLayer
             OfficialFixingPrices = JsonConvert.DeserializeObject<OfficialFixingPrice[]>(strOfficialFixingPrices);
         }
 
+        private void EmulatePriceChanges(int i, LastSale lastSale,ref  decimal? initialPrice)
+        {
+
+            if (initialPrice == null)
+                initialPrice = lastSale.LastPrice;
+
+            if (i % 2 == 0)
+            {
+                if (lastSale.High.HasValue)
+                    lastSale.High += 0.05m;
+
+                lastSale.LastPrice = lastSale.High;
+            }
+            else
+            {
+
+                if (lastSale.Low.HasValue && lastSale.Low>1)
+                    lastSale.Low -= 0.01m;
+
+                lastSale.LastPrice = lastSale.Low;
+            }
+
+            if (initialPrice != null)
+                lastSale.Change = ((lastSale.LastPrice / initialPrice.Value) - 1) * 100;
+            else
+                lastSale.Change = 0;
+        }
+
         private void LastSaleThread(object param) 
         {
             object[] paramArray = (object[])param;
             IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
             WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
             bool subscResp = false;
-
+            decimal? initialPrice=null;
             try
             {
+                int i = 0;
                 while (true)
                 {
                     LastSale lastSale = LastSales.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (lastSale != null)
                     {
+
+
+                        EmulatePriceChanges(i, lastSale, ref initialPrice);
                         DoSend<LastSale>(socket, lastSale);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
@@ -257,6 +289,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Last Sales not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
+                    i++;
                 }
             }
             catch (Exception ex)

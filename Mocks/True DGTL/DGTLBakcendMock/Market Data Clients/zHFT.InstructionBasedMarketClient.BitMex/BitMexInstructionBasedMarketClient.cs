@@ -103,7 +103,14 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
         protected void ProcessPriceLevelIds(string action, zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry entry)
         { 
          //First we have to process the price level Ids
-            if (action == "insert" || action == "partial")
+            if ( action == "partial")
+            {
+                if (!PriceLevelIds.ContainsKey(entry.id))
+                    PriceLevelIds.Add(entry.id, entry.price);
+                else
+                    DoLog(string.Format("@{0}:WARNING1:Received PARTIAL Price Level for a price leven that already existed", BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Error);
+            }
+            else if (action == "insert")
             {
                 if (!PriceLevelIds.ContainsKey(entry.id))
                     PriceLevelIds.Add(entry.id, entry.price);
@@ -184,10 +191,10 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                     sec.MarketData.BestAskPrice = Convert.ToDouble(bestAsk.price);
                     sec.MarketData.BestAskSize = Convert.ToInt64(bestAsk.size);
 
-                    DoLog(string.Format("@{5}:Publishing Order Book  for symbol {0}: Best Bid Size={1} Best Bid Price={2} Best Ask Size={3} Best Ask Price={4}",
-                                        symbol, bestBid.size.ToString("##.########"), bestBid.price.ToString("##.##"),
-                                              bestAsk.size.ToString("##.########"), bestAsk.price.ToString("##.##"),
-                                        BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
+                    //DoLog(string.Format("@{5}:Publishing Market Data  for symbol {0}: Best Bid Size={1} Best Bid Price={2} Best Ask Size={3} Best Ask Price={4}",
+                    //                    symbol, bestBid.size.ToString("##.########"), bestBid.price.ToString("##.##"),
+                    //                          bestAsk.size.ToString("##.########"), bestAsk.price.ToString("##.##"),
+                    //                    BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
 
 
 
@@ -246,6 +253,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 {
                     lock (tLock)
                     {
+                        PriceLevelIds.Clear();
                         WSMarketDataManager.SubscribeOrderBookL2(symbol);
                         WSMarketDataManager.SubscribeTrades(symbol);
                     }
@@ -318,6 +326,33 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
         
         }
 
+        protected void CancelMarketData(Security sec)
+        {
+            DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
+
+            if (ActiveSecurities.Values.Any(x => x.Symbol == sec.Symbol))
+            {
+                lock (ActiveSecurities)
+                {
+                    List<int> reqsToRemove = new List<int>();
+                    foreach (int mdReqId in ActiveSecurities.Keys)
+                    {
+                        if (ActiveSecurities[mdReqId].Symbol == sec.Symbol)
+                            reqsToRemove.Add(mdReqId);
+
+                    }
+
+                    reqsToRemove.ForEach(x => ActiveSecurities.Remove(x));
+
+                    WSMarketDataManager.UnsubscribeOrderBookL2(sec.Symbol);
+                    WSMarketDataManager.UnsubscribeTrades(sec.Symbol);
+                    PriceLevelIds.Clear();
+                }
+            }
+            else
+                throw new Exception(string.Format("@{0}: Could not find active security to unsubscribe for symbol {1}", GetConfig().Name, sec.Symbol));
+        }
+
         protected override CMState ProessMarketDataRequest(Wrapper wrapper)
         {
             try
@@ -335,6 +370,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 else if (mdr.SubscriptionRequestType == SubscriptionRequestType.Unsuscribe)
                 {
                     CancelMarketData(mdr.Security);
+
                     return CMState.BuildSuccess();
                 }
                 else

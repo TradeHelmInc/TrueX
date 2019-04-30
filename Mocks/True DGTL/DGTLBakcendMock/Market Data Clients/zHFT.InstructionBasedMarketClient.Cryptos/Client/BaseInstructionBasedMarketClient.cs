@@ -179,7 +179,11 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
 
             Security sec = new Security() { Symbol = symbol };
 
-            ActiveSecurities.Add(mdReqId, sec);
+            lock (ActiveSecurities)
+            {
+
+                ActiveSecurities.Add(mdReqId, sec);
+            }
 
            
             RequestMarketDataThread = new Thread(DoRequestMarketData);
@@ -216,13 +220,19 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
 
         protected void CancelMarketData(Security sec)
         {
+
             if (ActiveSecurities.Values.Any(x => x.Symbol == sec.Symbol))
             {
+
+
                 List<Security> toUnsubscribeList = ActiveSecurities.Values.Where(x => x.Symbol == sec.Symbol).ToList();
                 foreach (Security toUnsuscribe in toUnsubscribeList)
                 {
                     toUnsuscribe.Active = false;
+
                 }
+
+
                 DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
             }
             else

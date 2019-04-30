@@ -218,7 +218,7 @@ namespace zHFT.FullMrktConnectivity.BitMex.DAL.WebSockets
                 catch (Exception ex)
                 {
                     //TODO: Log fatal exception receiving data from subscription
-                    abort = true;
+                    //abort = true;
                 }
             }
         }
