@@ -1,0 +1,92 @@
+2019-05-01 14:46:06  :: Initializing Mock Simulated Server...
+2019-05-01 14:46:06  :: Initializing all collections...
+2019-05-01 14:46:06  :: 5/1/2019 2:46:06 PMBaseCommunicationModule.LoadConfig
+2019-05-01 14:46:06  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-01 14:46:06  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-01 14:46:06  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-01 14:46:19  :: 5/1/2019 2:46:19 PMOrderRouterBase.LoadConfig
+2019-05-01 14:46:19  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-01 14:46:19  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-01 14:46:20  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-01 14:46:20  :: Collections Initialized...
+2019-05-01 14:46:21  :: Successfully subscribed to execution event 
+2019-05-01 14:46:29  :: Incoming Login request for user MM1_CLOBUI
+2019-05-01 14:46:29  :: user MM1_CLOBUI Successfully logged in
+2019-05-01 14:46:29  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-01 14:46:29  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-01 14:46:29  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-01 14:46:29  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-01 14:46:29  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-01 14:46:29  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-01 14:46:29  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-01 14:46:29  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=10 Price=5669 TickDirection=PlusTick
+2019-05-01 14:46:30  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-01 14:46:30  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-01 14:46:30  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-01 14:46:30  :: Mapping found for Outgoing Symbol=XBTU19
+2019-05-01 14:46:30  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-01 14:46:30  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=214 Price=5666.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=23 Price=5652.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=15 Price=5596
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=23 Price=5594.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=46 Price=5536.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=30 Price=5526
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=69 Price=5478.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=116 Price=5420.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=534 Price=5340
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=104 Price=5206.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=1000 Price=5101
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=1500 Price=5100
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=4890
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=4790
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=4550
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=4450
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=5000 Price=4047
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=25 Price=3952.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=510 Price=3750
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=2764 Price=3715.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=5000 Price=3080.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=3080
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=20000 Price=3009.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=1000 Price=1982.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=66 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=1982
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=2336 Price=5669
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=289 Price=5670
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=289 Price=5682
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=289 Price=5694
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=15 Price=5697
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=433 Price=5706
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=578 Price=5718
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=30 Price=5725
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=86969 Price=5747.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=115 Price=5748
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=155 Price=5748.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=235 Price=5749
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=45 Price=5753
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=577 Price=5766
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=60 Price=5781
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=5847.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=100000 Price=5947.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=300000 Price=6047.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=5000 Price=6300
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=5000 Price=6600
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=5000 Price=6900
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=3000 Price=8776.5
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=10000 Price=8777
+2019-05-01 14:46:31  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=78  BidOrAsk=65 DepthTime=1556721991 Symbol=XBT-USD Size=3000 Price=9998.5
+2019-05-01 14:46:31  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-05-01 14:46:31  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5666.5 TickDirection=MinusTick
+2019-05-01 14:46:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1556721992 Symbol=XBT-USD Size=213 Price=5666.5
+2019-05-01 14:47:11  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1556722031 Symbol=XBT-USD Size=2334 Price=5669
+2019-05-01 14:47:21  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1556722041 Symbol=XBT-USD Size=2335 Price=5669
+2019-05-01 14:47:24  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1556722044 Symbol=XBT-USD Size=189 Price=5666.5
+2019-05-01 14:47:35  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1556722055 Symbol=XBT-USD Size=213 Price=5666.5
+2019-05-01 14:47:37  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1556722057 Symbol=XBT-USD Size=189 Price=5666.5
+2019-05-01 14:47:50  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1556722070 Symbol=XBT-USD Size=213 Price=5666.5
+2019-05-01 14:47:51  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1556722071 Symbol=XBT-USD Size=2343 Price=5669
+2019-05-01 14:47:52  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-01 14:47:52  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-01 14:47:52  :: Error publishing OrderBookDepth thread:Subproceso anulado.
+2019-05-01 14:47:52  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-01 14:47:52  :: Turning threads off on socket disconnection

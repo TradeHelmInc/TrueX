@@ -943,12 +943,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //if (secMapping.SubscribedLD)
                         //{
-                            lock (SecurityMappings)
-                            {
-                                secMapping.OrderBookEntriesToPublish.Enqueue(obe);
-                            }
-
+                        lock (SecurityMappings)
+                        {
+                            secMapping.OrderBookEntriesToPublish.Enqueue(obe);
+                        }
                         //}
+                       
 
                     }
                     return CMState.BuildSuccess();
