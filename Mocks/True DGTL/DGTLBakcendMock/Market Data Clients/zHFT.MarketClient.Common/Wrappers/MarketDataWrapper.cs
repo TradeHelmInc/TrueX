@@ -146,6 +146,8 @@ namespace zHFT.MarketClient.Common.Wrappers
                 return Security.ReverseMarketData;
             else if (mdField == MarketDataFields.LastTradeDateTime)
                 return Security.MarketData.LastTradeDateTime;
+            else if (mdField == MarketDataFields.PercentageChange)
+                return Security.MarketData.PercentageChange;
 
             return MarketDataFields.NULL;
         }

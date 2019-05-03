@@ -98,6 +98,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers
                 return false;
             else if (mdField == MarketDataFields.LastTradeDateTime)
                 return MarketData.LastTradeDate;
+            else if (mdField == MarketDataFields.PercentageChange)
+                return MarketDataFields.NULL;
 
             return MarketDataFields.NULL;
         }

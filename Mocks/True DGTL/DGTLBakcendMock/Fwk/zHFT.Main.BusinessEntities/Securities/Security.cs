@@ -100,6 +100,41 @@ namespace zHFT.Main.BusinessEntities.Securities
 
         #region Public Methods
 
+        public void ProcessStatistics()
+        {
+            if(!MarketData.Trade.HasValue)
+                return;
+
+            if (MarketData.TradingSessionHighPrice == null)
+                MarketData.TradingSessionHighPrice = MarketData.Trade;
+
+            if (MarketData.TradingSessionLowPrice == null)
+                MarketData.TradingSessionLowPrice = MarketData.Trade;
+
+            if (MarketData.OpeningPrice == null)
+                MarketData.OpeningPrice = MarketData.Trade;
+
+            if (MarketData.ClosingPrice == null)
+                MarketData.ClosingPrice = MarketData.Trade;
+
+            if (MarketData.TradingSessionHighPrice.Value < MarketData.Trade.Value)
+                MarketData.TradingSessionHighPrice = MarketData.Trade;
+
+            if (MarketData.TradingSessionLowPrice.Value > MarketData.Trade.Value)
+                MarketData.TradingSessionLowPrice = MarketData.Trade;
+
+            MarketData.TradeVolume = MarketData.TradeVolume.HasValue ? MarketData.TradeVolume.Value + Convert.ToDouble(MarketData.MDTradeSize) : Convert.ToDouble(MarketData.MDTradeSize);
+
+
+            if (MarketData.Trade.HasValue)
+            {
+                double change = ((MarketData.Trade.Value / MarketData.ClosingPrice.Value) - 1) * 100;
+
+                MarketData.PercentageChange = change;
+            }
+        
+        }
+
         public Security Clone(string newSymbol)
         {
             Security cloned = new Security();

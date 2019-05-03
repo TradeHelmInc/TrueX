@@ -156,9 +156,25 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
         
         }
 
+        protected void ProcessSubscrError(WebSocketErrorMessage subscrError)
+        {
+            string error = string.Format("{0}. Symbol = {1}", subscrError.error, subscrError.Symbol);
+            BitmexMarketDataErrorWrapper errorWrapper = new BitmexMarketDataErrorWrapper(subscrError.Symbol,error);
+            OnMessageRcv(errorWrapper);
+        
+        }
+
         //We update an orderBook in memory and publish
         protected  void UpdateOrderBook(WebSocketSubscriptionEvent subscrEvent)
         {
+
+            if (subscrEvent is WebSocketErrorMessage)
+            {
+
+                ProcessSubscrError((WebSocketErrorMessage)subscrEvent);
+                return;
+            }
+
             WebSocketOrderBookL2Event orderBookEvent = (WebSocketOrderBookL2Event)subscrEvent;
 
             try
@@ -212,6 +228,14 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
         protected void UpdateTrade(WebSocketSubscriptionEvent subscrEvent)
         {
+
+            if (subscrEvent is WebSocketErrorMessage)
+            {
+
+                ProcessSubscrError((WebSocketErrorMessage)subscrEvent);
+                return;
+            }
+
             WebSocketTradeEvent trades = (WebSocketTradeEvent)subscrEvent;
             foreach (Trade trade in trades.data.OrderBy(x=>x.timestamp))
             {
@@ -224,6 +248,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                         sec.MarketData.Trade = Convert.ToDouble(trade.price);
                         sec.MarketData.MDTradeSize = Convert.ToDouble(trade.size);
                         sec.MarketData.LastTradeDateTime = trade.timestamp;
+                        sec.ProcessStatistics();
 
                         DoLog(string.Format("@{5}:NEW TRADE for symbol {0}: Side={1} Size={2} Price={3} TickDirection={4}",
                             trade.symbol, trade.side, trade.size.ToString("##.##"), trade.price.ToString("##.########"), trade.tickDirection,

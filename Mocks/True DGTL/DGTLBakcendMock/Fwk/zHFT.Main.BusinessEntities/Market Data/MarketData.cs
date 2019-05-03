@@ -46,6 +46,8 @@ namespace zHFT.Main.BusinessEntities.Market_Data
         public double? CashVolume { get; set; }
         public double? NominalVolume { get; set; }
 
+        public double? PercentageChange { get; set; }
+
         #endregion
 
         public UpdateAction MDUpdateAction { get; set; }

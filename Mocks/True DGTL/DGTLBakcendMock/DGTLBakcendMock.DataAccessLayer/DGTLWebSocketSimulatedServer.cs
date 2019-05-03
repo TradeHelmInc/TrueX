@@ -33,8 +33,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected bool Connected { get; set; }
 
-        protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
-
         protected SecurityMapping[] SecurityMappings { get; set; }
 
         protected ICommunicationModule MarketDataModule { get; set; }
@@ -95,7 +93,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
             ProcessOrderBookDepthThreads = new Dictionary<string, Thread>();
 
+            ProcessDailySettlementThreads = new Dictionary<string, Thread>();
+
+            ProcessDailyOfficialFixingPriceThreads = new Dictionary<string, Thread>();
+
             LoadSecurityMappings();
+
+            LoadDailySettlementPrices();
+
+            LoadOfficialFixingPrices();
+
+            LoadCreditRecordUpdates();
+
+            LoadAccountRecords();
 
             Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
             {
@@ -225,15 +235,20 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         if (secMapping.PublishedMarketData != null)
                         {
+                            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                             LastSale lastSale = new LastSale()
                             {
                                 Msg = "LastSale",
                                 Sender = 0,
                                 LastPrice = Convert.ToDecimal(secMapping.PublishedMarketData.Trade),
                                 LastShares = Convert.ToDecimal(secMapping.PublishedMarketData.MDTradeSize),
-                                LastTime = 0,
+                                Open = Convert.ToDecimal(secMapping.PublishedMarketData.OpeningPrice),
+                                Change = Convert.ToDecimal(secMapping.PublishedMarketData.PercentageChange),
+                                High = Convert.ToDecimal(secMapping.PublishedMarketData.TradingSessionHighPrice),
+                                Low = Convert.ToDecimal(secMapping.PublishedMarketData.TradingSessionLowPrice),
+                                LastTime = Convert.ToInt64(elapsed.TotalSeconds),
                                 Symbol = secMapping.IncomingSymbol,
-                                Volume = secMapping.PublishedMarketData.NominalVolume.HasValue ? Convert.ToDecimal(secMapping.PublishedMarketData.NominalVolume) : 0
+                                Volume = secMapping.PublishedMarketData.TradeVolume.HasValue ? Convert.ToDecimal(secMapping.PublishedMarketData.TradeVolume) : 0
                             };
 
                              string strLastSale = JsonConvert.SerializeObject(lastSale, Newtonsoft.Json.Formatting.None,
@@ -252,6 +267,15 @@ namespace DGTLBackendMock.DataAccessLayer
                                 secMapping.PendingLSResponse = false;
                             }
                     
+                        }
+                        else if (secMapping.SubscriptionError != null)
+                        {
+                            if (secMapping.PendingLSResponse)
+                            {
+                                ProcessSubscriptionResponse(socket, "LS", secMapping.IncomingSymbol, subscrMsg.UUID,false, secMapping.SubscriptionError);
+                                secMapping.PendingLSResponse = false;
+                            }
+                        
                         }
                     
                     }
@@ -308,6 +332,15 @@ namespace DGTLBackendMock.DataAccessLayer
                             }
 
                         }
+                        else if (secMapping.SubscriptionError != null)
+                        {
+                            if (secMapping.PendingLQResponse)
+                            {
+                                ProcessSubscriptionResponse(socket, "LQ", secMapping.IncomingSymbol, subscrMsg.UUID, false, secMapping.SubscriptionError);
+                                secMapping.PendingLQResponse = false;
+                            }
+
+                        }
 
                     }
                     Thread.Sleep(1000);
@@ -316,6 +349,82 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 DoLog(string.Format("Error publishing LastQuote thread:{0}", ex.Message), MessageType.Error);
+
+            }
+        }
+
+        private void ProcessOrderBookDepthThread(object param)
+        {
+            object[] parameters = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
+            SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
+            bool firstSent = false;
+
+            try
+            {
+                while (true)
+                {
+                    lock (SecurityMappings)
+                    {
+
+                        while (secMapping.OrderBookEntriesToPublish.Count > 0)
+                        {
+
+                            OrderBookEntry obe = secMapping.OrderBookEntriesToPublish.Dequeue();
+
+                            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                            DepthOfBook depthOfBook = new DepthOfBook()
+                            {
+                                Msg = "DepthOfBook",
+                                Sender = 0,
+                                cAction = AttributeConverter.GetAction(obe.MDUpdateAction),
+                                cBidOrAsk = AttributeConverter.GetBidOrAsk(obe.MDEntryType),
+                                DepthTime = Convert.ToInt64(elapsed.TotalSeconds),
+                                Symbol = secMapping.IncomingSymbol,
+                                Size = obe.MDEntrySize,
+                                Price = obe.MDEntryPx
+                            };
+
+
+                            DoLog(string.Format("DepthOfBook-> Msg={0} Sender={1}  Action={2}  BidOrAsk={3} DepthTime={4} Symbol={5} Size={6} Price={7}",
+                                                 depthOfBook.Msg, depthOfBook.Sender, depthOfBook.Action, depthOfBook.BidOrAsk, depthOfBook.DepthTime, depthOfBook.Symbol, depthOfBook.Size, depthOfBook.Price),
+                                                 MessageType.Information);
+
+                            string strDepthOfBook = JsonConvert.SerializeObject(depthOfBook, Newtonsoft.Json.Formatting.None,
+                                   new JsonSerializerSettings
+                                   {
+                                       NullValueHandling = NullValueHandling.Ignore
+                                   });
+                            firstSent = true;
+                            DoSend(socket, strDepthOfBook);
+
+
+                        }
+                    }
+
+                    if (secMapping.PendingLDResponse && firstSent)
+                    {
+                        ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID);
+                        secMapping.PendingLDResponse = false;
+                    }
+
+                    if (secMapping.SubscriptionError != null)
+                    {
+                        if (secMapping.PendingLDResponse)
+                        {
+                            ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID, false, secMapping.SubscriptionError);
+                            secMapping.PendingLDResponse = false;
+                        }
+                    }
+
+                    Thread.Sleep(1000);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error publishing OrderBookDepth thread:{0}", ex.Message), MessageType.Error);
 
             }
         }
@@ -411,72 +520,6 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 DoLog(string.Format("Critical Error publishing Execution Report:{0}", ex.Message), MessageType.Error);
-            }
-        }
-
-        private void ProcessOrderBookDepthThread(object param)
-        {
-            object[] parameters = (object[])param;
-            IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
-            SecurityMapping secMapping = (SecurityMapping)parameters[1];
-            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[2];
-            bool firstSent = false;
-
-            try
-            {
-                while (true)
-                {
-                    lock (SecurityMappings)
-                    {
-                       
-                        while (secMapping.OrderBookEntriesToPublish.Count > 0)
-                        {
-
-                            OrderBookEntry obe =   secMapping.OrderBookEntriesToPublish.Dequeue();
-
-                            TimeSpan elapsed =DateTime.Now-new DateTime(1970,1,1);
-
-                            DepthOfBook depthOfBook = new DepthOfBook()
-                            {
-                                Msg = "DepthOfBook",
-                                Sender = 0,
-                                cAction = AttributeConverter.GetAction(obe.MDUpdateAction),
-                                cBidOrAsk = AttributeConverter.GetBidOrAsk(obe.MDEntryType),
-                                DepthTime = Convert.ToInt64(elapsed.TotalSeconds),
-                                Symbol = secMapping.IncomingSymbol,
-                                Size = obe.MDEntrySize,
-                                Price = obe.MDEntryPx
-                            };
-
-
-                            DoLog(string.Format("DepthOfBook-> Msg={0} Sender={1}  Action={2}  BidOrAsk={3} DepthTime={4} Symbol={5} Size={6} Price={7}",
-                                                 depthOfBook.Msg, depthOfBook.Sender, depthOfBook.Action, depthOfBook.BidOrAsk, depthOfBook.DepthTime, depthOfBook.Symbol, depthOfBook.Size, depthOfBook.Price),
-                                                 MessageType.Information);
-
-                            string strDepthOfBook = JsonConvert.SerializeObject(depthOfBook, Newtonsoft.Json.Formatting.None,
-                                   new JsonSerializerSettings
-                                   {
-                                       NullValueHandling = NullValueHandling.Ignore
-                                   });
-                            firstSent = true;
-                            DoSend(socket,strDepthOfBook);
-
-                        
-                        }
-                    }
-
-                    if (secMapping.PendingLDResponse && firstSent)
-                    {
-                        ProcessSubscriptionResponse(socket, "LD", secMapping.IncomingSymbol, subscrMsg.UUID);
-                        secMapping.PendingLDResponse = false;
-                    }
-                    Thread.Sleep(1000);
-                }
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Error publishing OrderBookDepth thread:{0}", ex.Message), MessageType.Error);
-
             }
         }
 
@@ -670,6 +713,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             lock (SecurityMappings)
             {
+              
                 if (subscrMsg.Service == "LS")
                 {
                     if (ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
@@ -677,6 +721,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
                         ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
                         secMapping.SubscribedLS = false;
+                        secMapping.SubscriptionError = null;
                         if (secMapping.SubscribedMarketData())
                             DoUnsubscribe(secMapping.OutgoingSymbol);
                     }
@@ -689,24 +734,12 @@ namespace DGTLBackendMock.DataAccessLayer
                         ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
 
                         secMapping.SubscribedLQ = false;
+                        secMapping.SubscriptionError = null;
                         if (secMapping.SubscribedMarketData())
                             DoUnsubscribe(secMapping.OutgoingSymbol);
                     }
                 }
-                else if (subscrMsg.Service == "FP")
-                {
-                    //if (subscrMsg.ServiceKey != null)
-                    //    ProcessOficialFixingPrice(socket, subscrMsg);
-                }
-                else if (subscrMsg.Service == "FD")
-                {
-                    //if (subscrMsg.ServiceKey != null)
-                    //    ProcessDailySettlement(socket, subscrMsg);
-                }
-                else if (subscrMsg.Service == "TD")
-                {
-                    //ProcessAccountRecord(socket, subscrMsg);
-                }
+              
                 else if (subscrMsg.Service == "CU")
                 {
                     //ProcessCreditRecordUpdates(socket, subscrMsg);
@@ -719,6 +752,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ProcessOrderBookDepthThreads.Remove(subscrMsg.ServiceKey);
 
                         secMapping.SubscribedLD = false;
+                        secMapping.SubscriptionError = null;
                         if (secMapping.SubscribedMarketData())
                             DoUnsubscribe(secMapping.OutgoingSymbol);
                     }
@@ -755,25 +789,27 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else if (subscrMsg.Service == "FP")
                 {
-                    //if (subscrMsg.ServiceKey != null)
-                    //    ProcessOficialFixingPrice(socket, subscrMsg);
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessOficialFixingPrice(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "FD")
                 {
-                    //if (subscrMsg.ServiceKey != null)
-                    //    ProcessDailySettlement(socket, subscrMsg);
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessDailySettlement(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "TD")
+                {
+                    ProcessAccountRecord(socket, subscrMsg);
+                }
+          
                 else if (subscrMsg.Service == "TB")
                 {
                     ProcessUserRecord(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "TD")
-                {
-                    //ProcessAccountRecord(socket, subscrMsg);
-                }
+              
                 else if (subscrMsg.Service == "CU")
                 {
-                    //ProcessCreditRecordUpdates(socket, subscrMsg);
+                    ProcessCreditRecordUpdates(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "LD")
                 {
@@ -863,6 +899,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessOrderBookDepthThreads.Values.ToList().ForEach(x => x.Abort());
                 ProcessOrderBookDepthThreads.Clear();
 
+                MarkToUnsubscribe(ProcessDailyOfficialFixingPriceThreads.Keys.ToList(), symbolsToUnsuscribe);
+                ProcessDailyOfficialFixingPriceThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessDailyOfficialFixingPriceThreads.Clear();
+
+                MarkToUnsubscribe(ProcessDailySettlementThreads.Keys.ToList(), symbolsToUnsuscribe);
+                ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessDailySettlementThreads.Clear();
+
                 if (HeartbeatThread != null)
                 {
                     HeartbeatThread.Abort();
@@ -882,6 +926,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     secMapping.SubscribedLD = false;
                     secMapping.SubscribedFP = false;
                     secMapping.SubscribedFD = false;
+                    secMapping.SubscriptionError = null;
                     secMapping.OrderBookEntriesToPublish.Clear();
                 }
 
@@ -914,7 +959,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == md.Security.Symbol)
                                                                                       .FirstOrDefault();
-                        if (secMapping.SubscribedLS || secMapping.SubscribedLQ || secMapping.SubscribedFP || secMapping.SubscribedFD)
+                        if (secMapping.SubscribedMarketData())
                         {
                             lock (SecurityMappings)
                             {
@@ -932,6 +977,23 @@ namespace DGTLBackendMock.DataAccessLayer
                     return CMState.BuildFail(ex);
                 }
             }
+            else if (wrapper.GetAction() == Actions.MARKET_DATA_ERROR)
+            {
+                string symbol = (string) wrapper.GetField(MarketDataFields.Symbol);
+                string error = (string) wrapper.GetField(MarketDataFields.Error);
+
+                if (SecurityMappings.Any(x => x.OutgoingSymbol == symbol))
+                {
+                    SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == symbol) .FirstOrDefault();
+
+                    if (secMapping.SubscribedMarketData())
+                    {
+                        secMapping.SubscriptionError = error;
+                    }
+                }
+
+                return CMState.BuildSuccess();
+            }
             else if (wrapper.GetAction() == Actions.MARKET_DATA_ORDER_BOOK_ENTRY)
             {
                 try
@@ -948,12 +1010,12 @@ namespace DGTLBackendMock.DataAccessLayer
                             secMapping.OrderBookEntriesToPublish.Enqueue(obe);
                         }
                         //}
-                       
+
 
                     }
                     return CMState.BuildSuccess();
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     return CMState.BuildFail(ex);
                 }

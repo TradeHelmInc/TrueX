@@ -24,34 +24,23 @@ namespace DGTLBackendMock.DataAccessLayer
     {
         #region Protected Attributes
 
-        protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
+        
 
         protected LastSale[] LastSales { get; set; }
 
         protected Quote[] Quotes { get; set; }
 
-        protected DailySettlementPrice[] DailySettlementPrices { get; set; }
-
-        protected OfficialFixingPrice[] OfficialFixingPrices { get; set; }
-
-        protected AccountRecord[] AccountRecords { get; set; }
-
         protected DepthOfBook[] DepthOfBooks { get; set; }
 
-        protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
+        
 
         protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
 
-        protected Dictionary<string, Thread> ProcessDailySettlementThreads { get; set; }
-
-        protected Dictionary<string, Thread> ProcessDailyOfficialFixingPriceThreads { get; set; }
-
-
         protected bool Connected { get; set; }
 
-        protected object tLock = new object();
+        
 
         #endregion
 
@@ -165,21 +154,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void LoadAccountRecords()
-        {
-            string strAccountRecords = File.ReadAllText(@".\input\AccountRecord.json");
+        
 
-            //Aca le metemos que serialize el contenido
-            AccountRecords = JsonConvert.DeserializeObject<AccountRecord[]>(strAccountRecords);
-        }
-
-        private void LoadCreditRecordUpdates()
-        {
-            string strCreditRecordUpdate = File.ReadAllText(@".\input\CreditRecordUpdate.json");
-
-            //Aca le metemos que serialize el contenido
-            CreditRecordUpdates = JsonConvert.DeserializeObject<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[]>(strCreditRecordUpdate);
-        }
+        
 
         private void LoadSecurityMasterRecords()
         {
@@ -213,21 +190,6 @@ namespace DGTLBackendMock.DataAccessLayer
             DepthOfBooks = JsonConvert.DeserializeObject<DepthOfBook[]>(strDepthOfBooks);
         }
 
-        private void LoadDailySettlementPrices()
-        {
-            string strDaylySettlementPrices = File.ReadAllText(@".\input\DailySettlementPrice.json");
-
-            //Aca le metemos que serialize el contenido
-            DailySettlementPrices = JsonConvert.DeserializeObject<DailySettlementPrice[]>(strDaylySettlementPrices);
-        }
-
-        private void LoadOfficialFixingPrices()
-        {
-            string strOfficialFixingPrices = File.ReadAllText(@".\input\OfficialFixingPrice.json");
-
-            //Aca le metemos que serialize el contenido
-            OfficialFixingPrices = JsonConvert.DeserializeObject<OfficialFixingPrice[]>(strOfficialFixingPrices);
-        }
 
         private void EmulatePriceChanges(int i, LastSale lastSale,ref  decimal? initialPrice)
         {
@@ -334,103 +296,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void DailySettlementThread(object param)
-        {
-            object[] paramArray = (object[])param;
-            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
-            bool subscResp = false;
 
-            try
-            {
-                while (true)
-                {
-                    DailySettlementPrice dailySettl= DailySettlementPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
-                    if (dailySettl != null)
-                    {
-                        DoSend<DailySettlementPrice>(socket, dailySettl);
-                        Thread.Sleep(3000);//3 seconds
-                        if (!subscResp)
-                        {
-                            ProcessSubscriptionResponse(socket, "FP", subscrMsg.ServiceKey, subscrMsg.UUID);
-                            Thread.Sleep(2000);
-                            subscResp = true;
-                        }
-                    }
-                    else
-                    {
-                        DoLog(string.Format("Daily Settlement Price not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Critical error processing daily settlement price message: {0}...", ex.Message), MessageType.Error);
-
-            }
-        }
-
-        private void EvalDailyOfficialFixingPriceWarnings(string symbol)
-        {
-            SecurityMasterRecord security = SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault();
-
-            if (security.AssetClass == Security._SPOT)
-            { 
-                //WE shouldn't have this service requested for a spot currency
-                DoLog(string.Format("WARNING1 - Daily Official Fixing Price requested for spot currency! : {0}", symbol), MessageType.Error);
-            }
-        
-        }
-
-        private void EvalDailySettlementPriceWarnings(string symbol)
-        {
-            SecurityMasterRecord security = SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault();
-
-            if (security.AssetClass == Security._SPOT)
-            {
-                //WE shouldn't have this service requested for a spot currency
-                DoLog(string.Format("WARNING2 - Daily Settlement Price requested for spot currency! : {0}", symbol), MessageType.Error);
-            }
-
-        }
-
-        private void DailyOfficialFixingPriceThread(object param)
-        {
-            object[] paramArray = (object[])param;
-            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)paramArray[1];
-            bool subscResp = false;
-
-            try
-            {
-                while (true)
-                {
-                    OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
-                    if (officialFixingPrice != null)
-                    {
-                        DoSend<OfficialFixingPrice>(socket, officialFixingPrice);
-                        Thread.Sleep(3000);//3 seconds
-                        if (!subscResp)
-                        {
-                            ProcessSubscriptionResponse(socket, "FD", subscrMsg.ServiceKey, subscrMsg.UUID);
-                            Thread.Sleep(2000);
-                            subscResp = true;
-                        }
-                    }
-                    else
-                    {
-                        DoLog(string.Format("Official Fixing Price not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Critical error processing daily settlement price message: {0}...", ex.Message), MessageType.Error);
-
-            }
-        }
 
         private void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
@@ -461,41 +327,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void ProcessDailySettlement(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
-        {
-            EvalDailySettlementPriceWarnings(subscrMsg.ServiceKey);
-
-
-            if (!ProcessDailySettlementThreads.ContainsKey(subscrMsg.ServiceKey))
-            {
-                lock (tLock)
-                {
-                    Thread ProcessDailySettlementThread = new Thread(DailySettlementThread);
-                    ProcessDailySettlementThread.Start(new object[] { socket, subscrMsg });
-                    ProcessDailySettlementThreads.Add(subscrMsg.ServiceKey, ProcessDailySettlementThread);
-                }
-            }
-
-        }
-
-
-
-        private void ProcessAccountRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
-        {
-            if (subscrMsg.ServiceKey != "*")
-            {
-                if (subscrMsg.ServiceKey.EndsWith("@*"))
-                    subscrMsg.ServiceKey = subscrMsg.ServiceKey.Replace("@*", "");
-
-                List<AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == subscrMsg.ServiceKey).ToList();
-
-                accountRecords.ForEach(x => DoSend<AccountRecord>(socket,x));
-            }
-            else
-                AccountRecords.ToList().ForEach(x => DoSend<AccountRecord>(socket, x));
-
-            ProcessSubscriptionResponse(socket, "TD", subscrMsg.ServiceKey, subscrMsg.UUID);
-        }
+       
 
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
@@ -507,36 +339,9 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        private void ProcessCreditRecordUpdates(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
-        {
-            if (subscrMsg.ServiceKey != "*")
-            {
-                if (subscrMsg.ServiceKey.EndsWith("@*"))
-                    subscrMsg.ServiceKey = subscrMsg.ServiceKey.Replace("@*", "");
+      
 
-                DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == subscrMsg.ServiceKey).FirstOrDefault();
-
-                if (creditRecordUpdate != null)
-                    DoSend<DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate>(socket, creditRecordUpdate);
-            }
-
-
-            ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID);
-        }
-
-        private void ProcessOficialFixingPrice(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
-        {
-            EvalDailyOfficialFixingPriceWarnings(subscrMsg.ServiceKey);
-            if (!ProcessDailyOfficialFixingPriceThreads.ContainsKey(subscrMsg.ServiceKey))
-            {
-                lock (tLock)
-                {
-                    Thread ProcessDailyOfficialFixingPriceThread = new Thread(DailyOfficialFixingPriceThread);
-                    ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, subscrMsg });
-                    ProcessDailyOfficialFixingPriceThreads.Add(subscrMsg.ServiceKey, ProcessDailyOfficialFixingPriceThread);
-                }
-            }
-        }
+       
 
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {

@@ -47,6 +47,7 @@
     <Compile Include="DTO\Websockets\Util\ForeignKey.cs" />
     <Compile Include="DTO\Websockets\Util\Type.cs" />
     <Compile Include="DTO\Websockets\WebSocketAuthenticationRequest.cs" />
+    <Compile Include="DTO\Websockets\WebSocketErrorMessage.cs" />
     <Compile Include="DTO\Websockets\WebSocketResponseMessage.cs" />
     <Compile Include="DTO\Websockets\WebSocketSubscriptionEvent.cs" />
     <Compile Include="DTO\Websockets\WebSocketSubscriptionRequest.cs" />

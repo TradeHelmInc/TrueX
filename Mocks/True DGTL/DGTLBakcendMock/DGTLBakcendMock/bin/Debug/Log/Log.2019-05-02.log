@@ -1,0 +1,857 @@
+2019-05-02 10:56:04  :: Initializing Mock Simulated Server...
+2019-05-02 10:56:04  :: Initializing all collections...
+2019-05-02 10:56:04  :: 5/2/2019 10:56:04 AMBaseCommunicationModule.LoadConfig
+2019-05-02 10:56:04  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 10:56:04  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 10:56:04  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 10:56:07  :: 5/2/2019 10:56:07 AMOrderRouterBase.LoadConfig
+2019-05-02 10:56:07  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 10:56:07  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 10:56:07  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 10:56:08  :: Collections Initialized...
+2019-05-02 10:56:09  :: Successfully subscribed to execution event 
+2019-05-02 10:57:59  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 10:57:59  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 10:57:59  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 10:57:59  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 10:57:59  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 10:57:59  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 10:57:59  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 10:58:00  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 10:58:00  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 10:58:00  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 10:58:00  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:00:31  :: Initializing Mock Simulated Server...
+2019-05-02 12:00:31  :: Initializing all collections...
+2019-05-02 12:00:33  :: 5/2/2019 12:00:33 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:00:33  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:00:33  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:00:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:01:05  :: Initializing Mock Simulated Server...
+2019-05-02 12:01:05  :: Initializing all collections...
+2019-05-02 12:01:05  :: 5/2/2019 12:01:05 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:01:05  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:01:05  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:01:05  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:01:08  :: 5/2/2019 12:01:08 PMOrderRouterBase.LoadConfig
+2019-05-02 12:01:08  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:01:08  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:01:08  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:01:09  :: Collections Initialized...
+2019-05-02 12:01:09  :: Successfully subscribed to execution event 
+2019-05-02 12:01:09  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:01:09  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:01:09  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:01:09  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:01:09  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:01:09  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:01:09  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:01:15  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:01:15  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 12:01:15  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 12:01:15  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:27:21  :: Initializing Mock Simulated Server...
+2019-05-02 12:27:21  :: Initializing all collections...
+2019-05-02 12:27:21  :: 5/2/2019 12:27:21 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:27:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:27:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:27:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:29:19  :: Initializing Mock Simulated Server...
+2019-05-02 12:29:19  :: Initializing all collections...
+2019-05-02 12:29:19  :: 5/2/2019 12:29:19 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:29:19  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:29:19  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:29:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:29:34  :: 5/2/2019 12:29:34 PMOrderRouterBase.LoadConfig
+2019-05-02 12:29:34  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:29:34  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:29:34  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:29:35  :: Collections Initialized...
+2019-05-02 12:29:39  :: Successfully subscribed to execution event 
+2019-05-02 12:29:54  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:29:54  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:29:55  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:29:55  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:29:55  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:29:55  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:29:55  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:29:58  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:29:58  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 12:29:58  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 12:29:58  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:38:05  :: Initializing Mock Simulated Server...
+2019-05-02 12:38:05  :: Initializing all collections...
+2019-05-02 12:38:05  :: 5/2/2019 12:38:05 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:38:05  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:38:05  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:38:06  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:38:09  :: 5/2/2019 12:38:09 PMOrderRouterBase.LoadConfig
+2019-05-02 12:38:09  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:09  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:09  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:10  :: Collections Initialized...
+2019-05-02 12:38:10  :: Successfully subscribed to execution event 
+2019-05-02 12:38:20  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:38:20  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:38:20  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:38:20  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:38:20  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:38:20  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:38:30  :: Initializing Mock Simulated Server...
+2019-05-02 12:38:30  :: Initializing all collections...
+2019-05-02 12:38:30  :: 5/2/2019 12:38:30 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:38:30  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:38:30  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:38:31  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:38:34  :: 5/2/2019 12:38:34 PMOrderRouterBase.LoadConfig
+2019-05-02 12:38:34  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:34  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:34  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:38:35  :: Collections Initialized...
+2019-05-02 12:38:35  :: Successfully subscribed to execution event 
+2019-05-02 12:38:42  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:38:42  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:38:42  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:38:42  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:38:42  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:38:42  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:38:42  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:38:43  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:38:43  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 12:38:43  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 12:38:43  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:39:02  :: Initializing Mock Simulated Server...
+2019-05-02 12:39:02  :: Initializing all collections...
+2019-05-02 12:39:03  :: 5/2/2019 12:39:03 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:39:03  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:39:03  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:39:03  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:39:06  :: 5/2/2019 12:39:06 PMOrderRouterBase.LoadConfig
+2019-05-02 12:39:06  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:39:06  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:39:06  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:39:07  :: Collections Initialized...
+2019-05-02 12:39:08  :: Successfully subscribed to execution event 
+2019-05-02 12:39:15  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:39:15  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:39:15  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:39:15  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:39:15  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:39:15  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:39:15  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:39:24  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:39:24  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 12:39:24  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 12:39:24  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:58:52  :: Initializing Mock Simulated Server...
+2019-05-02 12:58:52  :: Initializing all collections...
+2019-05-02 12:58:53  :: 5/2/2019 12:58:53 PMBaseCommunicationModule.LoadConfig
+2019-05-02 12:58:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:58:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 12:58:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 12:58:56  :: 5/2/2019 12:58:56 PMOrderRouterBase.LoadConfig
+2019-05-02 12:58:56  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:58:56  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 12:58:56  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 12:58:57  :: Collections Initialized...
+2019-05-02 12:58:57  :: Successfully subscribed to execution event 
+2019-05-02 12:59:07  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 12:59:07  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 12:59:07  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:59:07  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 12:59:07  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 12:59:07  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:59:07  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 12:59:11  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: OrderBookPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 12:59:11  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 12:59:11  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 12:59:11  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 12:59:24  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LQ ServiceKey:XBT-USD Success:False
+2019-05-02 12:59:28  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LS ServiceKey:XBT-USD Success:False
+2019-05-02 12:59:31  :: SubscriptionResponse UUID:OrderBookPOCUUID Service:LD ServiceKey:XBT-USD Success:False
+2019-05-02 13:00:47  :: Initializing Mock Simulated Server...
+2019-05-02 13:00:47  :: Initializing all collections...
+2019-05-02 13:00:48  :: 5/2/2019 1:00:48 PMBaseCommunicationModule.LoadConfig
+2019-05-02 13:00:48  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 13:00:48  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 13:00:48  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 13:01:02  :: 5/2/2019 1:01:02 PMOrderRouterBase.LoadConfig
+2019-05-02 13:01:02  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:02  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:02  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:03  :: Collections Initialized...
+2019-05-02 13:01:03  :: Successfully subscribed to execution event 
+2019-05-02 13:01:36  :: Initializing Mock Simulated Server...
+2019-05-02 13:01:36  :: Initializing all collections...
+2019-05-02 13:01:36  :: 5/2/2019 1:01:36 PMBaseCommunicationModule.LoadConfig
+2019-05-02 13:01:36  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 13:01:36  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 13:01:36  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 13:01:39  :: 5/2/2019 1:01:39 PMOrderRouterBase.LoadConfig
+2019-05-02 13:01:39  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:39  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:39  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 13:01:40  :: Collections Initialized...
+2019-05-02 13:01:41  :: Successfully subscribed to execution event 
+2019-05-02 13:01:53  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-02 13:01:53  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-02 13:02:03  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 13:02:03  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-02 13:02:03  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-02 13:02:03  :: Mapping found for Outgoing Symbol=XBTU192
+2019-05-02 13:02:03  :: Subscribing market data for outgoing Symbol=XBTU192
+2019-05-02 13:02:03  :: Subscription sent for outgoing Symbol=XBTU192
+2019-05-02 13:02:03  :: @Incoming Bitmex:Requesting market data por symbol XBTU192
+2019-05-02 13:02:04  :: SubscriptionResponse UUID:APIClientUUID Service:LD ServiceKey:XBT-USD Success:False
+2019-05-02 13:02:20  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 13:02:22  :: SubscriptionResponse UUID:APIClientUUID Service:LS ServiceKey:XBT-USD Success:False
+2019-05-02 13:02:51  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 13:02:51  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:XBT-USD Success:False
+2019-05-02 13:11:14  :: Unknown order processing execution report for OrderId 37eb4253-bfc4-8e68-4af6-35f12969b7f9 
+2019-05-02 13:11:55  :: Unknown order processing execution report for OrderId e1b14c46-bd2b-7ed5-eb89-559873674bc3 
+2019-05-02 13:19:17  :: Unknown order processing execution report for OrderId 02e2dee8-be62-f479-730d-70c80fc1bb7a 
+2019-05-02 13:23:58  :: Unknown order processing execution report for OrderId d1e3bcee-ed71-ce23-a2a6-2a16ea7d6dcb 
+2019-05-02 13:24:23  :: Unknown order processing execution report for OrderId fbd1c3f0-9e5d-dfd0-0caf-47a37615f25d 
+2019-05-02 13:26:29  :: Unknown order processing execution report for OrderId 41b8379e-6e86-d85e-fb48-d8bf5c951865 
+2019-05-02 13:31:13  :: Unknown order processing execution report for OrderId 164e45dc-1772-0d36-a206-96f7f67d030b 
+2019-05-02 13:32:48  :: Unknown order processing execution report for OrderId 9ab2b6ba-9903-fb5f-de26-46f75ddada01 
+2019-05-02 13:39:03  :: Unknown order processing execution report for OrderId c4fa99c8-d904-74c0-b01e-bca055b8ac19 
+2019-05-02 13:39:27  :: Unknown order processing execution report for OrderId ca457401-394a-e8f5-fbda-f95cd224d8bc 
+2019-05-02 13:40:03  :: Unknown order processing execution report for OrderId a48d4db8-3e60-cb36-472e-3a119ffab3cf 
+2019-05-02 13:43:34  :: Unknown order processing execution report for OrderId 2e2e685f-8536-7fc9-3f74-e84aa99cd2aa 
+2019-05-02 13:44:36  :: Unknown order processing execution report for OrderId d423a363-a94b-4f1b-a7e4-9cdbf73263e2 
+2019-05-02 13:46:15  :: Unknown order processing execution report for OrderId f77be5b4-416d-9218-5c0c-ed99c2221180 
+2019-05-02 13:47:11  :: Unknown order processing execution report for OrderId 00bad288-2152-2c59-66e3-3aa06e0a178a 
+2019-05-02 13:47:42  :: Unknown order processing execution report for OrderId bf484884-bc33-99c8-bba6-5fa1a54a1f11 
+2019-05-02 13:48:12  :: Unknown order processing execution report for OrderId 4e6d1348-3697-2178-e522-31fe18afdc15 
+2019-05-02 13:48:12  :: Unknown order processing execution report for OrderId 4e6d1348-3697-2178-e522-31fe18afdc15 
+2019-05-02 13:48:12  :: Unknown order processing execution report for OrderId d423a363-a94b-4f1b-a7e4-9cdbf73263e2 
+2019-05-02 13:48:45  :: Unknown order processing execution report for OrderId 5472f5bb-0dec-c56c-7671-d4d6b5f94f9a 
+2019-05-02 13:48:45  :: Unknown order processing execution report for OrderId 5472f5bb-0dec-c56c-7671-d4d6b5f94f9a 
+2019-05-02 13:48:45  :: Unknown order processing execution report for OrderId 5472f5bb-0dec-c56c-7671-d4d6b5f94f9a 
+2019-05-02 13:48:45  :: Unknown order processing execution report for OrderId 5472f5bb-0dec-c56c-7671-d4d6b5f94f9a 
+2019-05-02 13:48:45  :: Unknown order processing execution report for OrderId 5472f5bb-0dec-c56c-7671-d4d6b5f94f9a 
+2019-05-02 13:49:30  :: Unknown order processing execution report for OrderId 10f8e0a5-7aff-3e56-4176-009d7b00a695 
+2019-05-02 13:49:30  :: Unknown order processing execution report for OrderId 10f8e0a5-7aff-3e56-4176-009d7b00a695 
+2019-05-02 13:50:14  :: Unknown order processing execution report for OrderId 4748f326-4b43-8dbb-4a9d-cd529b75e1af 
+2019-05-02 13:51:36  :: Unknown order processing execution report for OrderId c8706f08-2c02-f606-bad4-a83fb856d59f 
+2019-05-02 13:51:36  :: Unknown order processing execution report for OrderId c8706f08-2c02-f606-bad4-a83fb856d59f 
+2019-05-02 13:52:09  :: Unknown order processing execution report for OrderId 7eb841d0-2a20-7d87-ccbb-bf579580c5b9 
+2019-05-02 13:52:09  :: Unknown order processing execution report for OrderId 7eb841d0-2a20-7d87-ccbb-bf579580c5b9 
+2019-05-02 13:54:02  :: Unknown order processing execution report for OrderId b3956f45-dcbd-fd57-dda5-f08d35771269 
+2019-05-02 13:54:02  :: Unknown order processing execution report for OrderId b3956f45-dcbd-fd57-dda5-f08d35771269 
+2019-05-02 13:54:02  :: Unknown order processing execution report for OrderId b3956f45-dcbd-fd57-dda5-f08d35771269 
+2019-05-02 14:54:08  :: Initializing Mock Simulated Server...
+2019-05-02 14:54:08  :: Initializing all collections...
+2019-05-02 14:54:08  :: 5/2/2019 2:54:08 PMBaseCommunicationModule.LoadConfig
+2019-05-02 14:54:08  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 14:54:08  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 14:54:08  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 14:54:23  :: 5/2/2019 2:54:23 PMOrderRouterBase.LoadConfig
+2019-05-02 14:54:23  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 14:54:23  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 14:54:23  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 14:54:24  :: Collections Initialized...
+2019-05-02 14:54:24  :: Successfully subscribed to execution event 
+2019-05-02 14:54:52  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 14:54:52  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 14:54:52  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:54:52  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 14:54:52  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 14:54:52  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 14:54:52  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 14:54:52  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 14:54:52  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=7 Price=5841 TickDirection=PlusTick
+2019-05-02 14:54:53  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:54:53  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 14:54:55  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:55:02  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:55:02  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 14:55:48  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5747 TickDirection=MinusTick
+2019-05-02 14:55:48  :: Unknown order processing execution report for OrderId 27d3e66a-5cc7-c2b2-beae-dfad21c64d25 
+2019-05-02 14:55:48  :: Unknown order processing execution report for OrderId 27d3e66a-5cc7-c2b2-beae-dfad21c64d25 
+2019-05-02 14:55:52  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=3 Price=5841 TickDirection=PlusTick
+2019-05-02 14:57:32  :: Unknown order processing execution report for OrderId a2c9b2c0-f462-d65b-a1db-79777dc36f44 
+2019-05-02 14:57:34  :: Unknown order processing execution report for OrderId a2c9b2c0-f462-d65b-a1db-79777dc36f44 
+2019-05-02 14:58:46  :: Initializing Mock Simulated Server...
+2019-05-02 14:58:46  :: Initializing all collections...
+2019-05-02 14:58:46  :: 5/2/2019 2:58:46 PMBaseCommunicationModule.LoadConfig
+2019-05-02 14:58:46  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 14:58:46  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 14:58:47  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 14:59:01  :: 5/2/2019 2:59:01 PMOrderRouterBase.LoadConfig
+2019-05-02 14:59:01  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 14:59:01  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 14:59:01  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 14:59:02  :: Collections Initialized...
+2019-05-02 14:59:02  :: Successfully subscribed to execution event 
+2019-05-02 14:59:12  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 14:59:12  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 14:59:12  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:59:12  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 14:59:12  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 14:59:12  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 14:59:12  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 14:59:12  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 14:59:14  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:59:14  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5747 TickDirection=MinusTick
+2019-05-02 14:59:15  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:59:15  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 14:59:15  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 14:59:16  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 14:59:31  :: Unknown order processing execution report for OrderId 78630606-27ee-0f1c-8131-8df5b9ffa816 
+2019-05-02 14:59:31  :: Unknown order processing execution report for OrderId 78630606-27ee-0f1c-8131-8df5b9ffa816 
+2019-05-02 14:59:31  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5841 TickDirection=PlusTick
+2019-05-02 14:59:51  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 14:59:51  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 14:59:51  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 14:59:51  :: Turning threads off on socket disconnection
+2019-05-02 14:59:51  :: Turning threads off on socket disconnection
+2019-05-02 15:00:57  :: Initializing Mock Simulated Server...
+2019-05-02 15:00:57  :: Initializing all collections...
+2019-05-02 15:00:58  :: 5/2/2019 3:00:58 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:00:58  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:00:58  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:00:58  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:01:02  :: 5/2/2019 3:01:02 PMOrderRouterBase.LoadConfig
+2019-05-02 15:01:02  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:01:02  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:01:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:01:04  :: Collections Initialized...
+2019-05-02 15:01:04  :: Successfully subscribed to execution event 
+2019-05-02 15:01:12  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:01:12  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:01:12  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:01:12  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:01:12  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:01:12  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:01:13  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:01:13  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:01:13  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=6 Price=5747 TickDirection=ZeroMinusTick
+2019-05-02 15:01:13  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:01:13  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:01:13  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:01:14  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:01:15  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:01:29  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5841 TickDirection=PlusTick
+2019-05-02 15:01:29  :: Unknown order processing execution report for OrderId 90cff79d-7e6e-1b48-6234-2f1cf948f427 
+2019-05-02 15:01:29  :: Unknown order processing execution report for OrderId 90cff79d-7e6e-1b48-6234-2f1cf948f427 
+2019-05-02 15:02:18  :: Unknown order processing execution report for OrderId 14f2649c-bb62-bdac-ed3e-bd812e93f6e7 
+2019-05-02 15:02:18  :: Unknown order processing execution report for OrderId 14f2649c-bb62-bdac-ed3e-bd812e93f6e7 
+2019-05-02 15:03:18  :: Initializing Mock Simulated Server...
+2019-05-02 15:03:18  :: Initializing all collections...
+2019-05-02 15:03:18  :: 5/2/2019 3:03:18 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:03:18  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:03:18  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:03:18  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:03:32  :: 5/2/2019 3:03:32 PMOrderRouterBase.LoadConfig
+2019-05-02 15:03:32  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:03:32  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:03:32  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:03:33  :: Collections Initialized...
+2019-05-02 15:03:34  :: Successfully subscribed to execution event 
+2019-05-02 15:03:50  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:03:50  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:03:50  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:03:50  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:03:50  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:03:50  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:03:50  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:03:50  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:03:50  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=9 Price=5841 TickDirection=ZeroPlusTick
+2019-05-02 15:03:51  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:03:51  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:03:51  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:03:52  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:03:53  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:05:00  :: Initializing Mock Simulated Server...
+2019-05-02 15:05:00  :: Initializing all collections...
+2019-05-02 15:05:01  :: 5/2/2019 3:05:01 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:05:01  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:05:01  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:05:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:05:06  :: 5/2/2019 3:05:06 PMOrderRouterBase.LoadConfig
+2019-05-02 15:05:06  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:05:06  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:05:06  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:05:07  :: Collections Initialized...
+2019-05-02 15:05:08  :: Successfully subscribed to execution event 
+2019-05-02 15:05:15  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:05:15  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:05:15  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:05:15  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:05:15  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:05:15  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:05:16  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:05:16  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:05:16  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=4 Price=5747 TickDirection=MinusTick
+2019-05-02 15:05:16  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:05:35  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:05:36  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:05:36  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:05:37  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:06:16  :: Initializing Mock Simulated Server...
+2019-05-02 15:06:16  :: Initializing all collections...
+2019-05-02 15:06:16  :: 5/2/2019 3:06:16 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:06:16  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:06:16  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:06:16  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:06:30  :: 5/2/2019 3:06:30 PMOrderRouterBase.LoadConfig
+2019-05-02 15:06:30  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:06:30  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:06:30  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:06:31  :: Collections Initialized...
+2019-05-02 15:06:32  :: Successfully subscribed to execution event 
+2019-05-02 15:06:39  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:06:39  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:06:39  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:06:39  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:06:39  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:06:39  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:06:39  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:06:40  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:06:40  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=6 Price=5841 TickDirection=ZeroPlusTick
+2019-05-02 15:06:40  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:06:40  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:06:40  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:06:41  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:06:42  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:06:53  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=1 Price=5841 TickDirection=ZeroPlusTick
+2019-05-02 15:06:53  :: Unknown order processing execution report for OrderId e4cadf76-20f2-2f9f-b9a1-55fd5062a811 
+2019-05-02 15:06:53  :: Unknown order processing execution report for OrderId e4cadf76-20f2-2f9f-b9a1-55fd5062a811 
+2019-05-02 15:07:09  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5747 TickDirection=MinusTick
+2019-05-02 15:07:09  :: Unknown order processing execution report for OrderId aca7cd97-0f73-dc0a-bd3c-de89aac82e72 
+2019-05-02 15:07:09  :: Unknown order processing execution report for OrderId aca7cd97-0f73-dc0a-bd3c-de89aac82e72 
+2019-05-02 15:07:19  :: Unknown order processing execution report for OrderId 288ce581-04e0-c437-be3f-aa68e71c2fad 
+2019-05-02 15:07:19  :: Unknown order processing execution report for OrderId 288ce581-04e0-c437-be3f-aa68e71c2fad 
+2019-05-02 15:07:24  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5747 TickDirection=ZeroMinusTick
+2019-05-02 15:07:24  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=8 Price=5747 TickDirection=ZeroMinusTick
+2019-05-02 15:09:34  :: Initializing Mock Simulated Server...
+2019-05-02 15:09:34  :: Initializing all collections...
+2019-05-02 15:09:34  :: 5/2/2019 3:09:34 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:09:34  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:09:34  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:09:34  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:09:48  :: 5/2/2019 3:09:48 PMOrderRouterBase.LoadConfig
+2019-05-02 15:09:48  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:09:48  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:09:48  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:09:49  :: Collections Initialized...
+2019-05-02 15:09:49  :: Successfully subscribed to execution event 
+2019-05-02 15:09:59  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:09:59  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:09:59  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:09:59  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:09:59  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:09:59  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:09:59  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:09:59  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:09:59  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=6 Price=5747 TickDirection=ZeroMinusTick
+2019-05-02 15:10:00  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:10:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:10:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:10:01  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:10:02  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:10:15  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 15:10:15  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 15:10:15  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 15:10:15  :: Turning threads off on socket disconnection
+2019-05-02 15:10:15  :: Turning threads off on socket disconnection
+2019-05-02 15:12:12  :: Initializing Mock Simulated Server...
+2019-05-02 15:12:12  :: Initializing all collections...
+2019-05-02 15:12:12  :: 5/2/2019 3:12:12 PMBaseCommunicationModule.LoadConfig
+2019-05-02 15:12:12  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:12:12  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 15:12:12  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 15:12:26  :: 5/2/2019 3:12:26 PMOrderRouterBase.LoadConfig
+2019-05-02 15:12:26  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:12:26  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 15:12:26  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 15:12:27  :: Collections Initialized...
+2019-05-02 15:12:27  :: Successfully subscribed to execution event 
+2019-05-02 15:12:39  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 15:12:39  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 15:12:39  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:12:39  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 15:12:39  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 15:12:39  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 15:12:40  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 15:12:40  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 15:12:40  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=5 Price=5841 TickDirection=PlusTick
+2019-05-02 15:12:40  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:12:40  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 15:12:40  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 15:12:41  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:12:42  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 15:12:52  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5747 TickDirection=MinusTick
+2019-05-02 15:12:52  :: Unknown order processing execution report for OrderId 52b63816-9484-89e4-5318-b9d85a70cb74 
+2019-05-02 15:12:52  :: Unknown order processing execution report for OrderId 52b63816-9484-89e4-5318-b9d85a70cb74 
+2019-05-02 16:25:10  :: Initializing Mock Simulated Server...
+2019-05-02 16:25:10  :: Initializing all collections...
+2019-05-02 16:25:10  :: 5/2/2019 4:25:10 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:25:10  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:25:10  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:25:10  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:25:13  :: 5/2/2019 4:25:13 PMOrderRouterBase.LoadConfig
+2019-05-02 16:25:13  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:25:13  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:25:13  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:25:14  :: Collections Initialized...
+2019-05-02 16:25:15  :: Successfully subscribed to execution event 
+2019-05-02 16:28:35  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:28:35  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:28:35  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:28:35  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 16:28:35  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 16:28:35  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 16:28:35  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 16:28:36  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 16:28:36  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5840.5 TickDirection=ZeroPlusTick
+2019-05-02 16:28:36  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:28:36  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 16:28:36  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 16:28:37  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:28:38  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:28:52  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 16:28:52  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 16:28:52  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 16:28:52  :: Turning threads off on socket disconnection
+2019-05-02 16:28:52  :: Turning threads off on socket disconnection
+2019-05-02 16:30:22  :: Initializing Mock Simulated Server...
+2019-05-02 16:30:22  :: Initializing all collections...
+2019-05-02 16:30:22  :: 5/2/2019 4:30:22 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:30:22  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:30:22  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:30:22  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:30:25  :: 5/2/2019 4:30:25 PMOrderRouterBase.LoadConfig
+2019-05-02 16:30:25  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:30:25  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:30:25  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:30:26  :: Collections Initialized...
+2019-05-02 16:30:27  :: Successfully subscribed to execution event 
+2019-05-02 16:31:38  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:31:38  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:31:38  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:31:38  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 16:31:38  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 16:31:38  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 16:31:38  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 16:31:39  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 16:31:39  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5840.5 TickDirection=ZeroPlusTick
+2019-05-02 16:31:39  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:31:39  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 16:31:39  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 16:31:40  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:33:13  :: Initializing Mock Simulated Server...
+2019-05-02 16:33:13  :: Initializing all collections...
+2019-05-02 16:33:13  :: 5/2/2019 4:33:13 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:33:13  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:33:13  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:33:13  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:33:27  :: 5/2/2019 4:33:27 PMOrderRouterBase.LoadConfig
+2019-05-02 16:33:27  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:33:27  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:33:27  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:33:28  :: Collections Initialized...
+2019-05-02 16:33:29  :: Successfully subscribed to execution event 
+2019-05-02 16:34:40  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:34:40  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:34:40  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:34:40  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 16:34:40  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 16:34:40  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 16:34:41  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 16:34:41  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 16:34:41  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5840.5 TickDirection=ZeroPlusTick
+2019-05-02 16:34:41  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:34:41  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 16:34:41  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 16:34:42  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:34:45  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=4 Price=5746.5 TickDirection=MinusTick
+2019-05-02 16:36:09  :: Initializing Mock Simulated Server...
+2019-05-02 16:36:09  :: Initializing all collections...
+2019-05-02 16:36:09  :: 5/2/2019 4:36:09 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:36:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:36:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:36:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:36:23  :: 5/2/2019 4:36:23 PMOrderRouterBase.LoadConfig
+2019-05-02 16:36:23  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:36:23  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:36:23  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:36:24  :: Collections Initialized...
+2019-05-02 16:36:25  :: Successfully subscribed to execution event 
+2019-05-02 16:36:53  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:36:53  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:36:53  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:36:53  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 16:36:53  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 16:36:53  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 16:36:53  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 16:36:54  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 16:36:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=8 Price=5840.5 TickDirection=PlusTick
+2019-05-02 16:36:54  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:36:54  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 16:36:54  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 16:36:55  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:37:02  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:37:05  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FP ServiceKey:XBT-USD Success:True
+2019-05-02 16:37:05  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-05-02 16:37:34  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=2 Price=5746.5 TickDirection=MinusTick
+2019-05-02 16:37:54  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=6 Price=5746.5 TickDirection=ZeroMinusTick
+2019-05-02 16:37:57  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Sell Size=1 Price=5746.5 TickDirection=ZeroMinusTick
+2019-05-02 16:45:43  :: Initializing Mock Simulated Server...
+2019-05-02 16:45:43  :: Initializing all collections...
+2019-05-02 16:45:43  :: 5/2/2019 4:45:43 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:45:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:45:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:45:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:45:46  :: 5/2/2019 4:45:46 PMOrderRouterBase.LoadConfig
+2019-05-02 16:45:46  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:45:46  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:45:46  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:45:47  :: Collections Initialized...
+2019-05-02 16:45:48  :: Successfully subscribed to execution event 
+2019-05-02 16:46:04  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:46:04  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:46:04  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:46:04  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:46:04  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:46:04  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:46:04  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:46:47  :: Initializing Mock Simulated Server...
+2019-05-02 16:46:47  :: Initializing all collections...
+2019-05-02 16:46:47  :: 5/2/2019 4:46:47 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:46:47  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:46:47  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:46:47  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:46:51  :: 5/2/2019 4:46:51 PMOrderRouterBase.LoadConfig
+2019-05-02 16:46:51  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:46:51  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:46:51  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:46:52  :: Collections Initialized...
+2019-05-02 16:46:53  :: Successfully subscribed to execution event 
+2019-05-02 16:47:12  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:47:12  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:47:12  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:47:12  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:47:12  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:47:12  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:47:21  :: Initializing Mock Simulated Server...
+2019-05-02 16:47:21  :: Initializing all collections...
+2019-05-02 16:47:21  :: 5/2/2019 4:47:21 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:47:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:47:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:47:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:47:24  :: 5/2/2019 4:47:24 PMOrderRouterBase.LoadConfig
+2019-05-02 16:47:24  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:47:24  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:47:24  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:47:25  :: Collections Initialized...
+2019-05-02 16:47:25  :: Successfully subscribed to execution event 
+2019-05-02 16:47:35  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:47:35  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:47:35  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:47:35  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:47:35  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:47:35  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:48:31  :: Initializing Mock Simulated Server...
+2019-05-02 16:48:31  :: Initializing all collections...
+2019-05-02 16:48:31  :: 5/2/2019 4:48:31 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:48:31  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:48:31  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:48:31  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:48:45  :: 5/2/2019 4:48:45 PMOrderRouterBase.LoadConfig
+2019-05-02 16:48:45  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:48:45  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:48:45  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:48:46  :: Collections Initialized...
+2019-05-02 16:48:47  :: Successfully subscribed to execution event 
+2019-05-02 16:49:20  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:49:20  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:49:20  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:49:20  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:49:39  :: Initializing Mock Simulated Server...
+2019-05-02 16:49:39  :: Initializing all collections...
+2019-05-02 16:49:39  :: 5/2/2019 4:49:39 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:49:39  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:49:39  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:49:39  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:49:52  :: 5/2/2019 4:49:52 PMOrderRouterBase.LoadConfig
+2019-05-02 16:49:52  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:49:52  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:49:52  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:49:53  :: Collections Initialized...
+2019-05-02 16:49:54  :: Successfully subscribed to execution event 
+2019-05-02 16:50:05  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:50:05  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:50:05  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:50:05  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:50:05  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:50:05  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:50:05  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:50:05  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-02 16:52:39  :: Initializing Mock Simulated Server...
+2019-05-02 16:52:39  :: Initializing all collections...
+2019-05-02 16:52:39  :: 5/2/2019 4:52:39 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:52:39  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:52:39  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:52:39  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:52:42  :: 5/2/2019 4:52:42 PMOrderRouterBase.LoadConfig
+2019-05-02 16:52:42  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:52:42  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:52:42  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:52:43  :: Collections Initialized...
+2019-05-02 16:52:43  :: Successfully subscribed to execution event 
+2019-05-02 16:53:42  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:53:42  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:53:42  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:53:42  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:53:42  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:53:42  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:54:23  :: Initializing Mock Simulated Server...
+2019-05-02 16:54:23  :: Initializing all collections...
+2019-05-02 16:54:23  :: 5/2/2019 4:54:23 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:54:23  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:54:23  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:54:23  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:54:36  :: 5/2/2019 4:54:36 PMOrderRouterBase.LoadConfig
+2019-05-02 16:54:36  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:54:36  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:54:36  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:54:37  :: Collections Initialized...
+2019-05-02 16:54:38  :: Successfully subscribed to execution event 
+2019-05-02 16:56:14  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:56:14  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:56:14  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:56:14  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:56:14  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:56:14  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:59:04  :: Initializing Mock Simulated Server...
+2019-05-02 16:59:04  :: Initializing all collections...
+2019-05-02 16:59:04  :: 5/2/2019 4:59:04 PMBaseCommunicationModule.LoadConfig
+2019-05-02 16:59:04  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:59:04  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 16:59:04  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 16:59:07  :: 5/2/2019 4:59:07 PMOrderRouterBase.LoadConfig
+2019-05-02 16:59:07  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:59:07  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 16:59:07  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 16:59:08  :: Collections Initialized...
+2019-05-02 16:59:08  :: Successfully subscribed to execution event 
+2019-05-02 16:59:16  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:59:16  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:59:16  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:16  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:59:16  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:16  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:59:17  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:17  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-02 16:59:44  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 16:59:44  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 16:59:44  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:44  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-02 16:59:44  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:44  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-02 16:59:45  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 16:59:45  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-02 17:44:21  :: Initializing Mock Simulated Server...
+2019-05-02 17:44:21  :: Initializing all collections...
+2019-05-02 17:44:21  :: 5/2/2019 5:44:21 PMBaseCommunicationModule.LoadConfig
+2019-05-02 17:44:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 17:44:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 17:44:21  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 17:44:25  :: 5/2/2019 5:44:25 PMOrderRouterBase.LoadConfig
+2019-05-02 17:44:25  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 17:44:25  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 17:44:25  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 17:44:25  :: Collections Initialized...
+2019-05-02 17:44:26  :: Successfully subscribed to execution event 
+2019-05-02 17:44:47  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 17:44:47  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 17:44:47  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:44:47  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 17:44:47  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 17:44:47  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 17:44:47  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 17:44:48  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 17:44:48  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=9 Price=5746.5 TickDirection=PlusTick
+2019-05-02 17:44:48  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:44:48  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 17:44:48  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 17:44:49  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:44:50  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:44:52  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FP ServiceKey:XBT-USD Success:True
+2019-05-02 17:44:53  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-05-02 17:44:53  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 17:44:53  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 17:44:53  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 17:44:53  :: Turning threads off on socket disconnection
+2019-05-02 17:45:34  :: Initializing Mock Simulated Server...
+2019-05-02 17:45:34  :: Initializing all collections...
+2019-05-02 17:45:34  :: 5/2/2019 5:45:34 PMBaseCommunicationModule.LoadConfig
+2019-05-02 17:45:34  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 17:45:34  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 17:45:34  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 17:45:37  :: 5/2/2019 5:45:37 PMOrderRouterBase.LoadConfig
+2019-05-02 17:45:37  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 17:45:37  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 17:45:37  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 17:45:38  :: Collections Initialized...
+2019-05-02 17:45:39  :: Successfully subscribed to execution event 
+2019-05-02 17:45:46  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 17:45:46  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 17:45:46  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:45:46  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 17:45:46  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 17:45:46  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 17:45:46  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 17:45:47  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 17:45:47  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=9 Price=5746.5 TickDirection=PlusTick
+2019-05-02 17:45:47  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:45:47  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 17:45:47  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 17:45:48  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:45:49  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 17:45:51  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FP ServiceKey:XBT-USD Success:True
+2019-05-02 17:45:52  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-05-02 17:45:55  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=4 Price=5746.5 TickDirection=ZeroPlusTick
+2019-05-02 17:46:04  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 17:46:04  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 17:46:04  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 17:46:04  :: Turning threads off on socket disconnection
+2019-05-02 17:46:10  :: Turning threads off on socket disconnection
+2019-05-02 17:46:14  :: Turning threads off on socket disconnection
+2019-05-02 18:31:28  :: Initializing Mock Simulated Server...
+2019-05-02 18:31:28  :: Initializing all collections...
+2019-05-02 18:31:28  :: 5/2/2019 6:31:28 PMBaseCommunicationModule.LoadConfig
+2019-05-02 18:31:28  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-02 18:31:28  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-02 18:31:29  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-02 18:31:43  :: 5/2/2019 6:31:43 PMOrderRouterBase.LoadConfig
+2019-05-02 18:31:43  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-02 18:31:43  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-02 18:31:43  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-02 18:31:43  :: Collections Initialized...
+2019-05-02 18:31:44  :: Successfully subscribed to execution event 
+2019-05-02 18:31:59  :: Incoming Login request for user MM1_CLOBUI
+2019-05-02 18:31:59  :: user MM1_CLOBUI Successfully logged in
+2019-05-02 18:31:59  :: Incoming subscription for Service: LS - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 18:31:59  :: Subscribing market data for outgoing Symbol=XBTU19
+2019-05-02 18:31:59  :: Subscription sent for outgoing Symbol=XBTU19
+2019-05-02 18:31:59  :: @Incoming Bitmex:Requesting market data por symbol XBTU19
+2019-05-02 18:32:00  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-02 18:32:00  :: Successfully subscribed to trade event on symbol XBTU19
+2019-05-02 18:32:00  :: @Incoming Bitmex:NEW TRADE for symbol XBTU19: Side=Buy Size=2 Price=5746.5 TickDirection=PlusTick
+2019-05-02 18:32:00  :: Incoming subscription for Service: LQ - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 18:32:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-02 18:32:00  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:LS ServiceKey:XBT-USD Success:True
+2019-05-02 18:32:01  :: Incoming subscription for Service: FD - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 18:32:02  :: Incoming subscription for Service: FP - Service key: XBT-USD - UUID: MarketDataPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-02 18:32:04  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FP ServiceKey:XBT-USD Success:True
+2019-05-02 18:32:05  :: SubscriptionResponse UUID:MarketDataPOCUUID Service:FD ServiceKey:XBT-USD Success:True
+2019-05-02 18:32:06  :: Error publishingLastSale thread:Subproceso anulado.
+2019-05-02 18:32:06  :: Error publishing LastQuote thread:Subproceso anulado.
+2019-05-02 18:32:06  :: Critical error processing daily settlement price message: Subproceso anulado....
+2019-05-02 18:32:06  :: Critical error processing daily settlement price message: Subproceso anulado....
+2019-05-02 18:32:07  :: @Incoming Bitmex:Requesting Unsubscribe Market Data On Demand for Symbol: Incoming Bitmex
+2019-05-02 18:32:07  :: Turning threads off on socket disconnection

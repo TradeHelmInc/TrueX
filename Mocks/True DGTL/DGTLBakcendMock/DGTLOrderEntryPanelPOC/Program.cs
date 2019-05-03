@@ -187,7 +187,7 @@ namespace DGTLOrderEntryPanelPOC
                 UserRecord userRecord = (UserRecord)msg;
                 ShowUserRecord(userRecord);
                 SubscribeAccountRecord(userRecord);
-
+                Thread.Sleep(1000);
                 //3.2-We also want to know how much of credit it's used (CREDIT USAGE). 
                 // The credit LIMIT is calculated at a firm level and account level
                 // In the screen we will show the credit USAGE at the FIRM level.

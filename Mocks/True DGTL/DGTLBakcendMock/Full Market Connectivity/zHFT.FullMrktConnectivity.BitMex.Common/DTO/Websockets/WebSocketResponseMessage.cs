@@ -35,6 +35,8 @@ namespace zHFT.FullMrktConnectivity.BitMex.Common.DTO.Websockets
             return !string.IsNullOrEmpty(subscribe);
         }
 
+      
+
 
         public virtual bool IsAuthentication()
         {

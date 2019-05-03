@@ -46,6 +46,8 @@ namespace DGTLBackendMock.Common.DTO
 
         public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketData { get; set; }
 
+        public string SubscriptionError { get; set; }
+
         public Queue<OrderBookEntry> OrderBookEntriesToPublish { get; set; }
 
         #endregion
