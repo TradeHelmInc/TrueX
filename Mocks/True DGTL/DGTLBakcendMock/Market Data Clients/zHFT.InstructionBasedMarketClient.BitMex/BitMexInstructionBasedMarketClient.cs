@@ -8,6 +8,7 @@ using zHFT.FullMrktConnectivity.BitMex.Common.DTO.Websockets;
 using zHFT.InstructionBasedMarketClient.BitMex.Common.DTO;
 using zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Websockets;
 using zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Websockets.Events;
+using zHFT.InstructionBasedMarketClient.BitMex.Common.Util;
 using zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers;
 using zHFT.InstructionBasedMarketClient.BitMex.DAL.REST;
 using zHFT.InstructionBasedMarketClient.BitMex.DAL.Websockets;
@@ -36,8 +37,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
         protected OrderBookHandler OrderBookHandler { get; set; }
 
-        protected Dictionary<long, decimal> PriceLevelIds { get; set; }
-
+        protected PriceLevelHandler PriceLevelHandler { get; set; }
 
         protected List<zHFT.InstructionBasedMarketClient.BitMex.BE.Security> Securities { get; set; }
 
@@ -99,30 +99,35 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             HandleGenericSubscription(subcrResp);
         }
 
+        protected void QuoteSubscriptionResponse(WebSocketResponseMessage subcrResp)
+        {
+            HandleGenericSubscription(subcrResp);
+        }
+
 
         protected void ProcessPriceLevelIds(string action, zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry entry)
         { 
          //First we have to process the price level Ids
             if ( action == "partial")
             {
-                if (!PriceLevelIds.ContainsKey(entry.id))
-                    PriceLevelIds.Add(entry.id, entry.price);
+                if (!PriceLevelHandler.GetPriceLevelDict(entry.symbol).ContainsKey(entry.id))
+                    PriceLevelHandler.GetPriceLevelDict(entry.symbol).Add(entry.id, entry.price);
                 else
                     DoLog(string.Format("@{0}:WARNING1:Received PARTIAL Price Level for a price leven that already existed", BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Error);
             }
             else if (action == "insert")
             {
-                if (!PriceLevelIds.ContainsKey(entry.id))
-                    PriceLevelIds.Add(entry.id, entry.price);
+                if (!PriceLevelHandler.GetPriceLevelDict(entry.symbol).ContainsKey(entry.id))
+                    PriceLevelHandler.GetPriceLevelDict(entry.symbol).Add(entry.id, entry.price);
                 else
                     DoLog(string.Format("@{0}:WARNING1:Received INSERT Price Level for a price leven that already existed", BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Error);
             }
             else if (action == "update" || action == "delete")
             {
 
-                if (PriceLevelIds.ContainsKey(entry.id))
+                if (PriceLevelHandler.GetPriceLevelDict(entry.symbol).ContainsKey(entry.id))
                 {
-                    decimal priceLevel = PriceLevelIds[entry.id];
+                    decimal priceLevel = PriceLevelHandler.GetPriceLevelDict(entry.symbol)[entry.id];
                     entry.price = priceLevel;
                 }
                 else
@@ -186,39 +191,39 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 SendOrderBookEntries(orderBookEvent.action, bids, asks);
                 OrderBookHandler.DoUpdateOrderBooks(orderBookEvent.action, bids, asks);
 
-                string symbol = "";
-                if (bids.Length > 0)
-                    symbol = bids[0].symbol;
-                else if (asks.Length > 0)
-                    symbol = asks[0].symbol;
-                else
-                    return;
+                //string symbol = "";
+                //if (bids.Length > 0)
+                //    symbol = bids[0].symbol;
+                //else if (asks.Length > 0)
+                //    symbol = asks[0].symbol;
+                //else
+                //    return;
 
-                if (ActiveSecurities.Values.Any(x => x.Symbol == symbol) && OrderBookHandler.OrderBooks.ContainsKey(symbol))
-                {
-                    Security sec = ActiveSecurities.Values.Where(x => x.Symbol == symbol).FirstOrDefault();
+                //if (ActiveSecuritiesQuotes.Values.Any(x => x.Symbol == symbol) && OrderBookHandler.OrderBooks.ContainsKey(symbol))
+                //{
+                //    Security sec = ActiveSecuritiesQuotes.Values.Where(x => x.Symbol == symbol).FirstOrDefault();
 
-                    OrderBookDictionary dict = OrderBookHandler.OrderBooks[symbol];
-                    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestBid = dict.Entries.Values.Where(x => x.IsBuy() && x.size > 0).OrderByDescending(x => x.price).FirstOrDefault();
-                    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestAsk = dict.Entries.Values.Where(x => x.IsSell() && x.size > 0).OrderBy(x => x.price).FirstOrDefault();
+                //    OrderBookDictionary dict = OrderBookHandler.OrderBooks[symbol];
+                //    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestBid = dict.Entries.Values.Where(x => x.IsBuy() && x.size > 0).OrderByDescending(x => x.price).FirstOrDefault();
+                //    zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.OrderBookEntry bestAsk = dict.Entries.Values.Where(x => x.IsSell() && x.size > 0).OrderBy(x => x.price).FirstOrDefault();
 
-                    sec.MarketData.BestBidPrice = Convert.ToDouble(bestBid.price);
-                    sec.MarketData.BestBidSize = Convert.ToInt64(bestBid.size);
-                    sec.MarketData.BestAskPrice = Convert.ToDouble(bestAsk.price);
-                    sec.MarketData.BestAskSize = Convert.ToInt64(bestAsk.size);
+                //    sec.MarketData.BestBidPrice = Convert.ToDouble(bestBid.price);
+                //    sec.MarketData.BestBidSize = Convert.ToInt64(bestBid.size);
+                //    sec.MarketData.BestAskPrice = Convert.ToDouble(bestAsk.price);
+                //    sec.MarketData.BestAskSize = Convert.ToInt64(bestAsk.size);
 
-                    //DoLog(string.Format("@{5}:Publishing Market Data  for symbol {0}: Best Bid Size={1} Best Bid Price={2} Best Ask Size={3} Best Ask Price={4}",
-                    //                    symbol, bestBid.size.ToString("##.########"), bestBid.price.ToString("##.##"),
-                    //                          bestAsk.size.ToString("##.########"), bestAsk.price.ToString("##.##"),
-                    //                    BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
-
-
-
-                    MarketDataWrapper wrapper = new MarketDataWrapper(sec, GetConfig());
-                    OnMessageRcv(wrapper);
+                //    //DoLog(string.Format("@{5}:Publishing Market Data  for symbol {0}: Best Bid Size={1} Best Bid Price={2} Best Ask Size={3} Best Ask Price={4}",
+                //    //                    symbol, bestBid.size.ToString("##.########"), bestBid.price.ToString("##.##"),
+                //    //                          bestAsk.size.ToString("##.########"), bestAsk.price.ToString("##.##"),
+                //    //                    BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
 
 
-                }
+
+                //    MarketDataWrapper wrapper = new MarketDataWrapper(sec, GetConfig());
+                //    OnMessageRcv(wrapper);
+
+
+                //}
             }
             catch (Exception ex)
             {
@@ -241,9 +246,9 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             {
                 try
                 {
-                    if (ActiveSecurities.Values.Where(x => x.Symbol == trade.symbol).FirstOrDefault() != null)
+                    if (ActiveSecuritiesQuotes.Values.Where(x => x.Symbol == trade.symbol).FirstOrDefault() != null)
                     {
-                        Security sec = ActiveSecurities.Values.Where(x => x.Symbol == trade.symbol).FirstOrDefault();
+                        Security sec = ActiveSecuritiesQuotes.Values.Where(x => x.Symbol == trade.symbol).FirstOrDefault();
 
                         sec.MarketData.Trade = Convert.ToDouble(trade.price);
                         sec.MarketData.MDTradeSize = Convert.ToDouble(trade.size);
@@ -254,7 +259,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                             trade.symbol, trade.side, trade.size.ToString("##.##"), trade.price.ToString("##.########"), trade.tickDirection,
                             BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
 
-                        MarketDataWrapper wrapper = new MarketDataWrapper(sec, GetConfig());
+                        MarketDataTradesWrapper wrapper = new MarketDataTradesWrapper(sec, GetConfig());
                         OnMessageRcv(wrapper);
                     }
                 }
@@ -268,29 +273,113 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
         }
 
-        protected override void DoRequestMarketData(Object param)
+        protected void UpdateQuotes(WebSocketSubscriptionEvent subscrEvent)
+        {
+            if (subscrEvent is WebSocketErrorMessage)
+            {
+
+                ProcessSubscrError((WebSocketErrorMessage)subscrEvent);
+                return;
+            }
+
+            WebSocketQuoteEvent quotes = (WebSocketQuoteEvent)subscrEvent;
+            foreach (Quote quote in quotes.data.OrderBy(x => x.timestamp))
+            {
+                try
+                {
+                    if (ActiveSecuritiesQuotes.Values.Where(x => x.Symbol == quote.symbol).FirstOrDefault() != null)
+                    {
+                        Security sec = ActiveSecuritiesQuotes.Values.Where(x => x.Symbol == quote.symbol).FirstOrDefault();
+
+
+                        sec.MarketData.BestAskSize = quote.askSize.HasValue ? (long?)Convert.ToInt64(quote.askSize.Value) : null;
+                        sec.MarketData.BestBidSize = quote.bidSize.HasValue ? (long?)Convert.ToInt64(quote.bidSize.Value) : null;
+                        sec.MarketData.BestAskPrice = quote.askPrice;
+                        sec.MarketData.BestBidPrice = quote.bidPrice;
+
+                        DoLog(string.Format("@{1}:NEW Quote for symbol {0}", quote.symbol, BitmexConfiguration.Name), Main.Common.Util.Constants.MessageType.Information);
+
+                        MarketDataQuoteWrapper wrapper = new MarketDataQuoteWrapper(sec, GetConfig());
+                        OnMessageRcv(wrapper);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DoLog(string.Format("@{0}:Error processing quote for symbol {1}:{2}", BitmexConfiguration.Name, quote.symbol, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+                }
+            }
+        }
+
+        protected override void DoRequestMarketDataQuotes(Object param)
         {
             string symbol = (string)param;
             try
             {
-                DoLog(string.Format("@{0}:Requesting market data por symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
-                if (ActiveSecurities.Values.Where(x => x.Active).Any(x => x.Symbol == symbol))
+                DoLog(string.Format("@{0}:Requesting market data quotes por symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                if (ActiveSecuritiesQuotes.Values.Where(x => x.Active).Any(x => x.Symbol == symbol))
                 {
                     lock (tLock)
                     {
-                        PriceLevelIds.Clear();
-                        WSMarketDataManager.SubscribeOrderBookL2(symbol);
+                        WSMarketDataManager.SubscribeQuotes(symbol);
+                    }
+                }
+                else
+                {
+                    DoLog(string.Format("@{0}:Unsubscribing market data quotes for symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("@{0}: Error Requesting market data quotes por symbol {1}:{2}", BitmexConfiguration.Name, symbol, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+            }
+        }
+
+        protected override void DoRequestMarketDataTrades(Object param)
+        {
+            string symbol = (string)param;
+            try
+            {
+                DoLog(string.Format("@{0}:Requesting market data trades por symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                if (ActiveSecuritiesTrades.Values.Where(x => x.Active).Any(x => x.Symbol == symbol))
+                {
+                    lock (tLock)
+                    {
                         WSMarketDataManager.SubscribeTrades(symbol);
                     }
                 }
                 else
                 {
-                    DoLog(string.Format("@{0}:Unsubscribing market data for symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                    DoLog(string.Format("@{0}:Unsubscribing market data trades for symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
                 }
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("@{0}: Error Requesting market data por symbol {1}:{2}", BitmexConfiguration.Name, symbol, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+                DoLog(string.Format("@{0}: Error Requesting market data trades por symbol {1}:{2}", BitmexConfiguration.Name, symbol, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+            }
+        }
+
+        protected override void DoRequestMarketDataOrderBook(Object param)
+        {
+            string symbol = (string)param;
+            try
+            {
+                DoLog(string.Format("@{0}:Requesting market data order book por symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                if (ActiveSecuritiesOrderBook.Values.Where(x => x.Active).Any(x => x.Symbol == symbol))
+                {
+                    lock (tLock)
+                    {
+                        PriceLevelHandler.GetPriceLevelDict(symbol).Clear();
+                        WSMarketDataManager.SubscribeOrderBookL2(symbol);
+                    }
+                }
+                else
+                {
+                    DoLog(string.Format("@{0}:Unsubscribing market data order book  for symbol {1}", BitmexConfiguration.Name, symbol), Main.Common.Util.Constants.MessageType.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("@{0}: Error Requesting market data order book  por symbol {1}:{2}", BitmexConfiguration.Name, symbol, ex.Message), Main.Common.Util.Constants.MessageType.Error);
             }
         }
 
@@ -351,34 +440,72 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
         
         }
 
-        protected void CancelMarketData(Security sec)
+        protected void DoRemove(Dictionary<int, Security> Dict,string key)
         {
-            DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
 
-            if (ActiveSecurities.Values.Any(x => x.Symbol == sec.Symbol))
+            List<int> reqsToRemove = new List<int>();
+            foreach (int mdReqId in Dict.Keys)
             {
-                lock (ActiveSecurities)
+                if (Dict[mdReqId].Symbol == key)
+                    reqsToRemove.Add(mdReqId);
+
+            }
+
+            reqsToRemove.ForEach(x => Dict.Remove(x));
+        
+        }
+
+        protected void CancelMarketDataQuotes(Security sec)
+        {
+            DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data quotes On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
+
+            if (ActiveSecuritiesQuotes.Values.Any(x => x.Symbol == sec.Symbol))
+            {
+                lock (ActiveSecuritiesQuotes)
                 {
-                    List<int> reqsToRemove = new List<int>();
-                    foreach (int mdReqId in ActiveSecurities.Keys)
-                    {
-                        if (ActiveSecurities[mdReqId].Symbol == sec.Symbol)
-                            reqsToRemove.Add(mdReqId);
-
-                    }
-
-                    reqsToRemove.ForEach(x => ActiveSecurities.Remove(x));
-
-                    WSMarketDataManager.UnsubscribeOrderBookL2(sec.Symbol);
-                    WSMarketDataManager.UnsubscribeTrades(sec.Symbol);
-                    PriceLevelIds.Clear();
+                    DoRemove(ActiveSecuritiesQuotes, sec.Symbol);
+                    WSMarketDataManager.UnsubscribeQuotes(sec.Symbol);
+                    //PriceLevelHandler.GetPriceLevelDict(sec.Symbol).Clear();
                 }
             }
             else
                 throw new Exception(string.Format("@{0}: Could not find active security to unsubscribe for symbol {1}", GetConfig().Name, sec.Symbol));
         }
 
-        protected override CMState ProessMarketDataRequest(Wrapper wrapper)
+        protected void CancelMarketDataTrades(Security sec)
+        {
+            DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data trades On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
+
+            if (ActiveSecuritiesTrades.Values.Any(x => x.Symbol == sec.Symbol))
+            {
+                lock (ActiveSecuritiesTrades)
+                {
+                    DoRemove(ActiveSecuritiesTrades, sec.Symbol);
+                    WSMarketDataManager.UnsubscribeTrades(sec.Symbol);
+                }
+            }
+            else
+                throw new Exception(string.Format("@{0}: Could not find active security to unsubscribe trades for symbol {1}", GetConfig().Name, sec.Symbol));
+        }
+
+        protected void CancelMarketDataOrderBook(Security sec)
+        {
+            DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data order book On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
+
+            if (ActiveSecuritiesOrderBook.Values.Any(x => x.Symbol == sec.Symbol))
+            {
+                lock (ActiveSecuritiesOrderBook)
+                {
+                    DoRemove(ActiveSecuritiesOrderBook, sec.Symbol);
+                    WSMarketDataManager.UnsubscribeOrderBookL2(sec.Symbol);
+                    PriceLevelHandler.GetPriceLevelDict(sec.Symbol).Clear();
+                }
+            }
+            else
+                throw new Exception(string.Format("@{0}: Could not find active security to unsubscribe order book for symbol {1}", GetConfig().Name, sec.Symbol));
+        }
+
+        protected override CMState ProcessMarketDataQuotesRequest(Wrapper wrapper)
         {
             try
             {
@@ -386,15 +513,73 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
                 if (mdr.SubscriptionRequestType == SubscriptionRequestType.Snapshot)
                 {
-                    throw new Exception(string.Format("@{0}: Market Data snaphsot not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
+                    throw new Exception(string.Format("@{0}: Market Data Quotes snaphsot not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
                 }
                 else if (mdr.SubscriptionRequestType == SubscriptionRequestType.SnapshotAndUpdates)
                 {
-                    return ProcessMarketDataRequest(wrapper);
+                    return ProcessMarketDataRequestQuotes(wrapper);
                 }
                 else if (mdr.SubscriptionRequestType == SubscriptionRequestType.Unsuscribe)
                 {
-                    CancelMarketData(mdr.Security);
+                    CancelMarketDataQuotes(mdr.Security);
+
+                    return CMState.BuildSuccess();
+                }
+                else
+                    throw new Exception(string.Format("@{0}: Value not recognized for subscription type {1} for symbol {2}", BitmexConfiguration.Name, mdr.SubscriptionRequestType.ToString(), mdr.Security.Symbol));
+            }
+            catch (Exception ex)
+            {
+                return CMState.BuildFail(ex);
+            }
+        }
+
+        protected override CMState ProcessMarketDataTradesRequest(Wrapper wrapper)
+        {
+            try
+            {
+                MarketDataRequest mdr = MarketDataRequestConverter.GetMarketDataRequest(wrapper);
+
+                if (mdr.SubscriptionRequestType == SubscriptionRequestType.Snapshot)
+                {
+                    throw new Exception(string.Format("@{0}: Market Data Trades snaphsot not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.SnapshotAndUpdates)
+                {
+                    return ProcessMarketDataRequestTrades(wrapper);
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.Unsuscribe)
+                {
+                    CancelMarketDataTrades(mdr.Security);
+
+                    return CMState.BuildSuccess();
+                }
+                else
+                    throw new Exception(string.Format("@{0}: Value not recognized for subscription type {1} for symbol {2}", BitmexConfiguration.Name, mdr.SubscriptionRequestType.ToString(), mdr.Security.Symbol));
+            }
+            catch (Exception ex)
+            {
+                return CMState.BuildFail(ex);
+            }
+        }
+
+        protected override CMState ProcessMarketDataOrderBookRequest(Wrapper wrapper)
+        {
+            try
+            {
+                MarketDataRequest mdr = MarketDataRequestConverter.GetMarketDataRequest(wrapper);
+
+                if (mdr.SubscriptionRequestType == SubscriptionRequestType.Snapshot)
+                {
+                    throw new Exception(string.Format("@{0}: Market Data Order Book snaphsot not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.SnapshotAndUpdates)
+                {
+                    return ProcessMarketDataRequestOrderBook(wrapper);
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.Unsuscribe)
+                {
+                    CancelMarketDataOrderBook(mdr.Security);
 
                     return CMState.BuildSuccess();
                 }
@@ -420,7 +605,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
                     SecurityListManager = new DAL.REST.SecurityListManager(BitmexConfiguration.RESTURL);
 
-                    PriceLevelIds = new Dictionary<long, decimal>();
+                    PriceLevelHandler = new PriceLevelHandler();
 
                     Securities = SecurityListManager.GetActiveSecurityList();
 
@@ -439,10 +624,19 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                                                          TradeSubscriptionResponse,
                                                          new object[] { });
 
+
+                    WSMarketDataManager.SubscribeResponseRequest(
+                                                        BaseManager._QUOTE,
+                                                        QuoteSubscriptionResponse,
+                                                        new object[] { });
+
                     WSMarketDataManager.SubscribeEvents(BaseManager._ORDERBOOK_L2, UpdateOrderBook);
                     WSMarketDataManager.SubscribeEvents(BaseManager._TRADE, UpdateTrade);
+                    WSMarketDataManager.SubscribeEvents(BaseManager._QUOTE, UpdateQuotes);
 
-                    ActiveSecurities = new Dictionary<int, Security>();
+                    ActiveSecuritiesQuotes = new Dictionary<int, Security>();
+                    ActiveSecuritiesTrades = new Dictionary<int, Security>();
+                    ActiveSecuritiesOrderBook = new Dictionary<int, Security>();
                     ContractsTimeStamps = new Dictionary<int, DateTime>();
                     return true;
                 }

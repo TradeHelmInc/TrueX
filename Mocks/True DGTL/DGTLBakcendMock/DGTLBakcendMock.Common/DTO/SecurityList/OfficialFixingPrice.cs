@@ -17,8 +17,8 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
         public string FixingTime { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
-        public decimal Change { get; set; }
+        public decimal? Change { get; set; }
     }
 }

@@ -28,15 +28,13 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
 
         #region Protected Attributes
 
-        protected Dictionary<int, Security> ActiveSecurities { get; set; }
+        protected Dictionary<int, Security> ActiveSecuritiesQuotes { get; set; }
+
+        protected Dictionary<int, Security> ActiveSecuritiesTrades { get; set; }
+
+        protected Dictionary<int, Security> ActiveSecuritiesOrderBook { get; set; }
 
         protected Dictionary<int, DateTime> ContractsTimeStamps { get; set; }
-
-        protected Thread ProcessInstructionsThread { get; set; }
-
-        protected Thread RequestMarketDataThread { get; set; }
-
-        protected Thread CleanOldSecuritiesThread { get; set; }
 
         protected InstructionManager InstructionManager { get; set; }
 
@@ -46,9 +44,19 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
 
         #region Abstract Methods
 
-        protected abstract void DoRequestMarketData(Object param);
+        protected abstract void DoRequestMarketDataQuotes(Object param);
 
-        protected abstract CMState ProessMarketDataRequest(Wrapper wrapper);
+        protected abstract void DoRequestMarketDataTrades(Object param);
+
+        protected abstract void DoRequestMarketDataOrderBook(Object param);
+
+        //protected abstract CMState ProessMarketDataRequest(Wrapper wrapper);
+
+        protected abstract CMState ProcessMarketDataQuotesRequest(Wrapper wrapper);
+
+        protected abstract CMState ProcessMarketDataTradesRequest(Wrapper wrapper);
+
+        protected abstract CMState ProcessMarketDataOrderBookRequest(Wrapper wrapper);
 
         protected abstract int GetSearchForInstrInMiliseconds();
 
@@ -76,9 +84,9 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
         {
             List<int> keysToRemove = new List<int>();
 
-            foreach (int key in ActiveSecurities.Keys)
+            foreach (int key in ActiveSecuritiesQuotes.Keys)
             {
-                Security sec = ActiveSecurities[key];
+                Security sec = ActiveSecuritiesQuotes[key];
 
                 if (sec.Symbol == symbol)
                 {
@@ -89,7 +97,7 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
             foreach (int keyToRemove in keysToRemove)
             {
                 ContractsTimeStamps.Remove(keyToRemove);
-                ActiveSecurities.Remove(keyToRemove);
+                ActiveSecuritiesQuotes.Remove(keyToRemove);
             }
         }
 
@@ -117,7 +125,7 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
                         foreach (int keyToRemove in keysToRemove)
                         {
                             ContractsTimeStamps.Remove(keyToRemove);
-                            ActiveSecurities.Remove(keyToRemove);
+                            ActiveSecuritiesQuotes.Remove(keyToRemove);
                         }
                     }
                     catch (Exception ex)
@@ -141,103 +149,65 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
             return sec;
         }
 
-        protected void ProcessPositionInstruction(Instruction instr)
-        {
-            try
-            {
-                if (instr != null)
-                {
-                    if (!ActiveSecurities.Keys.Contains(instr.Id)
-                        && !ActiveSecurities.Values.Where(x => x.Active).Any(x => x.Symbol == instr.Symbol))
-                    {
-                        instr = InstructionManager.GetById(instr.Id);
 
-                        if (instr.InstructionType.Type == InstructionType._NEW_POSITION || instr.InstructionType.Type == InstructionType._UNWIND_POSITION)
-                        {
-                            ActiveSecurities.Add(instr.Id, BuildSecurityFromInstruction(instr));
-                            RequestMarketDataThread = new Thread(DoRequestMarketData);
-                            RequestMarketDataThread.Start(instr.Symbol);
-                        }
-                    }
-                }
-                else
-                    throw new Exception(string.Format("Could not find a related instruction for id {0}", instr.Id));
-
-
-            }
-            catch (Exception ex)
-            {
-
-                DoLog(string.Format("Critical error processing related instruction: {0} - {1}", ex.Message, (ex.InnerException != null ? ex.InnerException.Message : "")), Main.Common.Util.Constants.MessageType.Error);
-            }
-        }
-
-        protected CMState ProcessMarketDataRequest(Wrapper wrapper)
+        protected CMState ProcessMarketDataRequestQuotes(Wrapper wrapper)
         {
             string symbol = (string)wrapper.GetField(MarketDataRequestField.Symbol);
             int mdReqId = (int)wrapper.GetField(MarketDataRequestField.MDReqId);
 
             Security sec = new Security() { Symbol = symbol };
 
-            lock (ActiveSecurities)
+            lock (ActiveSecuritiesQuotes)
             {
 
-                ActiveSecurities.Add(mdReqId, sec);
+                ActiveSecuritiesQuotes.Add(mdReqId, sec);
             }
 
-           
-            RequestMarketDataThread = new Thread(DoRequestMarketData);
+
+            Thread RequestMarketDataThread = new Thread(DoRequestMarketDataQuotes);
             RequestMarketDataThread.Start(symbol);
 
             return CMState.BuildSuccess();
         }
 
-        protected void DoFindInstructions()
+        protected CMState ProcessMarketDataRequestTrades(Wrapper wrapper)
         {
-            while (true)
+            string symbol = (string)wrapper.GetField(MarketDataRequestField.Symbol);
+            int mdReqId = (int)wrapper.GetField(MarketDataRequestField.MDReqId);
+
+            Security sec = new Security() { Symbol = symbol };
+
+            lock (ActiveSecuritiesTrades)
             {
-                Thread.Sleep(GetSearchForInstrInMiliseconds());
 
-                lock (tLock)
-                {
-                    List<Instruction> instructionsToProcess = InstructionManager.GetPendingInstructions(GetAccountNumber());
-
-                    try
-                    {
-                        foreach (Instruction instr in instructionsToProcess.Where(x => x.InstructionType.Type == InstructionType._NEW_POSITION || x.InstructionType.Type == InstructionType._UNWIND_POSITION))
-                        {
-                            //We process the account positions sync instructions
-                            ProcessPositionInstruction(instr);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        DoLog(string.Format("@{2}:Critical error processing instructions: {0} - {1}", ex.Message, (ex.InnerException != null ? ex.InnerException.Message : ""), GetConfig().Name), Main.Common.Util.Constants.MessageType.Error);
-                    }
-                }
+                ActiveSecuritiesTrades.Add(mdReqId, sec);
             }
+
+
+            Thread RequestMarketDataThread = new Thread(DoRequestMarketDataTrades);
+            RequestMarketDataThread.Start(symbol);
+
+            return CMState.BuildSuccess();
         }
 
-        protected void CancelMarketData(Security sec)
+        protected CMState ProcessMarketDataRequestOrderBook(Wrapper wrapper)
         {
+            string symbol = (string)wrapper.GetField(MarketDataRequestField.Symbol);
+            int mdReqId = (int)wrapper.GetField(MarketDataRequestField.MDReqId);
 
-            if (ActiveSecurities.Values.Any(x => x.Symbol == sec.Symbol))
+            Security sec = new Security() { Symbol = symbol };
+
+            lock (ActiveSecuritiesOrderBook)
             {
 
-
-                List<Security> toUnsubscribeList = ActiveSecurities.Values.Where(x => x.Symbol == sec.Symbol).ToList();
-                foreach (Security toUnsuscribe in toUnsubscribeList)
-                {
-                    toUnsuscribe.Active = false;
-
-                }
-
-
-                DoLog(string.Format("@{0}:Requesting Unsubscribe Market Data On Demand for Symbol: {0}", GetConfig().Name, sec.Symbol), Main.Common.Util.Constants.MessageType.Information);
+                ActiveSecuritiesOrderBook.Add(mdReqId, sec);
             }
-            else
-                throw new Exception(string.Format("@{0}: Could not find active security to unsubscribe for symbol {1}", GetConfig().Name, sec.Symbol));
 
+
+            Thread RequestMarketDataThread = new Thread(DoRequestMarketDataOrderBook);
+            RequestMarketDataThread.Start(symbol);
+
+            return CMState.BuildSuccess();
         }
 
         protected virtual CMState ProcessSecurityListRequest(Wrapper wrapper)
@@ -257,10 +227,23 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
                     {
                         return ProcessSecurityListRequest(wrapper);
                     }
-                    else if (Actions.MARKET_DATA_REQUEST == action)
+                    else if (Actions.MARKET_DATA_QUOTES_REQUEST == action)
                     {
-                        return ProessMarketDataRequest(wrapper);
+                        return ProcessMarketDataQuotesRequest(wrapper);
                     }
+                    else if (Actions.MARKET_DATA_TRADES_REQUEST == action)
+                    {
+
+                        return ProcessMarketDataTradesRequest(wrapper);
+                    }
+                    else if (Actions.MARKET_DATA_ORDERBOOK_REQUEST == action)
+                    {
+                        return ProcessMarketDataOrderBookRequest(wrapper);
+                    }
+                    //else if (Actions.MARKET_DATA_REQUEST == action)
+                    //{
+                    //    return ProessMarketDataRequest(wrapper);
+                    //}
                     else
                     {
                         DoLog("Sending message " + action + " not implemented", Main.Common.Util.Constants.MessageType.Information);

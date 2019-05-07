@@ -71,7 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AttributeConverter.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
+    <Compile Include="Wrappers\MarketDataOrderBookRequestWrapper.cs" />
+    <Compile Include="Wrappers\MarketDataQuotesRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataRequestWrapper.cs" />
+    <Compile Include="Wrappers\MarketDataTradesRequestWrapper.cs" />
     <Compile Include="Wrappers\NewOrderSingleWrapper.cs" />
   </ItemGroup>
   <ItemGroup />

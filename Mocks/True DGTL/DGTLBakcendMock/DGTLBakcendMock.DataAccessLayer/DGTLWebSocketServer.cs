@@ -436,6 +436,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             if (!Connected)
             {
+                DoLog(string.Format("Incoming connection request from {0}", socket.ConnectionInfo.ClientIpAddress), MessageType.Information);
                 //socket.Send("Connection Opened");
                 Thread heartbeatThread = new Thread(ClientHeartbeatThread);
                 heartbeatThread.Start(socket);
@@ -443,7 +444,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 Connected = true;
             }
             else
+            {
+                DoLog(string.Format("Error Incoming connection request from {0} - Only 1 connection at a time allowed", socket.ConnectionInfo.ClientIpAddress), MessageType.Error);
                 socket.Send("Only 1 connection at a time allowed");
+            }
         }
 
         protected override void OnClose(IWebSocketConnection socket)
@@ -457,6 +461,8 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             try
             {
+                DoLog(string.Format("OnMessage from IP -> {0}", socket.ConnectionInfo.ClientIpAddress), MessageType.Information);
+
                 WebSocketMessage wsResp = JsonConvert.DeserializeObject<WebSocketMessage>(m);
 
                 if (wsResp.Msg == "ClientLogin")

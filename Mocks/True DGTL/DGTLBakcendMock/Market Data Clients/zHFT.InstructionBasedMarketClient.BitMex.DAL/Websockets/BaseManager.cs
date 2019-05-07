@@ -57,6 +57,14 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.DAL.Websockets
 
                     subscrEvent.RunEvent(tradeEvent);
                 }
+                else if (eventSubscr.table == _QUOTE && EventSubscriptions.ContainsKey(eventSubscr.GetSubscriptionEvent()))
+                {
+                    WebSocketQuoteEvent quoteEvent = JsonConvert.DeserializeObject<WebSocketQuoteEvent>(resp);
+
+                    WebSocketSubscriptionEvent subscrEvent = EventSubscriptions[eventSubscr.GetSubscriptionEvent()];
+
+                    subscrEvent.RunEvent(quoteEvent);
+                }
                 else if (eventSubscr.table == _1_DAY_TRADE_BINS && EventSubscriptions.ContainsKey(eventSubscr.GetSubscriptionEvent()))
                 {
                     //TODO: I have to ask BitMex why aren't they retrieveing high and low for the 1 day bin

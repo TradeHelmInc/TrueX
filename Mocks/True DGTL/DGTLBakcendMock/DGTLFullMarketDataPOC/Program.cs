@@ -29,7 +29,7 @@ namespace DGTLFullMarketDataPOC
 
         protected static bool InitialSnapshotReceived { get; set; }
 
-        public static Security Security { get; set; }
+        protected static Dictionary<string, Security> Securities { get; set; }
 
         #endregion
 
@@ -65,17 +65,29 @@ namespace DGTLFullMarketDataPOC
 
         public static void SubscribeLastSales()
         {
-            DoSubscribe("LS", Security.Symbol);
+            foreach (string symbol in Securities.Keys)
+            {
+                DoSubscribe("LS", symbol);
+                Thread.Sleep(100);
+            }
         }
 
         public static void SubscribeQuotes()
         {
-            DoSubscribe("LQ", Security.Symbol);
+            foreach (string symbol in Securities.Keys)
+            {
+                DoSubscribe("LQ", symbol);
+                Thread.Sleep(100);
+            }
         }
 
         public static void SubscribeOrderBook()
         {
-            DoSubscribe("LD", Security.Symbol);
+            foreach (string symbol in Securities.Keys)
+            {
+                DoSubscribe("LD", symbol);
+                Thread.Sleep(100);
+            }
         }
 
         private static void PublishOrderBookThread(object param)
@@ -87,27 +99,33 @@ namespace DGTLFullMarketDataPOC
 
             while (InitialSnapshotReceived)
             {
-                lock (Security)
+                lock (Securities)
                 {
-                    List<PriceLevel> bids = Security.MarketData.OrderBook.Where(x => x.OrderBookEntryType == OrderBookEntryType.Bid)
-                                                                         .OrderByDescending(x => x.Price).ToList();
+                    foreach (Security Security in Securities.Values)
+                    {
 
-                    List<PriceLevel> asks = Security.MarketData.OrderBook.Where(x => x.OrderBookEntryType == OrderBookEntryType.Ask)
-                                                     .OrderBy(x => x.Price).ToList();
+                        List<PriceLevel> bids = Security.MarketData.OrderBook.Where(x => x.OrderBookEntryType == OrderBookEntryType.Bid)
+                                                                             .OrderByDescending(x => x.Price).ToList();
 
-                    DoLog(string.Format("======================Refreshing Order Book @{0}======================", DateTime.Now.ToString()));
-                    DoLog("============ Bids ==============");
-                    bids.ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
+                        List<PriceLevel> asks = Security.MarketData.OrderBook.Where(x => x.OrderBookEntryType == OrderBookEntryType.Ask)
+                                                         .OrderBy(x => x.Price).ToList();
 
-                    DoLog("");
+                        DoLog(string.Format("======================Refreshing Order Book for Symbol {0} @{1}======================", Security.Symbol, DateTime.Now.ToString()));
+                        DoLog("============ Bids ==============");
+                        bids.ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
 
-                    DoLog("============ Asks ==============");
-                    asks.OrderByDescending(x => x.Price)
-                        .ToList()
-                        .ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
-                    DoLog("========================================================================================================");
+                        DoLog("");
 
-                    DoLog(" ");
+                        DoLog("============ Asks ==============");
+                        asks.OrderByDescending(x => x.Price)
+                            .ToList()
+                            .ForEach(x => DoLog(string.Format("Size = {0} Price = {1}", x.Size.ToString("0.#####"), x.Price.ToString("0.##"))));
+                        DoLog("========================================================================================================");
+
+                        DoLog(" ");
+                        DoLog(" ");
+                        DoLog(" ");
+                    }
                 }
 
                 Thread.Sleep(5000);
@@ -118,8 +136,12 @@ namespace DGTLFullMarketDataPOC
         private static void ProcessDepthOfBook(DepthOfBook depthOfBookDelta)
         {
 
-            lock (Security)
+            lock (Securities)
             {
+                Security Security = Securities[depthOfBookDelta.Symbol];
+
+                if (Security == null)
+                    return;
 
                 if (depthOfBookDelta.cAction == DepthOfBook._ACTION_INSERT)
                 {
@@ -224,14 +246,14 @@ namespace DGTLFullMarketDataPOC
             else if  (msg is LastSale)
             {
                 LastSale lastSale = (LastSale)msg;
-                DoLog(string.Format("Received last sale: {0}", lastSale.LastPrice));
+                DoLog(string.Format("Received last sale for symbol {1}: {0}", lastSale.LastPrice, lastSale.Symbol));
             
             }
             else if (msg is Quote)
             {
                 Quote quote = (Quote)msg;
-                DoLog(string.Format("Received quote: Bid {0}-{1} -- Ask {2}-{3}",
-                     quote.BidSize, quote.Bid, quote.AskSize, quote.Ask));
+                DoLog(string.Format("Received quote for symbol {4}: Bid {0}-{1} -- Ask {2}-{3}",
+                     quote.BidSize, quote.Bid, quote.AskSize, quote.Ask, quote.Symbol));
 
             }
         }
@@ -272,9 +294,16 @@ namespace DGTLFullMarketDataPOC
             string UUID = ConfigurationManager.AppSettings["UUID"];
             string UserId = ConfigurationManager.AppSettings["UserId"];
             string Password = ConfigurationManager.AppSettings["Password"];
-            string Symbol = ConfigurationManager.AppSettings["Symbol"];
-            Security = new Security() { Symbol = Symbol, MarketData = new MarketData() { OrderBook = new List<PriceLevel>() } };
+           
+            Security sec1 = new Security() { Symbol = ConfigurationManager.AppSettings["Symbol1"], MarketData = new MarketData() { OrderBook = new List<PriceLevel>() } };
+            Security sec2 = new Security() { Symbol = ConfigurationManager.AppSettings["Symbol2"], MarketData = new MarketData() { OrderBook = new List<PriceLevel>() } };
+            Security sec3 = new Security() { Symbol = ConfigurationManager.AppSettings["Symbol3"], MarketData = new MarketData() { OrderBook = new List<PriceLevel>() } };
 
+
+            Securities = new Dictionary<string, Security>();
+            Securities.Add(sec1.Symbol, sec1);
+            Securities.Add(sec2.Symbol, sec2);
+            Securities.Add(sec3.Symbol, sec3);
 
             //1- We do all the logging and connection procedure
             DGTLWebSocketClient = new DGTLWebSocketClient(WebSocketURL, ProcessEvent);

@@ -78,12 +78,36 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.DAL.Websockets
             InvokeWebSocket(request).Wait();
         }
 
+        public void SubscribeQuotes(string symbol)
+        {
+            WebSocketSubscriptionRequest request = new WebSocketSubscriptionRequest()
+            {
+                op = "subscribe",
+                args = new string[] { string.Format("{0}:{1}", _QUOTE, symbol) }
+
+            };
+
+            InvokeWebSocket(request).Wait();
+        }
+
         public void UnsubscribeTrades(string symbol)
         {
             WebSocketSubscriptionRequest request = new WebSocketSubscriptionRequest()
             {
                 op = "unsubscribe",
                 args = new string[] { string.Format("{0}:{1}", _TRADE, symbol) }
+
+            };
+
+            InvokeWebSocket(request).Wait();
+        }
+
+        public void UnsubscribeQuotes(string symbol)
+        {
+            WebSocketSubscriptionRequest request = new WebSocketSubscriptionRequest()
+            {
+                op = "unsubscribe",
+                args = new string[] { string.Format("{0}:{1}", _QUOTE, symbol) }
 
             };
 

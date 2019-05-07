@@ -233,22 +233,22 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     lock (SecurityMappings)
                     {
-                        if (secMapping.PublishedMarketData != null)
+                        if (secMapping.PublishedMarketDataTrades != null)
                         {
                             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                             LastSale lastSale = new LastSale()
                             {
                                 Msg = "LastSale",
                                 Sender = 0,
-                                LastPrice = Convert.ToDecimal(secMapping.PublishedMarketData.Trade),
-                                LastShares = Convert.ToDecimal(secMapping.PublishedMarketData.MDTradeSize),
-                                Open = Convert.ToDecimal(secMapping.PublishedMarketData.OpeningPrice),
-                                Change = Convert.ToDecimal(secMapping.PublishedMarketData.PercentageChange),
-                                High = Convert.ToDecimal(secMapping.PublishedMarketData.TradingSessionHighPrice),
-                                Low = Convert.ToDecimal(secMapping.PublishedMarketData.TradingSessionLowPrice),
+                                LastPrice = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.Trade),
+                                LastShares = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.MDTradeSize),
+                                Open = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.OpeningPrice),
+                                Change = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.PercentageChange),
+                                High = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradingSessionHighPrice),
+                                Low = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradingSessionLowPrice),
                                 LastTime = Convert.ToInt64(elapsed.TotalSeconds),
                                 Symbol = secMapping.IncomingSymbol,
-                                Volume = secMapping.PublishedMarketData.TradeVolume.HasValue ? Convert.ToDecimal(secMapping.PublishedMarketData.TradeVolume) : 0
+                                Volume = secMapping.PublishedMarketDataTrades.TradeVolume.HasValue ? Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradeVolume) : 0
                             };
 
                              string strLastSale = JsonConvert.SerializeObject(lastSale, Newtonsoft.Json.Formatting.None,
@@ -302,17 +302,17 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     lock (SecurityMappings)
                     {
-                        if (secMapping.PublishedMarketData != null)
+                        if (secMapping.PublishedMarketDataQuotes != null)
                         {
                             Quote quote = new Quote()
                             {
                                 Msg = "Quote",
                                 Symbol=secMapping.IncomingSymbol,
                                 Sender = 0,
-                                Ask = secMapping.PublishedMarketData.BestAskPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketData.BestAskPrice) : null,
-                                AskSize = secMapping.PublishedMarketData.BestAskSize,
-                                Bid = secMapping.PublishedMarketData.BestBidPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketData.BestBidPrice) : null,
-                                BidSize = secMapping.PublishedMarketData.BestBidSize
+                                Ask = secMapping.PublishedMarketDataQuotes.BestAskPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketDataQuotes.BestAskPrice) : null,
+                                AskSize = secMapping.PublishedMarketDataQuotes.BestAskSize,
+                                Bid = secMapping.PublishedMarketDataQuotes.BestBidPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketDataQuotes.BestBidPrice) : null,
+                                BidSize = secMapping.PublishedMarketDataQuotes.BestBidSize
                             };
 
                             string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
@@ -523,9 +523,9 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void SubscribeMarketData(SecurityMapping secMapping)
+        private void SubscribeMarketDataQuotes(SecurityMapping secMapping)
         {
-            DoLog(string.Format("Subscribing market data for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+            DoLog(string.Format("Subscribing market data quotes for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
             Security sec = new Security()
             {
                 Symbol = secMapping.OutgoingSymbol,
@@ -533,11 +533,47 @@ namespace DGTLBackendMock.DataAccessLayer
                 Currency = "USD",
             };
 
-            MarketDataRequestWrapper wrapper = new MarketDataRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
+            MarketDataQuotesRequestWrapper wrapper = new MarketDataQuotesRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
             MarketDataRequestCounter++;
             MarketDataModule.ProcessMessage(wrapper);
 
-            DoLog(string.Format("Subscription sent for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+            DoLog(string.Format("Quotes Subscription sent for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+
+        }
+
+        private void SubscribeMarketDataTrades(SecurityMapping secMapping)
+        {
+            DoLog(string.Format("Subscribing market data trades for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+            Security sec = new Security()
+            {
+                Symbol = secMapping.OutgoingSymbol,
+                SecType = Security.GetSecurityType("FUT"),
+                Currency = "USD",
+            };
+
+            MarketDataTradesRequestWrapper wrapper = new MarketDataTradesRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
+            MarketDataRequestCounter++;
+            MarketDataModule.ProcessMessage(wrapper);
+
+            DoLog(string.Format("Trades Subscription sent for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+
+        }
+
+        private void SubscribeMarketDataOrderBook(SecurityMapping secMapping)
+        {
+            DoLog(string.Format("Subscribing market data order book for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
+            Security sec = new Security()
+            {
+                Symbol = secMapping.OutgoingSymbol,
+                SecType = Security.GetSecurityType("FUT"),
+                Currency = "USD",
+            };
+
+            MarketDataOrderBookRequestWrapper wrapper = new MarketDataOrderBookRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.SnapshotAndUpdates);
+            MarketDataRequestCounter++;
+            MarketDataModule.ProcessMessage(wrapper);
+
+            DoLog(string.Format("Order Book Subscription sent for outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
 
         }
 
@@ -549,12 +585,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 
-                    if (!secMapping.SubscribedMarketData())
-                    {
-                        SubscribeMarketData(secMapping);
-                        
-                    }
-
+                    SubscribeMarketDataTrades(secMapping);
                     secMapping.SubscribedLS = true;
                     secMapping.PendingLSResponse = true;
 
@@ -586,16 +617,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 
-                    if (!secMapping.SubscribedMarketData())
-                    {
-                        SubscribeMarketData(secMapping);
-                        
-                    
-                    }
-
+                    SubscribeMarketDataQuotes(secMapping);
                     secMapping.SubscribedLQ = true;
                     secMapping.PendingLQResponse = true;
-
 
                     if (!ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
                     {
@@ -675,11 +699,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
                     DoLog(string.Format("Mapping found for Outgoing Symbol={0}", secMapping.OutgoingSymbol), MessageType.Information);
 
-                    if (!secMapping.SubscribedMarketData())
-                    {
-                        SubscribeMarketData(secMapping);
-                    }
-
+                    SubscribeMarketDataOrderBook(secMapping);
                     secMapping.SubscribedLD = true;
                     secMapping.PendingLDResponse = true;
 
@@ -720,10 +740,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
                         ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
-                        secMapping.SubscribedLS = false;
                         secMapping.SubscriptionError = null;
-                        if (secMapping.SubscribedMarketData())
-                            DoUnsubscribe(secMapping.OutgoingSymbol);
+                        if (secMapping.SubscribedLS)
+                        {
+                            DoUnsubscribeTrades(secMapping.OutgoingSymbol);
+                            secMapping.SubscribedLS = false;
+                        }
                     }
                 }
                 else if (subscrMsg.Service == "LQ")
@@ -732,11 +754,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         ProcessLastQuoteThreads[subscrMsg.ServiceKey].Abort();
                         ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
-
-                        secMapping.SubscribedLQ = false;
                         secMapping.SubscriptionError = null;
-                        if (secMapping.SubscribedMarketData())
-                            DoUnsubscribe(secMapping.OutgoingSymbol);
+                        if (secMapping.SubscribedLQ)
+                        {
+                            DoUnsubscribeQuotes(secMapping.OutgoingSymbol);
+                            secMapping.SubscribedLQ = false;
+                        }
                     }
                 }
               
@@ -750,11 +773,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         ProcessOrderBookDepthThreads[subscrMsg.ServiceKey].Abort();
                         ProcessOrderBookDepthThreads.Remove(subscrMsg.ServiceKey);
-
-                        secMapping.SubscribedLD = false;
+                        
                         secMapping.SubscriptionError = null;
-                        if (secMapping.SubscribedMarketData())
-                            DoUnsubscribe(secMapping.OutgoingSymbol);
+                        if (secMapping.SubscribedLD)
+                        {
+                            DoUnsubscribeOrderBook(secMapping.OutgoingSymbol);
+                            secMapping.SubscribedLD = false;
+                        }
                     }
                 }
             }
@@ -859,10 +884,28 @@ namespace DGTLBackendMock.DataAccessLayer
                 return CMState.BuildSuccess();
         }
 
-        private void DoUnsubscribe(string symbol)
+        private void DoUnsubscribeTrades(string symbol)
         {
             Security sec = new Security() { Symbol = symbol, Currency = "USD", SecType = SecurityType.CC };
-            MarketDataRequestWrapper wrapper = new MarketDataRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.Unsuscribe);
+            MarketDataTradesRequestWrapper wrapper = new MarketDataTradesRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.Unsuscribe);
+            MarketDataRequestCounter++;
+            MarketDataModule.ProcessMessage(wrapper);
+
+        }
+
+        private void DoUnsubscribeQuotes(string symbol)
+        {
+            Security sec = new Security() { Symbol = symbol, Currency = "USD", SecType = SecurityType.CC };
+            MarketDataQuotesRequestWrapper wrapper = new MarketDataQuotesRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.Unsuscribe);
+            MarketDataRequestCounter++;
+            MarketDataModule.ProcessMessage(wrapper);
+
+        }
+
+        private void DoUnsubscribeOrderBook(string symbol)
+        {
+            Security sec = new Security() { Symbol = symbol, Currency = "USD", SecType = SecurityType.CC };
+            MarketDataOrderBookRequestWrapper wrapper = new MarketDataOrderBookRequestWrapper(MarketDataRequestCounter, sec, SubscriptionRequestType.Unsuscribe);
             MarketDataRequestCounter++;
             MarketDataModule.ProcessMessage(wrapper);
 
@@ -920,7 +963,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 foreach (string symbol in symbolsToUnsuscribe)
                 {
                     SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault() ;
-                    DoUnsubscribe(secMapping.OutgoingSymbol);
+                    DoUnsubscribeTrades(secMapping.OutgoingSymbol);
+                    DoUnsubscribeQuotes(secMapping.OutgoingSymbol);
+                    DoUnsubscribeOrderBook(secMapping.OutgoingSymbol);
                     secMapping.SubscribedLS = false;
                     secMapping.SubscribedLQ = false;
                     secMapping.SubscribedLD = false;
@@ -948,7 +993,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private CMState OnMarketDataReceived(Wrapper wrapper)
         {
 
-            if (wrapper.GetAction() == Actions.MARKET_DATA)
+            if (wrapper.GetAction() == Actions.MARKET_DATA_TRADES)
             {
 
                 MarketData md = MarketDataConverter.GetMarketData(wrapper);
@@ -959,16 +1004,43 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == md.Security.Symbol)
                                                                                       .FirstOrDefault();
-                        if (secMapping.SubscribedMarketData())
+                        if (secMapping.SubscribedLS)
                         {
                             lock (SecurityMappings)
                             {
-                                secMapping.PublishedMarketData = md;
+                                secMapping.PublishedMarketDataTrades = md;
+                            }
+                        }
+                    }
+                   
+                    return CMState.BuildSuccess();
+
+                }
+                catch (Exception ex)
+                {
+                    return CMState.BuildFail(ex);
+                }
+            }
+            if (wrapper.GetAction() == Actions.MARKET_DATA_QUOTES)
+            {
+
+                MarketData md = MarketDataConverter.GetMarketData(wrapper);
+
+                try
+                {
+                    if (SecurityMappings.Any(x => x.OutgoingSymbol == md.Security.Symbol))
+                    {
+                        SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == md.Security.Symbol)
+                                                                                      .FirstOrDefault();
+                        if (secMapping.SubscribedLQ)
+                        {
+                            lock (SecurityMappings)
+                            {
+                                secMapping.PublishedMarketDataQuotes = md;
                             }
                         }
                     }
 
-                    //Well, here we have to publish whatever we got as MD!
                     return CMState.BuildSuccess();
 
                 }
@@ -1003,13 +1075,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         SecurityMapping secMapping = (SecurityMapping)SecurityMappings.Where(x => x.OutgoingSymbol == obe.Symbol).FirstOrDefault();
 
-                        //if (secMapping.SubscribedLD)
-                        //{
-                        lock (SecurityMappings)
+                        if (secMapping.SubscribedLD)
                         {
-                            secMapping.OrderBookEntriesToPublish.Enqueue(obe);
+                            lock (SecurityMappings)
+                            {
+                                secMapping.OrderBookEntriesToPublish.Enqueue(obe);
+                            }
                         }
-                        //}
 
 
                     }

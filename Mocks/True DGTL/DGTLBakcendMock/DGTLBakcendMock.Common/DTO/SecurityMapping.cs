@@ -44,7 +44,9 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool PendingLDResponse { get; set; }
 
-        public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketData { get; set; }
+        public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketDataTrades { get; set; }
+
+        public zHFT.Main.BusinessEntities.Market_Data.MarketData PublishedMarketDataQuotes { get; set; }
 
         public string SubscriptionError { get; set; }
 

@@ -22,6 +22,7 @@ namespace zHFT.FullMrktConnectivity.BitMex.DAL.WebSockets
         public static string _EXECUTIONS = "execution";
         public static string _ORDERBOOK_L2 = "orderBookL2";
         public static string _TRADE = "trade";
+        public static string _QUOTE = "quote";
         public static string _1_DAY_TRADE_BINS = "tradeBin1d";
         protected static string _VERB = "GET";
         protected static string _ENDPOINT = "/realtime";
