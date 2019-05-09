@@ -3,7 +3,11 @@
   <Name>Incoming Bitmex</Name>
   <RESTURL>https://testnet.bitmex.com</RESTURL>
   <WebsocketURL>wss://testnet.bitmex.com/realtime</WebsocketURL>
-  <ApiKey>uMc4eoy_s5EqX-gFRrrg31-C</ApiKey>
-  <Secret>GYQhFg-SKDcBfF-JZzRg7HyuxVVh-O-oSCLjKVxxrThB0zFC</Secret>
+  <!--FMOSCA-->
+  <!--<ApiKey>uMc4eoy_s5EqX-gFRrrg31-C</ApiKey>
+  <Secret>GYQhFg-SKDcBfF-JZzRg7HyuxVVh-O-oSCLjKVxxrThB0zFC</Secret>-->
+  <!--CANGELERI-->
+  <ApiKey>-E7mL_N9GWJkzvHkvzs86LD5</ApiKey>
+  <Secret>TEJxV7RcUZjQ6nG2GFbveHL1RiKHPuPlamaCuwMz_BI31l8n</Secret>
 
 </Configuration>

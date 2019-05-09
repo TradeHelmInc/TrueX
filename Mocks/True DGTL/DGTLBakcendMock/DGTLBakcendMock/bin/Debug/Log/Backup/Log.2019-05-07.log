@@ -5649,3 +5649,66 @@
 2019-05-07 14:51:31  :: @Incoming Bitmex:NEW Quote for symbol XBTUSD
 2019-05-07 14:51:31  :: @Incoming Bitmex:NEW Quote for symbol XBTUSD
 2019-05-07 14:51:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557240692 Symbol=NDF-XBT-USD-X19 Size=1330 Price=5882
+2019-05-07 17:40:01  :: Initializing Mock Simulated Server...
+2019-05-07 17:40:01  :: Initializing all collections...
+2019-05-07 17:40:01  :: 5/7/2019 5:40:01 PMBaseCommunicationModule.LoadConfig
+2019-05-07 17:40:01  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:40:01  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:40:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-07 17:40:04  :: 5/7/2019 5:40:04 PMOrderRouterBase.LoadConfig
+2019-05-07 17:40:04  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:40:04  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:40:04  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-07 17:40:05  :: Collections Initialized...
+2019-05-07 17:40:06  :: Successfully subscribed to execution event 
+2019-05-07 17:40:13  :: Incoming Login request for user MM1_CLOBUI
+2019-05-07 17:40:13  :: user MM1_CLOBUI Successfully logged in
+2019-05-07 17:40:13  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-07 17:40:14  :: Unknown order processing execution report for OrderId 9b260542-af77-87f4-4a4b-9c60ffe3ece9 
+2019-05-07 17:41:21  :: Initializing Mock Simulated Server...
+2019-05-07 17:41:21  :: Initializing all collections...
+2019-05-07 17:41:21  :: 5/7/2019 5:41:21 PMBaseCommunicationModule.LoadConfig
+2019-05-07 17:41:21  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:41:21  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:41:22  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-07 17:41:25  :: 5/7/2019 5:41:25 PMOrderRouterBase.LoadConfig
+2019-05-07 17:41:25  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:41:25  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:41:25  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-07 17:41:26  :: Collections Initialized...
+2019-05-07 17:41:26  :: Successfully subscribed to execution event 
+2019-05-07 17:41:36  :: Incoming Login request for user MM1_CLOBUI
+2019-05-07 17:41:36  :: user MM1_CLOBUI Successfully logged in
+2019-05-07 17:41:36  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-07 17:41:36  :: Unknown order processing execution report for OrderId 4f0cf72e-197d-995a-31f1-3f53abe7f2c7 
+2019-05-07 17:42:16  :: Initializing Mock Simulated Server...
+2019-05-07 17:42:16  :: Initializing all collections...
+2019-05-07 17:42:16  :: 5/7/2019 5:42:16 PMBaseCommunicationModule.LoadConfig
+2019-05-07 17:42:16  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:42:16  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:42:16  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-07 17:42:19  :: 5/7/2019 5:42:19 PMOrderRouterBase.LoadConfig
+2019-05-07 17:42:19  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:42:19  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:42:19  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-07 17:42:20  :: Collections Initialized...
+2019-05-07 17:42:20  :: Successfully subscribed to execution event 
+2019-05-07 17:42:26  :: Incoming Login request for user MM1_CLOBUI
+2019-05-07 17:42:26  :: user MM1_CLOBUI Successfully logged in
+2019-05-07 17:42:26  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-07 17:43:22  :: Unknown order processing execution report for OrderId 4f0cf72e-197d-995a-31f1-3f53abe7f2c7 
+2019-05-07 17:43:57  :: Initializing Mock Simulated Server...
+2019-05-07 17:43:57  :: Initializing all collections...
+2019-05-07 17:43:57  :: 5/7/2019 5:43:57 PMBaseCommunicationModule.LoadConfig
+2019-05-07 17:43:57  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:43:57  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-07 17:43:57  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-07 17:44:00  :: 5/7/2019 5:44:00 PMOrderRouterBase.LoadConfig
+2019-05-07 17:44:00  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:44:00  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-07 17:44:00  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-07 17:44:01  :: Collections Initialized...
+2019-05-07 17:44:01  :: Successfully subscribed to execution event 
+2019-05-07 17:44:08  :: Incoming Login request for user MM1_CLOBUI
+2019-05-07 17:44:08  :: user MM1_CLOBUI Successfully logged in
+2019-05-07 17:44:08  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19

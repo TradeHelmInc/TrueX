@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,6 @@ namespace DGTLBackendMock.DataAccessLayer
     {
         #region Protected Attributes
 
-        protected bool Connected { get; set; }
-
         protected SecurityMapping[] SecurityMappings { get; set; }
 
         protected ICommunicationModule MarketDataModule { get; set; }
@@ -49,7 +48,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, Thread> ProcessOrderBookDepthThreads { get; set; }
 
-        protected Thread HeartbeatThread { get; set; }
+        
 
         protected Dictionary<string, Queue<ExecutionReport>> ExecutionReports { get; set; }
 
@@ -76,6 +75,8 @@ namespace DGTLBackendMock.DataAccessLayer
             MarketDataRequestCounter = 1;
 
             Connected = false;
+
+            ConnectedClients = new List<int>();
 
             ExecutionReports = new Dictionary<string, Queue<ExecutionReport>>();
 
@@ -919,72 +920,87 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void DoCLoseThread(object p)
+        protected override void DoCLoseThread(object p)
         {
             lock (SecurityMappings)
             {
-
-                List<string> symbolsToUnsuscribe = new List<string>();
-
-                ExecutionReportThreads.Values.ToList().ForEach(x => x.Abort());
-                ExecutionReportThreads.Clear();
-
-
-                MarkToUnsubscribe(ProcessLastSaleThreads.Keys.ToList(), symbolsToUnsuscribe);
-                ProcessLastSaleThreads.Values.ToList().ForEach(x => x.Abort());
-                ProcessLastSaleThreads.Clear();
-
-                MarkToUnsubscribe(ProcessLastQuoteThreads.Keys.ToList(), symbolsToUnsuscribe);
-                ProcessLastQuoteThreads.Values.ToList().ForEach(x => x.Abort());
-                ProcessLastQuoteThreads.Clear();
-
-                MarkToUnsubscribe(ProcessOrderBookDepthThreads.Keys.ToList(), symbolsToUnsuscribe);
-                ProcessOrderBookDepthThreads.Values.ToList().ForEach(x => x.Abort());
-                ProcessOrderBookDepthThreads.Clear();
-
-                MarkToUnsubscribe(ProcessDailyOfficialFixingPriceThreads.Keys.ToList(), symbolsToUnsuscribe);
-                ProcessDailyOfficialFixingPriceThreads.Values.ToList().ForEach(x => x.Abort());
-                ProcessDailyOfficialFixingPriceThreads.Clear();
-
-                MarkToUnsubscribe(ProcessDailySettlementThreads.Keys.ToList(), symbolsToUnsuscribe);
-                ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
-                ProcessDailySettlementThreads.Clear();
-
-                if (HeartbeatThread != null)
+                try
                 {
-                    HeartbeatThread.Abort();
-                    HeartbeatThread = null;
+                    ConnectedClients.Clear();
+
+                    List<string> symbolsToUnsuscribe = new List<string>();
+
+                    ExecutionReportThreads.Values.ToList().ForEach(x => x.Abort());
+                    ExecutionReportThreads.Clear();
+
+
+                    MarkToUnsubscribe(ProcessLastSaleThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ProcessLastSaleThreads.Values.ToList().ForEach(x => x.Abort());
+                    ProcessLastSaleThreads.Clear();
+
+                    MarkToUnsubscribe(ProcessLastQuoteThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ProcessLastQuoteThreads.Values.ToList().ForEach(x => x.Abort());
+                    ProcessLastQuoteThreads.Clear();
+
+                    MarkToUnsubscribe(ProcessOrderBookDepthThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ProcessOrderBookDepthThreads.Values.ToList().ForEach(x => x.Abort());
+                    ProcessOrderBookDepthThreads.Clear();
+
+                    MarkToUnsubscribe(ProcessDailyOfficialFixingPriceThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ProcessDailyOfficialFixingPriceThreads.Values.ToList().ForEach(x => x.Abort());
+                    ProcessDailyOfficialFixingPriceThreads.Clear();
+
+                    MarkToUnsubscribe(ProcessDailySettlementThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
+                    ProcessDailySettlementThreads.Clear();
+
+                    if (HeartbeatThread != null)
+                    {
+                        HeartbeatThread.Abort();
+                        HeartbeatThread = null;
+                    }
+
+
+                    ExecutionReports.Clear();
+
+
+                    foreach (string symbol in symbolsToUnsuscribe)
+                    {
+                        SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+                        DoUnsubscribeTrades(secMapping.OutgoingSymbol);
+                        DoUnsubscribeQuotes(secMapping.OutgoingSymbol);
+                        DoUnsubscribeOrderBook(secMapping.OutgoingSymbol);
+                        secMapping.SubscribedLS = false;
+                        secMapping.SubscribedLQ = false;
+                        secMapping.SubscribedLD = false;
+                        secMapping.SubscribedFP = false;
+                        secMapping.SubscribedFD = false;
+                        secMapping.SubscriptionError = null;
+                        secMapping.OrderBookEntriesToPublish.Clear();
+                    }
+
+                    Connected = false;
+
+                    UserLogged = false;
+
+                    DoLog("Turning threads off on socket disconnection", MessageType.Information);
                 }
-
-
-                ExecutionReports.Clear();
-
-
-                foreach (string symbol in symbolsToUnsuscribe)
+                catch (Exception ex)
                 {
-                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault() ;
-                    DoUnsubscribeTrades(secMapping.OutgoingSymbol);
-                    DoUnsubscribeQuotes(secMapping.OutgoingSymbol);
-                    DoUnsubscribeOrderBook(secMapping.OutgoingSymbol);
-                    secMapping.SubscribedLS = false;
-                    secMapping.SubscribedLQ = false;
-                    secMapping.SubscribedLD = false;
-                    secMapping.SubscribedFP = false;
-                    secMapping.SubscribedFD = false;
-                    secMapping.SubscriptionError = null;
-                    secMapping.OrderBookEntriesToPublish.Clear();
+                    var st = new StackTrace(ex, true);
+                    // Get the top stack frame
+                    var frame = st.GetFrame(0);
+                    // Get the line number from the stack frame
+                    var line = frame.GetFileLineNumber();
+                    DoLog(string.Format("Exception @DoCLoseThread {0}-{1}- Line {2}", ex.Message, ex.StackTrace, line), MessageType.Error);
+
+                
                 }
-
-                Connected = false;
-
-                UserLogged = false;
-
-                DoLog("Turning threads off on socket disconnection", MessageType.Information);
             }
         
         }
 
-        private void DoClose()
+        protected override void DoClose()
         {
             Thread doCloseThread = new Thread(DoCLoseThread);
             doCloseThread.Start();
@@ -1101,26 +1117,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Protected Overriden Methods
 
-        protected override void OnOpen(IWebSocketConnection socket)
-        {
-            if (!Connected )
-            {
-                //socket.Send("Connection Opened");
-                HeartbeatThread = new Thread(ClientHeartbeatThread);
-                HeartbeatThread.Start(socket);
-
-                Connected = true;
-            }
-            else
-                socket.Send("Only 1 connection at a time allowed");
-        }
-
-       
-
-        protected override void OnClose(IWebSocketConnection socket)
-        {
-            DoClose();
-        }
+        
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
@@ -1175,6 +1172,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Exception at  OnMessage for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+
                 UnknownMessage errorMsg = new UnknownMessage()
                 {
                     Msg = "MessageReject",

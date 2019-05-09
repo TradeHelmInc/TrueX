@@ -56,6 +56,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
             Connected = false;
 
+            ConnectedClients = new List<int>();
+
             ProcessLastSaleThreads = new Dictionary<string, Thread>();
 
             ProcessLastQuoteThreads = new Dictionary<string, Thread>();
@@ -107,7 +109,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Methods
 
-        private void DoCLoseThread(object p)
+        protected override void DoCLoseThread(object p)
         {
             lock (tLock)
             {
@@ -131,7 +133,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void DoClose()
+        protected override void DoClose()
         {
             Thread doCloseThread = new Thread(DoCLoseThread);
             doCloseThread.Start();
@@ -431,30 +433,6 @@ namespace DGTLBackendMock.DataAccessLayer
         #endregion
 
         #region Protected Methods
-
-        protected override  void OnOpen(IWebSocketConnection socket)
-        {
-            if (!Connected)
-            {
-                DoLog(string.Format("Incoming connection request from {0}", socket.ConnectionInfo.ClientIpAddress), MessageType.Information);
-                //socket.Send("Connection Opened");
-                Thread heartbeatThread = new Thread(ClientHeartbeatThread);
-                heartbeatThread.Start(socket);
-
-                Connected = true;
-            }
-            else
-            {
-                DoLog(string.Format("Error Incoming connection request from {0} - Only 1 connection at a time allowed", socket.ConnectionInfo.ClientIpAddress), MessageType.Error);
-                socket.Send("Only 1 connection at a time allowed");
-            }
-        }
-
-        protected override void OnClose(IWebSocketConnection socket)
-        {
-
-            DoClose();
-        }
 
        
         protected override void OnMessage(IWebSocketConnection socket, string m)

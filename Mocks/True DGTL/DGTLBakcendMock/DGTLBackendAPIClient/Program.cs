@@ -301,8 +301,8 @@ namespace DGTLBackendAPIClient
                     UserId = UserId,
                     ClOrderId = BuildClOrdId(),
                     AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : null,
-                    InstrumentId = "XBT-USD",
-                    Price = 5280,
+                    InstrumentId = "SWP-XBT-USD-K19",
+                    Price = 1100,
                     cSide = 'B',//Buy
                     Quantity = 1,
                     cTimeInForce = '0',//Day

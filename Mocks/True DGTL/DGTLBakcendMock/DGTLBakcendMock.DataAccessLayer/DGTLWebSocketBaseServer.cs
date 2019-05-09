@@ -25,6 +25,12 @@ namespace DGTLBackendMock.DataAccessLayer
     {
         #region Protected Attributes
 
+        protected bool Connected { get; set; }
+
+        protected List<int> ConnectedClients = new List<int>();
+
+        protected Thread HeartbeatThread { get; set; }
+
         protected string URL { get; set; }
 
         protected Fleck.WebSocketServer WebSocketServer { get; set; }
@@ -427,12 +433,15 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Public Abstract Methods
 
-        protected abstract void OnOpen(IWebSocketConnection socket);
+        //protected abstract void OnOpen(IWebSocketConnection socket);
 
-        protected abstract void OnClose(IWebSocketConnection socket);
+        //protected abstract void OnClose(IWebSocketConnection socket);
 
         protected abstract void OnMessage(IWebSocketConnection socket, string m);
 
+        protected abstract void DoClose();
+
+        protected abstract void DoCLoseThread(object p);
 
         #endregion
 
@@ -449,6 +458,72 @@ namespace DGTLBackendMock.DataAccessLayer
 
             });
 
+        }
+
+        #endregion
+
+        #region Protected Overriden Methods
+
+        protected  void OnOpen(IWebSocketConnection socket)
+        {
+            try
+            {
+                if (!Connected)
+                {
+                    DoLog(string.Format("Connecting for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+                    //socket.Send("Connection Opened");
+                    ConnectedClients.Add(socket.ConnectionInfo.ClientPort);
+
+                    HeartbeatThread = new Thread(ClientHeartbeatThread);
+                    HeartbeatThread.Start(socket);
+
+                    Connected = true;
+
+                    DoLog(string.Format("Connected for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+
+                }
+                else
+                {
+                    DoLog(string.Format("Connecting second client {0}.  Removing previous client", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                    DoCLoseThread(null);
+
+                    ConnectedClients.Add(socket.ConnectionInfo.ClientPort);
+
+                    HeartbeatThread = new Thread(ClientHeartbeatThread);
+                    HeartbeatThread.Start(socket);
+
+                    Connected = true;
+
+                    DoLog(string.Format("Connected second client {0}.  Removing previous client", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+
+                    //DoLog("Only 1 connection at a time allowed", MessageType.Error);
+                    //socket.Send("Only 1 connection at a time allowed");
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+
+
+            }
+        }
+
+        protected  void OnClose(IWebSocketConnection socket)
+        {
+            try
+            {
+                DoLog(string.Format(" OnClose for client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                if (ConnectedClients.Any(x => x == socket.ConnectionInfo.ClientPort))
+                    DoClose();
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+            }
         }
 
         #endregion
