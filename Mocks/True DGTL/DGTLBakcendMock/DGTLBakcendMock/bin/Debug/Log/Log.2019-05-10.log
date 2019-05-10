@@ -1,0 +1,847 @@
+2019-05-10 9:23:13  :: Initializing Mock Server...
+2019-05-10 9:23:13  :: Initializing all collections...
+2019-05-10 9:23:14  :: Collections Initialized...
+2019-05-10 10:02:16  :: Initializing Mock Server...
+2019-05-10 10:02:16  :: Initializing all collections...
+2019-05-10 10:02:16  :: Collections Initialized...
+2019-05-10 10:04:16  :: Initializing Mock Server...
+2019-05-10 10:04:16  :: Initializing all collections...
+2019-05-10 10:04:16  :: Collections Initialized...
+2019-05-10 10:04:32  :: Connecting for the first time to client 2006
+2019-05-10 10:04:32  :: Connected for the first time to client 2006
+2019-05-10 10:04:51  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:04:51  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-10 10:04:51  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-10 10:04:52  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:04:54  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:04:56  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:04:57  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:04:58  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:05:00  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:08:06  :: OnMessage from IP -> 127.0.0.1
+2019-05-10 10:09:17  :: Initializing Mock Simulated Server...
+2019-05-10 10:09:17  :: Initializing all collections...
+2019-05-10 10:09:17  :: 5/10/2019 10:09:17 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:09:17  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:09:17  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:09:17  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:09:20  :: 5/10/2019 10:09:20 AMOrderRouterBase.LoadConfig
+2019-05-10 10:09:20  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:09:20  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:09:20  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:09:21  :: Collections Initialized...
+2019-05-10 10:09:22  :: Successfully subscribed to execution event 
+2019-05-10 10:09:35  :: Connecting for the first time to client 2196
+2019-05-10 10:09:35  :: Connected for the first time to client 2196
+2019-05-10 10:09:42  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:09:42  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:10:15  :: Initializing Mock Simulated Server...
+2019-05-10 10:10:15  :: Initializing all collections...
+2019-05-10 10:10:15  :: 5/10/2019 10:10:15 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:10:15  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:10:15  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:10:15  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:10:18  :: 5/10/2019 10:10:18 AMOrderRouterBase.LoadConfig
+2019-05-10 10:10:18  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:10:18  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:10:18  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:10:19  :: Collections Initialized...
+2019-05-10 10:10:20  :: Successfully subscribed to execution event 
+2019-05-10 10:10:29  :: Connecting for the first time to client 2308
+2019-05-10 10:10:29  :: Connected for the first time to client 2308
+2019-05-10 10:10:34  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:10:34  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:10:39  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:27:59  :: Initializing Mock Simulated Server...
+2019-05-10 10:27:59  :: Initializing all collections...
+2019-05-10 10:28:00  :: 5/10/2019 10:28:00 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:28:00  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:28:00  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:28:00  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:28:03  :: 5/10/2019 10:28:03 AMOrderRouterBase.LoadConfig
+2019-05-10 10:28:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:28:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:28:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:28:04  :: Collections Initialized...
+2019-05-10 10:28:04  :: Successfully subscribed to execution event 
+2019-05-10 10:28:12  :: Connecting for the first time to client 3425
+2019-05-10 10:28:12  :: Connected for the first time to client 3425
+2019-05-10 10:28:18  :: Incoming Login request for user MM2_CLOBUI1
+2019-05-10 10:28:18  :: user MM2_CLOBUI1 Successfully logged in
+2019-05-10 10:28:30  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:28:31  :: Unknown order processing execution report for OrderId f175a9e8-a5dc-da02-f431-a94eda90ed54 
+2019-05-10 10:29:20  :: Initializing Mock Simulated Server...
+2019-05-10 10:29:20  :: Initializing all collections...
+2019-05-10 10:29:20  :: 5/10/2019 10:29:20 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:29:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:29:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:29:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:29:23  :: 5/10/2019 10:29:23 AMOrderRouterBase.LoadConfig
+2019-05-10 10:29:23  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:23  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:23  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:24  :: Collections Initialized...
+2019-05-10 10:29:25  :: Successfully subscribed to execution event 
+2019-05-10 10:29:53  :: Initializing Mock Simulated Server...
+2019-05-10 10:29:53  :: Initializing all collections...
+2019-05-10 10:29:53  :: 5/10/2019 10:29:53 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:29:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:29:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:29:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:29:56  :: 5/10/2019 10:29:56 AMOrderRouterBase.LoadConfig
+2019-05-10 10:29:56  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:56  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:56  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:29:57  :: Collections Initialized...
+2019-05-10 10:29:58  :: Successfully subscribed to execution event 
+2019-05-10 10:30:03  :: Connecting for the first time to client 3502
+2019-05-10 10:30:03  :: Connected for the first time to client 3502
+2019-05-10 10:30:05  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:30:05  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:30:11  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:31:59  :: Initializing Mock Simulated Server...
+2019-05-10 10:31:59  :: Initializing all collections...
+2019-05-10 10:31:59  :: 5/10/2019 10:31:59 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:31:59  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:31:59  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:32:00  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:32:03  :: 5/10/2019 10:32:03 AMOrderRouterBase.LoadConfig
+2019-05-10 10:32:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:32:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:32:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:32:04  :: Collections Initialized...
+2019-05-10 10:32:04  :: Successfully subscribed to execution event 
+2019-05-10 10:32:12  :: Connecting for the first time to client 3677
+2019-05-10 10:32:12  :: Connected for the first time to client 3677
+2019-05-10 10:32:17  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:32:17  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:32:21  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:32:28  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:32:29  :: Unknown order processing execution report for OrderId 59fc3ecc-1255-75fa-efc6-33fd0d9c3317 
+2019-05-10 10:33:44  :: Initializing Mock Simulated Server...
+2019-05-10 10:33:44  :: Initializing all collections...
+2019-05-10 10:33:44  :: 5/10/2019 10:33:44 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:33:44  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:33:44  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:33:44  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:33:47  :: 5/10/2019 10:33:47 AMOrderRouterBase.LoadConfig
+2019-05-10 10:33:47  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:33:47  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:33:47  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:33:48  :: Collections Initialized...
+2019-05-10 10:33:48  :: Successfully subscribed to execution event 
+2019-05-10 10:34:20  :: Connecting for the first time to client 3741
+2019-05-10 10:34:20  :: Connected for the first time to client 3741
+2019-05-10 10:34:27  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:34:27  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:34:32  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:36:09  :: Initializing Mock Simulated Server...
+2019-05-10 10:36:09  :: Initializing all collections...
+2019-05-10 10:36:09  :: 5/10/2019 10:36:09 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:36:09  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:36:09  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:36:09  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:36:12  :: 5/10/2019 10:36:12 AMOrderRouterBase.LoadConfig
+2019-05-10 10:36:12  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:12  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:12  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:13  :: Collections Initialized...
+2019-05-10 10:36:13  :: Successfully subscribed to execution event 
+2019-05-10 10:36:18  :: Connecting for the first time to client 3799
+2019-05-10 10:36:18  :: Connected for the first time to client 3799
+2019-05-10 10:36:22  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:36:22  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:36:39  :: Initializing Mock Simulated Server...
+2019-05-10 10:36:39  :: Initializing all collections...
+2019-05-10 10:36:39  :: 5/10/2019 10:36:39 AMBaseCommunicationModule.LoadConfig
+2019-05-10 10:36:39  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:36:39  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 10:36:39  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 10:36:42  :: 5/10/2019 10:36:42 AMOrderRouterBase.LoadConfig
+2019-05-10 10:36:42  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:42  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:42  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 10:36:43  :: Collections Initialized...
+2019-05-10 10:36:43  :: Successfully subscribed to execution event 
+2019-05-10 10:36:50  :: Connecting for the first time to client 3819
+2019-05-10 10:36:50  :: Connected for the first time to client 3819
+2019-05-10 10:36:55  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 10:36:55  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 10:37:05  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 10:37:14  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:07:02  :: Initializing Mock Simulated Server...
+2019-05-10 11:07:02  :: Initializing all collections...
+2019-05-10 11:07:02  :: 5/10/2019 11:07:02 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:07:02  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:07:02  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:07:02  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:07:05  :: 5/10/2019 11:07:05 AMOrderRouterBase.LoadConfig
+2019-05-10 11:07:05  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:07:05  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:07:05  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:07:06  :: Collections Initialized...
+2019-05-10 11:07:07  :: Successfully subscribed to execution event 
+2019-05-10 11:07:13  :: Connecting for the first time to client 5524
+2019-05-10 11:07:13  :: Connected for the first time to client 5524
+2019-05-10 11:07:18  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:07:18  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:07:22  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:07:22  :: Unknown order processing execution report for OrderId cb5b72fb-9741-1957-66e2-1857e3b5fa69 
+2019-05-10 11:07:27  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:09:56  :: Initializing Mock Simulated Server...
+2019-05-10 11:09:56  :: Initializing all collections...
+2019-05-10 11:09:56  :: 5/10/2019 11:09:56 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:09:56  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:09:56  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:09:56  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:09:59  :: 5/10/2019 11:09:59 AMOrderRouterBase.LoadConfig
+2019-05-10 11:09:59  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:09:59  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:09:59  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:10:00  :: Collections Initialized...
+2019-05-10 11:10:00  :: Successfully subscribed to execution event 
+2019-05-10 11:10:07  :: Connecting for the first time to client 5585
+2019-05-10 11:10:07  :: Connected for the first time to client 5585
+2019-05-10 11:10:13  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:10:13  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:10:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:10:17  :: Unknown order processing execution report for OrderId 5f5bc66c-918d-c379-68fc-57de61775e66 
+2019-05-10 11:10:21  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:14:10  :: Initializing Mock Simulated Server...
+2019-05-10 11:14:10  :: Initializing all collections...
+2019-05-10 11:14:10  :: 5/10/2019 11:14:10 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:14:10  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:14:10  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:14:10  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:14:13  :: 5/10/2019 11:14:13 AMOrderRouterBase.LoadConfig
+2019-05-10 11:14:13  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:14:13  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:14:13  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:14:13  :: Collections Initialized...
+2019-05-10 11:14:14  :: Successfully subscribed to execution event 
+2019-05-10 11:14:24  :: Connecting for the first time to client 5841
+2019-05-10 11:14:24  :: Connected for the first time to client 5841
+2019-05-10 11:14:29  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:14:29  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:14:33  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:14:38  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:36:52  :: Initializing Mock Simulated Server...
+2019-05-10 11:36:52  :: Initializing all collections...
+2019-05-10 11:36:53  :: 5/10/2019 11:36:53 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:36:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:36:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:36:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:36:56  :: 5/10/2019 11:36:56 AMOrderRouterBase.LoadConfig
+2019-05-10 11:36:56  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:36:56  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:36:56  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:36:57  :: Collections Initialized...
+2019-05-10 11:36:57  :: Successfully subscribed to execution event 
+2019-05-10 11:37:04  :: Connecting for the first time to client 6602
+2019-05-10 11:37:04  :: Connected for the first time to client 6602
+2019-05-10 11:37:11  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:37:11  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:37:15  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:37:15  :: Unknown order processing execution report for OrderId 0212cd0f-a032-86fd-f296-df6487657a5e 
+2019-05-10 11:37:15  :: Unknown order processing execution report for OrderId 0212cd0f-a032-86fd-f296-df6487657a5e 
+2019-05-10 11:37:20  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:38:32  :: Initializing Mock Simulated Server...
+2019-05-10 11:38:32  :: Initializing all collections...
+2019-05-10 11:38:32  :: 5/10/2019 11:38:32 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:38:32  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:38:32  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:38:32  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:38:35  :: 5/10/2019 11:38:35 AMOrderRouterBase.LoadConfig
+2019-05-10 11:38:35  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:38:35  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:38:35  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:38:36  :: Collections Initialized...
+2019-05-10 11:38:36  :: Successfully subscribed to execution event 
+2019-05-10 11:39:00  :: Connecting for the first time to client 6635
+2019-05-10 11:39:00  :: Connected for the first time to client 6635
+2019-05-10 11:39:18  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:39:18  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:39:22  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:39:23  :: Unknown order processing execution report for OrderId c0dd3a2f-7508-b726-78df-b3ebd2a74172 
+2019-05-10 11:39:23  :: Unknown order processing execution report for OrderId c0dd3a2f-7508-b726-78df-b3ebd2a74172 
+2019-05-10 11:39:27  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:40:38  :: Initializing Mock Simulated Server...
+2019-05-10 11:40:38  :: Initializing all collections...
+2019-05-10 11:40:38  :: 5/10/2019 11:40:38 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:40:38  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:40:38  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:40:38  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:40:41  :: 5/10/2019 11:40:41 AMOrderRouterBase.LoadConfig
+2019-05-10 11:40:41  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:40:41  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:40:41  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:40:42  :: Collections Initialized...
+2019-05-10 11:40:43  :: Successfully subscribed to execution event 
+2019-05-10 11:40:52  :: Connecting for the first time to client 6674
+2019-05-10 11:40:52  :: Connected for the first time to client 6674
+2019-05-10 11:40:59  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:40:59  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:41:04  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:41:10  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:42:21  :: Unknown order processing execution report for OrderId cba5fa31-1668-b95d-69b8-129d667340c1 
+2019-05-10 11:43:10  :: Initializing Mock Simulated Server...
+2019-05-10 11:43:10  :: Initializing all collections...
+2019-05-10 11:43:10  :: 5/10/2019 11:43:10 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:43:10  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:43:10  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:43:10  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:43:13  :: 5/10/2019 11:43:13 AMOrderRouterBase.LoadConfig
+2019-05-10 11:43:13  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:43:13  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:43:13  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:43:14  :: Collections Initialized...
+2019-05-10 11:43:15  :: Successfully subscribed to execution event 
+2019-05-10 11:43:23  :: Connecting for the first time to client 6698
+2019-05-10 11:43:23  :: Connected for the first time to client 6698
+2019-05-10 11:43:29  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:43:29  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:43:33  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:44:34  :: Initializing Mock Simulated Server...
+2019-05-10 11:44:34  :: Initializing all collections...
+2019-05-10 11:44:34  :: 5/10/2019 11:44:34 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:44:34  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:44:34  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:44:35  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:44:38  :: 5/10/2019 11:44:38 AMOrderRouterBase.LoadConfig
+2019-05-10 11:44:38  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:44:38  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:44:38  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:44:38  :: Collections Initialized...
+2019-05-10 11:44:39  :: Successfully subscribed to execution event 
+2019-05-10 11:44:46  :: Connecting for the first time to client 6713
+2019-05-10 11:44:46  :: Connected for the first time to client 6713
+2019-05-10 11:44:50  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:44:50  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:44:54  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:44:55  :: Unknown order processing execution report for OrderId 6e771d9f-6298-9fa0-6d8b-f8aaea8953fa 
+2019-05-10 11:44:55  :: Unknown order processing execution report for OrderId 6e771d9f-6298-9fa0-6d8b-f8aaea8953fa 
+2019-05-10 11:44:59  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:46:23  :: Initializing Mock Simulated Server...
+2019-05-10 11:46:23  :: Initializing all collections...
+2019-05-10 11:46:23  :: 5/10/2019 11:46:23 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:46:23  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:46:23  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:46:23  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:46:26  :: 5/10/2019 11:46:26 AMOrderRouterBase.LoadConfig
+2019-05-10 11:46:26  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:46:26  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:46:26  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:46:27  :: Collections Initialized...
+2019-05-10 11:46:28  :: Successfully subscribed to execution event 
+2019-05-10 11:46:33  :: Connecting for the first time to client 6737
+2019-05-10 11:46:33  :: Connected for the first time to client 6737
+2019-05-10 11:46:38  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:46:38  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:47:05  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:47:19  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:48:43  :: Initializing Mock Simulated Server...
+2019-05-10 11:48:43  :: Initializing all collections...
+2019-05-10 11:48:43  :: 5/10/2019 11:48:43 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:48:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:48:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:48:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:48:46  :: 5/10/2019 11:48:46 AMOrderRouterBase.LoadConfig
+2019-05-10 11:48:46  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:48:46  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:48:46  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:48:47  :: Collections Initialized...
+2019-05-10 11:48:48  :: Successfully subscribed to execution event 
+2019-05-10 11:48:55  :: Connecting for the first time to client 6766
+2019-05-10 11:48:55  :: Connected for the first time to client 6766
+2019-05-10 11:49:14  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:49:14  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:49:18  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:49:26  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:52:01  :: Initializing Mock Simulated Server...
+2019-05-10 11:52:01  :: Initializing all collections...
+2019-05-10 11:52:01  :: 5/10/2019 11:52:01 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:52:01  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:52:01  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:52:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:52:04  :: 5/10/2019 11:52:04 AMOrderRouterBase.LoadConfig
+2019-05-10 11:52:04  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:52:04  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:52:04  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:52:05  :: Collections Initialized...
+2019-05-10 11:52:05  :: Successfully subscribed to execution event 
+2019-05-10 11:52:13  :: Connecting for the first time to client 6828
+2019-05-10 11:52:13  :: Connected for the first time to client 6828
+2019-05-10 11:52:15  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:52:15  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:52:19  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:52:28  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:53:49  :: Initializing Mock Simulated Server...
+2019-05-10 11:53:49  :: Initializing all collections...
+2019-05-10 11:53:49  :: 5/10/2019 11:53:49 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:53:49  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:53:49  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:53:49  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:53:53  :: 5/10/2019 11:53:53 AMOrderRouterBase.LoadConfig
+2019-05-10 11:53:53  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:53:53  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:53:53  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:53:54  :: Collections Initialized...
+2019-05-10 11:53:54  :: Successfully subscribed to execution event 
+2019-05-10 11:54:06  :: Connecting for the first time to client 6851
+2019-05-10 11:54:06  :: Connected for the first time to client 6851
+2019-05-10 11:54:11  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:54:11  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:54:15  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:54:20  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:58:14  :: Initializing Mock Simulated Server...
+2019-05-10 11:58:14  :: Initializing all collections...
+2019-05-10 11:58:14  :: 5/10/2019 11:58:14 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:58:14  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:58:14  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:58:15  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:58:18  :: 5/10/2019 11:58:18 AMOrderRouterBase.LoadConfig
+2019-05-10 11:58:18  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:58:18  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:58:18  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:58:18  :: Collections Initialized...
+2019-05-10 11:58:19  :: Successfully subscribed to execution event 
+2019-05-10 11:58:27  :: Connecting for the first time to client 6971
+2019-05-10 11:58:27  :: Connected for the first time to client 6971
+2019-05-10 11:58:32  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:58:32  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:58:37  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:58:42  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 11:58:59  :: Initializing Mock Simulated Server...
+2019-05-10 11:58:59  :: Initializing all collections...
+2019-05-10 11:58:59  :: 5/10/2019 11:58:59 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:58:59  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:58:59  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:58:59  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:59:02  :: 5/10/2019 11:59:02 AMOrderRouterBase.LoadConfig
+2019-05-10 11:59:02  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:02  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:02  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:03  :: Collections Initialized...
+2019-05-10 11:59:04  :: Successfully subscribed to execution event 
+2019-05-10 11:59:11  :: Initializing Mock Simulated Server...
+2019-05-10 11:59:11  :: Initializing all collections...
+2019-05-10 11:59:11  :: 5/10/2019 11:59:11 AMBaseCommunicationModule.LoadConfig
+2019-05-10 11:59:11  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:59:11  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 11:59:11  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 11:59:14  :: 5/10/2019 11:59:14 AMOrderRouterBase.LoadConfig
+2019-05-10 11:59:14  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:14  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:14  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 11:59:15  :: Collections Initialized...
+2019-05-10 11:59:15  :: Successfully subscribed to execution event 
+2019-05-10 11:59:22  :: Connecting for the first time to client 6988
+2019-05-10 11:59:22  :: Connected for the first time to client 6988
+2019-05-10 11:59:25  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 11:59:25  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 11:59:28  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 11:59:29  :: Unknown order processing execution report for OrderId 5f046bdc-1c99-00f7-f381-56cbfd379b51 
+2019-05-10 11:59:29  :: Unknown order processing execution report for OrderId 5f046bdc-1c99-00f7-f381-56cbfd379b51 
+2019-05-10 11:59:33  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 12:07:32  :: Initializing Mock Simulated Server...
+2019-05-10 12:07:32  :: Initializing all collections...
+2019-05-10 12:07:32  :: 5/10/2019 12:07:32 PMBaseCommunicationModule.LoadConfig
+2019-05-10 12:07:32  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:07:32  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:07:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 12:07:36  :: 5/10/2019 12:07:36 PMOrderRouterBase.LoadConfig
+2019-05-10 12:07:36  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:07:36  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:07:36  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 12:07:37  :: Collections Initialized...
+2019-05-10 12:07:38  :: Successfully subscribed to execution event 
+2019-05-10 12:08:00  :: Connecting for the first time to client 7140
+2019-05-10 12:08:00  :: Connected for the first time to client 7140
+2019-05-10 12:08:11  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 12:08:11  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 12:08:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 12:08:21  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 12:09:19  :: Initializing Mock Simulated Server...
+2019-05-10 12:09:19  :: Initializing all collections...
+2019-05-10 12:09:19  :: 5/10/2019 12:09:19 PMBaseCommunicationModule.LoadConfig
+2019-05-10 12:09:19  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:09:19  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:09:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 12:09:23  :: 5/10/2019 12:09:23 PMOrderRouterBase.LoadConfig
+2019-05-10 12:09:23  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:09:23  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:09:23  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 12:09:24  :: Collections Initialized...
+2019-05-10 12:09:24  :: Successfully subscribed to execution event 
+2019-05-10 12:09:32  :: Connecting for the first time to client 7164
+2019-05-10 12:09:32  :: Connected for the first time to client 7164
+2019-05-10 12:09:37  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 12:09:37  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 12:09:41  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 12:09:41  :: Unknown order processing execution report for OrderId a5dafc16-0978-c846-dd34-ff94081484b4 
+2019-05-10 12:09:46  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 12:11:06  :: Initializing Mock Simulated Server...
+2019-05-10 12:11:06  :: Initializing all collections...
+2019-05-10 12:11:06  :: 5/10/2019 12:11:06 PMBaseCommunicationModule.LoadConfig
+2019-05-10 12:11:06  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:11:06  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:11:06  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 12:11:09  :: 5/10/2019 12:11:09 PMOrderRouterBase.LoadConfig
+2019-05-10 12:11:09  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:11:09  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:11:09  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 12:11:10  :: Collections Initialized...
+2019-05-10 12:11:10  :: Successfully subscribed to execution event 
+2019-05-10 12:11:20  :: Connecting for the first time to client 7232
+2019-05-10 12:11:20  :: Connected for the first time to client 7232
+2019-05-10 12:11:20  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 12:11:20  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 12:11:30  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 12:11:30  :: Unknown order processing execution report for OrderId b5d1e74b-c42f-417a-d9be-7adfee06008e 
+2019-05-10 12:11:30  :: Unknown order processing execution report for OrderId b5d1e74b-c42f-417a-d9be-7adfee06008e 
+2019-05-10 12:11:34  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 12:13:11  :: Initializing Mock Simulated Server...
+2019-05-10 12:13:11  :: Initializing all collections...
+2019-05-10 12:13:11  :: 5/10/2019 12:13:11 PMBaseCommunicationModule.LoadConfig
+2019-05-10 12:13:11  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:13:11  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 12:13:12  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 12:13:15  :: 5/10/2019 12:13:15 PMOrderRouterBase.LoadConfig
+2019-05-10 12:13:15  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:13:15  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 12:13:15  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 12:13:16  :: Collections Initialized...
+2019-05-10 12:13:16  :: Successfully subscribed to execution event 
+2019-05-10 12:13:25  :: Connecting for the first time to client 7257
+2019-05-10 12:13:25  :: Connected for the first time to client 7257
+2019-05-10 12:13:31  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 12:13:31  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 12:13:34  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 12:13:35  :: Unknown order processing execution report for OrderId 8a29b187-8ed8-eb64-c88b-eee0fa998b5a 
+2019-05-10 12:13:35  :: Unknown order processing execution report for OrderId 8a29b187-8ed8-eb64-c88b-eee0fa998b5a 
+2019-05-10 12:13:39  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 14:02:05  :: Initializing Mock Simulated Server...
+2019-05-10 14:02:05  :: Initializing all collections...
+2019-05-10 14:02:06  :: 5/10/2019 2:02:06 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:02:06  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:02:06  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:02:06  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:02:09  :: 5/10/2019 2:02:09 PMOrderRouterBase.LoadConfig
+2019-05-10 14:02:09  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:02:09  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:02:09  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:02:10  :: Collections Initialized...
+2019-05-10 14:02:11  :: Successfully subscribed to execution event 
+2019-05-10 14:02:32  :: Connecting for the first time to client 9433
+2019-05-10 14:02:32  :: Connected for the first time to client 9433
+2019-05-10 14:02:36  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:02:36  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:03:43  :: Connecting second client 9454.  Removing previous client
+2019-05-10 14:03:43  :: Critical Error publishing Execution Report:Subproceso anulado.
+2019-05-10 14:03:43  :: Exception @DoCLoseThread Referencia a objeto no establecida como instancia de un objeto.-   en DGTLBackendMock.DataAccessLayer.DGTLWebSocketSimulatedServer.DoCLoseThread(Object p) en c:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\DGTLWebSocketSimulatedServer.cs:línea 1059- Line 1059
+2019-05-10 14:03:43  :: Connected second client 9454.  Removing previous client
+2019-05-10 14:03:48  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-10 14:03:48  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-10 14:04:00  :: Initializing Mock Simulated Server...
+2019-05-10 14:04:00  :: Initializing all collections...
+2019-05-10 14:04:00  :: 5/10/2019 2:04:00 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:04:00  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:04:00  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:04:00  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:04:03  :: 5/10/2019 2:04:03 PMOrderRouterBase.LoadConfig
+2019-05-10 14:04:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:04  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:04  :: Collections Initialized...
+2019-05-10 14:04:05  :: Successfully subscribed to execution event 
+2019-05-10 14:04:07  :: Connecting for the first time to client 9460
+2019-05-10 14:04:07  :: Connected for the first time to client 9460
+2019-05-10 14:04:12  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-10 14:04:12  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-10 14:04:53  :: Initializing Mock Simulated Server...
+2019-05-10 14:04:53  :: Initializing all collections...
+2019-05-10 14:04:53  :: 5/10/2019 2:04:53 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:04:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:04:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:04:54  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:04:56  :: 5/10/2019 2:04:56 PMOrderRouterBase.LoadConfig
+2019-05-10 14:04:56  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:56  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:56  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:04:57  :: Collections Initialized...
+2019-05-10 14:04:58  :: Successfully subscribed to execution event 
+2019-05-10 14:05:03  :: Connecting for the first time to client 9469
+2019-05-10 14:05:03  :: Connected for the first time to client 9469
+2019-05-10 14:05:16  :: Connecting second client 9473.  Removing previous client
+2019-05-10 14:05:16  :: Exception @DoCLoseThread Referencia a objeto no establecida como instancia de un objeto.-   en DGTLBackendMock.DataAccessLayer.DGTLWebSocketSimulatedServer.DoCLoseThread(Object p) en c:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.DataAccessLayer\DGTLWebSocketSimulatedServer.cs:línea 1059- Line 1059
+2019-05-10 14:05:16  :: Connected second client 9473.  Removing previous client
+2019-05-10 14:05:18  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:05:18  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:06:42  :: Initializing Mock Simulated Server...
+2019-05-10 14:06:42  :: Initializing all collections...
+2019-05-10 14:06:42  :: 5/10/2019 2:06:42 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:06:42  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:06:42  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:06:42  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:06:45  :: 5/10/2019 2:06:45 PMOrderRouterBase.LoadConfig
+2019-05-10 14:06:45  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:06:45  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:06:45  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:06:46  :: Collections Initialized...
+2019-05-10 14:06:46  :: Successfully subscribed to execution event 
+2019-05-10 14:06:53  :: Connecting for the first time to client 9489
+2019-05-10 14:06:53  :: Connected for the first time to client 9489
+2019-05-10 14:06:58  :: Incoming Login request for user MM2_CLOBUI1
+2019-05-10 14:06:58  :: user MM2_CLOBUI1 Successfully logged in
+2019-05-10 14:07:09  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:09:37  :: Initializing Mock Simulated Server...
+2019-05-10 14:09:37  :: Initializing all collections...
+2019-05-10 14:09:37  :: 5/10/2019 2:09:37 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:09:37  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:09:37  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:09:37  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:09:40  :: 5/10/2019 2:09:40 PMOrderRouterBase.LoadConfig
+2019-05-10 14:09:40  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:09:40  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:09:40  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:09:41  :: Collections Initialized...
+2019-05-10 14:09:42  :: Successfully subscribed to execution event 
+2019-05-10 14:10:01  :: Connecting for the first time to client 31799
+2019-05-10 14:10:01  :: Connected for the first time to client 31799
+2019-05-10 14:10:22  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:10:22  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:10:25  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:10:26  :: Unknown order processing execution report for OrderId 414db69d-6a14-d990-5872-f8d11bd16df0 
+2019-05-10 14:10:26  :: Unknown order processing execution report for OrderId 414db69d-6a14-d990-5872-f8d11bd16df0 
+2019-05-10 14:10:46  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:10:47  :: Unknown order processing execution report for OrderId a38e7753-622d-845a-cd21-398f87aa7001 
+2019-05-10 14:10:47  :: Unknown order processing execution report for OrderId a38e7753-622d-845a-cd21-398f87aa7001 
+2019-05-10 14:11:05  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:11:05  :: Unknown order processing execution report for OrderId 4ba26dee-c73e-e690-c334-d5542ee01aed 
+2019-05-10 14:11:05  :: Unknown order processing execution report for OrderId 4ba26dee-c73e-e690-c334-d5542ee01aed 
+2019-05-10 14:13:40  :: Initializing Mock Simulated Server...
+2019-05-10 14:13:40  :: Initializing all collections...
+2019-05-10 14:13:40  :: 5/10/2019 2:13:40 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:13:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:13:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:13:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:13:43  :: 5/10/2019 2:13:43 PMOrderRouterBase.LoadConfig
+2019-05-10 14:13:43  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:13:43  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:13:43  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:13:44  :: Collections Initialized...
+2019-05-10 14:13:45  :: Successfully subscribed to execution event 
+2019-05-10 14:13:52  :: Connecting for the first time to client 31972
+2019-05-10 14:13:52  :: Connected for the first time to client 31972
+2019-05-10 14:14:04  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-10 14:14:04  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-10 14:14:40  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:14:45  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 14:23:38  :: Initializing Mock Simulated Server...
+2019-05-10 14:23:38  :: Initializing all collections...
+2019-05-10 14:23:38  :: 5/10/2019 2:23:38 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:23:38  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:23:38  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:23:38  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:23:41  :: 5/10/2019 2:23:41 PMOrderRouterBase.LoadConfig
+2019-05-10 14:23:41  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:23:41  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:23:41  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:23:42  :: Collections Initialized...
+2019-05-10 14:23:42  :: Successfully subscribed to execution event 
+2019-05-10 14:25:31  :: Connecting for the first time to client 32291
+2019-05-10 14:25:31  :: Connected for the first time to client 32291
+2019-05-10 14:25:36  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:25:36  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:25:39  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:25:44  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 14:25:44  :: @Outgoing Bitmex:Error cancelig order xxx!:Referencia a objeto no establecida como instancia de un objeto.
+2019-05-10 14:26:40  :: Initializing Mock Simulated Server...
+2019-05-10 14:26:40  :: Initializing all collections...
+2019-05-10 14:26:40  :: 5/10/2019 2:26:40 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:26:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:26:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:26:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:26:59  :: Initializing Mock Simulated Server...
+2019-05-10 14:26:59  :: Initializing all collections...
+2019-05-10 14:26:59  :: 5/10/2019 2:26:59 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:26:59  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:26:59  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:26:59  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:27:02  :: 5/10/2019 2:27:02 PMOrderRouterBase.LoadConfig
+2019-05-10 14:27:02  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:27:02  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:27:02  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:27:03  :: Collections Initialized...
+2019-05-10 14:27:04  :: Successfully subscribed to execution event 
+2019-05-10 14:27:09  :: Connecting for the first time to client 32341
+2019-05-10 14:27:09  :: Connected for the first time to client 32341
+2019-05-10 14:27:14  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:27:14  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:27:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:27:17  :: Unknown order processing execution report for OrderId 4c2a67b0-2242-3fb2-3e02-59ef8ab90da0 
+2019-05-10 14:27:17  :: Unknown order processing execution report for OrderId 4c2a67b0-2242-3fb2-3e02-59ef8ab90da0 
+2019-05-10 14:27:21  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 14:30:13  :: Initializing Mock Simulated Server...
+2019-05-10 14:30:13  :: Initializing all collections...
+2019-05-10 14:30:13  :: 5/10/2019 2:30:13 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:30:13  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:30:13  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:30:13  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:30:27  :: 5/10/2019 2:30:27 PMOrderRouterBase.LoadConfig
+2019-05-10 14:30:27  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:30:27  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:30:27  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:30:28  :: Collections Initialized...
+2019-05-10 14:30:29  :: Successfully subscribed to execution event 
+2019-05-10 14:30:33  :: Connecting for the first time to client 32422
+2019-05-10 14:30:33  :: Connected for the first time to client 32422
+2019-05-10 14:30:37  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:30:37  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:31:02  :: Initializing Mock Simulated Server...
+2019-05-10 14:31:02  :: Initializing all collections...
+2019-05-10 14:31:02  :: 5/10/2019 2:31:02 PMBaseCommunicationModule.LoadConfig
+2019-05-10 14:31:02  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:31:02  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 14:31:02  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 14:31:05  :: 5/10/2019 2:31:05 PMOrderRouterBase.LoadConfig
+2019-05-10 14:31:05  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:31:05  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 14:31:05  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 14:31:06  :: Collections Initialized...
+2019-05-10 14:31:07  :: Successfully subscribed to execution event 
+2019-05-10 14:31:12  :: Connecting for the first time to client 32433
+2019-05-10 14:31:12  :: Connected for the first time to client 32433
+2019-05-10 14:31:18  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 14:31:18  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 14:31:22  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 14:31:27  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 14:31:28  :: @Outgoing Bitmex:Error cancelig order xxx!:@Outgoing Bitmex: Could not cancel order for OrigClOrdId xxx because it was not found
+2019-05-10 15:22:39  :: Initializing Mock Simulated Server...
+2019-05-10 15:22:39  :: Initializing all collections...
+2019-05-10 15:22:40  :: 5/10/2019 3:22:40 PMBaseCommunicationModule.LoadConfig
+2019-05-10 15:22:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 15:22:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 15:22:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 15:22:45  :: 5/10/2019 3:22:45 PMOrderRouterBase.LoadConfig
+2019-05-10 15:22:45  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 15:22:45  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 15:22:45  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 15:22:46  :: Collections Initialized...
+2019-05-10 15:22:46  :: Successfully subscribed to execution event 
+2019-05-10 15:22:51  :: Connecting for the first time to client 33797
+2019-05-10 15:22:51  :: Connected for the first time to client 33797
+2019-05-10 15:24:59  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 15:24:59  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 15:25:03  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 15:25:15  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 15:27:57  :: Initializing Mock Simulated Server...
+2019-05-10 15:27:57  :: Initializing all collections...
+2019-05-10 15:27:57  :: 5/10/2019 3:27:57 PMBaseCommunicationModule.LoadConfig
+2019-05-10 15:27:57  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 15:27:57  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 15:27:57  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 15:28:11  :: 5/10/2019 3:28:11 PMOrderRouterBase.LoadConfig
+2019-05-10 15:28:11  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 15:28:11  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 15:28:11  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 15:28:12  :: Collections Initialized...
+2019-05-10 15:28:13  :: Successfully subscribed to execution event 
+2019-05-10 15:28:27  :: Connecting for the first time to client 33935
+2019-05-10 15:28:27  :: Connected for the first time to client 33935
+2019-05-10 15:28:34  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 15:28:34  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 15:28:38  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-10 15:28:43  :: @Outgoing Bitmex:Cancelling order

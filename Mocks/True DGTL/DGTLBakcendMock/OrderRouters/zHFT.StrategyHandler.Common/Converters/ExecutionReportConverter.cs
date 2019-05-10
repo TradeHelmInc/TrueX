@@ -51,6 +51,21 @@ namespace zHFT.StrategyHandlers.Common.Converters
 
         }
 
+        protected void ValidateOrderCancelReplaceReject(Wrapper wrapper)
+        {
+
+
+            if (!ValidateField(wrapper, OrderCancelRejectField.OrigClOrdID))
+                throw new Exception("Missing OrigClOrdID");
+
+            if (!ValidateField(wrapper, OrderCancelRejectField.ClOrdID))
+                throw new Exception("Missing ClOrdID");
+
+            if (!ValidateField(wrapper, OrderCancelRejectField.Symbol))
+                throw new Exception("Missing Symbol");
+
+        }
+
         private Order BuildOrder(Wrapper wrapper)
         {
             Order order = new Order();
@@ -102,6 +117,28 @@ namespace zHFT.StrategyHandlers.Common.Converters
 
             return er;
 
+        }
+
+        public OrderCancelReplaceReject GetOrderCancelReplaceReject(Wrapper wrapper)
+        {
+
+            ValidateOrderCancelReplaceReject(wrapper);
+
+            OrderCancelReplaceReject ocr = new OrderCancelReplaceReject();
+
+            ocr.ClOrdId = (string)wrapper.GetField(OrderCancelRejectField.ClOrdID);
+            ocr.OrigClOrdId = (string)wrapper.GetField(OrderCancelRejectField.OrigClOrdID);
+            ocr.OrderId = (string)wrapper.GetField(OrderCancelRejectField.OrderID);
+            ocr.Symbol = (string)wrapper.GetField(OrderCancelRejectField.Symbol);
+
+
+            ocr.CxlRejReason = (CxlRejReason)(ValidateField(wrapper, OrderCancelRejectField.CxlRejReason) ? wrapper.GetField(OrderCancelRejectField.CxlRejReason) : CxlRejReason.Other);
+            ocr.CxlRejResponseTo = (CxlRejResponseTo)(ValidateField(wrapper, OrderCancelRejectField.CxlRejResponseTo) ? wrapper.GetField(OrderCancelRejectField.CxlRejResponseTo) : CxlRejResponseTo.OrderCancelRequest);
+            ocr.Text = (string)wrapper.GetField(OrderCancelRejectField.Text);
+
+            return ocr;
+
+        
         }
 
 

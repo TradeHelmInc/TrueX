@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DGTLBackendAPIClient
@@ -46,6 +47,7 @@ namespace DGTLBackendAPIClient
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
+            Console.WriteLine("RouteAndCancelOrder <AccountId> (Harcoded..)");
             Console.WriteLine("-CLEAR");
             Console.WriteLine();
         
@@ -106,6 +108,8 @@ namespace DGTLBackendAPIClient
                 ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
             else if (msg is LegacyOrderAck)
                 ProcessJsonMessage<LegacyOrderAck>((LegacyOrderAck)msg);
+            else if (msg is LegacyOrderCancelRejAck)
+                ProcessJsonMessage<LegacyOrderCancelRejAck>((LegacyOrderCancelRejAck)msg);
             else if (msg is ClientLogoutResponse)
             {
                 ClientLogoutResponse logoutResp = (ClientLogoutResponse)msg;
@@ -283,6 +287,28 @@ namespace DGTLBackendAPIClient
             return clOrdId;
         }
 
+        private static LegacyOrderReq CreateNewOrder(string[] param)
+        {
+            LegacyOrderReq legacyOrdReq = new LegacyOrderReq()
+            {
+                Msg = "LegacyOrderReq",
+                Sender = 0,
+                JsonWebToken = JWTToken,
+                UserId = UserId,
+                ClOrderId = BuildClOrdId(),
+                AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : null,
+                InstrumentId = "XBT-USD",
+                Price = 6800,
+                cSide = 'B',//Buy
+                Quantity = 1,
+                cTimeInForce = '0',//Day
+                cOrderType = '1',//Limit
+            };
+
+            return legacyOrdReq;
+        
+        }
+
         private static void ProcessRouteOrder(string[] param)
         {
             if (JWTToken == null)
@@ -293,21 +319,7 @@ namespace DGTLBackendAPIClient
 
             if (param.Length >= 1)
             {
-                LegacyOrderReq legacyOrdReq = new LegacyOrderReq()
-                {
-                    Msg = "LegacyOrderReq",
-                    Sender = 0,
-                    JsonWebToken = JWTToken,
-                    UserId = UserId,
-                    ClOrderId = BuildClOrdId(),
-                    AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : null,
-                    InstrumentId = "SWP-XBT-USD-K19",
-                    Price = 1100,
-                    cSide = 'B',//Buy
-                    Quantity = 1,
-                    cTimeInForce = '0',//Day
-                    cOrderType = '1',//Limit
-                };
+                LegacyOrderReq legacyOrdReq = CreateNewOrder(param);
 
                 string strMsg = JsonConvert.SerializeObject(legacyOrdReq, Newtonsoft.Json.Formatting.None,
                                                  new JsonSerializerSettings
@@ -316,6 +328,55 @@ namespace DGTLBackendAPIClient
                                                  });
 
                 DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for LegacyOrderReq message"));
+
+        }
+
+        private static void ProcessRouteAndCancelOrder(string[] param)
+        {
+            if (JWTToken == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 1)
+            {
+                LegacyOrderReq legacyOrdReq = CreateNewOrder(param);
+
+                string strMsg = JsonConvert.SerializeObject(legacyOrdReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+
+                Thread.Sleep(5000);
+
+                LegacyOrderCancelReq legacyOrderCancelReq = new LegacyOrderCancelReq();
+                legacyOrderCancelReq.ClOrderId = BuildClOrdId();
+                legacyOrderCancelReq.OrigClOrderId = legacyOrdReq.ClOrderId;
+                //legacyOrderCancelReq.OrigClOrderId = "xxx";
+                legacyOrderCancelReq.Msg = "LegacyOrderCancelReq";
+                legacyOrderCancelReq.JsonWebToken = legacyOrdReq.JsonWebToken;
+                legacyOrderCancelReq.Sender = legacyOrdReq.Sender;
+                legacyOrderCancelReq.Side = legacyOrdReq.Side;
+                legacyOrderCancelReq.User = legacyOrdReq.UserId;
+                legacyOrderCancelReq.InstrumentId = legacyOrdReq.InstrumentId;
+
+
+                string strCancelMsg = JsonConvert.SerializeObject(legacyOrderCancelReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strCancelMsg);
+               
+
             }
             else
                 DoLog(string.Format("Missing mandatory parameters for LegacyOrderReq message"));
@@ -345,6 +406,10 @@ namespace DGTLBackendAPIClient
             else if (mainCmd == "RouteOrder")
             {
                 ProcessRouteOrder(param);
+            }
+            else if (mainCmd == "RouteAndCancelOrder")
+            {
+                ProcessRouteAndCancelOrder(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR") 
             {

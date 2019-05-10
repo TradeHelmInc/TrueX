@@ -215,7 +215,7 @@ namespace zHFT.OrderRouters.Bitmex
                         //RunUpperTick(order);
                         ExecutionReport exRep = OrderManager.PlaceOrder(order);
                         BitMexActiveOrders.Add(order.ClOrdId, order);
-                        if (exRep.OrdStatus == OrdStatus.New.ToString())
+                        if (exRep.OrderID!=null)
                             OrderIdMappers.Add(exRep.OrderID, order.ClOrdId);
                         //The new ER will arrive through the websockets
                         //ExecutionReportWrapper erWrapper = new ExecutionReportWrapper(exRep, order);
@@ -286,32 +286,31 @@ namespace zHFT.OrderRouters.Bitmex
             throw new NotImplementedException("Not implemented");
         }
 
-        protected bool RunCancelOrder(Order order, bool update)
+        protected ExecutionReport RunCancelOrder(Order order, bool update)
         {
-            try
+            ExecutionReport exReport = OrderManager.CancelOrder(order);
+            //ExecutionReportWrapper wrapper = new ExecutionReportWrapper(exReport, order);
+            //OnMessageRcv(wrapper);
+            return exReport;
+        }
+
+        protected void ProcessCancelationError(ExecutionReport exReport, Order order, Wrapper wrapper)
+        {
+            if (!string.IsNullOrEmpty(exReport.error))
             {
-                ExecutionReport exReport = null;
-                lock (tLock)
-                {
-                    exReport = OrderManager.CancelOrder(order);
-                   
-                }
-
-                //ExecutionReportWrapper wrapper = new ExecutionReportWrapper(exReport, order);
-                //OnMessageRcv(wrapper);
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-
-                return false;
+                OrderCancelRejectWrapper reject = new OrderCancelRejectWrapper(order.OrderId,
+                                            wrapper.GetField(OrderFields.OrigClOrdID).ToString(),
+                                            wrapper.GetField(OrderFields.ClOrdID).ToString(),
+                                            OrdStatus.Rejected,
+                                            DateTime.Now,
+                                            CxlRejReason.UnknownOrder,
+                                            exReport.error,order.SymbolPair);
+                OnMessageRcv(reject);
             }
         }
 
-        protected override CMState CancelOrder(Wrapper wrapper)
+        protected CMState CancelOrderOnClOrderId(string  origClOrderId   ,Wrapper wrapper)
         {
-            string origClOrderId = wrapper.GetField(OrderFields.OrigClOrdID).ToString();
             try
             {
                 //New order id
@@ -323,10 +322,21 @@ namespace zHFT.OrderRouters.Bitmex
                     if (BitMexActiveOrders.ContainsKey(origClOrderId))
                     {
                         Order order = BitMexActiveOrders[origClOrderId];
-                        RunCancelOrder(order, false);
+                        ExecutionReport exReport = RunCancelOrder(order, false);
+                        ProcessCancelationError(exReport, order, wrapper);
                     }
                     else
                     {
+                        string orderId = wrapper.GetField(OrderFields.OrderId) != OrderFields.NULL ? wrapper.GetField(OrderFields.OrderId).ToString() : "";
+                        OrderCancelRejectWrapper reject = new OrderCancelRejectWrapper(orderId,
+                                                                                        origClOrderId,
+                                                                                        clOrderId,
+                                                                                        OrdStatus.Rejected,
+                                                                                        DateTime.Now,
+                                                                                        CxlRejReason.UnknownOrder,
+                                                                                        string.Format("ClOrdId not found: {0}", origClOrderId),
+                                                                                        wrapper.GetField(OrderFields.Symbol).ToString());
+                        OnMessageRcv(reject);
                         throw new Exception(string.Format("@{0}: Could not cancel order for OrigClOrdId {1} because it was not found", BitmexConfiguration.Name, origClOrderId));
                     }
                 }
@@ -337,6 +347,65 @@ namespace zHFT.OrderRouters.Bitmex
             {
                 DoLog(string.Format("@{0}:Error cancelig order {1}!:{2}", BitmexConfiguration.Name, origClOrderId, ex.Message), Main.Common.Util.Constants.MessageType.Error);
                 return CMState.BuildFail(ex);
+            }
+        }
+
+        protected CMState CancelOrderOnOrderId(string orderId, Wrapper wrapper)
+        {
+            try
+            {
+                lock (tLock)
+                {
+
+                    Order order = BitMexActiveOrders.Values.Where(x => x.OrderId == orderId).FirstOrDefault();
+
+                    if (order!=null)
+                    {
+                        ExecutionReport exReport = RunCancelOrder(order, false);
+                        ProcessCancelationError(exReport, order, wrapper);
+                    }
+                    else
+                    {
+                      
+                        OrderCancelRejectWrapper reject = new OrderCancelRejectWrapper(orderId,
+                                                                wrapper.GetField(OrderFields.OrigClOrdID).ToString(),
+                                                                wrapper.GetField(OrderFields.ClOrdID).ToString(),
+                                                                OrdStatus.Rejected,
+                                                                DateTime.Now,
+                                                                CxlRejReason.UnknownOrder,
+                                                                string.Format("OrderId not found: {0}", orderId),
+                                                                wrapper.GetField(OrderFields.Symbol).ToString());
+                        OnMessageRcv(reject);
+
+
+
+                        throw new Exception(string.Format("@{0}: Could not cancel order for OrderId {1} because it was not found", BitmexConfiguration.Name, orderId));
+                    }
+                }
+                return CMState.BuildSuccess();
+
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("@{0}:Error cancelig order {1}!:{2}", BitmexConfiguration.Name, orderId, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+                return CMState.BuildFail(ex);
+            }
+        }
+
+        protected override CMState CancelOrder(Wrapper wrapper)
+        {
+            string origClOrderId = wrapper.GetField(OrderFields.OrigClOrdID).ToString();
+
+            if (origClOrderId != null)
+                return CancelOrderOnClOrderId(origClOrderId, wrapper);
+            else
+            {
+                string orderId = wrapper.GetField(OrderFields.OrderId).ToString();
+
+                if (orderId != null)
+                    return CancelOrderOnOrderId(orderId, wrapper);
+                else
+                    throw new Exception("Could not cancel an order if you don't specify a ClOrderId or OrderId");
             }
         }
 

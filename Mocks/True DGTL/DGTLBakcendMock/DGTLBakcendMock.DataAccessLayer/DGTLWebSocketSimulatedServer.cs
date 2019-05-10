@@ -42,19 +42,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, Thread> ExecutionReportThreads { get; set; }
 
+        protected Dictionary<string, Thread> OrderCancelReplaceRejectThreads { get; set; }
+
         protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
 
         protected Dictionary<string, Thread> ProcessOrderBookDepthThreads { get; set; }
 
-        
-
         protected Dictionary<string, Queue<ExecutionReport>> ExecutionReports { get; set; }
 
-        protected ExecutionReportConverter ExecutionReportConverter { get; set; }
+        protected Dictionary<string, Queue<OrderCancelReplaceReject>> OrderCancelReplaceRejects { get; set; }
 
-       
+        protected ExecutionReportConverter ExecutionReportConverter { get; set; }
 
         protected int MarketDataRequestCounter { get; set; }
 
@@ -80,6 +80,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
             ExecutionReports = new Dictionary<string, Queue<ExecutionReport>>();
 
+            OrderCancelReplaceRejects = new Dictionary<string, Queue<OrderCancelReplaceReject>>();
+
             UserLogged = false;
 
             MarketDataConverter = new MarketDataConverter();
@@ -87,6 +89,8 @@ namespace DGTLBackendMock.DataAccessLayer
             ExecutionReportConverter = new ExecutionReportConverter();
 
             ExecutionReportThreads = new Dictionary<string, Thread>();
+
+            OrderCancelReplaceRejectThreads = new Dictionary<string, Thread>();
 
             ProcessLastSaleThreads = new Dictionary<string, Thread>();
 
@@ -445,6 +449,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     InstrumentId = legOrdReq.InstrumentId,
                     Status = LegacyOrderAck._ORD_sTATUS_REJECTED,
                     Price = legOrdReq.Price,
+                    Quantity=legOrdReq.Quantity,
                     LeftQty = 0,
                     Timestamp = Convert.ToInt64(elapsed.TotalSeconds),
                 };
@@ -497,10 +502,11 @@ namespace DGTLBackendMock.DataAccessLayer
                             Msg = "LegacyOrderAck",
                             OrderId = execReport.Order.OrderId,
                             UserId = userId,
-                            ClOrderId =execReport.Order.ClOrdId,
+                            ClOrderId = execReport.Order.ClOrdId,
                             InstrumentId = secMapping.IncomingSymbol,
                             Status = AttributeConverter.GetExecReportStatus(execReport),
-                            Price = execReport.Order.Price.HasValue?(decimal?)Convert.ToDecimal(execReport.Order.Price):null,
+                            Price = execReport.Order.Price.HasValue ? (decimal?)Convert.ToDecimal(execReport.Order.Price) : null,
+                            Quantity = execReport.Order.OrderQty.HasValue ? Convert.ToDecimal(execReport.Order.OrderQty.Value) : 0,
                             LeftQty = Convert.ToDecimal(execReport.LeavesQty),
                             Timestamp = timestamp,
                         };
@@ -521,6 +527,59 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 DoLog(string.Format("Critical Error publishing Execution Report:{0}", ex.Message), MessageType.Error);
+            }
+        }
+
+        private void ProcessOrderCancelReplaceRejectsThread(object param)
+        {
+            object[] parameters = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)parameters[0];
+            SecurityMapping secMapping = (SecurityMapping)parameters[1];
+            string userId = (string)parameters[2];
+
+            try
+            {
+                Queue<OrderCancelReplaceReject> orderCancelReplaceRejects = OrderCancelReplaceRejects[secMapping.IncomingSymbol];
+
+                while (true)
+                {
+                    while (orderCancelReplaceRejects.Count > 0)
+                    {
+                        OrderCancelReplaceReject reject = null;
+                        lock (OrderCancelReplaceRejects)
+                        {
+                            reject = orderCancelReplaceRejects.Dequeue();
+                        }
+
+                        long timestamp = 0;
+
+
+                        LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
+                        {
+                            Msg = "LegacyOrderCancelRejAck",
+                            ClOrderId = reject.OrigClOrdId,//we want the initial id
+                            UserId=userId,
+                            InstrumentId = secMapping.IncomingSymbol,
+                            OrderId = reject.OrderId,
+                            OrderRejectReason = reject.Text,
+                        };
+
+                        string strLegacyOrderCancelRejAck = JsonConvert.SerializeObject(legOrdCancelRejAck, Newtonsoft.Json.Formatting.None,
+                                new JsonSerializerSettings
+                                {
+                                    NullValueHandling = NullValueHandling.Ignore
+                                });
+
+                        DoSend(socket, strLegacyOrderCancelRejAck);
+
+                    }
+                }
+                Thread.Sleep(1000);
+
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical Error publishing OrderCancelReplaceReject:{0}", ex.Message), MessageType.Error);
             }
         }
 
@@ -660,13 +719,25 @@ namespace DGTLBackendMock.DataAccessLayer
                                 ExecutionReports.Add(secMapping.IncomingSymbol, new Queue<ExecutionReport>());
                         }
 
+                        lock (OrderCancelReplaceRejects)
+                        {
+                            if (!OrderCancelReplaceRejects.ContainsKey(secMapping.IncomingSymbol))
+                                OrderCancelReplaceRejects.Add(secMapping.IncomingSymbol, new Queue<OrderCancelReplaceReject>());
+                        }
+
                         lock (ExecutionReportThreads)
                         {
                             Thread execReportThread = new Thread(ProcessExecutionReportsThread);
                             execReportThread.Start(new object[] { socket, secMapping, legOrdReq.UserId });
                             ExecutionReportThreads.Add(legOrdReq.InstrumentId, execReportThread);
                         }
-                        
+
+                        lock (OrderCancelReplaceRejects)
+                        {
+                            Thread orderCancelReplaceRejectsThread = new Thread(ProcessOrderCancelReplaceRejectsThread);
+                            orderCancelReplaceRejectsThread.Start(new object[] { socket, secMapping, legOrdReq.UserId });
+                            OrderCancelReplaceRejectThreads.Add(legOrdReq.InstrumentId, orderCancelReplaceRejectsThread);
+                        }
                     }
 
                     NewOrderSingleWrapper wrapper = new NewOrderSingleWrapper(legOrdReq, secMapping.OutgoingSymbol);
@@ -686,6 +757,19 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 RejectNewOrder(legOrdReq, ex.Message, socket);
+            }
+        }
+
+        private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
+        {
+            LegacyOrderCancelReq legOrderCancel = JsonConvert.DeserializeObject<LegacyOrderCancelReq>(m);
+
+            if (SecurityMappings.Any(x => x.IncomingSymbol == legOrderCancel.InstrumentId))
+            {
+                SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == legOrderCancel.InstrumentId).FirstOrDefault();
+
+                OrderCancelRequestWrapper wrapper = new OrderCancelRequestWrapper(legOrderCancel.OrigClOrderId, legOrderCancel.ClOrderId, secMapping.OutgoingSymbol);
+                OrderRoutingModule.ProcessMessage(wrapper);
             }
         }
 
@@ -881,6 +965,22 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 return CMState.BuildSuccess();
             }
+            else if (wrapper.GetAction() == Actions.ORDER_CANCEL_REJECT)
+            {
+                OrderCancelReplaceReject reject = ExecutionReportConverter.GetOrderCancelReplaceReject(wrapper);
+
+                SecurityMapping secMapping = SecurityMappings.Where(x => x.OutgoingSymbol == reject.Symbol).FirstOrDefault();
+
+                if (secMapping != null)
+                {
+                    lock (OrderCancelReplaceRejects)
+                    {
+                        OrderCancelReplaceRejects[secMapping.IncomingSymbol].Enqueue(reject);
+                    }
+                }
+                return CMState.BuildSuccess();
+            }
+
             else
                 return CMState.BuildSuccess();
         }
@@ -953,6 +1053,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     MarkToUnsubscribe(ProcessDailySettlementThreads.Keys.ToList(), symbolsToUnsuscribe);
                     ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
                     ProcessDailySettlementThreads.Clear();
+
+                    MarkToUnsubscribe(ExecutionReportThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    ExecutionReportThreads.Values.ToList().ForEach(x => x.Abort());
+                    ExecutionReportThreads.Clear();
+
+                    MarkToUnsubscribe(OrderCancelReplaceRejectThreads.Keys.ToList(), symbolsToUnsuscribe);
+                    OrderCancelReplaceRejectThreads.Values.ToList().ForEach(x => x.Abort());
+                    OrderCancelReplaceRejectThreads.Clear();
 
                     if (HeartbeatThread != null)
                     {
@@ -1151,6 +1259,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ProcessLegacyOrderReqMock(socket, m);
 
+                }
+                else if (wsResp.Msg == "LegacyOrderCancelReq")
+                {
+                    ProcessLegacyOrderCancelMock(socket, m);
                 }
                 else
                 {

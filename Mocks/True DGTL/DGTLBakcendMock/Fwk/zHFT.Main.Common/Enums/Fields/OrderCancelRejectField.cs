@@ -15,6 +15,7 @@ namespace zHFT.Main.Common.Enums
         public static readonly OrderCancelRejectField CxlRejResponseTo = new OrderCancelRejectField(6);
         public static readonly OrderCancelRejectField CxlRejReason = new OrderCancelRejectField(7);
         public static readonly OrderCancelRejectField Text = new OrderCancelRejectField(8);
+        public static readonly OrderCancelRejectField Symbol = new OrderCancelRejectField(9);
 
         protected OrderCancelRejectField(int pInternalValue)
             : base(pInternalValue)

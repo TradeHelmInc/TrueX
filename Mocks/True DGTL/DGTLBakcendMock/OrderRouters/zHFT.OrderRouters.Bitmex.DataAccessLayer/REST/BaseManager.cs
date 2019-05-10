@@ -47,6 +47,7 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             beExecutionReport.Text = execReport.Text;
             beExecutionReport.TransactTime = execReport.TransactTime;
             beExecutionReport.Timestamp = execReport.Timestamp;
+            beExecutionReport.error = execReport.error;
 
             return beExecutionReport;
 

@@ -124,6 +124,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 OnEvent(JsonConvert.DeserializeObject<DepthOfBook>(resp));
                             else if (wsResp.Msg == "LegacyOrderAck")
                                 OnEvent(JsonConvert.DeserializeObject<LegacyOrderAck>(resp));
+                            else if (wsResp.Msg == "LegacyOrderCancelRejAck")
+                                OnEvent(JsonConvert.DeserializeObject<LegacyOrderCancelRejAck>(resp));
                             else
                             {
                                 UnknownMessage unknownMsg = new UnknownMessage()

@@ -73,6 +73,8 @@ namespace zHFT.OrderRouters.Bitmex.BusinessEntities
 
         public Order Order { get; set; }
 
+        public string error { get; set; }
+
 
         #endregion
     }

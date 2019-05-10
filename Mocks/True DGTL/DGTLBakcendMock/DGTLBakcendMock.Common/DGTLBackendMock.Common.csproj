@@ -56,7 +56,12 @@
     <Compile Include="DTO\MarketData\LastSale.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderAck.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderCancelAck.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderCancelRejAck.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderCancelReq.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderExecutionReport.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderRecord.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderRejAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
     <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />
@@ -77,6 +82,7 @@
     <Compile Include="Wrappers\MarketDataRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataTradesRequestWrapper.cs" />
     <Compile Include="Wrappers\NewOrderSingleWrapper.cs" />
+    <Compile Include="Wrappers\OrderCancelRequestWrapper.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
