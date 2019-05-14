@@ -59,6 +59,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected object tLock = new object();
 
+        protected IWebSocketConnection ConnectionSocket { get; set; }
+
         #endregion
 
         #region Protected Methods
@@ -479,6 +481,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     Connected = true;
 
+                    ConnectionSocket = socket;
+
                     DoLog(string.Format("Connected for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
 
 
@@ -495,6 +499,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     HeartbeatThread.Start(socket);
 
                     Connected = true;
+
+                    ConnectionSocket = socket;
 
                     DoLog(string.Format("Connected second client {0}.  Removing previous client", socket.ConnectionInfo.ClientPort), MessageType.Information);
 

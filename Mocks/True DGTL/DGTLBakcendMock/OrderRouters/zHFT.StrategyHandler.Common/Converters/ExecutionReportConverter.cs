@@ -83,6 +83,7 @@ namespace zHFT.StrategyHandlers.Common.Converters
             order.Side = (ValidateField(wrapper, ExecutionReportFields.Side) ? (Side)wrapper.GetField(ExecutionReportFields.Side) : Side.Unknown);
             order.QuantityType = (ValidateField(wrapper, ExecutionReportFields.QuantityType) ? (QuantityType)wrapper.GetField(ExecutionReportFields.QuantityType) : QuantityType.OTHER);
             order.PriceType = (ValidateField(wrapper, ExecutionReportFields.PriceType) ? (PriceType)wrapper.GetField(ExecutionReportFields.PriceType) : PriceType.FixedAmount);
+            order.OrdStatus = (OrdStatus)(ValidateField(wrapper, ExecutionReportFields.OrdStatus) ? wrapper.GetField(ExecutionReportFields.OrdStatus) : null);
 
             order.Security = new Security();
             order.Security.Symbol = (ValidateField(wrapper, ExecutionReportFields.Symbol) ? Convert.ToString(wrapper.GetField(ExecutionReportFields.Symbol)) : null);
@@ -112,6 +113,8 @@ namespace zHFT.StrategyHandlers.Common.Converters
             er.LastQty = (ValidateField(wrapper, ExecutionReportFields.LastQty) ? (double?)Convert.ToDouble(wrapper.GetField(ExecutionReportFields.LastQty)) : null);
             er.LastPx = (ValidateField(wrapper, ExecutionReportFields.LastPx) ? (double?)Convert.ToDouble(wrapper.GetField(ExecutionReportFields.LastPx)) : null);
             er.LastMkt = (ValidateField(wrapper, ExecutionReportFields.LastMkt) ? Convert.ToString(wrapper.GetField(ExecutionReportFields.LastMkt)) : null);
+            er.LastReport = (ValidateField(wrapper, ExecutionReportFields.LastReport) ? Convert.ToBoolean(wrapper.GetField(ExecutionReportFields.LastReport)) : false);
+
 
             er.Order = BuildOrder(wrapper);
 

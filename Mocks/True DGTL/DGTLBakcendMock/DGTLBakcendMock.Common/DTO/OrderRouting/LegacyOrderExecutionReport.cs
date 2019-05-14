@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public static string _ORD_sTATUS_PARTIALLY_FILLED = "partial_fill";
 
+        public static char _SIDE_BUY = 'B';
+
+        public static char _SIDE_SELL = 'S';
+
 
         #endregion
 
@@ -33,7 +38,15 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public string InstrumentId { get; set; }
 
-        public string Side { get; set; }
+        private byte side;
+        public byte Side
+        {
+            get { return side; }
+            set { side = Convert.ToByte(value); }
+        }//Side B -> Buy, S->Sell
+
+        [JsonIgnore]
+        public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
 
         public string Status { get; set; }
 

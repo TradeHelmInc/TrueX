@@ -20,6 +20,7 @@ namespace zHFT.Main.Common.Enums
         ORDER_BOOK,
         OFFER,
         EXECUTION_REPORT,
+        EXECUTION_REPORT_INITIAL_LIST,
         NEW_POSITION,
         SECURITY,
         NEW_POSITION_CANCELED,

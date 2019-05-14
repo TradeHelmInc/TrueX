@@ -58,6 +58,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected int MarketDataRequestCounter { get; set; }
 
+        protected string OySubscriptionUUID { get; set; }
+
         #endregion
 
 
@@ -448,6 +450,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ClOrderId = legOrdReq.ClOrderId,
                     InstrumentId = legOrdReq.InstrumentId,
                     Status = LegacyOrderAck._ORD_sTATUS_REJECTED,
+                    Side=legOrdReq.Side,
                     Price = legOrdReq.Price,
                     Quantity=legOrdReq.Quantity,
                     LeftQty = 0,
@@ -503,6 +506,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             OrderId = execReport.Order.OrderId,
                             UserId = userId,
                             ClOrderId = execReport.Order.ClOrdId,
+                            cSide = execReport.Order.Side == Side.Buy ? LegacyOrderAck._SIDE_BUY : LegacyOrderAck._SIDE_SELL,
                             InstrumentId = secMapping.IncomingSymbol,
                             Status = AttributeConverter.GetExecReportStatus(execReport),
                             Price = execReport.Order.Price.HasValue ? (decimal?)Convert.ToDecimal(execReport.Order.Price) : null,
@@ -773,6 +777,22 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            try
+            {
+                DoLog(string.Format("Entering ProcessMyOrders for ServiceKey={0}", subscrMsg.ServiceKey), MessageType.Information);
+                GetOrdersRequestWrapper rq = new GetOrdersRequestWrapper();
+                OrderRoutingModule.ProcessMessage(rq);
+                OySubscriptionUUID = subscrMsg.UUID;
+
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+            }
+        }
+
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
@@ -925,6 +945,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessOrderBookDepth(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "Oy")
+                {
+                    ProcessMyOrders(socket, subscrMsg);
+                }
             }
             else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_UNSUBSCRIBE)
             {
@@ -932,6 +956,48 @@ namespace DGTLBackendMock.DataAccessLayer
             
             }
 
+        }
+
+        private void ProcessLegacyOrderRecordMessage(ExecutionReport execReport)
+        {
+            SecurityMapping secMapping = SecurityMappings.Where(x => x.OutgoingSymbol == execReport.Order.Security.Symbol).FirstOrDefault();
+
+            if (secMapping != null)
+            {
+                TimeSpan elapsed = (execReport.TransactTime.HasValue ? execReport.TransactTime.Value : DateTime.Now) - new DateTime(1970, 1, 1);
+
+
+                LegacyOrderRecord legOrdRecordMsg = new LegacyOrderRecord();
+                legOrdRecordMsg.ClientOrderId = execReport.Order.ClOrdId;
+                legOrdRecordMsg.FillQty = execReport.CumQty;
+                legOrdRecordMsg.InstrumentId = secMapping.IncomingSymbol;
+                legOrdRecordMsg.LvsQty = execReport.LeavesQty;
+                legOrdRecordMsg.Msg = "LegacyOrderRecord";
+                legOrdRecordMsg.OrderId = execReport.Order.OrderId;
+                legOrdRecordMsg.OrdQty = execReport.Order.OrderQty.HasValue ? execReport.Order.OrderQty.Value : 0;
+                legOrdRecordMsg.Price = execReport.Order.Price;
+                legOrdRecordMsg.Sender = 0;
+                legOrdRecordMsg.UserId = "";
+                legOrdRecordMsg.UpdateTime = Convert.ToInt64(elapsed.TotalSeconds);
+                legOrdRecordMsg.cSide = execReport.Order.Side == Side.Buy ? LegacyOrderReq._SIDE_BUY : LegacyOrderReq._SIDE_SELL;
+                legOrdRecordMsg.cStatus = LegacyOrderRecord.GetStatus(execReport.OrdStatus);
+
+
+                string strLegacyOrderRecordMsg = JsonConvert.SerializeObject(legOrdRecordMsg, Newtonsoft.Json.Formatting.None,
+                          new JsonSerializerSettings
+                          {
+                              NullValueHandling = NullValueHandling.Ignore
+                          });
+                DoSend(ConnectionSocket, strLegacyOrderRecordMsg);
+               
+            }
+
+            if (execReport.LastReport)
+            {
+                ProcessSubscriptionResponse(ConnectionSocket, "Oy", "*", OySubscriptionUUID);
+
+            }
+        
         }
 
         #endregion
@@ -948,7 +1014,7 @@ namespace DGTLBackendMock.DataAccessLayer
             
             
             }
-            else if (wrapper.GetAction() == Actions.EXECUTION_REPORT)
+            else if (wrapper.GetAction() == Actions.EXECUTION_REPORT )
             {
                 ExecutionReport execReport = ExecutionReportConverter.GetExecutionReport(wrapper);
 
@@ -958,12 +1024,19 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     lock (ExecutionReports)
                     {
-                        
-
                         ExecutionReports[secMapping.IncomingSymbol].Enqueue(execReport);
                     }
                 }
                 return CMState.BuildSuccess();
+            }
+            else if (wrapper.GetAction() == Actions.EXECUTION_REPORT_INITIAL_LIST)
+            {
+                ExecutionReport execReport = ExecutionReportConverter.GetExecutionReport(wrapper);
+
+                ProcessLegacyOrderRecordMessage(execReport);
+
+                return CMState.BuildSuccess();
+            
             }
             else if (wrapper.GetAction() == Actions.ORDER_CANCEL_REJECT)
             {

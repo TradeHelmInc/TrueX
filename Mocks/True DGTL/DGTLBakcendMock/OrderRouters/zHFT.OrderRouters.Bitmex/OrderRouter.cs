@@ -203,6 +203,33 @@ namespace zHFT.OrderRouters.Bitmex
         
         }
 
+        protected override CMState GetOrders(Wrapper wrapper)
+        {
+            ExecutionReport[] reports = OrderManager.GetOrders();
+
+            int count = 0;
+            foreach (ExecutionReport report in reports)
+            {
+                count++;
+                Order orderRetrieved = new Order();
+
+                orderRetrieved.OrderId = report.OrderID;
+                orderRetrieved.ClOrdId = report.ClOrdID;
+                orderRetrieved.SymbolPair = report.Symbol;
+                orderRetrieved.OrderQty = report.OrderQty;
+                orderRetrieved.OrdType = report.Price.HasValue ? OrdType.Limit : OrdType.Market ;
+                orderRetrieved.Price = report.Price.HasValue ? (decimal?)report.Price.Value : null ;
+                orderRetrieved.Currency = report.Currency;
+                orderRetrieved.Side = report.Side == "Buy" ? Side.Buy : Side.Sell ;
+
+                ExecutionReportInitialListWrapper erWrapper = new ExecutionReportInitialListWrapper(report, orderRetrieved, count==reports.Length);
+                OnMessageRcv(erWrapper);
+            }
+
+            return CMState.BuildSuccess();
+
+        }
+
         protected override CMState RouteNewOrder(Wrapper wrapper)
         {
             try

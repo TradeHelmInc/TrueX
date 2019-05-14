@@ -40,6 +40,7 @@ namespace zHFT.Main.Common.Enums
         public static readonly ExecutionReportFields Account = new ExecutionReportFields(30);
         public static readonly ExecutionReportFields ExecInst = new ExecutionReportFields(31);
         public static readonly ExecutionReportFields TimeInForce = new ExecutionReportFields(32);
+        public static readonly ExecutionReportFields LastReport = new ExecutionReportFields(99);
 
         protected ExecutionReportFields(int pInternalValue)
             : base(pInternalValue)

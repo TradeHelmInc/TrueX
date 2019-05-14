@@ -41,6 +41,8 @@ namespace zHFT.Main.BusinessEntities.Orders
 
         public string Text { get; set; }
 
+        public bool LastReport { get; set; }
+
         #endregion
 
 

@@ -601,15 +601,18 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
                 if (LoadConfig(configFile))
                 {
+                    DoLog("Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient",Main.Common.Util.Constants.MessageType.Information);
                     WSMarketDataManager = new MarketDataManager(BitmexConfiguration.WebsocketURL, true);
-
+                    DoLog(string.Format("Connected: {0} - Error Message: {1}", WSMarketDataManager.AuthSubscriptionResult.Success, WSMarketDataManager.AuthSubscriptionResult.ErrorMessage), Main.Common.Util.Constants.MessageType.Information);
+                    DoLog("Initializing SecurityListManager @ BitMexInstructionBasedMarketClient", Main.Common.Util.Constants.MessageType.Information);
                     SecurityListManager = new DAL.REST.SecurityListManager(BitmexConfiguration.RESTURL);
 
                     PriceLevelHandler = new PriceLevelHandler();
 
-                    Securities = SecurityListManager.GetActiveSecurityList();
+                    //Securities = SecurityListManager.GetActiveSecurityList();
 
-                    ProcessContractSize(Securities);
+                    //ProcessContractSize(Securities);
+                    DoLog("Assigning events @ BitMexInstructionBasedMarketClient", Main.Common.Util.Constants.MessageType.Information);
 
                     OrderBookHandler = new OrderBookHandler();
 
@@ -648,7 +651,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             }
             catch (Exception ex)
             {
-                DoLog("Critic error initializing " + configFile + ":" + ex.Message, Main.Common.Util.Constants.MessageType.Error);
+                DoLog("Critical error initializing " + configFile + ":" + ex.Message, Main.Common.Util.Constants.MessageType.Error);
                 return false;
             }
         }

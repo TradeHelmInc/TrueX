@@ -1,0 +1,349 @@
+2019-05-14 13:01:55  :: Initializing Mock Simulated Server...
+2019-05-14 13:01:55  :: Initializing all collections...
+2019-05-14 13:01:56  :: 5/14/2019 1:01:56 PMBaseCommunicationModule.LoadConfig
+2019-05-14 13:01:56  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 13:01:56  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 13:01:56  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 13:01:56  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 13:02:03  :: Connected: True - Error Message: 
+2019-05-14 13:02:03  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 13:02:03  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 13:02:03  :: 5/14/2019 1:02:03 PMOrderRouterBase.LoadConfig
+2019-05-14 13:02:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 13:02:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 13:02:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 13:02:04  :: Collections Initialized...
+2019-05-14 13:02:06  :: Successfully subscribed to execution event 
+2019-05-14 13:02:12  :: Connecting for the first time to client 45572
+2019-05-14 13:02:12  :: Connected for the first time to client 45572
+2019-05-14 13:02:17  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-14 13:02:17  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-14 13:02:24  :: Incoming subscription for Service: LD - Service key: SWP-XBT-USD-M19 - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-14 13:02:24  :: Entering ProcessOrderBookDepth for ServiceKey=SWP-XBT-USD-M19
+2019-05-14 13:02:30  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-14 13:02:30  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-05-14 13:02:30  :: Searching for mappings for ServiceKey=XBT-USD
+2019-05-14 13:02:30  :: Mapping found for Outgoing Symbol=XBTU19
+2019-05-14 13:02:30  :: Subscribing market data order book for outgoing Symbol=XBTU19
+2019-05-14 13:02:30  :: Order Book Subscription sent for outgoing Symbol=XBTU19
+2019-05-14 13:02:30  :: @Incoming Bitmex:Requesting market data order book por symbol XBTU19
+2019-05-14 13:02:30  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=2567 Price=7681
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=87926 Price=7680
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100000 Price=7602.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=7500
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=10000 Price=7496
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=150000 Price=7495
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100000 Price=7427
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=17118 Price=7146
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=200 Price=7145.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=10000 Price=7145
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100 Price=7144.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100000 Price=7127
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=7000
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=10000 Price=6965
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100 Price=6848
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=10 Price=6834
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20000 Price=6757
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=100000 Price=6740.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20000 Price=6738
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20000 Price=6727
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20000 Price=6549
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=6500
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=6000
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20 Price=5122
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=1000 Price=5101
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=492588 Price=5001
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=4047
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=25 Price=3952.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=2764 Price=3715.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=5000 Price=3080.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=20000 Price=3009.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557838952 Symbol=XBT-USD Size=1000 Price=1982.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=9926 Price=8776
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=10000 Price=8799
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=53100 Price=8800
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=20 Price=8801.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=22 Price=8804
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=24 Price=8806
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=26 Price=8808.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=28 Price=8810.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=30 Price=8812.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=32 Price=8815
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=34 Price=8817
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=36 Price=8819.5
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=19764 Price=8905
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=30411 Price=8970
+2019-05-14 13:02:32  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557838952 Symbol=XBT-USD Size=30000 Price=15000
+2019-05-14 13:02:32  :: SubscriptionResponse UUID:APIClientUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-05-14 13:04:33  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557839074 Symbol=XBT-USD Size=9905 Price=8776
+2019-05-14 13:05:45  :: Unknown order processing execution report for OrderId 50953ad6-94b1-da8c-421f-42de66018698 
+2019-05-14 13:05:46  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1557839146 Symbol=XBT-USD Size=1 Price=7700
+2019-05-14 13:06:06  :: Unknown order processing execution report for OrderId 50953ad6-94b1-da8c-421f-42de66018698 
+2019-05-14 13:06:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=66 DepthTime=1557839168 Symbol=XBT-USD Size=0 Price=7700
+2019-05-14 13:06:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839168 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:06:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839168 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:06:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839168 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:06:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839168 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:12:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839529 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:12:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839529 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:12:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839529 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:12:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839529 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:12:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:12:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:12:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:12:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:12:10  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839530 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:12:10  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839530 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:12:10  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839530 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:12:10  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839530 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:16:37  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1557839798 Symbol=XBT-USD Size=12567 Price=7681
+2019-05-14 13:18:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839889 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:18:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839889 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:18:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839889 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:18:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557839889 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:18:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:18:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:18:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:18:09  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:18:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839890 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:18:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839890 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:18:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839890 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:18:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557839890 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:24:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840247 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:24:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840247 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:24:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840247 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:24:07  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:24:07  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:24:07  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:24:07  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:24:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840248 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:24:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840248 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:24:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840248 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:24:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840248 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:24:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840248 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:29:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=66 DepthTime=1557840553 Symbol=XBT-USD Size=11567 Price=7681
+2019-05-14 13:30:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840607 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:30:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840607 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:30:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840607 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:30:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557840608 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:31:22  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557840682 Symbol=XBT-USD Size=9883 Price=8776
+2019-05-14 13:34:22  :: Unknown order processing execution report for OrderId b3c450f7-2c8a-5399-c66b-8d1ed3f7532e 
+2019-05-14 13:34:22  :: Unknown order processing execution report for OrderId b3c450f7-2c8a-5399-c66b-8d1ed3f7532e 
+2019-05-14 13:34:23  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557840863 Symbol=XBT-USD Size=9882 Price=8776
+2019-05-14 13:34:48  :: Unknown order processing execution report for OrderId 7196e902-0d09-a3a1-628b-7ffd1c5d44c4 
+2019-05-14 13:34:48  :: Unknown order processing execution report for OrderId 7196e902-0d09-a3a1-628b-7ffd1c5d44c4 
+2019-05-14 13:34:49  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557840890 Symbol=XBT-USD Size=9881 Price=8776
+2019-05-14 13:36:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:36:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:36:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:36:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:36:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840969 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:36:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840969 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:36:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840969 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:36:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557840969 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:42:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841328 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:42:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841328 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:42:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841328 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:42:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:42:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:42:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:42:08  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 13:42:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841329 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:42:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841329 Symbol=XBT-USD Size=23 Price=8780
+2019-05-14 13:42:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841329 Symbol=XBT-USD Size=46 Price=8784
+2019-05-14 13:42:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841329 Symbol=XBT-USD Size=69 Price=8788
+2019-05-14 13:42:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841329 Symbol=XBT-USD Size=92 Price=8792
+2019-05-14 13:46:53  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841613 Symbol=XBT-USD Size=1 Price=8228.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8819.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8817
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8815
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8812.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8810.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8808.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8806
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8804
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=0 Price=8801.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=20 Price=8230
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=22 Price=8232
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=24 Price=8234
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=26 Price=8236
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=28 Price=8238.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=30 Price=8240.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=32 Price=8242.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=34 Price=8244.5
+2019-05-14 13:46:54  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841614 Symbol=XBT-USD Size=36 Price=8246.5
+2019-05-14 13:48:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841687 Symbol=XBT-USD Size=0 Price=8792
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=0 Price=8788
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=0 Price=8784
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=0 Price=8780
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=70 Price=8236
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=44 Price=8232
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=66 Price=8240
+2019-05-14 13:48:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841688 Symbol=XBT-USD Size=88 Price=8244
+2019-05-14 13:51:55  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841915 Symbol=XBT-USD Size=0 Price=8228.5
+2019-05-14 13:51:59  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557841919 Symbol=XBT-USD Size=19 Price=8230
+2019-05-14 13:52:00  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841920 Symbol=XBT-USD Size=0 Price=8230
+2019-05-14 13:52:00  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841920 Symbol=XBT-USD Size=20 Price=8231.5
+2019-05-14 13:52:21  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557841941 Symbol=XBT-USD Size=12 Price=8231.5
+2019-05-14 13:52:22  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557841942 Symbol=XBT-USD Size=0 Price=8231.5
+2019-05-14 13:52:22  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557841942 Symbol=XBT-USD Size=20 Price=8233
+2019-05-14 13:54:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557842048 Symbol=XBT-USD Size=0 Price=8244
+2019-05-14 13:54:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557842049 Symbol=XBT-USD Size=0 Price=8240
+2019-05-14 13:54:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842049 Symbol=XBT-USD Size=26 Price=8236
+2019-05-14 13:54:08  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842049 Symbol=XBT-USD Size=22 Price=8232
+2019-05-14 13:54:37  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842078 Symbol=XBT-USD Size=20 Price=8232
+2019-05-14 13:54:39  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557842080 Symbol=XBT-USD Size=0 Price=8232
+2019-05-14 13:54:39  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557842080 Symbol=XBT-USD Size=22 Price=8235.5
+2019-05-14 14:00:13  :: @Incoming Bitmex:WARNING1:Received INSERT Price Level for a price leven that already existed
+2019-05-14 14:00:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557842414 Symbol=XBT-USD Size=10000 Price=8230
+2019-05-14 14:02:22  :: Unknown order processing execution report for OrderId 274b2b21-8f54-2dfb-549b-2a687999eae6 
+2019-05-14 14:02:22  :: Unknown order processing execution report for OrderId 274b2b21-8f54-2dfb-549b-2a687999eae6 
+2019-05-14 14:02:22  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842543 Symbol=XBT-USD Size=9999 Price=8230
+2019-05-14 14:04:07  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842647 Symbol=XBT-USD Size=9997 Price=8230
+2019-05-14 14:05:06  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557842706 Symbol=XBT-USD Size=20000 Price=8775.5
+2019-05-14 14:05:41  :: Unknown order processing execution report for OrderId a18c516d-3f0b-bee1-50e4-98b4163caf11 
+2019-05-14 14:05:41  :: Unknown order processing execution report for OrderId a18c516d-3f0b-bee1-50e4-98b4163caf11 
+2019-05-14 14:05:42  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842742 Symbol=XBT-USD Size=9995 Price=8230
+2019-05-14 14:06:18  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842778 Symbol=XBT-USD Size=9992 Price=8230
+2019-05-14 14:07:48  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557842868 Symbol=XBT-USD Size=9982 Price=8230
+2019-05-14 14:09:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=82  BidOrAsk=65 DepthTime=1557842949 Symbol=XBT-USD Size=0 Price=8776
+2019-05-14 14:09:09  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1557842949 Symbol=XBT-USD Size=9881 Price=8774
+2019-05-14 14:12:04  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=67  BidOrAsk=65 DepthTime=1557843125 Symbol=XBT-USD Size=9976 Price=8230
+2019-05-14 14:12:25  :: Connecting second client 50883.  Removing previous client
+2019-05-14 14:12:25  :: @Incoming Bitmex:Requesting Unsubscribe Market Data trades On Demand for Symbol: Incoming Bitmex
+2019-05-14 14:12:25  :: Error publishing OrderBookDepth thread:Subproceso anulado.
+2019-05-14 14:12:25  ::  OnClose for client 45572
+2019-05-14 14:12:26  :: @Incoming Bitmex:Requesting Unsubscribe Market Data quotes On Demand for Symbol: Incoming Bitmex
+2019-05-14 14:12:26  :: @Incoming Bitmex:Requesting Unsubscribe Market Data order book On Demand for Symbol: Incoming Bitmex
+2019-05-14 14:12:26  :: Turning threads off on socket disconnection
+2019-05-14 14:12:26  :: Connected second client 50883.  Removing previous client
+2019-05-14 14:12:31  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-14 14:12:31  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-14 14:12:34  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-14 14:17:58  :: Unknown order processing execution report for OrderId 41f7f5f8-1722-fb53-1935-632e2d77fbe5 
+2019-05-14 14:17:58  :: Unknown order processing execution report for OrderId 41f7f5f8-1722-fb53-1935-632e2d77fbe5 
+2019-05-14 14:31:59  :: Initializing Mock Simulated Server...
+2019-05-14 14:31:59  :: Initializing all collections...
+2019-05-14 14:32:00  :: 5/14/2019 2:32:00 PMBaseCommunicationModule.LoadConfig
+2019-05-14 14:32:00  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 14:32:00  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 14:32:00  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 14:32:00  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 14:32:01  :: Connected: True - Error Message: 
+2019-05-14 14:32:01  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 14:32:01  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 14:32:01  :: 5/14/2019 2:32:01 PMOrderRouterBase.LoadConfig
+2019-05-14 14:32:01  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 14:32:01  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 14:32:01  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 14:32:02  :: Collections Initialized...
+2019-05-14 14:32:03  :: Successfully subscribed to execution event 
+2019-05-14 14:32:22  :: Connecting for the first time to client 52647
+2019-05-14 14:32:22  :: Connected for the first time to client 52647
+2019-05-14 14:32:26  :: Incoming Login request for user MM2_CLOBUI1
+2019-05-14 14:32:26  :: user MM2_CLOBUI1 Successfully logged in
+2019-05-14 14:32:30  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-14 14:34:19  :: Unknown order processing execution report for OrderId b5323c0b-0797-9c9a-1d2a-52308b40d948 
+2019-05-14 14:34:19  :: Unknown order processing execution report for OrderId b5323c0b-0797-9c9a-1d2a-52308b40d948 
+2019-05-14 14:36:11  :: Unknown order processing execution report for OrderId 75126779-d3fc-35e4-01b9-38aec05bb375 
+2019-05-14 14:36:11  :: Unknown order processing execution report for OrderId 75126779-d3fc-35e4-01b9-38aec05bb375 
+2019-05-14 14:41:21  :: Unknown order processing execution report for OrderId 60d98759-9b4d-8b26-24de-84319058e2a4 
+2019-05-14 14:41:21  :: Unknown order processing execution report for OrderId 60d98759-9b4d-8b26-24de-84319058e2a4 
+2019-05-14 14:42:05  :: Unknown order processing execution report for OrderId 2c5819ec-a6bf-2358-1760-8a5bd385525d 
+2019-05-14 14:46:52  :: Unknown order processing execution report for OrderId c5cad741-ab80-d522-212f-813ea7e38f46 
+2019-05-14 14:46:52  :: Unknown order processing execution report for OrderId c5cad741-ab80-d522-212f-813ea7e38f46 
+2019-05-14 14:49:12  :: Unknown order processing execution report for OrderId 7ecf9c31-fe7e-1570-5d5c-99e4f16dfa11 
+2019-05-14 14:49:12  :: Unknown order processing execution report for OrderId 7ecf9c31-fe7e-1570-5d5c-99e4f16dfa11 
+2019-05-14 15:19:58  :: Unknown order processing execution report for OrderId 261789af-f5bd-457f-eb60-52669cbf6d5f 
+2019-05-14 15:20:24  :: Unknown order processing execution report for OrderId bcccebb5-a69c-6c56-1b90-eb9876952319 
+2019-05-14 15:20:47  :: Unknown order processing execution report for OrderId 6cd00e14-87b9-2a84-6e1d-8ae055792703 
+2019-05-14 15:21:06  :: Unknown order processing execution report for OrderId 9f49cea9-a290-4e89-d892-c790391b139f 
+2019-05-14 15:21:07  :: Unknown order processing execution report for OrderId 9f49cea9-a290-4e89-d892-c790391b139f 
+2019-05-14 15:21:07  :: Unknown order processing execution report for OrderId 2c5819ec-a6bf-2358-1760-8a5bd385525d 
+2019-05-14 15:22:43  :: Unknown order processing execution report for OrderId 1cadd140-b3e7-4b78-7b89-53ab13d8e638 
+2019-05-14 15:22:43  :: Unknown order processing execution report for OrderId 1cadd140-b3e7-4b78-7b89-53ab13d8e638 
+2019-05-14 15:22:43  :: Unknown order processing execution report for OrderId 2c5819ec-a6bf-2358-1760-8a5bd385525d 
+2019-05-14 15:24:24  :: Unknown order processing execution report for OrderId 1ba84c67-7108-0946-7cb7-f60311416827 
+2019-05-14 15:24:24  :: Unknown order processing execution report for OrderId 1ba84c67-7108-0946-7cb7-f60311416827 
+2019-05-14 15:47:42  :: Unknown order processing execution report for OrderId 0cd8eb1c-23f7-d489-4608-44d8c1fda341 
+2019-05-14 16:09:41  :: Unknown order processing execution report for OrderId a396f2ff-77cf-ce7c-8f88-dfa0abffdeb1 
+2019-05-14 16:09:41  :: Unknown order processing execution report for OrderId a396f2ff-77cf-ce7c-8f88-dfa0abffdeb1 
+2019-05-14 16:13:27  :: Unknown order processing execution report for OrderId 132c67b6-c022-a0d6-1b68-846efbf3360d 
+2019-05-14 16:13:27  :: Unknown order processing execution report for OrderId 132c67b6-c022-a0d6-1b68-846efbf3360d 
+2019-05-14 16:40:27  :: Initializing Mock Simulated Server...
+2019-05-14 16:40:27  :: Initializing all collections...
+2019-05-14 16:40:27  :: 5/14/2019 4:40:27 PMBaseCommunicationModule.LoadConfig
+2019-05-14 16:40:27  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:40:27  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:40:28  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 16:40:28  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:40:30  :: Connected: True - Error Message: 
+2019-05-14 16:40:30  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:40:30  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 16:40:33  :: 5/14/2019 4:40:33 PMOrderRouterBase.LoadConfig
+2019-05-14 16:40:33  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:40:33  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:40:33  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 16:40:35  :: Successfully subscribed to execution event 
+2019-05-14 16:40:35  :: Collections Initialized...
+2019-05-14 16:40:47  :: Connecting for the first time to client 4783
+2019-05-14 16:40:47  :: Connected for the first time to client 4783
+2019-05-14 16:40:52  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:40:52  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:40:56  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:40:56  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:41:04  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:41:04  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:41:06  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-14 16:41:06  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-14 16:41:06  :: @Outgoing Bitmex:Recovering full order list
+2019-05-14 16:42:13  :: SubscriptionResponse UUID: Service:Oy ServiceKey:* Success:True
+2019-05-14 16:43:14  :: Initializing Mock Simulated Server...
+2019-05-14 16:43:14  :: Initializing all collections...
+2019-05-14 16:43:14  :: 5/14/2019 4:43:14 PMBaseCommunicationModule.LoadConfig
+2019-05-14 16:43:14  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:43:14  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:43:14  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 16:43:14  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:43:16  :: Connected: True - Error Message: 
+2019-05-14 16:43:16  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:43:16  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 16:43:17  :: 5/14/2019 4:43:17 PMOrderRouterBase.LoadConfig
+2019-05-14 16:43:17  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:43:17  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:43:17  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 16:43:18  :: Collections Initialized...
+2019-05-14 16:43:19  :: Successfully subscribed to execution event 
+2019-05-14 16:43:22  :: Connecting for the first time to client 4948
+2019-05-14 16:43:22  :: Connected for the first time to client 4948
+2019-05-14 16:43:28  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:43:28  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:43:31  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:43:31  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:43:40  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-14 16:43:40  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-14 16:43:40  :: @Outgoing Bitmex:Recovering full order list
+2019-05-14 16:44:31  :: Initializing Mock Simulated Server...
+2019-05-14 16:44:31  :: Initializing all collections...
+2019-05-14 16:44:31  :: 5/14/2019 4:44:31 PMBaseCommunicationModule.LoadConfig
+2019-05-14 16:44:31  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:44:31  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 16:44:32  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 16:44:32  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:44:34  :: Connected: True - Error Message: 
+2019-05-14 16:44:34  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 16:44:34  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 16:44:34  :: 5/14/2019 4:44:34 PMOrderRouterBase.LoadConfig
+2019-05-14 16:44:34  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:44:34  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 16:44:34  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 16:44:35  :: Collections Initialized...
+2019-05-14 16:44:35  :: Successfully subscribed to execution event 
+2019-05-14 16:44:40  :: Connecting for the first time to client 5063
+2019-05-14 16:44:40  :: Connected for the first time to client 5063
+2019-05-14 16:44:45  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 16:44:45  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 16:44:51  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-14 16:44:51  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-14 16:44:51  :: @Outgoing Bitmex:Recovering full order list

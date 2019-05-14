@@ -845,3 +845,83 @@
 2019-05-10 15:28:34  :: user MM2_CLOBUI2 Successfully logged in
 2019-05-10 15:28:38  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
 2019-05-10 15:28:43  :: @Outgoing Bitmex:Cancelling order
+2019-05-10 16:14:03  :: Initializing Mock Simulated Server...
+2019-05-10 16:14:03  :: Initializing all collections...
+2019-05-10 16:14:03  :: 5/10/2019 4:14:03 PMBaseCommunicationModule.LoadConfig
+2019-05-10 16:14:03  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 16:14:03  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 16:14:03  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 16:14:18  :: 5/10/2019 4:14:18 PMOrderRouterBase.LoadConfig
+2019-05-10 16:14:18  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 16:14:18  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 16:14:18  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 16:14:18  :: Collections Initialized...
+2019-05-10 16:14:19  :: Successfully subscribed to execution event 
+2019-05-10 16:14:29  :: Connecting for the first time to client 35149
+2019-05-10 16:14:29  :: Connected for the first time to client 35149
+2019-05-10 16:14:32  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 16:14:32  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 16:14:36  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-10 16:14:39  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-10 16:14:46  :: @Outgoing Bitmex:Cancelling all active orders
+2019-05-10 16:15:39  :: @Outgoing Bitmex:Error routing order to market:La clave proporcionada no se encontró en el diccionario.
+2019-05-10 17:40:52  :: Initializing Mock Simulated Server...
+2019-05-10 17:40:52  :: Initializing all collections...
+2019-05-10 17:40:53  :: 5/10/2019 5:40:53 PMBaseCommunicationModule.LoadConfig
+2019-05-10 17:40:53  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:40:53  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:40:53  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 17:41:07  :: 5/10/2019 5:41:07 PMOrderRouterBase.LoadConfig
+2019-05-10 17:41:07  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:41:07  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:41:07  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 17:41:08  :: Collections Initialized...
+2019-05-10 17:41:08  :: Successfully subscribed to execution event 
+2019-05-10 17:41:33  :: Connecting for the first time to client 22895
+2019-05-10 17:41:33  :: Connected for the first time to client 22895
+2019-05-10 17:41:34  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 17:41:34  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 17:41:43  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-10 17:41:43  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-10 17:41:43  :: @Outgoing Bitmex:Cancelling all active orders
+2019-05-10 17:42:40  :: Initializing Mock Simulated Server...
+2019-05-10 17:42:40  :: Initializing all collections...
+2019-05-10 17:42:40  :: 5/10/2019 5:42:40 PMBaseCommunicationModule.LoadConfig
+2019-05-10 17:42:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:42:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:42:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 17:42:43  :: 5/10/2019 5:42:43 PMOrderRouterBase.LoadConfig
+2019-05-10 17:42:43  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:42:43  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:42:43  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 17:42:44  :: Collections Initialized...
+2019-05-10 17:42:44  :: Successfully subscribed to execution event 
+2019-05-10 17:42:57  :: Connecting for the first time to client 22978
+2019-05-10 17:42:57  :: Connected for the first time to client 22978
+2019-05-10 17:43:01  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 17:43:01  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 17:43:05  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-10 17:43:05  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-10 17:43:05  :: @Outgoing Bitmex:Cancelling all active orders
+2019-05-10 17:46:49  :: Initializing Mock Simulated Server...
+2019-05-10 17:46:49  :: Initializing all collections...
+2019-05-10 17:46:49  :: 5/10/2019 5:46:49 PMBaseCommunicationModule.LoadConfig
+2019-05-10 17:46:49  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:46:49  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-10 17:46:49  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-10 17:47:03  :: 5/10/2019 5:47:03 PMOrderRouterBase.LoadConfig
+2019-05-10 17:47:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:47:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-10 17:47:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-10 17:47:03  :: Collections Initialized...
+2019-05-10 17:47:04  :: Successfully subscribed to execution event 
+2019-05-10 17:47:21  :: Connecting for the first time to client 23262
+2019-05-10 17:47:21  :: Connected for the first time to client 23262
+2019-05-10 17:47:21  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 17:47:21  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 17:47:27  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-10 17:47:27  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-10 17:47:32  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-10 17:47:32  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-10 17:47:32  :: @Outgoing Bitmex:Cancelling all active orders
+2019-05-10 17:47:54  :: SubscriptionResponse UUID: Service:Oy ServiceKey:* Success:True

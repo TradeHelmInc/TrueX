@@ -41,6 +41,7 @@ namespace zHFT.OrderRouters.Cryptos
         protected abstract CMState RouteNewOrder(Wrapper wrapper);
         protected abstract CMState UpdateOrder(Wrapper wrapper);
         protected abstract CMState CancelOrder(Wrapper wrapper);
+        protected abstract CMState GetOrders(Wrapper wrapper);
 
         protected abstract CMState ProcessSecurityList(Wrapper wrapper);
 
@@ -90,6 +91,8 @@ namespace zHFT.OrderRouters.Cryptos
 
             return order;
         }
+
+      
 
         protected CMState CancelAllActiveOrders()
         {
@@ -146,6 +149,12 @@ namespace zHFT.OrderRouters.Cryptos
                     DoLog(string.Format("@{0}:Cancelling all active orders", GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
                     return CancelAllActiveOrders();
                 }
+                else if (wrapper.GetAction() == Actions.ORDER_LIST)
+                {
+                    DoLog(string.Format("@{0}:Recovering full order list", GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
+                    return GetOrders(wrapper);
+
+                }
                 else if (wrapper.GetAction() == Actions.SECURITY_LIST)
                 {
                     DoLog(string.Format("@{0}:Receiving Security List", GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
@@ -160,7 +169,7 @@ namespace zHFT.OrderRouters.Cryptos
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("@{0}:Error routing order to market:" + ex.Message, GetConfig().Name), Main.Common.Util.Constants.MessageType.Error);
+                DoLog(string.Format("@{0}:Error @ProcessMessage:" + ex.Message, GetConfig().Name), Main.Common.Util.Constants.MessageType.Error);
                 return CMState.BuildFail(ex);
             }
 
