@@ -24,11 +24,11 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.DTO
 
         public string trdMatchID { get; set; }
 
-        public decimal grossValue { get; set; }
+        //public decimal grossValue { get; set; }
 
-        public decimal homeNotional { get; set; }
+        //public decimal homeNotional { get; set; }
 
-        public decimal foreignNotional { get; set; }
+        //public decimal foreignNotional { get; set; }
 
         #endregion
     }

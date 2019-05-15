@@ -347,3 +347,26 @@
 2019-05-14 16:44:51  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
 2019-05-14 16:44:51  :: Entering ProcessMyOrders for ServiceKey=*
 2019-05-14 16:44:51  :: @Outgoing Bitmex:Recovering full order list
+2019-05-14 17:20:09  :: Initializing Mock Simulated Server...
+2019-05-14 17:20:09  :: Initializing all collections...
+2019-05-14 17:20:10  :: 5/14/2019 5:20:10 PMBaseCommunicationModule.LoadConfig
+2019-05-14 17:20:10  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-14 17:20:10  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-14 17:20:10  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-14 17:20:10  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-14 17:20:11  :: Connected: True - Error Message: 
+2019-05-14 17:20:11  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-14 17:20:11  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-14 17:20:12  :: 5/14/2019 5:20:12 PMOrderRouterBase.LoadConfig
+2019-05-14 17:20:12  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-14 17:20:12  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-14 17:20:12  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-14 17:20:13  :: Collections Initialized...
+2019-05-14 17:20:13  :: Successfully subscribed to execution event 
+2019-05-14 17:20:42  :: Connecting for the first time to client 7975
+2019-05-14 17:20:42  :: Connected for the first time to client 7975
+2019-05-14 17:20:48  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-14 17:20:48  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-14 17:20:53  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-14 17:20:54  :: Unknown order processing execution report for OrderId 75edf332-e44c-9716-78a0-ad509e0ab373 
+2019-05-14 17:20:58  :: @Outgoing Bitmex:Cancelling order

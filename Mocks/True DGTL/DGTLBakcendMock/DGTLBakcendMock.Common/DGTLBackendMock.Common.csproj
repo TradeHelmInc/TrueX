@@ -54,6 +54,7 @@
     <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
     <Compile Include="DTO\MarketData\DepthOfBook.cs" />
     <Compile Include="DTO\MarketData\LastSale.cs" />
+    <Compile Include="DTO\MarketData\LegacyTradeHistory.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderCancelAck.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Util\AttributeConverter.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
     <Compile Include="Wrappers\GetOrdersRequestWrapper.cs" />
+    <Compile Include="Wrappers\GetTradesRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataOrderBookRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataQuotesRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataRequestWrapper.cs" />

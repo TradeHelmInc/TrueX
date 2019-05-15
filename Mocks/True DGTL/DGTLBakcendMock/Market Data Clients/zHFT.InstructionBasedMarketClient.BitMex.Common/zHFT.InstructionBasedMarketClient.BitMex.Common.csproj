@@ -65,6 +65,7 @@
     <Compile Include="Wrappers\BitmexMarketDataWrapper.cs" />
     <Compile Include="Wrappers\BitmexSecurityListWrapper.cs" />
     <Compile Include="Wrappers\BitMexSecurityWrapper.cs" />
+    <Compile Include="Wrappers\BitMexTradeWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\zHFT.FullMrktConnectivity.BitMex.Common.csproj">

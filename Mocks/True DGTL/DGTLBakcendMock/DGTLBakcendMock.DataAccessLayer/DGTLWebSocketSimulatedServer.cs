@@ -793,6 +793,34 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            try
+            {
+                DoLog(string.Format("Entering ProcessMyTrades for ServiceKey={0}", subscrMsg.ServiceKey), MessageType.Information);
+                string symbol = subscrMsg.ServiceKey != "*" ? subscrMsg.ServiceKey : null;
+
+                if (symbol != null)
+                {
+
+                    SecurityMapping mapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+
+                    if (mapping == null)
+                        throw new Exception(string.Format("Unknown symbol {0}", symbol));
+                    else
+                        symbol = mapping.OutgoingSymbol;
+                }
+
+                GetTradesRequestWrapper rq = new GetTradesRequestWrapper(symbol, SubscriptionRequestType.Snapshot);
+                MarketDataModule.ProcessMessage(rq);
+
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+            }
+        }
+
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
@@ -887,6 +915,17 @@ namespace DGTLBackendMock.DataAccessLayer
                         }
                     }
                 }
+                else if (subscrMsg.Service == "Oy")
+                { 
+                
+                
+                }
+                else if (subscrMsg.Service == "LT")
+                {
+
+
+                }
+
             }
         
         }
@@ -949,6 +988,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessMyOrders(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "LT")
+                {
+                    ProcessMyTrades(socket, subscrMsg);
+                }
             }
             else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_UNSUBSCRIBE)
             {
@@ -998,6 +1041,39 @@ namespace DGTLBackendMock.DataAccessLayer
 
             }
         
+        }
+
+        private void ProcessLegacyTradeHistoryMessage(Trade  trade)
+        {
+            SecurityMapping secMapping = SecurityMappings.Where(x => x.OutgoingSymbol == trade.Symbol).FirstOrDefault();
+
+            if (secMapping != null)
+            {
+                LegacyTradeHistory legacyTradeHistoryMsg = new LegacyTradeHistory();
+                legacyTradeHistoryMsg.Msg = "LegacyTradeHistory";
+                legacyTradeHistoryMsg.Sender = 0;
+                legacyTradeHistoryMsg.myTrade=trade.MyTrade;
+                legacyTradeHistoryMsg.Symbol = secMapping.IncomingSymbol;
+                legacyTradeHistoryMsg.TradeId = trade.TradeId;
+                legacyTradeHistoryMsg.TradePrice = Convert.ToDouble(trade.Price) ;
+                legacyTradeHistoryMsg.TradeQuantity =Convert.ToDouble(trade.Size);
+                legacyTradeHistoryMsg.TradeTimeStamp = trade.Timestamp;
+
+                string strLegacyTradeHistoryMsg = JsonConvert.SerializeObject(legacyTradeHistoryMsg, Newtonsoft.Json.Formatting.None,
+                          new JsonSerializerSettings
+                          {
+                              NullValueHandling = NullValueHandling.Ignore
+                          });
+                DoSend(ConnectionSocket, strLegacyTradeHistoryMsg);
+
+            }
+
+            if (trade.LastTrade)
+            {
+                ProcessSubscriptionResponse(ConnectionSocket, "LT", "*", OySubscriptionUUID);
+
+            }
+
         }
 
         #endregion
@@ -1193,7 +1269,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (wrapper.GetAction() == Actions.MARKET_DATA_TRADES)
             {
 
-                MarketData md = MarketDataConverter.GetMarketData(wrapper);
+                zHFT.Main.BusinessEntities.Market_Data.MarketData md = MarketDataConverter.GetMarketData(wrapper);
 
                 try
                 {
@@ -1221,7 +1297,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (wrapper.GetAction() == Actions.MARKET_DATA_QUOTES)
             {
 
-                MarketData md = MarketDataConverter.GetMarketData(wrapper);
+                zHFT.Main.BusinessEntities.Market_Data.MarketData md = MarketDataConverter.GetMarketData(wrapper);
 
                 try
                 {
@@ -1289,10 +1365,18 @@ namespace DGTLBackendMock.DataAccessLayer
                     return CMState.BuildFail(ex);
                 }
             }
+            else if (wrapper.GetAction() == Actions.MARKET_DATA_HISTORICAL_TRADE)
+            {
+                Trade trade = MarketDataConverter.GetTrade(wrapper);
 
+                ProcessLegacyTradeHistoryMessage(trade);
+
+                return CMState.BuildSuccess();
+            }
             else
                 return CMState.BuildSuccess();
         }
+        
 
         #endregion
 

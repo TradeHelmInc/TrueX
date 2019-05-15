@@ -56,6 +56,8 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
 
         protected abstract CMState ProcessMarketDataTradesRequest(Wrapper wrapper);
 
+        protected abstract CMState ProcessMarketDataTradeListRequest(Wrapper wrapper);
+
         protected abstract CMState ProcessMarketDataOrderBookRequest(Wrapper wrapper);
 
         protected abstract int GetSearchForInstrInMiliseconds();
@@ -235,6 +237,11 @@ namespace zHFT.InstructionBasedMarketClient.Cryptos.Client
                     {
 
                         return ProcessMarketDataTradesRequest(wrapper);
+                    }
+                    else if (Actions.MARKET_DATA_TRADE_LIST_REQUEST == action)
+                    {
+
+                        return ProcessMarketDataTradeListRequest(wrapper);
                     }
                     else if (Actions.MARKET_DATA_ORDERBOOK_REQUEST == action)
                     {

@@ -43,6 +43,7 @@
     <Compile Include="Market Data\MarketData.cs" />
     <Compile Include="Market Data\MarketDataRequest.cs" />
     <Compile Include="Market Data\OrderBookEntry.cs" />
+    <Compile Include="Market Data\Trade.cs" />
     <Compile Include="Orders\OrderCancelReplaceReject.cs" />
     <Compile Include="Securities\BaseTradingRule.cs" />
     <Compile Include="Securities\ExecInstRule.cs" />

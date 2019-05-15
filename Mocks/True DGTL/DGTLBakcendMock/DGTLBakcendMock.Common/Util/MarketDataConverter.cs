@@ -54,6 +54,20 @@ namespace DGTLBackendMock.Common.Util
             return entry;
         }
 
+        public Trade GetTrade(Wrapper wrapper)
+        {
+            Trade trade = new Trade();
+            trade.Symbol = (string)wrapper.GetField(MarketDataFields.Symbol);
+            trade.Timestamp = (long)wrapper.GetField(MarketDataFields.Timestamp);
+            trade.Size = (decimal)wrapper.GetField(MarketDataFields.MDTradeSize);
+            trade.Price = (decimal)wrapper.GetField(MarketDataFields.Trade);
+            trade.MyTrade = (bool)wrapper.GetField(MarketDataFields.MyTrade);
+            trade.TradeId = (string)wrapper.GetField(MarketDataFields.TradeId);
+            trade.LastTrade = (bool)wrapper.GetField(MarketDataFields.LastTrade);
+
+            return trade;
+        }
+
         public MarketData GetMarketData(Wrapper wrapper)
         {
             MarketData md = new MarketData();

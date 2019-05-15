@@ -33,6 +33,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
 
         public  MarketDataManager WSMarketDataManager { get; set; }
 
+        public zHFT.InstructionBasedMarketClient.BitMex.DAL.MarketDataManager RESTMarketDataManager { get; set; }
+
         public SecurityListManager SecurityListManager { get; set; }
 
         protected OrderBookHandler OrderBookHandler { get; set; }
@@ -242,7 +244,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             }
 
             WebSocketTradeEvent trades = (WebSocketTradeEvent)subscrEvent;
-            foreach (Trade trade in trades.data.OrderBy(x=>x.timestamp))
+            foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades.data.OrderBy(x=>x.timestamp))
             {
                 try
                 {
@@ -592,6 +594,48 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
             }
         }
 
+        protected override CMState ProcessMarketDataTradeListRequest(Wrapper wrapper)
+        {
+            try
+            {
+                MarketDataRequest mdr = MarketDataRequestConverter.GetMarketDataRequest(wrapper);
+
+                int i = 1;
+                if (mdr.SubscriptionRequestType == SubscriptionRequestType.Snapshot)
+                {
+                    List<zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade> trades = RESTMarketDataManager.GetTrades(mdr.Security.Symbol);
+
+                    foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades)
+                    {
+                        BitMexTradeWrapper tradeWrapper = new BitMexTradeWrapper(trade, i==trades.Count);
+
+                        OnMessageRcv(tradeWrapper);
+
+                        i++;
+                    }
+
+                    return CMState.BuildSuccess();
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.SnapshotAndUpdates)
+                {
+                    throw new Exception(string.Format("@{0}: Market Data trade List SnapshotAndUpdates not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
+                }
+                else if (mdr.SubscriptionRequestType == SubscriptionRequestType.Unsuscribe)
+                {
+                    throw new Exception(string.Format("@{0}: Market Data trade List Unsuscribe not implemented for symbol {1}", BitmexConfiguration.Name, mdr.Security.Symbol));
+
+                    return CMState.BuildSuccess();
+                }
+                else
+                    throw new Exception(string.Format("@{0}: Value not recognized for subscription type {1} for symbol {2}", BitmexConfiguration.Name, mdr.SubscriptionRequestType.ToString(), mdr.Security.Symbol));
+            }
+            catch (Exception ex)
+            {
+                return CMState.BuildFail(ex);
+            }
+        
+        }
+
         public override bool Initialize(OnMessageReceived pOnMessageRcv, OnLogMessage pOnLogMsg, string configFile)
         {
             try
@@ -603,6 +647,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 {
                     DoLog("Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient",Main.Common.Util.Constants.MessageType.Information);
                     WSMarketDataManager = new MarketDataManager(BitmexConfiguration.WebsocketURL, true);
+                    RESTMarketDataManager = new zHFT.InstructionBasedMarketClient.BitMex.DAL.MarketDataManager(BitmexConfiguration.RESTURL);
                     DoLog(string.Format("Connected: {0} - Error Message: {1}", WSMarketDataManager.AuthSubscriptionResult.Success, WSMarketDataManager.AuthSubscriptionResult.ErrorMessage), Main.Common.Util.Constants.MessageType.Information);
                     DoLog("Initializing SecurityListManager @ BitMexInstructionBasedMarketClient", Main.Common.Util.Constants.MessageType.Information);
                     SecurityListManager = new DAL.REST.SecurityListManager(BitmexConfiguration.RESTURL);

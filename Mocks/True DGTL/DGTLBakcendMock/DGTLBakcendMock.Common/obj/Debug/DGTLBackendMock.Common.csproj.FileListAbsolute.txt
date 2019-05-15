@@ -2,6 +2,7 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DG
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\DGTLBackendMock.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TT\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.pdb
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.csprojResolveAssemblyReference.cache
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\DGTLBackendMock.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\DGTLBackendMock.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\Newtonsoft.Json.dll
@@ -15,4 +16,3 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\bin\Debug\zHFT.Main.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock.Common\obj\Debug\DGTLBackendMock.Common.csprojResolveAssemblyReference.cache
