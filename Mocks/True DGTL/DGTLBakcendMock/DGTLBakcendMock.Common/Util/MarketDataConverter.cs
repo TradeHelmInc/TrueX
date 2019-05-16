@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DGTLBackendMock.Common.DTO.MarketData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,9 @@ namespace DGTLBackendMock.Common.Util
             return entry;
         }
 
+
+      
+
         public Trade GetTrade(Wrapper wrapper)
         {
             Trade trade = new Trade();
@@ -63,6 +67,7 @@ namespace DGTLBackendMock.Common.Util
             trade.Price = (decimal)wrapper.GetField(MarketDataFields.Trade);
             trade.MyTrade = (bool)wrapper.GetField(MarketDataFields.MyTrade);
             trade.TradeId = (string)wrapper.GetField(MarketDataFields.TradeId);
+            trade.Side = (Side)wrapper.GetField(MarketDataFields.Side);
             trade.LastTrade = (bool)wrapper.GetField(MarketDataFields.LastTrade);
 
             return trade;

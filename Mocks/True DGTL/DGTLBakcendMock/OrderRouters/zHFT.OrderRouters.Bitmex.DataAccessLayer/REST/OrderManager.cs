@@ -128,11 +128,13 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             return beExecReport;
         }
 
-        public ExecutionReport[] GetOrders()
+        public ExecutionReport[] GetOrders(string symbol=null)
         {
             BitMEXApi api = new BitMEXApi(URL, ID, Secret);
 
             var param = new Dictionary<string, string>();
+            if (symbol != null)
+                param.Add("symbol", symbol);
             string resp = api.Query("GET", "/order", param, true);
 
             ExecutionReport[] reports = JsonConvert.DeserializeObject<ExecutionReport[]>(resp);

@@ -205,7 +205,9 @@ namespace zHFT.OrderRouters.Bitmex
 
         protected override CMState GetOrders(Wrapper wrapper)
         {
-            ExecutionReport[] reports = OrderManager.GetOrders();
+            string symbol = (string)wrapper.GetField(OrderFields.Symbol);
+
+            ExecutionReport[] reports = OrderManager.GetOrders(symbol);
 
             int count = 0;
             foreach (ExecutionReport report in reports)

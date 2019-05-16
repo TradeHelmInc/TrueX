@@ -34,6 +34,19 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers
 
         #endregion
 
+        #region Private Methods
+
+        public Side GetSide()
+        {
+            if (Trade.side == "Buy")
+                return Side.Buy;
+            else if (Trade.side == "Sell")
+                return Side.Sell;
+            else
+                return Side.Unknown;
+        }
+
+        #endregion
 
         #region Wrapper Methods
 
@@ -58,6 +71,8 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers
             }
             else if (mdField == MarketDataFields.TradeId)
                 return Trade.trdMatchID;
+            else if (mdField == MarketDataFields.Side)
+                return GetSide();
             else if (mdField == MarketDataFields.MyTrade)
                 return Trade.trdMatchID != "00000000-0000-0000-0000-000000000000";
             else if (mdField == MarketDataFields.LastTrade)

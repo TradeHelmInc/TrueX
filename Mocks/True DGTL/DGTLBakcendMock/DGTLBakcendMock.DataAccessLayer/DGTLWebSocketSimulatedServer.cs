@@ -60,6 +60,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected string OySubscriptionUUID { get; set; }
 
+        protected string OyServiceKey { get; set; }
+
+        protected string LTSubscriptionUUID { get; set; }
+
+        protected string LTServiceKey { get; set; }
+
         #endregion
 
 
@@ -782,9 +788,39 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 DoLog(string.Format("Entering ProcessMyOrders for ServiceKey={0}", subscrMsg.ServiceKey), MessageType.Information);
-                GetOrdersRequestWrapper rq = new GetOrdersRequestWrapper();
-                OrderRoutingModule.ProcessMessage(rq);
-                OySubscriptionUUID = subscrMsg.UUID;
+                string symbol = subscrMsg.ServiceKey != "*" ? subscrMsg.ServiceKey : null;
+
+                GetOrdersRequestWrapper rq = null;
+                if (symbol != null)
+                {
+                    string[] symbolFields = symbol.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (symbolFields.Length >= 2)
+                        symbol = symbolFields[1];
+                    else
+                        throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
+
+
+
+                    SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+
+                    if (secMapping != null)
+                    {
+                        rq = new GetOrdersRequestWrapper(secMapping.OutgoingSymbol);
+                        OrderRoutingModule.ProcessMessage(rq);
+                        OySubscriptionUUID = subscrMsg.UUID;
+                        OyServiceKey = subscrMsg.ServiceKey;
+                    }
+                    else
+                        ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Unknown symbol {0}", subscrMsg.ServiceKey));
+                }
+                else
+                {
+                    rq = new GetOrdersRequestWrapper();
+                    OrderRoutingModule.ProcessMessage(rq);
+                    OySubscriptionUUID = subscrMsg.UUID;
+                    OyServiceKey = subscrMsg.ServiceKey;
+                }
 
             }
             catch (Exception ex)
@@ -813,6 +849,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 GetTradesRequestWrapper rq = new GetTradesRequestWrapper(symbol, SubscriptionRequestType.Snapshot);
                 MarketDataModule.ProcessMessage(rq);
+                LTSubscriptionUUID = subscrMsg.UUID;
+                LTServiceKey = subscrMsg.ServiceKey;
 
             }
             catch (Exception ex)
@@ -1037,7 +1075,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (execReport.LastReport)
             {
-                ProcessSubscriptionResponse(ConnectionSocket, "Oy", "*", OySubscriptionUUID);
+                ProcessSubscriptionResponse(ConnectionSocket, "Oy", OyServiceKey, OySubscriptionUUID);
 
             }
         
@@ -1052,7 +1090,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 LegacyTradeHistory legacyTradeHistoryMsg = new LegacyTradeHistory();
                 legacyTradeHistoryMsg.Msg = "LegacyTradeHistory";
                 legacyTradeHistoryMsg.Sender = 0;
-                legacyTradeHistoryMsg.myTrade=trade.MyTrade;
+                legacyTradeHistoryMsg.cMySide = LegacyTradeHistory.GetMySide(trade.Side);
                 legacyTradeHistoryMsg.Symbol = secMapping.IncomingSymbol;
                 legacyTradeHistoryMsg.TradeId = trade.TradeId;
                 legacyTradeHistoryMsg.TradePrice = Convert.ToDouble(trade.Price) ;
@@ -1070,7 +1108,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (trade.LastTrade)
             {
-                ProcessSubscriptionResponse(ConnectionSocket, "LT", "*", OySubscriptionUUID);
+                ProcessSubscriptionResponse(ConnectionSocket, "LT", LTServiceKey, LTSubscriptionUUID);
 
             }
 

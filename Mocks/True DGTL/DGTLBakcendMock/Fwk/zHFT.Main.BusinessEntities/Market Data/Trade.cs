@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using zHFT.Main.Common.Enums;
 
 namespace zHFT.Main.BusinessEntities.Market_Data
 {
@@ -23,6 +24,8 @@ namespace zHFT.Main.BusinessEntities.Market_Data
         public bool MyTrade { get; set; }
 
         public bool LastTrade { get; set; }
+
+        public Side Side { get; set; }
 
         #endregion
     }

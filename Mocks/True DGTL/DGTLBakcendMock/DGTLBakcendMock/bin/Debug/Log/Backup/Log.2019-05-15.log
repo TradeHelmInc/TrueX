@@ -2677,3 +2677,43 @@
 2019-05-15 17:26:01  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
 2019-05-15 17:26:01  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
 2019-05-15 17:26:02  :: SubscriptionResponse UUID: Service:LT ServiceKey:* Success:True
+2019-05-15 18:34:00  :: Initializing Mock Simulated Server...
+2019-05-15 18:34:00  :: Initializing all collections...
+2019-05-15 18:34:00  :: 5/15/2019 6:34:00 PMBaseCommunicationModule.LoadConfig
+2019-05-15 18:34:00  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-15 18:34:00  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-15 18:34:01  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-15 18:34:01  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-15 18:34:03  :: Connected: True - Error Message: 
+2019-05-15 18:34:03  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-15 18:34:03  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-15 18:34:03  :: 5/15/2019 6:34:03 PMOrderRouterBase.LoadConfig
+2019-05-15 18:34:03  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-15 18:34:03  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-15 18:34:03  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-15 18:34:04  :: Collections Initialized...
+2019-05-15 18:34:05  :: Successfully subscribed to execution event 
+2019-05-15 18:34:13  :: Connecting for the first time to client 45291
+2019-05-15 18:34:13  :: Connected for the first time to client 45291
+2019-05-15 18:34:38  :: Unknown order processing execution report for OrderId 1de05ee8-1309-387a-7e45-0c24de2ddecd 
+2019-05-15 18:34:38  :: Unknown order processing execution report for OrderId 1de05ee8-1309-387a-7e45-0c24de2ddecd 
+2019-05-15 18:36:15  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-15 18:36:15  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-15 18:36:23  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-15 18:36:28  :: @Outgoing Bitmex:Cancelling order
+2019-05-15 18:38:04  :: Unknown order processing execution report for OrderId 3dfa67c2-341e-80ef-fbec-29a9bbb8ebf8 
+2019-05-15 18:38:04  :: Unknown order processing execution report for OrderId 3dfa67c2-341e-80ef-fbec-29a9bbb8ebf8 
+2019-05-15 18:39:41  :: Unknown order processing execution report for OrderId 79294f3f-0e38-68f5-c463-5e4ba5d4fd53 
+2019-05-15 18:39:41  :: Unknown order processing execution report for OrderId 79294f3f-0e38-68f5-c463-5e4ba5d4fd53 
+2019-05-15 18:39:59  :: Unknown order processing execution report for OrderId ec858205-59a7-6ee2-98c6-39c276cd1b39 
+2019-05-15 18:42:00  :: Unknown order processing execution report for OrderId 95dcc547-aab0-d083-b5ed-cc3815f70756 
+2019-05-15 18:43:18  :: Unknown order processing execution report for OrderId 9fcad16c-6fe6-5958-5694-e3892a1ef16f 
+2019-05-15 18:44:00  :: Unknown order processing execution report for OrderId 8efb1c88-8aa3-98c5-371c-1fd81b082d84 
+2019-05-15 18:44:28  :: Unknown order processing execution report for OrderId 6914f596-0a4d-33dd-bbd4-12bf98b129fb 
+2019-05-15 18:49:56  :: Unknown order processing execution report for OrderId 1f2684c7-fc94-1678-3881-92116bdaa098 
+2019-05-15 18:50:05  :: Unknown order processing execution report for OrderId 44432bbc-42b0-c9dc-1933-960839fe1262 
+2019-05-15 18:50:05  :: Unknown order processing execution report for OrderId 0cd8eb1c-23f7-d489-4608-44d8c1fda341 
+2019-05-15 18:50:05  :: Unknown order processing execution report for OrderId 8efb1c88-8aa3-98c5-371c-1fd81b082d84 
+2019-05-15 18:50:05  :: Unknown order processing execution report for OrderId 6914f596-0a4d-33dd-bbd4-12bf98b129fb 
+2019-05-15 18:50:05  :: Unknown order processing execution report for OrderId 1f2684c7-fc94-1678-3881-92116bdaa098 
+2019-05-15 18:50:47  :: Unknown order processing execution report for OrderId 758e61a3-97a7-2fd7-50d0-700e07275365 
