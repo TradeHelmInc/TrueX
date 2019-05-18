@@ -62,6 +62,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected string OyServiceKey { get; set; }
 
+        protected string OyUserId { get; set; }
+
         protected string LTSubscriptionUUID { get; set; }
 
         protected string LTServiceKey { get; set; }
@@ -448,19 +450,21 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-                LegacyOrderAck legOrdAck = new LegacyOrderAck()
+                LegacyOrderRejAck legOrdAck = new LegacyOrderRejAck()
                 {
-                    Msg = "LegacyOrderAck",
+                    Msg = "LegacyOrderRejAck",
                     OrderId = legOrdReq.OrderId,
                     UserId = legOrdReq.UserId,
                     ClOrderId = legOrdReq.ClOrderId,
                     InstrumentId = legOrdReq.InstrumentId,
-                    Status = LegacyOrderAck._ORD_sTATUS_REJECTED,
-                    Side=legOrdReq.Side,
+                    cStatus = LegacyOrderAck._STATUS_REJECTED,
+                    Side = legOrdReq.Side,
                     Price = legOrdReq.Price,
-                    Quantity=legOrdReq.Quantity,
+                    Quantity = legOrdReq.Quantity,
                     LeftQty = 0,
+                    AccountId = legOrdReq.AccountId,
                     Timestamp = Convert.ToInt64(elapsed.TotalSeconds),
+                    OrderRejectReason= rejReason
                 };
 
                 string strLegacyOrderAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
@@ -475,6 +479,111 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 DoLog(string.Format("Critical error rejecting new order {0}:{1}", legOrdReq.ClOrderId, ex.Message),MessageType.Error);
             }
+        }
+
+
+        private void ProcessResponseMessage(ExecutionReport execReport, SecurityMapping secMapping, string userId,
+                                            IWebSocketConnection socket)
+        {
+
+            long timestamp = 0;
+
+            if (execReport.TransactTime.HasValue)
+            {
+                TimeSpan elapsed = execReport.TransactTime.Value - new DateTime(1970, 1, 1);
+                timestamp = Convert.ToInt64(elapsed.TotalSeconds);
+            }
+
+            if (execReport.OrdStatus == OrdStatus.Rejected || execReport.OrdStatus == OrdStatus.Canceled
+                || execReport.OrdStatus == OrdStatus.New)
+            {
+
+                LegacyOrderExecutionReport report = null;
+
+                if (execReport.OrdStatus == OrdStatus.Rejected)
+                {
+                    report = new LegacyOrderRejAck();
+                    report.Msg = "LegacyOrderRejAck";
+                    ((LegacyOrderRejAck)report).OrderRejectReason = execReport.OrdRejReason + "-" + execReport.Text;
+
+                }
+                else if (execReport.OrdStatus == OrdStatus.Canceled)
+                {
+                    report = new LegacyOrderCancelAck();
+                    report.Msg = "LegacyOrderCancelAck";
+                    ((LegacyOrderCancelAck)report).OrigClOrderId = execReport.Order.ClOrdId;
+
+                }
+                else if (execReport.OrdStatus == OrdStatus.New)
+                {
+                    report = new LegacyOrderAck();
+                    report.Msg = "LegacyOrderAck";
+
+                }
+
+                report.OrderId = execReport.Order.OrderId;
+                report.UserId = userId;
+                report.ClOrderId = execReport.Order.ClOrdId;
+                report.cSide = execReport.Order.Side == Side.Buy ? LegacyOrderAck._SIDE_BUY : LegacyOrderAck._SIDE_SELL;
+                report.InstrumentId = secMapping.IncomingSymbol;
+                report.cStatus = AttributeConverter.GetExecReportStatus(execReport);
+                report.Price = execReport.Order.Price.HasValue ? (decimal?)Convert.ToDecimal(execReport.Order.Price) : null;
+                report.Quantity = execReport.Order.OrderQty.HasValue ? Convert.ToDecimal(execReport.Order.OrderQty.Value) : 0;
+                report.LeftQty = Convert.ToDecimal(execReport.LeavesQty);
+                report.AccountId = execReport.Account;
+                report.Timestamp = timestamp;
+
+
+                string strMsg = JsonConvert.SerializeObject(report, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        });
+
+                DoSend(socket, strMsg);
+            }
+            else
+            {
+
+                if (execReport.OrdStatus == OrdStatus.PartiallyFilled || execReport.OrdStatus == OrdStatus.Filled)
+                {
+
+                    if (secMapping.SubscribedOy)
+                    {
+                        LegacyOrderRecord legRecord = new LegacyOrderRecord();
+                        legRecord.ClientOrderId = execReport.Order.ClOrdId;
+                        legRecord.cSide = execReport.Order.Side == Side.Buy ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL;
+                        legRecord.cStatus = AttributeConverter.GetExecReportStatus(execReport);
+                        legRecord.FillQty = execReport.CumQty;
+                        legRecord.InstrumentId = secMapping.IncomingSymbol;
+                        legRecord.LvsQty = execReport.LeavesQty;
+                        legRecord.Msg = "LegacyOrderRecord";
+                        legRecord.OrderId = execReport.Order.OrderId;
+                        legRecord.OrdQty = execReport.Order.OrderQty.HasValue ? execReport.Order.OrderQty.Value : 0;
+                        legRecord.Price = execReport.Order.Price;
+                        legRecord.Sender = 0;
+                        legRecord.UpdateTime = timestamp;
+                        legRecord.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
+
+                        string strMsg = JsonConvert.SerializeObject(legRecord, Newtonsoft.Json.Formatting.None,
+                        new JsonSerializerSettings
+                         {
+                             NullValueHandling = NullValueHandling.Ignore
+                         });
+
+                        DoSend(socket, strMsg);
+                    }
+                    else
+                        DoLog(string.Format("Received {0} report for not subscribed security {1} to service Oy", execReport.OrdStatus.ToString(), secMapping.IncomingSymbol),MessageType.Debug);
+                
+                
+                }
+            
+            
+            
+            }
+            
+        
         }
 
         private void ProcessExecutionReportsThread(object param)
@@ -498,37 +607,8 @@ namespace DGTLBackendMock.DataAccessLayer
                             execReport = execReports.Dequeue();
                         }
 
-                        long timestamp = 0;
 
-                        if (execReport.TransactTime.HasValue)
-                        {
-                            TimeSpan elapsed = execReport.TransactTime.Value - new DateTime(1970, 1, 1);
-                            timestamp = Convert.ToInt64(elapsed.TotalSeconds);
-                        }
-
-                        LegacyOrderAck legOrdAck = new LegacyOrderAck()
-                        {
-                            Msg = "LegacyOrderAck",
-                            OrderId = execReport.Order.OrderId,
-                            UserId = userId,
-                            ClOrderId = execReport.Order.ClOrdId,
-                            cSide = execReport.Order.Side == Side.Buy ? LegacyOrderAck._SIDE_BUY : LegacyOrderAck._SIDE_SELL,
-                            InstrumentId = secMapping.IncomingSymbol,
-                            Status = AttributeConverter.GetExecReportStatus(execReport),
-                            Price = execReport.Order.Price.HasValue ? (decimal?)Convert.ToDecimal(execReport.Order.Price) : null,
-                            Quantity = execReport.Order.OrderQty.HasValue ? Convert.ToDecimal(execReport.Order.OrderQty.Value) : 0,
-                            LeftQty = Convert.ToDecimal(execReport.LeavesQty),
-                            Timestamp = timestamp,
-                        };
-
-                        string strLegacyOrderAck = JsonConvert.SerializeObject(legOrdAck, Newtonsoft.Json.Formatting.None,
-                                new JsonSerializerSettings
-                                {
-                                    NullValueHandling = NullValueHandling.Ignore
-                                });
-
-                        DoSend(socket,strLegacyOrderAck);
-                        
+                        ProcessResponseMessage(execReport, secMapping, userId, socket);
                     }
                 }
                 Thread.Sleep(1000);
@@ -810,6 +890,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         OrderRoutingModule.ProcessMessage(rq);
                         OySubscriptionUUID = subscrMsg.UUID;
                         OyServiceKey = subscrMsg.ServiceKey;
+                        OyUserId = subscrMsg.UserId;
+                        secMapping.SubscribedOy = true;
                     }
                     else
                         ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Unknown symbol {0}", subscrMsg.ServiceKey));
@@ -820,6 +902,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     OrderRoutingModule.ProcessMessage(rq);
                     OySubscriptionUUID = subscrMsg.UUID;
                     OyServiceKey = subscrMsg.ServiceKey;
+                    OyUserId = subscrMsg.UserId;
                 }
 
             }
@@ -954,9 +1037,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                 }
                 else if (subscrMsg.Service == "Oy")
-                { 
-                
-                
+                {
+                    secMapping.SubscribedOy = false;
                 }
                 else if (subscrMsg.Service == "LT")
                 {
@@ -1058,10 +1140,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 legOrdRecordMsg.OrdQty = execReport.Order.OrderQty.HasValue ? execReport.Order.OrderQty.Value : 0;
                 legOrdRecordMsg.Price = execReport.Order.Price;
                 legOrdRecordMsg.Sender = 0;
-                legOrdRecordMsg.UserId = "";
+                legOrdRecordMsg.UserId = OyUserId;
                 legOrdRecordMsg.UpdateTime = Convert.ToInt64(elapsed.TotalSeconds);
                 legOrdRecordMsg.cSide = execReport.Order.Side == Side.Buy ? LegacyOrderReq._SIDE_BUY : LegacyOrderReq._SIDE_SELL;
                 legOrdRecordMsg.cStatus = LegacyOrderRecord.GetStatus(execReport.OrdStatus);
+                legOrdRecordMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
 
 
                 string strLegacyOrderRecordMsg = JsonConvert.SerializeObject(legOrdRecordMsg, Newtonsoft.Json.Formatting.None,

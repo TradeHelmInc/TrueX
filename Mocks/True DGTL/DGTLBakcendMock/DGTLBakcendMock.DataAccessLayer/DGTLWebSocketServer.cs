@@ -370,7 +370,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 UserId = legOrdReq.UserId,
                 ClOrderId = legOrdReq.ClOrderId,
                 InstrumentId = legOrdReq.InstrumentId,
-                Status = "new",
+                cStatus = LegacyOrderAck._STATUS_OPEN,
                 Price = legOrdReq.Price,
                 LeftQty = legOrdReq.Quantity,
                 Timestamp = Convert.ToInt64(elaped.TotalSeconds),

@@ -44,20 +44,20 @@ namespace DGTLBackendMock.Common.Util
                 throw new Exception(string.Format("Unknown MDUpdateAction {0}", MDUpdateAction));
         }
 
-        public static string GetExecReportStatus(ExecutionReport execReport)
+        public static char GetExecReportStatus(ExecutionReport execReport)
         {
             if (execReport.OrdStatus == OrdStatus.New)
-                return LegacyOrderAck._ORD_STATUS_NEW;
+                return LegacyOrderAck._STATUS_OPEN;
             else if (execReport.OrdStatus == OrdStatus.Canceled)
-                return LegacyOrderAck._ORD_STATUS_CANCELED;
+                return LegacyOrderAck._STATUS_CANCELLED;
             else if (execReport.OrdStatus == OrdStatus.Rejected)
-                return LegacyOrderAck._ORD_sTATUS_REJECTED;
+                return LegacyOrderAck._STATUS_REJECTED;
             else if (execReport.OrdStatus == OrdStatus.PartiallyFilled)
-                return LegacyOrderAck._ORD_sTATUS_PARTIALLY_FILLED;
+                return LegacyOrderAck._STATUS_OPEN;
             else if (execReport.OrdStatus == OrdStatus.Filled)
-                return LegacyOrderAck._ORD_STATUS_FILLED;
+                return LegacyOrderAck._STATUS_FULL_FILL;
             else
-                return "unknown";
+                return LegacyOrderAck._STATUS_UNKNOWN;
 
         }
 

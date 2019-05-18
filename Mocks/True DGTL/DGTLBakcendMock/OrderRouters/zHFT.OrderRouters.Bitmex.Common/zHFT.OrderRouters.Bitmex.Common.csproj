@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="DTO\ErrorMessage.cs" />
     <Compile Include="DTO\ExecutionReport.cs" />
     <Compile Include="DTO\Instrument.cs" />
+    <Compile Include="DTO\Message.cs" />
     <Compile Include="DTO\QueryResponse.cs" />
     <Compile Include="DTO\Events\WebSocketExecutionReportEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

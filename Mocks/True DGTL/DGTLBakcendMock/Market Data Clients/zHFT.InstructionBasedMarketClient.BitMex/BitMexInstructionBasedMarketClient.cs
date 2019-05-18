@@ -605,7 +605,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 {
                     List<zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade> trades = RESTMarketDataManager.GetTrades(mdr.Security.Symbol);
 
-                    foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades)
+                    foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades.Where(x=>x.symbol==mdr.Security.Symbol).ToList())
                     {
                         BitMexTradeWrapper tradeWrapper = new BitMexTradeWrapper(trade, i==trades.Count);
 

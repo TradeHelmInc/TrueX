@@ -34,6 +34,8 @@ namespace DGTLBackendMock.Common.DTO
 
         public bool SubscribedLD { get; set; }
 
+        public bool SubscribedOy { get; set; }
+
         public bool PendingLSResponse { get; set; }
 
         public bool PendingLQResponse { get; set; }

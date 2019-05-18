@@ -31,11 +31,11 @@ namespace zHFT.StrategyHandlers.Common.Converters
             if (!ValidateField(wrapper, ExecutionReportFields.OrdStatus))
                 throw new Exception("Missing order status");
 
-            if (!ValidateField(wrapper, ExecutionReportFields.LeavesQty))
-                throw new Exception("Missing leaves qty");
+            //if (!ValidateField(wrapper, ExecutionReportFields.LeavesQty))
+            //    throw new Exception("Missing leaves qty");
 
-            if (!ValidateField(wrapper, ExecutionReportFields.CumQty))
-                throw new Exception("Missing cum qty");
+            //if (!ValidateField(wrapper, ExecutionReportFields.CumQty))
+            //    throw new Exception("Missing cum qty");
 
             //if (!ValidateField(wrapper, ExecutionReportFields.AvgPx))
             //    throw new Exception("Missing average price");
@@ -43,8 +43,8 @@ namespace zHFT.StrategyHandlers.Common.Converters
             //if (!ValidateField(wrapper, ExecutionReportFields.LastPx))
             //    throw new Exception("Missing last price");
 
-            if (!ValidateField(wrapper, ExecutionReportFields.OrderID))
-                throw new Exception("Missing Order Id");
+            //if (!ValidateField(wrapper, ExecutionReportFields.OrderID))
+            //    throw new Exception("Missing Order Id");
 
             if (!ValidateField(wrapper, ExecutionReportFields.Symbol))
                 throw new Exception("Missing Symbol");
@@ -114,7 +114,7 @@ namespace zHFT.StrategyHandlers.Common.Converters
             er.LastPx = (ValidateField(wrapper, ExecutionReportFields.LastPx) ? (double?)Convert.ToDouble(wrapper.GetField(ExecutionReportFields.LastPx)) : null);
             er.LastMkt = (ValidateField(wrapper, ExecutionReportFields.LastMkt) ? Convert.ToString(wrapper.GetField(ExecutionReportFields.LastMkt)) : null);
             er.LastReport = (ValidateField(wrapper, ExecutionReportFields.LastReport) ? Convert.ToBoolean(wrapper.GetField(ExecutionReportFields.LastReport)) : false);
-
+            er.Account = (string) wrapper.GetField(ExecutionReportFields.Account);
 
             er.Order = BuildOrder(wrapper);
 

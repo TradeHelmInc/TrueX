@@ -22,6 +22,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
 
         protected OrdStatus OrdStatus { get; set; }
 
+        protected Side Side { get; set; }
+
         protected DateTime TransactTime { get; set; }
 
         protected CxlRejReason CxlRejReason { get; set; }
@@ -30,13 +32,18 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
 
         protected string  Symbol { get; set; }
 
+        protected decimal? Price { get; set; }
+
+        protected decimal LeftQty{ get; set; }
 
         #endregion
 
         #region Constructors
 
         public OrderCancelRejectWrapper(string pOrderId, string pOrigClOrderId, string pClOrderId,
-                                        OrdStatus pOrdStatus, DateTime pTransactTime, CxlRejReason pCxlRejReason,
+                                        OrdStatus pOrdStatus, Side pSide,decimal? pPrice, decimal pLeftQty, 
+                                        DateTime pTransactTime, 
+                                        CxlRejReason pCxlRejReason,
                                         string pText,string pSymbol)
         {
             OrderId = pOrderId;
@@ -46,6 +53,12 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
             ClOrderId = pClOrderId;
 
             OrdStatus = pOrdStatus;
+
+            Side = pSide;
+
+            Price = pPrice;
+
+            LeftQty = pLeftQty;
 
             TransactTime = pTransactTime;
 
@@ -75,6 +88,12 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
                 return OrderId;
             else if (xrField == OrderCancelRejectField.OrdStatus)
                 return OrdStatus;
+            else if (xrField == OrderCancelRejectField.Side)
+                return Side;
+            else if (xrField == OrderCancelRejectField.Price)
+                return Price;
+            else if (xrField == OrderCancelRejectField.LeftQty)
+                return LeftQty;
             else if (xrField == OrderCancelRejectField.OrigClOrdID)
                 return OrigClOrderId;
             else if (xrField == OrderCancelRejectField.Text)

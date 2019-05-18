@@ -296,9 +296,9 @@ namespace DGTLBackendAPIClient
                 JsonWebToken = JWTToken,
                 UserId = UserId,
                 ClOrderId = BuildClOrdId(),
-                AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : null,
-                InstrumentId = "XBT-USD",
-                Price = 90000,
+                AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : "VIRT_STD_ACCT1",
+                InstrumentId = ConfigurationManager.AppSettings["OrderSymbol"],
+                Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 cSide = 'B',//Buy
                 Quantity = 1,
                 cTimeInForce = '0',//Day
@@ -364,7 +364,7 @@ namespace DGTLBackendAPIClient
                 legacyOrderCancelReq.JsonWebToken = legacyOrdReq.JsonWebToken;
                 legacyOrderCancelReq.Sender = legacyOrdReq.Sender;
                 legacyOrderCancelReq.Side = legacyOrdReq.Side;
-                legacyOrderCancelReq.User = legacyOrdReq.UserId;
+                legacyOrderCancelReq.UserId = legacyOrdReq.UserId;
                 legacyOrderCancelReq.InstrumentId = legacyOrdReq.InstrumentId;
 
 

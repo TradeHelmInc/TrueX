@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -150,6 +151,7 @@ namespace zHFT.OrderRouters.Bitmex
             Side side = (Side)wrapper.GetField(OrderFields.Side);
             decimal orderQty = (decimal)wrapper.GetField(OrderFields.OrderQty);
             string clOrderId = wrapper.GetField(OrderFields.ClOrdID).ToString();
+            string account = (string) wrapper.GetField(OrderFields.Account);
             //int decimalPrecission = (int)wrapper.GetField(OrderFields.DecimalPrecission);
 
             //orderQty tiene el valor monetario en USD de la posición
@@ -164,6 +166,7 @@ namespace zHFT.OrderRouters.Bitmex
                 //Currency = GetQuoteCurrency(),
                 OrdType = OrdType.Limit,
                 ClOrdId = clOrderId,
+                Account = account
             };
 
             return order;
@@ -253,8 +256,8 @@ namespace zHFT.OrderRouters.Bitmex
                 }
                 catch (Exception ex)
                 {
-
-                    ExecutionReportWrapper erWrapper = new ExecutionReportWrapper(GetRejectedExecutionReport(order, ex.Message), order);
+                    zHFT.OrderRouters.Bitmex.Common.DTO.ErrorMessage errMsg = JsonConvert.DeserializeObject<zHFT.OrderRouters.Bitmex.Common.DTO.ErrorMessage>(ex.Message);
+                    ExecutionReportWrapper erWrapper = new ExecutionReportWrapper(GetRejectedExecutionReport(order, errMsg.error.message != null ? errMsg.error.message : ex.Message), order);
                     OnMessageRcv(erWrapper);
                 }
 
@@ -331,9 +334,11 @@ namespace zHFT.OrderRouters.Bitmex
                                             wrapper.GetField(OrderFields.OrigClOrdID).ToString(),
                                             wrapper.GetField(OrderFields.ClOrdID).ToString(),
                                             OrdStatus.Rejected,
+                                            order.Side, order.Price,
+                                            exReport.LeavesQty.HasValue ? exReport.LeavesQty.Value : 0,
                                             DateTime.Now,
                                             CxlRejReason.UnknownOrder,
-                                            exReport.error,order.SymbolPair);
+                                            exReport.error, order.SymbolPair);
                 OnMessageRcv(reject);
             }
         }
@@ -361,6 +366,9 @@ namespace zHFT.OrderRouters.Bitmex
                                                                                         origClOrderId,
                                                                                         clOrderId,
                                                                                         OrdStatus.Rejected,
+                                                                                        Side.Unknown,
+                                                                                        null,
+                                                                                        0,
                                                                                         DateTime.Now,
                                                                                         CxlRejReason.UnknownOrder,
                                                                                         string.Format("ClOrdId not found: {0}", origClOrderId),
@@ -400,6 +408,9 @@ namespace zHFT.OrderRouters.Bitmex
                                                                 wrapper.GetField(OrderFields.OrigClOrdID).ToString(),
                                                                 wrapper.GetField(OrderFields.ClOrdID).ToString(),
                                                                 OrdStatus.Rejected,
+                                                                Side.Unknown,
+                                                                null,
+                                                                0,
                                                                 DateTime.Now,
                                                                 CxlRejReason.UnknownOrder,
                                                                 string.Format("OrderId not found: {0}", orderId),

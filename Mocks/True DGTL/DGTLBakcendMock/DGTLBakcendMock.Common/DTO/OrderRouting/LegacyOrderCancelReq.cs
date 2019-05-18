@@ -11,7 +11,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         #region Public Attributes
 
-        public string User { get; set; }
+        public string UserId { get; set; }
 
         public string ClOrderId { get; set; }
 

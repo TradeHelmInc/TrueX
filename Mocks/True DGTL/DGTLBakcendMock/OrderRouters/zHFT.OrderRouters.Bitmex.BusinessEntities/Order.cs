@@ -89,6 +89,8 @@ namespace zHFT.OrderRouters.Bitmex.BusinessEntities
 
         public TimeInForce? TimeInForce { get; set; }
 
+        public string Account { get; set; }
+
         #endregion
 
         #region Executions

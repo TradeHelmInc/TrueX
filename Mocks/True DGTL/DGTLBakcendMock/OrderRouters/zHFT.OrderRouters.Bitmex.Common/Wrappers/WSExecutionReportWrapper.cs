@@ -73,6 +73,7 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
                 return Order.OrderId;
             else if (xrField == ExecutionReportFields.ClOrdID)
                 return Order.ClOrdId;
+          
             else if (xrField == ExecutionReportFields.Symbol)
                 return Order.SymbolPair;
             else if (xrField == ExecutionReportFields.OrderQty)
@@ -97,6 +98,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
                 return QuantityType.CURRENCY;//In IB v1.0 we only work with SHARE orders
             else if (xrField == ExecutionReportFields.PriceType)
                 return PriceType.FixedAmount;//In IB v1.0 we only work with FIXED AMMOUNT orders
+            else if (xrField == ExecutionReportFields.Account)
+                return Order.Account;//In IB v1.0 we only work with SHARE orders
 
             return ExecutionReportFields.NULL;
         }

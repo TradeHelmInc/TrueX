@@ -25,6 +25,12 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public static char _STATUS_EXPIRED = 'E';
 
+        public static char _SIDE_BUY = 'B';
+
+        public static char _SIDE_SELL = 'S';
+
+        public static char _TIMEINFORCE_DAY = '0';
+
         #endregion
 
         #region Public Attributes
@@ -37,8 +43,6 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public string InstrumentId { get; set; }
 
-        public int Time { get; set; }
-
         public long UpdateTime { get; set; }
 
         private byte side;
@@ -50,6 +54,16 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         [JsonIgnore]
         public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
+
+        private byte timeinforce;
+        public byte TimeInForce
+        {
+            get { return timeinforce; }
+            set { side = Convert.ToByte(value); }
+        }//Side B -> Buy, S->Sell
+
+        [JsonIgnore]
+        public char cTimeInForce { get { return Convert.ToChar(TimeInForce); } set { TimeInForce = Convert.ToByte(value); } }
 
         public double OrdQty { get; set; }
 

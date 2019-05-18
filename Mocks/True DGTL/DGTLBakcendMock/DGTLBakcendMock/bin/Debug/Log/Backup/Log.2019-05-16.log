@@ -414,3 +414,25 @@
 2019-05-16 17:20:36  :: Unknown order processing execution report for OrderId 32c3f591-a1bb-e2f4-ecdd-07e348150298 
 2019-05-16 17:21:09  :: Unknown order processing execution report for OrderId 6ebd2866-ed54-1a99-178c-4aa58328b7c1 
 2019-05-16 17:21:30  :: Unknown order processing execution report for OrderId 5e87470f-3335-189a-1eb7-76bcfc7b5203 
+2019-05-16 18:20:17  :: Initializing Mock Simulated Server...
+2019-05-16 18:20:17  :: Initializing all collections...
+2019-05-16 18:20:17  :: 5/16/2019 6:20:17 PMBaseCommunicationModule.LoadConfig
+2019-05-16 18:20:17  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-16 18:20:17  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-16 18:20:17  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-16 18:20:17  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-16 18:20:19  :: Connected: True - Error Message: 
+2019-05-16 18:20:19  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-16 18:20:19  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-16 18:20:19  :: 5/16/2019 6:20:19 PMOrderRouterBase.LoadConfig
+2019-05-16 18:20:19  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-16 18:20:19  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-16 18:20:19  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-16 18:20:20  :: Collections Initialized...
+2019-05-16 18:20:20  :: Successfully subscribed to execution event 
+2019-05-16 18:20:28  :: Connecting for the first time to client 42676
+2019-05-16 18:20:28  :: Connected for the first time to client 42676
+2019-05-16 18:20:58  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-16 18:20:58  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-16 18:21:11  ::  OnClose for client 42676
+2019-05-16 18:21:11  :: Turning threads off on socket disconnection

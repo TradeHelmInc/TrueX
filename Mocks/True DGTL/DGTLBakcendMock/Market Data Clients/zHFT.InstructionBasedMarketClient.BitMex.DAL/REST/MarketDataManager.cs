@@ -119,7 +119,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.DAL
             var param = new Dictionary<string, string>();
             if(symbol!=null)
                 param.Add("symbol", symbol);
-            param.Add("count", 20.ToString());
+            param.Add("count", 100.ToString());
             param.Add("reverse", true.ToString());
             string resp = api.Query("GET", _TRADES, param, false);
 
