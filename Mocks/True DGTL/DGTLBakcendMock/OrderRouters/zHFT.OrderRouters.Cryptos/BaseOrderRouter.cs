@@ -41,6 +41,7 @@ namespace zHFT.OrderRouters.Cryptos
         protected abstract CMState RouteNewOrder(Wrapper wrapper);
         protected abstract CMState UpdateOrder(Wrapper wrapper);
         protected abstract CMState CancelOrder(Wrapper wrapper);
+        protected abstract CMState CancelAllOrders(Wrapper wrapper);
         protected abstract CMState GetOrders(Wrapper wrapper);
 
         protected abstract CMState ProcessSecurityList(Wrapper wrapper);
@@ -139,9 +140,14 @@ namespace zHFT.OrderRouters.Cryptos
                     return UpdateOrder(wrapper);
                     //return CMState.BuildSuccess();
                 }
+                else if (wrapper.GetAction() == Actions.CANCEL_ALL_ORDERS)
+                {
+                    DoLog(string.Format("@{0}:Cancelling all orders",  GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
+                    return CancelAllOrders(wrapper);
+                }
                 else if (wrapper.GetAction() == Actions.CANCEL_ORDER)
                 {
-                    DoLog(string.Format("@{0}:Cancelling order",  GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
+                    DoLog(string.Format("@{0}:Cancelling order", GetConfig().Name), Main.Common.Util.Constants.MessageType.Information);
                     return CancelOrder(wrapper);
                 }
                 else if (wrapper.GetAction() == Actions.CANCEL_ALL_POSITIONS)

@@ -139,6 +139,11 @@ namespace zHFT.StrategyHandlers.Common.Converters
             ocr.CxlRejResponseTo = (CxlRejResponseTo)(ValidateField(wrapper, OrderCancelRejectField.CxlRejResponseTo) ? wrapper.GetField(OrderCancelRejectField.CxlRejResponseTo) : CxlRejResponseTo.OrderCancelRequest);
             ocr.Text = (string)wrapper.GetField(OrderCancelRejectField.Text);
 
+            ocr.OrdQty = (decimal)wrapper.GetField(OrderCancelRejectField.OrdQty);
+            ocr.LeftQty = (decimal)wrapper.GetField(OrderCancelRejectField.LeftQty);
+            ocr.Price = (decimal)wrapper.GetField(OrderCancelRejectField.Price);
+            ocr.OrdStatus = (OrdStatus)wrapper.GetField(OrderCancelRejectField.OrdStatus);
+
             return ocr;
 
         

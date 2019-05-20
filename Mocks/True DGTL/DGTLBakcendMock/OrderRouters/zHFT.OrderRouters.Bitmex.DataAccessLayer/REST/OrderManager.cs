@@ -128,6 +128,17 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             return beExecReport;
         }
 
+        //public void CancellAll()
+        //{
+        //    BitMEXApi api = new BitMEXApi(URL, ID, Secret);
+
+        //    var param = new Dictionary<string, string>();
+
+        //    param["offset"] = "1" ;
+
+        //    string resp = api.Query("POST", "/order/cancelAllAfter", param, true);
+        //}
+
         public ExecutionReport[] GetOrders(string symbol=null)
         {
             BitMEXApi api = new BitMEXApi(URL, ID, Secret);
@@ -135,6 +146,7 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             var param = new Dictionary<string, string>();
             if (symbol != null)
                 param.Add("symbol", symbol);
+            param.Add("count", 20.ToString());
             string resp = api.Query("GET", "/order", param, true);
 
             ExecutionReport[] reports = JsonConvert.DeserializeObject<ExecutionReport[]>(resp);

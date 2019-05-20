@@ -19,6 +19,7 @@ namespace zHFT.Main.Common.Enums
         public static readonly OrderCancelRejectField Side = new OrderCancelRejectField(10);
         public static readonly OrderCancelRejectField Price = new OrderCancelRejectField(11);
         public static readonly OrderCancelRejectField LeftQty = new OrderCancelRejectField(12);
+        public static readonly OrderCancelRejectField OrdQty = new OrderCancelRejectField(13);
 
         protected OrderCancelRejectField(int pInternalValue)
             : base(pInternalValue)

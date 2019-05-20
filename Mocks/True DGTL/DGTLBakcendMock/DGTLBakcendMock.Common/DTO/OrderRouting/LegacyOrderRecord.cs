@@ -31,6 +31,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public static char _TIMEINFORCE_DAY = '0';
 
+        public static char _ORDER_TYPE_LIMIT = '1';
+
         #endregion
 
         #region Public Attributes
@@ -83,6 +85,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
         [JsonIgnore]
         public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
+     
         #endregion
 
         #region Public Static Methods

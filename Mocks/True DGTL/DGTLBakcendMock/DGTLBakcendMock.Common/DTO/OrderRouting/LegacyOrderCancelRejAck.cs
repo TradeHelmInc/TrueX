@@ -10,6 +10,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
     {
         #region Public Attributes
 
+        public string OrigClOrderId { get; set; }
+
         public string OrderRejectReason { get; set; }
 
         #endregion

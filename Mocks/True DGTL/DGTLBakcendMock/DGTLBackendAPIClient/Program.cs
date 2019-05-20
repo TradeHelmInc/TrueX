@@ -48,6 +48,8 @@ namespace DGTLBackendAPIClient
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("RouteAndCancelOrder <AccountId> (Harcoded..)");
+            Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
+            Console.WriteLine("MassiveCancel");
             Console.WriteLine("-CLEAR");
             Console.WriteLine();
         
@@ -302,7 +304,7 @@ namespace DGTLBackendAPIClient
                 cSide = 'B',//Buy
                 Quantity = 1,
                 cTimeInForce = '0',//Day
-                cOrderType = '1',//Limit
+                cOrderType = LegacyOrderReq._ORD_TYPE_LIMIT,//Limit
             };
 
             return legacyOrdReq;
@@ -383,6 +385,66 @@ namespace DGTLBackendAPIClient
 
         }
 
+        private static void ProcessMassiveCancel(string[] param)
+        {
+            if (JWTToken == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 1)
+            {
+                LegacyOrderMassCancelReq massCancelReq = new LegacyOrderMassCancelReq();
+                massCancelReq.Msg = "LegacyOrderMassCancelReq";
+                massCancelReq.UUID = UUID;
+                massCancelReq.UserId = UserId;
+                massCancelReq.JsonWebToken = JWTToken;
+
+                string strMsg = JsonConvert.SerializeObject(massCancelReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for LegacyOrderMassCancelReq message"));
+
+        }
+
+        private static void ProcessResetPassword(string[] param)
+        {
+            if (JWTToken == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 3)
+            {
+                ResetPasswordRequest resetPwdReq = new ResetPasswordRequest();
+                resetPwdReq.Msg = "ResetPasswordRequest";
+                resetPwdReq.UUID = UUID;
+                resetPwdReq.UserId = UserId;
+                resetPwdReq.JsonWebToken = JWTToken;
+                resetPwdReq.OldPassword = param[1];
+                resetPwdReq.NewPassword = param[2];
+
+                string strMsg = JsonConvert.SerializeObject(resetPwdReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ResetPasswordRequest message"));
+
+        }
+
         private static void ProcessCommand(string cmd)
         {
 
@@ -410,6 +472,14 @@ namespace DGTLBackendAPIClient
             else if (mainCmd == "RouteAndCancelOrder")
             {
                 ProcessRouteAndCancelOrder(param);
+            }
+            else if (mainCmd == "MassiveCancel")
+            {
+                ProcessMassiveCancel(param);
+            }
+            else if (mainCmd == "ResetPassword")
+            {
+                ProcessResetPassword(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR") 
             {

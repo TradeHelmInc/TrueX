@@ -565,6 +565,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         legRecord.UpdateTime = timestamp;
                         legRecord.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
 
+
                         string strMsg = JsonConvert.SerializeObject(legRecord, Newtonsoft.Json.Formatting.None,
                         new JsonSerializerSettings
                          {
@@ -647,10 +648,16 @@ namespace DGTLBackendMock.DataAccessLayer
                         LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
                         {
                             Msg = "LegacyOrderCancelRejAck",
-                            ClOrderId = reject.OrigClOrdId,//we want the initial id
-                            UserId=userId,
+                            OrigClOrderId = reject.OrigClOrdId,//we want the initial id
+                            ClOrderId = reject.ClOrdId,
+                            UserId = userId,
                             InstrumentId = secMapping.IncomingSymbol,
                             OrderId = reject.OrderId,
+                            Price = reject.Price,
+                            LeftQty = reject.LeftQty,
+                            Quantity = reject.OrdQty,
+                            cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
+                            cSide = reject.Side == Side.Buy ? LegacyOrderCancelRejAck._SIDE_BUY : LegacyOrderCancelRejAck._SIDE_SELL,
                             OrderRejectReason = reject.Text,
                         };
 
@@ -861,6 +868,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 OrderCancelRequestWrapper wrapper = new OrderCancelRequestWrapper(legOrderCancel.OrigClOrderId, legOrderCancel.ClOrderId, secMapping.OutgoingSymbol);
                 OrderRoutingModule.ProcessMessage(wrapper);
             }
+        }
+
+        private void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
+        {
+            LegacyOrderMassCancelReq legOrderMassCancel = JsonConvert.DeserializeObject<LegacyOrderMassCancelReq>(m);
+            OrderRoutingModule.ProcessMessage(new LegacyOrderMassCancelReqWrapper());
         }
 
         private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
@@ -1541,6 +1554,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "LegacyOrderCancelReq")
                 {
                     ProcessLegacyOrderCancelMock(socket, m);
+                }
+                else if (wsResp.Msg == "LegacyOrderMassCancelReq")
+                {
+                    ProcessLegacyOrderMassCancelMock(socket, m);
                 }
                 else
                 {

@@ -31,6 +31,8 @@ namespace zHFT.Main.BusinessEntities.Orders
 
         public decimal? Price { get; set; }
 
+        public decimal OrdQty { get; set; }
+
         public decimal LeftQty { get; set; }
 
         public long Timestamp { get; set; }

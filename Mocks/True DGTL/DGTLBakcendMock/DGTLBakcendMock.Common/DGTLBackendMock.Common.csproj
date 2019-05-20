@@ -50,6 +50,7 @@
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\ClientReject.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatResponse.cs" />
+    <Compile Include="DTO\Auth\ResetPasswordRequest.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
     <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
     <Compile Include="DTO\MarketData\DepthOfBook.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderCancelRejAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderCancelReq.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderExecutionReport.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyOrderMassCancelReq.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderRecord.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderRejAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Util\MarketDataConverter.cs" />
     <Compile Include="Wrappers\GetOrdersRequestWrapper.cs" />
     <Compile Include="Wrappers\GetTradesRequestWrapper.cs" />
+    <Compile Include="Wrappers\LegacyOrderMassCancelReqWrapper.cs" />
     <Compile Include="Wrappers\MarketDataOrderBookRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataQuotesRequestWrapper.cs" />
     <Compile Include="Wrappers\MarketDataRequestWrapper.cs" />

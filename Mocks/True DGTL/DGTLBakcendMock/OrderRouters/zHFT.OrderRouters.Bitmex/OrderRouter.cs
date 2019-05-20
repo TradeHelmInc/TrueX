@@ -270,6 +270,23 @@ namespace zHFT.OrderRouters.Bitmex
 
         }
 
+        protected override CMState CancelAllOrders(Wrapper wrapper)
+        {
+            try
+            {
+                OrderManager.CancelAll();
+
+                return CMState.BuildSuccess();
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("@{0}:Error cancelling all orders!:{1}", BitmexConfiguration.Name, ex.Message), Main.Common.Util.Constants.MessageType.Error);
+                return CMState.BuildFail(ex);
+            }
+        
+        
+        }
+
         protected override CMState UpdateOrder(Wrapper wrapper)
         {
 
@@ -335,6 +352,7 @@ namespace zHFT.OrderRouters.Bitmex
                                             wrapper.GetField(OrderFields.ClOrdID).ToString(),
                                             OrdStatus.Rejected,
                                             order.Side, order.Price,
+                                            order.OrderQty.HasValue ? order.OrderQty.Value : 0,
                                             exReport.LeavesQty.HasValue ? exReport.LeavesQty.Value : 0,
                                             DateTime.Now,
                                             CxlRejReason.UnknownOrder,
@@ -368,6 +386,7 @@ namespace zHFT.OrderRouters.Bitmex
                                                                                         OrdStatus.Rejected,
                                                                                         Side.Unknown,
                                                                                         null,
+                                                                                        0,
                                                                                         0,
                                                                                         DateTime.Now,
                                                                                         CxlRejReason.UnknownOrder,
@@ -410,6 +429,7 @@ namespace zHFT.OrderRouters.Bitmex
                                                                 OrdStatus.Rejected,
                                                                 Side.Unknown,
                                                                 null,
+                                                                0,
                                                                 0,
                                                                 DateTime.Now,
                                                                 CxlRejReason.UnknownOrder,

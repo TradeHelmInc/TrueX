@@ -34,6 +34,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
 
         protected decimal? Price { get; set; }
 
+        protected decimal OrdQty { get; set; }
+
         protected decimal LeftQty{ get; set; }
 
         #endregion
@@ -41,7 +43,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
         #region Constructors
 
         public OrderCancelRejectWrapper(string pOrderId, string pOrigClOrderId, string pClOrderId,
-                                        OrdStatus pOrdStatus, Side pSide,decimal? pPrice, decimal pLeftQty, 
+                                        OrdStatus pOrdStatus, Side pSide,decimal? pPrice, decimal pOrdQty,
+                                        decimal pLeftQty, 
                                         DateTime pTransactTime, 
                                         CxlRejReason pCxlRejReason,
                                         string pText,string pSymbol)
@@ -57,6 +60,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
             Side = pSide;
 
             Price = pPrice;
+
+            OrdQty = pOrdQty;
 
             LeftQty = pLeftQty;
 
@@ -94,6 +99,8 @@ namespace zHFT.OrderRouters.Bitmex.Common.Wrappers
                 return Price;
             else if (xrField == OrderCancelRejectField.LeftQty)
                 return LeftQty;
+            else if (xrField == OrderCancelRejectField.OrdQty)
+                return OrdQty;
             else if (xrField == OrderCancelRejectField.OrigClOrdID)
                 return OrigClOrderId;
             else if (xrField == OrderCancelRejectField.Text)

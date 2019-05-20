@@ -29,6 +29,7 @@ namespace zHFT.Main.Common.Enums
         NEW_ORDER,
         UPDATE_ORDER,
         CANCEL_ORDER,
+        CANCEL_ALL_ORDERS,
         CANCEL_POSITION,
         CANCEL_ALL_POSITIONS,
         SECURITY_LIST,
