@@ -126,7 +126,7 @@ namespace DGTLOrderEntryPanelPOC
 
         public static void ShowCreditUsageBarThread(object param)
         {
-
+            string accountIdSelected = ConfigurationManager.AppSettings["AccountIdSelected"];
             while (!AccountsReceived && ! CreditUsageReceived)
                 Thread.Sleep(1000);
 
@@ -134,7 +134,15 @@ namespace DGTLOrderEntryPanelPOC
             //Every time we change the combo selection, we will have to calculate this credit usage ratio again
             double creditLimit = 0;
             if (AccountRecords.Count > 0)
-                creditLimit = AccountRecords[0].CreditLimit;
+            {
+                AccountRecord accSelected = AccountRecords.Where(x=>x.AccountId==accountIdSelected).FirstOrDefault();
+                if (accSelected != null && accSelected.CreditLimit >= 0)
+                    creditLimit = accSelected.CreditLimit;
+                else if (accSelected == null)
+                    creditLimit = 0;
+                else if (accSelected != null && accSelected.CreditLimit < 0)
+                    creditLimit = accSelected.CreditLimit;
+            }
 
 
             DoLog("");
@@ -144,10 +152,17 @@ namespace DGTLOrderEntryPanelPOC
                 double ratio = (CreditRecordUpdate.CreditUsed / creditLimit) * 100 ;
                 DoLog(string.Format("{0}% ({1}/{2})", ratio.ToString("0.##"), CreditRecordUpdate.CreditUsed, creditLimit));
             }
-            else if (creditLimit <= 0)
-                DoLog(string.Format("Invalid value for Credit Limit by Firm: {0}", creditLimit));
+            else if (creditLimit < 0)
+                DoLog(string.Format("No Limits"));
+            else if (creditLimit == 0)
+            {
+                if (CreditRecordUpdate != null && CreditRecordUpdate.CreditUsed > 0)
+                    DoLog(string.Format("100%"));
+                else if (CreditRecordUpdate == null || CreditRecordUpdate.CreditUsed == 0)
+                    DoLog("No Limits");
+            }
             else if (CreditRecordUpdate == null)
-            { 
+            {
                 //we use 0 as a reference
                 DoLog(string.Format("0% (0/{0})", creditLimit));
             }

@@ -203,3 +203,160 @@
 2019-05-20 16:04:13  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
 2019-05-20 16:04:13  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
 2019-05-20 16:04:23  :: @Outgoing Bitmex:Cancelling all orders
+2019-05-20 17:05:42  :: Initializing Mock Simulated Server...
+2019-05-20 17:05:42  :: Initializing all collections...
+2019-05-20 17:05:43  :: 5/20/2019 5:05:43 PMBaseCommunicationModule.LoadConfig
+2019-05-20 17:05:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:05:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:05:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-20 17:05:43  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:05:46  :: Connected: True - Error Message: 
+2019-05-20 17:05:46  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:05:46  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-20 17:05:46  :: 5/20/2019 5:05:46 PMOrderRouterBase.LoadConfig
+2019-05-20 17:05:46  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:05:46  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:05:46  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-20 17:05:47  :: Collections Initialized...
+2019-05-20 17:05:48  :: Successfully subscribed to execution event 
+2019-05-20 17:07:32  :: Connecting for the first time to client 1273
+2019-05-20 17:07:32  :: Connected for the first time to client 1273
+2019-05-20 17:08:02  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:08:02  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:08:08  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-20 17:08:08  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-20 17:08:08  :: @Outgoing Bitmex:Recovering full order list
+2019-05-20 17:08:10  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-20 17:08:10  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-20 17:08:10  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-20 17:08:10  :: @Outgoing Bitmex:Recovering full order list
+2019-05-20 17:08:10  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:* Success:True
+2019-05-20 17:08:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:08:16  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:08:23  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:08:24  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:08:28  :: @Outgoing Bitmex:Cancelling order
+2019-05-20 17:11:40  :: Initializing Mock Simulated Server...
+2019-05-20 17:11:40  :: Initializing all collections...
+2019-05-20 17:11:40  :: 5/20/2019 5:11:40 PMBaseCommunicationModule.LoadConfig
+2019-05-20 17:11:40  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:11:40  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:11:40  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-20 17:11:40  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:11:42  :: Connected: True - Error Message: 
+2019-05-20 17:11:42  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:11:42  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-20 17:11:42  :: 5/20/2019 5:11:42 PMOrderRouterBase.LoadConfig
+2019-05-20 17:11:42  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:11:42  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:11:42  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-20 17:11:43  :: Collections Initialized...
+2019-05-20 17:11:44  :: Successfully subscribed to execution event 
+2019-05-20 17:11:56  :: Connecting for the first time to client 1697
+2019-05-20 17:11:56  :: Connected for the first time to client 1697
+2019-05-20 17:12:06  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:12:06  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:12:18  :: Incoming subscription for Service: Oy - Service key: 22@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-20 17:12:18  :: Entering ProcessMyOrders for ServiceKey=22@XBT-USD
+2019-05-20 17:12:18  :: @Outgoing Bitmex:Recovering full order list
+2019-05-20 17:12:19  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-20 17:12:27  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:12:27  :: Unknown order processing execution report for OrderId 38f0a7a0-389d-dede-7ab3-ada34e9dadef 
+2019-05-20 17:12:27  :: Unknown order processing execution report for OrderId 38f0a7a0-389d-dede-7ab3-ada34e9dadef 
+2019-05-20 17:12:43  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:12:44  :: Unknown order processing execution report for OrderId 3e278e7c-0466-1e56-0704-917835480d34 
+2019-05-20 17:12:44  :: Unknown order processing execution report for OrderId 3e278e7c-0466-1e56-0704-917835480d34 
+2019-05-20 17:13:00  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:13:00  :: Unknown order processing execution report for OrderId 847f29e0-3dfb-d854-1554-0bcb91495fa7 
+2019-05-20 17:14:04  :: Initializing Mock Simulated Server...
+2019-05-20 17:14:04  :: Initializing all collections...
+2019-05-20 17:14:04  :: 5/20/2019 5:14:04 PMBaseCommunicationModule.LoadConfig
+2019-05-20 17:14:04  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:14:04  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:14:04  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-20 17:14:04  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:14:06  :: Connected: True - Error Message: 
+2019-05-20 17:14:06  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:14:06  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-20 17:14:06  :: 5/20/2019 5:14:06 PMOrderRouterBase.LoadConfig
+2019-05-20 17:14:06  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:14:06  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:14:06  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-20 17:14:07  :: Collections Initialized...
+2019-05-20 17:14:08  :: Successfully subscribed to execution event 
+2019-05-20 17:14:14  :: Connecting for the first time to client 1904
+2019-05-20 17:14:14  :: Connected for the first time to client 1904
+2019-05-20 17:14:22  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:14:22  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:14:27  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:14:28  :: Unknown order processing execution report for OrderId e3d18c3e-a0bb-04cc-a59b-ec1018f5e223 
+2019-05-20 17:14:31  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:14:32  :: @Outgoing Bitmex:Cancelling order
+2019-05-20 17:14:50  :: Connecting second client 1943.  Removing previous client
+2019-05-20 17:14:50  :: Critical Error publishing Execution Report:Subproceso anulado.
+2019-05-20 17:14:50  :: Critical Error publishing OrderCancelReplaceReject:Subproceso anulado.
+2019-05-20 17:14:50  :: @Incoming Bitmex:Requesting Unsubscribe Market Data trades On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:14:50  :: @Incoming Bitmex:Requesting Unsubscribe Market Data quotes On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:14:50  :: @Incoming Bitmex:Requesting Unsubscribe Market Data order book On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:14:50  :: Turning threads off on socket disconnection
+2019-05-20 17:14:50  :: Connected second client 1943.  Removing previous client
+2019-05-20 17:14:55  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:14:55  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:14:58  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:15:03  :: @Outgoing Bitmex:Cancelling order
+2019-05-20 17:17:33  :: Connecting second client 2152.  Removing previous client
+2019-05-20 17:17:33  :: Critical Error publishing Execution Report:Subproceso anulado.
+2019-05-20 17:17:34  :: @Incoming Bitmex:Requesting Unsubscribe Market Data trades On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:34  :: Critical Error publishing OrderCancelReplaceReject:Subproceso anulado.
+2019-05-20 17:17:34  :: @Incoming Bitmex:Requesting Unsubscribe Market Data quotes On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:34  :: @Incoming Bitmex:Requesting Unsubscribe Market Data order book On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:34  :: Turning threads off on socket disconnection
+2019-05-20 17:17:34  :: Connected second client 2152.  Removing previous client
+2019-05-20 17:17:39  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:17:39  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:17:43  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:17:44  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:17:53  :: Connecting second client 2170.  Removing previous client
+2019-05-20 17:17:53  :: Critical Error publishing Execution Report:Subproceso anulado.
+2019-05-20 17:17:53  :: @Incoming Bitmex:Requesting Unsubscribe Market Data trades On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:53  :: @Incoming Bitmex:Requesting Unsubscribe Market Data quotes On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:53  :: Critical Error publishing OrderCancelReplaceReject:Subproceso anulado.
+2019-05-20 17:17:53  :: @Incoming Bitmex:Requesting Unsubscribe Market Data order book On Demand for Symbol: Incoming Bitmex
+2019-05-20 17:17:53  :: Turning threads off on socket disconnection
+2019-05-20 17:17:53  :: Connected second client 2170.  Removing previous client
+2019-05-20 17:18:01  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:18:01  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:18:08  :: Incoming subscription for Service: Oy - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-20 17:18:08  :: Entering ProcessMyOrders for ServiceKey=*
+2019-05-20 17:18:08  :: @Outgoing Bitmex:Recovering full order list
+2019-05-20 17:18:08  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-20 17:18:13  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:18:14  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:18:23  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:18:24  :: Received Filled report for not subscribed security XBT-USD to service Oy
+2019-05-20 17:18:55  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-20 17:21:07  :: Initializing Mock Simulated Server...
+2019-05-20 17:21:07  :: Initializing all collections...
+2019-05-20 17:21:07  :: 5/20/2019 5:21:07 PMBaseCommunicationModule.LoadConfig
+2019-05-20 17:21:07  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:21:07  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-20 17:21:07  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-20 17:21:07  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:21:09  :: Connected: True - Error Message: 
+2019-05-20 17:21:09  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-20 17:21:09  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-20 17:21:09  :: 5/20/2019 5:21:09 PMOrderRouterBase.LoadConfig
+2019-05-20 17:21:09  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:21:09  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-20 17:21:09  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-20 17:21:10  :: Collections Initialized...
+2019-05-20 17:21:11  :: Successfully subscribed to execution event 
+2019-05-20 17:21:18  :: Connecting for the first time to client 2375
+2019-05-20 17:21:18  :: Connected for the first time to client 2375
+2019-05-20 17:21:23  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-20 17:21:23  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-20 17:21:28  :: Incoming subscription for Service: Oy - Service key: 22@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-20 17:21:28  :: Entering ProcessMyOrders for ServiceKey=22@XBT-USD
+2019-05-20 17:21:28  :: @Outgoing Bitmex:Recovering full order list
+2019-05-20 17:21:29  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-20 17:21:38  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
