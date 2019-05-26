@@ -1,0 +1,144 @@
+2019-05-24 11:53:33  :: Initializing Mock Server...
+2019-05-24 11:53:33  :: Initializing all collections...
+2019-05-24 11:57:28  :: Initializing Mock Server...
+2019-05-24 11:57:28  :: Initializing all collections...
+2019-05-24 11:57:37  :: Connecting for the first time to client 1534
+2019-05-24 11:57:37  :: Connected for the first time to client 1534
+2019-05-24 11:57:43  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:43  :: Incoming Login request for user MM1_CLOBUI
+2019-05-24 11:57:43  :: user MM1_CLOBUI Successfully logged in
+2019-05-24 11:57:45  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:47  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:49  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:49  :: Incoming subscription for service LQ
+2019-05-24 11:57:49  :: Critical error processing quote message: El valor no puede ser nulo.
+Nombre del parámetro: source...
+2019-05-24 11:57:49  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:51  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:58  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:58  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:58  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:57:59  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:01  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:03  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:07  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:09  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:11  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:13  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:15  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:15  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:15  :: Incoming subscription for service LQ
+2019-05-24 11:58:17  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:19  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:21  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:23  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:25  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:27  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:29  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:31  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:33  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:35  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:37  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:39  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:41  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:42  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:58:42  :: Incoming subscription for service LQ
+2019-05-24 11:58:58  :: Initializing Mock Server...
+2019-05-24 11:58:58  :: Initializing all collections...
+2019-05-24 11:59:06  :: Connecting for the first time to client 1673
+2019-05-24 11:59:06  :: Connected for the first time to client 1673
+2019-05-24 11:59:13  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:59:13  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-24 11:59:13  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-24 11:59:14  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:59:16  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:59:18  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 11:59:18  :: Incoming subscription for service LQ
+2019-05-24 11:59:21  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:00:20  :: Initializing Mock Server...
+2019-05-24 12:00:20  :: Initializing all collections...
+2019-05-24 12:00:48  :: Initializing Mock Server...
+2019-05-24 12:00:48  :: Initializing all collections...
+2019-05-24 12:01:00  :: Connecting for the first time to client 1892
+2019-05-24 12:01:00  :: Connected for the first time to client 1892
+2019-05-24 12:01:08  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:08  :: Incoming Login request for user MM1_CLOBUI2
+2019-05-24 12:01:08  :: user MM1_CLOBUI2 Successfully logged in
+2019-05-24 12:01:10  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:12  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:13  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:13  :: Incoming subscription for service LQ
+2019-05-24 12:01:14  :: Critical error processing quote message: El valor no puede ser nulo.
+Nombre del parámetro: source...
+2019-05-24 12:01:14  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:16  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:18  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:20  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:22  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:01:36  :: Initializing Mock Server...
+2019-05-24 12:01:36  :: Initializing all collections...
+2019-05-24 12:02:09  :: Initializing Mock Server...
+2019-05-24 12:02:09  :: Initializing all collections...
+2019-05-24 12:02:13  :: Collections Initialized...
+2019-05-24 12:02:19  :: Connecting for the first time to client 1986
+2019-05-24 12:02:19  :: Connected for the first time to client 1986
+2019-05-24 12:02:32  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:32  :: Incoming Login request for user MM1_CLOBUI
+2019-05-24 12:02:32  :: user MM1_CLOBUI Successfully logged in
+2019-05-24 12:02:33  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:35  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:37  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:39  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:41  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:41  :: Incoming subscription for service LQ
+2019-05-24 12:02:41  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:43  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:44  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:XBT-USD Success:True
+2019-05-24 12:02:45  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:47  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:49  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:51  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:53  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:55  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:57  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:02:59  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:01  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:03  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:05  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:05  :: Incoming subscription for service LQ
+2019-05-24 12:03:07  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:08  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:NDF-XBT-USD-Z19 Success:True
+2019-05-24 12:03:09  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:11  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:13  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:15  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:17  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:19  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:21  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:23  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:23  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:23  :: Incoming subscription for service LQ
+2019-05-24 12:03:25  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:26  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:SWP-XBT-USD-V18 Success:True
+2019-05-24 12:03:27  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:29  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:31  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:33  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:35  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:37  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:39  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:41  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:43  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:45  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:47  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:48  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:48  :: Incoming subscription for service LQ
+2019-05-24 12:03:49  :: OnMessage from IP -> 127.0.0.1
+2019-05-24 12:03:51  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:SWP-XBT-USD-X18 Success:True
+2019-05-24 12:03:59  :: Critical error processing quote message: Subproceso anulado....
+2019-05-24 12:03:59  :: Critical error processing quote message: Subproceso anulado....
+2019-05-24 12:04:00  :: Critical error processing quote message: Subproceso anulado....
+2019-05-24 12:04:00  :: Critical error processing quote message: Subproceso anulado....
+2019-05-24 12:04:00  :: Turning threads off on socket disconnection

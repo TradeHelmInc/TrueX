@@ -61,7 +61,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
         public byte TimeInForce
         {
             get { return timeinforce; }
-            set { side = Convert.ToByte(value); }
+            set { timeinforce = Convert.ToByte(value); }
         }//Side B -> Buy, S->Sell
 
         [JsonIgnore]

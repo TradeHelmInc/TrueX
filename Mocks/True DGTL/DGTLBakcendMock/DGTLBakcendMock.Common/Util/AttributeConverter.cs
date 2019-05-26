@@ -56,6 +56,8 @@ namespace DGTLBackendMock.Common.Util
                 return LegacyOrderAck._STATUS_OPEN;
             else if (execReport.OrdStatus == OrdStatus.Filled)
                 return LegacyOrderAck._STATUS_FULL_FILL;
+            else if (execReport.OrdStatus == OrdStatus.Expired)
+                return LegacyOrderAck._STATUS_EXPIRED;
             else
                 return LegacyOrderAck._STATUS_UNKNOWN;
 

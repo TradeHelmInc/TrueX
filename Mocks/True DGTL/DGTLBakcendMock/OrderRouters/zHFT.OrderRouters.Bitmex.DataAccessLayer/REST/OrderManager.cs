@@ -146,7 +146,7 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             var param = new Dictionary<string, string>();
             if (symbol != null)
                 param.Add("symbol", symbol);
-            param.Add("count", 20.ToString());
+            //param.Add("count", 20.ToString());
             string resp = api.Query("GET", "/order", param, true);
 
             ExecutionReport[] reports = JsonConvert.DeserializeObject<ExecutionReport[]>(resp);

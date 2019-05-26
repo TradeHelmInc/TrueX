@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using zHFT.FullMrktConnectivity.BitMex.Common.DTO.Websockets;
 using zHFT.FullMrktConnectivity.BitMex.Common.DTO.Websockets.Auth;
@@ -213,7 +214,7 @@ namespace zHFT.OrderRouters.Bitmex
             ExecutionReport[] reports = OrderManager.GetOrders(symbol);
 
             int count = 0;
-            foreach (ExecutionReport report in reports)
+            foreach (ExecutionReport report in reports.OrderByDescending(x=>x.Timestamp).Take(100))
             {
                 count++;
                 Order orderRetrieved = new Order();
@@ -229,6 +230,9 @@ namespace zHFT.OrderRouters.Bitmex
 
                 ExecutionReportInitialListWrapper erWrapper = new ExecutionReportInitialListWrapper(report, orderRetrieved, count==reports.Length);
                 OnMessageRcv(erWrapper);
+
+                if (count % 20 == 0)
+                    Thread.Sleep(1000);
             }
 
             return CMState.BuildSuccess();

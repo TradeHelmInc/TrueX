@@ -65,5 +65,23 @@ namespace zHFT.Main.BusinessEntities.Market_Data
         public Security Security { get; set; }
 
         #endregion
+
+
+        #region Public Methods
+
+        public decimal? GetMidPoint()
+        {
+
+            if (BestAskPrice == null || BestBidPrice == null)
+                return null;
+
+
+            double midPoint = (BestAskPrice.Value + BestBidPrice.Value) / 2;
+
+            return Convert.ToDecimal(midPoint);
+        
+        }
+
+        #endregion
     }
 }

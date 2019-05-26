@@ -57,6 +57,7 @@
     <Compile Include="DTO\MarketData\LastSale.cs" />
     <Compile Include="DTO\MarketData\LegacyTradeHistory.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
+    <Compile Include="DTO\OrderRouting\LegacyMassOrderCancelResponse.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderCancelAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderCancelRejAck.cs" />

@@ -327,7 +327,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 Ask = secMapping.PublishedMarketDataQuotes.BestAskPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketDataQuotes.BestAskPrice) : null,
                                 AskSize = secMapping.PublishedMarketDataQuotes.BestAskSize,
                                 Bid = secMapping.PublishedMarketDataQuotes.BestBidPrice.HasValue ? (decimal?)Convert.ToDecimal(secMapping.PublishedMarketDataQuotes.BestBidPrice) : null,
-                                BidSize = secMapping.PublishedMarketDataQuotes.BestBidSize
+                                BidSize = secMapping.PublishedMarketDataQuotes.BestBidSize,
+                                MidPoint = secMapping.PublishedMarketDataQuotes.GetMidPoint(),
                             };
 
                             string strQuote = JsonConvert.SerializeObject(quote, Newtonsoft.Json.Formatting.None,
@@ -512,6 +513,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     report = new LegacyOrderCancelAck();
                     report.Msg = "LegacyOrderCancelAck";
                     ((LegacyOrderCancelAck)report).OrigClOrderId = execReport.Order.ClOrdId;
+                    ((LegacyOrderCancelAck)report).CancelReason = "Just cancelled" ;
 
                 }
                 else if (execReport.OrdStatus == OrdStatus.New)
@@ -545,7 +547,8 @@ namespace DGTLBackendMock.DataAccessLayer
             else
             {
 
-                if (execReport.OrdStatus == OrdStatus.PartiallyFilled || execReport.OrdStatus == OrdStatus.Filled)
+                if (execReport.OrdStatus == OrdStatus.PartiallyFilled || execReport.OrdStatus == OrdStatus.Filled
+                     || execReport.OrdStatus == OrdStatus.Expired)
                 {
 
                     if (secMapping.SubscribedOy)
@@ -872,8 +875,24 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
         {
-            LegacyOrderMassCancelReq legOrderMassCancel = JsonConvert.DeserializeObject<LegacyOrderMassCancelReq>(m);
-            OrderRoutingModule.ProcessMessage(new LegacyOrderMassCancelReqWrapper());
+            try
+            {
+                LegacyOrderMassCancelReq legOrderMassCancel = JsonConvert.DeserializeObject<LegacyOrderMassCancelReq>(m);
+                OrderRoutingModule.ProcessMessage(new LegacyOrderMassCancelReqWrapper());
+
+                LegacyMassOrderCancelResponse okResp = new LegacyMassOrderCancelResponse();
+                okResp.Msg = "LegacyMassOrderCancelResponse";
+                okResp.RejectReason = "";
+                DoSend<LegacyMassOrderCancelResponse>(socket, okResp);
+            }
+            catch (Exception ex)
+            {
+
+                LegacyMassOrderCancelResponse failedResp = new LegacyMassOrderCancelResponse();
+                failedResp.Msg = "LegacyMassOrderCancelResponse";
+                failedResp.RejectReason = ex.Message;
+                DoSend<LegacyMassOrderCancelResponse>(socket, failedResp);
+            }
         }
 
         private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)

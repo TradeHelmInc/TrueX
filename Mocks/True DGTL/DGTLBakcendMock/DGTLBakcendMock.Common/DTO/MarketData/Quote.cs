@@ -21,6 +21,8 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         public decimal? AskSize { get; set; }
 
+        public decimal? MidPoint { get; set; }
+
         #endregion
     }
 }

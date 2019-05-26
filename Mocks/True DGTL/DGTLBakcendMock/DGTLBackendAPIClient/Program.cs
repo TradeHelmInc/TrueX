@@ -301,7 +301,7 @@ namespace DGTLBackendAPIClient
                 AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : "VIRT_STD_ACCT1",
                 InstrumentId = ConfigurationManager.AppSettings["OrderSymbol"],
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
-                cSide = 'B',//Buy
+                cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? 'B' : 'S',//Buy or sell
                 Quantity = 1,
                 cTimeInForce = '0',//Day
                 cOrderType = LegacyOrderReq._ORD_TYPE_LIMIT,//Limit

@@ -9,5 +9,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
     public class LegacyOrderCancelAck : LegacyOrderExecutionReport
     {
         public string OrigClOrderId { get; set; }
+
+        public string CancelReason { get; set; }
     }
 }

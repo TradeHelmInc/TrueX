@@ -605,11 +605,15 @@ namespace zHFT.InstructionBasedMarketClient.BitMex
                 {
                     List<zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade> trades = RESTMarketDataManager.GetTrades(mdr.Security.Symbol);
 
-                    foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades.Where(x=>x.symbol==mdr.Security.Symbol).ToList())
+                    foreach (zHFT.InstructionBasedMarketClient.BitMex.Common.DTO.Trade trade in trades.Where(x=>x.symbol==mdr.Security.Symbol)
+                                                                                                       .OrderByDescending(x=>x.timestamp).Take(100).ToList())
                     {
                         BitMexTradeWrapper tradeWrapper = new BitMexTradeWrapper(trade, i==trades.Count);
 
                         OnMessageRcv(tradeWrapper);
+
+                        if (i % 20 == 0)
+                            Thread.Sleep(1000);
 
                         i++;
                     }

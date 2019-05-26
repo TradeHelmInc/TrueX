@@ -1,0 +1,234 @@
+2019-05-22 10:21:56  :: Initializing Mock Simulated Server...
+2019-05-22 10:21:56  :: Initializing all collections...
+2019-05-22 10:21:56  :: 5/22/2019 10:21:56 AMBaseCommunicationModule.LoadConfig
+2019-05-22 10:21:56  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:21:56  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:21:56  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 10:21:56  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:21:58  :: Connected: True - Error Message: 
+2019-05-22 10:21:58  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:21:58  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 10:21:58  :: 5/22/2019 10:21:58 AMOrderRouterBase.LoadConfig
+2019-05-22 10:21:58  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:21:58  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:21:58  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 10:21:59  :: Collections Initialized...
+2019-05-22 10:22:00  :: Successfully subscribed to execution event 
+2019-05-22 10:22:11  :: Connecting for the first time to client 11397
+2019-05-22 10:22:11  :: Connected for the first time to client 11397
+2019-05-22 10:22:11  :: Incoming Login request for user MM3_CLOBUI2
+2019-05-22 10:22:11  :: user MM3_CLOBUI2 Successfully logged in
+2019-05-22 10:22:11  :: Incoming subscription for Service: TB - Service key: MM3_CLOBUI2 - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM3_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:22:11  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM3_CLOBUI2 Success:True
+2019-05-22 10:22:11  :: Incoming subscription for Service: TD - Service key: 271058656@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM3_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:22:11  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:271058656 Success:True
+2019-05-22 10:22:12  :: Incoming subscription for Service: CU - Service key: 271058656@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM3_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:22:12  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:271058656 Success:True
+2019-05-22 10:25:33  :: Initializing Mock Simulated Server...
+2019-05-22 10:25:33  :: Initializing all collections...
+2019-05-22 10:25:33  :: 5/22/2019 10:25:33 AMBaseCommunicationModule.LoadConfig
+2019-05-22 10:25:33  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:25:33  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:25:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 10:25:33  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:25:45  :: Connected: True - Error Message: 
+2019-05-22 10:25:45  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:25:45  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 10:25:45  :: 5/22/2019 10:25:45 AMOrderRouterBase.LoadConfig
+2019-05-22 10:25:45  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:25:45  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:25:45  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 10:25:46  :: Collections Initialized...
+2019-05-22 10:25:47  :: Successfully subscribed to execution event 
+2019-05-22 10:25:56  :: Connecting for the first time to client 11625
+2019-05-22 10:25:56  :: Connected for the first time to client 11625
+2019-05-22 10:25:56  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:25:56  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:25:56  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:25:56  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-22 10:25:56  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:25:56  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-22 10:25:57  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:25:57  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-22 10:27:45  :: Initializing Mock Simulated Server...
+2019-05-22 10:27:45  :: Initializing all collections...
+2019-05-22 10:27:45  :: 5/22/2019 10:27:45 AMBaseCommunicationModule.LoadConfig
+2019-05-22 10:27:45  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:27:45  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:27:45  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 10:27:45  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:27:46  :: Connected: True - Error Message: 
+2019-05-22 10:27:46  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:27:46  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 10:27:47  :: 5/22/2019 10:27:47 AMOrderRouterBase.LoadConfig
+2019-05-22 10:27:47  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:27:47  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:27:47  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 10:27:47  :: Collections Initialized...
+2019-05-22 10:27:48  :: Successfully subscribed to execution event 
+2019-05-22 10:27:55  :: Connecting for the first time to client 11736
+2019-05-22 10:27:55  :: Connected for the first time to client 11736
+2019-05-22 10:27:55  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:27:55  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:27:55  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:27:55  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-22 10:27:55  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:27:55  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-22 10:27:56  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:27:56  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-22 10:28:46  :: Initializing Mock Simulated Server...
+2019-05-22 10:28:46  :: Initializing all collections...
+2019-05-22 10:28:46  :: 5/22/2019 10:28:46 AMBaseCommunicationModule.LoadConfig
+2019-05-22 10:28:46  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:28:46  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:28:46  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 10:28:46  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:28:58  :: Connected: True - Error Message: 
+2019-05-22 10:28:58  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:28:58  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 10:28:58  :: 5/22/2019 10:28:58 AMOrderRouterBase.LoadConfig
+2019-05-22 10:28:58  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:28:58  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:28:58  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 10:28:59  :: Collections Initialized...
+2019-05-22 10:29:00  :: Successfully subscribed to execution event 
+2019-05-22 10:29:06  :: Connecting for the first time to client 11804
+2019-05-22 10:29:06  :: Connected for the first time to client 11804
+2019-05-22 10:29:06  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:29:06  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:29:06  :: Incoming subscription for Service: TB - Service key: MM1_CLOBUI - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:29:06  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-05-22 10:29:06  :: Incoming subscription for Service: TD - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:29:06  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-05-22 10:29:07  :: Incoming subscription for Service: CU - Service key: 548346919@* - UUID: OrderEntryPanelPOCUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:29:07  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-05-22 10:34:09  :: Initializing Mock Simulated Server...
+2019-05-22 10:34:09  :: Initializing all collections...
+2019-05-22 10:34:10  :: 5/22/2019 10:34:10 AMBaseCommunicationModule.LoadConfig
+2019-05-22 10:34:10  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:34:10  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 10:34:10  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 10:34:10  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:34:22  :: Connected: True - Error Message: 
+2019-05-22 10:34:22  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 10:34:22  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 10:34:22  :: 5/22/2019 10:34:22 AMOrderRouterBase.LoadConfig
+2019-05-22 10:34:22  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:34:22  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 10:34:22  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 10:34:23  :: Collections Initialized...
+2019-05-22 10:34:24  :: Successfully subscribed to execution event 
+2019-05-22 10:35:09  :: Connecting for the first time to client 12275
+2019-05-22 10:35:09  :: Connected for the first time to client 12275
+2019-05-22 10:35:14  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:35:14  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:35:20  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:35:20  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:35:27  :: Incoming Login request for user MM1_CLOBUI
+2019-05-22 10:35:27  :: user MM1_CLOBUI Successfully logged in
+2019-05-22 10:35:29  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:35:29  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-05-22 10:35:49  :: SubscriptionResponse UUID: Service:LT ServiceKey: Success:True
+2019-05-22 10:36:01  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 10:36:01  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-05-22 10:36:06  :: SubscriptionResponse UUID:APIClientUUID Service:LT ServiceKey:XBT-USD Success:True
+2019-05-22 16:01:37  :: Initializing Mock Simulated Server...
+2019-05-22 16:01:37  :: Initializing all collections...
+2019-05-22 16:01:37  :: 5/22/2019 4:01:37 PMBaseCommunicationModule.LoadConfig
+2019-05-22 16:01:37  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:01:37  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:01:37  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 16:01:37  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:01:38  :: Connected: True - Error Message: 
+2019-05-22 16:01:38  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:01:38  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 16:01:39  :: 5/22/2019 4:01:39 PMOrderRouterBase.LoadConfig
+2019-05-22 16:01:39  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:01:39  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:01:39  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 16:01:40  :: Collections Initialized...
+2019-05-22 16:01:41  :: Successfully subscribed to execution event 
+2019-05-22 16:01:51  :: Connecting for the first time to client 15565
+2019-05-22 16:01:51  :: Connected for the first time to client 15565
+2019-05-22 16:02:05  :: Incoming Login request for user MM2_CLOBUI1
+2019-05-22 16:02:05  :: user MM2_CLOBUI1 Successfully logged in
+2019-05-22 16:02:14  :: Incoming subscription for Service: Oy - Service key: MM2_CLOBUI2@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI1 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 16:02:14  :: Entering ProcessMyOrders for ServiceKey=MM2_CLOBUI2@XBT-USD
+2019-05-22 16:02:14  :: @Outgoing Bitmex:Recovering full order list
+2019-05-22 16:02:19  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-22 16:02:27  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-22 16:03:08  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-22 16:04:38  :: Initializing Mock Simulated Server...
+2019-05-22 16:04:38  :: Initializing all collections...
+2019-05-22 16:04:38  :: 5/22/2019 4:04:38 PMBaseCommunicationModule.LoadConfig
+2019-05-22 16:04:38  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:04:38  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:04:38  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 16:04:38  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:04:39  :: Connected: True - Error Message: 
+2019-05-22 16:04:39  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:04:40  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 16:04:40  :: 5/22/2019 4:04:40 PMOrderRouterBase.LoadConfig
+2019-05-22 16:04:40  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:04:40  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:04:40  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 16:04:41  :: Collections Initialized...
+2019-05-22 16:04:41  :: Successfully subscribed to execution event 
+2019-05-22 16:04:47  :: Connecting for the first time to client 15912
+2019-05-22 16:04:47  :: Connected for the first time to client 15912
+2019-05-22 16:04:54  :: Incoming Login request for user MM2_CLOBUI1
+2019-05-22 16:04:54  :: user MM2_CLOBUI1 Successfully logged in
+2019-05-22 16:05:00  :: Incoming subscription for Service: Oy - Service key: MM2_CLOBUI2@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI1 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 16:05:00  :: Entering ProcessMyOrders for ServiceKey=MM2_CLOBUI2@XBT-USD
+2019-05-22 16:05:00  :: @Outgoing Bitmex:Recovering full order list
+2019-05-22 16:05:05  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-22 16:05:09  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-22 16:05:09  :: Unknown order processing execution report for OrderId 6671ee0f-2490-f68d-6502-e2a22785c63e 
+2019-05-22 16:05:09  :: Unknown order processing execution report for OrderId 6671ee0f-2490-f68d-6502-e2a22785c63e 
+2019-05-22 16:05:16  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-22 16:05:17  :: Unknown order processing execution report for OrderId 451e139f-495d-5736-2025-6b939f738ac5 
+2019-05-22 16:15:32  :: Initializing Mock Simulated Server...
+2019-05-22 16:15:32  :: Initializing all collections...
+2019-05-22 16:15:33  :: 5/22/2019 4:15:33 PMBaseCommunicationModule.LoadConfig
+2019-05-22 16:15:33  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:15:33  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-05-22 16:15:33  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-05-22 16:15:33  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:15:46  :: Connected: True - Error Message: 
+2019-05-22 16:15:46  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-05-22 16:15:46  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-05-22 16:15:46  :: 5/22/2019 4:15:46 PMOrderRouterBase.LoadConfig
+2019-05-22 16:15:46  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:15:46  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-05-22 16:15:46  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-05-22 16:15:47  :: Collections Initialized...
+2019-05-22 16:15:47  :: Successfully subscribed to execution event 
+2019-05-22 16:16:01  :: Connecting for the first time to client 17441
+2019-05-22 16:16:01  :: Connected for the first time to client 17441
+2019-05-22 16:16:06  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-22 16:16:06  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-22 16:16:11  :: Incoming subscription for Service: Oy - Service key: MM2_CLOBUI2@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 16:16:11  :: Entering ProcessMyOrders for ServiceKey=MM2_CLOBUI2@XBT-USD
+2019-05-22 16:16:11  :: @Outgoing Bitmex:Recovering full order list
+2019-05-22 16:16:17  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-05-22 16:16:20  :: @Outgoing Bitmex:Routing  to market for symbol XBTU19
+2019-05-22 16:18:36  :: Connecting second client 17769.  Removing previous client
+2019-05-22 16:18:36  :: Critical Error publishing Execution Report:Subproceso anulado.
+2019-05-22 16:18:36  :: Critical Error publishing OrderCancelReplaceReject:Subproceso anulado.
+2019-05-22 16:18:36  :: @Incoming Bitmex:Requesting Unsubscribe Market Data trades On Demand for Symbol: Incoming Bitmex
+2019-05-22 16:18:36  :: @Incoming Bitmex:Requesting Unsubscribe Market Data quotes On Demand for Symbol: Incoming Bitmex
+2019-05-22 16:18:37  :: @Incoming Bitmex:Requesting Unsubscribe Market Data order book On Demand for Symbol: Incoming Bitmex
+2019-05-22 16:18:37  :: Turning threads off on socket disconnection
+2019-05-22 16:18:37  :: Connected second client 17769.  Removing previous client
+2019-05-22 16:18:41  :: Incoming Login request for user MM2_CLOBUI2
+2019-05-22 16:18:41  :: user MM2_CLOBUI2 Successfully logged in
+2019-05-22 16:18:49  :: Incoming subscription for Service: Oy - Service key: MM2_CLOBUI2@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-05-22 16:18:49  :: Entering ProcessMyOrders for ServiceKey=MM2_CLOBUI2@XBT-USD
+2019-05-22 16:18:49  :: @Outgoing Bitmex:Recovering full order list
+2019-05-22 16:20:54  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-05-22 16:23:08  :: Unknown order processing execution report for OrderId 849da77c-0c6a-0a7d-0397-6b2f10206ce9 
+2019-05-22 16:23:08  :: Unknown order processing execution report for OrderId 849da77c-0c6a-0a7d-0397-6b2f10206ce9 
+2019-05-22 16:23:24  :: Unknown order processing execution report for OrderId 27e9e1c3-3ec0-3f76-6947-565e9d3bfa53 
+2019-05-22 16:23:34  :: Unknown order processing execution report for OrderId 27e9e1c3-3ec0-3f76-6947-565e9d3bfa53 
+2019-05-22 16:24:56  :: Unknown order processing execution report for OrderId 8fb1f692-3b99-4030-3435-271d56023700 
+2019-05-22 16:27:02  :: Unknown order processing execution report for OrderId 8fb1f692-3b99-4030-3435-271d56023700 

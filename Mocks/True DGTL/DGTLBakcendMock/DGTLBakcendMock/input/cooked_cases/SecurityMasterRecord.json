@@ -3,6 +3,8 @@
 ,
 {"Description":"ETH x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-ETH","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"ETH-USD","Msg":"SecurityMasterRecord"}
 ,
+{"Description":"XRP x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-XRP","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XRP-USD","Msg":"SecurityMasterRecord"}
+,
 {"Description":"XBT x USD Cash Forward October 2018","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20181026","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-V18","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Cash Forward January 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"USD-XBT","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20190120","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-F19","Msg":"SecurityMasterRecord"}
