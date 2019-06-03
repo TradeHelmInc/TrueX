@@ -146,6 +146,7 @@ namespace zHFT.OrderRouters.Bitmex.DataAccessLayer
             var param = new Dictionary<string, string>();
             if (symbol != null)
                 param.Add("symbol", symbol);
+            param.Add("reverse", "true");
             //param.Add("count", 20.ToString());
             string resp = api.Query("GET", "/order", param, true);
 
