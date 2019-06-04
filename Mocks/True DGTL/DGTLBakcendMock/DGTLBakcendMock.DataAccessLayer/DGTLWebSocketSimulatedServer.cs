@@ -769,6 +769,23 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessSecurityStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            if (subscrMsg.ServiceKey != "*")
+            {
+
+                SecurityMapping secMaping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
+
+                SecurityStatus secStatus = new SecurityStatus();
+                secStatus.Msg="SecurityStatus";
+                secStatus.Symbol=subscrMsg.ServiceKey;
+                secStatus.cStatus = secMaping != null ? SecurityStatus._SEC_STATUS_TRADING : SecurityStatus._SEC_STATUS_HALTING;
+                DoSend<SecurityStatus>(socket, secStatus);
+            }
+            else
+                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+        }
+
         private void ProcessLastQuote(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             try
@@ -1121,6 +1138,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (subscrMsg.Service == "TD")
                 {
                     ProcessAccountRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TI")
+                {
+                    ProcessSecurityStatus(socket, subscrMsg);
                 }
           
                 else if (subscrMsg.Service == "TB")

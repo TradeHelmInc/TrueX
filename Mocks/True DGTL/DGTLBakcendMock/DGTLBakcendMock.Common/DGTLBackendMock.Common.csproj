@@ -71,6 +71,7 @@
     <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />
     <Compile Include="DTO\SecurityList\RefereceRateMsg.cs" />
     <Compile Include="DTO\SecurityList\SecurityMasterRecord.cs" />
+    <Compile Include="DTO\SecurityList\SecurityStatus.cs" />
     <Compile Include="DTO\SecurityList\UserRecord.cs" />
     <Compile Include="DTO\SecurityMapping.cs" />
     <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />
