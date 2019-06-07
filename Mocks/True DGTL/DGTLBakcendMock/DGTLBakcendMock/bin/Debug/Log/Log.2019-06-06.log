@@ -1,0 +1,57 @@
+2019-06-06 21:18:20  :: Initializing Mock Simulated Server...
+2019-06-06 21:18:20  :: Initializing all collections...
+2019-06-06 21:18:20  :: 6/6/2019 9:18:20 PMBaseCommunicationModule.LoadConfig
+2019-06-06 21:18:20  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:18:20  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:18:20  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-06 21:18:20  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:18:32  :: Connected: True - Error Message: 
+2019-06-06 21:18:32  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:18:32  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-06 21:18:33  :: 6/6/2019 9:18:33 PMOrderRouterBase.LoadConfig
+2019-06-06 21:18:33  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:18:33  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:18:33  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-06 21:18:33  :: Collections Initialized...
+2019-06-06 21:18:34  :: Successfully subscribed to execution event 
+2019-06-06 21:23:37  :: Initializing Mock Simulated Server...
+2019-06-06 21:23:37  :: Initializing all collections...
+2019-06-06 21:23:37  :: 6/6/2019 9:23:37 PMBaseCommunicationModule.LoadConfig
+2019-06-06 21:23:37  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:23:37  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:23:37  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-06 21:23:37  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:23:49  :: Connected: True - Error Message: 
+2019-06-06 21:23:49  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:23:49  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-06 21:23:49  :: 6/6/2019 9:23:49 PMOrderRouterBase.LoadConfig
+2019-06-06 21:23:49  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:23:49  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:23:49  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-06 21:23:50  :: Collections Initialized...
+2019-06-06 21:23:51  :: Successfully subscribed to execution event 
+2019-06-06 21:26:57  :: Initializing Mock Simulated Server...
+2019-06-06 21:26:57  :: Initializing all collections...
+2019-06-06 21:26:57  :: 6/6/2019 9:26:57 PMBaseCommunicationModule.LoadConfig
+2019-06-06 21:26:57  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:26:57  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-06 21:26:57  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-06 21:26:57  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:27:09  :: Connected: True - Error Message: 
+2019-06-06 21:27:09  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-06 21:27:09  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-06 21:27:09  :: 6/6/2019 9:27:09 PMOrderRouterBase.LoadConfig
+2019-06-06 21:27:09  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:27:09  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-06 21:27:09  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-06 21:27:10  :: Collections Initialized...
+2019-06-06 21:27:10  :: Successfully subscribed to execution event 
+2019-06-06 21:27:26  :: Connecting for the first time to client 17945
+2019-06-06 21:27:26  :: Connected for the first time to client 17945
+2019-06-06 21:27:28  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-06 21:27:28  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-06 21:27:44  :: Incoming subscription for Service: PS4Subscribe - Service key: PS - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-06 21:28:25  :: Incoming subscription for Service: PS - Service key: * - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-06 21:28:27  :: SubscriptionResponse UUID:APIClientUUID Service:PS ServiceKey:* Success:True
+2019-06-06 21:28:33  :: SubscriptionResponse UUID:APIClientUUID Service:PS ServiceKey:* Success:True
+2019-06-06 21:28:51  :: SubscriptionResponse UUID:APIClientUUID Service:PS ServiceKey:* Success:True

@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.OrderRouting;
+using DGTLBackendMock.Common.DTO.Platform;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using Fleck;
@@ -56,6 +57,8 @@ namespace DGTLBackendMock.DataAccessLayer
         protected DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate[] CreditRecordUpdates { get; set; }
 
         protected AccountRecord[] AccountRecords { get; set; }
+
+        protected PlatformStatus PlatformStatus { get; set; }
 
         protected object tLock = new object();
 
@@ -126,6 +129,18 @@ namespace DGTLBackendMock.DataAccessLayer
             //Aca le metemos que serialize el contenido
             AccountRecords = JsonConvert.DeserializeObject<AccountRecord[]>(strAccountRecords);
         }
+
+        protected void LoadPlatformStatus()
+        {
+            string strPlatformStatus = File.ReadAllText(@".\input\PlatformStatus.json");
+
+            //Aca le metemos que serialize el contenido
+            PlatformStatus = JsonConvert.DeserializeObject<PlatformStatus>(strPlatformStatus);
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            PlatformStatus.StatusTime = Convert.ToInt64(elapsed.TotalSeconds);
+        }
+
 
         protected void ProcessClientLoginMock(IWebSocketConnection socket, string m)
         {

@@ -1,6 +1,7 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.OrderRouting;
+using DGTLBackendMock.Common.DTO.Platform;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.Common.Util;
@@ -121,6 +122,8 @@ namespace DGTLBackendMock.DataAccessLayer
             LoadCreditRecordUpdates();
 
             LoadAccountRecords();
+
+            LoadPlatformStatus();
 
             Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
             {
@@ -781,9 +784,17 @@ namespace DGTLBackendMock.DataAccessLayer
                 secStatus.Symbol=subscrMsg.ServiceKey;
                 secStatus.cStatus = secMaping != null ? SecurityStatus._SEC_STATUS_TRADING : SecurityStatus._SEC_STATUS_HALTING;
                 DoSend<SecurityStatus>(socket, secStatus);
+                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+
             }
             else
                 ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+        }
+
+        protected void ProcessPlatformStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            DoSend<PlatformStatus>(socket, PlatformStatus);
+            ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
         }
 
         private void ProcessLastQuote(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
@@ -807,10 +818,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             ProcessLastQuoteThreads.Add(subscrMsg.ServiceKey, processLastQuoteThread);
                         }
                     }
-
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -1143,7 +1151,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessSecurityStatus(socket, subscrMsg);
                 }
-          
+                else if (subscrMsg.Service == "PS")
+                {
+                    ProcessPlatformStatus(socket, subscrMsg);
+                }
                 else if (subscrMsg.Service == "TB")
                 {
                     ProcessUserRecord(socket, subscrMsg);
