@@ -8,7 +8,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 {
     public class LegacyOrderAck : LegacyOrderExecutionReport
     {
+        public decimal Quantity { get; set; }
 
+        public string AccountId { get; set; }
     
     }
 }

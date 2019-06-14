@@ -1,0 +1,52 @@
+2019-06-14 12:24:58  :: Initializing Mock Simulated Server...
+2019-06-14 12:24:58  :: Initializing all collections...
+2019-06-14 12:24:59  :: 6/14/2019 12:24:59 PMBaseCommunicationModule.LoadConfig
+2019-06-14 12:24:59  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-14 12:24:59  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-14 12:24:59  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-14 12:24:59  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-14 12:25:11  :: Connected: True - Error Message: 
+2019-06-14 12:25:11  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-14 12:25:11  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-14 12:25:11  :: 6/14/2019 12:25:11 PMOrderRouterBase.LoadConfig
+2019-06-14 12:25:11  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-14 12:25:11  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-14 12:25:11  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-14 12:25:12  :: Collections Initialized...
+2019-06-14 12:25:13  :: Successfully subscribed to execution event 
+2019-06-14 12:25:27  :: Connecting for the first time to client 16125
+2019-06-14 12:25:27  :: Connected for the first time to client 16125
+2019-06-14 12:25:43  :: Incoming Login request for user SIMUSER_9_UI1
+2019-06-14 12:25:43  :: user SIMUSER_9_UI1 Rejected because of wrong user or password
+2019-06-14 12:25:43  ::  OnClose for client 16125
+2019-06-14 12:25:43  :: Turning threads off on socket disconnection
+2019-06-14 12:26:01  :: Connecting for the first time to client 16135
+2019-06-14 12:26:01  :: Connected for the first time to client 16135
+2019-06-14 12:26:01  :: Incoming Login request for user MM2_CLOBUI2
+2019-06-14 12:26:01  :: user MM2_CLOBUI2 Successfully logged in
+2019-06-14 12:26:11  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-14 12:26:11  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-06-14 12:26:16  :: SubscriptionResponse UUID: Service:LT ServiceKey: Success:True
+2019-06-14 12:30:37  :: Initializing Mock Simulated Server...
+2019-06-14 12:30:37  :: Initializing all collections...
+2019-06-14 12:30:38  :: 6/14/2019 12:30:38 PMBaseCommunicationModule.LoadConfig
+2019-06-14 12:30:38  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-14 12:30:38  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-14 12:30:38  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-14 12:30:38  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-14 12:30:39  :: Connected: True - Error Message: 
+2019-06-14 12:30:39  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-14 12:30:39  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-14 12:30:39  :: 6/14/2019 12:30:39 PMOrderRouterBase.LoadConfig
+2019-06-14 12:30:39  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-14 12:30:39  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-14 12:30:39  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-14 12:30:40  :: Collections Initialized...
+2019-06-14 12:30:41  :: Successfully subscribed to execution event 
+2019-06-14 12:30:54  :: Connecting for the first time to client 16396
+2019-06-14 12:30:54  :: Connected for the first time to client 16396
+2019-06-14 12:30:58  :: Incoming Login request for user MM2_CLOBUI2
+2019-06-14 12:30:58  :: user MM2_CLOBUI2 Successfully logged in
+2019-06-14 12:31:04  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-14 12:31:04  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-06-14 12:31:09  :: SubscriptionResponse UUID: Service:LT ServiceKey: Success:True

@@ -1,0 +1,46 @@
+2019-06-13 16:26:56  :: Initializing Mock Simulated Server...
+2019-06-13 16:26:56  :: Initializing all collections...
+2019-06-13 16:26:57  :: 6/13/2019 4:26:57 PMBaseCommunicationModule.LoadConfig
+2019-06-13 16:26:57  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-13 16:26:57  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-13 16:26:57  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-13 16:26:57  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-13 16:26:58  :: Connected: True - Error Message: 
+2019-06-13 16:26:58  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-13 16:26:58  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-13 16:26:59  :: 6/13/2019 4:26:59 PMOrderRouterBase.LoadConfig
+2019-06-13 16:26:59  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-13 16:26:59  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-13 16:26:59  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-13 16:26:59  :: Collections Initialized...
+2019-06-13 16:27:00  :: Successfully subscribed to execution event 
+2019-06-13 16:27:02  :: Unknown order processing execution report for OrderId c4478ce7-183a-ee0d-36cb-3c19d4547821 
+2019-06-13 16:27:10  :: Connecting for the first time to client 12168
+2019-06-13 16:27:10  :: Connected for the first time to client 12168
+2019-06-13 16:27:15  :: Incoming Login request for user SIMUSER_9_UI1
+2019-06-13 16:27:15  :: user SIMUSER_9_UI1 Rejected because of wrong user or password
+2019-06-13 16:27:15  ::  OnClose for client 12168
+2019-06-13 16:27:15  :: Turning threads off on socket disconnection
+2019-06-13 16:27:44  :: Initializing Mock Simulated Server...
+2019-06-13 16:27:44  :: Initializing all collections...
+2019-06-13 16:27:44  :: 6/13/2019 4:27:44 PMBaseCommunicationModule.LoadConfig
+2019-06-13 16:27:44  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-13 16:27:44  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-13 16:27:46  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-13 16:27:46  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-13 16:27:47  :: Connected: True - Error Message: 
+2019-06-13 16:27:47  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-13 16:27:47  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-13 16:27:47  :: 6/13/2019 4:27:47 PMOrderRouterBase.LoadConfig
+2019-06-13 16:27:47  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-13 16:27:47  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-13 16:27:47  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-13 16:27:48  :: Collections Initialized...
+2019-06-13 16:27:49  :: Successfully subscribed to execution event 
+2019-06-13 16:27:56  :: Connecting for the first time to client 12224
+2019-06-13 16:27:56  :: Connected for the first time to client 12224
+2019-06-13 16:27:56  :: Incoming Login request for user MM2_CLOBUI2
+2019-06-13 16:27:56  :: user MM2_CLOBUI2 Successfully logged in
+2019-06-13 16:28:17  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM2_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-13 16:28:17  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-06-13 16:28:22  :: SubscriptionResponse UUID: Service:LT ServiceKey: Success:True

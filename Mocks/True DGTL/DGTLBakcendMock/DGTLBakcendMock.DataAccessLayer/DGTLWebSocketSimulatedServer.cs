@@ -264,7 +264,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 Change = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.PercentageChange),
                                 High = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradingSessionHighPrice),
                                 Low = Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradingSessionLowPrice),
-                                LastTime = Convert.ToInt64(elapsed.TotalSeconds),
+                                LastTime = Convert.ToInt64(elapsed.TotalMilliseconds),
                                 Symbol = secMapping.IncomingSymbol,
                                 Volume = secMapping.PublishedMarketDataTrades.TradeVolume.HasValue ? Convert.ToDecimal(secMapping.PublishedMarketDataTrades.TradeVolume) : 0
                             };
@@ -400,7 +400,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 Sender = 0,
                                 cAction = AttributeConverter.GetAction(obe.MDUpdateAction),
                                 cBidOrAsk = AttributeConverter.GetBidOrAsk(obe.MDEntryType),
-                                DepthTime = Convert.ToInt64(elapsed.TotalSeconds),
+                                DepthTime = Convert.ToInt64(elapsed.TotalMilliseconds),
                                 Symbol = secMapping.IncomingSymbol,
                                 Size = obe.MDEntrySize,
                                 Price = obe.MDEntryPx
@@ -464,10 +464,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     cStatus = LegacyOrderAck._STATUS_REJECTED,
                     Side = legOrdReq.Side,
                     Price = legOrdReq.Price,
-                    Quantity = legOrdReq.Quantity,
                     LeftQty = 0,
-                    AccountId = legOrdReq.AccountId,
-                    Timestamp = Convert.ToInt64(elapsed.TotalSeconds),
+                    //Quantity = legOrdReq.Quantity,
+                    //AccountId = legOrdReq.AccountId,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     OrderRejectReason= rejReason
                 };
 
@@ -495,7 +495,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (execReport.TransactTime.HasValue)
             {
                 TimeSpan elapsed = execReport.TransactTime.Value - new DateTime(1970, 1, 1);
-                timestamp = Convert.ToInt64(elapsed.TotalSeconds);
+                timestamp = Convert.ToInt64(elapsed.TotalMilliseconds);
             }
 
             if (execReport.OrdStatus == OrdStatus.Rejected || execReport.OrdStatus == OrdStatus.Canceled
@@ -523,6 +523,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     report = new LegacyOrderAck();
                     report.Msg = "LegacyOrderAck";
+                    ((LegacyOrderAck)report).Quantity = execReport.Order.OrderQty.HasValue ? Convert.ToDecimal(execReport.Order.OrderQty.Value) : 0;
+                    ((LegacyOrderAck)report).AccountId = execReport.Account;
 
                 }
 
@@ -533,9 +535,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 report.InstrumentId = secMapping.IncomingSymbol;
                 report.cStatus = AttributeConverter.GetExecReportStatus(execReport);
                 report.Price = execReport.Order.Price.HasValue ? (decimal?)Convert.ToDecimal(execReport.Order.Price) : null;
-                report.Quantity = execReport.Order.OrderQty.HasValue ? Convert.ToDecimal(execReport.Order.OrderQty.Value) : 0;
                 report.LeftQty = Convert.ToDecimal(execReport.LeavesQty);
-                report.AccountId = execReport.Account;
                 report.Timestamp = timestamp;
 
 
@@ -661,7 +661,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             OrderId = reject.OrderId,
                             Price = reject.Price,
                             LeftQty = reject.LeftQty,
-                            Quantity = reject.OrdQty,
+                            //Quantity = reject.OrdQty,
                             cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
                             cSide = reject.Side == Side.Buy ? LegacyOrderCancelRejAck._SIDE_BUY : LegacyOrderCancelRejAck._SIDE_SELL,
                             OrderRejectReason = reject.Text,
@@ -1205,7 +1205,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 legOrdRecordMsg.Price = execReport.Order.Price;
                 legOrdRecordMsg.Sender = 0;
                 legOrdRecordMsg.UserId = OyUserId;
-                legOrdRecordMsg.UpdateTime = Convert.ToInt64(elapsed.TotalSeconds);
+                legOrdRecordMsg.UpdateTime = Convert.ToInt64(elapsed.TotalMilliseconds);
                 legOrdRecordMsg.cSide = execReport.Order.Side == Side.Buy ? LegacyOrderReq._SIDE_BUY : LegacyOrderReq._SIDE_SELL;
                 legOrdRecordMsg.cStatus = LegacyOrderRecord.GetStatus(execReport.OrdStatus);
                 legOrdRecordMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;

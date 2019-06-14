@@ -67,7 +67,7 @@ namespace zHFT.InstructionBasedMarketClient.BitMex.Common.Wrappers
             else if (mdField == MarketDataFields.Timestamp)
             {
                 TimeSpan elapsed = Trade.timestamp - new DateTime(1970, 1, 1);
-                return Convert.ToInt64(elapsed.TotalSeconds) ;
+                return Convert.ToInt64(elapsed.TotalMilliseconds) ;
             }
             else if (mdField == MarketDataFields.TradeId)
                 return Trade.trdMatchID;

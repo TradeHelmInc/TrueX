@@ -74,7 +74,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
         [JsonIgnore]
         public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
-        public decimal Quantity { get; set; }
+        
 
         public decimal? Price { get; set; }
 
@@ -82,7 +82,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public long Timestamp { get; set; }
 
-        public string AccountId { get; set; }
+        
 
         #endregion
     }
