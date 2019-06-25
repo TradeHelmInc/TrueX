@@ -71,6 +71,9 @@
     <None Include="input\AccountRecord.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="input\cooked_cases\Orders.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="input\cooked_cases\SecurityMasterRecord small.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -78,6 +81,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="input\cooked_cases\SecurityMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="input\Trades.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="input\Orders.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="input\PlatformStatus.json">
@@ -117,6 +126,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="input\regular_cases\OfficialFixingPrice.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="input\regular_cases\Orders.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="input\regular_cases\Quotes.json">

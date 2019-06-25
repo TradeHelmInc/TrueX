@@ -1,0 +1,478 @@
+2019-06-25 11:03:33  :: Initializing Mock Server...
+2019-06-25 11:03:33  :: Initializing all collections...
+2019-06-25 11:03:34  :: Collections Initialized...
+2019-06-25 11:04:01  :: Connecting for the first time to client 3620
+2019-06-25 11:04:01  :: Connected for the first time to client 3620
+2019-06-25 11:04:16  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:16  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 11:04:16  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 11:04:17  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:19  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:21  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:25  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:27  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:29  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:31  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:34  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:34  :: Incoming subscription for service LS
+2019-06-25 11:04:34  :: Last Sales not found for symbol SWP-XBT-USD-M19...
+2019-06-25 11:04:35  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:39  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:41  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:43  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:45  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:51  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:04:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:01  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:03  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:05  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:07  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:11  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:15  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:17  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:19  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:20  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:20  :: Incoming subscription for service LQ
+2019-06-25 11:05:21  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:05:23  :: SubscriptionResponse UUID:APIClientUUID Service:LQ ServiceKey:NDF-XBT-USD-Z19 Success:True
+2019-06-25 11:05:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:06:52  :: Turning threads off on socket disconnection
+2019-06-25 11:06:52  :: Critical error processing quote message: Subproceso anulado....
+2019-06-25 11:06:59  :: Initializing Mock Server...
+2019-06-25 11:06:59  :: Initializing all collections...
+2019-06-25 11:07:00  :: Collections Initialized...
+2019-06-25 11:07:33  :: Connecting for the first time to client 3826
+2019-06-25 11:07:33  :: Connected for the first time to client 3826
+2019-06-25 11:07:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:07:33  :: Incoming Login request for user MM1_CLOBUI
+2019-06-25 11:07:33  :: user MM1_CLOBUI Successfully logged in
+2019-06-25 11:07:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:07:33  :: Incoming subscription for service TB
+2019-06-25 11:07:33  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TB ServiceKey:MM1_CLOBUI Success:True
+2019-06-25 11:07:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:07:33  :: Incoming subscription for service TD
+2019-06-25 11:07:33  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:TD ServiceKey:548346919 Success:True
+2019-06-25 11:07:34  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 11:07:34  :: Incoming subscription for service CU
+2019-06-25 11:07:34  :: SubscriptionResponse UUID:OrderEntryPanelPOCUUID Service:CU ServiceKey:548346919 Success:True
+2019-06-25 16:13:43  :: Initializing Mock Simulated Server...
+2019-06-25 16:13:43  :: Initializing all collections...
+2019-06-25 16:13:43  :: 6/25/2019 4:13:43 PMBaseCommunicationModule.LoadConfig
+2019-06-25 16:13:43  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-25 16:13:43  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-25 16:13:43  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-25 16:13:43  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-25 16:13:45  :: Connected: True - Error Message: 
+2019-06-25 16:13:45  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-25 16:13:45  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-25 16:13:45  :: 6/25/2019 4:13:45 PMOrderRouterBase.LoadConfig
+2019-06-25 16:13:45  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-25 16:13:45  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-25 16:13:45  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-25 16:13:46  :: Collections Initialized...
+2019-06-25 16:13:46  :: Successfully subscribed to execution event 
+2019-06-25 16:13:51  :: Connecting for the first time to client 30751
+2019-06-25 16:13:51  :: Connected for the first time to client 30751
+2019-06-25 16:14:01  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 16:14:01  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 16:14:11  :: Incoming subscription for Service: LD - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-25 16:14:11  :: Entering ProcessOrderBookDepth for ServiceKey=XBT-USD
+2019-06-25 16:14:11  :: Searching for mappings for ServiceKey=XBT-USD
+2019-06-25 16:14:11  :: Mapping found for Outgoing Symbol=XBTU19
+2019-06-25 16:14:11  :: Subscribing market data order book for outgoing Symbol=XBTU19
+2019-06-25 16:14:11  :: Order Book Subscription sent for outgoing Symbol=XBTU19
+2019-06-25 16:14:11  :: @Incoming Bitmex:Requesting market data order book por symbol XBTU19
+2019-06-25 16:14:12  :: Successfully subscribed to orderBookL2 event on symbol XBTU19
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253942 Symbol=XBT-USD Size=302841 Price=9013.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253948 Symbol=XBT-USD Size=60 Price=9013
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253948 Symbol=XBT-USD Size=200 Price=9011.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253949 Symbol=XBT-USD Size=1870649 Price=9008
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253950 Symbol=XBT-USD Size=10995 Price=8135
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253950 Symbol=XBT-USD Size=151 Price=8125
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253951 Symbol=XBT-USD Size=207 Price=8000
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253951 Symbol=XBT-USD Size=1457 Price=7546
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253952 Symbol=XBT-USD Size=1000 Price=7543
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253952 Symbol=XBT-USD Size=1000 Price=7490
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253953 Symbol=XBT-USD Size=1600 Price=7468
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253953 Symbol=XBT-USD Size=50000 Price=7344
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253954 Symbol=XBT-USD Size=10 Price=6834
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253954 Symbol=XBT-USD Size=100000 Price=6740.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253955 Symbol=XBT-USD Size=5000 Price=6500
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253955 Symbol=XBT-USD Size=150000 Price=6353
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253956 Symbol=XBT-USD Size=100000 Price=6205.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253957 Symbol=XBT-USD Size=74045 Price=6144.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253957 Symbol=XBT-USD Size=5000 Price=6000
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253958 Symbol=XBT-USD Size=20 Price=5122
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253959 Symbol=XBT-USD Size=1000 Price=5101
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253959 Symbol=XBT-USD Size=15000 Price=4977
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253960 Symbol=XBT-USD Size=1 Price=4000
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253961 Symbol=XBT-USD Size=25 Price=3952.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253961 Symbol=XBT-USD Size=20000 Price=3009.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253962 Symbol=XBT-USD Size=10000 Price=3006.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253963 Symbol=XBT-USD Size=166 Price=2191
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253963 Symbol=XBT-USD Size=260 Price=2025
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253964 Symbol=XBT-USD Size=509 Price=1680
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253965 Symbol=XBT-USD Size=625 Price=1600
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253965 Symbol=XBT-USD Size=401 Price=1588
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=66 DepthTime=1561479253966 Symbol=XBT-USD Size=1 Price=7
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253967 Symbol=XBT-USD Size=500 Price=14999
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253967 Symbol=XBT-USD Size=518 Price=18027
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253968 Symbol=XBT-USD Size=30000 Price=19999.5
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253969 Symbol=XBT-USD Size=200552 Price=20000
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253970 Symbol=XBT-USD Size=982 Price=32446
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253972 Symbol=XBT-USD Size=513 Price=36210
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253973 Symbol=XBT-USD Size=697 Price=38682
+2019-06-25 16:14:13  :: DepthOfBook-> Msg=DepthOfBook Sender=0  Action=65  BidOrAsk=65 DepthTime=1561479253974 Symbol=XBT-USD Size=95 Price=40525
+2019-06-25 16:14:13  :: SubscriptionResponse UUID:APIClientUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-06-25 16:17:24  :: Initializing Mock Server...
+2019-06-25 16:17:24  :: Initializing all collections...
+2019-06-25 16:17:24  :: Collections Initialized...
+2019-06-25 16:17:30  :: Connecting for the first time to client 33809
+2019-06-25 16:17:30  :: Connected for the first time to client 33809
+2019-06-25 16:17:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:36  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 16:17:36  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 16:17:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:38  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:40  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:41  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:41  :: Incoming subscription for service LD
+2019-06-25 16:17:42  :: SubscriptionResponse UUID:APIClientUUID Service:LD ServiceKey:XBT-USD Success:True
+2019-06-25 16:17:42  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:17:44  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:37:50  :: Initializing Mock Simulated Server...
+2019-06-25 16:37:50  :: Initializing all collections...
+2019-06-25 16:37:51  :: 6/25/2019 4:37:51 PMBaseCommunicationModule.LoadConfig
+2019-06-25 16:37:51  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-25 16:37:51  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-25 16:37:51  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-25 16:37:51  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-25 16:37:52  :: Connected: True - Error Message: 
+2019-06-25 16:37:52  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-25 16:37:52  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-25 16:37:53  :: 6/25/2019 4:37:53 PMOrderRouterBase.LoadConfig
+2019-06-25 16:37:53  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-25 16:37:53  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-25 16:37:53  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-25 16:37:54  :: Collections Initialized...
+2019-06-25 16:37:54  :: Successfully subscribed to execution event 
+2019-06-25 16:43:41  :: Connecting for the first time to client 35741
+2019-06-25 16:43:41  :: Connected for the first time to client 35741
+2019-06-25 16:43:52  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 16:43:52  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 16:45:11  :: Incoming subscription for Service: Oy - Service key: MM2_CLOBUI2@XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-25 16:45:11  :: Entering ProcessMyOrders for ServiceKey=MM2_CLOBUI2@XBT-USD
+2019-06-25 16:45:11  :: @Outgoing Bitmex:Recovering full order list
+2019-06-25 16:45:17  :: SubscriptionResponse UUID: Service:Oy ServiceKey: Success:True
+2019-06-25 16:52:56  :: Initializing Mock Server...
+2019-06-25 16:52:56  :: Initializing all collections...
+2019-06-25 16:57:06  :: Initializing Mock Server...
+2019-06-25 16:57:06  :: Initializing all collections...
+2019-06-25 16:57:09  :: Collections Initialized...
+2019-06-25 16:57:18  :: Connecting for the first time to client 36221
+2019-06-25 16:57:18  :: Connected for the first time to client 36221
+2019-06-25 16:57:25  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:25  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 16:57:25  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 16:57:26  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:28  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:30  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:30  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:30  :: Incoming subscription for service Oy
+2019-06-25 16:57:30  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-06-25 16:57:32  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:34  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:38  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:40  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:57:42  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:02  :: Initializing Mock Server...
+2019-06-25 16:59:02  :: Initializing all collections...
+2019-06-25 16:59:02  :: Collections Initialized...
+2019-06-25 16:59:22  :: Connecting for the first time to client 36277
+2019-06-25 16:59:22  :: Connected for the first time to client 36277
+2019-06-25 16:59:31  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:31  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 16:59:31  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 16:59:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:35  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:37  :: Incoming subscription for service Oy
+2019-06-25 16:59:39  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:41  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:43  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:45  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 16:59:49  :: Incoming subscription for service Oy
+2019-06-25 16:59:59  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-06-25 17:00:00  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:00:00  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:00:00  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:00:01  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:00:03  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:00:05  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:04:51  :: Initializing Mock Simulated Server...
+2019-06-25 17:04:51  :: Initializing all collections...
+2019-06-25 17:04:52  :: 6/25/2019 5:04:52 PMBaseCommunicationModule.LoadConfig
+2019-06-25 17:04:52  :: Loading config:.\BitMex\incomingBitmex.xml
+2019-06-25 17:04:52  :: Processing config:.\BitMex\incomingBitmex.xml
+2019-06-25 17:04:52  :: Ending GetConfiguracion .\BitMex\incomingBitmex.xml
+2019-06-25 17:04:52  :: Initializing WSMarketDataManager @ BitMexInstructionBasedMarketClient
+2019-06-25 17:04:53  :: Connected: True - Error Message: 
+2019-06-25 17:04:53  :: Initializing SecurityListManager @ BitMexInstructionBasedMarketClient
+2019-06-25 17:04:53  :: Assigning events @ BitMexInstructionBasedMarketClient
+2019-06-25 17:04:54  :: 6/25/2019 5:04:54 PMOrderRouterBase.LoadConfig
+2019-06-25 17:04:54  :: Loading config:.\BitMex\outgoingBitmex.xml
+2019-06-25 17:04:54  :: Processing config:.\BitMex\outgoingBitmex.xml
+2019-06-25 17:04:54  :: Ending GetConfiguracion .\BitMex\outgoingBitmex.xml
+2019-06-25 17:04:54  :: Collections Initialized...
+2019-06-25 17:04:55  :: Successfully subscribed to execution event 
+2019-06-25 17:05:15  :: Connecting for the first time to client 36312
+2019-06-25 17:05:15  :: Connected for the first time to client 36312
+2019-06-25 17:05:36  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:05:36  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:05:48  :: Incoming subscription for Service: LT - Service key: XBT-USD - UUID: APIClientUUID SubscriptionType: S UserId: MM1_CLOBUI2 JsonToken:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI
+2019-06-25 17:05:48  :: Entering ProcessMyTrades for ServiceKey=XBT-USD
+2019-06-25 17:05:53  :: SubscriptionResponse UUID: Service:LT ServiceKey: Success:True
+2019-06-25 17:11:11  :: Initializing Mock Server...
+2019-06-25 17:11:11  :: Initializing all collections...
+2019-06-25 17:11:11  :: Error initializing collections: After parsing a value an unexpected character was encountered: <. Path '[39]', line 81, position 0....
+2019-06-25 17:11:41  :: Connecting for the first time to client 36477
+2019-06-25 17:11:41  :: Connected for the first time to client 36477
+2019-06-25 17:11:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:47  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:11:47  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:11:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:51  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:55  :: Incoming subscription for service LT
+2019-06-25 17:11:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:11:59  :: Incoming subscription for service LT
+2019-06-25 17:11:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:01  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:05  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:05  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:07  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:11  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:15  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:17  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:19  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:21  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:25  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:27  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:27  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:29  :: Incoming subscription for service LT
+2019-06-25 17:12:29  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:31  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:35  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:12:40  :: Incoming subscription for service LT
+2019-06-25 17:13:10  :: Initializing Mock Server...
+2019-06-25 17:13:10  :: Initializing all collections...
+2019-06-25 17:13:45  :: Initializing Mock Server...
+2019-06-25 17:13:45  :: Initializing all collections...
+2019-06-25 17:13:54  :: Collections Initialized...
+2019-06-25 17:14:02  :: Connecting for the first time to client 36494
+2019-06-25 17:14:02  :: Connected for the first time to client 36494
+2019-06-25 17:14:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:14:09  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:14:09  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:14:10  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:14:12  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:14:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:14:13  :: Incoming subscription for service LT
+2019-06-25 17:14:13  :: SubscriptionResponse UUID:APIClientUUID Service:LT ServiceKey:XBT-USD Success:True
+2019-06-25 17:14:14  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:39:01  :: Initializing Mock Server...
+2019-06-25 17:39:01  :: Initializing all collections...
+2019-06-25 17:39:02  :: Collections Initialized...
+2019-06-25 17:39:42  :: Initializing Mock Server...
+2019-06-25 17:39:42  :: Initializing all collections...
+2019-06-25 17:39:42  :: Collections Initialized...
+2019-06-25 17:40:36  :: Initializing Mock Server...
+2019-06-25 17:40:36  :: Initializing all collections...
+2019-06-25 17:40:42  :: Collections Initialized...
+2019-06-25 17:40:52  :: Connecting for the first time to client 37391
+2019-06-25 17:40:52  :: Connected for the first time to client 37391
+2019-06-25 17:41:12  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:12  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:41:12  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:41:14  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:16  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:18  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:20  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:22  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:24  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:24  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:26  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:28  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:30  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:32  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:34  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:38  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:38  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:40  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:40  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:42  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:44  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:46  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:48  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:50  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:41:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:13  :: Initializing Mock Server...
+2019-06-25 17:45:13  :: Initializing all collections...
+2019-06-25 17:45:13  :: Collections Initialized...
+2019-06-25 17:45:23  :: Connecting for the first time to client 37514
+2019-06-25 17:45:23  :: Connected for the first time to client 37514
+2019-06-25 17:45:29  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:29  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:45:29  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:45:30  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:32  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:34  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:36  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:45:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:11  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:15  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:17  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:19  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:21  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:52  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:52  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:52  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:46:52  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:47:39  :: Initializing Mock Server...
+2019-06-25 17:47:39  :: Initializing all collections...
+2019-06-25 17:47:40  :: Collections Initialized...
+2019-06-25 17:47:45  :: Connecting for the first time to client 37569
+2019-06-25 17:47:45  :: Connected for the first time to client 37569
+2019-06-25 17:47:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:47:53  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:47:53  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:47:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:47:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:47:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:47:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:50:51  :: Initializing Mock Server...
+2019-06-25 17:50:51  :: Initializing all collections...
+2019-06-25 17:50:51  :: Collections Initialized...
+2019-06-25 17:51:09  :: Connecting for the first time to client 37688
+2019-06-25 17:51:09  :: Connected for the first time to client 37688
+2019-06-25 17:52:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:33  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:52:33  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:52:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:35  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:39  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:41  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:43  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:45  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:52:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:53:07  :: Connecting second client 37838.  Removing previous client
+2019-06-25 17:53:07  :: Turning threads off on socket disconnection
+2019-06-25 17:53:07  :: Connected second client 37838.  Removing previous client
+2019-06-25 17:53:56  :: Initializing Mock Server...
+2019-06-25 17:53:56  :: Initializing all collections...
+2019-06-25 17:53:57  :: Collections Initialized...
+2019-06-25 17:54:03  :: Connecting for the first time to client 37902
+2019-06-25 17:54:03  :: Connected for the first time to client 37902
+2019-06-25 17:54:07  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:07  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:54:07  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:54:09  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:11  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:13  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:15  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:20  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:20  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:21  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:23  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:25  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:27  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:28  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:29  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:31  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:32  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:33  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:35  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:37  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:39  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:41  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:43  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:45  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:51  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:54:58  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:23  :: Initializing Mock Server...
+2019-06-25 17:56:23  :: Initializing all collections...
+2019-06-25 17:56:24  :: Collections Initialized...
+2019-06-25 17:56:35  :: Connecting for the first time to client 37956
+2019-06-25 17:56:35  :: Connected for the first time to client 37956
+2019-06-25 17:56:42  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:42  :: Incoming Login request for user MM1_CLOBUI2
+2019-06-25 17:56:42  :: user MM1_CLOBUI2 Successfully logged in
+2019-06-25 17:56:43  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:45  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:47  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:49  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:51  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:53  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:55  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:56  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:57  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:56:59  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:01  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:01  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:02  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:02  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:03  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:03  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:03  :: OnMessage from IP -> 127.0.0.1
+2019-06-25 17:57:05  :: OnMessage from IP -> 127.0.0.1

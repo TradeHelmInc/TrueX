@@ -24,7 +24,9 @@ namespace DGTLBackendMock.DataAccessLayer
     {
         #region Protected Attributes
 
-        
+        protected LegacyOrderRecord[] Orders { get; set; }
+
+        protected LegacyTradeHistory[] Trades { get; set; }
 
         protected LastSale[] LastSales { get; set; }
 
@@ -85,6 +87,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 LoadSecurityMasterRecords();
 
                 LoadLastSales();
+
+                LoadOrders();
+
+                LoadTrades();
 
                 LoadQuotes();
 
@@ -174,6 +180,22 @@ namespace DGTLBackendMock.DataAccessLayer
 
             //Aca le metemos que serialize el contenido
             LastSales = JsonConvert.DeserializeObject<LastSale[]>(strLastSales);
+        }
+
+        private void LoadOrders()
+        {
+            string strOrders = File.ReadAllText(@".\input\Orders.json");
+
+            //Aca le metemos que serialize el contenido
+            Orders = JsonConvert.DeserializeObject<LegacyOrderRecord[]>(strOrders);
+        }
+
+        private void LoadTrades()
+        {
+            string strTrades = File.ReadAllText(@".\input\Trades.json");
+
+            //Aca le metemos que serialize el contenido
+            Trades = JsonConvert.DeserializeObject<LegacyTradeHistory[]>(strTrades);
         }
 
         private void LoadQuotes()
@@ -341,9 +363,30 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-      
+        private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            string symbol = "";
+            string[] symbolFields = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
 
-       
+            if (symbolFields.Length >= 2)
+                symbol = symbolFields[1];
+            else
+                throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
+
+
+            List<LegacyOrderRecord> orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
+            orders.ForEach(x => DoSend<LegacyOrderRecord>(socket, x));
+            //Now we have to launch something to create deltas (insert, change, remove)
+            ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
+        }
+
+        private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            List<LegacyTradeHistory> trades = Trades.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
+            trades.ForEach(x => DoSend<LegacyTradeHistory>(socket, x));
+            //Now we have to launch something to create deltas (insert, change, remove)
+            ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID);
+        }
 
         private void ProcessSecurityMasterRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
@@ -353,6 +396,131 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             Thread.Sleep(2000);
             ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
+        }
+
+        private void EvalNewOrder(IWebSocketConnection socket, LegacyOrderReq legOrdReq)
+        {
+            
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            LegacyOrderRecord OyMsg = new LegacyOrderRecord();
+
+            OyMsg.ClientOrderId = legOrdReq.ClOrderId;
+            OyMsg.cSide = legOrdReq.cSide;
+            OyMsg.cStatus = LegacyOrderRecord._STATUS_OPEN;
+            OyMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
+            OyMsg.FillQty = 0;
+            OyMsg.InstrumentId = legOrdReq.InstrumentId;
+            OyMsg.LvsQty = Convert.ToDouble(legOrdReq.Quantity) ;
+            OyMsg.Msg = "LegacyOrderRecord";
+            OyMsg.OrderId = Guid.NewGuid().ToString();
+            OyMsg.OrdQty = Convert.ToDouble(legOrdReq.Quantity);
+            OyMsg.Price = (double?) legOrdReq.Price;
+            OyMsg.Sender = 0;
+            OyMsg.UpdateTime = Convert.ToInt64(elaped.TotalMilliseconds);
+            OyMsg.UserId = legOrdReq.UserId;
+
+            DoSend<LegacyOrderRecord>(socket, OyMsg);
+
+
+            //TODO: Add order to memory for cancellations - populate that sctructure with all open orders
+        }
+
+        private void EvalPriceLevels(IWebSocketConnection socket, LegacyOrderReq legOrdReq)
+        {
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                       && x.Price == legOrdReq.Price).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = DepthOfBook._ACTION_CHANGE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = existingPriceLevel.Size + legOrdReq.Quantity;
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+                    DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+
+                    DepthOfBook newPriceLevel = new DepthOfBook();
+                    newPriceLevel.cAction = DepthOfBook._ACTION_INSERT;
+                    newPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                    newPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    newPriceLevel.Index = 0;
+                    newPriceLevel.Msg = "DepthOfBook";
+                    newPriceLevel.Price = legOrdReq.Price.HasValue ? legOrdReq.Price.Value : 0;
+                    newPriceLevel.Sender = 0;
+                    newPriceLevel.Size = legOrdReq.Quantity;
+                    newPriceLevel.Symbol = legOrdReq.InstrumentId;
+
+                    List<DepthOfBook> tempList = DepthOfBooks.ToList<DepthOfBook>();
+                    tempList.Add(newPriceLevel);
+                    DepthOfBooks=tempList.ToArray();
+
+                    DoSend<DepthOfBook>(socket, newPriceLevel);
+                }
+
+            }
+            else if (legOrdReq.cSide == LegacyOrderReq._SIDE_SELL)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                       && x.Price == legOrdReq.Price).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = DepthOfBook._ACTION_CHANGE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = existingPriceLevel.Size + legOrdReq.Quantity;
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+                    DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+
+                    DepthOfBook newPriceLevel = new DepthOfBook();
+                    newPriceLevel.cAction = DepthOfBook._ACTION_INSERT;
+                    newPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                    newPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    newPriceLevel.Index = 0;
+                    newPriceLevel.Msg = "DepthOfBook";
+                    newPriceLevel.Price = legOrdReq.Price.HasValue ? legOrdReq.Price.Value : 0;
+                    newPriceLevel.Sender = existingPriceLevel.Sender;
+                    newPriceLevel.Size = legOrdReq.Quantity;
+                    newPriceLevel.Symbol = legOrdReq.InstrumentId;
+
+                    List<DepthOfBook> tempList = DepthOfBooks.ToList<DepthOfBook>();
+                    tempList.Add(newPriceLevel);
+                    DepthOfBooks=tempList.ToArray();
+
+                    DoSend<DepthOfBook>(socket, newPriceLevel);
+                }
+
+            }
+
+        
+        
         }
 
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
@@ -373,10 +541,16 @@ namespace DGTLBackendMock.DataAccessLayer
                 cStatus = LegacyOrderAck._STATUS_OPEN,
                 Price = legOrdReq.Price,
                 LeftQty = legOrdReq.Quantity,
-                Timestamp = Convert.ToInt64(elaped.TotalSeconds),
+                Timestamp = Convert.ToInt64(elaped.TotalMilliseconds),
             };
 
             DoSend<LegacyOrderAck>(socket, legOrdAck);
+
+            EvalPriceLevels(socket, legOrdReq);
+
+            EvalNewOrder(socket, legOrdReq);
+
+          
         }
 
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
@@ -427,6 +601,14 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ProcessOrderBookDepth(socket, subscrMsg);
             }
+            else if (subscrMsg.Service == "Oy")
+            {
+                ProcessMyOrders(socket, subscrMsg);
+            }
+            else if (subscrMsg.Service == "LT")
+            {
+                ProcessMyTrades(socket, subscrMsg);
+            }
 
         }
 
@@ -469,6 +651,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ProcessSubscriptions(socket, m);
 
+                }
+                else if (wsResp.Msg == "LegacyOrderCancelReq")
+                {
+                    //ProcessLegacyOrderCancelMock(socket, m);
+                }
+                else if (wsResp.Msg == "LegacyOrderMassCancelReq")
+                {
+                    //ProcessLegacyOrderMassCancelMock(socket, m);
                 }
                 else
                 {

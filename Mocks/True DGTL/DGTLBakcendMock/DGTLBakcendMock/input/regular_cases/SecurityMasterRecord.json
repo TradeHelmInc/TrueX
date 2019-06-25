@@ -13,7 +13,7 @@
 ,
 {"Description":"TEST NDF PRODUCT","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":1.0,"Platform":"trueEX","MaturityDate":"20501230","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-SPOT-TEST-TST","Msg":"SecurityMasterRecord"}
 ,
-{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
+{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":1000,"MaxPrice":11500.0,"MinPriceIncrement":0.00001,"MinSize":3.0,"MaxSize":50000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Physical Swap November 2018","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":1.0,"Platform":"trueEX","MaturityDate":"20181130","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-X18","Msg":"SecurityMasterRecord"}
 ,
