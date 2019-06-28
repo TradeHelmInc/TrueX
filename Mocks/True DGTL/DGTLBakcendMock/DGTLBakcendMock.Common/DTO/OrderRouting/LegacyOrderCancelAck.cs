@@ -11,5 +11,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
         public string OrigClOrderId { get; set; }
 
         public string CancelReason { get; set; }
+
+        public string UUID { get; set; }
     }
 }

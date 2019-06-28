@@ -260,7 +260,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
 
 
-                        EmulatePriceChanges(i, lastSale, ref initialPrice);
+                        //EmulatePriceChanges(i, lastSale, ref initialPrice);
                         DoSend<LastSale>(socket, lastSale);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
@@ -420,10 +420,82 @@ namespace DGTLBackendMock.DataAccessLayer
             OyMsg.UpdateTime = Convert.ToInt64(elaped.TotalMilliseconds);
             OyMsg.UserId = legOrdReq.UserId;
 
-            DoSend<LegacyOrderRecord>(socket, OyMsg);
+            //DoSend<LegacyOrderRecord>(socket, OyMsg);
 
 
-            //TODO: Add order to memory for cancellations - populate that sctructure with all open orders
+            List<LegacyOrderRecord> tempOrders = Orders.ToList();
+            tempOrders.Add(OyMsg);
+            Orders=tempOrders.ToArray();
+        }
+
+        private void EvalPriceLevels(IWebSocketConnection socket, LegacyOrderRecord order)
+        {
+
+            if (!order.Price.HasValue)
+                return;
+
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (order.cSide == LegacyOrderReq._SIDE_BUY)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                       && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+                    decimal newSize= existingPriceLevel.Size - Convert.ToDecimal( order.LvsQty);
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = newSize > 0 ? DepthOfBook._ACTION_CHANGE : DepthOfBook._ACTION_REMOVE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = newSize;
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+                    DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                    DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+
+                    throw new Exception(string.Format("Critical Error: Cancelling an order for an unexisting bid price level: {0}", order.Price.Value));
+                }
+
+            }
+            else if (order.cSide == LegacyOrderReq._SIDE_SELL)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                       && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+                    decimal newSize = existingPriceLevel.Size - Convert.ToDecimal(order.LvsQty);
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = newSize > 0 ? DepthOfBook._ACTION_CHANGE : DepthOfBook._ACTION_REMOVE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = existingPriceLevel.Size - Convert.ToDecimal(order.LvsQty);
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+                    DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                    DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+                    throw new Exception(string.Format("Critical Error: Cancelling an order for an unexisting ask price level: {0}", order.Price.Value));
+                }
+            }
         }
 
         private void EvalPriceLevels(IWebSocketConnection socket, LegacyOrderReq legOrdReq)
@@ -450,6 +522,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     updPriceLevel.Symbol = existingPriceLevel.Symbol;
 
                     existingPriceLevel.Size = updPriceLevel.Size;
+                    DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...",updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, updPriceLevel);
                 }
                 else
@@ -469,7 +542,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     List<DepthOfBook> tempList = DepthOfBooks.ToList<DepthOfBook>();
                     tempList.Add(newPriceLevel);
                     DepthOfBooks=tempList.ToArray();
-
+                    DoLog(string.Format("Sending new bid entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, newPriceLevel);
                 }
 
@@ -494,6 +567,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     updPriceLevel.Symbol = existingPriceLevel.Symbol;
 
                     existingPriceLevel.Size = updPriceLevel.Size;
+                    DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, updPriceLevel);
                 }
                 else
@@ -506,7 +580,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     newPriceLevel.Index = 0;
                     newPriceLevel.Msg = "DepthOfBook";
                     newPriceLevel.Price = legOrdReq.Price.HasValue ? legOrdReq.Price.Value : 0;
-                    newPriceLevel.Sender = existingPriceLevel.Sender;
+                    newPriceLevel.Sender = 0;
                     newPriceLevel.Size = legOrdReq.Quantity;
                     newPriceLevel.Symbol = legOrdReq.InstrumentId;
 
@@ -514,41 +588,170 @@ namespace DGTLBackendMock.DataAccessLayer
                     tempList.Add(newPriceLevel);
                     DepthOfBooks=tempList.ToArray();
 
+                    DoLog(string.Format("Sending new ask entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, newPriceLevel);
                 }
 
             }
+        }
 
-        
+        private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
+        {
+            DoLog(string.Format("Processing ProcessLegacyOrderCancelMock"), MessageType.Information);
+            LegacyOrderCancelReq legOrdReq = JsonConvert.DeserializeObject<LegacyOrderCancelReq>(m);
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == legOrdReq.OrigClOrderId).FirstOrDefault();
+
+                    if (order != null)
+                    {
+                        //1-Manamos el CancelAck
+                        LegacyOrderCancelAck ack = new LegacyOrderCancelAck();
+                        ack.OrigClOrderId = legOrdReq.OrigClOrderId;
+                        ack.CancelReason = "Just cancelled @ mock";
+                        ack.Msg = "LegacyOrderCancelAck";
+                        ack.OrderId = order.OrderId;
+                        ack.UserId = order.UserId;
+                        ack.ClOrderId = order.OrderId;
+                        ack.cSide = order.cSide;
+                        ack.InstrumentId = order.InstrumentId;
+                        ack.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        ack.Price = order.Price.HasValue ? (decimal?)Convert.ToDecimal(order.Price) : null;
+                        ack.LeftQty = 0;
+                        ack.UUID = "";
+                        ack.Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds) ;
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", legOrdReq.OrigClOrderId), MessageType.Information);
+                        DoSend<LegacyOrderCancelAck>(socket, ack);
+
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", legOrdReq.OrigClOrderId), MessageType.Information);
+                        EvalPriceLevels(socket, order);
+
+                        DoLog(string.Format("Updating orders in mem"), MessageType.Information);
+                        List<LegacyOrderRecord> tempOrders = Orders.ToList();
+                        tempOrders.Remove(order);
+                        Orders = tempOrders.ToArray();
+
+                    }
+                    else
+                    { 
+                        //3-Mandamos el cancelRej
+                        LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
+                        {
+                            Msg = "LegacyOrderCancelRejAck",
+                            OrigClOrderId = legOrdReq.OrigClOrderId,//we want the initial id
+                            ClOrderId = legOrdReq.ClOrderId,
+                            UserId = legOrdReq.UserId,
+                            InstrumentId = legOrdReq.InstrumentId,
+                            OrderId = null,
+                            Price = null,
+                            cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
+                            cSide = legOrdReq.cSide,
+                            OrderRejectReason = string.Format("Order {0} not found!", legOrdReq.OrigClOrderId)
+                        };
+                        DoLog(string.Format("Updating orders in mem"), MessageType.Information);
+                        DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Order rejected because it was not found"), MessageType.Information);
+                //4-Mandamos el cancelRej
+                LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
+                {
+                    Msg = "LegacyOrderCancelRejAck",
+                    OrigClOrderId = legOrdReq.OrigClOrderId,//we want the initial id
+                    ClOrderId = legOrdReq.ClOrderId,
+                    UserId = legOrdReq.UserId,
+                    InstrumentId = legOrdReq.InstrumentId,
+                    OrderId = null,
+                    Price = null,
+                    cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
+                    cSide = legOrdReq.cSide,
+                    OrderRejectReason = ex.Message
+                };
+                DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
+                DoLog(string.Format("Exception processing LegacyOrderCancelReq: {0}", ex.Message), MessageType.Error);
+            }
         
         }
 
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
         {
-
-            LegacyOrderReq legOrdReq = JsonConvert.DeserializeObject<LegacyOrderReq>(m);
-
-            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
-
-            //We send the mock ack
-            LegacyOrderAck legOrdAck = new LegacyOrderAck()
+            try
             {
-                Msg = "LegacyOrderAck",
-                OrderId = elaped.TotalSeconds.ToString(),
-                UserId = legOrdReq.UserId,
-                ClOrderId = legOrdReq.ClOrderId,
-                InstrumentId = legOrdReq.InstrumentId,
-                cStatus = LegacyOrderAck._STATUS_OPEN,
-                Price = legOrdReq.Price,
-                LeftQty = legOrdReq.Quantity,
-                Timestamp = Convert.ToInt64(elaped.TotalMilliseconds),
-            };
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                    LegacyOrderReq legOrdReq = JsonConvert.DeserializeObject<LegacyOrderReq>(m);
 
-            DoSend<LegacyOrderAck>(socket, legOrdAck);
+                    if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY && legOrdReq.Price.Value < 6000)
+                    {
+                        //We reject the messageas a convention, we cannot send messages lower than 6000 USD
+                        LegacyOrderRejAck reject = new LegacyOrderRejAck()
+                        {
+                            Msg = "LegacyOrderRejAck",
+                            OrderId = legOrdReq.OrderId,
+                            UserId = legOrdReq.UserId,
+                            ClOrderId = legOrdReq.ClOrderId,
+                            InstrumentId = legOrdReq.InstrumentId,
+                            cStatus = LegacyOrderAck._STATUS_REJECTED,
+                            Side = legOrdReq.Side,
+                            Price = legOrdReq.Price,
+                            LeftQty = 0,
+                            //Quantity = legOrdReq.Quantity,
+                            //AccountId = legOrdReq.AccountId,
+                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                            OrderRejectReason = "You cannot send orders lower than 6000 USD" 
+                        };
 
-            EvalPriceLevels(socket, legOrdReq);
+                        DoSend<LegacyOrderRejAck>(socket, reject);
 
-            EvalNewOrder(socket, legOrdReq);
+
+                    }
+                    else
+                    {
+                        //We send the mock ack
+                        LegacyOrderAck legOrdAck = new LegacyOrderAck()
+                        {
+                            Msg = "LegacyOrderAck",
+                            OrderId = Guid.NewGuid().ToString(),
+                            UserId = legOrdReq.UserId,
+                            ClOrderId = legOrdReq.ClOrderId,
+                            InstrumentId = legOrdReq.InstrumentId,
+                            cStatus = LegacyOrderAck._STATUS_OPEN,
+                            cSide = legOrdReq.cSide,
+                            Price = legOrdReq.Price,
+                            Quantity = legOrdReq.Quantity,
+                            AccountId = legOrdReq.AccountId,
+                            LeftQty = legOrdReq.Quantity,
+                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                        };
+
+                        DoLog(string.Format("Sending LgacyOrderAck ..."), MessageType.Information);
+
+
+                        DoSend<LegacyOrderAck>(socket, legOrdAck);
+
+                        DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
+                        EvalPriceLevels(socket, legOrdReq);
+                        DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
+                        EvalNewOrder(socket, legOrdReq);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing LegactyOrderReq: {0}",ex.Message), MessageType.Error);
+            }
 
           
         }
@@ -621,9 +824,10 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             try
             {
-                DoLog(string.Format("OnMessage from IP -> {0}", socket.ConnectionInfo.ClientIpAddress), MessageType.Information);
 
                 WebSocketMessage wsResp = JsonConvert.DeserializeObject<WebSocketMessage>(m);
+
+                DoLog(string.Format("OnMessage {1} from IP -> {0}", socket.ConnectionInfo.ClientIpAddress, wsResp.Msg), MessageType.Information);
 
                 if (wsResp.Msg == "ClientLogin")
                 {
@@ -654,7 +858,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else if (wsResp.Msg == "LegacyOrderCancelReq")
                 {
-                    //ProcessLegacyOrderCancelMock(socket, m);
+                    ProcessLegacyOrderCancelMock(socket, m);
                 }
                 else if (wsResp.Msg == "LegacyOrderMassCancelReq")
                 {
@@ -676,6 +880,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Exception processing onMessage:{0}",ex.Message), MessageType.Error);
                 UnknownMessage errorMsg = new UnknownMessage()
                 {
                     Msg = "MessageReject",
