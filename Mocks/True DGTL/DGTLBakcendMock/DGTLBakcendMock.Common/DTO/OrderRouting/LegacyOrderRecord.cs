@@ -90,6 +90,34 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         #region Public Static Methods
 
+        public void SetFilledStatus()
+        {
+            cStatus = LegacyOrderRecord._STATUS_FILLED;
+            FillQty = OrdQty;
+            LvsQty = 0;
+        }
+
+        public void SetPartiallyFilledStatus(ref double tradeSize)
+        {
+
+            if (tradeSize >= LvsQty)
+            {
+                cStatus = LegacyOrderRecord._STATUS_FILLED;
+                FillQty = OrdQty;
+                LvsQty = 0;
+
+                tradeSize -= FillQty;
+            }
+            else
+            {
+                cStatus = LegacyOrderRecord._STATUS_PARTIALLY_FILLED;
+                FillQty += tradeSize;
+                LvsQty = OrdQty-FillQty;
+                tradeSize -= FillQty;
+            }
+        }
+
+
         public static char GetStatus(OrdStatus status)
         {
             if (status == OrdStatus.AcceptedForBidding || status == OrdStatus.Calculated || status == OrdStatus.New
