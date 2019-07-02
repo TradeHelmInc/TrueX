@@ -295,7 +295,12 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 while (true)
                 {
-                    Quote quote = Quotes.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
+                    Quote quote = null;
+                    lock (Quotes)
+                    {
+                        quote = Quotes.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
+                    }
+
                     if (quote != null)
                     {
                         DoSend<Quote>(socket, quote);
@@ -351,7 +356,55 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-       
+        private void UpdateQuotes(string symbol)
+        {
+
+            DoLog(string.Format("Updating best bid and ask for symbol {0}", symbol), MessageType.Information);
+            DepthOfBook bestBid = DepthOfBooks.Where(x => x.Symbol == symbol && x.cBidOrAsk == DepthOfBook._BID_ENTRY).OrderByDescending(x => x.Price).FirstOrDefault();
+            DepthOfBook bestAsk = DepthOfBooks.Where(x => x.Symbol == symbol && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).OrderBy(x => x.Price).FirstOrDefault();
+
+            
+            lock (Quotes)
+            {
+                Quote quote = Quotes.Where(x => x.Symbol == symbol).FirstOrDefault();
+
+                if (quote != null)
+                {
+                    if (bestBid != null)
+                    {
+                        quote.BidSize = bestBid.Size;
+                        quote.Bid = bestBid.Price;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Could not DepthOfBook bid for symbol {0}", symbol), MessageType.Information);
+
+                    }
+
+                    if (bestAsk != null)
+                    {
+                        quote.AskSize = bestAsk.Size;
+                        quote.Ask = bestAsk.Price;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Could not DepthOfBook ask for symbol {0}", symbol), MessageType.Information);
+                    }
+
+                    if (quote.Ask.HasValue && quote.Bid.HasValue)
+                        quote.MidPoint = Math.Round((quote.Ask.Value + quote.Bid.Value) / 2, 2);
+                    else
+                        quote.MidPoint = null;
+                }
+                else
+                {
+                    DoLog(string.Format("Could not find quote for symbol {0}", symbol), MessageType.Information);
+
+                
+                }
+            }
+
+        }
 
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
@@ -359,6 +412,7 @@ namespace DGTLBackendMock.DataAccessLayer
             depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
             //Now we have to launch something to create deltas (insert, change, remove)
             Thread.Sleep(1000);
+            UpdateQuotes(subscrMsg.ServiceKey);
             ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
@@ -721,9 +775,16 @@ namespace DGTLBackendMock.DataAccessLayer
             DoLog(string.Format("We eliminate the {2} price level {0} for symbol{1} (@DepthOfBook and @Orders and we send the message)",
                 bestOffer.Price, bestOffer.Symbol, bidOrAsk == DepthOfBook._BID_ENTRY ? "bid" : "ask"), MessageType.Information);
 
-            Orders.Where(x => x.Price.Value == Convert.ToDouble(bestOffer.Price)
-                         && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList()
-                    .ForEach(x => x.SetFilledStatus());
+
+            List<LegacyOrderRecord> updOrders = Orders.Where(x =>    x.Price.Value == Convert.ToDouble(bestOffer.Price)
+                                                                  && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList();
+
+            foreach(LegacyOrderRecord order in updOrders)
+            {
+                order.SetFilledStatus();
+                DoSend<LegacyOrderRecord>(socket, order);
+            }
+                   
             
             DepthOfBooks.Remove(bestOffer);
 
@@ -748,18 +809,24 @@ namespace DGTLBackendMock.DataAccessLayer
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             double bestOfferPrice = Convert.ToDouble(bestOffer.Price);
 
-            DoLog(string.Format("We update the {1} price level {0} for symbol{1} (@DepthOfBook and @Orders and we send the message)",
+            DoLog(string.Format("We update the {2} price level {0} for symbol {1} (@DepthOfBook and @Orders and we send the message)",
                                 bestOffer.Price, bestOffer.Symbol, bidOrAsk == DepthOfBook._BID_ENTRY ? "bid" : "ask"), MessageType.Information);
 
             bestOffer.Size -= Convert.ToDecimal(tradeSize);
             bestOffer.cAction = DepthOfBook._ACTION_CHANGE;
-            Orders.Where(x => x.Price.Value == bestOfferPrice
-                         && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList()
-                    .ForEach(x => x.SetPartiallyFilledStatus(ref tradeSize));
+
+
+            List<LegacyOrderRecord> updOrders = Orders.Where(x => x.Price.Value == Convert.ToDouble(bestOfferPrice)
+                                                                 && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList();
+
+            foreach (LegacyOrderRecord order in updOrders)
+            {
+                order.SetPartiallyFilledStatus(ref tradeSize);
+                DoSend<LegacyOrderRecord>(socket, order);
+            }
 
             
-
-            DoLog(string.Format("We send the DepthOfBookMessage removing the ask price level {0} for symbol{1} (@DepthOfBook and @Orders and we send the message)", bestOffer.Price, bestOffer.Symbol), MessageType.Information);
+            DoLog(string.Format("We send the DepthOfBook Message updating the ask price level {0} for symbol {1} (@DepthOfBook and @Orders and we send the message)", bestOffer.Price, bestOffer.Symbol), MessageType.Information);
 
             DoSend<DepthOfBook>(socket, bestOffer);
         }
@@ -768,8 +835,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private void SendNewTrade(LegacyOrderReq legOrdReq,DepthOfBook bestBidAsk, decimal size, IWebSocketConnection socket)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-            DoLog(string.Format("We send a Trade for Size={0} and Price={1] for symbol {2}", size,bestBidAsk.Price,legOrdReq.InstrumentId), MessageType.Information);
+            DoLog(string.Format("We send a Trade for Size={0} and Price={1} for symbol {2}", size,bestBidAsk.Price,legOrdReq.InstrumentId), MessageType.Information);
             LegacyTradeHistory newTrade = new LegacyTradeHistory()
             {
                 cMySide = legOrdReq.cSide,
@@ -784,9 +850,39 @@ namespace DGTLBackendMock.DataAccessLayer
 
             };
             DoSend<LegacyTradeHistory>(socket, newTrade);
+
+            //1.2.1-We update market data for a new trade
+            EvalMarketData(newTrade);
            
         }
 
+        //1.2.1-We update market data for a new trade
+        private void EvalMarketData(LegacyTradeHistory newTrade)
+        {
+
+            DoLog(string.Format("We udate LastSale MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
+
+            LastSale ls = LastSales.Where(x => x.Symbol == newTrade.Symbol).FirstOrDefault();
+            ls.LastPrice = Convert.ToDecimal(newTrade.TradePrice);
+            ls.LastShares = Convert.ToDecimal(newTrade.TradeQuantity);
+            ls.LastTime = newTrade.TradeTimeStamp;
+            ls.Volume += Convert.ToDecimal(newTrade.TradeQuantity);
+
+            if (Convert.ToDecimal(newTrade.TradePrice) > ls.High)
+                ls.High = Convert.ToDecimal(newTrade.TradePrice);
+
+            if (Convert.ToDecimal(newTrade.TradePrice) < ls.Low)
+                ls.Low = Convert.ToDecimal(newTrade.TradePrice);
+
+            DoLog(string.Format("LastSale updated..."), MessageType.Information);
+
+
+            DoLog(string.Format("We udate Quotes MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
+            UpdateQuotes(newTrade.Symbol);
+            DoLog(string.Format("Quotes updated..."), MessageType.Information);
+        }
+
+ 
 
         private bool EvalTrades(LegacyOrderReq legOrdReq, IWebSocketConnection socket)
         {
@@ -796,8 +892,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 //1- Main algo for updating price levels and publish the trades
                 if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY)
                 {
-                    DepthOfBook bestAsk = DepthOfBooks.Where(x => x.BidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+                    DepthOfBook bestAsk = DepthOfBooks.Where(x =>x.Symbol==legOrdReq.InstrumentId &&
+                                                                 x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
+                    DoLog(string.Format("Best ask for buy order (Limit Price={1}) found at price {0}", bestAsk.Price, legOrdReq.Price.Value), MessageType.Information);
                     if (legOrdReq.Price.HasValue && legOrdReq.Price.Value >= bestAsk.Price)
                     {
                         //we had a trade
@@ -818,7 +916,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 SendNewTrade(legOrdReq, bestAsk, bestAsk.Size, socket);
 
                                 //1.3-Calculamos el nuevo bestAsk
-                                bestAsk = DepthOfBooks.Where(x => x.BidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+                                bestAsk = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
                             }
                             else//order fully filled
@@ -836,19 +934,24 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
                         //2-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
-                        EvalNewOrder(socket, legOrdReq, 
+                        EvalNewOrder(socket, legOrdReq,
                                      fullFill ? LegacyOrderRecord._STATUS_FILLED : LegacyOrderRecord._STATUS_PARTIALLY_FILLED,
                                      Convert.ToDouble(fullFill ? legOrdReq.Quantity : legOrdReq.Quantity - leftQty));
 
                         return true;
                     }
                     else
+                    {
+                        DoLog(string.Format("Could not find matching sell price for symbol {0} and order price {1}", legOrdReq.InstrumentId, legOrdReq.Price), MessageType.Information);
                         return false;
+                    }
                 }
                 else if (legOrdReq.cSide == LegacyOrderReq._SIDE_SELL)
                 {
-                    DepthOfBook bestBid = DepthOfBooks.Where(x => x.BidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
+                    DepthOfBook bestBid = DepthOfBooks.Where(x =>    x.Symbol == legOrdReq.InstrumentId
+                                                                  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
 
+                    DoLog(string.Format("Best bid for sell order (Limit Price={1}) found at price {0}", bestBid.Price,legOrdReq.Price.Value), MessageType.Information);
                     if (legOrdReq.Price.HasValue && legOrdReq.Price.Value <= bestBid.Price)
                     {
                         //we had a trade
@@ -869,7 +972,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 SendNewTrade(legOrdReq, bestBid, bestBid.Size, socket);
 
                                 //1.3-Calculamos el nuevo bestBid
-                                bestBid = DepthOfBooks.Where(x => x.BidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
+                                bestBid = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
 
                             }
                             else//order fully filled
@@ -891,10 +994,16 @@ namespace DGTLBackendMock.DataAccessLayer
                         return true;
                     }
                     else
+                    {
+                        DoLog(string.Format("Could not find matching buy price for symbol {0} and order price {1}", legOrdReq.InstrumentId, legOrdReq.Price), MessageType.Information);
                         return false;
+                    }
                 }
                 else
+                {
+                    DoLog(string.Format("Could not process side {1} for symbol {0} ", legOrdReq.InstrumentId, legOrdReq.cSide), MessageType.Information);
                     return false;
+                }
             }
         
         }
@@ -938,6 +1047,8 @@ namespace DGTLBackendMock.DataAccessLayer
                             EvalPriceLevelsIfNotTrades(socket, legOrdReq);
                             DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
                             EvalNewOrder(socket, legOrdReq, LegacyOrderRecord._STATUS_OPEN, 0);
+                            DoLog(string.Format("Updating quotes ..."), MessageType.Information);
+                            UpdateQuotes(legOrdReq.InstrumentId);
                         }
                     }
                 }
