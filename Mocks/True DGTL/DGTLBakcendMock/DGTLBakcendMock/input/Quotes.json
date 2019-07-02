@@ -1,10 +1,10 @@
 ﻿[
-{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "Bid" : 100.36,  "BidSize" : 44.7885,  "Ask" : 100.38, MidPoint:100.37,  "AskSize" : 2.7015},
-{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-X19",  "Bid" : null,  "BidSize" : null,  "Ask" : null,MidPoint:null,  "AskSize" : null},
-{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-Z19",  "Bid" : 100.36,  "BidSize" : 12.7885,  "Ask" : 100.37,MidPoint:100.365,  "AskSize" : 15.23},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XBT-USD",  "Bid" : 100.36,  "BidSize" : 44.7885,  "Ask" : 100.38, "MidPoint":100.37,  "AskSize" : 2.7015},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-X19",  "Bid" : null,  "BidSize" : null,  "Ask" : null,"MidPoint":null,  "AskSize" : null},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-Z19",  "Bid" : 100.36,  "BidSize" : 12.7885,  "Ask" : 100.37, "MidPoint":100.365,  "AskSize" : 15.23},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-X18"},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-V18",  "Bid" : 5233.88,  "BidSize" : 2.33,  "Ask" : null,  "AskSize" : null},
-{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-X18",  "Bid" : null,  "BidSize" : null,  "Ask" : 5433.22, MidPoint:null,  "AskSize" : 1.15},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-X18",  "Bid" : null,  "BidSize" : null,  "Ask" : 5433.22, "MidPoint":null,  "AskSize" : 1.15},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SPOT-TEST",  "Bid" : 5213.88,  "BidSize" : 5.34},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-X18",  "Bid" : null,  "BidSize" : null,  "Ask" : 5433.22,  "AskSize" : 1.15},
 ]
