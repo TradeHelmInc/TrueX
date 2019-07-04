@@ -491,7 +491,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 OyMsg.InstrumentId = legOrdReq.InstrumentId;
                 OyMsg.LvsQty = Convert.ToDouble(legOrdReq.Quantity) - fillQty;
                 OyMsg.Msg = "LegacyOrderRecord";
-                OyMsg.OrderId = Guid.NewGuid().ToString();
+                //OyMsg.OrderId = Guid.NewGuid().ToString();
+                OyMsg.OrderId = legOrdReq.ClOrderId;
                 OyMsg.OrdQty = Convert.ToDouble(legOrdReq.Quantity);
                 OyMsg.Price = (double?)legOrdReq.Price;
                 OyMsg.Sender = 0;
@@ -500,6 +501,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoSend<LegacyOrderRecord>(socket, OyMsg);
 
+                DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
                 Orders.Add(OyMsg);
             }
         }
@@ -672,20 +674,21 @@ namespace DGTLBackendMock.DataAccessLayer
         private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
         {
             DoLog(string.Format("Processing ProcessLegacyOrderCancelMock"), MessageType.Information);
-            LegacyOrderCancelReq legOrdReq = JsonConvert.DeserializeObject<LegacyOrderCancelReq>(m);
+            LegacyOrderCancelReq legOrdCxlReq = JsonConvert.DeserializeObject<LegacyOrderCancelReq>(m);
             try
             {
                 lock (Orders)
                 {
                     TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-                    LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == legOrdReq.OrigClOrderId).FirstOrDefault();
+                    DoLog(string.Format("Searching order by OrigClientOrderId={0} (ClOrderId={1})", legOrdCxlReq.OrigClOrderId, legOrdCxlReq.ClOrderId), MessageType.Information); 
+                    LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == legOrdCxlReq.OrigClOrderId).FirstOrDefault();
 
                     if (order != null)
                     {
                         //1-Manamos el CancelAck
                         LegacyOrderCancelAck ack = new LegacyOrderCancelAck();
-                        ack.OrigClOrderId = legOrdReq.OrigClOrderId;
+                        ack.OrigClOrderId = legOrdCxlReq.OrigClOrderId;
                         ack.CancelReason = "Just cancelled @ mock";
                         ack.Msg = "LegacyOrderCancelAck";
                         ack.OrderId = order.OrderId;
@@ -698,12 +701,12 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.LeftQty = 0;
                         ack.UUID = "";
                         ack.Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds) ;
-                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", legOrdReq.OrigClOrderId), MessageType.Information);
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", legOrdCxlReq.OrigClOrderId), MessageType.Information);
                         DoSend<LegacyOrderCancelAck>(socket, ack);
 
 
                         //2-Actualizamos el PL
-                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", legOrdReq.OrigClOrderId), MessageType.Information);
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", legOrdCxlReq.OrigClOrderId), MessageType.Information);
                         EvalPriceLevels(socket, order);
 
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
@@ -716,15 +719,15 @@ namespace DGTLBackendMock.DataAccessLayer
                         LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
                         {
                             Msg = "LegacyOrderCancelRejAck",
-                            OrigClOrderId = legOrdReq.OrigClOrderId,//we want the initial id
-                            ClOrderId = legOrdReq.ClOrderId,
-                            UserId = legOrdReq.UserId,
-                            InstrumentId = legOrdReq.InstrumentId,
+                            OrigClOrderId = legOrdCxlReq.OrigClOrderId,//we want the initial id
+                            ClOrderId = legOrdCxlReq.ClOrderId,
+                            UserId = legOrdCxlReq.UserId,
+                            InstrumentId = legOrdCxlReq.InstrumentId,
                             OrderId = null,
                             Price = null,
                             cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
-                            cSide = legOrdReq.cSide,
-                            OrderRejectReason = string.Format("Order {0} not found!", legOrdReq.OrigClOrderId)
+                            cSide = legOrdCxlReq.cSide,
+                            OrderRejectReason = string.Format("Order {0} not found!", legOrdCxlReq.OrigClOrderId)
                         };
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
@@ -740,14 +743,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck()
                 {
                     Msg = "LegacyOrderCancelRejAck",
-                    OrigClOrderId = legOrdReq.OrigClOrderId,//we want the initial id
-                    ClOrderId = legOrdReq.ClOrderId,
-                    UserId = legOrdReq.UserId,
-                    InstrumentId = legOrdReq.InstrumentId,
+                    OrigClOrderId = legOrdCxlReq.OrigClOrderId,//we want the initial id
+                    ClOrderId = legOrdCxlReq.ClOrderId,
+                    UserId = legOrdCxlReq.UserId,
+                    InstrumentId = legOrdCxlReq.InstrumentId,
                     OrderId = null,
                     Price = null,
                     cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED,
-                    cSide = legOrdReq.cSide,
+                    cSide = legOrdCxlReq.cSide,
                     OrderRejectReason = ex.Message
                 };
                 DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
@@ -1103,7 +1106,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         LegacyOrderAck legOrdAck = new LegacyOrderAck()
                         {
                             Msg = "LegacyOrderAck",
-                            OrderId = Guid.NewGuid().ToString(),
+                            //OrderId = Guid.NewGuid().ToString(),
+                            OrderId = legOrdReq.ClOrderId,
                             UserId = legOrdReq.UserId,
                             ClOrderId = legOrdReq.ClOrderId,
                             InstrumentId = legOrdReq.InstrumentId,

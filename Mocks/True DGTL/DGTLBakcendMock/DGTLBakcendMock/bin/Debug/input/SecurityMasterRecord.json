@@ -34,8 +34,5 @@
 {"Description":"XBT x USD Physical Swap November 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191122","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-X19","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Physical Swap December 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.01,"Platform":"trueEX","MaturityDate":"20191222","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-Z19","Msg":"SecurityMasterRecord"}
-,
-{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
-,
-{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinSize":1.0,"MaxSize":50000.0,"MinPriceIncrement":0.01,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
+
 ]
