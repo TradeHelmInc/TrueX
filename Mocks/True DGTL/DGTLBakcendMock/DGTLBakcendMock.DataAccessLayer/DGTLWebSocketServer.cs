@@ -377,7 +377,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
-                        DoLog(string.Format("Could not DepthOfBook bid for symbol {0}", symbol), MessageType.Information);
+                        DoLog(string.Format("Could not find DepthOfBook bid for symbol {0}", symbol), MessageType.Information);
 
                     }
 
@@ -388,7 +388,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
-                        DoLog(string.Format("Could not DepthOfBook ask for symbol {0}", symbol), MessageType.Information);
+                        DoLog(string.Format("Could not find DepthOfBook ask for symbol {0}", symbol), MessageType.Information);
                     }
 
                     if (quote.Ask.HasValue && quote.Bid.HasValue)
@@ -762,7 +762,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private bool ProcessRejectionsForNewOrders(LegacyOrderReq legOrdReq, IWebSocketConnection socket)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY && legOrdReq.Price.Value < 6000)
+            if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY && legOrdReq.InstrumentId=="ETH-USD" && legOrdReq.Price.Value < 6000)
             {
                 //We reject the messageas a convention, we cannot send messages lower than 6000 USD
                 LegacyOrderRejAck reject = new LegacyOrderRejAck()
@@ -779,7 +779,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //Quantity = legOrdReq.Quantity,
                     //AccountId = legOrdReq.AccountId,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    OrderRejectReason = "You cannot send orders lower than 6000 USD"
+                    OrderRejectReason = "You cannot send orders lower than 6000 USD for security ETH-USD"
                 };
 
                 DoSend<LegacyOrderRejAck>(socket, reject);
@@ -952,6 +952,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     DepthOfBook bestAsk = DepthOfBooks.Where(x =>x.Symbol==legOrdReq.InstrumentId &&
                                                                  x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
+                    if (bestAsk == null)
+                        return false;
+
                     DoLog(string.Format("Best ask for buy order (Limit Price={1}) found at price {0}", bestAsk.Price, legOrdReq.Price.Value), MessageType.Information);
                     if (legOrdReq.Price.HasValue && legOrdReq.Price.Value >= bestAsk.Price)
                     {
@@ -1020,6 +1023,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     DepthOfBook bestBid = DepthOfBooks.Where(x =>    x.Symbol == legOrdReq.InstrumentId
                                                                   && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+
+                    if (bestBid == null)
+                        return false;
 
                     DoLog(string.Format("Best bid for sell order (Limit Price={1}) found at price {0}", bestBid.Price,legOrdReq.Price.Value), MessageType.Information);
                     if (legOrdReq.Price.HasValue && legOrdReq.Price.Value < bestBid.Price)

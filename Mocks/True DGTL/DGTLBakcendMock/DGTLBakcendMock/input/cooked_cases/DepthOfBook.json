@@ -79,6 +79,11 @@
 
 ,{"Symbol":"ETH-USD","DepthTime":1561479253974,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":40525.0,"Size":95.0,"Msg":"DepthOfBook","Sender":0}
 
+,{"Symbol":"XMR-USD","DepthTime":1561479253973,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":95.8,"Size":25.12,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"XMR-USD","DepthTime":1561479253974,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":90.5,"Size":51.3,"Msg":"DepthOfBook","Sender":0}
+
+
 ,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253942,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9017.5,"Size":100.0,"Msg":"DepthOfBook","Sender":0}
 
 ,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253948,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9013.0,"Size":160.55,"Msg":"DepthOfBook","Sender":0}
