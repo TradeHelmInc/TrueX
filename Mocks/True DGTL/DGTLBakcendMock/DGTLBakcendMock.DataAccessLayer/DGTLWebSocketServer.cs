@@ -34,7 +34,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected List<DepthOfBook> DepthOfBooks { get; set; }
 
-        
+        protected SecurityMapping[] SecurityMappings { get; set; }
 
         protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
 
@@ -93,6 +93,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 LoadTrades();
 
                 LoadQuotes();
+
+                LoadSecurityMappings();
 
                 LoadDailySettlementPrices();
 
@@ -162,10 +164,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        
+        protected void LoadSecurityMappings()
+        {
+            string strSecurityMappings = File.ReadAllText(@".\input\SecurityMapping.json");
 
+            //Aca le metemos que serialize el contenido
+            SecurityMappings = JsonConvert.DeserializeObject<SecurityMapping[]>(strSecurityMappings);
+        }
         
-
         private void LoadSecurityMasterRecords()
         {
             string strSecurityMasterRecords = File.ReadAllText(@".\input\SecurityMasterRecord.json");
@@ -1097,6 +1103,72 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
+        //this will update the security status into halted every 10 seconds 
+        protected void ProcessSecuritStatusThread(object param)
+        {
+            object[] paramArr = (object[])param;
+            string symbol = (string)paramArr[0];
+            IWebSocketConnection socket = (IWebSocketConnection)paramArr[1];
+            char status;
+
+            try
+            {
+                
+                SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+
+                if (secMapping != null)
+                {
+                    while (true)
+                    {
+
+                        int totalSeconds = DateTime.Now.Second;
+
+                        if (totalSeconds < 10 || (20 < totalSeconds && totalSeconds < 30) || (40 < totalSeconds && totalSeconds < 50))
+                            status = SecurityStatus._SEC_STATUS_TRADING;
+                        else
+                            status = SecurityStatus._SEC_STATUS_HALTING;
+
+                        SecurityStatus secStatus = new SecurityStatus();
+                        secStatus.Msg = "SecurityStatus";
+                        secStatus.Symbol = symbol;
+                        secStatus.cStatus = status;//: SecurityStatus._SEC_STATUS_HALTING;
+                        DoSend<SecurityStatus>(socket, secStatus);
+                        Thread.Sleep(10000);
+                    }
+                }
+                else
+                {
+                    DoLog(string.Format("Mapping not found for symbol {0}. We will not play with halting/not halting for that security ...",symbol), MessageType.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error looking mapping for symbol {0}:{1}", symbol,ex.Message), MessageType.Information);
+            }
+        }
+
+
+        protected void ProcessSecurityStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            if (subscrMsg.ServiceKey != "*")
+            {
+
+
+                SecurityStatus secStatus = new SecurityStatus();
+                secStatus.Msg = "SecurityStatus";
+                secStatus.Symbol = subscrMsg.ServiceKey;
+                secStatus.cStatus = SecurityStatus._SEC_STATUS_TRADING;//: SecurityStatus._SEC_STATUS_HALTING;
+                DoSend<SecurityStatus>(socket, secStatus);
+                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+
+                Thread processSecuritStatusThread = new Thread(ProcessSecuritStatusThread);
+                processSecuritStatusThread.Start(new object[] { subscrMsg.ServiceKey, socket });
+
+            }
+            else
+                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+        }
+
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
         {
             try
@@ -1155,7 +1227,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
-            DoLog(string.Format("Incoming subscription for service {0}", subscrMsg.Service), MessageType.Information);
+            DoLog(string.Format("Incoming subscription for service {0} - ServiceKey:{1}", subscrMsg.Service,subscrMsg.ServiceKey), MessageType.Information);
 
 
             if (subscrMsg.Service == "TA")
@@ -1177,6 +1249,10 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 if (subscrMsg.ServiceKey != null)
                     ProcessOficialFixingPrice(socket, subscrMsg);
+            }
+            else if (subscrMsg.Service == "TI")
+            {
+                ProcessSecurityStatus(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FD")
             {

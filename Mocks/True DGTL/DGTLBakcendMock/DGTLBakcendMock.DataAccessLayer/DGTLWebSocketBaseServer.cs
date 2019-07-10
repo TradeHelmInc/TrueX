@@ -90,6 +90,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+       
+
+
         protected void LoadUserRecords()
         {
             string strUserRecords = File.ReadAllText(@".\input\UserRecord.json");
@@ -297,6 +300,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (officialFixingPrice != null)
                     {
+                        officialFixingPrice.Price += Convert.ToDecimal( DateTime.Now.Second )/ 100;
+                        DoLog(string.Format("Returning fixing price for symbol {0}:{1}...", subscrMsg.ServiceKey,officialFixingPrice.Price), MessageType.Information);
+
                         DoSend<OfficialFixingPrice>(socket, officialFixingPrice);
                         Thread.Sleep(3000);//3 seconds
                         if (!subscResp)
@@ -336,6 +342,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
         }
+
+      
 
         protected void ProcessOficialFixingPrice(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
