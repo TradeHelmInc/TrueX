@@ -302,7 +302,7 @@ namespace DGTLBackendAPIClient
                 InstrumentId = ConfigurationManager.AppSettings["OrderSymbol"],
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? 'B' : 'S',//Buy or sell
-                Quantity = 1,
+                Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
                 cTimeInForce = '0',//Day
                 cOrderType = LegacyOrderReq._ORD_TYPE_LIMIT,//Limit
             };

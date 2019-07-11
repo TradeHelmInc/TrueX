@@ -458,6 +458,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             List<LegacyOrderRecord> orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
             orders.ForEach(x => DoSend<LegacyOrderRecord>(socket, x));
+            RefreshOpenOrders(socket, subscrMsg.ServiceKey);
             //Now we have to launch something to create deltas (insert, change, remove)
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
@@ -478,6 +479,23 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             Thread.Sleep(2000);
             ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
+        }
+
+        private void RefreshOpenOrders(IWebSocketConnection socket, string symbol)
+        {
+            int openOrdersCount = Orders.Where(x =>x.InstrumentId==symbol && ( x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
+
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            OpenOrdersCount openOrders = new OpenOrdersCount()
+            {
+                Msg = "OpenOrdersCount",
+                Sender = 0,
+                Symbol = symbol,
+                Time = Convert.ToInt64(elaped.TotalMilliseconds),
+                UserId = "",
+                Count = openOrdersCount
+            };
         }
 
         private void EvalNewOrder(IWebSocketConnection socket, LegacyOrderReq legOrdReq,
@@ -509,6 +527,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
                 Orders.Add(OyMsg);
+
+                RefreshOpenOrders(socket, OyMsg.InstrumentId);
+
             }
         }
 
@@ -718,6 +739,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         Orders.Remove(order);
 
+                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId);
+
                     }
                     else
                     { 
@@ -737,6 +760,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         };
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
+
+                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId);
                     }
                 }
 
