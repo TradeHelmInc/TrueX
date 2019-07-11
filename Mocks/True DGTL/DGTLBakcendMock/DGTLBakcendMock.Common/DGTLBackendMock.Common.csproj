@@ -67,6 +67,7 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderRecord.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderRejAck.cs" />
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
+    <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
     <Compile Include="DTO\Platform\PlatformStatus.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
     <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />

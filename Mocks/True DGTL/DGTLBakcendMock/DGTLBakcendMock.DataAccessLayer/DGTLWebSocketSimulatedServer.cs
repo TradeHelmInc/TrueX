@@ -782,7 +782,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 SecurityStatus secStatus = new SecurityStatus();
                 secStatus.Msg="SecurityStatus";
                 secStatus.Symbol=subscrMsg.ServiceKey;
-                secStatus.cStatus = secMaping != null ? SecurityStatus._SEC_STATUS_TRADING : SecurityStatus._SEC_STATUS_HALTING;
+                secStatus.cStatus = SecurityStatus._SEC_STATUS_TRADING;
                 DoSend<SecurityStatus>(socket, secStatus);
                 ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 

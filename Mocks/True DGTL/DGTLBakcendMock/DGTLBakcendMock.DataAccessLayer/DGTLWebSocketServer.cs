@@ -886,6 +886,28 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<DepthOfBook>(socket, bestOffer);
         }
 
+        private void SendTradeNotification(LegacyTradeHistory trade,string userId, IWebSocketConnection socket)
+        {
+            DoLog(string.Format("We send a Trade Notification for Size={0} and Price={1} for symbol {2}", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+
+            TradeNotification notif = new TradeNotification()
+            {
+                Msg = "TradeNotification",
+                Sender = 0,
+                Price = trade.TradePrice,
+                Size = trade.TradeQuantity,
+                Symbol = trade.Symbol,
+                Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                UserId = userId
+
+            };
+
+            DoSend<TradeNotification>(socket, notif);
+
+        }
+
         //1.2- We send a Trade by <size>
         private void SendNewTrade(LegacyOrderReq legOrdReq,DepthOfBook bestBidAsk, decimal size, IWebSocketConnection socket)
         {
@@ -908,6 +930,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
             //1.2.1-We update market data for a new trade
             EvalMarketData(newTrade);
+
+            //1.2.2-We send a trade notification for the new trade
+            SendTradeNotification(newTrade, legOrdReq.UserId, socket);
            
         }
 
@@ -1118,6 +1143,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 if (secMapping != null)
                 {
+                    DoLog(string.Format("Alternating security status for symbol {0}...", symbol), MessageType.Information);
+
                     while (true)
                     {
 
