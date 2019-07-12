@@ -40,6 +40,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
 
+        protected List<string> NotificationsSubscriptions { get; set; }
+
+        protected List<string> OpenOrderCountSubscriptions { get; set; }
+
         protected bool Connected { get; set; }
 
         
@@ -67,6 +71,10 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessDailySettlementThreads = new Dictionary<string, Thread>();
 
             ProcessDailyOfficialFixingPriceThreads = new Dictionary<string, Thread>();
+
+            NotificationsSubscriptions = new List<string>();
+
+            OpenOrderCountSubscriptions = new List<string>();
 
             Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
             {
@@ -133,6 +141,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
                 ProcessDailySettlementThreads.Clear();
+
+                NotificationsSubscriptions.Clear();
+                OpenOrderCountSubscriptions.Clear();
 
                 Connected = false;
 
@@ -483,19 +494,31 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void RefreshOpenOrders(IWebSocketConnection socket, string symbol)
         {
-            int openOrdersCount = Orders.Where(x =>x.InstrumentId==symbol && ( x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
 
-            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
-
-            OpenOrdersCount openOrders = new OpenOrdersCount()
+            if (OpenOrderCountSubscriptions.Contains(symbol))
             {
-                Msg = "OpenOrdersCount",
-                Sender = 0,
-                Symbol = symbol,
-                Time = Convert.ToInt64(elaped.TotalMilliseconds),
-                UserId = "",
-                Count = openOrdersCount
-            };
+                int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
+
+                DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
+
+                TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+                OpenOrdersCount openOrders = new OpenOrdersCount()
+                {
+                    Msg = "OpenOrdersCount",
+                    Sender = 0,
+                    Symbol = symbol,
+                    Time = Convert.ToInt64(elaped.TotalMilliseconds),
+                    UserId = "",
+                    Count = openOrdersCount
+                };
+            }
+            else
+            {
+                DoLog(string.Format("Not Sending open order count for symbol {0} because it was not subscribed", symbol), MessageType.Information);
+
+            
+            }
         }
 
         private void EvalNewOrder(IWebSocketConnection socket, LegacyOrderReq legOrdReq,
@@ -913,23 +936,29 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void SendTradeNotification(LegacyTradeHistory trade,string userId, IWebSocketConnection socket)
         {
-            DoLog(string.Format("We send a Trade Notification for Size={0} and Price={1} for symbol {2}", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
-            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-
-            TradeNotification notif = new TradeNotification()
+            if (NotificationsSubscriptions.Contains(trade.Symbol))
             {
-                Msg = "TradeNotification",
-                Sender = 0,
-                Price = trade.TradePrice,
-                Size = trade.TradeQuantity,
-                Symbol = trade.Symbol,
-                Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UserId = userId
+                DoLog(string.Format("We send a Trade Notification for Size={0} and Price={1} for symbol {2}", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-            };
 
-            DoSend<TradeNotification>(socket, notif);
+                TradeNotification notif = new TradeNotification()
+                {
+                    Msg = "TradeNotification",
+                    Sender = 0,
+                    Price = trade.TradePrice,
+                    Size = trade.TradeQuantity,
+                    Symbol = trade.Symbol,
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UserId = userId
+
+                };
+
+                DoSend<TradeNotification>(socket, notif);
+            }
+            else
+                DoLog(string.Format("Not sending Trade Notification for Size={0} and Price={1} for symbol {2} because it was not subscribed", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
+
 
         }
 
@@ -1221,6 +1250,54 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
         }
 
+        protected void ProcessNotifications(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            try
+            {
+                if (subscrMsg.ServiceKey != "*")
+                {
+                    if (subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries).Length != 2)
+                        throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
+
+                    string symbol = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    NotificationsSubscriptions.Add(symbol);
+                    ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+
+                }
+                else
+                    ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+            
+            }
+        }
+
+        protected void ProcessOpenOrderCount(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            try
+            {
+                if (subscrMsg.ServiceKey != "*")
+                {
+                    if (subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries).Length != 2)
+                        throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
+
+                    string symbol = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    NotificationsSubscriptions.Add(symbol);
+                    ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+
+                }
+                else
+                    ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+
+            }
+        }
+
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
         {
             try
@@ -1305,6 +1382,14 @@ namespace DGTLBackendMock.DataAccessLayer
             else if (subscrMsg.Service == "TI")
             {
                 ProcessSecurityStatus(socket, subscrMsg);
+            }
+            else if (subscrMsg.Service == "Ot")
+            {
+                ProcessOpenOrderCount(socket, subscrMsg);
+            }
+            else if (subscrMsg.Service == "TN")
+            {
+                ProcessNotifications(socket, subscrMsg);
             }
             else if (subscrMsg.Service == "FD")
             {
