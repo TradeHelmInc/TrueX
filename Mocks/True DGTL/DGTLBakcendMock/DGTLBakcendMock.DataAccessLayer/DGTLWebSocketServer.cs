@@ -142,8 +142,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
                 ProcessDailySettlementThreads.Clear();
 
-                NotificationsSubscriptions.Clear();
-                OpenOrderCountSubscriptions.Clear();
+                //NotificationsSubscriptions.Clear();
+                //OpenOrderCountSubscriptions.Clear();
 
                 Connected = false;
 
@@ -494,6 +494,21 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void RefreshOpenOrders(IWebSocketConnection socket, string symbol)
         {
+
+            if(symbol.Contains("@"))
+            {
+                DoLog(string.Format("Symbol has special format that hast to be cleaned : {0}", symbol), MessageType.Information);
+
+                string[] fields = symbol.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (fields.Length >= 2)
+                    symbol = fields[1];
+
+
+                DoLog(string.Format("Symbol cleaned : {0}", symbol), MessageType.Information);
+
+            }
+
 
             if (OpenOrderCountSubscriptions.Contains(symbol))
             {
@@ -1259,16 +1274,26 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries).Length != 2)
                         throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
 
+
+
                     string symbol = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    DoLog(string.Format("Subscribe to service TN for symbol {0}", symbol), MessageType.Information);
                     NotificationsSubscriptions.Add(symbol);
                     ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 
                 }
                 else
+                {
+
+                    DoLog(string.Format("Cannot Subscribe to service TN for generic symbol {0}", subscrMsg.ServiceKey), MessageType.Information);
+
                     ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+                }
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Error Subscribing to service TN for  symbol {0}:{1}", subscrMsg.ServiceKey,ex.Message), MessageType.Information);
+
                 ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             
             }
@@ -1284,15 +1309,20 @@ namespace DGTLBackendMock.DataAccessLayer
                         throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
 
                     string symbol = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[1];
-                    NotificationsSubscriptions.Add(symbol);
+                    DoLog(string.Format("Subscribe to service Ot for symbol {0}", symbol), MessageType.Information);
+                    OpenOrderCountSubscriptions.Add(symbol);
                     ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 
                 }
                 else
+                {
+                    DoLog(string.Format("Cannot Subscribe to service Ot for generic symbol {0}", subscrMsg.ServiceKey), MessageType.Information);
                     ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+                }
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Error Subscribing to service Ot for  symbol {0}:{1}", subscrMsg.ServiceKey, ex.Message), MessageType.Information);
                 ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
 
             }
