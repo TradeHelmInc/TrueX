@@ -494,9 +494,31 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void RefreshOpenOrders(IWebSocketConnection socket, string symbol,string userId)
         {
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
             try
             {
-                if (symbol.Contains("@"))
+                if (OpenOrderCountSubscriptions.Contains("*"))
+                {
+
+                    int openOrdersCount = Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED).ToList().Count;
+                    
+                    DoLog(string.Format("Sending open order count for all symbols : {0}", openOrdersCount), MessageType.Information);
+
+                    OpenOrdersCount openOrders = new OpenOrdersCount()
+                    {
+                        Msg = "OpenOrdersCount",
+                        Sender = 0,
+                        Symbol = "*",
+                        Time = Convert.ToInt64(elaped.TotalMilliseconds),
+                        UserId = userId,
+                        Count = openOrdersCount
+                    };
+
+                    DoSend<OpenOrdersCount>(socket, openOrders);
+                
+                }
+                else if (symbol.Contains("@"))
                 {
                     DoLog(string.Format("Symbol has special format that hast to be cleaned : {0}", symbol), MessageType.Information);
 
@@ -508,35 +530,31 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     DoLog(string.Format("Symbol cleaned : {0}", symbol), MessageType.Information);
 
-                }
 
-
-                if (OpenOrderCountSubscriptions.Contains(symbol))
-                {
-                    int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
-
-                    DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
-
-                    TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
-
-                    OpenOrdersCount openOrders = new OpenOrdersCount()
+                    if (OpenOrderCountSubscriptions.Contains(symbol))
                     {
-                        Msg = "OpenOrdersCount",
-                        Sender = 0,
-                        Symbol = symbol,
-                        Time = Convert.ToInt64(elaped.TotalMilliseconds),
-                        UserId = userId,
-                        Count = openOrdersCount
-                    };
+                        int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
 
-                    DoSend<OpenOrdersCount>(socket, openOrders);
-
-                }
-                else
-                {
-                    DoLog(string.Format("Not Sending open order count for symbol {0} because it was not subscribed", symbol), MessageType.Information);
+                        DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
 
 
+                        OpenOrdersCount openOrders = new OpenOrdersCount()
+                        {
+                            Msg = "OpenOrdersCount",
+                            Sender = 0,
+                            Symbol = symbol,
+                            Time = Convert.ToInt64(elaped.TotalMilliseconds),
+                            UserId = userId,
+                            Count = openOrdersCount
+                        };
+
+                        DoSend<OpenOrdersCount>(socket, openOrders);
+
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Not Sending open order count for symbol {0} because it was not subscribed", symbol), MessageType.Information);
+                    }
                 }
             }
             catch (Exception ex)
@@ -1333,8 +1351,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else
                 {
-                    DoLog(string.Format("Cannot Subscribe to service Ot for generic symbol {0}", subscrMsg.ServiceKey), MessageType.Information);
-                    ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+                    OpenOrderCountSubscriptions.Add("*");
+                    DoLog(string.Format("Subscribed for all securities in service Qt"), MessageType.Information);
+                    RefreshOpenOrders(socket, "*", subscrMsg.UserId);
+                    ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, true);
                 }
             }
             catch (Exception ex)
