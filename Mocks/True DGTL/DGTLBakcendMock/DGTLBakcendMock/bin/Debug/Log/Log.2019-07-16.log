@@ -1,0 +1,154 @@
+2019-07-16 14:20:34  :: Initializing Mock Server...
+2019-07-16 14:20:34  :: Initializing all collections...
+2019-07-16 14:20:34  :: Collections Initialized...
+2019-07-16 14:20:46  :: Connecting for the first time to client 4367
+2019-07-16 14:20:46  :: Connected for the first time to client 4367
+2019-07-16 14:20:55  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-16 14:20:55  :: Incoming Login request for user MM1_CLOBUI
+2019-07-16 14:20:55  :: user MM1_CLOBUI Successfully logged in
+2019-07-16 14:20:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:20:58  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:02  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:15  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:21:15  :: Incoming subscription for service Oy - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:15  :: Symbol has special format that hast to be cleaned : MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:15  :: Symbol cleaned : XBT-USD
+2019-07-16 14:21:15  :: Not Sending open order count for symbol XBT-USD because it was not subscribed
+2019-07-16 14:21:15  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:21:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:20  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:21:20  :: Incoming subscription for service Ot - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:20  :: Subscribe to service Ot for symbol XBT-USD
+2019-07-16 14:21:20  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:21:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:23  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:21:23  :: Incoming subscription for service Ot - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:23  :: Subscribe to service Ot for symbol XBT-USD
+2019-07-16 14:21:23  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:21:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:36  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:21:36  :: Incoming subscription for service Oy - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:36  :: Symbol has special format that hast to be cleaned : MM2_CLOBUI2@XBT-USD
+2019-07-16 14:21:36  :: Symbol cleaned : XBT-USD
+2019-07-16 14:21:36  :: Sending open order count for symbol XBT-USD : 0
+2019-07-16 14:21:36  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:21:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:21:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:32  :: Initializing Mock Server...
+2019-07-16 14:22:32  :: Initializing all collections...
+2019-07-16 14:22:33  :: Collections Initialized...
+2019-07-16 14:22:39  :: Connecting for the first time to client 4488
+2019-07-16 14:22:39  :: Connected for the first time to client 4488
+2019-07-16 14:22:49  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-16 14:22:49  :: Incoming Login request for user MM1_CLOBUI
+2019-07-16 14:22:49  :: user MM1_CLOBUI Successfully logged in
+2019-07-16 14:22:49  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:51  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:55  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:57  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:22:59  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:01  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:07  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:09  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:11  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:13  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:15  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:17  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:19  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:35  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:37  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:38  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:23:38  :: Incoming subscription for service Ot - ServiceKey:*
+2019-07-16 14:23:38  :: Cannot Subscribe to service Ot for generic symbol *
+2019-07-16 14:23:38  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:* Success:False
+2019-07-16 14:23:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:23:40  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:23:40  :: Incoming subscription for service Oy - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:23:54  :: Symbol has special format that hast to be cleaned : MM2_CLOBUI2@XBT-USD
+2019-07-16 14:23:57  :: Symbol cleaned : XBT-USD
+2019-07-16 14:24:04  :: Not Sending open order count for symbol XBT-USD because it was not subscribed
+2019-07-16 14:24:04  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:25  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:24:25  :: Incoming subscription for service Oy - ServiceKey:*
+2019-07-16 14:24:31  :: Exception processing onMessage:El índice (basado en cero) debe ser mayor o igual a cero y menor que el tamaño de la lista de argumentos.
+2019-07-16 14:24:31  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:32  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:38  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:24:38  :: Incoming subscription for service Ot - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:24:38  :: Subscribe to service Ot for symbol XBT-USD
+2019-07-16 14:24:38  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:24:39  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:24:39  :: Incoming subscription for service Ot - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:24:39  :: Subscribe to service Ot for symbol XBT-USD
+2019-07-16 14:24:39  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:24:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:42  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:46  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:48  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:24:49  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:24:49  :: Incoming subscription for service Ot - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:24:59  :: Subscribe to service Ot for symbol XBT-USD
+2019-07-16 14:25:11  :: SubscriptionResponse UUID:APIClientUUID Service:Ot ServiceKey:MM2_CLOBUI2@XBT-USD Success:True
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:15  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:17  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:19  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:21  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:23  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-16 14:25:25  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-16 14:25:25  :: Incoming subscription for service Oy - ServiceKey:MM2_CLOBUI2@XBT-USD
+2019-07-16 14:25:33  :: Symbol has special format that hast to be cleaned : MM2_CLOBUI2@XBT-USD
+2019-07-16 14:25:35  :: Symbol cleaned : XBT-USD
+2019-07-16 14:25:40  :: Sending open order count for symbol XBT-USD : 0

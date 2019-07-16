@@ -35,6 +35,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
         [JsonIgnore]
         public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
+
+        public decimal? ReferencePrice { get; set; }
+
         #endregion
 
     }

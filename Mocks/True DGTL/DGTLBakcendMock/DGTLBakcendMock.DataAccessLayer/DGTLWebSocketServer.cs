@@ -469,7 +469,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             List<LegacyOrderRecord> orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
             orders.ForEach(x => DoSend<LegacyOrderRecord>(socket, x));
-            RefreshOpenOrders(socket, subscrMsg.ServiceKey);
+            RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
             //Now we have to launch something to create deltas (insert, change, remove)
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
@@ -492,46 +492,56 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "TA", "*", subscrMsg.UUID);
         }
 
-        private void RefreshOpenOrders(IWebSocketConnection socket, string symbol)
+        private void RefreshOpenOrders(IWebSocketConnection socket, string symbol,string userId)
         {
-
-            if(symbol.Contains("@"))
+            try
             {
-                DoLog(string.Format("Symbol has special format that hast to be cleaned : {0}", symbol), MessageType.Information);
-
-                string[] fields = symbol.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
-
-                if (fields.Length >= 2)
-                    symbol = fields[1];
-
-
-                DoLog(string.Format("Symbol cleaned : {0}", symbol), MessageType.Information);
-
-            }
-
-
-            if (OpenOrderCountSubscriptions.Contains(symbol))
-            {
-                int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
-
-                DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
-
-                TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
-
-                OpenOrdersCount openOrders = new OpenOrdersCount()
+                if (symbol.Contains("@"))
                 {
-                    Msg = "OpenOrdersCount",
-                    Sender = 0,
-                    Symbol = symbol,
-                    Time = Convert.ToInt64(elaped.TotalMilliseconds),
-                    UserId = "",
-                    Count = openOrdersCount
-                };
-            }
-            else
-            {
-                DoLog(string.Format("Not Sending open order count for symbol {0} because it was not subscribed", symbol), MessageType.Information);
+                    DoLog(string.Format("Symbol has special format that hast to be cleaned : {0}", symbol), MessageType.Information);
 
+                    string[] fields = symbol.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (fields.Length >= 2)
+                        symbol = fields[1];
+
+
+                    DoLog(string.Format("Symbol cleaned : {0}", symbol), MessageType.Information);
+
+                }
+
+
+                if (OpenOrderCountSubscriptions.Contains(symbol))
+                {
+                    int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
+
+                    DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
+
+                    TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    OpenOrdersCount openOrders = new OpenOrdersCount()
+                    {
+                        Msg = "OpenOrdersCount",
+                        Sender = 0,
+                        Symbol = symbol,
+                        Time = Convert.ToInt64(elaped.TotalMilliseconds),
+                        UserId = userId,
+                        Count = openOrdersCount
+                    };
+
+                    DoSend<OpenOrdersCount>(socket, openOrders);
+
+                }
+                else
+                {
+                    DoLog(string.Format("Not Sending open order count for symbol {0} because it was not subscribed", symbol), MessageType.Information);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception on RefreshOpenOrders for symbol {0}: {1}", symbol, ex.Message), MessageType.Error);
             
             }
         }
@@ -566,7 +576,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
                 Orders.Add(OyMsg);
 
-                RefreshOpenOrders(socket, OyMsg.InstrumentId);
+                RefreshOpenOrders(socket, OyMsg.InstrumentId,OyMsg.UserId);
 
             }
         }
@@ -777,7 +787,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         Orders.Remove(order);
 
-                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId);
+                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId,legOrdCxlReq.UserId);
 
                     }
                     else
@@ -799,7 +809,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
 
-                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId);
+                        RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId,legOrdCxlReq.UserId);
                     }
                 }
 
@@ -1209,10 +1219,14 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 
                 SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == symbol).FirstOrDefault();
+                OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+
 
                 if (secMapping != null)
                 {
                     DoLog(string.Format("Alternating security status for symbol {0}...", symbol), MessageType.Information);
+
+                    decimal initialRefPrice = officialFixingPrice != null ? officialFixingPrice.Price.Value : 2000;
 
                     while (true)
                     {
@@ -1228,7 +1242,10 @@ namespace DGTLBackendMock.DataAccessLayer
                         secStatus.Msg = "SecurityStatus";
                         secStatus.Symbol = symbol;
                         secStatus.cStatus = status;//: SecurityStatus._SEC_STATUS_HALTING;
+                        secStatus.ReferencePrice = initialRefPrice;
                         DoSend<SecurityStatus>(socket, secStatus);
+
+                        initialRefPrice += 0.01m;
                         Thread.Sleep(10000);
                     }
                 }
