@@ -1338,7 +1338,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             try
             {
-                if (subscrMsg.ServiceKey != "*")
+                if (!subscrMsg.ServiceKey.Contains("*"))
                 {
                     if (subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries).Length != 2)
                         throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
@@ -1363,6 +1363,33 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
 
             }
+        }
+
+        private void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
+        {
+            try
+            {
+                ResetPasswordRequest resetPwdReq = JsonConvert.DeserializeObject<ResetPasswordRequest>(m);
+
+                ClientReject clientRej = new ClientReject();
+
+                clientRej.Msg = "ClientReject";
+                clientRej.RejectReason = "mfalcone test";
+                clientRej.Sender = 0;
+                clientRej.UserId = resetPwdReq.UserId;
+                clientRej.UUID = clientRej.UUID;
+
+                DoLog(string.Format("Sending ClientReject for incoming ResetPasswordReject: {0}", clientRej.RejectReason), MessageType.Error);
+
+                DoSend<ClientReject>(socket, clientRej);
+
+
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing ProcessResetPasswordRequest: {0}", ex.Message), MessageType.Error);
+            }
+        
         }
 
         private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
@@ -1475,6 +1502,10 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ProcessCreditRecordUpdates(socket, subscrMsg);
             }
+            else if (subscrMsg.Service == "Cm")
+            {
+                ProcessCreditLimitUpdates(socket, subscrMsg);
+            }
             else if (subscrMsg.Service == "LD")
             {
                 ProcessOrderBookDepth(socket, subscrMsg);
@@ -1483,6 +1514,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ProcessMyOrders(socket, subscrMsg);
             }
+
             else if (subscrMsg.Service == "LT")
             {
                 ProcessMyTrades(socket, subscrMsg);
@@ -1523,6 +1555,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
 
                     ProcessLegacyOrderReqMock(socket,m);
+
+                }
+                else if (wsResp.Msg == "ResetPasswordRequest")
+                {
+
+                    ProcessResetPasswordRequest(socket, m);
 
                 }
                 else if (wsResp.Msg == "Subscribe")

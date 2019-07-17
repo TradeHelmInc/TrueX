@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Account\AccountRecord.cs" />
+    <Compile Include="DTO\Account\CreditLimitUpdate.cs" />
     <Compile Include="DTO\Account\CreditRecordUpdate.cs" />
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="DTO\Auth\ClientReject.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatResponse.cs" />
     <Compile Include="DTO\Auth\ResetPasswordRequest.cs" />
+    <Compile Include="DTO\Auth\ResetPasswordResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
     <Compile Include="DTO\Auth\WebSocketLogoutMessage.cs" />
     <Compile Include="DTO\MarketData\DepthOfBook.cs" />

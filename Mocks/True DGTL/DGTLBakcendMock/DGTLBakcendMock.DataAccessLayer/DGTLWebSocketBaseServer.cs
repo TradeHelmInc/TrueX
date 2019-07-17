@@ -395,6 +395,61 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
+        protected void ProcessCreditLimitUpdatesThread(object param)
+        {
+            DoLog(string.Format("Starting ProcessCreditLimitUpdatesThread thread"), MessageType.Information);
+
+            object[] parameters = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection) parameters[0];
+            WebSocketSubscribeMessage subscrMsg = (WebSocketSubscribeMessage)parameters[1];
+
+            string firmId = subscrMsg.ServiceKey;
+            if (subscrMsg.ServiceKey.Contains("@"))
+                firmId = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[0];
+
+            DoLog(string.Format("Getting account record for firmId {0}", firmId), MessageType.Information);
+            AccountRecord accRecord = AccountRecords.Where(x => x.EPFirmId == firmId).FirstOrDefault();
+            DoLog(string.Format("Account record for firmId {0} {1} found",firmId ,accRecord!=null? "do": "not"), MessageType.Information);
+
+            if (accRecord == null)
+                return;
+
+            decimal maxNotional = accRecord.MaxNotional;
+            double creditLimit = accRecord.CreditLimit;
+
+            while (true)
+            {
+                Thread.Sleep(10000);
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                creditLimit += 1000d;
+                maxNotional+=10000;
+
+                CreditLimitUpdate climUpd = new CreditLimitUpdate();
+                climUpd.Active = true;
+                climUpd.CreditLimit = creditLimit;
+                climUpd.FirmId = accRecord.EPFirmId;
+                climUpd.MaxNotional = maxNotional;
+                climUpd.Msg = "CreditLimitUpdate";
+                climUpd.RouteId = accRecord.RouteId;
+                climUpd.Sender = 0;
+                climUpd.Time = Convert.ToInt64(elapsed.TotalMilliseconds);
+
+
+                DoLog(string.Format("Sending Credit Limit Update New MaxLimit:{0} New MaxNotional:{1}", creditLimit, maxNotional), MessageType.Information);
+                DoSend<CreditLimitUpdate>(socket, climUpd);
+
+            }
+        
+        }
+
+        protected void ProcessCreditLimitUpdates(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            ProcessSubscriptionResponse(socket, "Cm", subscrMsg.ServiceKey, subscrMsg.UUID);
+            Thread CreditLimitUpdateThread = new Thread(ProcessCreditLimitUpdatesThread);
+            CreditLimitUpdateThread.Start(new object[] { socket, subscrMsg });
+        }
+
         protected void ProcessUserRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             if (subscrMsg.ServiceKey != "*")
