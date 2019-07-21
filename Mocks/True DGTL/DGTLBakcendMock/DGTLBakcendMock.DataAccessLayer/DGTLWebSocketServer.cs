@@ -40,6 +40,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
 
+        protected Dictionary<string, Thread> ProcessSecuritStatusThreads { get; set; }
+
         protected List<string> NotificationsSubscriptions { get; set; }
 
         protected List<string> OpenOrderCountSubscriptions { get; set; }
@@ -69,6 +71,10 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessLastQuoteThreads = new Dictionary<string, Thread>();
 
             ProcessDailySettlementThreads = new Dictionary<string, Thread>();
+
+            ProcessSecuritStatusThreads = new Dictionary<string, Thread>();
+
+            ProcessCreditLimitUpdatesThreads = new Dictionary<string, Thread>();
 
             ProcessDailyOfficialFixingPriceThreads = new Dictionary<string, Thread>();
 
@@ -142,8 +148,15 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessDailySettlementThreads.Values.ToList().ForEach(x => x.Abort());
                 ProcessDailySettlementThreads.Clear();
 
-                //NotificationsSubscriptions.Clear();
-                //OpenOrderCountSubscriptions.Clear();
+                ProcessSecuritStatusThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessSecuritStatusThreads.Clear();
+
+                ProcessCreditLimitUpdatesThreads.Values.ToList().ForEach(x => x.Abort());
+                ProcessCreditLimitUpdatesThreads.Clear();
+
+
+                NotificationsSubscriptions.Clear();
+                OpenOrderCountSubscriptions.Clear();
 
                 Connected = false;
 
@@ -352,8 +365,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Thread ProcessLastSaleThread = new Thread(LastSaleThread);
                     ProcessLastSaleThread.Start(new object[] { socket, subscrMsg });
-                    ProcessLastSaleThreads.Add(subscrMsg.ServiceKey, ProcessLastSaleThread);    
+                    ProcessLastSaleThreads.Add(subscrMsg.ServiceKey, ProcessLastSaleThread);
                 }
+            }
+            else
+            {
+                DoLog(string.Format("Double subscription for service LS for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID,false,"Double subscription");
+
             }
         
         }
@@ -370,7 +389,11 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessLastQuoteThreads.Add(subscrMsg.ServiceKey, ProcessQuoteThread);
                 }
             }
-
+            else
+            {
+                DoLog(string.Format("Double subscription for service LQ for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+            }
         }
 
         private void UpdateQuotes(string symbol)
@@ -610,6 +633,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (order.cSide == LegacyOrderReq._SIDE_BUY)
             {
                 DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                       && x.Symbol==order.InstrumentId
                                                                        && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
 
                 if (existingPriceLevel != null)
@@ -641,6 +665,7 @@ namespace DGTLBackendMock.DataAccessLayer
             else if (order.cSide == LegacyOrderReq._SIDE_SELL)
             {
                 DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                       && x.Symbol == order.InstrumentId
                                                                        && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
 
                 if (existingPriceLevel != null)
@@ -678,6 +703,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (legOrdReq.cSide == LegacyOrderReq._SIDE_BUY)
                 {
                     DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                           && x.Symbol == legOrdReq.InstrumentId
                                                                            && x.Price == legOrdReq.Price).FirstOrDefault();
 
                     if (existingPriceLevel != null)
@@ -721,6 +747,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (legOrdReq.cSide == LegacyOrderReq._SIDE_SELL)
                 {
                     DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                           && x.Symbol == legOrdReq.InstrumentId
                                                                            && x.Price == legOrdReq.Price).FirstOrDefault();
 
                     if (existingPriceLevel != null)
@@ -762,6 +789,56 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 }
             }
+        }
+
+        private void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
+        {
+            DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
+            LegacyOrderMassCancelReq legOrdMassCxlReq = JsonConvert.DeserializeObject<LegacyOrderMassCancelReq>(m);
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED).ToList())
+                    {
+                        //1-Manamos el CancelAck
+                        LegacyOrderCancelAck ack = new LegacyOrderCancelAck();
+                        ack.OrigClOrderId = order.ClientOrderId;
+                        ack.CancelReason = "Massive cancel cancelled @ mock";
+                        ack.Msg = "LegacyOrderCancelAck";
+                        ack.OrderId = order.OrderId;
+                        ack.UserId = legOrdMassCxlReq.UserId;
+                        ack.ClOrderId = order.OrderId;
+                        ack.cSide = order.cSide;
+                        ack.InstrumentId = order.InstrumentId;
+                        ack.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        ack.Price = order.Price.HasValue ? (decimal?)Convert.ToDecimal(order.Price) : null;
+                        ack.LeftQty = 0;
+                        ack.UUID = "";
+                        ack.Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        DoSend<LegacyOrderCancelAck>(socket, ack);
+
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        EvalPriceLevels(socket, order);
+
+                    }
+
+                    DoLog(string.Format("Updating orders in mem on massive cancellation"), MessageType.Information);
+                    Orders.Clear();
+
+                    RefreshOpenOrders(socket, "*", legOrdMassCxlReq.UserId);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing LegacyOrderMassCancelReq: {0}", ex.Message), MessageType.Error);
+            }
+
         }
 
         private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
@@ -1281,23 +1358,34 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessSecurityStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            if (subscrMsg.ServiceKey != "*")
+            try
             {
+                if (subscrMsg.ServiceKey != "*")
+                {
 
 
-                SecurityStatus secStatus = new SecurityStatus();
-                secStatus.Msg = "SecurityStatus";
-                secStatus.Symbol = subscrMsg.ServiceKey;
-                secStatus.cStatus = SecurityStatus._SEC_STATUS_TRADING;//: SecurityStatus._SEC_STATUS_HALTING;
-                DoSend<SecurityStatus>(socket, secStatus);
-                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+                    SecurityStatus secStatus = new SecurityStatus();
+                    secStatus.Msg = "SecurityStatus";
+                    secStatus.Symbol = subscrMsg.ServiceKey;
+                    secStatus.cStatus = SecurityStatus._SEC_STATUS_TRADING;//: SecurityStatus._SEC_STATUS_HALTING;
+                    DoSend<SecurityStatus>(socket, secStatus);
+                    ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 
-                Thread processSecuritStatusThread = new Thread(ProcessSecuritStatusThread);
-                processSecuritStatusThread.Start(new object[] { subscrMsg.ServiceKey, socket });
+                    Thread processSecuritStatusThread = new Thread(ProcessSecuritStatusThread);
+                    processSecuritStatusThread.Start(new object[] { subscrMsg.ServiceKey, socket });
+                    ProcessSecuritStatusThreads.Add(subscrMsg.ServiceKey, processSecuritStatusThread);
 
+                }
+                else
+                    ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
             }
-            else
-                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error Subscribing to service TI for  symbol {0}:{1}", subscrMsg.ServiceKey, ex.Message), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+
+            
+            }
         }
 
         protected void ProcessNotifications(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
@@ -1328,7 +1416,6 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 DoLog(string.Format("Error Subscribing to service TN for  symbol {0}:{1}", subscrMsg.ServiceKey,ex.Message), MessageType.Information);
-
                 ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
             
             }
@@ -1446,80 +1533,159 @@ namespace DGTLBackendMock.DataAccessLayer
           
         }
 
+        private void ProcessUnsubscriptions(WebSocketSubscribeMessage subscrMsg)
+        {
+            SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
+
+            if (secMapping == null)
+                return;
+
+            lock (SecurityMappings)
+            {
+
+                if (subscrMsg.Service == "LS")
+                {
+                    if (ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "LQ")
+                {
+                    if (ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessLastQuoteThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "FP")
+                {
+                    if (ProcessDailyOfficialFixingPriceThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessDailyOfficialFixingPriceThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "TI")
+                {
+                    if (ProcessSecuritStatusThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessSecuritStatusThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessSecuritStatusThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "Ot")
+                {
+                    if (OpenOrderCountSubscriptions.Contains(subscrMsg.ServiceKey))
+                        OpenOrderCountSubscriptions.Add(subscrMsg.ServiceKey);
+                }
+                else if (subscrMsg.Service == "TN")
+                {
+                    if (NotificationsSubscriptions.Contains(subscrMsg.ServiceKey))
+                        NotificationsSubscriptions.Add(subscrMsg.ServiceKey);
+                }
+                else if (subscrMsg.Service == "FD")
+                {
+                    if (ProcessDailySettlementThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessDailySettlementThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessDailySettlementThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "Cm")
+                {
+                    if (ProcessCreditLimitUpdatesThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessCreditLimitUpdatesThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessCreditLimitUpdatesThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "CU")
+                {
+                    //ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
+            }
+
+        }
+
         private void ProcessSubscriptions(IWebSocketConnection socket,string m)
         {
             WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
             DoLog(string.Format("Incoming subscription for service {0} - ServiceKey:{1}", subscrMsg.Service,subscrMsg.ServiceKey), MessageType.Information);
 
+            if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_SUBSCRIBE)
+            {
+                if (subscrMsg.Service == "TA")
+                {
+                    ProcessSecurityMasterRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LS")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessLastSale(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LQ")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessQuote(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FP")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessOficialFixingPrice(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TI")
+                {
+                    ProcessSecurityStatus(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Ot")
+                {
+                    ProcessOpenOrderCount(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TN")
+                {
+                    ProcessNotifications(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FD")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessDailySettlement(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TB")
+                {
+                    ProcessUserRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TD")
+                {
+                    ProcessAccountRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "CU")
+                {
+                    ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Cm")
+                {
+                    ProcessCreditLimitUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LD")
+                {
+                    ProcessOrderBookDepth(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Oy")
+                {
+                    ProcessMyOrders(socket, subscrMsg);
+                }
 
-            if (subscrMsg.Service == "TA")
-            {
-                ProcessSecurityMasterRecord(socket, subscrMsg);
-                
+                else if (subscrMsg.Service == "LT")
+                {
+                    ProcessMyTrades(socket, subscrMsg);
+                }
             }
-            else if (subscrMsg.Service == "LS")
+            else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_UNSUBSCRIBE)
             {
-                if(subscrMsg.ServiceKey!=null)
-                    ProcessLastSale(socket,subscrMsg);
+                ProcessUnsubscriptions(subscrMsg);
             }
-            else if (subscrMsg.Service == "LQ")
-            {
-                if (subscrMsg.ServiceKey != null)
-                    ProcessQuote(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "FP")
-            {
-                if (subscrMsg.ServiceKey != null)
-                    ProcessOficialFixingPrice(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TI")
-            {
-                ProcessSecurityStatus(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "Ot")
-            {
-                ProcessOpenOrderCount(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TN")
-            {
-                ProcessNotifications(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "FD")
-            {
-                if (subscrMsg.ServiceKey != null)
-                    ProcessDailySettlement(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TB")
-            {
-                ProcessUserRecord(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "TD")
-            {
-                ProcessAccountRecord(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "CU")
-            {
-                ProcessCreditRecordUpdates(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "Cm")
-            {
-                ProcessCreditLimitUpdates(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "LD")
-            {
-                ProcessOrderBookDepth(socket, subscrMsg);
-            }
-            else if (subscrMsg.Service == "Oy")
-            {
-                ProcessMyOrders(socket, subscrMsg);
-            }
-
-            else if (subscrMsg.Service == "LT")
-            {
-                ProcessMyTrades(socket, subscrMsg);
-            }
-
         }
 
         #endregion
@@ -1575,7 +1741,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else if (wsResp.Msg == "LegacyOrderMassCancelReq")
                 {
-                    //ProcessLegacyOrderMassCancelMock(socket, m);
+                    ProcessLegacyOrderMassCancelMock(socket, m);
                 }
                 else
                 {

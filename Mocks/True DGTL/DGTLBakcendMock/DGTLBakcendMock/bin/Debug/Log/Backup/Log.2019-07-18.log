@@ -1,0 +1,92 @@
+2019-07-18 18:16:42  :: Initializing Mock Server...
+2019-07-18 18:16:42  :: Initializing all collections...
+2019-07-18 18:16:43  :: Collections Initialized...
+2019-07-18 18:17:06  :: Connecting for the first time to client 8801
+2019-07-18 18:17:06  :: Connected for the first time to client 8801
+2019-07-18 18:17:14  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:17:14  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:17:14  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:17:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:18  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:17:18  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:17:18  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:17:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:25  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:17:25  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:17:25  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:17:26  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:17:27  :: OnMessage LegacyOrderMassCancelReq from IP -> 127.0.0.1
+2019-07-18 18:17:29  :: Processing ProcessLegacyOrderMassCancelMock
+2019-07-18 18:17:46  :: Sending cancellation ack for ClOrdId: 
+2019-07-18 18:17:47  :: Evaluating price levels for ClOrdId: 
+2019-07-18 18:18:04  :: Exception processing LegacyOrderMassCancelReq: Critical Error: Cancelling an order for an unexisting bid price level: 9010
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:18:07  :: OnMessage LegacyOrderMassCancelReq from IP -> 127.0.0.1
+2019-07-18 18:18:10  :: Processing ProcessLegacyOrderMassCancelMock
+2019-07-18 18:18:16  :: Sending cancellation ack for ClOrdId: 
+2019-07-18 18:18:20  :: Evaluating price levels for ClOrdId: 
+2019-07-18 18:27:07  :: Initializing Mock Server...
+2019-07-18 18:27:07  :: Initializing all collections...
+2019-07-18 18:27:07  :: Collections Initialized...
+2019-07-18 18:27:17  :: Connecting for the first time to client 9106
+2019-07-18 18:27:17  :: Connected for the first time to client 9106
+2019-07-18 18:27:23  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:27:23  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:27:23  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:27:25  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:27:26  :: OnMessage LegacyOrderMassCancelReq from IP -> 127.0.0.1
+2019-07-18 18:27:28  :: Processing ProcessLegacyOrderMassCancelMock
+2019-07-18 18:27:30  :: Updating orders in mem on massive cancellation
+2019-07-18 18:27:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:27:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:27:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:27:59  :: Connecting second client 9110.  Removing previous client
+2019-07-18 18:27:59  :: Turning threads off on socket disconnection
+2019-07-18 18:27:59  :: Connected second client 9110.  Removing previous client
+2019-07-18 18:28:05  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:28:05  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:28:05  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:28:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:28:16  :: Initializing Mock Server...
+2019-07-18 18:28:16  :: Initializing all collections...
+2019-07-18 18:28:17  :: Collections Initialized...
+2019-07-18 18:28:22  :: Connecting for the first time to client 9121
+2019-07-18 18:28:22  :: Connected for the first time to client 9121
+2019-07-18 18:28:26  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:28:26  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:28:26  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:28:26  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:28:28  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:28:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:28:31  :: OnMessage LegacyOrderMassCancelReq from IP -> 127.0.0.1
+2019-07-18 18:28:32  :: Processing ProcessLegacyOrderMassCancelMock
+2019-07-18 18:34:56  :: Initializing Mock Server...
+2019-07-18 18:34:56  :: Initializing all collections...
+2019-07-18 18:34:57  :: Collections Initialized...
+2019-07-18 18:35:08  :: Connecting for the first time to client 9243
+2019-07-18 18:35:08  :: Connected for the first time to client 9243
+2019-07-18 18:35:12  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-18 18:35:12  :: Incoming Login request for user MM1_CLOBUI
+2019-07-18 18:35:12  :: user MM1_CLOBUI Successfully logged in
+2019-07-18 18:35:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-18 18:35:15  :: OnMessage LegacyOrderMassCancelReq from IP -> 127.0.0.1
+2019-07-18 18:35:17  :: Processing ProcessLegacyOrderMassCancelMock
+2019-07-18 18:35:25  :: Sending cancellation ack for ClOrdId: 
+2019-07-18 18:35:26  :: Evaluating price levels for ClOrdId: 
+2019-07-18 18:35:28  :: Sending upd bid entry: Price=7490.0 Size=997.0 ...
+2019-07-18 18:35:33  :: Sending cancellation ack for ClOrdId: 
+2019-07-18 18:35:33  :: Evaluating price levels for ClOrdId: 
+2019-07-18 18:35:33  :: Sending upd bid entry: Price=7468.0 Size=1597.0 ...
+2019-07-18 18:35:34  :: Updating orders in mem on massive cancellation

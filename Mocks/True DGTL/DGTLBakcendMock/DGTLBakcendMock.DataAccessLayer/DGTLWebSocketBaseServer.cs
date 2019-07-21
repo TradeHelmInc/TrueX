@@ -40,6 +40,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, Thread> ProcessDailyOfficialFixingPriceThreads { get; set; }
 
+        protected Dictionary<string, Thread> ProcessCreditLimitUpdatesThreads { get; set; }
+
         public int HeartbeatSeqNum { get; set; }
 
         public bool UserLogged { get; set; }
@@ -300,7 +302,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     OfficialFixingPrice officialFixingPrice = OfficialFixingPrices.Where(x => x.Symbol == subscrMsg.ServiceKey).FirstOrDefault();
                     if (officialFixingPrice != null)
                     {
-                        officialFixingPrice.Price += Convert.ToDecimal( DateTime.Now.Second )/ 100;
+                        //officialFixingPrice.Price += Convert.ToDecimal( DateTime.Now.Second )/ 100;
                         DoLog(string.Format("Returning fixing price for symbol {0}:{1}...", subscrMsg.ServiceKey,officialFixingPrice.Price), MessageType.Information);
 
                         DoSend<OfficialFixingPrice>(socket, officialFixingPrice);
@@ -310,6 +312,8 @@ namespace DGTLBackendMock.DataAccessLayer
                             ProcessSubscriptionResponse(socket, "FD", subscrMsg.ServiceKey, subscrMsg.UUID);
                             Thread.Sleep(2000);
                             subscResp = true;
+                            return;
+                            
                         }
                     }
                     else
@@ -340,10 +344,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessDailySettlementThreads.Add(subscrMsg.ServiceKey, ProcessDailySettlementThread);
                 }
             }
-
+            else
+            {
+                DoLog(string.Format("Double subscription for service FD for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "FD", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+            }
         }
-
-      
 
         protected void ProcessOficialFixingPrice(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
@@ -356,6 +362,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessDailyOfficialFixingPriceThread.Start(new object[] { socket, subscrMsg });
                     ProcessDailyOfficialFixingPriceThreads.Add(subscrMsg.ServiceKey, ProcessDailyOfficialFixingPriceThread);
                 }
+            }
+            else
+            {
+                DoLog(string.Format("Double subscription for service FP for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "FP", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+
             }
         }
 
@@ -445,9 +457,21 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessCreditLimitUpdates(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            ProcessSubscriptionResponse(socket, "Cm", subscrMsg.ServiceKey, subscrMsg.UUID);
-            Thread CreditLimitUpdateThread = new Thread(ProcessCreditLimitUpdatesThread);
-            CreditLimitUpdateThread.Start(new object[] { socket, subscrMsg });
+
+
+            if (!ProcessCreditLimitUpdatesThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                ProcessSubscriptionResponse(socket, "Cm", subscrMsg.ServiceKey, subscrMsg.UUID);
+                Thread CreditLimitUpdateThread = new Thread(ProcessCreditLimitUpdatesThread);
+                CreditLimitUpdateThread.Start(new object[] { socket, subscrMsg });
+                ProcessCreditLimitUpdatesThreads.Add(subscrMsg.ServiceKey, CreditLimitUpdateThread);
+
+            }
+            else
+            {
+                DoLog(string.Format("Double subscription for service Cm for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "Cm", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Already subscribed");
+            }
         }
 
         protected void ProcessUserRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
