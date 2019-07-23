@@ -12,6 +12,8 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         public string Symbol { get; set; }
 
+        public decimal? FirstPrice { get; set; }
+
         public decimal? LastPrice { get; set; }
 
         public decimal? LastShares { get; set; }
@@ -19,6 +21,8 @@ namespace DGTLBackendMock.Common.DTO.MarketData
         public long? LastTime { get; set; }
 
         public decimal? Change { get; set; }
+
+        public decimal? DiffPrevDay { get; set; }
 
         public decimal Volume { get; set; }//In this case, if there is no volume, volume is 0.
 

@@ -245,34 +245,6 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        private void EmulatePriceChanges(int i, LastSale lastSale,ref  decimal? initialPrice)
-        {
-
-            if (initialPrice == null)
-                initialPrice = lastSale.LastPrice;
-
-            if (i % 2 == 0)
-            {
-                if (lastSale.High.HasValue)
-                    lastSale.High += 0.05m;
-
-                lastSale.LastPrice = lastSale.High;
-            }
-            else
-            {
-
-                if (lastSale.Low.HasValue && lastSale.Low>1)
-                    lastSale.Low -= 0.01m;
-
-                lastSale.LastPrice = lastSale.Low;
-            }
-
-            if (initialPrice != null)
-                lastSale.Change = ((lastSale.LastPrice / initialPrice.Value) - 1) * 100;
-            else
-                lastSale.Change = 0;
-        }
-
         private void LastSaleThread(object param) 
         {
             object[] paramArray = (object[])param;
@@ -1066,10 +1038,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "TradeNotification",
                     Sender = 0,
+                   
                     Price = trade.TradePrice,
                     Size = trade.TradeQuantity,
                     Symbol = trade.Symbol,
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    cSide=trade.cMySide,
                     UserId = userId
 
                 };
@@ -1120,15 +1094,20 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (ls == null)
             {
-                ls = new LastSale() { Change = 0, Msg = "LastSale", Symbol = newTrade.Symbol, Volume = 0 };
+                ls = new LastSale() { Change = 0, DiffPrevDay = 0, Msg = "LastSale", Symbol = newTrade.Symbol, Volume = 0 };
                 LastSales.Add(ls);
                 
             }
+
+            if (!ls.FirstPrice.HasValue)
+                ls.FirstPrice = ls.LastPrice;
 
             ls.LastPrice = Convert.ToDecimal(newTrade.TradePrice);
             ls.LastShares = Convert.ToDecimal(newTrade.TradeQuantity);
             ls.LastTime = newTrade.TradeTimeStamp;
             ls.Volume += Convert.ToDecimal(newTrade.TradeQuantity);
+            ls.Change = ls.LastPrice - ls.FirstPrice;
+            ls.DiffPrevDay = ((ls.LastPrice / ls.FirstPrice) - 1) * 100;
 
             if (!ls.High.HasValue || Convert.ToDecimal(newTrade.TradePrice) > ls.High)
                 ls.High = Convert.ToDecimal(newTrade.TradePrice);

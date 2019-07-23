@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public double Size { get; set; }
 
+        public byte Side { get; set; }
+
+        [JsonIgnore]
+        public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
 
         #endregion
     }
