@@ -450,6 +450,66 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
+        protected void ProcessFillOffers(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            try
+            {
+                string[] fields = subscrMsg.ServiceKey.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+
+                if (fields.Length != 5)
+                    throw new Exception(string.Format("Invalid fields length: {0} for ServiceKey {1}", fields.Length, subscrMsg.ServiceKey));
+
+
+                int qty = Convert.ToInt32(fields[0]);
+                char side = Convert.ToChar(fields[1]);
+                string symbol = fields[2];
+                decimal initialPrice = Convert.ToDecimal(fields[3]);
+                decimal step = Convert.ToDecimal(fields[4]);
+
+                DoLog(string.Format("Processing fill offers for Qty {0} Side {1} Initial Price {2} and Step {3} for Symbol {4}",
+                                     qty, side, initialPrice.ToString("0.##"), step, symbol), MessageType.Information);
+
+
+                for (int i = 0; i < qty; i++)
+                {
+
+                    LegacyOrderReq req = new LegacyOrderReq()
+                    {
+                        AccountId = "",
+                        ClOrderId = Guid.NewGuid().ToString(),
+                        cOrderType = LegacyOrderReq._ORD_TYPE_LIMIT,
+                        cSide = side,
+                        cTimeInForce = LegacyOrderReq._TIF_DAY,
+                        InstrumentId = symbol,
+                        Msg = "LegacyOrderReq",
+                        Quantity = 1,
+                        Price = initialPrice,
+                        UserId = subscrMsg.UserId
+                    };
+
+                    if (side == LegacyOrderReq._SIDE_BUY)
+                        initialPrice -= step;
+                    else if (side == LegacyOrderReq._SIDE_SELL)
+                        initialPrice += step;
+                    else
+                        throw new Exception(string.Format("Invalid Side for FO Request: {0}", side));
+
+                    string msg = JsonConvert.SerializeObject(req);
+
+                    DoLog(string.Format("Sending specific offer for Price {0} Qty {1}", req.Price, req.Quantity), MessageType.Information);
+                    ProcessLegacyOrderReqMock(socket, msg);
+                }
+
+
+                ProcessSubscriptionResponse(socket, "FO", subscrMsg.ServiceKey, subscrMsg.UUID);
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "FO", subscrMsg.ServiceKey, subscrMsg.UUID,false,ex.Message);
+            }
+        }
+
 
         private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
@@ -461,17 +521,27 @@ namespace DGTLBackendMock.DataAccessLayer
             else
                 throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
 
+            List<LegacyOrderRecord> orders = null;
+            if (symbol != "*")
+                orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
+            else
+                orders = Orders.ToList();
 
-            List<LegacyOrderRecord> orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
             orders.ForEach(x => DoSend<LegacyOrderRecord>(socket, x));
-            RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
             //Now we have to launch something to create deltas (insert, change, remove)
+            RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
         private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
-            List<LegacyTradeHistory> trades = Trades.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
+            List<LegacyTradeHistory> trades = null;
+
+            if(subscrMsg.ServiceKey!="*")
+                trades = Trades.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
+            else
+                trades = Trades.ToList();
+
             trades.ForEach(x => DoSend<LegacyTradeHistory>(socket, x));
             //Now we have to launch something to create deltas (insert, change, remove)
             ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID);
@@ -1163,6 +1233,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 bestAsk = DepthOfBooks.Where(x =>   x.Symbol == legOrdReq.InstrumentId 
                                                                  && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
+                                fullFill = leftQty == 0;
+
                             }
                             else//order fully filled
                             {
@@ -1212,7 +1284,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         return false;
 
                     DoLog(string.Format("Best bid for sell order (Limit Price={1}) found at price {0}", bestBid.Price,legOrdReq.Price.Value), MessageType.Information);
-                    if (legOrdReq.Price.HasValue && legOrdReq.Price.Value < bestBid.Price)
+                    if (legOrdReq.Price.HasValue && legOrdReq.Price.Value <= bestBid.Price)
                     {
                         //we had a trade
                         decimal leftQty = legOrdReq.Quantity;
@@ -1234,6 +1306,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.3-Calculamos el nuevo bestBid
                                 bestBid = DepthOfBooks.Where(x =>   x.Symbol == legOrdReq.InstrumentId 
                                                                  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+
+                                fullFill = leftQty == 0;
 
                             }
                             else//order fully filled
@@ -1654,6 +1728,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (subscrMsg.Service == "Oy")
                 {
                     ProcessMyOrders(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FO")
+                {
+                    ProcessFillOffers(socket, subscrMsg);
                 }
 
                 else if (subscrMsg.Service == "LT")
