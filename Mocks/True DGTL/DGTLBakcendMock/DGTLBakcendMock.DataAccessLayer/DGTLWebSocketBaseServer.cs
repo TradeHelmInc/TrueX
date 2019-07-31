@@ -146,6 +146,11 @@ namespace DGTLBackendMock.DataAccessLayer
             PlatformStatus.StatusTime = Convert.ToInt64(elapsed.TotalSeconds);
         }
 
+        protected void ProcessPlatformStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+            DoSend<PlatformStatus>(socket, PlatformStatus);
+            ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+        }
 
         protected void ProcessClientLoginMock(IWebSocketConnection socket, string m)
         {

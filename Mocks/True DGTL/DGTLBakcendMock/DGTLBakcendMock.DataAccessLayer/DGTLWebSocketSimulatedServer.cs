@@ -791,11 +791,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, false, string.Format("Uknown service key {0}", subscrMsg.Service));
         }
 
-        protected void ProcessPlatformStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
-        {
-            DoSend<PlatformStatus>(socket, PlatformStatus);
-            ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
-        }
+     
 
         private void ProcessLastQuote(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {

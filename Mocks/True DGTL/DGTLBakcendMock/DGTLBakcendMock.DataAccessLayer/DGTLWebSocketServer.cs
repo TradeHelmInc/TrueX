@@ -118,6 +118,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 LoadDepthOfBooks();
 
+                LoadPlatformStatus();
+
                 DoLog("Collections Initialized...", MessageType.Information);
             }
             catch (Exception ex)
@@ -316,6 +318,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
+                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
                         DoLog(string.Format("Quotes not found for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                         break;
                     }
@@ -327,7 +330,44 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void NewQuoteThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            string symbol = (string)paramArray[1];
 
+            try
+            {
+                while (true)
+                {
+                    Quote quote = null;
+                    lock (Quotes)
+                    {
+                        DoLog(string.Format("Searching quotes for symbol {0}. ", symbol), MessageType.Information);
+                        quote = Quotes.Where(x => x.Symbol == symbol).FirstOrDefault();
+                    }
+
+                    if (quote != null)
+                    {
+                        DoLog(string.Format("Sending LQ for symbol {0}. Best bid={1} Best ask={2}", symbol, quote.Bid, quote.Ask), MessageType.Information);
+                        DoSend<Quote>(socket, quote);
+                        
+                    }
+                    else
+                    {
+                        DoLog(string.Format("quotes for symbol {0} not found ", symbol), MessageType.Information);
+
+                        //DoLog(string.Format("Quotes not found for symbol {0}...", symbol), MessageType.Information);
+                        //break;
+                    }
+                    Thread.Sleep(3000);//3 seconds
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error processing quote message for symbol {1}: {0}...", ex.Message, symbol), MessageType.Error);
+            }
+        }
 
         private void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
@@ -368,7 +408,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void UpdateQuotes(string symbol)
+        private void UpdateQuotes(IWebSocketConnection socket, string symbol)
         {
 
             DoLog(string.Format("Updating best bid and ask for symbol {0}", symbol), MessageType.Information);
@@ -412,7 +452,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Quote newQuote = new Quote()
                     {
-                        Msg = "Quote"
+                        Msg = "Quote",
+                        Symbol=symbol
                     };
 
                     if (bestAsk != null)
@@ -420,6 +461,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         newQuote.AskSize = bestAsk.Size;
                         newQuote.Ask = bestAsk.Price;
                     }
+                   
 
                     if (bestBid != null)
                     {
@@ -432,9 +474,18 @@ namespace DGTLBackendMock.DataAccessLayer
                     else
                         newQuote.MidPoint = null;
 
-
+                    DoLog(string.Format("Inserting quotes for symbol {0}",symbol),MessageType.Information);
                     Quotes.Add(newQuote);
-                
+                    DoLog(string.Format("Quotes for symbol {0} inserted",symbol),MessageType.Information);
+
+                    Thread ProcessQuoteThread = new Thread(NewQuoteThread);
+                    ProcessQuoteThread.Start(new object[] { socket, symbol });
+
+                    if (!ProcessLastQuoteThreads.ContainsKey(symbol))
+                        ProcessLastQuoteThreads.Add(symbol, ProcessQuoteThread);
+                    else
+                        ProcessLastQuoteThreads[symbol] = ProcessQuoteThread;
+                    
                 }
             }
 
@@ -443,10 +494,13 @@ namespace DGTLBackendMock.DataAccessLayer
         private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
-            depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
-            //Now we have to launch something to create deltas (insert, change, remove)
-            Thread.Sleep(1000);
-            UpdateQuotes(subscrMsg.ServiceKey);
+            if (depthOfBooks != null)
+            {
+                depthOfBooks.ForEach(x => DoSend<DepthOfBook>(socket, x));
+                //Now we have to launch something to create deltas (insert, change, remove)
+                Thread.Sleep(1000);
+                UpdateQuotes(socket, subscrMsg.ServiceKey);
+            }
             ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
@@ -526,6 +580,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 orders = Orders.Where(x => x.InstrumentId == symbol).ToList();
             else
                 orders = Orders.ToList();
+
+            DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
 
             orders.ForEach(x => DoSend<LegacyOrderRecord>(socket, x));
             //Now we have to launch something to create deltas (insert, change, remove)
@@ -883,10 +939,41 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+        private void ProcessFakeCancellationRejection(IWebSocketConnection socket, LegacyOrderCancelReq legOrdCxlReq)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            DoLog(string.Format("Processing Fake cancellation Rejection for security {0}",legOrdCxlReq.InstrumentId), MessageType.Information);
+
+            LegacyOrderCancelRejAck legOrdCancelRejAck = new LegacyOrderCancelRejAck();
+            legOrdCancelRejAck.ClOrderId = legOrdCxlReq.ClOrderId;
+            legOrdCancelRejAck.cSide = legOrdCxlReq.cSide;
+            legOrdCancelRejAck.cStatus = LegacyOrderCancelRejAck._STATUS_REJECTED;
+            legOrdCancelRejAck.InstrumentId = legOrdCxlReq.InstrumentId;
+            legOrdCancelRejAck.LeftQty = 0;
+            legOrdCancelRejAck.Msg = "LegacyOrderCancelRejAck";
+            legOrdCancelRejAck.OrderId = "";
+            legOrdCancelRejAck.OrderRejectReason = "Testing rejectiong...";
+            legOrdCancelRejAck.OrigClOrderId = legOrdCxlReq.OrigClOrderId;
+            legOrdCancelRejAck.Price = null;
+            legOrdCancelRejAck.Sender = 0;
+            legOrdCancelRejAck.Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+            legOrdCancelRejAck.UserId = legOrdCxlReq.UserId;
+            DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
+        }
+
         private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
         {
+
             DoLog(string.Format("Processing ProcessLegacyOrderCancelMock"), MessageType.Information);
             LegacyOrderCancelReq legOrdCxlReq = JsonConvert.DeserializeObject<LegacyOrderCancelReq>(m);
+
+            if (legOrdCxlReq.InstrumentId == "SWP-XBT-USD-Z19")
+            {
+                ProcessFakeCancellationRejection(socket, legOrdCxlReq);
+                return;
+            }
+            
             try
             {
                 lock (Orders)
@@ -1147,7 +1234,7 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<LegacyTradeHistory>(socket, newTrade);
 
             //1.2.1-We update market data for a new trade
-            EvalMarketData(newTrade);
+            EvalMarketData(socket,newTrade);
 
             //1.2.2-We send a trade notification for the new trade
             SendTradeNotification(newTrade, legOrdReq.UserId, socket);
@@ -1155,7 +1242,7 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
         //1.2.1-We update market data for a new trade
-        private void EvalMarketData(LegacyTradeHistory newTrade)
+        private void EvalMarketData( IWebSocketConnection socket,LegacyTradeHistory newTrade)
         {
 
             DoLog(string.Format("We update LastSale MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
@@ -1189,7 +1276,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
             DoLog(string.Format("We udate Quotes MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
-            UpdateQuotes(newTrade.Symbol);
+            UpdateQuotes(socket,newTrade.Symbol);
             DoLog(string.Format("Quotes updated..."), MessageType.Information);
         }
 
@@ -1573,7 +1660,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
                             EvalNewOrder(socket, legOrdReq, LegacyOrderRecord._STATUS_OPEN, 0);
                             DoLog(string.Format("Updating quotes ..."), MessageType.Information);
-                            UpdateQuotes(legOrdReq.InstrumentId);
+                            UpdateQuotes(socket,legOrdReq.InstrumentId);
                         }
                     }
                 }
@@ -1733,7 +1820,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessFillOffers(socket, subscrMsg);
                 }
-
+                else if (subscrMsg.Service == "PS")
+                {
+                    ProcessPlatformStatus(socket, subscrMsg);
+                }
                 else if (subscrMsg.Service == "LT")
                 {
                     ProcessMyTrades(socket, subscrMsg);

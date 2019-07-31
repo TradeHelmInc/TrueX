@@ -1,0 +1,166 @@
+2019-07-31 10:18:32  :: Initializing Mock Server...
+2019-07-31 10:18:32  :: Initializing all collections...
+2019-07-31 10:18:33  :: Collections Initialized...
+2019-07-31 10:18:47  :: Connecting for the first time to client 1411
+2019-07-31 10:18:47  :: Connected for the first time to client 1411
+2019-07-31 10:18:59  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-31 10:18:59  :: Incoming Login request for user MM1_CLOBUI2
+2019-07-31 10:18:59  :: user MM1_CLOBUI2 Successfully logged in
+2019-07-31 10:18:59  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:01  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:07  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:09  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:11  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:13  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:15  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:17  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:19  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 10:19:20  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-31 10:19:20  :: Incoming subscription for service Oy - ServiceKey:MM2_CLOBUI2@*
+2019-07-31 10:19:20  :: Symbol has special format that hast to be cleaned : MM2_CLOBUI2@*
+2019-07-31 10:19:20  :: Symbol cleaned : *
+2019-07-31 10:19:20  :: Not Sending open order count for symbol * because it was not subscribed
+2019-07-31 10:19:20  :: SubscriptionResponse UUID:APIClientUUID Service:Oy ServiceKey:MM2_CLOBUI2@* Success:True
+2019-07-31 12:06:52  :: Initializing Mock Server...
+2019-07-31 12:06:52  :: Initializing all collections...
+2019-07-31 12:06:53  :: Collections Initialized...
+2019-07-31 12:08:09  :: Connecting for the first time to client 14415
+2019-07-31 12:08:09  :: Connected for the first time to client 14415
+2019-07-31 12:08:15  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-31 12:08:15  :: Incoming Login request for user MM1_CLOBUI2
+2019-07-31 12:08:15  :: user MM1_CLOBUI2 Successfully logged in
+2019-07-31 12:08:17  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:19  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:20  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-07-31 12:08:20  :: Sending LgacyOrderAck ...
+2019-07-31 12:08:20  :: Evaluating price levels ...
+2019-07-31 12:08:20  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-07-31 12:08:20  :: Evaluating LegacyOrderRecord ...
+2019-07-31 12:08:20  :: Creating new order in Orders collection for ClOrderId = 43700759.6379
+2019-07-31 12:08:20  :: Updating quotes ...
+2019-07-31 12:08:22  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:08:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:08:55  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:11:52  :: Initializing Mock Server...
+2019-07-31 12:11:52  :: Initializing all collections...
+2019-07-31 12:11:53  :: Collections Initialized...
+2019-07-31 12:12:08  :: Connecting for the first time to client 14538
+2019-07-31 12:12:08  :: Connected for the first time to client 14538
+2019-07-31 12:12:33  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-31 12:12:33  :: Incoming Login request for user MM1_CLOBUI2
+2019-07-31 12:12:33  :: user MM1_CLOBUI2 Successfully logged in
+2019-07-31 12:12:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:37  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-07-31 12:12:37  :: Sending LgacyOrderAck ...
+2019-07-31 12:12:37  :: Evaluating price levels ...
+2019-07-31 12:12:37  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-07-31 12:12:37  :: Evaluating LegacyOrderRecord ...
+2019-07-31 12:12:37  :: Creating new order in Orders collection for ClOrderId = 43957559.1797
+2019-07-31 12:12:37  :: Updating quotes ...
+2019-07-31 12:12:42  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:12:47  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:47  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:49  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:50  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:55  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:12:57  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:34:50  :: Initializing Mock Server...
+2019-07-31 12:34:50  :: Initializing all collections...
+2019-07-31 12:34:51  :: Collections Initialized...
+2019-07-31 12:35:28  :: Initializing Mock Server...
+2019-07-31 12:35:28  :: Initializing all collections...
+2019-07-31 12:35:28  :: Collections Initialized...
+2019-07-31 12:35:35  :: Connecting for the first time to client 15288
+2019-07-31 12:35:35  :: Connected for the first time to client 15288
+2019-07-31 12:35:39  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-31 12:35:39  :: Incoming Login request for user MM1_CLOBUI2
+2019-07-31 12:35:39  :: user MM1_CLOBUI2 Successfully logged in
+2019-07-31 12:35:41  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:43  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:45  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:45  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-07-31 12:35:45  :: Sending LgacyOrderAck ...
+2019-07-31 12:35:45  :: Evaluating price levels ...
+2019-07-31 12:35:45  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-07-31 12:35:45  :: Evaluating LegacyOrderRecord ...
+2019-07-31 12:35:45  :: Creating new order in Orders collection for ClOrderId = 45345297.5716
+2019-07-31 12:35:45  :: Updating quotes ...
+2019-07-31 12:35:45  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:35:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:35:58  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:07  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:11  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:13  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:36:15  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:53:22  :: Initializing Mock Server...
+2019-07-31 12:53:22  :: Initializing all collections...
+2019-07-31 12:53:22  :: Collections Initialized...
+2019-07-31 12:53:37  :: Connecting for the first time to client 15679
+2019-07-31 12:53:37  :: Connected for the first time to client 15679
+2019-07-31 12:53:43  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-07-31 12:53:43  :: Incoming Login request for user MM1_CLOBUI2
+2019-07-31 12:53:43  :: user MM1_CLOBUI2 Successfully logged in
+2019-07-31 12:53:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:53:45  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:53:47  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-07-31 12:53:47  :: Incoming subscription for service LD - ServiceKey:SWP-XBT-USD-N19
+2019-07-31 12:53:48  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:54:00  :: SubscriptionResponse UUID:APIClientUUID Service:LD ServiceKey:SWP-XBT-USD-N19 Success:True
+2019-07-31 12:54:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:01  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:15  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-07-31 12:54:15  :: Sending LgacyOrderAck ...
+2019-07-31 12:54:15  :: Evaluating price levels ...
+2019-07-31 12:54:15  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-07-31 12:54:15  :: Evaluating LegacyOrderRecord ...
+2019-07-31 12:54:15  :: Creating new order in Orders collection for ClOrderId = 46455398.6523
+2019-07-31 12:54:15  :: Updating quotes ...
+2019-07-31 12:54:15  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:54:21  :: Could not find DepthOfBook ask for symbol SWP-XBT-USD-N19
+2019-07-31 12:54:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:26  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:28  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:32  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:42  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:46  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:48  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:50  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:52  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:54  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:54:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-07-31 12:55:00  :: Turning threads off on socket disconnection
+2019-07-31 12:55:00  :: Critical error processing quote message: Subproceso anulado....

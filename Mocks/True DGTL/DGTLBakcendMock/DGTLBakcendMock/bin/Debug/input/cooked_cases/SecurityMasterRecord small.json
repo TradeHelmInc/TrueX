@@ -1,19 +1,23 @@
 ﻿[
 {"Description":"TEST SPOT PRODUCT","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"SPOT-TEST","Msg":"SecurityMasterRecord"}
 ,
-{"Description":"ETH x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-ETH","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.00001,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"ETH-USD","Msg":"SecurityMasterRecord"}
+{"Description":"ETH x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-ETH","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"ETH-USD","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XMR x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-XMR","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XMR-USD","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XRP x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-XRP","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XRP-USD","Msg":"SecurityMasterRecord"}
 ,
+{"Description":"ADA x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-ADA","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":250000.0,"LotSize":0.001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"ADA-USD","Msg":"SecurityMasterRecord"}
+,
 {"Description":"XBT x USD Cash Forward October 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191026","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-V19","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Cash Forward November 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191120","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-X19","Msg":"SecurityMasterRecord"}
 ,
-{"Description":"XBT x USD Cash Forward December 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191120","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-Z19","Msg":"SecurityMasterRecord"}
+{"Description":"XBT x USD Cash Forward December 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191220","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-Z19","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Cash Forward November 2018","SecurityType":"FX","ProductType":"CO","AssetClass":"NDF","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20181130","Status":"84","Sender":0,"Expected":0,"Symbol":"NDF-XBT-USD-X18","Msg":"SecurityMasterRecord"}
+,
+{"Description":"ETH x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"USD-ETH","MinPrice":1000.0,"MaxPrice":19500.0,"MinPriceIncrement":0.00001,"MinSize":3.0,"MaxSize":50000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"ETH-USD","Msg":"SecurityMasterRecord"}
 ,
 {"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":1000,"MaxPrice":19500.0,"MinPriceIncrement":0.00001,"MinSize":3.0,"MaxSize":50000.0,"LotSize":0.0001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
 ,
@@ -33,9 +37,6 @@
 ,
 {"Description":"XBT x USD Physical Swap November 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191122","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-X19","Msg":"SecurityMasterRecord"}
 ,
-{"Description":"XBT x USD Physical Swap December 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.00000001,"Platform":"trueEX","MaturityDate":"20191222","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-Z19","Msg":"SecurityMasterRecord"}
-,
-{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
-,
-{"Description":"XBT x USD Spot FX","SecurityType":"FX","ProductType":"CO","AssetClass":"Spot","CurrencyPair":"XBT-USD","MinSize":1.0,"MaxSize":50000.0,"MinPriceIncrement":0.01,"LotSize":0.00000001,"Platform":"trueDigital","MaturityDate":"","Status":"84","Sender":0,"Expected":0,"Symbol":"XBT-USD","Msg":"SecurityMasterRecord"}
+{"Description":"XBT x USD Physical Swap December 2019","SecurityType":"FX","ProductType":"CO","AssetClass":"SWP","CurrencyPair":"XBT-USD","MinPrice":0.0,"MaxPrice":10000000.0,"MinPriceIncrement":0.01,"MinSize":1.0,"MaxSize":50000.0,"LotSize":0.01,"Platform":"trueEX","MaturityDate":"20191222","Status":"84","Sender":0,"Expected":0,"Symbol":"SWP-XBT-USD-Z19","Msg":"SecurityMasterRecord"}
+
 ]
