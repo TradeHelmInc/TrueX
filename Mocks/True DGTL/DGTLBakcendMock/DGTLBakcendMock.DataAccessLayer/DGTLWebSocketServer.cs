@@ -4,8 +4,10 @@ using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.OrderRouting;
+using DGTLBackendMock.Common.DTO.OrderRouting.Blotters;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
+using DGTLBackendMock.DataAccessLayer.Service;
 using Fleck;
 using Newtonsoft.Json;
 using System;
@@ -15,6 +17,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.SelfHost;
 using ToolsShared.Logging;
 
 namespace DGTLBackendMock.DataAccessLayer
@@ -48,8 +52,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected bool Connected { get; set; }
 
-        
+        protected HttpSelfHostServer Server { get; set; }
 
+        
         #endregion
 
         #region Constructors
@@ -80,6 +85,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             NotificationsSubscriptions = new List<string>();
 
+            
             OpenOrderCountSubscriptions = new List<string>();
 
             Logger = new PerDayFileLogSource(Directory.GetCurrentDirectory() + "\\Log", Directory.GetCurrentDirectory() + "\\Log\\Backup")
@@ -119,6 +125,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 LoadDepthOfBooks();
 
                 LoadPlatformStatus();
+
+                LoadHistoryService();
 
                 DoLog("Collections Initialized...", MessageType.Information);
             }
@@ -328,6 +336,50 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 DoLog(string.Format("Critical error processing quote message: {0}...", ex.Message), MessageType.Error);
             }
+        }
+
+
+        private void LoadHistoryService()
+        {
+            string url = "http://localhost:29400/";
+
+            try
+            {
+
+                DoLog(string.Format("Creating history service for controller HistoryServiceController on URL {0}", url),
+                      MessageType.Information);
+
+                HttpSelfHostConfiguration config = new HttpSelfHostConfiguration(url);
+
+                config.Routes.MapHttpRoute(name: "DefaultApi",
+                                           routeTemplate: "{controller}/{id}",
+                                           defaults: new { id = RouteParameter.Optional });
+
+              
+                historyController.OnLog += DoLog;
+                historyController.OnGetAllTrades += GetAllTrades;
+                historyController.OnGetAllOrders += GetAllOrders;
+
+                Server = new HttpSelfHostServer(config);
+                Server.OpenAsync().Wait();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+                Exception innerEx = ex.InnerException;
+
+                while (innerEx != null)
+                {
+                    error += "-" + innerEx.Message;
+                    innerEx = innerEx.InnerException;
+                }
+
+
+                DoLog(string.Format("Critical error creating history service for controller HistoryServiceController on URL {0}:{1}",
+                      url, error),MessageType.Error);
+            }
+
+   
         }
 
         private void NewQuoteThread(object param)
@@ -565,6 +617,93 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
+        private LegacyOrderBlotter[] GetLegacyOrderBlotters(List<LegacyOrderRecord> orders)
+        {
+
+            List<LegacyOrderBlotter> ordersBlotters = new List<LegacyOrderBlotter>();
+
+            foreach (LegacyOrderRecord order in orders)
+            {
+                LegacyOrderBlotter orderBlotter = new LegacyOrderBlotter();
+                orderBlotter.Account = "TEST ACCOUNT";
+                orderBlotter.AgentId = "TEST AGENT ID";
+                orderBlotter.AvgPrice = 0;
+                orderBlotter.ClOrderId = order.ClientOrderId;
+                orderBlotter.cSide = order.cSide;
+                orderBlotter.cStatus = order.cStatus;
+                orderBlotter.EndTime = order.UpdateTime;
+                orderBlotter.ExecNotional = 0;
+                orderBlotter.Fees = 0;
+                orderBlotter.FillQty = order.FillQty;
+                orderBlotter.LeavesQty = order.LvsQty;
+                orderBlotter.LimitPrice = order.Price;
+                orderBlotter.Msg = "LegacyOrderBlotter";
+                orderBlotter.OrderId = order.OrderId;
+                orderBlotter.OrderQty = order.OrdQty;
+                orderBlotter.OrderType = LegacyOrderRecord._ORDER_TYPE_LIMIT;
+                orderBlotter.RejectReason = order.cStatus == LegacyOrderRecord._STATUS_REJECTED ? "TEST Rej Msg" : null;
+                orderBlotter.Sender = 0;
+                orderBlotter.StartTime = order.UpdateTime;
+                orderBlotter.Symbol = order.InstrumentId;
+                orderBlotter.Time = 0;
+                ordersBlotters.Add(orderBlotter);
+            }
+
+            return ordersBlotters.ToArray();
+        }
+
+        private LegacyTradeBlotter[] GetLegacyTradeBlotters(LegacyTradeHistory[] trades)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+
+            List<LegacyTradeBlotter> tradesBlotters = new List<LegacyTradeBlotter>();
+
+            foreach (LegacyTradeHistory trade in trades)
+            {
+                LegacyTradeBlotter tradeBlotter = new LegacyTradeBlotter();
+                tradeBlotter.Account = "TEST ACCOUNT";
+                tradeBlotter.AgentId = "TEST AGENT ID";
+                tradeBlotter.Symbol = trade.Symbol;
+                tradeBlotter.cSide = trade.cMySide;
+                tradeBlotter.ExecPrice = trade.TradePrice;
+                tradeBlotter.ExecQty = trade.TradeQuantity;
+                tradeBlotter.ExecutionTime = trade.TradeTimeStamp;
+                tradeBlotter.Msg = "LegacyTradeBlotter";
+                tradeBlotter.Notional = trade.TradePrice * trade.TradeQuantity;
+                tradeBlotter.OrderId = "TEST ORDERID";
+                tradeBlotter.Sender = 0;
+                tradeBlotter.cStatus = LegacyOrderRecord._STATUS_FILLED;
+                tradeBlotter.Time = Convert.ToInt64(elapsed.TotalMilliseconds);
+                tradeBlotter.TradeId = trade.TradeId;
+
+                tradesBlotters.Add(tradeBlotter);
+            }
+
+            return tradesBlotters.ToArray();
+        }
+
+        private GetOrdersBlotterFulFilled GetAllOrders()
+        {
+            GetOrdersBlotterFulFilled ordersFullFilled = new GetOrdersBlotterFulFilled() 
+                                                                                    {
+                                                                                        Msg = "GetOrdersBlotterFulFilled", 
+                                                                                        data = GetLegacyOrderBlotters(Orders) 
+                                                                                    };
+            return ordersFullFilled;
+        }
+
+        private GetExecutionsBlotterFulFilled GetAllTrades()
+        {
+
+            GetExecutionsBlotterFulFilled executionsFullFilled = new GetExecutionsBlotterFulFilled()
+            {
+                Msg = "GetExecutionsBlotterFulFilled",
+                data = GetLegacyTradeBlotters(Trades)
+            };
+            return executionsFullFilled;
+        }
+
         private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             string symbol = "";
@@ -587,6 +726,17 @@ namespace DGTLBackendMock.DataAccessLayer
             //Now we have to launch something to create deltas (insert, change, remove)
             RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
+
+            //if (symbol == "*")
+            //{
+            //    Thread.Sleep(4000);
+            //    GetOrdersBlotterFulFilled ordersFullFilled = new GetOrdersBlotterFulFilled() { Msg = "GetOrdersBlotterFulFilled", data = GetLegacyOrderBlotters(orders) };
+            //    DoSend<GetOrdersBlotterFulFilled>(socket, ordersFullFilled);
+
+            //    GetExecutionsBlotterFulFilled executionsFullFilled = new GetExecutionsBlotterFulFilled() { Msg = "GetExecutionsBlotterFulFilled" };
+            //    DoSend<GetExecutionsBlotterFulFilled>(socket, executionsFullFilled);
+
+            //}
         }
 
         private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
