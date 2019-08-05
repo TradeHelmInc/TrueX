@@ -460,6 +460,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+
         private void UpdateQuotes(IWebSocketConnection socket, string symbol)
         {
 
@@ -481,8 +482,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
-                        DoLog(string.Format("Could not find DepthOfBook bid for symbol {0}", symbol), MessageType.Information);
-
+                        DoLog(string.Format("Erasing best bid for symbol {0}", symbol), MessageType.Information);
+                        quote.BidSize = null;
+                        quote.Bid = null;
                     }
 
                     if (bestAsk != null)
@@ -492,7 +494,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
-                        DoLog(string.Format("Could not find DepthOfBook ask for symbol {0}", symbol), MessageType.Information);
+                        DoLog(string.Format("Erasing best ask for symbol {0}", symbol), MessageType.Information);
+                        quote.AskSize = null;
+                        quote.Ask = null;
                     }
 
                     if (quote.Ask.HasValue && quote.Bid.HasValue)
@@ -900,6 +904,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     updPriceLevel.Symbol = existingPriceLevel.Symbol;
 
                     existingPriceLevel.Size = updPriceLevel.Size;
+
+                    if (updPriceLevel.cAction == DepthOfBook._ACTION_REMOVE)
+                        DepthOfBooks.Remove(existingPriceLevel);
+
                     DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, updPriceLevel);
                 }
@@ -932,6 +940,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     updPriceLevel.Symbol = existingPriceLevel.Symbol;
 
                     existingPriceLevel.Size = updPriceLevel.Size;
+
+                    if (updPriceLevel.cAction == DepthOfBook._ACTION_REMOVE)
+                        DepthOfBooks.Remove(existingPriceLevel);
+
                     DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
                     DoSend<DepthOfBook>(socket, updPriceLevel);
                 }
@@ -1103,7 +1115,7 @@ namespace DGTLBackendMock.DataAccessLayer
             legOrdCancelRejAck.LeftQty = 0;
             legOrdCancelRejAck.Msg = "LegacyOrderCancelRejAck";
             legOrdCancelRejAck.OrderId = "";
-            legOrdCancelRejAck.OrderRejectReason = "Testing rejectiong...";
+            legOrdCancelRejAck.OrderRejectReason = "Testing rejection...";
             legOrdCancelRejAck.OrigClOrderId = legOrdCxlReq.OrigClOrderId;
             legOrdCancelRejAck.Price = null;
             legOrdCancelRejAck.Sender = 0;
@@ -1158,9 +1170,15 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", legOrdCxlReq.OrigClOrderId), MessageType.Information);
                         EvalPriceLevels(socket, order);
 
+                        //3-Upd orders in mem
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
                         Orders.Remove(order);
 
+                        //4- Update Quotes
+                        DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
+                        UpdateQuotes(socket, order.InstrumentId);
+
+                        //5-
                         RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId,legOrdCxlReq.UserId);
 
                     }
@@ -1262,6 +1280,13 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 order.SetFilledStatus();
                 DoSend<LegacyOrderRecord>(socket, order);
+
+                if (order.Price.HasValue)
+                {
+                    DoLog(string.Format("We send the Trade for my other affected filled order for symbol {0} Side={1} Price={2} ",order.InstrumentId, order.cSide == LegacyOrderRecord._SIDE_BUY ? "buy" : "sell", order.Price.Value), MessageType.Information);
+                    SendNewTrade(new LegacyOrderReq() { cSide = order.cSide, InstrumentId = order.InstrumentId }, Convert.ToDecimal(order.Price.Value), Convert.ToDecimal(order.OrdQty), socket);
+                }
+              
             }
                    
             
@@ -1316,15 +1341,25 @@ namespace DGTLBackendMock.DataAccessLayer
             bestOffer.Size -= Convert.ToDecimal(tradeSize);
             bestOffer.cAction = DepthOfBook._ACTION_CHANGE;
 
+            DoLog(string.Format("Searching for affecter orders for symbol {0}",bestOffer.Symbol), MessageType.Information);
 
             List<LegacyOrderRecord> updOrders = Orders.Where(x =>   x.InstrumentId == symbol
-                                                                 && x.Price.Value == Convert.ToDouble(bestOfferPrice)
+                                                                 && x.Price.Value == bestOfferPrice
                                                                  && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList();
 
             foreach (LegacyOrderRecord order in updOrders)
             {
+                DoLog(string.Format("Updating order status for price level {0}", order.Price.Value), MessageType.Information);
+
+                double prevFillQty = order.FillQty;
                 order.SetPartiallyFilledStatus(ref tradeSize);
                 DoSend<LegacyOrderRecord>(socket, order);
+
+                if (order.Price.HasValue)
+                {
+                    DoLog(string.Format("We send the Trade for my other affected {3} order for symbol {0} Side={1} Price={2} Trade Size={4} ", order.InstrumentId, order.cSide == LegacyOrderRecord._SIDE_BUY ? "buy" : "sell", order.Price.Value, order.cStatus, Convert.ToDecimal(order.FillQty - prevFillQty)), MessageType.Information);
+                    SendNewTrade(new LegacyOrderReq() { cSide = order.cSide, InstrumentId = order.InstrumentId }, Convert.ToDecimal(order.Price.Value), Convert.ToDecimal(order.FillQty-prevFillQty), socket);
+                }
             }
 
             
@@ -1364,10 +1399,10 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
         //1.2- We send a Trade by <size>
-        private void SendNewTrade(LegacyOrderReq legOrdReq,DepthOfBook bestBidAsk, decimal size, IWebSocketConnection socket)
+        private void SendNewTrade(LegacyOrderReq legOrdReq,decimal price, decimal size, IWebSocketConnection socket)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            DoLog(string.Format("We send a Trade for Size={0} and Price={1} for symbol {2}", size,bestBidAsk.Price,legOrdReq.InstrumentId), MessageType.Information);
+            DoLog(string.Format("We send a Trade for Size={0} and Price={1} for symbol {2}", size, price, legOrdReq.InstrumentId), MessageType.Information);
             LegacyTradeHistory newTrade = new LegacyTradeHistory()
             {
                 cMySide = legOrdReq.cSide,
@@ -1376,7 +1411,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Sender = 0,
                 Symbol = legOrdReq.InstrumentId,
                 TradeId = Guid.NewGuid().ToString(),
-                TradePrice = Convert.ToDouble(bestBidAsk.Price),
+                TradePrice = Convert.ToDouble(price),
                 TradeQuantity = Convert.ToDouble(size),
                 TradeTimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds)
 
@@ -1464,7 +1499,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 RemovePriceLevel(bestAsk, DepthOfBook._ASK_ENTRY, socket);
 
                                 //1.2- We send a Trade by bestAsk.Size
-                                SendNewTrade(legOrdReq, bestAsk, bestAsk.Size, socket);
+                                SendNewTrade(legOrdReq, bestAsk.Price, bestAsk.Size, socket);
 
                                 //1.3-Calculamos el nuevo bestAsk
                                 bestAsk = DepthOfBooks.Where(x =>   x.Symbol == legOrdReq.InstrumentId 
@@ -1479,11 +1514,12 @@ namespace DGTLBackendMock.DataAccessLayer
                                 UpdatePriceLevel(ref bestAsk, DepthOfBook._ASK_ENTRY, Convert.ToDouble(prevLeftQty), socket);
 
                                 //1.2- We send a trade by prevLeftQty
-                                SendNewTrade(legOrdReq, bestAsk, prevLeftQty, socket);
+                                SendNewTrade(legOrdReq, bestAsk.Price, prevLeftQty, socket);
 
                                 fullFill = true;
                             }
 
+                            bestAsk = DepthOfBooks.Where(x => x.Symbol == legOrdReq.InstrumentId && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
                         }
 
                         if (leftQty > 0)
@@ -1538,7 +1574,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 RemovePriceLevel(bestBid, DepthOfBook._BID_ENTRY, socket);
 
                                 //1.2- We send a Trade by bestBid.Size
-                                SendNewTrade(legOrdReq, bestBid, bestBid.Size, socket);
+                                SendNewTrade(legOrdReq, bestBid.Price, bestBid.Size, socket);
 
                                 //1.3-Calculamos el nuevo bestBid
                                 bestBid = DepthOfBooks.Where(x =>   x.Symbol == legOrdReq.InstrumentId 
@@ -1553,10 +1589,12 @@ namespace DGTLBackendMock.DataAccessLayer
                                 UpdatePriceLevel(ref bestBid, DepthOfBook._BID_ENTRY, Convert.ToDouble(prevLeftQty), socket);
 
                                 //1.2- We send a trade by prevLeftQty
-                                SendNewTrade(legOrdReq, bestBid, prevLeftQty, socket);
+                                SendNewTrade(legOrdReq, bestBid.Price, prevLeftQty, socket);
 
                                 fullFill = true;
                             }
+
+                            bestBid = DepthOfBooks.Where(x => x.Symbol == legOrdReq.InstrumentId  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
                         }
 
                         if (leftQty > 0)

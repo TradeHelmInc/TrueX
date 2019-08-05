@@ -1,0 +1,417 @@
+2019-08-05 17:35:50  :: Initializing Mock Server...
+2019-08-05 17:35:50  :: Initializing all collections...
+2019-08-05 17:35:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-05 17:35:52  :: Collections Initialized...
+2019-08-05 17:36:06  :: Connecting for the first time to client 4791
+2019-08-05 17:36:06  :: Connected for the first time to client 4791
+2019-08-05 17:36:14  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-08-05 17:36:14  :: Incoming Login request for user MM1_CLOBUI2
+2019-08-05 17:36:14  :: user MM1_CLOBUI2 Successfully logged in
+2019-08-05 17:36:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:36:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:36:18  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-08-05 17:36:18  :: Sending LgacyOrderAck ...
+2019-08-05 17:36:18  :: Evaluating price levels ...
+2019-08-05 17:36:18  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-08-05 17:36:18  :: Evaluating LegacyOrderRecord ...
+2019-08-05 17:36:18  :: Creating new order in Orders collection for ClOrderId = 63378488.1507
+2019-08-05 17:36:18  :: Updating quotes ...
+2019-08-05 17:36:18  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:36:18  :: Inserting quotes for symbol SWP-XBT-USD-N19
+2019-08-05 17:36:18  :: Quotes for symbol SWP-XBT-USD-N19 inserted
+2019-08-05 17:36:18  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:18  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:36:21  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:21  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:36:23  :: OnMessage LegacyOrderCancelReq from IP -> 127.0.0.1
+2019-08-05 17:36:23  :: Processing ProcessLegacyOrderCancelMock
+2019-08-05 17:36:23  :: Searching order by OrigClientOrderId=63378488.1507 (ClOrderId=63383506.187)
+2019-08-05 17:36:25  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:25  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:29  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:29  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:31  :: Sending cancellation ack for ClOrdId: 63378488.1507
+2019-08-05 17:36:32  :: Evaluating price levels for ClOrdId: 63378488.1507
+2019-08-05 17:36:34  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:34  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:43  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:43  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:46  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:46  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:46  :: Sending upd bid entry: Price=2000.0 Size=0.0 ...
+2019-08-05 17:36:50  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:50  :: Updating orders in mem
+2019-08-05 17:36:50  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:36:51  :: Updating quotes on order cancelation
+2019-08-05 17:36:52  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:36:53  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:36:53  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:14  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:14  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:14  :: Erasing best ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:37:14  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-08-05 17:37:14  :: Sending LgacyOrderAck ...
+2019-08-05 17:37:14  :: Evaluating price levels ...
+2019-08-05 17:37:14  :: Sending upd bid entry: Price=2000.0 Size=3.0 ...
+2019-08-05 17:37:14  :: Evaluating LegacyOrderRecord ...
+2019-08-05 17:37:14  :: Creating new order in Orders collection for ClOrderId = 63383512.1399
+2019-08-05 17:37:14  :: Updating quotes ...
+2019-08-05 17:37:14  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:37:14  :: Erasing best ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:37:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:14  :: OnMessage LegacyOrderCancelReq from IP -> 127.0.0.1
+2019-08-05 17:37:14  :: Processing ProcessLegacyOrderCancelMock
+2019-08-05 17:37:14  :: Searching order by OrigClientOrderId=63383512.1399 (ClOrderId=63388582.2119)
+2019-08-05 17:37:19  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:19  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:23  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:23  :: Sending cancellation ack for ClOrdId: 63383512.1399
+2019-08-05 17:37:23  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:23  :: Evaluating price levels for ClOrdId: 63383512.1399
+2019-08-05 17:37:23  :: Sending upd bid entry: Price=2000.0 Size=0.0 ...
+2019-08-05 17:37:23  :: Updating orders in mem
+2019-08-05 17:37:23  :: Updating quotes on order cancelation
+2019-08-05 17:37:24  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:37:27  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:27  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:30  :: Erasing best ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:30  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:30  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:32  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:33  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:33  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:36  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:36  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:39  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:39  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:42  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:42  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:42  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:45  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:45  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:46  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:48  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:48  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:48  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:50  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:51  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:51  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:52  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:54  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:54  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:54  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:37:57  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:37:57  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:37:58  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:00  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:00  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:02  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:03  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:03  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:06  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:06  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:09  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:09  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:12  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:12  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:15  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:15  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:18  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:18  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:21  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:21  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:24  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:24  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:26  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:27  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:27  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:28  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:30  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:30  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:32  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:33  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:33  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:36  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:36  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:39  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:39  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:42  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:42  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:42  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:45  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:45  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:46  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:48  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:48  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:48  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:50  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:51  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:51  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:52  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:54  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:54  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:54  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:38:57  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:38:57  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:38:58  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:00  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:00  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:02  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:03  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:03  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:06  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:06  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:09  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:09  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:12  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:12  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:15  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:15  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:18  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:18  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:20  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:21  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:21  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:22  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:24  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:24  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:24  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:26  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:27  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:27  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:28  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:30  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:30  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:30  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:32  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:33  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:33  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:34  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:36  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:36  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:36  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:38  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:39  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:39  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:40  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:42  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:42  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:42  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:44  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:45  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:45  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:46  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:48  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:48  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:48  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:50  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:51  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:51  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:52  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:54  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:54  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:54  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:56  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:39:57  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:39:57  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:39:58  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:01  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:01  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:02  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:04  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:04  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:07  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:07  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:10  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:10  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:13  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:13  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:14  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:16  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:16  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:18  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:40:19  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:40:19  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:40:24  :: Initializing Mock Server...
+2019-08-05 17:40:24  :: Initializing all collections...
+2019-08-05 17:40:25  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-05 17:40:25  :: Collections Initialized...
+2019-08-05 17:40:49  :: Connecting for the first time to client 4891
+2019-08-05 17:40:49  :: Connected for the first time to client 4891
+2019-08-05 17:40:58  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-08-05 17:40:58  :: Incoming Login request for user MM1_CLOBUI2
+2019-08-05 17:40:58  :: user MM1_CLOBUI2 Successfully logged in
+2019-08-05 17:40:59  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:01  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:06  :: OnMessage LegacyOrderReq from IP -> 127.0.0.1
+2019-08-05 17:41:06  :: Sending LgacyOrderAck ...
+2019-08-05 17:41:06  :: Evaluating price levels ...
+2019-08-05 17:41:06  :: Sending new bid entry: Price=2000.0 Size=3.0 ...
+2019-08-05 17:41:06  :: Evaluating LegacyOrderRecord ...
+2019-08-05 17:41:06  :: Creating new order in Orders collection for ClOrderId = 63666661.1057
+2019-08-05 17:41:06  :: Updating quotes ...
+2019-08-05 17:41:06  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:41:06  :: Inserting quotes for symbol SWP-XBT-USD-N19
+2019-08-05 17:41:06  :: Quotes for symbol SWP-XBT-USD-N19 inserted
+2019-08-05 17:41:06  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:06  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:07  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:09  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:09  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:09  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:11  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:11  :: OnMessage LegacyOrderCancelReq from IP -> 127.0.0.1
+2019-08-05 17:41:11  :: Processing ProcessLegacyOrderCancelMock
+2019-08-05 17:41:11  :: Searching order by OrigClientOrderId=63666661.1057 (ClOrderId=63671674.6778)
+2019-08-05 17:41:17  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:17  :: Sending cancellation ack for ClOrdId: 63666661.1057
+2019-08-05 17:41:17  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:17  :: Evaluating price levels for ClOrdId: 63666661.1057
+2019-08-05 17:41:17  :: Sending upd bid entry: Price=2000.0 Size=0.0 ...
+2019-08-05 17:41:17  :: Updating orders in mem
+2019-08-05 17:41:17  :: Updating quotes on order cancelation
+2019-08-05 17:41:20  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:20  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:20  :: Updating best bid and ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:41:39  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:39  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:39  :: Erasing best ask for symbol SWP-XBT-USD-N19
+2019-08-05 17:41:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:41  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:42  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:42  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:43  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:45  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:45  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:45  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:47  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:48  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:48  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:49  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:51  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:51  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:51  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:53  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:54  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:54  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:55  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:57  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:41:57  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:41:57  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:41:59  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:00  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:00  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:01  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:03  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:03  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:03  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:05  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:06  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:06  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:07  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:09  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:09  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:09  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:11  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:12  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:12  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:13  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:15  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:15  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:15  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:17  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:18  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:18  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:19  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:21  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:21  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:21  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:23  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:24  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:24  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:25  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:27  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:27  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:27  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:29  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:30  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:30  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:31  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:33  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:33  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:33  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:35  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:36  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:36  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:37  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:39  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:39  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:39  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:41  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:42  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:42  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
+2019-08-05 17:42:43  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:45  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-08-05 17:42:45  :: Searching quotes for symbol SWP-XBT-USD-N19. 
+2019-08-05 17:42:45  :: Sending LQ for symbol SWP-XBT-USD-N19. Best bid=2000.0 Best ask=
