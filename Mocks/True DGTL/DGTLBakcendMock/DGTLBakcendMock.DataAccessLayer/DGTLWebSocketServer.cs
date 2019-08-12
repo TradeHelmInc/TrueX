@@ -59,9 +59,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Constructors
 
-        public DGTLWebSocketServer(string pURL)
+        public DGTLWebSocketServer(string pURL, string pRESTAdddress)
         {
             URL = pURL;
+
+            RESTURL = pRESTAdddress;
 
             HeartbeatSeqNum = 1;
 
@@ -341,7 +343,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void LoadHistoryService()
         {
-            string url = "http://localhost:29400/";
+            string url = RESTURL;
 
             try
             {
@@ -499,10 +501,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         quote.Ask = null;
                     }
 
-                    if (quote.Ask.HasValue && quote.Bid.HasValue)
-                        quote.MidPoint = Math.Round((quote.Ask.Value + quote.Bid.Value) / 2, 2);
-                    else
-                        quote.MidPoint = null;
+
+                    quote.RefreshMidPoint(SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault().MinPriceIncrement);
+                 
                 }
                 else
                 {
@@ -525,10 +526,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         newQuote.Bid = bestBid.Price;
                     }
 
-                    if (newQuote.Ask.HasValue && newQuote.Bid.HasValue)
-                        newQuote.MidPoint = Math.Round((newQuote.Ask.Value + newQuote.Bid.Value) / 2, 2);
-                    else
-                        newQuote.MidPoint = null;
+                    newQuote.RefreshMidPoint(SecurityMasterRecords.Where(x => x.Symbol == symbol).FirstOrDefault().MinPriceIncrement);
 
                     DoLog(string.Format("Inserting quotes for symbol {0}",symbol),MessageType.Information);
                     Quotes.Add(newQuote);
@@ -631,7 +629,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 LegacyOrderBlotter orderBlotter = new LegacyOrderBlotter();
                 orderBlotter.Account = "TEST ACCOUNT";
                 orderBlotter.AgentId = "TEST AGENT ID";
-                orderBlotter.AvgPrice = 0;
+                orderBlotter.AvgPrice = order.FillQty > 0 ? Convert.ToDecimal(order.Price.Value) : 0;
                 orderBlotter.ClOrderId = order.ClientOrderId;
                 orderBlotter.cSide = order.cSide;
                 orderBlotter.cStatus = order.cStatus;
@@ -776,7 +774,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (OpenOrderCountSubscriptions.Contains("*"))
                 {
 
-                    int openOrdersCount = Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED).ToList().Count;
+                    int openOrdersCount = Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList().Count;
                     
                     DoLog(string.Format("Sending open order count for all symbols : {0}", openOrdersCount), MessageType.Information);
 
@@ -808,7 +806,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     if (OpenOrderCountSubscriptions.Contains(symbol))
                     {
-                        int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED)).ToList().Count;
+                        int openOrdersCount = Orders.Where(x => x.InstrumentId == symbol && (x.cStatus == LegacyOrderRecord._STATUS_OPEN /* || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/)).ToList().Count;
 
                         DoLog(string.Format("Sending open order count for symbol {0} : {1}", symbol, openOrdersCount), MessageType.Information);
 
@@ -1061,7 +1059,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN || x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED).ToList())
+                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList())
                     {
                         //1-Manamos el CancelAck
                         LegacyOrderCancelAck ack = new LegacyOrderCancelAck();
@@ -1085,6 +1083,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         //2-Actualizamos el PL
                         DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
                         EvalPriceLevels(socket, order);
+
+                        //3-Upd Quotes
+                        UpdateQuotes(socket, order.InstrumentId);
 
                     }
 
@@ -1537,8 +1538,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
                         EvalNewOrder(socket, legOrdReq,
-                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : LegacyOrderRecord._STATUS_PARTIALLY_FILLED,
+                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : /*LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/LegacyOrderRecord._STATUS_OPEN,
                                      Convert.ToDouble(fullFill ? legOrdReq.Quantity : legOrdReq.Quantity - leftQty));
+
+                        //4-We update the final quotes state
+                        UpdateQuotes(socket, legOrdReq.InstrumentId);
 
                         return true;
                     }
@@ -1611,8 +1615,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
                         EvalNewOrder(socket, legOrdReq,
-                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : LegacyOrderRecord._STATUS_PARTIALLY_FILLED,
+                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : /* LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/ LegacyOrderRecord._STATUS_OPEN,
                                      Convert.ToDouble(fullFill ? legOrdReq.Quantity : legOrdReq.Quantity - leftQty));
+
+                        //4-We update the final quotes state
+                        UpdateQuotes(socket, legOrdReq.InstrumentId);
                         return true;
                     }
                     else

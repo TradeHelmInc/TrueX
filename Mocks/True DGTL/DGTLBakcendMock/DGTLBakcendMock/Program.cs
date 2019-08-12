@@ -29,6 +29,7 @@ namespace DGTLBakcendMock
         {
 
             string WebSocketAdddress = ConfigurationManager.AppSettings["WebSocketAdddress"];
+            string RESTAdddress = ConfigurationManager.AppSettings["RESTAdddress"];
             string mode = ConfigurationManager.AppSettings["Mode"];
             string marketDataConfigFile = ConfigurationManager.AppSettings["MarketDataConfigFile"];
             string marketDataModule = ConfigurationManager.AppSettings["MarketDataModule"];
@@ -46,7 +47,7 @@ namespace DGTLBakcendMock
             {
                 if (mode.ToUpper() == "JSON")
                 {
-                    DGTLWebSocketServer server = new DGTLWebSocketServer(WebSocketAdddress);
+                    DGTLWebSocketServer server = new DGTLWebSocketServer(WebSocketAdddress, RESTAdddress);
                     server.Start();
                     DoLog(" Service Successfully Started...");
                 }

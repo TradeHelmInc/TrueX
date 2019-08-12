@@ -33,8 +33,8 @@ namespace DGTLBackendMock.DataAccessLayer.Service
         #region Public Methods
 
         [HttpGet]
-        public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition,
-                                       string recievedate, bool export)
+        public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition=null,
+                                       string receivedate=null, bool export=true)
         {
             try
             {

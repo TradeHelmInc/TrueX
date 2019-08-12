@@ -67,7 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="input\AccountRecord.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -206,6 +208,7 @@
     <Content Include="BitMex\incomingBitmex.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="toreplace.js" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth;
+using DGTLBackendMock.Common.DTO.MarketData;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -117,9 +118,24 @@ namespace DGTLBackendMockClient
             }
         }
 
+        private static void TestQuote()
+        {
+        
+            Quote quote1 = new Quote(){Bid=Convert.ToDecimal(100.01d),Ask=Convert.ToDecimal(100.02d)};
+            quote1.RefreshMidPoint(Convert.ToDecimal(0.01d));
+
+            Quote quote2 = new Quote() { Bid = Convert.ToDecimal(100.01d), Ask = Convert.ToDecimal(100.03d) };
+            quote2.RefreshMidPoint(Convert.ToDecimal(0.01d));
+
+            Quote quote3 = new Quote() { Bid = Convert.ToDecimal(100.01d), Ask = Convert.ToDecimal(100.025d) };
+            quote3.RefreshMidPoint(Convert.ToDecimal(0.01d));
+        }
+
         static void Main(string[] args)
         {
             string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
+
+            TestQuote();
 
             DoLog("Connecting client...");
             ConnectWebSocket(WebSocketURL);

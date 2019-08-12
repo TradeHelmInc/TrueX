@@ -34,6 +34,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected string URL { get; set; }
 
+        protected string RESTURL { get; set; }
+
         protected Fleck.WebSocketServer WebSocketServer { get; set; }
 
         protected Dictionary<string, Thread> ProcessDailySettlementThreads { get; set; }

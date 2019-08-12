@@ -21,7 +21,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public static char _STATUS_FILLED = 'F';
 
-        public static char _STATUS_PARTIALLY_FILLED = 'P';
+        //public static char _STATUS_PARTIALLY_FILLED = 'P';
 
         public static char _STATUS_EXPIRED = 'E';
 
@@ -110,7 +110,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
             }
             else
             {
-                cStatus = LegacyOrderRecord._STATUS_PARTIALLY_FILLED;
+                //cStatus = LegacyOrderRecord._STATUS_PARTIALLY_FILLED;
+                cStatus = LegacyOrderRecord._STATUS_OPEN;
                 FillQty += tradeSize;
                 LvsQty = OrdQty-FillQty;
                 tradeSize -= FillQty;
@@ -133,7 +134,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
             else if (status == OrdStatus.Filled)
                 return _STATUS_FILLED;
             else if (status == OrdStatus.PartiallyFilled)
-                return _STATUS_PARTIALLY_FILLED;
+                return /*_STATUS_PARTIALLY_FILLED*/_STATUS_OPEN;
             else if (status == OrdStatus.Expired || status == OrdStatus.DoneForDay)
                 return _STATUS_EXPIRED;
             else throw new Exception(string.Format("Unkwnown order status: {0}", status.ToString()));

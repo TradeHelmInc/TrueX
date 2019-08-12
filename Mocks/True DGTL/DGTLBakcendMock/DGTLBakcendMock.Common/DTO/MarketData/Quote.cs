@@ -24,5 +24,51 @@ namespace DGTLBackendMock.Common.DTO.MarketData
         public decimal? MidPoint { get; set; }
 
         #endregion
+
+        #region Public Methods
+
+        protected decimal TruncateDecimal(decimal value, int precision)
+        {
+            decimal step = (decimal)Math.Pow(10, precision);
+            decimal tmp = Math.Truncate(step * value);
+            return tmp / step;
+        }
+
+        public void RefreshMidPoint(decimal MinPriceIncrement)
+        {
+            if (Ask.HasValue && Bid.HasValue)
+            {
+                decimal midPoint = (Ask.Value + Bid.Value) / 2;
+
+                string strMinPriceIncrement = MinPriceIncrement.ToString();
+
+                int countDecimalsMinPriceIncr = 0;
+                if (strMinPriceIncrement.Split(new string[] { ".", "," }, StringSplitOptions.RemoveEmptyEntries).Length > 1)
+                    countDecimalsMinPriceIncr = strMinPriceIncrement.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries)[1].Length;
+
+                string strMidPoint = midPoint.ToString();
+                if (strMidPoint.Split(new string[] { ".", "," }, StringSplitOptions.RemoveEmptyEntries).Length > 1)
+                {
+                    if (strMidPoint.Split(new string[] { ".", "," }, StringSplitOptions.RemoveEmptyEntries)[1].Length > countDecimalsMinPriceIncr)
+                    {
+                        char nPlusOneDec = strMidPoint.Split(new string[] { ".", "," }, StringSplitOptions.RemoveEmptyEntries)[1][countDecimalsMinPriceIncr];
+
+                        if (nPlusOneDec == '5')
+                            MidPoint = TruncateDecimal(midPoint, countDecimalsMinPriceIncr + 1);
+                        else
+                            MidPoint = Convert.ToDecimal(Math.Round(midPoint, countDecimalsMinPriceIncr));
+                    }
+                    else
+                        MidPoint = Convert.ToDecimal(Math.Round(midPoint, countDecimalsMinPriceIncr));
+                }
+                else
+                    MidPoint = midPoint;
+            }
+            else
+                MidPoint = null;
+        
+        }
+
+        #endregion
     }
 }
