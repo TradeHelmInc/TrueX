@@ -1049,7 +1049,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
+        protected void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
         {
             DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
             LegacyOrderMassCancelReq legOrdMassCxlReq = JsonConvert.DeserializeObject<LegacyOrderMassCancelReq>(m);
@@ -1125,7 +1125,7 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
         }
 
-        private void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
+        protected void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
         {
 
             DoLog(string.Format("Processing ProcessLegacyOrderCancelMock"), MessageType.Information);
@@ -1787,7 +1787,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
+        protected void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
         {
             try
             {
@@ -1814,7 +1814,7 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
+        protected void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
         {
             try
             {
@@ -1943,7 +1943,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void ProcessSubscriptions(IWebSocketConnection socket,string m)
+        protected void ProcessSubscriptions(IWebSocketConnection socket,string m)
         {
             WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
 
@@ -2034,7 +2034,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Protected Methods
 
-       
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
             try

@@ -24,6 +24,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
     public abstract class DGTLWebSocketBaseServer
     {
+        #region Protected Static Consts
+
+        protected static string _TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI";
+
+        #endregion
+
+
         #region Protected Attributes
 
         protected bool Connected { get; set; }
@@ -154,7 +161,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
         }
 
-        protected void ProcessClientLoginMock(IWebSocketConnection socket, string m)
+        protected virtual void ProcessClientLoginMock(IWebSocketConnection socket, string m)
         {
             WebSocketLoginMessage wsLogin = JsonConvert.DeserializeObject<WebSocketLoginMessage>(m);
 
@@ -171,9 +178,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Sender = wsLogin.Sender,
                     UUID = wsLogin.UUID,
                     UserId = wsLogin.UserId,
-                    JsonWebToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTEzODY5NjksImV4cCI"
-
-
+                    JsonWebToken = _TOKEN
                 };
 
 

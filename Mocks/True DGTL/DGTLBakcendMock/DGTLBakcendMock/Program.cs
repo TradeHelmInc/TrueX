@@ -51,6 +51,12 @@ namespace DGTLBakcendMock
                     server.Start();
                     DoLog(" Service Successfully Started...");
                 }
+                if (mode.ToUpper() == "JSONV2")
+                {
+                    DGTLWebSocketV2Server server = new DGTLWebSocketV2Server(WebSocketAdddress, RESTAdddress);
+                    server.Start();
+                    DoLog(" Service Successfully Started...");
+                }
                 else if (mode.ToUpper() == "SIMULATED")
                 {
                     DGTLWebSocketSimulatedServer server = new DGTLWebSocketSimulatedServer(WebSocketAdddress, 

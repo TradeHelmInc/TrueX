@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="DGTLWebSocketBaseServer.cs" />
     <Compile Include="DGTLWebSocketClient.cs" />
+    <Compile Include="DGTLWebSocketClientV2.cs" />
     <Compile Include="DGTLWebSocketServer.cs" />
     <Compile Include="DGTLWebSocketSimulatedServer.cs" />
+    <Compile Include="DGTLWebSocketV2Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\historyController.cs" />
   </ItemGroup>

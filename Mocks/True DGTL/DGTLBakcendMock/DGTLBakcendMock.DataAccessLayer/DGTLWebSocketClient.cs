@@ -38,6 +38,8 @@ namespace DGTLBackendMock.DataAccessLayer
             OnEvent = pOnEvent;
         }
 
+        public DGTLWebSocketClient() { }
+
         #endregion
 
 
@@ -54,7 +56,7 @@ namespace DGTLBackendMock.DataAccessLayer
             return true;
         }
 
-        public async void ReadResponses(object param)
+        public virtual async void ReadResponses(object param)
         {
             while (true)
             {
