@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.Util;
 using Fleck;
 using Newtonsoft.Json;
 using System;
@@ -22,13 +23,21 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #endregion
 
+        #region Protected Attributes
+
+        protected string LastTokenGenerated { get; set; }
+
+        #endregion
+
         #region Private Methods
 
         private void ProcessTokenResponse(IWebSocketConnection socket, string m)
         {
             TokenRequest wsResp = JsonConvert.DeserializeObject<TokenRequest>(m);
 
-            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = Guid.NewGuid().ToString() };
+            LastTokenGenerated = Guid.NewGuid().ToString();
+
+            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = LastTokenGenerated };
 
             DoSend<TokenResponse>(socket, resp);
         }
@@ -37,14 +46,57 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             ClientLogin wsLogin = JsonConvert.DeserializeObject<ClientLogin>(m);
 
-            ClientLoginResponse loginResp = new ClientLoginResponse()
+            try
             {
-                Msg = "ClientLoginResponse",
-                Uuid = wsLogin.Uuid,
-                Token = _TOKEN
-            };
+                
+                byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-            DoSend<ClientLoginResponse>(socket, loginResp);
+                byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
+
+                byte[] secretByteArr = Convert.FromBase64String(wsLogin.Secret);
+
+                string userAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
+
+                string[] credentials = userAndPassword.Split(new string[] { "---" }, StringSplitOptions.RemoveEmptyEntries);
+
+
+                if (credentials.Length != 2)
+                {
+                    DoLog(string.Format("Invalid format for user and password: {0}", userAndPassword), MessageType.Error);
+                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    return;
+                }
+
+                if(!UserRecords.Any(x=>x.UserId==credentials[0]))
+                {
+                    DoLog(string.Format("Unknown user: {0}", credentials[0]), MessageType.Error);
+                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    return;
+                
+                }
+
+                if (credentials[1]!="Testing123")
+                {
+                    DoLog(string.Format("Wrong password {1} for user {0}", credentials[0], credentials[1]), MessageType.Error);
+                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    return;
+
+                }
+
+                ClientLoginResponse loginResp = new ClientLoginResponse()
+                {
+                    Msg = "ClientLoginResponse",
+                    Uuid = wsLogin.Uuid,
+                    Token = _TOKEN
+                };
+
+                DoSend<ClientLoginResponse>(socket, loginResp);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
+                //TODO implement ClientReject mechanism
+            }
         }
 
         #endregion

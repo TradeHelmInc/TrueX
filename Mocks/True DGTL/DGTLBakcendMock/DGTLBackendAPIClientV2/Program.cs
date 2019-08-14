@@ -1,12 +1,16 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.Util;
 using DGTLBackendMock.DataAccessLayer;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -129,6 +133,22 @@ namespace DGTLBackendAPIClientV2
         
         }
 
+
+        private static string GetSecret(string login, string pwd, string token)
+        {
+
+            string msg = login + "---" + pwd;
+
+            byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            byte[] KeyBytes = AESCryptohandler.makePassPhrase(token);
+            byte[] encrypted = AESCryptohandler.EncryptStringToBytes(msg, KeyBytes, IV);
+            string secret = Convert.ToBase64String(encrypted);
+            //string roundtrip = AESCryptohandler.DecryptStringFromBytes(encrypted, KeyBytes, IV);
+
+            return secret;
+        }
+
         #endregion
 
         #region Protected Static Methods
@@ -155,7 +175,7 @@ namespace DGTLBackendAPIClientV2
                 Token = tokenResp.Token;
                
                 DoLog(string.Format("Creating Secret for token {0}", tokenResp.Token));
-                string secret = ""; //Now we prepare the hash with UserId and Password (using Token received)
+                string secret = GetSecret(TempUser, TempPassword, tokenResp.Token); ; //Now we prepare the hash with UserId and Password (using Token received)
                 ClientLogin login = new ClientLogin() { Msg = "ClientLogin", Secret = secret, Uuid = secret };
                 DoSend<ClientLogin>(login);
                 DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.Token, secret));
@@ -295,6 +315,7 @@ namespace DGTLBackendAPIClientV2
         {
             try
             {
+                GetSecret("user1", "Testing123", "38b4ddde-3bba-49f5-8a32-2b290b36d6f1");
                 string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
                 DGTLWebSocketClient = new DGTLWebSocketClientV2(WebSocketURL, ProcessEvent);
                 DoLog(string.Format("Connecting to URL {0}", WebSocketURL));

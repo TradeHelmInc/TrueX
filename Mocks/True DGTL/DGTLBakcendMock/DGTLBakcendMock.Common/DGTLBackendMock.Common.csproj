@@ -98,7 +98,9 @@
     <Compile Include="DTO\UnknownMessage.cs" />
     <Compile Include="DTO\WebSocketMessageV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\AESCryptohandler.cs" />
     <Compile Include="Util\AttributeConverter.cs" />
+    <Compile Include="Util\HexaConverter.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
     <Compile Include="Wrappers\GetOrdersRequestWrapper.cs" />
     <Compile Include="Wrappers\GetTradesRequestWrapper.cs" />
