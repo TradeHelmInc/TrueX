@@ -51,7 +51,7 @@ namespace DGTLBakcendMock
                     server.Start();
                     DoLog(" Service Successfully Started...");
                 }
-                if (mode.ToUpper() == "JSONV2")
+                else if (mode.ToUpper() == "JSONV2")
                 {
                     DGTLWebSocketV2Server server = new DGTLWebSocketV2Server(WebSocketAdddress, RESTAdddress);
                     server.Start();

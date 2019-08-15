@@ -32,7 +32,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #endregion
 
+        #region Protected Methods
+
+       
+        #endregion
+
         #region Public Methods
+
+
 
         public override async void ReadResponses(object param)
         {
@@ -61,11 +68,11 @@ namespace DGTLBackendMock.DataAccessLayer
                                 ClientLoginResponse loginReponse = JsonConvert.DeserializeObject<ClientLoginResponse>(resp);
                                 OnEvent(loginReponse);
                             }
-                            //else if (wsResp.Msg == "ClientReject")
-                            //{
-                            //    ClientReject loginRejected = JsonConvert.DeserializeObject<ClientReject>(resp);
-                            //    OnEvent(loginRejected);
-                            //}
+                            else if (wsResp.Msg == "ClientReject")
+                            {
+                                ClientReject loginRejected = JsonConvert.DeserializeObject<ClientReject>(resp);
+                                OnEvent(loginRejected);
+                            }
                             else if (wsResp.Msg == "ClientLogout")
                             {
                                 ClientLogout logoutReponse = JsonConvert.DeserializeObject<ClientLogout>(resp);

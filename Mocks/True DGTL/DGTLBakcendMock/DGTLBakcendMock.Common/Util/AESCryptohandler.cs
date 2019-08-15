@@ -42,7 +42,9 @@ namespace DGTLBackendMock.Common.Util
                 rijAlg.Mode = CipherMode.ECB;
                 rijAlg.Padding = PaddingMode.PKCS7;
                 rijAlg.Key = Key;
-                rijAlg.IV = IV;
+                //rijAlg.IV = IV;
+                rijAlg.GenerateIV();
+
 
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
@@ -83,6 +85,7 @@ namespace DGTLBackendMock.Common.Util
                 rijAlg.Padding = PaddingMode.PKCS7;
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;
+                
 
                 // Create a decrytor to perform the stream transform.
                 ICryptoTransform decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);

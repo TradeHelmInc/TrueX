@@ -29,12 +29,14 @@ namespace DGTLBackendMock.Common.DTO.Platform
         public byte State
         {
             get { return Convert.ToByte(cState); }
-        }//Valid Values: 1=PreOpen,2=>Open,3=PreClose,4=Closed,5=Suspended
+        }//Valid Values: 1=PreOpen,2=>Open,3=PreClose,4=Closed,5=Suspended,6=System Closed
 
         [JsonIgnore]
         public char cState
         {
             get { return Convert.ToChar(sState); }
+
+            set { sState = Convert.ToString(value); }
         }
 
         public string sState { get; set; }

@@ -5,6 +5,7 @@ using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.OrderRouting;
 using DGTLBackendMock.Common.DTO.OrderRouting.Blotters;
+using DGTLBackendMock.Common.DTO.Platform;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.DataAccessLayer.Service;
@@ -1049,6 +1050,15 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessChangePlatformStatusRequest(IWebSocketConnection socket, string m)
+        {
+            ChangePlatformStatusRequest platStatusChangeReq = JsonConvert.DeserializeObject<ChangePlatformStatusRequest>(m);
+
+            PlatformStatus.cState = Convert.ToChar(platStatusChangeReq.Status);
+
+            DoSend<PlatformStatus>(socket, PlatformStatus);
+        }
+
         protected void ProcessLegacyOrderMassCancelMock(IWebSocketConnection socket, string m)
         {
             DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
@@ -2083,6 +2093,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "LegacyOrderMassCancelReq")
                 {
                     ProcessLegacyOrderMassCancelMock(socket, m);
+                }
+                else if (wsResp.Msg == "ChangePlatformStatusRequest")
+                {
+                    ProcessChangePlatformStatusRequest(socket, m);
                 }
                 else
                 {

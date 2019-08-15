@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Auth;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.OrderRouting;
+using DGTLBackendMock.Common.DTO.Platform;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.DataAccessLayer;
@@ -49,6 +50,7 @@ namespace DGTLBackendAPIClient
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("RouteAndCancelOrder <AccountId> (Harcoded..)");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
+            Console.WriteLine("ChangePlatformStatus <NewStatus> (2=Open,4=Market Closed, 6=System Closed)");
             Console.WriteLine("MassiveCancel");
             Console.WriteLine("-CLEAR");
             Console.WriteLine();
@@ -445,6 +447,34 @@ namespace DGTLBackendAPIClient
 
         }
 
+        private static void ProcessChangePlatformStatus(string[] param)
+        {
+            if (JWTToken == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 2)
+            {
+                ChangePlatformStatusRequest changeStatusReq = new ChangePlatformStatusRequest();
+                changeStatusReq.Msg = "ChangePlatformStatusRequest";
+                changeStatusReq.AssingStatus(param[1]);
+
+                string strMsg = JsonConvert.SerializeObject(changeStatusReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ChangePlatformStatusRequest message"));
+
+        }
+
+
         private static void ProcessCommand(string cmd)
         {
 
@@ -480,6 +510,10 @@ namespace DGTLBackendAPIClient
             else if (mainCmd == "ResetPassword")
             {
                 ProcessResetPassword(param);
+            }
+            else if (mainCmd == "ChangePlatformStatus")
+            {
+                ProcessChangePlatformStatus(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR") 
             {

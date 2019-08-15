@@ -57,6 +57,7 @@
     <Compile Include="DTO\Auth\V2\ClientLogin.cs" />
     <Compile Include="DTO\Auth\V2\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientLogout.cs" />
+    <Compile Include="DTO\Auth\V2\ClientReject.cs" />
     <Compile Include="DTO\Auth\V2\TokenRequest.cs" />
     <Compile Include="DTO\Auth\V2\TokenResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
+    <Compile Include="DTO\Platform\ChangePlatformStatusRequest.cs" />
     <Compile Include="DTO\Platform\PlatformStatus.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />
     <Compile Include="DTO\SecurityList\OfficialFixingPrice.cs" />

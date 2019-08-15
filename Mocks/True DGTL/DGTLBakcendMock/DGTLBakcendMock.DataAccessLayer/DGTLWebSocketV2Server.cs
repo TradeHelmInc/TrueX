@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DGTLBackendMock.DataAccessLayer
@@ -27,9 +28,53 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected string LastTokenGenerated { get; set; }
 
+        protected Thread HeartbeatThread { get; set; }
+
         #endregion
 
-        #region Private Methods
+        #region Private and Protected Methods
+
+        protected override void DoCLoseThread(object p)
+        {
+            base.DoCLoseThread(p);
+
+            lock (tLock)
+            {
+                HeartbeatThread.Abort();
+            
+            }
+        }
+
+
+        protected void SendHeartbeat(object param)
+        {
+            IWebSocketConnection socket = (IWebSocketConnection)((object[])param)[0];
+            string token = (string)((object[])param)[1];
+            string uuid = (string)((object[])param)[2];
+
+            try
+            {
+
+                ClientHeartbeat heartbeat = new ClientHeartbeat()
+                {
+                    Msg = "ClientHeartbeat",
+                    Token = token,
+                    Uuid = uuid
+
+                };
+
+                while (true)
+                {
+                    Thread.Sleep(3000);//3 seconds
+                    DoSend<ClientHeartbeat>(socket, heartbeat);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error sending heartbeat for token {0}: {1}", token,ex.Message), MessageType.Error);
+            }
+
+        }
 
         private void ProcessTokenResponse(IWebSocketConnection socket, string m)
         {
@@ -40,6 +85,20 @@ namespace DGTLBackendMock.DataAccessLayer
             TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = LastTokenGenerated };
 
             DoSend<TokenResponse>(socket, resp);
+        }
+
+        private void SendClientReject(IWebSocketConnection socket, ClientLogin wsLogin)
+        {
+            ClientReject reject = new ClientReject()
+            {
+                Msg = "ClientReject",
+                RejectCode = ClientReject._GENERIC_REJECT_CODE,
+                Sender = 0,
+                Time = 0,
+                Uuid = wsLogin.Uuid
+            };
+
+            DoSend<ClientReject>(socket, reject);
         }
 
         private void ProcessClientLoginV2(IWebSocketConnection socket, string m)
@@ -63,14 +122,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (credentials.Length != 2)
                 {
                     DoLog(string.Format("Invalid format for user and password: {0}", userAndPassword), MessageType.Error);
-                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    SendClientReject(socket, wsLogin);
                     return;
                 }
 
                 if(!UserRecords.Any(x=>x.UserId==credentials[0]))
                 {
                     DoLog(string.Format("Unknown user: {0}", credentials[0]), MessageType.Error);
-                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    SendClientReject(socket, wsLogin);
                     return;
                 
                 }
@@ -78,7 +137,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (credentials[1]!="Testing123")
                 {
                     DoLog(string.Format("Wrong password {1} for user {0}", credentials[0], credentials[1]), MessageType.Error);
-                    //TODO : implement rejection mechanism for invalid format for user and paswword
+                    SendClientReject(socket, wsLogin);
                     return;
 
                 }
@@ -91,11 +150,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 };
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
+
+                HeartbeatThread = new Thread(SendHeartbeat);
+                HeartbeatThread.Start(new object[] { socket, loginResp.Token, loginResp.Uuid });
             }
             catch (Exception ex)
             {
                 DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
-                //TODO implement ClientReject mechanism
+                SendClientReject(socket, wsLogin);
             }
         }
 
@@ -118,6 +180,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
             DoSend<ClientLogout>(socket, logout);
             socket.Close();
+
+            if(HeartbeatThread!=null)
+                HeartbeatThread.Abort();
         }
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
@@ -136,9 +201,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessTokenResponse(socket, m);
                 }
-                else if (wsResp.Msg == "ClientHeartbeatResponse")
+                else if (wsResp.Msg == "ClientHeartbeat")
                 {
-                    //We do nothing as the DGTL server does
+                    //We do nothing//
 
                 }
                 else if (wsResp.Msg == "ClientLogout")
