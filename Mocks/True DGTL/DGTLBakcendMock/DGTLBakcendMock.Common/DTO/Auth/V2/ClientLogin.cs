@@ -8,8 +8,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 {
     public class ClientLogin : WebSocketMessageV2
     {
-        public string Uuid { get; set; }
-
+       
         public string Secret { get; set; }
        
     }

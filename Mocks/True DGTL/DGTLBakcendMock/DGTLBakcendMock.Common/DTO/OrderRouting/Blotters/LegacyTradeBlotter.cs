@@ -31,7 +31,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.Blotters
 
         public int Sender { get; set; }
 
-        public long Time { get; set; }
+        //public long Time { get; set; }
 
         public string TradeId { get; set; }
 

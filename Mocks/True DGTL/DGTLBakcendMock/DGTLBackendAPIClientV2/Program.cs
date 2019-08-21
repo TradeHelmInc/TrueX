@@ -182,7 +182,7 @@ namespace DGTLBackendAPIClientV2
                 if (loginResp.Token != null)
                 {
                    
-                    UUID = loginResp.Uuid;
+                    UUID = loginResp.UUID;
                     UserId = loginResp.UserId;
                 }
 
@@ -195,7 +195,7 @@ namespace DGTLBackendAPIClientV2
                
                 DoLog(string.Format("Creating Secret for token {0}", tokenResp.Token));
                 string secret = GetSecret(TempUser, TempPassword, tokenResp.Token); ; //Now we prepare the hash with UserId and Password (using Token received)
-                ClientLogin login = new ClientLogin() { Msg = "ClientLogin", Secret = secret, Uuid = secret };
+                ClientLogin login = new ClientLogin() { Msg = "ClientLogin", Secret = secret, UUID = secret };
                 DoSend<ClientLogin>(login);
                 DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.Token, secret));
             }
@@ -276,7 +276,7 @@ namespace DGTLBackendAPIClientV2
                 TempUser = param[1];
                 TempPassword = param[2];
 
-                TokenRequest tokenReq = new TokenRequest() { Msg = "TokenRequest", SourceIP = GetMyIpAddress() };
+                TokenRequest tokenReq = new TokenRequest() { Msg = "TokenRequest", SourceIP = GetMyIpAddress(), UUID = Guid.NewGuid().ToString() };
                 DoSend<TokenRequest>(tokenReq);
             }
             else
@@ -296,7 +296,7 @@ namespace DGTLBackendAPIClientV2
             {
                 Msg = "ClientHeartbeat",
                 Token = heartBeat.Token,
-                Uuid = heartBeat.Uuid
+                UUID = heartBeat.UUID
             };
             DoSend<ClientHeartbeat>(heartBeat);
         }
@@ -317,7 +317,7 @@ namespace DGTLBackendAPIClientV2
                     Msg = "ClientLogout",
                     Token = Token,
                     UserId = UserId,
-                    Uuid = UUID
+                    UUID = UUID
                 };
 
                 DoSend<ClientLogout>(logout);
@@ -334,8 +334,8 @@ namespace DGTLBackendAPIClientV2
         {
             try
             {
-                DecryptTest();
-                GetSecret("user1", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
+                //DecryptTest();
+                //GetSecret("user1", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
                 string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
                 DGTLWebSocketClient = new DGTLWebSocketClientV2(WebSocketURL, ProcessEvent);
                 DoLog(string.Format("Connecting to URL {0}", WebSocketURL));

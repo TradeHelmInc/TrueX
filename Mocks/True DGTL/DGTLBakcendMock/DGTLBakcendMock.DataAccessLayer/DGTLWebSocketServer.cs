@@ -677,7 +677,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 tradeBlotter.OrderId = "TEST ORDERID";
                 tradeBlotter.Sender = 0;
                 tradeBlotter.cStatus = LegacyOrderRecord._STATUS_FILLED;
-                tradeBlotter.Time = Convert.ToInt64(elapsed.TotalMilliseconds);
+                //tradeBlotter.Time = Convert.ToInt64(elapsed.TotalMilliseconds);
                 tradeBlotter.TradeId = trade.TradeId;
 
                 tradesBlotters.Add(tradeBlotter);
@@ -740,6 +740,21 @@ namespace DGTLBackendMock.DataAccessLayer
             //    DoSend<GetExecutionsBlotterFulFilled>(socket, executionsFullFilled);
 
             //}
+        }
+
+
+        private void ProcessBlotterTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        {
+
+            if (!subscrMsg.ServiceKey.Contains("*"))
+            {
+                ProcessSubscriptionResponse(socket, "rt", subscrMsg.ServiceKey, subscrMsg.UUID,success : false,msg:  "You can only subscribe to Symbol=* for rt service");
+            }
+            else
+            {
+                
+                ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID);
+            }
         }
 
         private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
@@ -1414,6 +1429,27 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             DoLog(string.Format("We send a Trade for Size={0} and Price={1} for symbol {2}", size, price, legOrdReq.InstrumentId), MessageType.Information);
+            
+            //If we got a new trade --> we are in the Trading TAB as the mock doesn't allow to have multiple users
+            //we must be subscribed to service LT
+            //LegacyTradeBlotter tradeBlotter= new LegacyTradeBlotter()
+            //{
+            //    Account="TEST ACCOUNT",
+            //    AgentId="TEST AGENT ID",
+            //    cSide= legOrdReq.cSide,
+            //    cStatus='c',//TODO complete status
+            //    ExecPrice= Convert.ToDouble(price),
+            //    ExecQty=Convert.ToDouble(size),
+            //    ExecutionTime=Convert.ToInt64(elapsed.TotalMilliseconds),
+            //    Msg="LegacyTradeBlotter",
+            //    Notional=Convert.ToDouble(price)*Convert.ToDouble(size)
+            //    OrderId=Guid.NewGuid().ToString(),
+            //    Sender=0,
+            //    Symbol=legOrdReq.InstrumentId,
+            //    TradeId=Guid.NewGuid().ToString(),
+            //};
+            //DoSend<LegacyTradeBlotter>(socket, tradeBlotter);
+            
             LegacyTradeHistory newTrade = new LegacyTradeHistory()
             {
                 cMySide = legOrdReq.cSide,
@@ -2032,6 +2068,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (subscrMsg.Service == "LT")
                 {
                     ProcessMyTrades(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "rt")
+                {
+                    ProcessBlotterTrades(socket, subscrMsg);
                 }
             }
             else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_UNSUBSCRIBE)

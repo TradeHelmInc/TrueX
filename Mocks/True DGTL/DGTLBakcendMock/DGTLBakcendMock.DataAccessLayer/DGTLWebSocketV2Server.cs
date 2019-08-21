@@ -1,5 +1,8 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.SecurityList;
+using DGTLBackendMock.Common.DTO.SecurityList.V2;
 using DGTLBackendMock.Common.Util;
 using Fleck;
 using Newtonsoft.Json;
@@ -59,7 +62,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientHeartbeat",
                     Token = token,
-                    Uuid = uuid
+                    UUID = uuid
 
                 };
 
@@ -78,11 +81,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessTokenResponse(IWebSocketConnection socket, string m)
         {
-            TokenRequest wsResp = JsonConvert.DeserializeObject<TokenRequest>(m);
+            TokenRequest wsTokenReq = JsonConvert.DeserializeObject<TokenRequest>(m);
 
             LastTokenGenerated = Guid.NewGuid().ToString();
 
-            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = LastTokenGenerated };
+            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = LastTokenGenerated, UUID = wsTokenReq.UUID };
 
             DoSend<TokenResponse>(socket, resp);
         }
@@ -95,10 +98,127 @@ namespace DGTLBackendMock.DataAccessLayer
                 RejectCode = ClientReject._GENERIC_REJECT_CODE,
                 Sender = 0,
                 Time = 0,
-                Uuid = wsLogin.Uuid
+                UUID = wsLogin.UUID
             };
 
             DoSend<ClientReject>(socket, reject);
+        }
+
+        private void SendCRMInstruments(IWebSocketConnection socket,string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+
+                InstrumentMsg instrumentMsg = new InstrumentMsg();
+                instrumentMsg.Msg = "InstrumentMsg";
+                instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.ExchangeId = 0;
+                instrumentMsg.Description = security.Description;
+                instrumentMsg.InstrumentDate = security.MaturityDate;
+                instrumentMsg.InstrumentId = security.Symbol;
+                instrumentMsg.InstrumentName = security.Description;
+                instrumentMsg.LastUpdatedBy = "fernandom";
+                instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
+                instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
+                instrumentMsg.Currency1 = "";
+                instrumentMsg.Currency2 = "";
+                instrumentMsg.Test = false;
+                instrumentMsg.UUID = Uuid;
+
+                DoSend<InstrumentMsg>(socket, instrumentMsg);
+            }
+        
+        }
+
+        //Sending logged user
+        private void SendCRMUsers(IWebSocketConnection socket, string login, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            UserRecord userRecord =   UserRecords.Where(x=>x.UserId==login).FirstOrDefault();
+
+            if (userRecord != null)
+            {
+                UserRecordMsg userRecordMsg = new UserRecordMsg();
+                userRecordMsg.Address = "";
+                userRecordMsg.cConnectionType = '0';
+                userRecordMsg.City = "";
+                userRecordMsg.cUserType = '0';
+                userRecordMsg.Email = "";
+                userRecordMsg.FirmId = userRecord.FirmId;
+                userRecordMsg.FirstName = userRecord.FirstName;
+                userRecordMsg.GroupId = "";
+                userRecordMsg.IsAdmin = false;
+                userRecordMsg.LastName = userRecord.LastName;
+                userRecordMsg.Msg = "UserRecordMsg";
+                userRecordMsg.PostalCode = "";
+                userRecordMsg.State = "";
+                userRecordMsg.UserId = userRecord.UserId;
+                userRecordMsg.UUID = Uuid;
+
+                DoSend<UserRecordMsg>(socket, userRecordMsg);
+            }
+            else
+                throw new Exception(string.Format("User not found {0}", login));
+        }
+
+        private void SendMarketStatus(IWebSocketConnection socket,string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            MarketStateMsg marketStateMsg = new MarketStateMsg();
+            marketStateMsg.cExchangeId=MarketStateMsg._DEFAULT_EXCHANGE_ID;
+            marketStateMsg.cReasonCode='0';
+            marketStateMsg.cState = PlatformStatus.cState ;
+            marketStateMsg.Msg = "MarketStateMsg";
+            marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+            marketStateMsg.UUID = Uuid;
+
+            DoSend<MarketStateMsg>(socket, marketStateMsg);
+        }
+
+        private void SendCRMAccounts(IWebSocketConnection socket, string login,string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
+
+            if (userRecord != null)
+            {
+                List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
+
+                foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
+                {
+                    AccountRecordMsg accountRecordMsg = new AccountRecordMsg();
+                    accountRecordMsg.AccountAlias = accountRecord.AccountId;
+                    accountRecordMsg.AccountId = accountRecord.AccountId;
+                    accountRecordMsg.AccountName = accountRecord.EPNickName;
+                    accountRecordMsg.AccountNumber = "";
+                    accountRecordMsg.AccountType = 0;
+                    accountRecordMsg.cStatus = AccountRecordMsg._DEFAULT_STATUS;
+                    accountRecordMsg.Cti = 0;
+                    accountRecordMsg.Currency = "";
+                    accountRecordMsg.FirmId = userRecord.FirmId;
+                    accountRecordMsg.WalletAddress = "";
+                    accountRecordMsg.UUID = Uuid;
+
+                    DoSend<AccountRecordMsg>(socket, accountRecordMsg);
+                }
+            }
+            else
+                throw new Exception(string.Format("User not found {0}", login));
+        
+        }
+
+        private void SendCRMMessages(IWebSocketConnection socket,string login,string Uuid)
+        {
+            SendCRMInstruments(socket, Uuid);
+
+            SendCRMUsers(socket, login,Uuid);
+
+            SendMarketStatus(socket, Uuid);
+
+            SendCRMAccounts(socket, login, Uuid);
         }
 
         private void ProcessClientLoginV2(IWebSocketConnection socket, string m)
@@ -145,14 +265,16 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientLoginResponse loginResp = new ClientLoginResponse()
                 {
                     Msg = "ClientLoginResponse",
-                    Uuid = wsLogin.Uuid,
-                    Token = _TOKEN
+                    UUID = wsLogin.UUID,
+                    Token = LastTokenGenerated
                 };
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
 
+                SendCRMMessages(socket, credentials[0], wsLogin.UUID);
+
                 HeartbeatThread = new Thread(SendHeartbeat);
-                HeartbeatThread.Start(new object[] { socket, loginResp.Token, loginResp.Uuid });
+                HeartbeatThread.Start(new object[] { socket, loginResp.Token, loginResp.UUID });
             }
             catch (Exception ex)
             {
@@ -174,7 +296,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Msg = "ClientLogout",
                 Token = wsLogout.Token,
                 UserId = wsLogout.UserId,
-                Uuid = wsLogout.UserId
+                UUID = wsLogout.UserId
             };
 
 

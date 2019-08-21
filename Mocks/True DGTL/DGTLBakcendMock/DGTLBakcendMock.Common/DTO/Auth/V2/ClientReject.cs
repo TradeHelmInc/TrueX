@@ -20,8 +20,6 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
         public int Sender { get; set; }
 
         public int Time { get; set; }
-        
-        public string Uuid { get; set; }
 
         public int RejectCode { get; set; }
 

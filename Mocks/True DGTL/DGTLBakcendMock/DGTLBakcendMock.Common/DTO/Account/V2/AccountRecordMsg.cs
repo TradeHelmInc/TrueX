@@ -1,0 +1,70 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DGTLBackendMock.Common.DTO.Account.V2
+{
+    public class AccountRecordMsg : WebSocketMessageV2
+    {
+        #region Private Static Consts
+
+
+        public static char _DEFAULT_STATUS = 'a';
+
+        #endregion
+
+
+        #region Public Attributes
+
+        public int Sender { get; set; }
+
+        public int Time { get; set; }
+
+        public string AccountId { get; set; }
+
+        public string FirmId { get; set; }
+
+        public string SettlementFirmId { get; set; }
+
+        public string AccountName { get; set; }
+
+        public string AccountAlias { get; set; }
+
+        public int AccountType { get; set; }
+
+        public string RegistrationType { get; set; }
+
+        public string AccountNumber { get; set; }
+
+        public string WalletAddress { get; set; }
+
+        public bool IsSuspense { get; set; }
+
+        public bool UsDomicile { get; set; }
+
+        public string Currency { get; set; }
+
+        public string Lei { get; set; }
+
+        public int Cti { get; set; }
+
+        private byte status;
+        public byte Status
+        {
+            get { return status; }
+            set
+            {
+                status = Convert.ToByte(value);
+
+            }
+        }
+
+        [JsonIgnore]
+        public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
+
+        #endregion
+    }
+}

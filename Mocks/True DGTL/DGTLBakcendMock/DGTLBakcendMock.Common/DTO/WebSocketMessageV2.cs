@@ -9,5 +9,7 @@ namespace DGTLBackendMock.Common.DTO
     public class WebSocketMessageV2
     {
         public string Msg { get; set; }
+
+        public string UUID { get; set; }
     }
 }

@@ -10,8 +10,6 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
     {
         #region Public Attributes
 
-        public string Uuid { get; set; }
-
         public string Token { get; set; }
 
         #endregion
