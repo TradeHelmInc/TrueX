@@ -10,7 +10,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
     {
         #region Public Attributes
 
-        public string Token { get; set; }
+        public string JsonWebToken { get; set; }
 
         #endregion
     }

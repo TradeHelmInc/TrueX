@@ -61,7 +61,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientHeartbeat heartbeat = new ClientHeartbeat()
                 {
                     Msg = "ClientHeartbeat",
-                    Token = token,
+                    JsonWebToken = token,
                     UUID = uuid
 
                 };
@@ -85,7 +85,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             LastTokenGenerated = Guid.NewGuid().ToString();
 
-            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", Token = LastTokenGenerated, UUID = wsTokenReq.UUID };
+            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", JsonWebToken = LastTokenGenerated, UUID = wsTokenReq.UUID };
 
             DoSend<TokenResponse>(socket, resp);
         }
@@ -120,8 +120,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.InstrumentId = security.Symbol;
                 instrumentMsg.InstrumentName = security.Description;
                 instrumentMsg.LastUpdatedBy = "fernandom";
+                instrumentMsg.LotSize = security.LotSize;
                 instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
                 instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
+                instrumentMsg.cProductType = InstrumentMsg.GetProductType(security.AssetClass);
+                instrumentMsg.MinQuotePrice = security.MinPrice;
+                instrumentMsg.MaxQuotePrice = security.MaxPrice;
+                instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
+                instrumentMsg.MaxNotionalValue = security.MaxPrice * security.LotSize;
                 instrumentMsg.Currency1 = "";
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
@@ -266,7 +272,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientLoginResponse",
                     UUID = wsLogin.UUID,
-                    Token = LastTokenGenerated
+                    JsonWebToken = LastTokenGenerated,
+                    Status=true
                 };
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
@@ -274,7 +281,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 SendCRMMessages(socket, credentials[0], wsLogin.UUID);
 
                 HeartbeatThread = new Thread(SendHeartbeat);
-                HeartbeatThread.Start(new object[] { socket, loginResp.Token, loginResp.UUID });
+                HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.UUID });
             }
             catch (Exception ex)
             {
@@ -294,7 +301,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientLogout logout = new ClientLogout()
             {
                 Msg = "ClientLogout",
-                Token = wsLogout.Token,
+                JsonWebToken = wsLogout.JsonWebToken,
                 UserId = wsLogout.UserId,
                 UUID = wsLogout.UserId
             };
