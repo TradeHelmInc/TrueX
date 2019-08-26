@@ -38,6 +38,8 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
         public decimal? ReferencePrice { get; set; }
 
+        public bool IsOrderPostingEnabled { get; set; }
+
         #endregion
 
     }

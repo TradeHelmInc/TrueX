@@ -90,18 +90,19 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<TokenResponse>(socket, resp);
         }
 
-        private void SendClientReject(IWebSocketConnection socket, ClientLogin wsLogin)
+        private void SendLoginRejectReject(IWebSocketConnection socket, ClientLogin wsLogin, string msg)
         {
-            ClientReject reject = new ClientReject()
+            ClientLoginResponse reject = new ClientLoginResponse()
             {
-                Msg = "ClientReject",
-                RejectCode = ClientReject._GENERIC_REJECT_CODE,
-                Sender = 0,
-                Time = 0,
-                UUID = wsLogin.UUID
+                Msg = "ClientLoginResponse",
+                UUID = wsLogin.UUID,
+                JsonWebToken = LastTokenGenerated,
+                Message = msg,
+                cSuccess = ClientLoginResponse._STATUS_FAILED,
+                UserId = null
             };
 
-            DoSend<ClientReject>(socket, reject);
+            DoSend<ClientLoginResponse>(socket, reject);
         }
 
         private void SendCRMInstruments(IWebSocketConnection socket,string Uuid)
@@ -234,36 +235,30 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 
-                byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                //byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
                 byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
 
+                byte[] IV = keyBytes;
+
                 byte[] secretByteArr = Convert.FromBase64String(wsLogin.Secret);
 
-                string userAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
+                string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
 
-                string[] credentials = userAndPassword.Split(new string[] { "---" }, StringSplitOptions.RemoveEmptyEntries);
+                JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
 
-
-                if (credentials.Length != 2)
+                if (!UserRecords.Any(x => x.UserId == jsonCredentials.UserId))
                 {
-                    DoLog(string.Format("Invalid format for user and password: {0}", userAndPassword), MessageType.Error);
-                    SendClientReject(socket, wsLogin);
-                    return;
-                }
-
-                if(!UserRecords.Any(x=>x.UserId==credentials[0]))
-                {
-                    DoLog(string.Format("Unknown user: {0}", credentials[0]), MessageType.Error);
-                    SendClientReject(socket, wsLogin);
+                    DoLog(string.Format("Unknown user: {0}", jsonCredentials.UserId), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Unknown user: {0}", jsonCredentials.UserId));
                     return;
                 
                 }
 
-                if (credentials[1]!="Testing123")
+                if (jsonCredentials .Password!= "Testing123")
                 {
-                    DoLog(string.Format("Wrong password {1} for user {0}", credentials[0], credentials[1]), MessageType.Error);
-                    SendClientReject(socket, wsLogin);
+                    DoLog(string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.Password), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.UserId));
                     return;
 
                 }
@@ -273,12 +268,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ClientLoginResponse",
                     UUID = wsLogin.UUID,
                     JsonWebToken = LastTokenGenerated,
-                    Status=true
+                    cSuccess = ClientLoginResponse._STATUS_OK,
+                    UserId=Guid.NewGuid().ToString()
                 };
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
 
-                SendCRMMessages(socket, credentials[0], wsLogin.UUID);
+                SendCRMMessages(socket, jsonCredentials.UserId, wsLogin.UUID);
 
                 HeartbeatThread = new Thread(SendHeartbeat);
                 HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.UUID });
@@ -286,7 +282,7 @@ namespace DGTLBackendMock.DataAccessLayer
             catch (Exception ex)
             {
                 DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
-                SendClientReject(socket, wsLogin);
+                SendLoginRejectReject(socket, wsLogin,string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message));
             }
         }
 

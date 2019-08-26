@@ -68,11 +68,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 ClientLoginResponse loginReponse = JsonConvert.DeserializeObject<ClientLoginResponse>(resp);
                                 OnEvent(loginReponse);
                             }
-                            else if (wsResp.Msg == "ClientReject")
-                            {
-                                ClientReject loginRejected = JsonConvert.DeserializeObject<ClientReject>(resp);
-                                OnEvent(loginRejected);
-                            }
+                           
                             else if (wsResp.Msg == "ClientLogout")
                             {
                                 ClientLogout logoutReponse = JsonConvert.DeserializeObject<ClientLogout>(resp);

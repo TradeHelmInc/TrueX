@@ -39,11 +39,12 @@ namespace DGTLBackendMock.Common.Util
             // with the specified key and IV. 
             using (RijndaelManaged rijAlg = new RijndaelManaged())
             {
-                rijAlg.Mode = CipherMode.ECB;
+                //rijAlg.Mode = CipherMode.ECB;
+                rijAlg.Mode = CipherMode.CBC;
                 rijAlg.Padding = PaddingMode.PKCS7;
                 rijAlg.Key = Key;
-                //rijAlg.IV = IV;
-                rijAlg.GenerateIV();
+                rijAlg.IV = IV;
+                //rijAlg.GenerateIV();
 
 
                 // Create a decryptor to perform the stream transform.
@@ -81,7 +82,8 @@ namespace DGTLBackendMock.Common.Util
             // with the specified key and IV. 
             using (RijndaelManaged rijAlg = new RijndaelManaged())
             {
-                rijAlg.Mode = CipherMode.ECB;
+                //rijAlg.Mode = CipherMode.ECB;
+                rijAlg.Mode = CipherMode.CBC;
                 rijAlg.Padding = PaddingMode.PKCS7;
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;

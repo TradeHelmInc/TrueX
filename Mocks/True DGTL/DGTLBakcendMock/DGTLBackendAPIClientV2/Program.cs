@@ -152,18 +152,30 @@ namespace DGTLBackendAPIClientV2
 
         private static string GetSecret(string login, string pwd, string token)
         {
-        
-            string msg = login + "---" + pwd;
+            //string msg = login + "---" + pwd; --> old format
 
-            //byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            byte[] IV = new byte[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-
-
-
+            //1-key must be a fixed 16 bytes (pad / truncate if necessary)
             byte[] KeyBytes = AESCryptohandler.makePassPhrase(token);
-            byte[] encrypted = AESCryptohandler.EncryptStringToBytes(msg, KeyBytes, IV);
+            //2-set the key - NOTE: iv will be the same as the key
+            byte[] IV = KeyBytes;
+
+            //3-//convert the JSON object to a string
+            var msg = new
+            {
+                UserId = login,
+                Password = pwd
+
+            };
+            string strMsg = JsonConvert.SerializeObject(msg);
+
+            //4-Run the encryption in CBC mode!
+            byte[] encrypted = AESCryptohandler.EncryptStringToBytes(strMsg, KeyBytes, IV);
+
+            //5- Convert byte array to base64
             string secret = Convert.ToBase64String(encrypted);
-            //string roundtrip = AESCryptohandler.DecryptStringFromBytes(encrypted, KeyBytes, IV);
+            
+            //6-Roundtrip test
+            string roundtrip = AESCryptohandler.DecryptStringFromBytes(encrypted, KeyBytes, IV);
 
             return secret;
         }
@@ -215,8 +227,8 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientHeartbeat>((ClientHeartbeat)msg);
                 ProcessHeartbeat(heartBeat);
             }
-            else if (msg is ClientReject)
-                ProcessJsonMessage<ClientReject>((ClientReject)msg);
+            //else if (msg is ClientReject)
+            //    ProcessJsonMessage<ClientReject>((ClientReject)msg);
             //else if (msg is SubscriptionResponse)
             //    ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
             //else if (msg is AccountRecord)
@@ -335,7 +347,7 @@ namespace DGTLBackendAPIClientV2
             try
             {
                 //DecryptTest();
-                GetSecret("user1", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
+                GetSecret("MM1_BLOCK", "Testing12", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
                 string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
                 DGTLWebSocketClient = new DGTLWebSocketClientV2(WebSocketURL, ProcessEvent);
                 DoLog(string.Format("Connecting to URL {0}", WebSocketURL));
