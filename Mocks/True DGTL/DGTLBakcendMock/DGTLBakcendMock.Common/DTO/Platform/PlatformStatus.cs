@@ -15,8 +15,9 @@ namespace DGTLBackendMock.Common.DTO.Platform
         public static char _STATE_PREOPEN = '1';
         public static char _STATE_OPEN = '2';
         public static char _STATE_PRECLOSE = '3';
-        public static char _STATE_CLOSED = '4';
+        public static char _STATE_MARKET_CLOSED = '4';
         public static char _STATE_SUSPENDED = '5';
+        public static char _STATE_SYSTEM_CLOSED = '6';
 
 
         #endregion

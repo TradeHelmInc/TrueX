@@ -39,6 +39,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
         [JsonIgnore]
         public char cSuccess { get { return Convert.ToChar(Success); } set { Success = Convert.ToByte(value); } }
 
+        public long Time { get; set; }
 
         public string Message { get; set; }
 

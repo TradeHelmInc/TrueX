@@ -136,13 +136,12 @@ namespace DGTLBackendAPIClientV2
 
         private static void DecryptTest()
         {
-            string Token = "2b6e7e75-b70e-49";
-            string Secret = "ndiPx8dNhUAgn03Y+Y/YkiOrq6urq6urq6urq6vDq6s=";
-                             
-
-            byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            string Token = "d1d59655-6bb8-4322-8424-14b724a45b77";
+            string Secret = "h/VNzVF6HoIMZ+cg/Jz9GAKmIkL4HDooz4c18+3LT8DIQlcPzApftN212zUSof2D";
 
             byte[] KeyBytes = AESCryptohandler.makePassPhrase(Token);
+
+            byte[] IV = KeyBytes;
 
             byte[] msgToDecrypt = Convert.FromBase64String(Secret);
 
@@ -184,6 +183,29 @@ namespace DGTLBackendAPIClientV2
 
         #region Protected Static Methods
 
+        private static void ProcessTokenResponse(WebSocketMessageV2 msg)
+        {
+            TokenResponse tokenResp = (TokenResponse)msg;
+            Token = tokenResp.JsonWebToken;
+
+            DoLog(string.Format("Creating Secret for token {0}", tokenResp.JsonWebToken));
+            string secret = GetSecret(TempUser, TempPassword, tokenResp.JsonWebToken); ; //Now we prepare the hash with UserId and Password (using Token received)
+
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            ClientLoginRequest login = new ClientLoginRequest()
+                                                                {
+                                                                    Msg = "ClientLoginRequest",
+                                                                    Secret = secret,
+                                                                    UUID = secret,
+                                                                    Time = Convert.ToInt64(elapsed.TotalMilliseconds)
+                                                                };
+            
+            
+            DoSend<ClientLoginRequest>(login);
+            
+            DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.JsonWebToken, secret));
+        }
+
         private static void ProcessEvent(WebSocketMessageV2 msg)
         {
 
@@ -202,14 +224,7 @@ namespace DGTLBackendAPIClientV2
             }
             else if (msg is TokenResponse)
             {
-                TokenResponse tokenResp = (TokenResponse)msg;
-                Token = tokenResp.JsonWebToken;
-               
-                DoLog(string.Format("Creating Secret for token {0}", tokenResp.JsonWebToken));
-                string secret = GetSecret(TempUser, TempPassword, tokenResp.JsonWebToken); ; //Now we prepare the hash with UserId and Password (using Token received)
-                ClientLogin login = new ClientLogin() { Msg = "ClientLogin", Secret = secret, UUID = secret };
-                DoSend<ClientLogin>(login);
-                DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.JsonWebToken, secret));
+                ProcessTokenResponse(msg);
             }
             else if (msg is ClientLogout)
             {
@@ -282,13 +297,21 @@ namespace DGTLBackendAPIClientV2
 
         private static void ProcessLoginClient(string[] param)
         {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
             if (param.Length == 3)
             {
                 TempUser = param[1];
                 TempPassword = param[2];
 
-                TokenRequest tokenReq = new TokenRequest() { Msg = "TokenRequest", SourceIP = GetMyIpAddress(), UUID = Guid.NewGuid().ToString() };
+                TokenRequest tokenReq = new TokenRequest()
+                {
+                    Msg = "TokenRequest",
+                    SourceIP = GetMyIpAddress(),
+                    UUID = Guid.NewGuid().ToString(),
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds)
+                };
+
                 DoSend<TokenRequest>(tokenReq);
             }
             else
@@ -304,11 +327,13 @@ namespace DGTLBackendAPIClientV2
                 return;
             }
 
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             ClientHeartbeat heartbeatResp = new ClientHeartbeat()
             {
                 Msg = "ClientHeartbeat",
                 JsonWebToken = heartBeat.JsonWebToken,
-                UUID = heartBeat.UUID
+                UUID = heartBeat.UUID,
+                Time = Convert.ToInt64(elapsed.TotalMilliseconds)
             };
             DoSend<ClientHeartbeat>(heartBeat);
         }
@@ -346,8 +371,8 @@ namespace DGTLBackendAPIClientV2
         {
             try
             {
-                //DecryptTest();
-                GetSecret("MM1_BLOCK", "Testing12", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
+                DecryptTest();
+                GetSecret("MM1_BLOCK", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
                 string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
                 DGTLWebSocketClient = new DGTLWebSocketClientV2(WebSocketURL, ProcessEvent);
                 DoLog(string.Format("Connecting to URL {0}", WebSocketURL));

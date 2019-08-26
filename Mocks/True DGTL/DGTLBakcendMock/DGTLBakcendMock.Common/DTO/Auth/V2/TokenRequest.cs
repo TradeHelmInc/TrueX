@@ -10,5 +10,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
     {
         public string SourceIP { get; set; }
 
+        public long Time { get; set; }
+
     }
 }

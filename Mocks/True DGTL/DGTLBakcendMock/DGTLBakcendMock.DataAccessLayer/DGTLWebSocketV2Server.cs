@@ -58,11 +58,13 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
 
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                 ClientHeartbeat heartbeat = new ClientHeartbeat()
                 {
                     Msg = "ClientHeartbeat",
                     JsonWebToken = token,
-                    UUID = uuid
+                    UUID = uuid,
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds)
 
                 };
 
@@ -85,12 +87,19 @@ namespace DGTLBackendMock.DataAccessLayer
 
             LastTokenGenerated = Guid.NewGuid().ToString();
 
-            TokenResponse resp = new TokenResponse() { Msg = "TokenResponse", JsonWebToken = LastTokenGenerated, UUID = wsTokenReq.UUID };
+            TokenResponse resp = new TokenResponse() 
+            {
+                Msg = "TokenResponse", 
+                JsonWebToken = LastTokenGenerated, 
+                UUID = wsTokenReq.UUID,
+                cSuccess=TokenResponse._STATUS_OK,
+                Time=wsTokenReq.Time
+            };
 
             DoSend<TokenResponse>(socket, resp);
         }
 
-        private void SendLoginRejectReject(IWebSocketConnection socket, ClientLogin wsLogin, string msg)
+        private void SendLoginRejectReject(IWebSocketConnection socket, ClientLoginRequest wsLogin, string msg)
         {
             ClientLoginResponse reject = new ClientLoginResponse()
             {
@@ -99,6 +108,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 JsonWebToken = LastTokenGenerated,
                 Message = msg,
                 cSuccess = ClientLoginResponse._STATUS_FAILED,
+                Time=wsLogin.Time,
                 UserId = null
             };
 
@@ -111,10 +121,11 @@ namespace DGTLBackendMock.DataAccessLayer
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
 
-                InstrumentMsg instrumentMsg = new InstrumentMsg();
-                instrumentMsg.Msg = "InstrumentMsg";
+                Instrument instrumentMsg = new Instrument();
+                instrumentMsg.Msg = "Instrument";
                 instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
                 instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.LastUpdatedBy = "";
                 instrumentMsg.ExchangeId = 0;
                 instrumentMsg.Description = security.Description;
                 instrumentMsg.InstrumentDate = security.MaturityDate;
@@ -124,7 +135,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.LotSize = security.LotSize;
                 instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
                 instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
-                instrumentMsg.cProductType = InstrumentMsg.GetProductType(security.AssetClass);
+                instrumentMsg.cProductType = Instrument.GetProductType(security.AssetClass);
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
@@ -134,7 +145,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.Test = false;
                 instrumentMsg.UUID = Uuid;
 
-                DoSend<InstrumentMsg>(socket, instrumentMsg);
+                DoSend<Instrument>(socket, instrumentMsg);
             }
         
         }
@@ -174,15 +185,15 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-            MarketStateMsg marketStateMsg = new MarketStateMsg();
-            marketStateMsg.cExchangeId=MarketStateMsg._DEFAULT_EXCHANGE_ID;
+            MarketState marketStateMsg = new MarketState();
+            marketStateMsg.cExchangeId=MarketState._DEFAULT_EXCHANGE_ID;
             marketStateMsg.cReasonCode='0';
-            marketStateMsg.cState = PlatformStatus.cState ;
-            marketStateMsg.Msg = "MarketStateMsg";
+            marketStateMsg.cState = MarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
+            marketStateMsg.Msg = "MarketState";
             marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
             marketStateMsg.UUID = Uuid;
 
-            DoSend<MarketStateMsg>(socket, marketStateMsg);
+            DoSend<MarketState>(socket, marketStateMsg);
         }
 
         private void SendCRMAccounts(IWebSocketConnection socket, string login,string Uuid)
@@ -196,20 +207,32 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
                 {
-                    AccountRecordMsg accountRecordMsg = new AccountRecordMsg();
-                    accountRecordMsg.AccountAlias = accountRecord.AccountId;
+                    AccountRecord accountRecordMsg = new AccountRecord();
+                    accountRecordMsg.Msg = "AccountRecord";
                     accountRecordMsg.AccountId = accountRecord.AccountId;
+                    accountRecordMsg.FirmId = userRecord.FirmId;
+                    accountRecordMsg.SettlementFirmId = "1";
                     accountRecordMsg.AccountName = accountRecord.EPNickName;
+                    accountRecordMsg.AccountAlias = accountRecord.AccountId;
+                    
+                    
                     accountRecordMsg.AccountNumber = "";
                     accountRecordMsg.AccountType = 0;
-                    accountRecordMsg.cStatus = AccountRecordMsg._DEFAULT_STATUS;
-                    accountRecordMsg.Cti = 0;
+                    accountRecordMsg.cStatus = AccountRecord._STATUS_ACTIVE;
+                    accountRecordMsg.cUserType = AccountRecord._DEFAULT_USER_TYPE;
+                    accountRecordMsg.cCti = AccountRecord._CTI_OTHER;
+                    accountRecordMsg.Lei = "";
                     accountRecordMsg.Currency = "";
-                    accountRecordMsg.FirmId = userRecord.FirmId;
+                    accountRecordMsg.IsSuspense = false;
+                    accountRecordMsg.UsDomicile = true;
+                    accountRecordMsg.UpdatedAt = 0;
+                    accountRecordMsg.CreatedAt = 0;
+                    accountRecordMsg.LastUpdatedBy = "";
                     accountRecordMsg.WalletAddress = "";
                     accountRecordMsg.UUID = Uuid;
 
-                    DoSend<AccountRecordMsg>(socket, accountRecordMsg);
+
+                    DoSend<AccountRecord>(socket, accountRecordMsg);
                 }
             }
             else
@@ -230,7 +253,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void ProcessClientLoginV2(IWebSocketConnection socket, string m)
         {
-            ClientLogin wsLogin = JsonConvert.DeserializeObject<ClientLogin>(m);
+            ClientLoginRequest wsLogin = JsonConvert.DeserializeObject<ClientLoginRequest>(m);
 
             try
             {
@@ -269,6 +292,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     UUID = wsLogin.UUID,
                     JsonWebToken = LastTokenGenerated,
                     cSuccess = ClientLoginResponse._STATUS_OK,
+                    Time = wsLogin.Time,
                     UserId=Guid.NewGuid().ToString()
                 };
 
@@ -318,7 +342,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("OnMessage {1} from IP -> {0}", socket.ConnectionInfo.ClientIpAddress, wsResp.Msg), MessageType.Information);
 
-                if (wsResp.Msg == "ClientLogin")
+                if (wsResp.Msg == "ClientLoginRequest")
                 {
                     ProcessClientLoginV2(socket, m);
                 }

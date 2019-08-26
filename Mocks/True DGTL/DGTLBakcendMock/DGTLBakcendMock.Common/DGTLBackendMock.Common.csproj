@@ -46,7 +46,7 @@
     <Compile Include="DTO\Account\CreditLimitUpdate.cs" />
     <Compile Include="DTO\Account\CreditRecordUpdate.cs" />
     <Compile Include="DTO\Account\FirmRecord.cs" />
-    <Compile Include="DTO\Account\V2\AccountRecordMsg.cs" />
+    <Compile Include="DTO\Account\V2\AccountRecord.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="DTO\Auth\ResetPasswordRequest.cs" />
     <Compile Include="DTO\Auth\ResetPasswordResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientHeartbeat.cs" />
-    <Compile Include="DTO\Auth\V2\ClientLogin.cs" />
+    <Compile Include="DTO\Auth\V2\ClientLoginRequest.cs" />
     <Compile Include="DTO\Auth\V2\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientLogout.cs" />
     <Compile Include="DTO\Auth\V2\ClientReject.cs" />
@@ -93,8 +93,8 @@
     <Compile Include="DTO\SecurityList\SecurityMasterRecord.cs" />
     <Compile Include="DTO\SecurityList\SecurityStatus.cs" />
     <Compile Include="DTO\SecurityList\UserRecord.cs" />
-    <Compile Include="DTO\SecurityList\V2\InstrumentMsg.cs" />
-    <Compile Include="DTO\SecurityList\V2\MarketStateMsg.cs" />
+    <Compile Include="DTO\SecurityList\V2\Instrument.cs" />
+    <Compile Include="DTO\SecurityList\V2\MarketState.cs" />
     <Compile Include="DTO\SecurityList\V2\UserRecordMsg.cs" />
     <Compile Include="DTO\SecurityMapping.cs" />
     <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />

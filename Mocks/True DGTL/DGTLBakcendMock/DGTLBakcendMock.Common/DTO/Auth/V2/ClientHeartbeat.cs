@@ -12,6 +12,8 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public string JsonWebToken { get; set; }
 
+        public long Time { get; set; }
+
         #endregion
     }
 }

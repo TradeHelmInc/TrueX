@@ -49,3 +49,15 @@
 2019-08-26 13:10:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
 2019-08-26 13:10:03  :: Turning threads off on socket disconnection
 2019-08-26 13:10:03  :: Error sending heartbeat for token a10f653a-382d-4fc5-afd7-633ce2123e9a: Subproceso anulado.
+2019-08-26 16:33:02  :: Initializing Mock Server...
+2019-08-26 16:33:02  :: Initializing all collections...
+2019-08-26 16:33:03  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-26 16:33:03  :: Collections Initialized...
+2019-08-26 16:33:11  :: Connecting for the first time to client 27612
+2019-08-26 16:33:11  :: Connected for the first time to client 27612
+2019-08-26 16:33:27  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-26 16:33:27  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-26 16:33:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-26 16:33:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-26 16:33:36  :: Turning threads off on socket disconnection
+2019-08-26 16:33:36  :: Error sending heartbeat for token 800b8b25-9692-4b07-8bb2-c00c33cdbdda: Subproceso anulado.
