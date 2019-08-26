@@ -783,7 +783,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 secStatus.Msg="SecurityStatus";
                 secStatus.Symbol=subscrMsg.ServiceKey;
                 secStatus.cStatus = SecurityStatus._SEC_STATUS_TRADING;
-                secStatus.IsOrderPostingEnabled = (subscrMsg.ServiceKey == "NDF-XBT-USD-N19") ? false : true;
+                secStatus.IsOrdersPostingEnabled = (subscrMsg.ServiceKey == "NDF-XBT-USD-N19") ? false : true;
                 DoSend<SecurityStatus>(socket, secStatus);
                 ProcessSubscriptionResponse(socket, "TI", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 

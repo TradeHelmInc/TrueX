@@ -1719,6 +1719,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         secStatus.Symbol = symbol;
                         secStatus.cStatus = status;//: SecurityStatus._SEC_STATUS_HALTING;
                         secStatus.ReferencePrice = initialRefPrice;
+                        secStatus.IsOrdersPostingEnabled = true;
                         DoSend<SecurityStatus>(socket, secStatus);
 
                         initialRefPrice += 0.01m;
