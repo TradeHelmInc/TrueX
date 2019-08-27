@@ -582,7 +582,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Protected Overriden Methods
 
-        protected  void OnOpen(IWebSocketConnection socket)
+        protected virtual  void OnOpen(IWebSocketConnection socket)
         {
             try
             {
@@ -627,13 +627,16 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                if(socket !=null && socket.ConnectionInfo.ClientPort!=null && socket.ConnectionInfo!= null)
+                    DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnOpen for unknown client {0}", ex.Message), MessageType.Error);
 
 
             }
         }
 
-        protected  void OnClose(IWebSocketConnection socket)
+        protected virtual  void OnClose(IWebSocketConnection socket)
         {
             try
             {
@@ -644,7 +647,11 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                if (socket!= null && socket.ConnectionInfo != null && socket.ConnectionInfo.ClientPort != null)
+                    DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnClose for unknown client: {0}", ex.Message), MessageType.Error);
+
             }
         }
 

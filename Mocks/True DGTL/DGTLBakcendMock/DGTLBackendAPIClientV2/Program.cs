@@ -196,7 +196,7 @@ namespace DGTLBackendAPIClientV2
                                                                 {
                                                                     Msg = "ClientLoginRequest",
                                                                     Secret = secret,
-                                                                    UUID = secret,
+                                                                    UUID = Guid.NewGuid().ToString(),
                                                                     Time = Convert.ToInt64(elapsed.TotalMilliseconds)
                                                                 };
             

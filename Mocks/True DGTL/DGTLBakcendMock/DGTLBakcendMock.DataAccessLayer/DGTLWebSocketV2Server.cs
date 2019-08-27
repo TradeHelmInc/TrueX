@@ -39,12 +39,26 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected override void DoCLoseThread(object p)
         {
-            base.DoCLoseThread(p);
+            try
+            {
+                base.DoCLoseThread(p);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error closing base.DoCLoseThread:{0}", ex.Message), MessageType.Error);
+            
+            }
 
             lock (tLock)
             {
-                HeartbeatThread.Abort();
-            
+                try
+                {
+                    HeartbeatThread.Abort();
+                }
+                catch (Exception ex)
+                {
+                    DoLog(string.Format("Error closing HeartbeatThread:{0}", ex.Message), MessageType.Error);
+                }
             }
         }
 
@@ -145,6 +159,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.Test = false;
                 instrumentMsg.UUID = Uuid;
 
+                DoLog(string.Format("Sending Instrument with UUID {0}", instrumentMsg.UUID), MessageType.Information);
                 DoSend<Instrument>(socket, instrumentMsg);
             }
         
@@ -175,6 +190,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 userRecordMsg.UserId = userRecord.UserId;
                 userRecordMsg.UUID = Uuid;
 
+                DoLog(string.Format("Sending UserRecordMsg with UUID {0}", userRecordMsg.UUID), MessageType.Information);
                 DoSend<UserRecordMsg>(socket, userRecordMsg);
             }
             else
@@ -193,6 +209,7 @@ namespace DGTLBackendMock.DataAccessLayer
             marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
             marketStateMsg.UUID = Uuid;
 
+            DoLog(string.Format("Sending MarketState with UUID {0}", marketStateMsg.UUID), MessageType.Information);
             DoSend<MarketState>(socket, marketStateMsg);
         }
 
@@ -231,7 +248,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     accountRecordMsg.WalletAddress = "";
                     accountRecordMsg.UUID = Uuid;
 
-
+                    DoLog(string.Format("Sending AccountRecord with UUID {0}", accountRecordMsg.UUID), MessageType.Information);
                     DoSend<AccountRecord>(socket, accountRecordMsg);
                 }
             }
@@ -296,6 +313,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     UserId=Guid.NewGuid().ToString()
                 };
 
+                DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.UUID), MessageType.Information);
+
                 DoSend<ClientLoginResponse>(socket, loginResp);
 
                 SendCRMMessages(socket, jsonCredentials.UserId, wsLogin.UUID);
@@ -333,6 +352,54 @@ namespace DGTLBackendMock.DataAccessLayer
             if(HeartbeatThread!=null)
                 HeartbeatThread.Abort();
         }
+
+        protected  override void OnOpen(IWebSocketConnection socket)
+        {
+            try
+            {
+                if (!Connected)
+                {
+                    DoLog(string.Format("Connecting for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                    Connected = true;
+
+                    DoLog(string.Format("Connected for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                }
+                else
+                {
+                    DoLog(string.Format("Closing previous client "), MessageType.Information);
+
+                    DoClose(); //We close previous client
+                }
+            }
+            catch (Exception ex)
+            {
+                if (socket != null && socket.ConnectionInfo.ClientPort != null && socket.ConnectionInfo != null)
+                    DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnOpen for unknown client {0}", ex.Message), MessageType.Error);
+            }
+        }
+
+        protected override void OnClose(IWebSocketConnection socket)
+        {
+            try
+            {
+                DoLog(string.Format(" OnClose for client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+                Connected = false;
+                DoClose(); 
+            }
+            catch (Exception ex)
+            {
+                if (socket != null && socket.ConnectionInfo != null && socket.ConnectionInfo.ClientPort != null)
+                    DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnClose for unknown client: {0}", ex.Message), MessageType.Error);
+
+            }
+        }
+
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
@@ -376,7 +443,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "Subscribe")
                 {
 
-                    ProcessSubscriptions(socket, m);
+                    //ProcessSubscriptions(socket, m);
 
                 }
                 else if (wsResp.Msg == "LegacyOrderCancelReq")

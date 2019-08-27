@@ -1,0 +1,230 @@
+2019-08-27 15:17:15  :: Initializing Mock Server...
+2019-08-27 15:17:15  :: Initializing all collections...
+2019-08-27 15:17:16  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 15:17:16  :: Collections Initialized...
+2019-08-27 15:17:29  :: Connecting for the first time to client 12817
+2019-08-27 15:17:29  :: Connected for the first time to client 12817
+2019-08-27 15:17:58  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 15:17:59  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 15:17:59  :: Unknown user: MM1_CLOBUI1
+2019-08-27 15:19:03  :: Initializing Mock Server...
+2019-08-27 15:19:03  :: Initializing all collections...
+2019-08-27 15:19:03  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 15:19:03  :: Collections Initialized...
+2019-08-27 15:19:10  :: Connecting for the first time to client 12898
+2019-08-27 15:19:10  :: Connected for the first time to client 12898
+2019-08-27 15:19:13  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 15:19:13  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 15:19:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 15:19:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:33:19  :: Initializing Mock Server...
+2019-08-27 17:33:19  :: Initializing all collections...
+2019-08-27 17:33:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 17:33:20  :: Collections Initialized...
+2019-08-27 17:33:53  :: Connecting for the first time to client 18033
+2019-08-27 17:33:53  :: Connected for the first time to client 18033
+2019-08-27 17:34:14  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 17:34:14  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:34:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:35:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:36:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:37:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 17:38:39  :: Initializing Mock Server...
+2019-08-27 17:38:39  :: Initializing all collections...
+2019-08-27 17:38:39  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 17:38:40  :: Collections Initialized...
+2019-08-27 17:38:59  :: Initializing Mock Server...
+2019-08-27 17:38:59  :: Initializing all collections...
+2019-08-27 17:38:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 17:39:00  :: Collections Initialized...
+2019-08-27 17:39:08  :: Connecting for the first time to client 18414
+2019-08-27 17:39:08  :: Connected for the first time to client 18414
+2019-08-27 17:39:11  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 17:39:11  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 17:39:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:07:42  :: Initializing Mock Server...
+2019-08-27 18:07:42  :: Initializing all collections...
+2019-08-27 18:07:43  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:07:43  :: Collections Initialized...
+2019-08-27 18:07:50  :: Connecting for the first time to client 19303
+2019-08-27 18:07:50  :: Connected for the first time to client 19303
+2019-08-27 18:08:06  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 18:08:06  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 18:08:06  :: Wrong password zxccxzczxc for user MM1_CLOBUI
+2019-08-27 18:09:02  :: Initializing Mock Server...
+2019-08-27 18:09:02  :: Initializing all collections...
+2019-08-27 18:09:02  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:09:02  :: Collections Initialized...
+2019-08-27 18:09:09  :: Connecting for the first time to client 19338
+2019-08-27 18:09:09  :: Connected for the first time to client 19338
+2019-08-27 18:09:10  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 18:09:10  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 18:09:10  :: Unknown user: MM1_CLOBUIxxxx
+2019-08-27 18:43:15  :: Initializing Mock Server...
+2019-08-27 18:43:15  :: Initializing all collections...
+2019-08-27 18:43:15  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:43:16  :: Collections Initialized...
+2019-08-27 18:43:24  :: Connecting for the first time to client 20388
+2019-08-27 18:43:24  :: Connected for the first time to client 20388
+2019-08-27 18:43:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 18:43:31  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 18:43:31  :: Sending ClientLoginResponse with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending Instrument with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending UserRecordMsg with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending MarketState with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending AccountRecord with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:31  :: Sending AccountRecord with UUID 269d41fd-9ce6-484f-8b47-51c3123f17df
+2019-08-27 18:43:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:43:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-27 18:44:01  :: Turning threads off on socket disconnection
+2019-08-27 18:44:01  :: Error sending heartbeat for token 876cf8ac-f346-4269-b1aa-43e6fbce5f60: Subproceso anulado.
+2019-08-27 18:44:34  :: Initializing Mock Server...
+2019-08-27 18:44:34  :: Initializing all collections...
+2019-08-27 18:44:35  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:44:35  :: Collections Initialized...
+2019-08-27 18:44:47  :: Connecting for the first time to client 20402
+2019-08-27 18:44:47  :: Connected for the first time to client 20402
+2019-08-27 18:45:13  :: Initializing Mock Server...
+2019-08-27 18:45:13  :: Initializing all collections...
+2019-08-27 18:45:14  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:45:14  :: Collections Initialized...
+2019-08-27 18:45:24  :: Connecting for the first time to client 20406
+2019-08-27 18:45:24  :: Connected for the first time to client 20406
+2019-08-27 18:46:58  :: Initializing Mock Server...
+2019-08-27 18:46:58  :: Initializing all collections...
+2019-08-27 18:46:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-27 18:46:59  :: Collections Initialized...
+2019-08-27 18:47:08  :: Connecting for the first time to client 20495
+2019-08-27 18:47:08  :: Connected for the first time to client 20495
+2019-08-27 18:47:18  :: Closing previous client 
+2019-08-27 18:47:21  :: Turning threads off on socket disconnection
+2019-08-27 18:47:21  :: Error closing HeartbeatThread:Referencia a objeto no establecida como instancia de un objeto.
+2019-08-27 18:47:25  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-27 18:47:25  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-27 18:47:25  :: Sending ClientLoginResponse with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending Instrument with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending UserRecordMsg with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending MarketState with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending AccountRecord with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:25  :: Sending AccountRecord with UUID 72ed7437-fccc-40a1-b4ee-b0838582dda4
+2019-08-27 18:47:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
