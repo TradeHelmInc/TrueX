@@ -424,7 +424,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessLastSale(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
             if (!ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
             {
@@ -444,7 +444,7 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void ProcessQuote(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessQuote(IWebSocketConnection socket,WebSocketSubscribeMessage subscrMsg)
         {
 
             if (!ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
@@ -546,7 +546,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessOrderBookDepth(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == subscrMsg.ServiceKey).ToList();
             if (depthOfBooks != null)
@@ -707,7 +707,7 @@ namespace DGTLBackendMock.DataAccessLayer
             return executionsFullFilled;
         }
 
-        private void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessMyOrders(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             string symbol = "";
             string[] symbolFields = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
@@ -743,7 +743,7 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        private void ProcessBlotterTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessBlotterTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
 
             if (!subscrMsg.ServiceKey.Contains("*"))
@@ -757,7 +757,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessMyTrades(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
             List<LegacyTradeHistory> trades = null;
 
@@ -1916,7 +1916,7 @@ namespace DGTLBackendMock.DataAccessLayer
           
         }
 
-        private void ProcessUnsubscriptions(WebSocketSubscribeMessage subscrMsg)
+        protected void ProcessUnsubscriptions(WebSocketSubscribeMessage subscrMsg)
         {
             SecurityMapping secMapping = SecurityMappings.Where(x => x.IncomingSymbol == subscrMsg.ServiceKey).FirstOrDefault();
 

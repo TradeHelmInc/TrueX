@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
+using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.Common.Util;
 using Fleck;
 using Newtonsoft.Json;
@@ -157,9 +158,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.Currency1 = "";
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
-                instrumentMsg.UUID = Uuid;
+                //instrumentMsg.UUID = Uuid;
 
-                DoLog(string.Format("Sending Instrument with UUID {0}", instrumentMsg.UUID), MessageType.Information);
+                DoLog(string.Format("Sending Instrument "), MessageType.Information);
                 DoSend<Instrument>(socket, instrumentMsg);
             }
         
@@ -188,9 +189,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 userRecordMsg.PostalCode = "";
                 userRecordMsg.State = "";
                 userRecordMsg.UserId = userRecord.UserId;
-                userRecordMsg.UUID = Uuid;
+                //userRecordMsg.UUID = Uuid;
 
-                DoLog(string.Format("Sending UserRecordMsg with UUID {0}", userRecordMsg.UUID), MessageType.Information);
+                DoLog(string.Format("Sending UserRecordMsg "), MessageType.Information);
                 DoSend<UserRecordMsg>(socket, userRecordMsg);
             }
             else
@@ -207,9 +208,9 @@ namespace DGTLBackendMock.DataAccessLayer
             marketStateMsg.cState = MarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
             marketStateMsg.Msg = "MarketState";
             marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-            marketStateMsg.UUID = Uuid;
+            //marketStateMsg.UUID = Uuid;
 
-            DoLog(string.Format("Sending MarketState with UUID {0}", marketStateMsg.UUID), MessageType.Information);
+            DoLog(string.Format("Sending MarketState"), MessageType.Information);
             DoSend<MarketState>(socket, marketStateMsg);
         }
 
@@ -246,9 +247,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     accountRecordMsg.CreatedAt = 0;
                     accountRecordMsg.LastUpdatedBy = "";
                     accountRecordMsg.WalletAddress = "";
-                    accountRecordMsg.UUID = Uuid;
+                    //accountRecordMsg.UUID = Uuid;
 
-                    DoLog(string.Format("Sending AccountRecord with UUID {0}", accountRecordMsg.UUID), MessageType.Information);
+                    DoLog(string.Format("Sending AccountRecord "), MessageType.Information);
                     DoSend<AccountRecord>(socket, accountRecordMsg);
                 }
             }
@@ -257,7 +258,7 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void SendCRMMessages(IWebSocketConnection socket,string login,string Uuid)
+        private void SendCRMMessages(IWebSocketConnection socket,string login,string Uuid=null)
         {
             SendCRMInstruments(socket, Uuid);
 
@@ -317,7 +318,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
 
-                SendCRMMessages(socket, jsonCredentials.UserId, wsLogin.UUID);
+                SendCRMMessages(socket, jsonCredentials.UserId);
 
                 HeartbeatThread = new Thread(SendHeartbeat);
                 HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.UUID });
@@ -335,18 +336,21 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessClientLogoutV2(IWebSocketConnection socket, string m)
         {
-            ClientLogout wsLogout = JsonConvert.DeserializeObject<ClientLogout>(m);
+            ClientLogoutRequest wsLogout = JsonConvert.DeserializeObject<ClientLogoutRequest>(m);
 
-            ClientLogout logout = new ClientLogout()
+            ClientLogoutResponse logout = new ClientLogoutResponse()
             {
-                Msg = "ClientLogout",
+                Msg = "ClientLogoutResponse",
                 JsonWebToken = wsLogout.JsonWebToken,
-                UserId = wsLogout.UserId,
-                UUID = wsLogout.UserId
+                UUID = wsLogout.UUID,
+                Time = wsLogout.Time,
+                cSuccess = ClientLogoutResponse._STATUS_OK,
+                Message = "Successfully logged out"
+
             };
 
 
-            DoSend<ClientLogout>(socket, logout);
+            DoSend<ClientLogoutResponse>(socket, logout);
             socket.Close();
 
             if(HeartbeatThread!=null)
@@ -400,6 +404,83 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessSubscriptions(IWebSocketConnection socket, string m)
+        {
+            WebSocketSubscribeMessage subscrMsg = JsonConvert.DeserializeObject<WebSocketSubscribeMessage>(m);
+
+            DoLog(string.Format("Incoming subscription for service {0} - ServiceKey:{1}", subscrMsg.Service, subscrMsg.ServiceKey), MessageType.Information);
+
+            if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_SUBSCRIBE)
+            {
+              
+                if (subscrMsg.Service == "LS")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessLastSale(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LQ")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessQuote(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FP")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessOficialFixingPrice(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Ot")
+                {
+                    ProcessOpenOrderCount(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "TN")
+                {
+                    ProcessNotifications(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FD")
+                {
+                    if (subscrMsg.ServiceKey != null)
+                        ProcessDailySettlement(socket, subscrMsg);
+                }
+              
+                else if (subscrMsg.Service == "CU")
+                {
+                    ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Cm")
+                {
+                    ProcessCreditLimitUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LD")
+                {
+                    ProcessOrderBookDepth(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "Oy")
+                {
+                    ProcessMyOrders(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "FO")
+                {
+                    ProcessFillOffers(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "PS")
+                {
+                    ProcessPlatformStatus(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LT")
+                {
+                    ProcessMyTrades(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "rt")
+                {
+                    ProcessBlotterTrades(socket, subscrMsg);
+                }
+            }
+            else if (subscrMsg.SubscriptionType == WebSocketSubscribeMessage._SUSBSCRIPTION_TYPE_UNSUBSCRIBE)
+            {
+                ProcessUnsubscriptions(subscrMsg);
+            }
+        }
+
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
@@ -413,6 +494,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessClientLoginV2(socket, m);
                 }
+                else if (wsResp.Msg == "ClientLogoutRequest")
+                {
+                    ProcessClientLogoutV2(socket, m);
+                }
                 else if (wsResp.Msg == "TokenRequest")
                 {
                     ProcessTokenResponse(socket, m);
@@ -420,12 +505,6 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "ClientHeartbeat")
                 {
                     //We do nothing//
-
-                }
-                else if (wsResp.Msg == "ClientLogout")
-                {
-
-                    ProcessClientLogoutV2(socket,m);
 
                 }
                 else if (wsResp.Msg == "LegacyOrderReq")
@@ -443,7 +522,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "Subscribe")
                 {
 
-                    //ProcessSubscriptions(socket, m);
+                    ProcessSubscriptions(socket, m);
 
                 }
                 else if (wsResp.Msg == "LegacyOrderCancelReq")

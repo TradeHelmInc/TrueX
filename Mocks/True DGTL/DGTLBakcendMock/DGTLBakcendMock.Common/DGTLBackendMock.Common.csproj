@@ -58,6 +58,8 @@
     <Compile Include="DTO\Auth\V2\ClientLoginRequest.cs" />
     <Compile Include="DTO\Auth\V2\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientLogout.cs" />
+    <Compile Include="DTO\Auth\V2\ClientLogoutRequest.cs" />
+    <Compile Include="DTO\Auth\V2\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientReject.cs" />
     <Compile Include="DTO\Auth\V2\JsonCredentials.cs" />
     <Compile Include="DTO\Auth\V2\TokenRequest.cs" />

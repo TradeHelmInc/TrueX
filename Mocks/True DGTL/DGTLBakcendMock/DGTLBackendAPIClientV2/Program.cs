@@ -349,15 +349,15 @@ namespace DGTLBackendAPIClientV2
 
             if (param.Length == 1)
             {
-                ClientLogout logout = new ClientLogout()
+                ClientLogoutRequest logoutReq = new ClientLogoutRequest()
                 {
-                    Msg = "ClientLogout",
+                    Msg = "ClientLogoutRequest",
                     JsonWebToken = Token,
                     UserId = UserId,
-                    UUID = UUID
+                    UUID = UUID,
                 };
 
-                DoSend<ClientLogout>(logout);
+                DoSend<ClientLogoutRequest>(logoutReq);
             }
             else
                 DoLog(string.Format("Missing mandatory parameters for logout message"));

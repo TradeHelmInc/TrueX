@@ -1,0 +1,74 @@
+2019-08-28 15:07:52  :: Initializing Mock Server...
+2019-08-28 15:07:52  :: Initializing all collections...
+2019-08-28 15:07:54  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-28 15:07:54  :: Collections Initialized...
+2019-08-28 15:08:05  :: Connecting for the first time to client 36034
+2019-08-28 15:08:05  :: Connected for the first time to client 36034
+2019-08-28 15:08:18  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-28 15:08:18  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-28 15:08:18  :: Sending ClientLoginResponse with UUID 4965bf8c-7443-4e63-b5a4-c7e93619f867
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending Instrument 
+2019-08-28 15:08:18  :: Sending UserRecordMsg 
+2019-08-28 15:08:18  :: Sending MarketState
+2019-08-28 15:08:18  :: Sending AccountRecord 
+2019-08-28 15:08:18  :: Sending AccountRecord 
+2019-08-28 15:08:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-28 15:18:49  :: Turning threads off on socket disconnection
+2019-08-28 15:18:49  :: Error sending heartbeat for token e06e3637-4594-48e2-a5ac-54c24e146ccf: Subproceso anulado.
+2019-08-28 18:10:41  :: Initializing Mock Server...
+2019-08-28 18:10:41  :: Initializing all collections...
+2019-08-28 18:10:41  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-28 18:10:42  :: Collections Initialized...
+2019-08-28 18:10:51  :: Connecting for the first time to client 41978
+2019-08-28 18:10:51  :: Connected for the first time to client 41978
+2019-08-28 18:11:13  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-28 18:11:13  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-28 18:11:13  :: Sending ClientLoginResponse with UUID 4d8e3390-bddc-4c21-a8f5-eb320f2f3234
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending Instrument 
+2019-08-28 18:11:14  :: Sending UserRecordMsg 
+2019-08-28 18:11:14  :: Sending MarketState
+2019-08-28 18:11:14  :: Sending AccountRecord 
+2019-08-28 18:11:14  :: Sending AccountRecord 
+2019-08-28 18:11:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-08-28 18:11:18  :: OnMessage ClientLogoutRequest from IP -> 127.0.0.1
+2019-08-28 18:11:20  ::  OnClose for client 41978
+2019-08-28 18:11:20  :: Error sending heartbeat for token 38428a00-ec2a-484a-8eb5-0d082165450e: Subproceso anulado.
+2019-08-28 18:11:20  :: Turning threads off on socket disconnection

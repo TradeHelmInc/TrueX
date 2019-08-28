@@ -11,5 +11,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
         public string UserId { get; set; }
 
         public string JsonWebToken { get; set; }
+
+        public string UUID { get; set; }
     }
 }
