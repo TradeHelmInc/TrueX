@@ -1,0 +1,41 @@
+2019-08-30 12:52:22  :: Initializing Mock Server...
+2019-08-30 12:52:22  :: Initializing all collections...
+2019-08-30 12:52:22  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-30 12:52:23  :: Collections Initialized...
+2019-08-30 12:52:59  :: Initializing Mock Server...
+2019-08-30 12:52:59  :: Initializing all collections...
+2019-08-30 12:52:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-30 12:53:00  :: Collections Initialized...
+2019-08-30 12:53:05  :: Initializing Mock Server...
+2019-08-30 12:53:05  :: Initializing all collections...
+2019-08-30 12:53:05  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-08-30 12:53:05  :: Collections Initialized...
+2019-08-30 12:53:14  :: Connecting for the first time to client 10013
+2019-08-30 12:53:14  :: Connected for the first time to client 10013
+2019-08-30 12:53:37  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-08-30 12:53:37  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-08-30 12:53:38  :: Sending ClientLoginResponse with UUID 21e69d7f-28f9-41b5-8da7-236a1158e6b5
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending Instrument 
+2019-08-30 12:53:38  :: Sending UserRecordMsg 
+2019-08-30 12:53:38  :: Sending MarketState
+2019-08-30 12:53:38  :: Sending AccountRecord 
+2019-08-30 12:53:38  :: Sending AccountRecord 

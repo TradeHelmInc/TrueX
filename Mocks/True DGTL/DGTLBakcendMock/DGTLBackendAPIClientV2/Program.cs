@@ -1,5 +1,8 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.OrderRouting.V2;
+using DGTLBackendMock.Common.DTO.SecurityList.V2;
 using DGTLBackendMock.Common.Util;
 using DGTLBackendMock.DataAccessLayer;
 using Newtonsoft.Json;
@@ -103,7 +106,10 @@ namespace DGTLBackendAPIClientV2
             {
                 ProcessLogoutClient(param);
             }
-           
+            else if (mainCmd == "RouteOrder")
+            {
+                ProcessRouteOrder(param);
+            }
             else if (mainCmd.ToUpper() == "CLEAR")
             {
                 Console.Clear();
@@ -242,12 +248,10 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientHeartbeat>((ClientHeartbeat)msg);
                 ProcessHeartbeat(heartBeat);
             }
-            //else if (msg is ClientReject)
-            //    ProcessJsonMessage<ClientReject>((ClientReject)msg);
             //else if (msg is SubscriptionResponse)
             //    ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
-            //else if (msg is AccountRecord)
-            //    ProcessJsonMessage<AccountRecord>((AccountRecord)msg);
+            else if (msg is AccountRecord)
+                ProcessJsonMessage<AccountRecord>((AccountRecord)msg);
             //else if (msg is DailySettlementPrice)
             //    ProcessJsonMessage<DailySettlementPrice>((DailySettlementPrice)msg);
             //else if (msg is FirmRecord)
@@ -268,10 +272,16 @@ namespace DGTLBackendAPIClientV2
             //    ProcessJsonMessage<CreditRecordUpdate>((CreditRecordUpdate)msg);
             //else if (msg is DepthOfBook)
             //    ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
-            //else if (msg is LegacyOrderAck)
-            //    ProcessJsonMessage<LegacyOrderAck>((LegacyOrderAck)msg);
-            //else if (msg is LegacyOrderCancelRejAck)
-            //    ProcessJsonMessage<LegacyOrderCancelRejAck>((LegacyOrderCancelRejAck)msg);
+            else if (msg is MarketState)
+                ProcessJsonMessage<MarketState>((MarketState)msg);
+            else if (msg is Instrument)
+                ProcessJsonMessage<Instrument>((Instrument)msg);
+            else if (msg is ClientOrderAck)
+                ProcessJsonMessage<ClientOrderAck>((ClientOrderAck)msg);
+            else if (msg is ClientOrderRej)
+                ProcessJsonMessage<ClientOrderRej>((ClientOrderRej)msg);
+            else if (msg is ClientOrderReq)
+                ProcessJsonMessage<ClientOrderReq>((ClientOrderReq)msg);
          
          
             else if (msg is UnknownMessageV2)
@@ -292,6 +302,54 @@ namespace DGTLBackendAPIClientV2
                 DoLog(string.Format("<<Unknown message type {0}", msg.ToString()));
 
             Console.WriteLine();
+
+        }
+
+        private static ClientOrderReq CreateNewOrder(string[] param)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            ClientOrderReq clientOrderReq = new ClientOrderReq()
+            {
+                Msg = "ClientOrderReq",
+                AccountId = param.Length >= 2 && param[1].Trim() != "" ? param[1] : "VIRT_STD_ACCT1",
+                cOrderType = ClientOrderReq._ORD_TYPE_LIMIT,//Limit
+                cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? ClientOrderReq._SIDE_BUY : ClientOrderReq._SIDE_SELL,//Buy or sell
+                cTimeInForce = ClientOrderReq._TIF_DAY,
+                ExchangeId = 0,
+                FirmId = "",
+                InstrumentId = ConfigurationManager.AppSettings["OrderSymbol"],
+                JsonWebToken = Token,
+                Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
+                Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
+                SendingTime = Convert.ToInt64(elapsed.TotalMilliseconds),
+                UserId = UserId
+            };
+
+            return clientOrderReq;
+        }
+
+        private static void ProcessRouteOrder(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 1)
+            {
+                ClientOrderReq clientOrderReq = CreateNewOrder(param);
+
+                string strMsg = JsonConvert.SerializeObject(clientOrderReq, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ClientOrderReq message"));
 
         }
 

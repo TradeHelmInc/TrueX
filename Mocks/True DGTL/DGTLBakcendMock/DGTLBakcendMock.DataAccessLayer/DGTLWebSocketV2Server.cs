@@ -1,6 +1,7 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
 using DGTLBackendMock.Common.DTO.Subscription;
@@ -62,7 +63,6 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
             }
         }
-
 
         protected void SendHeartbeat(object param)
         {
@@ -155,7 +155,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
                 instrumentMsg.MaxNotionalValue = security.MaxPrice * security.LotSize;
-                instrumentMsg.Currency1 = "";
+                instrumentMsg.Currency1 = security.CurrencyPair;
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
                 //instrumentMsg.UUID = Uuid;
@@ -329,6 +329,79 @@ namespace DGTLBackendMock.DataAccessLayer
                 SendLoginRejectReject(socket, wsLogin,string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message));
             }
         }
+
+        private bool ProcessRejectionsForNewOrders(ClientOrderReq clientOrderReq, IWebSocketConnection socket)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == "ETH-USD" && clientOrderReq.Price.Value < 6000)
+            {
+                //We reject the messageas a convention, we cannot send messages lower than 6000 USD
+                ClientOrderRej reject = new ClientOrderRej()
+                {
+                    Msg = "ClientOrderRej",
+                    cRejectCode='0',
+                    ExchangeId=0,
+                    UUID=clientOrderReq.UUID,
+                    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
+
+                };
+
+                DoSend<ClientOrderRej>(socket, reject);
+
+                return true;
+            }
+
+            return false;
+
+        }
+
+        protected void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
+        {
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                    ClientOrderReq clientOrderReq = JsonConvert.DeserializeObject<ClientOrderReq>(m);
+
+                    if (!ProcessRejectionsForNewOrders(clientOrderReq, socket))
+                    {
+                        //We send the mock ack
+                        ClientOrderAck clientOrdAck = new ClientOrderAck()
+                        {
+                            Msg = "ClientOrderAck",
+                            ClientOrderId = "xxx",
+                            OrderId = Guid.NewGuid().ToString(),
+                            TransactionTime = Convert.ToInt64(elapsed.TotalMilliseconds),
+                            UUID = clientOrderReq.UUID
+                        };
+
+                        DoLog(string.Format("Sending ClientOrderAck ..."), MessageType.Information);
+                        DoSend<ClientOrderAck>(socket, clientOrdAck);
+
+
+                        //TODO: Implement this when the order book is implementd
+                        //if (!EvalTrades(legOrdReq, socket))
+                        //{
+                        //    DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
+                        //    EvalPriceLevelsIfNotTrades(socket, legOrdReq);
+                        //    DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
+                        //    EvalNewOrder(socket, legOrdReq, LegacyOrderRecord._STATUS_OPEN, 0);
+                        //    DoLog(string.Format("Updating quotes ..."), MessageType.Information);
+                        //    UpdateQuotes(socket, legOrdReq.InstrumentId);
+                        //}
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing ClientOrderReq: {0}", ex.Message), MessageType.Error);
+            }
+
+
+        }
+
+
 
         #endregion
 
@@ -507,7 +580,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //We do nothing//
 
                 }
-                else if (wsResp.Msg == "LegacyOrderReq")
+                else if (wsResp.Msg == "ClientOrderReq")
                 {
 
                     ProcessLegacyOrderReqMock(socket, m);

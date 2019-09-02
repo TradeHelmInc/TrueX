@@ -1,0 +1,242 @@
+2019-09-02 19:45:24  :: Initializing Mock Server...
+2019-09-02 19:45:24  :: Initializing all collections...
+2019-09-02 19:45:25  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-02 19:45:26  :: Collections Initialized...
+2019-09-02 19:50:19  :: Connecting for the first time to client 18511
+2019-09-02 19:50:19  :: Connected for the first time to client 18511
+2019-09-02 19:50:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:50:44  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:50:44  :: Sending ClientLoginResponse with UUID acd955b1-90c6-468d-a99c-1332adac8c60
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending Instrument 
+2019-09-02 19:50:44  :: Sending UserRecordMsg 
+2019-09-02 19:50:44  :: Sending MarketState
+2019-09-02 19:50:44  :: Sending AccountRecord 
+2019-09-02 19:50:44  :: Sending AccountRecord 
+2019-09-02 19:50:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:50  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:50:50  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:50:50  :: Sending ClientLoginResponse with UUID 56c9ca02-0614-4306-ba42-ce16c3b8885c
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending Instrument 
+2019-09-02 19:50:50  :: Sending UserRecordMsg 
+2019-09-02 19:50:50  :: Sending MarketState
+2019-09-02 19:50:50  :: Sending AccountRecord 
+2019-09-02 19:50:50  :: Sending AccountRecord 
+2019-09-02 19:50:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:50:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:00  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:51:12  :: Sending ClientOrderAck ...
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:51:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:54:40  :: Initializing Mock Server...
+2019-09-02 19:54:40  :: Initializing all collections...
+2019-09-02 19:54:41  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-02 19:54:41  :: Collections Initialized...
+2019-09-02 19:54:49  :: Connecting for the first time to client 18598
+2019-09-02 19:54:49  :: Connected for the first time to client 18598
+2019-09-02 19:54:53  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:54:53  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:54:53  :: Sending ClientLoginResponse with UUID ef7f11ea-cf78-416c-9b4e-a59ae73e08f1
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending Instrument 
+2019-09-02 19:54:53  :: Sending UserRecordMsg 
+2019-09-02 19:54:53  :: Sending MarketState
+2019-09-02 19:54:53  :: Sending AccountRecord 
+2019-09-02 19:54:53  :: Sending AccountRecord 
+2019-09-02 19:54:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:54:56  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:54:56  :: Sending ClientOrderAck ...
+2019-09-02 19:54:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:55:05  :: Turning threads off on socket disconnection
+2019-09-02 19:55:05  :: Error sending heartbeat for token a62b5a49-6bb4-4816-92c2-41b171c090fe: Subproceso anulado.
+2019-09-02 19:56:22  :: Initializing Mock Server...
+2019-09-02 19:56:22  :: Initializing all collections...
+2019-09-02 19:56:22  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-02 19:56:22  :: Collections Initialized...
+2019-09-02 19:56:28  :: Connecting for the first time to client 18612
+2019-09-02 19:56:28  :: Connected for the first time to client 18612
+2019-09-02 19:56:34  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:56:34  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:56:34  :: Sending ClientLoginResponse with UUID 67547148-a250-47b6-9912-e0fe0b23de72
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending Instrument 
+2019-09-02 19:56:34  :: Sending UserRecordMsg 
+2019-09-02 19:56:34  :: Sending MarketState
+2019-09-02 19:56:34  :: Sending AccountRecord 
+2019-09-02 19:56:34  :: Sending AccountRecord 
+2019-09-02 19:56:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:37  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:56:37  :: Sending ClientOrderAck ...
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:56:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:57:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:57:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:57:06  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:57:37  :: Initializing Mock Server...
+2019-09-02 19:57:37  :: Initializing all collections...
+2019-09-02 19:57:38  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-02 19:57:38  :: Collections Initialized...
+2019-09-02 19:57:45  :: Connecting for the first time to client 18617
+2019-09-02 19:57:45  :: Connected for the first time to client 18617
+2019-09-02 19:57:50  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:57:50  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:57:50  :: Sending ClientLoginResponse with UUID cd78d0b6-5387-435a-a3da-52d56899ddfd
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending Instrument 
+2019-09-02 19:57:50  :: Sending UserRecordMsg 
+2019-09-02 19:57:50  :: Sending MarketState
+2019-09-02 19:57:50  :: Sending AccountRecord 
+2019-09-02 19:57:50  :: Sending AccountRecord 
+2019-09-02 19:57:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:57:53  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:57:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:58:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:58:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:58:09  :: Turning threads off on socket disconnection
+2019-09-02 19:58:09  :: Error sending heartbeat for token 75b0da53-00e3-4a01-b89b-34211bd35bce: Subproceso anulado.
+2019-09-02 19:59:14  :: Initializing Mock Server...
+2019-09-02 19:59:14  :: Initializing all collections...
+2019-09-02 19:59:15  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-02 19:59:15  :: Collections Initialized...
+2019-09-02 19:59:22  :: Connecting for the first time to client 18659
+2019-09-02 19:59:22  :: Connected for the first time to client 18659
+2019-09-02 19:59:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-02 19:59:31  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-02 19:59:31  :: Sending ClientLoginResponse with UUID 17e51317-ecda-4cdf-a515-d5f418a702b4
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending Instrument 
+2019-09-02 19:59:31  :: Sending UserRecordMsg 
+2019-09-02 19:59:31  :: Sending MarketState
+2019-09-02 19:59:31  :: Sending AccountRecord 
+2019-09-02 19:59:31  :: Sending AccountRecord 
+2019-09-02 19:59:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:59:34  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-02 19:59:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 19:59:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-02 20:02:01  :: Turning threads off on socket disconnection
+2019-09-02 20:02:01  :: Error sending heartbeat for token 3a282635-7263-41c7-af2d-c458444cfad0: Subproceso anulado.

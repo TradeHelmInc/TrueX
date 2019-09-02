@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,16 @@ namespace DGTLBackendMock.DataAccessLayer
                             {
                                 ClientLogout logoutReponse = JsonConvert.DeserializeObject<ClientLogout>(resp);
                                 OnEvent(logoutReponse);
+                            }
+                            else if (wsResp.Msg == "ClientLogout")
+                            {
+                                ClientOrderAck clientOrderAck = JsonConvert.DeserializeObject<ClientOrderAck>(resp);
+                                OnEvent(clientOrderAck);
+                            }
+                            else if (wsResp.Msg == "ClientOrderRej")
+                            {
+                                ClientOrderRej clientOrderRej = JsonConvert.DeserializeObject<ClientOrderRej>(resp);
+                                OnEvent(clientOrderRej);
                             }
                             else if (wsResp.Msg == "TokenResponse")
                             {
