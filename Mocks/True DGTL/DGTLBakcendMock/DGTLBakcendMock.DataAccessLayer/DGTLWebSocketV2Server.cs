@@ -133,6 +133,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private void SendCRMInstruments(IWebSocketConnection socket,string Uuid)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            int i = 1;
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
 
@@ -144,8 +145,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.ExchangeId = 0;
                 instrumentMsg.Description = security.Description;
                 instrumentMsg.InstrumentDate = security.MaturityDate;
-                instrumentMsg.InstrumentId = security.Symbol;
-                instrumentMsg.InstrumentName = security.Description;
+                instrumentMsg.InstrumentId = i;
+                instrumentMsg.InstrumentName = security.Symbol;
                 instrumentMsg.LastUpdatedBy = "fernandom";
                 instrumentMsg.LotSize = security.LotSize;
                 instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
@@ -159,6 +160,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
                 //instrumentMsg.UUID = Uuid;
+                i++;
 
                 DoLog(string.Format("Sending Instrument "), MessageType.Information);
                 DoSend<Instrument>(socket, instrumentMsg);
@@ -333,7 +335,8 @@ namespace DGTLBackendMock.DataAccessLayer
         private bool ProcessRejectionsForNewOrders(ClientOrderReq clientOrderReq, IWebSocketConnection socket)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == "ETH-USD" && clientOrderReq.Price.Value < 6000)
+            //TODO : Conseguir InstrumentId de instrumento para rechazar
+            if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == _REJECTED_SECURITY_ID && clientOrderReq.Price.Value < 6000)
             {
                 //We reject the messageas a convention, we cannot send messages lower than 6000 USD
                 ClientOrderRej reject = new ClientOrderRej()
@@ -370,7 +373,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ClientOrderAck clientOrdAck = new ClientOrderAck()
                         {
                             Msg = "ClientOrderAck",
-                            ClientOrderId = "xxx",
+                            ClientOrderId = clientOrderReq.ClientOrderId,
                             OrderId = Guid.NewGuid().ToString(),
                             TransactionTime = Convert.ToInt64(elapsed.TotalMilliseconds),
                             UUID = clientOrderReq.UUID
@@ -402,6 +405,12 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
+
+        #endregion
+
+        #region Private Static Consts
+
+        private static int _REJECTED_SECURITY_ID = 1;
 
         #endregion
 

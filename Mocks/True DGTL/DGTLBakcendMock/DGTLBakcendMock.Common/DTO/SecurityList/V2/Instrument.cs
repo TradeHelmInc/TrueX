@@ -27,7 +27,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public int ExchangeId { get; set; }
 
-        public string InstrumentId { get; set; }
+        public int InstrumentId { get; set; }
 
         public string InstrumentName { get; set; }
 

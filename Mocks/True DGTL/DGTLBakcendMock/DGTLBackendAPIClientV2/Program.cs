@@ -316,8 +316,9 @@ namespace DGTLBackendAPIClientV2
                 cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? ClientOrderReq._SIDE_BUY : ClientOrderReq._SIDE_SELL,//Buy or sell
                 cTimeInForce = ClientOrderReq._TIF_DAY,
                 ExchangeId = 0,
+                ClientOrderId= Guid.NewGuid().ToString(),
                 FirmId = "",
-                InstrumentId = ConfigurationManager.AppSettings["OrderSymbol"],
+                InstrumentId = Convert.ToInt32(ConfigurationManager.AppSettings["OrderInstrumentId"]),
                 JsonWebToken = Token,
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),

@@ -31,13 +31,15 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string UUID { get; set; }
 
+        public string ClientOrderId { get; set; }
+
         public string UserId { get; set; }
 
         public string FirmId { get; set; }
 
         public string AccountId { get; set; }
 
-        public string InstrumentId { get; set; }
+        public int InstrumentId { get; set; }
 
         public decimal? Price { get; set; }
 
