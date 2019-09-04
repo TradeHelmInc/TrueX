@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 {
-    public class UserRecordMsg : WebSocketMessageV2
+    public class ClientUserRecord : WebSocketMessageV2
     {
         #region Public Attributes
 

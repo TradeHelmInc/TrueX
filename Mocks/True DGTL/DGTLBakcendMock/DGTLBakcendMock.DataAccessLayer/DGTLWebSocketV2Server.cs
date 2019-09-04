@@ -134,11 +134,13 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             int i = 1;
+
+            List<ClientInstrument> instrList = new List<ClientInstrument>();
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
 
-                Instrument instrumentMsg = new Instrument();
-                instrumentMsg.Msg = "Instrument";
+                ClientInstrument instrumentMsg = new ClientInstrument();
+                instrumentMsg.Msg = "ClientInstrument";
                 instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
                 instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
                 instrumentMsg.LastUpdatedBy = "";
@@ -151,7 +153,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.LotSize = security.LotSize;
                 instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
                 instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
-                instrumentMsg.cProductType = Instrument.GetProductType(security.AssetClass);
+                instrumentMsg.cProductType = ClientInstrument.GetProductType(security.AssetClass);
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
@@ -162,9 +164,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 //instrumentMsg.UUID = Uuid;
                 i++;
 
-                DoLog(string.Format("Sending Instrument "), MessageType.Information);
-                DoSend<Instrument>(socket, instrumentMsg);
+                //DoLog(string.Format("Sending Instrument "), MessageType.Information);
+                //DoSend<Instrument>(socket, instrumentMsg);
+                instrList.Add(instrumentMsg);
             }
+
+            ClientInstrumentBatch instrBatch = new ClientInstrumentBatch() { Msg = "ClientInstrumentBatch", messages = instrList.ToArray() };
+            DoLog(string.Format("Sending Instrument Batch "), MessageType.Information);
+            DoSend<ClientInstrumentBatch>(socket, instrBatch);
         
         }
 
@@ -176,7 +183,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (userRecord != null)
             {
-                UserRecordMsg userRecordMsg = new UserRecordMsg();
+                ClientUserRecord userRecordMsg = new ClientUserRecord();
                 userRecordMsg.Address = "";
                 userRecordMsg.cConnectionType = '0';
                 userRecordMsg.City = "";
@@ -187,14 +194,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 userRecordMsg.GroupId = "";
                 userRecordMsg.IsAdmin = false;
                 userRecordMsg.LastName = userRecord.LastName;
-                userRecordMsg.Msg = "UserRecordMsg";
+                userRecordMsg.Msg = "ClientUserRecord";
                 userRecordMsg.PostalCode = "";
                 userRecordMsg.State = "";
                 userRecordMsg.UserId = userRecord.UserId;
                 //userRecordMsg.UUID = Uuid;
 
-                DoLog(string.Format("Sending UserRecordMsg "), MessageType.Information);
-                DoSend<UserRecordMsg>(socket, userRecordMsg);
+                DoLog(string.Format("Sending ClientUserRecord"), MessageType.Information);
+                DoSend<ClientUserRecord>(socket, userRecordMsg);
             }
             else
                 throw new Exception(string.Format("User not found {0}", login));
@@ -204,16 +211,24 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-            MarketState marketStateMsg = new MarketState();
-            marketStateMsg.cExchangeId=MarketState._DEFAULT_EXCHANGE_ID;
+            ClientMarketState marketStateMsg = new ClientMarketState();
+            marketStateMsg.cExchangeId=ClientMarketState._DEFAULT_EXCHANGE_ID;
             marketStateMsg.cReasonCode='0';
-            marketStateMsg.cState = MarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
-            marketStateMsg.Msg = "MarketState";
+            marketStateMsg.cState = ClientMarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
+            marketStateMsg.Msg = "ClientMarketState";
             marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
             //marketStateMsg.UUID = Uuid;
 
-            DoLog(string.Format("Sending MarketState"), MessageType.Information);
-            DoSend<MarketState>(socket, marketStateMsg);
+
+            ClientMarketStateBatch marketStateBatch = new ClientMarketStateBatch()
+            {
+                Msg = "ClientMarketStateBatch",
+                messages = new ClientMarketState[] { marketStateMsg }
+
+            };
+
+            DoLog(string.Format("Sending ClientMarketStateBatch"), MessageType.Information);
+            DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
         }
 
         private void SendCRMAccounts(IWebSocketConnection socket, string login,string Uuid)
@@ -225,10 +240,11 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
 
+                List<ClientAccountRecord> accRecordList = new List<ClientAccountRecord>();
                 foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
                 {
-                    AccountRecord accountRecordMsg = new AccountRecord();
-                    accountRecordMsg.Msg = "AccountRecord";
+                    ClientAccountRecord accountRecordMsg = new ClientAccountRecord();
+                    accountRecordMsg.Msg = "ClientAccountRecord";
                     accountRecordMsg.AccountId = accountRecord.AccountId;
                     accountRecordMsg.FirmId = userRecord.FirmId;
                     accountRecordMsg.SettlementFirmId = "1";
@@ -238,9 +254,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     
                     accountRecordMsg.AccountNumber = "";
                     accountRecordMsg.AccountType = 0;
-                    accountRecordMsg.cStatus = AccountRecord._STATUS_ACTIVE;
-                    accountRecordMsg.cUserType = AccountRecord._DEFAULT_USER_TYPE;
-                    accountRecordMsg.cCti = AccountRecord._CTI_OTHER;
+                    accountRecordMsg.cStatus = ClientAccountRecord._STATUS_ACTIVE;
+                    accountRecordMsg.cUserType = ClientAccountRecord._DEFAULT_USER_TYPE;
+                    accountRecordMsg.cCti = ClientAccountRecord._CTI_OTHER;
                     accountRecordMsg.Lei = "";
                     accountRecordMsg.Currency = "";
                     accountRecordMsg.IsSuspense = false;
@@ -251,9 +267,20 @@ namespace DGTLBackendMock.DataAccessLayer
                     accountRecordMsg.WalletAddress = "";
                     //accountRecordMsg.UUID = Uuid;
 
-                    DoLog(string.Format("Sending AccountRecord "), MessageType.Information);
-                    DoSend<AccountRecord>(socket, accountRecordMsg);
+                    //DoLog(string.Format("Sending AccountRecord "), MessageType.Information);
+                    //DoSend<ClientAccountRecord>(socket, accountRecordMsg);
+                    accRecordList.Add(accountRecordMsg);
                 }
+
+
+                ClientAccountRecordBatch accRecordBatch = new ClientAccountRecordBatch()
+                {
+                    Msg = "ClientAccountRecordBatch",
+                    messages = accRecordList.ToArray()
+                };
+
+                DoLog(string.Format("Sending ClientAccountRecordBatch "), MessageType.Information);
+                DoSend<ClientAccountRecordBatch>(socket, accRecordBatch);
             }
             else
                 throw new Exception(string.Format("User not found {0}", login));

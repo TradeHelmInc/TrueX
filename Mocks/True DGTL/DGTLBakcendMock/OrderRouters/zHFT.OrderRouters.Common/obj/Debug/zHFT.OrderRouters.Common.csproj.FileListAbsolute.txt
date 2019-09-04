@@ -77,4 +77,3 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\OrderRouters\zHFT.OrderRouters.Common\bin\Debug\zHFT.Main.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\OrderRouters\zHFT.OrderRouters.Common\obj\Debug\zHFT.OrderRouters.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\OrderRouters\zHFT.OrderRouters.Common\obj\Debug\zHFT.OrderRouters.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\OrderRouters\zHFT.OrderRouters.Common\obj\Debug\zHFT.OrderRouters.Common.csprojResolveAssemblyReference.cache

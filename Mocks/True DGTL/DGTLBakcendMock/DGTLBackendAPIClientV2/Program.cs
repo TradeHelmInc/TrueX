@@ -250,8 +250,8 @@ namespace DGTLBackendAPIClientV2
             }
             //else if (msg is SubscriptionResponse)
             //    ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
-            else if (msg is AccountRecord)
-                ProcessJsonMessage<AccountRecord>((AccountRecord)msg);
+            else if (msg is ClientAccountRecord)
+                ProcessJsonMessage<ClientAccountRecord>((ClientAccountRecord)msg);
             //else if (msg is DailySettlementPrice)
             //    ProcessJsonMessage<DailySettlementPrice>((DailySettlementPrice)msg);
             //else if (msg is FirmRecord)
@@ -272,10 +272,10 @@ namespace DGTLBackendAPIClientV2
             //    ProcessJsonMessage<CreditRecordUpdate>((CreditRecordUpdate)msg);
             //else if (msg is DepthOfBook)
             //    ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
-            else if (msg is MarketState)
-                ProcessJsonMessage<MarketState>((MarketState)msg);
-            else if (msg is Instrument)
-                ProcessJsonMessage<Instrument>((Instrument)msg);
+            else if (msg is ClientMarketState)
+                ProcessJsonMessage<ClientMarketState>((ClientMarketState)msg);
+            else if (msg is ClientInstrument)
+                ProcessJsonMessage<ClientInstrument>((ClientInstrument)msg);
             else if (msg is ClientOrderAck)
                 ProcessJsonMessage<ClientOrderAck>((ClientOrderAck)msg);
             else if (msg is ClientOrderRej)

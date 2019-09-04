@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 {
-    public class MarketState : WebSocketMessageV2
+    public class ClientMarketState : WebSocketMessageV2
     {
         #region Private Static Consts
 
