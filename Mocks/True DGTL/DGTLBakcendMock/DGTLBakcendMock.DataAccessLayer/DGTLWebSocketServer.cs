@@ -1150,6 +1150,31 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<LegacyOrderCancelRejAck>(socket, legOrdCancelRejAck);
         }
 
+        protected void CanceledLegacyOrderREcord(LegacyOrderRecord  ordRecord,IWebSocketConnection socket)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            LegacyOrderRecord OyMsg = new LegacyOrderRecord();
+
+            OyMsg.ClientOrderId = ordRecord.ClientOrderId;
+            OyMsg.cSide = ordRecord.cSide;
+            OyMsg.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+            OyMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
+            OyMsg.FillQty = ordRecord.FillQty;
+            OyMsg.InstrumentId = ordRecord.InstrumentId;
+            OyMsg.LvsQty = 0;
+            OyMsg.Msg = "LegacyOrderRecord";
+            //OyMsg.OrderId = Guid.NewGuid().ToString();
+            OyMsg.OrderId = ordRecord.ClientOrderId;
+            OyMsg.OrdQty = Convert.ToDouble(ordRecord.OrdQty);
+            OyMsg.Price = (double?)ordRecord.Price;
+            OyMsg.Sender = 0;
+            OyMsg.UpdateTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+            OyMsg.UserId = ordRecord.UserId;
+
+            DoSend<LegacyOrderRecord>(socket, OyMsg);
+        }
+
         protected void ProcessLegacyOrderCancelMock(IWebSocketConnection socket, string m)
         {
 
@@ -1206,6 +1231,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //5-
                         RefreshOpenOrders(socket, legOrdCxlReq.InstrumentId,legOrdCxlReq.UserId);
+
+                        //6-Send LegacyOrderRecord
+                        CanceledLegacyOrderREcord(order,socket);
 
                     }
                     else
