@@ -19,6 +19,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
         private static char _MARKET_CLOSED = '3'; 
 
         #endregion
+
         #region Public Attributes
 
         private byte exchangeId;

@@ -20,6 +20,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public long TransactionTime { get; set; }
 
+        public string UserId { get; set; }
+
         #endregion
     }
 }

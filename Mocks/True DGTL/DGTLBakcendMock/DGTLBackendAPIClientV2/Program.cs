@@ -1,8 +1,10 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
+using DGTLBackendMock.Common.DTO.Subscription.V2;
 using DGTLBackendMock.Common.Util;
 using DGTLBackendMock.DataAccessLayer;
 using Newtonsoft.Json;
@@ -90,6 +92,39 @@ namespace DGTLBackendAPIClientV2
             DoSend(strMsg);
         }
 
+        private static void ProcessSubscribe(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 2)
+            {
+                Subscribe subscribe = new Subscribe()
+                {
+                    Msg = "Subscribe",
+                    cAction = Subscribe._ACTION_SUBSCRIBE,
+                    JsonWebToken = Token,
+                    Service = param[1],
+                    ServiceKey = param.Length == 3 ? param[2] : "*",
+                    UUID = UUID,
+                };
+
+                string strMsg = JsonConvert.SerializeObject(subscribe, Newtonsoft.Json.Formatting.None,
+                                                 new JsonSerializerSettings
+                                                 {
+                                                     NullValueHandling = NullValueHandling.Ignore
+                                                 });
+
+                DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for subscription message"));
+
+        }
+
         private static void ProcessCommand(string cmd)
         {
 
@@ -101,7 +136,10 @@ namespace DGTLBackendAPIClientV2
             {
                 ProcessLoginClient(param);
             }
-
+            else if (mainCmd == "Subscribe")
+            {
+                ProcessSubscribe(param);
+            }
             else if (mainCmd == "LogoutClient")
             {
                 ProcessLogoutClient(param);
@@ -248,8 +286,8 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientHeartbeat>((ClientHeartbeat)msg);
                 ProcessHeartbeat(heartBeat);
             }
-            //else if (msg is SubscriptionResponse)
-            //    ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
+            else if (msg is SubscriptionResponse)
+                ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
             else if (msg is ClientAccountRecord)
                 ProcessJsonMessage<ClientAccountRecord>((ClientAccountRecord)msg);
             //else if (msg is DailySettlementPrice)
@@ -260,14 +298,12 @@ namespace DGTLBackendAPIClientV2
             //    ProcessJsonMessage<OfficialFixingPrice>((OfficialFixingPrice)msg);
             //else if (msg is RefereceRateMsg)
             //    ProcessJsonMessage<RefereceRateMsg>((RefereceRateMsg)msg);
-            //else if (msg is SecurityMasterRecord)
-            //    ProcessJsonMessage<SecurityMasterRecord>((SecurityMasterRecord)msg);
             //else if (msg is UserRecord)
             //    ProcessJsonMessage<UserRecord>((UserRecord)msg);
-            //else if (msg is LastSale)
-            //    ProcessJsonMessage<LastSale>((LastSale)msg);
-            //else if (msg is Quote)
-            //    ProcessJsonMessage<Quote>((Quote)msg);
+            else if (msg is ClientLastSale)
+                ProcessJsonMessage<ClientLastSale>((ClientLastSale)msg);
+            else if (msg is ClientBestBidOffer)
+                ProcessJsonMessage<ClientBestBidOffer>((ClientBestBidOffer)msg);
             //else if (msg is CreditRecordUpdate)
             //    ProcessJsonMessage<CreditRecordUpdate>((CreditRecordUpdate)msg);
             //else if (msg is DepthOfBook)

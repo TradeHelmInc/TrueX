@@ -72,6 +72,8 @@
     <Compile Include="DTO\MarketData\LastSale.cs" />
     <Compile Include="DTO\MarketData\LegacyTradeHistory.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
+    <Compile Include="DTO\MarketData\V2\ClientBestBidOffer.cs" />
+    <Compile Include="DTO\MarketData\V2\ClientLastSale.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetExecutionsBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetOrdersBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\LegacyOrderBlotter.cs" />
@@ -106,6 +108,8 @@
     <Compile Include="DTO\SecurityList\V2\ClientUserRecord.cs" />
     <Compile Include="DTO\SecurityMapping.cs" />
     <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />
+    <Compile Include="DTO\Subscription\V2\Subscribe.cs" />
+    <Compile Include="DTO\Subscription\V2\SubscriptionResponse.cs" />
     <Compile Include="DTO\UnknownMessageV2.cs" />
     <Compile Include="DTO\WebSocketMessage.cs" />
     <Compile Include="DTO\ErrorMessage.cs" />
