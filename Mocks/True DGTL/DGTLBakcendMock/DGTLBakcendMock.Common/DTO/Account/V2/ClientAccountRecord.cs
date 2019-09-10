@@ -26,7 +26,6 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         #endregion
 
-
         #region Public Attributes
 
         public int Sender { get; set; }

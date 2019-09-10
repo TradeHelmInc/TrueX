@@ -1,4 +1,5 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.MarketData;
@@ -39,6 +40,8 @@ namespace DGTLBackendMock.DataAccessLayer
         protected string LastTokenGenerated { get; set; }
 
         protected Thread HeartbeatThread { get; set; }
+
+        protected bool SubscribedLQ { get; set; }
 
         #endregion
 
@@ -583,41 +586,13 @@ namespace DGTLBackendMock.DataAccessLayer
                 while (true)
                 {
                     LastSale legacyLastSale = LastSales.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
-                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-                    if (legacyLastSale != null)
+                    TranslateAndSendOldSale(socket, subscrMsg.UUID, legacyLastSale, instr);
+                    Thread.Sleep(3000);//3 seconds
+                    if (!subscResp)
                     {
-                        ClientLastSale lastSale = new ClientLastSale()
-                        {
-                            Msg = "ClientLastSale",
-                            Change = legacyLastSale.Change,
-                            High = legacyLastSale.High,
-                            InstrumentId = instr.InstrumentId,
-                            LastPrice = legacyLastSale.LastPrice,
-                            LastSize = legacyLastSale.LastShares,
-                            Low = legacyLastSale.Low,
-                            Open = legacyLastSale.Open,
-                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                            UUID = subscrMsg.UUID,
-                            Volume = legacyLastSale.Volume
-
-                        };
-
-                        //EmulatePriceChanges(i, lastSale, ref initialPrice);
-                        DoSend<ClientLastSale>(socket, lastSale);
-                        Thread.Sleep(3000);//3 seconds
-                        if (!subscResp)
-                        {
-                            ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID);
-                            Thread.Sleep(2000);
-                            subscResp = true;
-                        }
-                    }
-                    else
-                    {
-                        string errMsg = string.Format("LastSale not found for InstrumentId {0} - Symbol {1} ...", subscrMsg.ServiceKey, instr.InstrumentName);
-                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: errMsg);
-                        DoLog(errMsg, MessageType.Information);
-                        break;
+                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID);
+                        Thread.Sleep(2000);
+                        subscResp = true;
                     }
                     i++;
                 }
@@ -626,6 +601,112 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 DoLog(string.Format("Critical error processing last sales message: {0}...", ex.Message), MessageType.Error);
             }
+        }
+
+        private void TranslateAndSendOldSale(IWebSocketConnection socket, string UUID, LastSale legacyLastSale, ClientInstrument instr)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (legacyLastSale != null)
+            {
+                ClientLastSale lastSale = new ClientLastSale()
+                {
+                    Msg = "ClientLastSale",
+                    Change = legacyLastSale.Change,
+                    High = legacyLastSale.High,
+                    InstrumentId = instr.InstrumentId,
+                    LastPrice = legacyLastSale.LastPrice,
+                    LastSize = legacyLastSale.LastShares,
+                    Low = legacyLastSale.Low,
+                    Open = legacyLastSale.Open,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID,
+                    Volume = legacyLastSale.Volume
+
+                };
+
+                //EmulatePriceChanges(i, lastSale, ref initialPrice);
+                DoSend<ClientLastSale>(socket, lastSale);
+            }
+            else
+            {
+                ClientLastSale lastSale = new ClientLastSale()
+                {
+                    Msg = "ClientLastSale",
+                    InstrumentId = instr.InstrumentId,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID,
+                };
+
+                DoSend<ClientLastSale>(socket, lastSale);
+            }
+        }
+
+        private void TranslateAndSendOldQuote(IWebSocketConnection socket, string UUID, Quote legacyLastQuote, ClientInstrument instr)
+        {
+            if (legacyLastQuote != null)
+            {
+                ClientBestBidOffer cBidOffer = new ClientBestBidOffer()
+                {
+                    Msg = "ClientBestBidOffer",
+                    Ask = legacyLastQuote.Ask,
+                    AskSize = legacyLastQuote.AskSize,
+                    Bid = legacyLastQuote.Bid,
+                    BidSize = legacyLastQuote.BidSize,
+                    InstrumentId = instr.InstrumentId,
+                    MidPrice = legacyLastQuote.MidPoint,
+                    UUID = UUID,
+                };
+
+                DoSend<ClientBestBidOffer>(socket, cBidOffer);
+            }
+            else
+            {
+                ClientBestBidOffer cBidOffer = new ClientBestBidOffer()
+                {
+                    Msg = "ClientBestBidOffer",
+                    InstrumentId = instr.InstrumentId,
+                    UUID = UUID,
+                };
+
+                DoSend<ClientBestBidOffer>(socket, cBidOffer);
+            }
+        }
+
+        private void TranslateAndSendOldDepthOfBook(IWebSocketConnection socket, DepthOfBook legacyDepthOfBook, ClientInstrument instr, bool initial=false)
+        {
+            ClientDepthOfBook depthOfBook = new ClientDepthOfBook()
+            {
+                Msg = "ClientDepthOfBook",
+                cAction = legacyDepthOfBook.cAction,
+                cSide = legacyDepthOfBook.cBidOrAsk,
+                InstrumentId = instr.InstrumentId,
+                Price = legacyDepthOfBook.Price,
+                Size = legacyDepthOfBook.Size,
+                
+            };
+
+            DoSend<ClientDepthOfBook>(socket, depthOfBook);
+        }
+
+        private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, CreditRecordUpdate creditRecordUpdate,
+                                                           DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount, string UUID = null)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            ClientCreditUpdate ccUpd = new ClientCreditUpdate()
+            {
+                Msg = "ClientCreditUpdate",
+                AccountId = Convert.ToInt64(defaultAccount.AccountId),
+                CreditLimit = defaultAccount.CreditLimit,
+                CreditUsed = creditRecordUpdate.CreditUsed,
+                cStatus = ClientCreditUpdate._SEC_STATUS_TRADING,
+                cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
+                FirmId = Convert.ToInt32(creditRecordUpdate.FirmId),
+                MaxNotional = defaultAccount.MaxNotional,
+                Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                UUID = UUID
+            };
+
+            DoSend<ClientCreditUpdate>(socket, ccUpd);
         }
 
         private void QuoteThread(object param)
@@ -642,41 +723,59 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Quote legacyLastQuote  = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
 
-                    if (legacyLastQuote != null)
+                    TranslateAndSendOldQuote(socket, subscrMsg.UUID, legacyLastQuote, instr);
+                    Thread.Sleep(3000);//3 seconds
+                    if (!subscResp)
                     {
-                        ClientBestBidOffer cBidOffer = new ClientBestBidOffer()
-                        {
-                            Msg = "ClientBestBidOffer",
-                            Ask = legacyLastQuote.Ask,
-                            AskSize = legacyLastQuote.AskSize,
-                            Bid = legacyLastQuote.Bid,
-                            BidSize = legacyLastQuote.BidSize,
-                            InstrumentId = instr.InstrumentId,
-                            MidPoint = legacyLastQuote.MidPoint,
-                            UUID = subscrMsg.UUID,
-                        };
-
-                        DoSend<Quote>(socket, legacyLastQuote);
-                        Thread.Sleep(3000);//3 seconds
-                        if (!subscResp)
-                        {
-                            ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
-                            Thread.Sleep(2000);
-                            subscResp = true;
-                        }
-                    }
-                    else
-                    {
-                        string errMsg = string.Format("Quotes not found for InstrumentId {0} - Symbol {1} ...", subscrMsg.ServiceKey, instr.InstrumentName);
-                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: errMsg);
-                        DoLog(errMsg, MessageType.Information);
-                        break;
+                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
+                        Thread.Sleep(2000);
+                        subscResp = true;
+                        SubscribedLQ = true;
                     }
                 }
             }
             catch (Exception ex)
             {
                 DoLog(string.Format("Critical error processing quote message: {0}...", ex.Message), MessageType.Error);
+            }
+        }
+
+        private void NewQuoteThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            ClientInstrument instr = (ClientInstrument)paramArray[1];
+            string UUID = (string)paramArray[2];
+
+            try
+            {
+                while (true)
+                {
+                    Quote quote = null;
+                    lock (Quotes)
+                    {
+                        DoLog(string.Format("Searching quotes for symbol {0}. ", instr.InstrumentName), MessageType.Information);
+                        quote = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                    }
+
+                    if (quote != null)
+                    {
+                        DoLog(string.Format("Sending LQ for symbol {0}. Best bid={1} Best ask={2}", instr.InstrumentName, quote.Bid, quote.Ask), MessageType.Information);
+
+                        TranslateAndSendOldQuote(socket, UUID, quote,instr);
+                        DoSend<Quote>(socket, quote);
+
+                    }
+                    else
+                    {
+                        DoLog(string.Format("quotes for symbol {0} not found ", instr.InstrumentName), MessageType.Information);
+                    }
+                    Thread.Sleep(3000);//3 seconds
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error processing quote message for symbol {1}: {0}...", ex.Message, instr.InstrumentName), MessageType.Error);
             }
         }
 
@@ -735,6 +834,128 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 DoLog(string.Format("Double subscription for service LQ for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
                 ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+            }
+        }
+
+        protected void UpdateQuotes(IWebSocketConnection socket, ClientInstrument instr, string UUID = null)
+        {
+
+            DoLog(string.Format("Updating best bid and ask for symbol {0}", instr.InstrumentName), MessageType.Information);
+            DepthOfBook bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName && x.cBidOrAsk == DepthOfBook._BID_ENTRY).OrderByDescending(x => x.Price).FirstOrDefault();
+            DepthOfBook bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).OrderBy(x => x.Price).FirstOrDefault();
+
+            lock (Quotes)
+            {
+                Quote quote = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+
+                if (quote != null)
+                {
+                    if (bestBid != null)
+                    {
+                        quote.BidSize = bestBid.Size;
+                        quote.Bid = bestBid.Price;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Erasing best bid for symbol {0}", instr.InstrumentName), MessageType.Information);
+                        quote.BidSize = null;
+                        quote.Bid = null;
+                    }
+
+                    if (bestAsk != null)
+                    {
+                        quote.AskSize = bestAsk.Size;
+                        quote.Ask = bestAsk.Price;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Erasing best ask for symbol {0}", instr.InstrumentName), MessageType.Information);
+                        quote.AskSize = null;
+                        quote.Ask = null;
+                    }
+
+
+                    quote.RefreshMidPoint(SecurityMasterRecords.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault().MinPriceIncrement);
+
+                }
+                else
+                {
+                    Quote newQuote = new Quote()
+                    {
+                        Msg = "Quote",
+                        Symbol = instr.InstrumentName
+                    };
+
+                    if (bestAsk != null)
+                    {
+                        newQuote.AskSize = bestAsk.Size;
+                        newQuote.Ask = bestAsk.Price;
+                    }
+
+
+                    if (bestBid != null)
+                    {
+                        newQuote.BidSize = bestBid.Size;
+                        newQuote.Bid = bestBid.Price;
+                    }
+
+                    newQuote.RefreshMidPoint(SecurityMasterRecords.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault().MinPriceIncrement);
+
+                    DoLog(string.Format("Inserting quotes for symbol {0}", instr.InstrumentName), MessageType.Information);
+                    Quotes.Add(newQuote);
+                    DoLog(string.Format("Quotes for symbol {0} inserted", instr.InstrumentName), MessageType.Information);
+
+                    Thread ProcessQuoteThread = new Thread(NewQuoteThread);
+                    ProcessQuoteThread.Start(new object[] { socket, instr, UUID });
+
+                    if (!ProcessLastQuoteThreads.ContainsKey(instr.InstrumentName))
+                        ProcessLastQuoteThreads.Add(instr.InstrumentName, ProcessQuoteThread);
+                    else
+                        ProcessLastQuoteThreads[instr.InstrumentName] = ProcessQuoteThread;
+
+                }
+            }
+
+        }
+
+        protected void ProcessOrderBookDepth(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+
+            try
+            {
+                ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
+                List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName).ToList();
+                if (depthOfBooks != null && depthOfBooks.Count>0)
+                {
+                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, initial: true));
+                    Thread.Sleep(1000);
+                }
+
+                if(SubscribedLQ)
+                    UpdateQuotes(socket, instr, subscrMsg.UUID);
+                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID, msg: "success");
+            }
+            catch (Exception ex)
+            {
+
+                DoLog(string.Format(ex.Message), MessageType.Error);
+                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+            }
+        }
+
+        protected void ProcessCreditRecordUpdates(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == subscrMsg.ServiceKey).FirstOrDefault();
+            DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == subscrMsg.ServiceKey).FirstOrDefault();
+
+            if (creditRecordUpdate != null)
+            {
+                TranslateAndSendOldCreditRecordUpdate(socket, creditRecordUpdate, defaultAccount, subscrMsg.UUID);
+                ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID);
+            }
+            else
+            {
+                ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: string.Format("Unknown Credit Record Update for FirmId {0}", subscrMsg.ServiceKey));
             }
         }
 
@@ -827,6 +1048,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (subscrMsg.ServiceKey != null)
                         ProcessQuote(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "LD")
+                {
+                    ProcessOrderBookDepth(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "CU")
+                {
+                    ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
                 //else if (subscrMsg.Service == "FP")
                 //{
                 //    if (subscrMsg.ServiceKey != null)
@@ -846,18 +1075,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 //        ProcessDailySettlement(socket, subscrMsg);
                 //}
               
-                //else if (subscrMsg.Service == "CU")
-                //{
-                //    ProcessCreditRecordUpdates(socket, subscrMsg);
-                //}
+             
                 //else if (subscrMsg.Service == "Cm")
                 //{
                 //    ProcessCreditLimitUpdates(socket, subscrMsg);
                 //}
-                //else if (subscrMsg.Service == "LD")
-                //{
-                //    ProcessOrderBookDepth(socket, subscrMsg);
-                //}
+              
                 //else if (subscrMsg.Service == "Oy")
                 //{
                 //    ProcessMyOrders(socket, subscrMsg);

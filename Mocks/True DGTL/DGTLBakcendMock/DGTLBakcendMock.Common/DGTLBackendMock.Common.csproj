@@ -48,6 +48,7 @@
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\ClientCreditUpdate.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="DTO\MarketData\LegacyTradeHistory.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
     <Compile Include="DTO\MarketData\V2\ClientBestBidOffer.cs" />
+    <Compile Include="DTO\MarketData\V2\ClientDepthOfBook.cs" />
     <Compile Include="DTO\MarketData\V2\ClientLastSale.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetExecutionsBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetOrdersBlotterFulFilled.cs" />

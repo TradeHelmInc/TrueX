@@ -12,8 +12,6 @@ namespace DGTLBackendMock.Common.DTO.MarketData
 
         #region Actions
 
-        public static char _ACTION_SNAPSHOT = '0';
-
         public static char _ACTION_INSERT = 'A';
 
         public static char _ACTION_CHANGE = 'C';

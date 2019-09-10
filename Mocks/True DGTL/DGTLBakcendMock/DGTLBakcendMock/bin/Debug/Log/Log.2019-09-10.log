@@ -1,0 +1,624 @@
+2019-09-10 7:29:57  :: Initializing Mock Server...
+2019-09-10 7:29:57  :: Initializing all collections...
+2019-09-10 7:29:58  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 7:29:59  :: Collections Initialized...
+2019-09-10 7:30:13  :: Connecting for the first time to client 4482
+2019-09-10 7:30:13  :: Connected for the first time to client 4482
+2019-09-10 7:30:25  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 7:30:25  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 7:30:25  :: Sending ClientLoginResponse with UUID b8fc1bd3-f483-4034-be1c-3df61d4505a8
+2019-09-10 7:30:25  :: Sending Instrument Batch 
+2019-09-10 7:30:25  :: Sending ClientUserRecord
+2019-09-10 7:30:25  :: Sending ClientMarketStateBatch
+2019-09-10 7:30:25  :: Sending ClientAccountRecordBatch 
+2019-09-10 7:30:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:30:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:30:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:30:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:30:40  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 7:30:40  :: Incoming subscription for service LS - ServiceKey:18
+2019-09-10 7:31:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:31:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:31:00  :: SubscriptionResponse UUID:b8fc1bd3-f483-4034-be1c-3df61d4505a8 Service:LS ServiceKey:18 Success:False
+2019-09-10 7:31:00  :: LastSale not found for InstrumentId 18 - Symbol SWP-XBT-USD-X19 ...
+2019-09-10 7:31:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:38:13  :: Initializing Mock Server...
+2019-09-10 7:38:13  :: Initializing all collections...
+2019-09-10 7:38:13  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 7:38:13  :: Collections Initialized...
+2019-09-10 7:38:22  :: Connecting for the first time to client 4720
+2019-09-10 7:38:22  :: Connected for the first time to client 4720
+2019-09-10 7:38:47  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 7:38:47  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 7:38:47  :: Sending ClientLoginResponse with UUID ed79cb0d-525c-4fda-bd66-30e2bea4cf6c
+2019-09-10 7:38:47  :: Sending Instrument Batch 
+2019-09-10 7:38:47  :: Sending ClientUserRecord
+2019-09-10 7:38:48  :: Sending ClientMarketStateBatch
+2019-09-10 7:38:48  :: Sending ClientAccountRecordBatch 
+2019-09-10 7:38:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:38:51  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 7:38:51  :: Incoming subscription for service LS - ServiceKey:18
+2019-09-10 7:38:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:38:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:38:58  :: SubscriptionResponse UUID:ed79cb0d-525c-4fda-bd66-30e2bea4cf6c Service:LS ServiceKey:18 Success:True
+2019-09-10 7:39:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:12  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 7:39:12  :: Incoming subscription for service LQ - ServiceKey:18
+2019-09-10 7:39:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:15  :: SubscriptionResponse UUID:ed79cb0d-525c-4fda-bd66-30e2bea4cf6c Service:LQ ServiceKey:18 Success:True
+2019-09-10 7:39:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 7:39:19  :: Critical error processing last sales message: Subproceso anulado....
+2019-09-10 7:39:19  :: Turning threads off on socket disconnection
+2019-09-10 7:39:19  :: Critical error processing quote message: Subproceso anulado....
+2019-09-10 7:39:22  :: Turning threads off on socket disconnection
+2019-09-10 7:39:25  :: Turning threads off on socket disconnection
+2019-09-10 7:39:28  :: Turning threads off on socket disconnection
+2019-09-10 7:39:31  :: Turning threads off on socket disconnection
+2019-09-10 7:39:34  :: Turning threads off on socket disconnection
+2019-09-10 7:39:37  :: Turning threads off on socket disconnection
+2019-09-10 7:39:40  :: Turning threads off on socket disconnection
+2019-09-10 7:39:43  :: Turning threads off on socket disconnection
+2019-09-10 7:39:46  :: Turning threads off on socket disconnection
+2019-09-10 7:39:49  :: Turning threads off on socket disconnection
+2019-09-10 7:39:52  :: Turning threads off on socket disconnection
+2019-09-10 7:39:55  :: Turning threads off on socket disconnection
+2019-09-10 7:39:58  :: Turning threads off on socket disconnection
+2019-09-10 7:40:01  :: Turning threads off on socket disconnection
+2019-09-10 7:40:04  :: Turning threads off on socket disconnection
+2019-09-10 7:40:07  :: Turning threads off on socket disconnection
+2019-09-10 7:40:10  :: Turning threads off on socket disconnection
+2019-09-10 7:40:13  :: Turning threads off on socket disconnection
+2019-09-10 7:40:16  :: Turning threads off on socket disconnection
+2019-09-10 7:40:19  :: Turning threads off on socket disconnection
+2019-09-10 7:40:22  :: Turning threads off on socket disconnection
+2019-09-10 7:40:25  :: Turning threads off on socket disconnection
+2019-09-10 7:40:28  :: Turning threads off on socket disconnection
+2019-09-10 7:40:31  :: Turning threads off on socket disconnection
+2019-09-10 7:40:34  :: Turning threads off on socket disconnection
+2019-09-10 7:40:37  :: Turning threads off on socket disconnection
+2019-09-10 7:40:40  :: Turning threads off on socket disconnection
+2019-09-10 7:40:43  :: Turning threads off on socket disconnection
+2019-09-10 7:40:46  :: Turning threads off on socket disconnection
+2019-09-10 7:40:49  :: Turning threads off on socket disconnection
+2019-09-10 7:40:52  :: Turning threads off on socket disconnection
+2019-09-10 7:40:55  :: Turning threads off on socket disconnection
+2019-09-10 7:40:58  :: Turning threads off on socket disconnection
+2019-09-10 7:41:01  :: Turning threads off on socket disconnection
+2019-09-10 7:41:04  :: Turning threads off on socket disconnection
+2019-09-10 7:41:07  :: Turning threads off on socket disconnection
+2019-09-10 7:41:10  :: Turning threads off on socket disconnection
+2019-09-10 7:41:13  :: Turning threads off on socket disconnection
+2019-09-10 7:41:16  :: Turning threads off on socket disconnection
+2019-09-10 7:41:19  :: Turning threads off on socket disconnection
+2019-09-10 7:41:22  :: Turning threads off on socket disconnection
+2019-09-10 7:41:25  :: Turning threads off on socket disconnection
+2019-09-10 7:41:28  :: Turning threads off on socket disconnection
+2019-09-10 7:41:31  :: Turning threads off on socket disconnection
+2019-09-10 7:41:34  :: Turning threads off on socket disconnection
+2019-09-10 7:41:37  :: Turning threads off on socket disconnection
+2019-09-10 7:41:40  :: Turning threads off on socket disconnection
+2019-09-10 7:41:43  :: Turning threads off on socket disconnection
+2019-09-10 7:41:46  :: Turning threads off on socket disconnection
+2019-09-10 7:41:49  :: Turning threads off on socket disconnection
+2019-09-10 7:41:52  :: Turning threads off on socket disconnection
+2019-09-10 7:41:55  :: Turning threads off on socket disconnection
+2019-09-10 7:41:58  :: Turning threads off on socket disconnection
+2019-09-10 7:42:01  :: Turning threads off on socket disconnection
+2019-09-10 7:42:04  :: Turning threads off on socket disconnection
+2019-09-10 7:42:07  :: Turning threads off on socket disconnection
+2019-09-10 7:42:10  :: Turning threads off on socket disconnection
+2019-09-10 7:42:13  :: Turning threads off on socket disconnection
+2019-09-10 7:42:16  :: Turning threads off on socket disconnection
+2019-09-10 7:42:19  :: Turning threads off on socket disconnection
+2019-09-10 7:42:22  :: Turning threads off on socket disconnection
+2019-09-10 7:42:25  :: Turning threads off on socket disconnection
+2019-09-10 7:42:28  :: Turning threads off on socket disconnection
+2019-09-10 7:42:31  :: Turning threads off on socket disconnection
+2019-09-10 7:42:34  :: Turning threads off on socket disconnection
+2019-09-10 7:42:37  :: Turning threads off on socket disconnection
+2019-09-10 7:42:40  :: Turning threads off on socket disconnection
+2019-09-10 7:42:43  :: Turning threads off on socket disconnection
+2019-09-10 7:42:46  :: Turning threads off on socket disconnection
+2019-09-10 7:42:49  :: Turning threads off on socket disconnection
+2019-09-10 7:42:52  :: Turning threads off on socket disconnection
+2019-09-10 7:42:55  :: Turning threads off on socket disconnection
+2019-09-10 7:42:58  :: Turning threads off on socket disconnection
+2019-09-10 7:43:01  :: Turning threads off on socket disconnection
+2019-09-10 7:43:04  :: Turning threads off on socket disconnection
+2019-09-10 7:43:07  :: Turning threads off on socket disconnection
+2019-09-10 7:43:10  :: Turning threads off on socket disconnection
+2019-09-10 7:43:13  :: Turning threads off on socket disconnection
+2019-09-10 7:43:16  :: Turning threads off on socket disconnection
+2019-09-10 7:43:19  :: Turning threads off on socket disconnection
+2019-09-10 7:43:22  :: Turning threads off on socket disconnection
+2019-09-10 7:43:25  :: Turning threads off on socket disconnection
+2019-09-10 7:43:28  :: Turning threads off on socket disconnection
+2019-09-10 7:43:31  :: Turning threads off on socket disconnection
+2019-09-10 7:43:34  :: Turning threads off on socket disconnection
+2019-09-10 7:43:37  :: Turning threads off on socket disconnection
+2019-09-10 7:43:40  :: Turning threads off on socket disconnection
+2019-09-10 7:43:43  :: Turning threads off on socket disconnection
+2019-09-10 7:43:46  :: Turning threads off on socket disconnection
+2019-09-10 7:43:49  :: Turning threads off on socket disconnection
+2019-09-10 7:43:52  :: Turning threads off on socket disconnection
+2019-09-10 7:43:55  :: Turning threads off on socket disconnection
+2019-09-10 7:43:58  :: Turning threads off on socket disconnection
+2019-09-10 7:44:01  :: Turning threads off on socket disconnection
+2019-09-10 7:44:04  :: Turning threads off on socket disconnection
+2019-09-10 7:44:07  :: Turning threads off on socket disconnection
+2019-09-10 7:44:10  :: Turning threads off on socket disconnection
+2019-09-10 7:44:13  :: Turning threads off on socket disconnection
+2019-09-10 7:44:16  :: Turning threads off on socket disconnection
+2019-09-10 7:44:19  :: Turning threads off on socket disconnection
+2019-09-10 7:44:22  :: Turning threads off on socket disconnection
+2019-09-10 7:44:25  :: Turning threads off on socket disconnection
+2019-09-10 7:44:28  :: Turning threads off on socket disconnection
+2019-09-10 7:44:31  :: Turning threads off on socket disconnection
+2019-09-10 7:44:34  :: Turning threads off on socket disconnection
+2019-09-10 7:44:37  :: Turning threads off on socket disconnection
+2019-09-10 7:44:40  :: Turning threads off on socket disconnection
+2019-09-10 7:44:43  :: Turning threads off on socket disconnection
+2019-09-10 7:44:46  :: Turning threads off on socket disconnection
+2019-09-10 7:44:49  :: Turning threads off on socket disconnection
+2019-09-10 7:44:52  :: Turning threads off on socket disconnection
+2019-09-10 7:44:55  :: Turning threads off on socket disconnection
+2019-09-10 7:44:58  :: Turning threads off on socket disconnection
+2019-09-10 7:45:01  :: Turning threads off on socket disconnection
+2019-09-10 7:45:04  :: Turning threads off on socket disconnection
+2019-09-10 7:45:08  :: Turning threads off on socket disconnection
+2019-09-10 7:45:11  :: Turning threads off on socket disconnection
+2019-09-10 7:45:14  :: Turning threads off on socket disconnection
+2019-09-10 7:45:17  :: Turning threads off on socket disconnection
+2019-09-10 7:45:20  :: Turning threads off on socket disconnection
+2019-09-10 7:45:23  :: Turning threads off on socket disconnection
+2019-09-10 7:45:26  :: Turning threads off on socket disconnection
+2019-09-10 7:45:29  :: Turning threads off on socket disconnection
+2019-09-10 7:45:32  :: Turning threads off on socket disconnection
+2019-09-10 7:45:35  :: Turning threads off on socket disconnection
+2019-09-10 7:45:38  :: Turning threads off on socket disconnection
+2019-09-10 7:45:41  :: Turning threads off on socket disconnection
+2019-09-10 7:45:44  :: Turning threads off on socket disconnection
+2019-09-10 7:45:47  :: Turning threads off on socket disconnection
+2019-09-10 7:45:50  :: Turning threads off on socket disconnection
+2019-09-10 7:45:53  :: Turning threads off on socket disconnection
+2019-09-10 7:45:56  :: Turning threads off on socket disconnection
+2019-09-10 7:45:59  :: Turning threads off on socket disconnection
+2019-09-10 7:46:02  :: Turning threads off on socket disconnection
+2019-09-10 7:46:05  :: Turning threads off on socket disconnection
+2019-09-10 7:46:08  :: Turning threads off on socket disconnection
+2019-09-10 7:46:11  :: Turning threads off on socket disconnection
+2019-09-10 7:46:14  :: Turning threads off on socket disconnection
+2019-09-10 7:46:17  :: Turning threads off on socket disconnection
+2019-09-10 7:46:20  :: Turning threads off on socket disconnection
+2019-09-10 7:46:23  :: Turning threads off on socket disconnection
+2019-09-10 7:46:26  :: Turning threads off on socket disconnection
+2019-09-10 7:46:29  :: Turning threads off on socket disconnection
+2019-09-10 7:46:33  :: Turning threads off on socket disconnection
+2019-09-10 7:46:36  :: Turning threads off on socket disconnection
+2019-09-10 7:46:39  :: Turning threads off on socket disconnection
+2019-09-10 7:46:42  :: Turning threads off on socket disconnection
+2019-09-10 7:46:45  :: Turning threads off on socket disconnection
+2019-09-10 7:46:48  :: Turning threads off on socket disconnection
+2019-09-10 7:46:51  :: Turning threads off on socket disconnection
+2019-09-10 7:46:54  :: Turning threads off on socket disconnection
+2019-09-10 7:46:57  :: Turning threads off on socket disconnection
+2019-09-10 7:47:00  :: Turning threads off on socket disconnection
+2019-09-10 7:47:03  :: Turning threads off on socket disconnection
+2019-09-10 7:47:06  :: Turning threads off on socket disconnection
+2019-09-10 7:47:09  :: Turning threads off on socket disconnection
+2019-09-10 7:47:12  :: Turning threads off on socket disconnection
+2019-09-10 7:47:15  :: Turning threads off on socket disconnection
+2019-09-10 7:47:18  :: Turning threads off on socket disconnection
+2019-09-10 7:47:21  :: Turning threads off on socket disconnection
+2019-09-10 7:47:24  :: Turning threads off on socket disconnection
+2019-09-10 7:47:27  :: Turning threads off on socket disconnection
+2019-09-10 7:47:30  :: Turning threads off on socket disconnection
+2019-09-10 7:47:33  :: Turning threads off on socket disconnection
+2019-09-10 7:47:36  :: Turning threads off on socket disconnection
+2019-09-10 7:47:39  :: Turning threads off on socket disconnection
+2019-09-10 7:47:42  :: Turning threads off on socket disconnection
+2019-09-10 7:47:45  :: Turning threads off on socket disconnection
+2019-09-10 7:47:48  :: Turning threads off on socket disconnection
+2019-09-10 7:47:51  :: Turning threads off on socket disconnection
+2019-09-10 7:47:54  :: Turning threads off on socket disconnection
+2019-09-10 7:47:57  :: Turning threads off on socket disconnection
+2019-09-10 7:48:00  :: Turning threads off on socket disconnection
+2019-09-10 7:48:03  :: Turning threads off on socket disconnection
+2019-09-10 7:48:06  :: Turning threads off on socket disconnection
+2019-09-10 7:48:09  :: Turning threads off on socket disconnection
+2019-09-10 7:48:12  :: Turning threads off on socket disconnection
+2019-09-10 7:48:15  :: Turning threads off on socket disconnection
+2019-09-10 7:48:18  :: Turning threads off on socket disconnection
+2019-09-10 7:48:21  :: Turning threads off on socket disconnection
+2019-09-10 7:48:24  :: Turning threads off on socket disconnection
+2019-09-10 7:48:27  :: Turning threads off on socket disconnection
+2019-09-10 7:48:30  :: Turning threads off on socket disconnection
+2019-09-10 7:48:33  :: Turning threads off on socket disconnection
+2019-09-10 7:48:36  :: Turning threads off on socket disconnection
+2019-09-10 7:48:39  :: Turning threads off on socket disconnection
+2019-09-10 7:48:42  :: Turning threads off on socket disconnection
+2019-09-10 7:48:45  :: Turning threads off on socket disconnection
+2019-09-10 7:48:48  :: Turning threads off on socket disconnection
+2019-09-10 7:48:51  :: Turning threads off on socket disconnection
+2019-09-10 7:48:54  :: Turning threads off on socket disconnection
+2019-09-10 7:48:57  :: Turning threads off on socket disconnection
+2019-09-10 7:49:00  :: Turning threads off on socket disconnection
+2019-09-10 7:49:03  :: Turning threads off on socket disconnection
+2019-09-10 7:49:06  :: Turning threads off on socket disconnection
+2019-09-10 7:49:09  :: Turning threads off on socket disconnection
+2019-09-10 7:49:12  :: Turning threads off on socket disconnection
+2019-09-10 7:49:15  :: Turning threads off on socket disconnection
+2019-09-10 7:49:18  :: Turning threads off on socket disconnection
+2019-09-10 7:49:21  :: Turning threads off on socket disconnection
+2019-09-10 7:49:24  :: Turning threads off on socket disconnection
+2019-09-10 7:49:27  :: Turning threads off on socket disconnection
+2019-09-10 7:49:30  :: Turning threads off on socket disconnection
+2019-09-10 7:49:33  :: Turning threads off on socket disconnection
+2019-09-10 7:49:36  :: Turning threads off on socket disconnection
+2019-09-10 7:49:39  :: Turning threads off on socket disconnection
+2019-09-10 7:49:42  :: Turning threads off on socket disconnection
+2019-09-10 7:49:45  :: Turning threads off on socket disconnection
+2019-09-10 7:49:48  :: Turning threads off on socket disconnection
+2019-09-10 7:49:51  :: Turning threads off on socket disconnection
+2019-09-10 7:49:54  :: Turning threads off on socket disconnection
+2019-09-10 7:49:57  :: Turning threads off on socket disconnection
+2019-09-10 7:50:00  :: Turning threads off on socket disconnection
+2019-09-10 7:50:03  :: Turning threads off on socket disconnection
+2019-09-10 7:50:06  :: Turning threads off on socket disconnection
+2019-09-10 7:50:09  :: Turning threads off on socket disconnection
+2019-09-10 7:50:12  :: Turning threads off on socket disconnection
+2019-09-10 7:50:15  :: Turning threads off on socket disconnection
+2019-09-10 7:50:18  :: Turning threads off on socket disconnection
+2019-09-10 7:50:21  :: Turning threads off on socket disconnection
+2019-09-10 7:50:24  :: Turning threads off on socket disconnection
+2019-09-10 7:50:27  :: Turning threads off on socket disconnection
+2019-09-10 7:50:30  :: Turning threads off on socket disconnection
+2019-09-10 7:50:33  :: Turning threads off on socket disconnection
+2019-09-10 7:50:36  :: Turning threads off on socket disconnection
+2019-09-10 7:50:39  :: Turning threads off on socket disconnection
+2019-09-10 7:50:42  :: Turning threads off on socket disconnection
+2019-09-10 7:50:45  :: Turning threads off on socket disconnection
+2019-09-10 7:50:48  :: Turning threads off on socket disconnection
+2019-09-10 7:50:51  :: Turning threads off on socket disconnection
+2019-09-10 7:50:54  :: Turning threads off on socket disconnection
+2019-09-10 7:50:57  :: Turning threads off on socket disconnection
+2019-09-10 7:51:00  :: Turning threads off on socket disconnection
+2019-09-10 7:51:03  :: Turning threads off on socket disconnection
+2019-09-10 7:51:06  :: Turning threads off on socket disconnection
+2019-09-10 7:51:09  :: Turning threads off on socket disconnection
+2019-09-10 7:51:12  :: Turning threads off on socket disconnection
+2019-09-10 7:51:15  :: Turning threads off on socket disconnection
+2019-09-10 7:51:18  :: Turning threads off on socket disconnection
+2019-09-10 7:51:21  :: Turning threads off on socket disconnection
+2019-09-10 7:51:24  :: Turning threads off on socket disconnection
+2019-09-10 7:51:27  :: Turning threads off on socket disconnection
+2019-09-10 7:51:30  :: Turning threads off on socket disconnection
+2019-09-10 7:51:33  :: Turning threads off on socket disconnection
+2019-09-10 7:51:36  :: Turning threads off on socket disconnection
+2019-09-10 7:51:39  :: Turning threads off on socket disconnection
+2019-09-10 7:51:42  :: Turning threads off on socket disconnection
+2019-09-10 7:51:45  :: Turning threads off on socket disconnection
+2019-09-10 7:51:48  :: Turning threads off on socket disconnection
+2019-09-10 7:51:51  :: Turning threads off on socket disconnection
+2019-09-10 7:51:54  :: Turning threads off on socket disconnection
+2019-09-10 7:51:57  :: Turning threads off on socket disconnection
+2019-09-10 7:52:00  :: Turning threads off on socket disconnection
+2019-09-10 7:52:03  :: Turning threads off on socket disconnection
+2019-09-10 7:52:06  :: Turning threads off on socket disconnection
+2019-09-10 7:52:09  :: Turning threads off on socket disconnection
+2019-09-10 7:52:12  :: Turning threads off on socket disconnection
+2019-09-10 7:52:15  :: Turning threads off on socket disconnection
+2019-09-10 7:52:18  :: Turning threads off on socket disconnection
+2019-09-10 7:52:21  :: Turning threads off on socket disconnection
+2019-09-10 7:52:24  :: Turning threads off on socket disconnection
+2019-09-10 7:52:27  :: Turning threads off on socket disconnection
+2019-09-10 7:52:30  :: Turning threads off on socket disconnection
+2019-09-10 7:52:33  :: Turning threads off on socket disconnection
+2019-09-10 7:52:36  :: Turning threads off on socket disconnection
+2019-09-10 7:52:39  :: Turning threads off on socket disconnection
+2019-09-10 7:52:42  :: Turning threads off on socket disconnection
+2019-09-10 7:52:45  :: Turning threads off on socket disconnection
+2019-09-10 7:52:48  :: Turning threads off on socket disconnection
+2019-09-10 7:52:51  :: Turning threads off on socket disconnection
+2019-09-10 7:52:54  :: Turning threads off on socket disconnection
+2019-09-10 7:52:57  :: Turning threads off on socket disconnection
+2019-09-10 7:53:00  :: Turning threads off on socket disconnection
+2019-09-10 7:53:03  :: Turning threads off on socket disconnection
+2019-09-10 7:53:06  :: Turning threads off on socket disconnection
+2019-09-10 7:53:09  :: Turning threads off on socket disconnection
+2019-09-10 7:53:12  :: Turning threads off on socket disconnection
+2019-09-10 7:53:15  :: Turning threads off on socket disconnection
+2019-09-10 7:53:18  :: Turning threads off on socket disconnection
+2019-09-10 7:53:21  :: Turning threads off on socket disconnection
+2019-09-10 7:53:24  :: Turning threads off on socket disconnection
+2019-09-10 7:53:27  :: Turning threads off on socket disconnection
+2019-09-10 8:10:40  :: Initializing Mock Server...
+2019-09-10 8:10:40  :: Initializing all collections...
+2019-09-10 8:10:41  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:10:41  :: Collections Initialized...
+2019-09-10 8:10:51  :: Connecting for the first time to client 5964
+2019-09-10 8:10:51  :: Connected for the first time to client 5964
+2019-09-10 8:11:17  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:11:17  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:11:17  :: Sending ClientLoginResponse with UUID 4d2d30f4-cf04-4b44-9019-d03482b4593a
+2019-09-10 8:11:17  :: Sending Instrument Batch 
+2019-09-10 8:11:17  :: Sending ClientUserRecord
+2019-09-10 8:11:17  :: Sending ClientMarketStateBatch
+2019-09-10 8:11:17  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:11:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:23  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:11:23  :: Incoming subscription for service LD - ServiceKey:2
+2019-09-10 8:11:24  :: Updating best bid and ask for symbol ETH-USD
+2019-09-10 8:11:25  :: SubscriptionResponse UUID:4d2d30f4-cf04-4b44-9019-d03482b4593a Service:LD ServiceKey:2 Success:True
+2019-09-10 8:11:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:11:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:07  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:12:07  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:12:08  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:12:08  :: Inserting quotes for symbol SWP-XBT-USD-X19
+2019-09-10 8:12:08  :: Quotes for symbol SWP-XBT-USD-X19 inserted
+2019-09-10 8:12:08  :: SubscriptionResponse UUID:4d2d30f4-cf04-4b44-9019-d03482b4593a Service:LD ServiceKey:18 Success:True
+2019-09-10 8:12:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:08  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:08  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:11  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:11  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:14  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:14  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:17  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:17  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:20  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:20  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:23  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:23  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:26  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:26  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:29  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:29  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:32  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:32  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:35  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:35  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:38  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:38  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:41  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:41  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:44  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:44  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:47  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:47  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:50  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:50  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:53  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:53  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:56  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:56  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:12:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:12:59  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:12:59  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:02  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:02  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:05  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:05  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:08  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:08  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:11  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:11  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:14  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:14  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:17  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:17  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:20  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:20  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:23  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:23  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:27  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:27  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:30  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:30  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:33  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:13:33  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:13:40  :: Initializing Mock Server...
+2019-09-10 8:13:40  :: Initializing all collections...
+2019-09-10 8:13:40  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:13:41  :: Collections Initialized...
+2019-09-10 8:13:47  :: Connecting for the first time to client 5987
+2019-09-10 8:13:47  :: Connected for the first time to client 5987
+2019-09-10 8:13:52  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:13:52  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:13:52  :: Sending ClientLoginResponse with UUID 98e26e9e-28b6-4811-bcb0-0a9b98672e5e
+2019-09-10 8:13:52  :: Sending Instrument Batch 
+2019-09-10 8:13:52  :: Sending ClientUserRecord
+2019-09-10 8:13:52  :: Sending ClientMarketStateBatch
+2019-09-10 8:13:52  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:13:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:13:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:14:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:14:03  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:14:03  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:15:13  :: Initializing Mock Server...
+2019-09-10 8:15:13  :: Initializing all collections...
+2019-09-10 8:15:14  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:15:14  :: Collections Initialized...
+2019-09-10 8:15:21  :: Connecting for the first time to client 6070
+2019-09-10 8:15:21  :: Connected for the first time to client 6070
+2019-09-10 8:15:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:15:32  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:15:32  :: Sending ClientLoginResponse with UUID 9be15c52-7698-4883-bfa6-fac8b5626f66
+2019-09-10 8:15:32  :: Sending Instrument Batch 
+2019-09-10 8:15:32  :: Sending ClientUserRecord
+2019-09-10 8:15:32  :: Sending ClientMarketStateBatch
+2019-09-10 8:15:32  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:15:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:38  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:15:38  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:15:40  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:15:40  :: Inserting quotes for symbol SWP-XBT-USD-X19
+2019-09-10 8:15:40  :: Quotes for symbol SWP-XBT-USD-X19 inserted
+2019-09-10 8:15:40  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:40  :: SubscriptionResponse UUID:9be15c52-7698-4883-bfa6-fac8b5626f66 Service:LD ServiceKey:18 Success:True
+2019-09-10 8:15:40  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:43  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:43  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:46  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:46  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:49  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:49  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:15:52  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:52  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:52  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:15:52  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:15:55  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:55  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:58  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:15:58  :: Erasing best bid for symbol SWP-XBT-USD-X19
+2019-09-10 8:15:58  :: Erasing best ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:15:59  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:15:59  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:15:59  :: SubscriptionResponse UUID:9be15c52-7698-4883-bfa6-fac8b5626f66 Service:LD ServiceKey:18 Success:True
+2019-09-10 8:16:34  :: Initializing Mock Server...
+2019-09-10 8:16:34  :: Initializing all collections...
+2019-09-10 8:16:35  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:16:36  :: Collections Initialized...
+2019-09-10 8:16:43  :: Connecting for the first time to client 6121
+2019-09-10 8:16:43  :: Connected for the first time to client 6121
+2019-09-10 8:16:49  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:16:49  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:16:49  :: Sending ClientLoginResponse with UUID c46361f3-3d4c-427b-8c01-a0c82e0a778e
+2019-09-10 8:16:49  :: Sending Instrument Batch 
+2019-09-10 8:16:49  :: Sending ClientUserRecord
+2019-09-10 8:16:49  :: Sending ClientMarketStateBatch
+2019-09-10 8:16:49  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:16:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:16:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:16:58  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:16:58  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:17:05  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:17:05  :: Inserting quotes for symbol SWP-XBT-USD-X19
+2019-09-10 8:17:05  :: Quotes for symbol SWP-XBT-USD-X19 inserted
+2019-09-10 8:17:11  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:17:11  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:17:11  :: SubscriptionResponse UUID:c46361f3-3d4c-427b-8c01-a0c82e0a778e Service:LD ServiceKey:18 Success:True
+2019-09-10 8:17:38  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:17:40  :: Erasing best bid for symbol SWP-XBT-USD-X19
+2019-09-10 8:17:42  :: Erasing best ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:17:50  :: Initializing Mock Server...
+2019-09-10 8:17:50  :: Initializing all collections...
+2019-09-10 8:17:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:17:51  :: Collections Initialized...
+2019-09-10 8:17:56  :: Connecting for the first time to client 6132
+2019-09-10 8:17:56  :: Connected for the first time to client 6132
+2019-09-10 8:18:00  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:18:00  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:18:00  :: Sending ClientLoginResponse with UUID 359d4834-a033-4164-aaab-be0d8070ab82
+2019-09-10 8:18:00  :: Sending Instrument Batch 
+2019-09-10 8:18:00  :: Sending ClientUserRecord
+2019-09-10 8:18:00  :: Sending ClientMarketStateBatch
+2019-09-10 8:18:00  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:18:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:18:05  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:18:05  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:18:09  :: Updating best bid and ask for symbol SWP-XBT-USD-X19
+2019-09-10 8:18:09  :: Inserting quotes for symbol SWP-XBT-USD-X19
+2019-09-10 8:18:09  :: Quotes for symbol SWP-XBT-USD-X19 inserted
+2019-09-10 8:18:09  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:18:09  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:18:16  :: SubscriptionResponse UUID:359d4834-a033-4164-aaab-be0d8070ab82 Service:LD ServiceKey:18 Success:True
+2019-09-10 8:18:23  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:18:23  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:18:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:18:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:18:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:18:26  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:18:26  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:18:29  :: Searching quotes for symbol SWP-XBT-USD-X19. 
+2019-09-10 8:18:29  :: Sending LQ for symbol SWP-XBT-USD-X19. Best bid= Best ask=
+2019-09-10 8:18:32  :: Turning threads off on socket disconnection
+2019-09-10 8:18:32  :: Critical error processing quote message for symbol SWP-XBT-USD-X19: Subproceso anulado....
+2019-09-10 8:18:35  :: Turning threads off on socket disconnection
+2019-09-10 8:18:38  :: Turning threads off on socket disconnection
+2019-09-10 8:18:41  :: Turning threads off on socket disconnection
+2019-09-10 8:18:44  :: Turning threads off on socket disconnection
+2019-09-10 8:18:47  :: Turning threads off on socket disconnection
+2019-09-10 8:18:50  :: Turning threads off on socket disconnection
+2019-09-10 8:18:53  :: Turning threads off on socket disconnection
+2019-09-10 8:18:56  :: Turning threads off on socket disconnection
+2019-09-10 8:18:59  :: Turning threads off on socket disconnection
+2019-09-10 8:19:02  :: Turning threads off on socket disconnection
+2019-09-10 8:19:05  :: Turning threads off on socket disconnection
+2019-09-10 8:19:08  :: Turning threads off on socket disconnection
+2019-09-10 8:19:11  :: Turning threads off on socket disconnection
+2019-09-10 8:19:14  :: Turning threads off on socket disconnection
+2019-09-10 8:19:17  :: Turning threads off on socket disconnection
+2019-09-10 8:22:08  :: Initializing Mock Server...
+2019-09-10 8:22:08  :: Initializing all collections...
+2019-09-10 8:22:09  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-10 8:22:09  :: Collections Initialized...
+2019-09-10 8:22:15  :: Connecting for the first time to client 6257
+2019-09-10 8:22:15  :: Connected for the first time to client 6257
+2019-09-10 8:22:18  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-10 8:22:18  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-10 8:22:18  :: Sending ClientLoginResponse with UUID 2624f3e4-10cb-422a-b8a3-d278ab9e2b8d
+2019-09-10 8:22:18  :: Sending Instrument Batch 
+2019-09-10 8:22:18  :: Sending ClientUserRecord
+2019-09-10 8:22:18  :: Sending ClientMarketStateBatch
+2019-09-10 8:22:18  :: Sending ClientAccountRecordBatch 
+2019-09-10 8:22:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:30  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-10 8:22:30  :: Incoming subscription for service LD - ServiceKey:18
+2019-09-10 8:22:33  :: SubscriptionResponse UUID:2624f3e4-10cb-422a-b8a3-d278ab9e2b8d Service:LD ServiceKey:18 Success:True
+2019-09-10 8:22:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-10 8:22:48  :: Turning threads off on socket disconnection
