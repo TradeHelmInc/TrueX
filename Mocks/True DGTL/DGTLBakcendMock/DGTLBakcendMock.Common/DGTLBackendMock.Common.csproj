@@ -92,9 +92,10 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
-    <Compile Include="DTO\OrderRouting\V2\ClientOrderAck.cs" />
-    <Compile Include="DTO\OrderRouting\V2\ClientOrderRej.cs" />
+    <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderAck.cs" />
+    <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderRej.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderReq.cs" />
+    <Compile Include="DTO\OrderRouting\V2\ClientOrderResponse.cs" />
     <Compile Include="DTO\Platform\ChangePlatformStatusRequest.cs" />
     <Compile Include="DTO\Platform\PlatformStatus.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />

@@ -351,15 +351,14 @@ namespace DGTLBackendAPIClientV2
                 cOrderType = ClientOrderReq._ORD_TYPE_LIMIT,//Limit
                 cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? ClientOrderReq._SIDE_BUY : ClientOrderReq._SIDE_SELL,//Buy or sell
                 cTimeInForce = ClientOrderReq._TIF_DAY,
-                ExchangeId = 0,
                 ClientOrderId= Guid.NewGuid().ToString(),
                 FirmId = "",
                 InstrumentId = Convert.ToInt32(ConfigurationManager.AppSettings["OrderInstrumentId"]),
-                JsonWebToken = Token,
+                //JsonWebToken = Token,
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
-                SendingTime = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UserId = UserId
+                //SendingTime = Convert.ToInt64(elapsed.TotalMilliseconds),
+                UserId = 10
             };
 
             return clientOrderReq;

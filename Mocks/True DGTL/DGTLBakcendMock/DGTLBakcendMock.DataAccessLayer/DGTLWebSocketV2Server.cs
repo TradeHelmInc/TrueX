@@ -27,9 +27,15 @@ namespace DGTLBackendMock.DataAccessLayer
 
         public DGTLWebSocketV2Server(string pURL, string pRESTAdddress)
             : base(pURL, pRESTAdddress)
-        { 
-        
+        {
+            NextOrderId = _INITIAL_ORDER_ID;
         }
+
+        #endregion
+
+        #region Protected Static Consts
+
+        private static long _INITIAL_ORDER_ID = 10000;
 
         #endregion
 
@@ -42,6 +48,8 @@ namespace DGTLBackendMock.DataAccessLayer
         protected Thread HeartbeatThread { get; set; }
 
         protected bool SubscribedLQ { get; set; }
+
+        protected long NextOrderId { get; set; }
 
         #endregion
 
@@ -454,18 +462,35 @@ namespace DGTLBackendMock.DataAccessLayer
             //TODO : Conseguir InstrumentId de instrumento para rechazar
             if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == _REJECTED_SECURITY_ID && clientOrderReq.Price.Value < 6000)
             {
-                //We reject the messageas a convention, we cannot send messages lower than 6000 USD
-                ClientOrderRej reject = new ClientOrderRej()
+
+
+                ClientOrderResponse clientOrdAck = new ClientOrderResponse()
                 {
-                    Msg = "ClientOrderRej",
-                    cRejectCode='0',
-                    ExchangeId=0,
-                    UUID=clientOrderReq.UUID,
-                    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
-
+                    Msg = "ClientOrderResponse",
+                    ClientOrderId = clientOrderReq.ClientOrderId,
+                    InstrumentId = clientOrderReq.InstrumentId,
+                    Message = string.Format("Invalid Order for security id {0}", clientOrderReq.InstrumentId),
+                    Success = false,
+                    OrderId = NextOrderId,
+                    UserId = clientOrderReq.UserId,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = clientOrderReq.UUID
                 };
+                DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
+                DoSend<ClientOrderResponse>(socket, clientOrdAck);
 
-                DoSend<ClientOrderRej>(socket, reject);
+                ////We reject the messageas a convention, we cannot send messages lower than 6000 USD
+                //ClientOrderRej reject = new ClientOrderRej()
+                //{
+                //    Msg = "ClientOrderRej",
+                //    cRejectCode='0',
+                //    ExchangeId=0,
+                //    UUID=clientOrderReq.UUID,
+                //    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
+
+                //};
+
+                //DoSend<ClientOrderRej>(socket, reject);
 
                 return true;
             }
@@ -485,19 +510,36 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     if (!ProcessRejectionsForNewOrders(clientOrderReq, socket))
                     {
-                        //We send the mock ack
-                        ClientOrderAck clientOrdAck = new ClientOrderAck()
-                        {
-                            Msg = "ClientOrderAck",
-                            ClientOrderId = clientOrderReq.ClientOrderId,
-                            OrderId = Guid.NewGuid().ToString(),
-                            TransactionTime = Convert.ToInt64(elapsed.TotalMilliseconds),
-                            UUID = clientOrderReq.UUID,
-                            UserId = clientOrderReq.UserId
-                        };
 
-                        DoLog(string.Format("Sending ClientOrderAck ..."), MessageType.Information);
-                        DoSend<ClientOrderAck>(socket, clientOrdAck);
+                        ClientOrderResponse clientOrdAck = new ClientOrderResponse()
+                        {
+                            Msg = "ClientOrderResponse",
+                            ClientOrderId = clientOrderReq.ClientOrderId,
+                            InstrumentId = clientOrderReq.InstrumentId,
+                            Message = "success",
+                            Success = true,
+                            OrderId = NextOrderId,
+                            UserId=clientOrderReq.UserId,
+                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                            UUID = clientOrderReq.UUID
+                        };
+                        DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
+                        DoSend<ClientOrderResponse>(socket, clientOrdAck);
+                        NextOrderId++;
+
+                        //We send the mock ack
+                        //ClientOrderAck clientOrdAck = new ClientOrderAck()
+                        //{
+                        //    Msg = "ClientOrderAck",
+                        //    ClientOrderId = clientOrderReq.ClientOrderId,
+                        //    OrderId = Guid.NewGuid().ToString(),
+                        //    TransactionTime = Convert.ToInt64(elapsed.TotalMilliseconds),
+                        //    UUID = clientOrderReq.UUID,
+                        //    UserId = clientOrderReq.UserId.ToString()
+                        //};
+
+                        //DoLog(string.Format("Sending ClientOrderAck ..."), MessageType.Information);
+                        //DoSend<ClientOrderAck>(socket, clientOrdAck);
 
 
                         //TODO: Implement this when the order book is implementd
@@ -672,7 +714,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void TranslateAndSendOldDepthOfBook(IWebSocketConnection socket, DepthOfBook legacyDepthOfBook, ClientInstrument instr, bool initial=false)
+        private void TranslateAndSendOldDepthOfBook(IWebSocketConnection socket, DepthOfBook legacyDepthOfBook, ClientInstrument instr,string UUID)
         {
             ClientDepthOfBook depthOfBook = new ClientDepthOfBook()
             {
@@ -682,6 +724,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 InstrumentId = instr.InstrumentId,
                 Price = legacyDepthOfBook.Price,
                 Size = legacyDepthOfBook.Size,
+                UUID=UUID
                 
             };
 
@@ -927,7 +970,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName).ToList();
                 if (depthOfBooks != null && depthOfBooks.Count>0)
                 {
-                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, initial: true));
+                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, subscrMsg.UUID));
                     Thread.Sleep(1000);
                 }
 
@@ -951,11 +994,11 @@ namespace DGTLBackendMock.DataAccessLayer
             if (creditRecordUpdate != null)
             {
                 TranslateAndSendOldCreditRecordUpdate(socket, creditRecordUpdate, defaultAccount, subscrMsg.UUID);
-                ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID);
+                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID);
             }
             else
             {
-                ProcessSubscriptionResponse(socket, "CU", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: string.Format("Unknown Credit Record Update for FirmId {0}", subscrMsg.ServiceKey));
+                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: string.Format("Unknown Credit Record Update for FirmId {0}", subscrMsg.ServiceKey));
             }
         }
 
@@ -1052,7 +1095,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessOrderBookDepth(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "CU")
+                else if (subscrMsg.Service == "T")
                 {
                     ProcessCreditRecordUpdates(socket, subscrMsg);
                 }

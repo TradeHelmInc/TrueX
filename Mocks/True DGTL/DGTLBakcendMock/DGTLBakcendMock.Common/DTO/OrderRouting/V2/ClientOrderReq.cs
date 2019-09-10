@@ -25,23 +25,21 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         #region Public Attributes
 
-        public string JsonWebToken { get; set; }
+        //public string JsonWebToken { get; set; }
 
-        public int ExchangeId { get; set; }
+        //public int ExchangeId { get; set; }
 
         public string UUID { get; set; }
 
-        public string ClientOrderId { get; set; }
+        public int InstrumentId { get; set; }
 
-        public string UserId { get; set; }
+        public long UserId { get; set; }
 
         public string FirmId { get; set; }
 
+        public string ClientOrderId { get; set; }
+
         public string AccountId { get; set; }
-
-        public int InstrumentId { get; set; }
-
-        public decimal? Price { get; set; }
 
         private byte side;
         public byte Side
@@ -54,6 +52,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
 
         public decimal Quantity { get; set; }
+
+        public decimal? Price { get; set; }
 
         private byte timeInForce;
         public byte TimeInForce
@@ -74,8 +74,6 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         [JsonIgnore]
         public char cOrderType { get { return Convert.ToChar(OrderType); } set { OrderType = Convert.ToByte(value); } }
-
-        public long SendingTime { get; set; }
 
         #endregion
     }
