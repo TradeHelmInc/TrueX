@@ -4,6 +4,7 @@ using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
+using DGTLBackendMock.Common.DTO.OrderRouting;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
@@ -50,6 +51,10 @@ namespace DGTLBackendMock.DataAccessLayer
         protected bool SubscribedLQ { get; set; }
 
         protected long NextOrderId { get; set; }
+
+        public string LoggedFirmId { get; set; }
+
+        public string LoggedUserId { get; set; }
 
         #endregion
 
@@ -422,6 +427,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 
                 }
 
+
                 if (jsonCredentials .Password!= "Testing123")
                 {
                     DoLog(string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.Password), MessageType.Error);
@@ -430,6 +436,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 }
 
+                UserRecord memUserRecord = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
+                LoggedUserId = memUserRecord.UserId;
+                LoggedFirmId = memUserRecord.FirmId;
+
                 ClientLoginResponse loginResp = new ClientLoginResponse()
                 {
                     Msg = "ClientLoginResponse",
@@ -437,7 +447,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     JsonWebToken = LastTokenGenerated,
                     cSuccess = ClientLoginResponse._STATUS_OK,
                     Time = wsLogin.Time,
-                    UserId=Guid.NewGuid().ToString()
+                    UserId = memUserRecord.UserId
                 };
 
                 DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.UUID), MessageType.Information);
@@ -575,6 +585,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Protected Methods
 
+        protected ClientInstrument GetInstrumentBySymbol(string symbol)
+        {
+            return  InstrBatch.messages.Where(x => x.InstrumentName == symbol).FirstOrDefault();
+        }
+
         protected ClientInstrument GetInstrumentByServiceKey(string serviceKey)
         {
             if (InstrBatch == null)
@@ -680,6 +695,71 @@ namespace DGTLBackendMock.DataAccessLayer
                 };
 
                 DoSend<ClientLastSale>(socket, lastSale);
+            }
+        }
+
+
+        private void TranslateAndSendOldLegacyTradeHistory(IWebSocketConnection socket, string UUID, LegacyTradeHistory legacyTradeHistory)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (legacyTradeHistory != null)
+            {
+                ClientInstrument instr = GetInstrumentBySymbol(legacyTradeHistory.Symbol);
+                ClientTradeRecord trade = new ClientTradeRecord()
+                {
+                    Msg = "ClientTradeRecord",
+                    ClientOrderId = null,
+                    CreateTimeStamp = legacyTradeHistory.TradeTimeStamp,
+                    cSide = legacyTradeHistory.cMySide,
+                    cStatus = ClientTradeRecord._STATUS_OPEN,
+                    ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
+                    FirmId = Convert.ToInt64(LoggedFirmId),
+                    InstrumentId = instr.InstrumentId,
+                    Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
+                    OrderId = 0,
+                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    TradePrice = legacyTradeHistory.TradePrice,
+                    TradeQty = legacyTradeHistory.TradeQuantity,
+                    UserId = 0,
+                    UUID = UUID
+                };
+
+                DoSend<ClientTradeRecord>(socket, trade);
+            }
+        }
+
+        private void TranslateAndSendOldLegacyOrderRecord(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord)
+        {
+            TimeSpan startFromToday = DateTime.Now.Date - new DateTime(1970, 1, 1);
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (legacyOrderRecord != null)
+            {
+                ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
+                ClientOrderRecord order = new ClientOrderRecord()
+                {
+                    Msg = "ClientOrderRecord",
+                    AveragePrice = legacyOrderRecord.Price,
+                    ClientOrderId = legacyOrderRecord.ClientOrderId,
+                    CreateTimeStamp = Convert.ToInt64(startFromToday.TotalMilliseconds),
+                    cSide = legacyOrderRecord.cSide,
+                    cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
+                    CumQty = legacyOrderRecord.FillQty,
+                    ExchageFees = 0,
+                    FirmId = Convert.ToInt64(LoggedFirmId),
+                    UserId = 0,
+                    InstrumentId = instr.InstrumentId,
+                    LeavesQty = legacyOrderRecord.LvsQty,
+                    Message = "",
+                    Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
+                    OrderId = GUIDToLongConverter.GUIDToLong(legacyOrderRecord.OrderId),
+                    Price = legacyOrderRecord.Price,
+                    Quantity = legacyOrderRecord.OrdQty,
+                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    
+                    UUID = UUID
+                };
+
+                DoSend<ClientOrderRecord>(socket, order);
             }
         }
 
@@ -1002,6 +1082,53 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessMyOrders(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            string instrumentId = "";
+            string[] fields = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (fields.Length >= 2)
+                instrumentId = fields[1];
+            else
+                throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
+
+
+            
+            List<LegacyOrderRecord> orders = null;
+            if (instrumentId != "*")
+            {
+                ClientInstrument instr = GetInstrumentByServiceKey(instrumentId);
+                orders = Orders.Where(x => x.InstrumentId == instr.InstrumentName).ToList();
+            }
+            else
+                orders = Orders.ToList();
+
+            DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
+
+            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.UUID, x));// Translate and send
+            
+            //Now we have to launch something to create deltas (insert, change, remove)
+            //RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
+            ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
+        }
+
+        protected void ProcessMyTrades(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            List<LegacyTradeHistory> trades = null;
+
+            if (subscrMsg.ServiceKey != "*")
+            {
+                ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
+                trades = Trades.Where(x => x.Symbol == instr.InstrumentName).ToList();
+            }
+            else
+                trades = Trades.ToList();
+
+            trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.UUID, x));
+            //Now we have to launch something to create deltas (insert, change, remove)
+            ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID);
+        }
+
         protected void ProcessClientLogoutV2(IWebSocketConnection socket, string m)
         {
             ClientLogoutRequest wsLogout = JsonConvert.DeserializeObject<ClientLogoutRequest>(m);
@@ -1099,6 +1226,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessCreditRecordUpdates(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "Oy")
+                {
+                    ProcessMyOrders(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "LT")
+                {
+                    ProcessMyTrades(socket, subscrMsg);
+                }
                 //else if (subscrMsg.Service == "FP")
                 //{
                 //    if (subscrMsg.ServiceKey != null)
@@ -1117,16 +1252,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 //    if (subscrMsg.ServiceKey != null)
                 //        ProcessDailySettlement(socket, subscrMsg);
                 //}
-              
-             
                 //else if (subscrMsg.Service == "Cm")
                 //{
                 //    ProcessCreditLimitUpdates(socket, subscrMsg);
-                //}
-              
-                //else if (subscrMsg.Service == "Oy")
-                //{
-                //    ProcessMyOrders(socket, subscrMsg);
                 //}
                 //else if (subscrMsg.Service == "FO")
                 //{
@@ -1136,10 +1264,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 //{
                 //    ProcessPlatformStatus(socket, subscrMsg);
                 //}
-                //else if (subscrMsg.Service == "LT")
-                //{
-                //    ProcessMyTrades(socket, subscrMsg);
-                //}
+             
                 //else if (subscrMsg.Service == "rt")
                 //{
                 //    ProcessBlotterTrades(socket, subscrMsg);

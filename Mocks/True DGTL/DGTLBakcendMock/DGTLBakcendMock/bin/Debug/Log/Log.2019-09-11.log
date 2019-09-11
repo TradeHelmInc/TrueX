@@ -1,0 +1,219 @@
+2019-09-11 9:52:26  :: Initializing Mock Server...
+2019-09-11 9:52:26  :: Initializing all collections...
+2019-09-11 9:52:29  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 9:52:30  :: Collections Initialized...
+2019-09-11 9:52:42  :: Connecting for the first time to client 42308
+2019-09-11 9:52:42  :: Connected for the first time to client 42308
+2019-09-11 9:52:46  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 9:52:46  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 9:52:46  :: Sending ClientLoginResponse with UUID 22876380-80f8-478f-acc6-93bd2b72acaf
+2019-09-11 9:52:46  :: Sending Instrument Batch 
+2019-09-11 9:52:46  :: Sending ClientUserRecord
+2019-09-11 9:52:46  :: Sending ClientMarketStateBatch
+2019-09-11 9:52:46  :: Sending ClientAccountRecordBatch 
+2019-09-11 9:52:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:52:51  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 9:52:51  :: Incoming subscription for service OY - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 9:52:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:52:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:52:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:53:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:53:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:53:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:53:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:53:13  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 9:53:13  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 9:53:28  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 9:56:22  :: Initializing Mock Server...
+2019-09-11 9:56:22  :: Initializing all collections...
+2019-09-11 9:56:23  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 9:56:23  :: Collections Initialized...
+2019-09-11 9:56:49  :: Connecting for the first time to client 42604
+2019-09-11 9:56:49  :: Connected for the first time to client 42604
+2019-09-11 9:56:53  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 9:56:53  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 9:56:53  :: Sending ClientLoginResponse with UUID da158872-06a0-496d-ae59-7f4d7e2eb6c3
+2019-09-11 9:56:53  :: Sending Instrument Batch 
+2019-09-11 9:56:53  :: Sending ClientUserRecord
+2019-09-11 9:56:53  :: Sending ClientMarketStateBatch
+2019-09-11 9:56:53  :: Sending ClientAccountRecordBatch 
+2019-09-11 9:56:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:56:58  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 9:56:58  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 9:57:10  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 9:57:10  :: Exception processing onMessage:Guid debe contener 32 dígitos con 4 guiones (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+2019-09-11 9:57:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:57:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:58:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:58:28  :: Initializing Mock Server...
+2019-09-11 9:58:28  :: Initializing all collections...
+2019-09-11 9:58:31  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 9:58:32  :: Collections Initialized...
+2019-09-11 9:58:42  :: Connecting for the first time to client 42641
+2019-09-11 9:58:42  :: Connected for the first time to client 42641
+2019-09-11 9:58:46  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 9:58:46  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 9:58:46  :: Sending ClientLoginResponse with UUID 074c98f1-9292-406f-9c0c-c3a9ae33454f
+2019-09-11 9:58:46  :: Sending Instrument Batch 
+2019-09-11 9:58:46  :: Sending ClientUserRecord
+2019-09-11 9:58:46  :: Sending ClientMarketStateBatch
+2019-09-11 9:58:46  :: Sending ClientAccountRecordBatch 
+2019-09-11 9:58:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:58:52  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 9:58:52  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 9:58:52  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 9:59:31  :: SubscriptionResponse UUID:074c98f1-9292-406f-9c0c-c3a9ae33454f Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-09-11 9:59:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:59:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:59:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:59:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:59:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 9:59:49  :: Initializing Mock Server...
+2019-09-11 9:59:49  :: Initializing all collections...
+2019-09-11 9:59:49  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 9:59:51  :: Collections Initialized...
+2019-09-11 10:00:03  :: Connecting for the first time to client 42677
+2019-09-11 10:00:03  :: Connected for the first time to client 42677
+2019-09-11 10:00:09  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 10:00:10  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 10:00:10  :: Sending ClientLoginResponse with UUID 61791496-faf7-4071-9ce6-b6f4647efdbd
+2019-09-11 10:00:10  :: Sending Instrument Batch 
+2019-09-11 10:00:10  :: Sending ClientUserRecord
+2019-09-11 10:00:10  :: Sending ClientMarketStateBatch
+2019-09-11 10:00:10  :: Sending ClientAccountRecordBatch 
+2019-09-11 10:00:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:15  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:00:15  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@*@*
+2019-09-11 10:00:15  :: Exception processing onMessage:La cadena de entrada no tiene el formato correcto.
+2019-09-11 10:00:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:00:45  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:00:45  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@*@*
+2019-09-11 10:03:20  :: Initializing Mock Server...
+2019-09-11 10:03:20  :: Initializing all collections...
+2019-09-11 10:03:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 10:03:21  :: Collections Initialized...
+2019-09-11 10:03:31  :: Connecting for the first time to client 42753
+2019-09-11 10:03:31  :: Connected for the first time to client 42753
+2019-09-11 10:03:37  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 10:03:37  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 10:03:37  :: Sending ClientLoginResponse with UUID 85424708-a1ef-4ac0-8a5f-c79f40d11a9f
+2019-09-11 10:03:37  :: Sending Instrument Batch 
+2019-09-11 10:03:38  :: Sending ClientUserRecord
+2019-09-11 10:03:38  :: Sending ClientMarketStateBatch
+2019-09-11 10:03:38  :: Sending ClientAccountRecordBatch 
+2019-09-11 10:03:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:03:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:03:45  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:03:45  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 10:03:48  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 10:05:48  :: Initializing Mock Server...
+2019-09-11 10:05:48  :: Initializing all collections...
+2019-09-11 10:05:49  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 10:05:51  :: Collections Initialized...
+2019-09-11 10:06:29  :: Connecting for the first time to client 42856
+2019-09-11 10:06:29  :: Connected for the first time to client 42856
+2019-09-11 10:06:34  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 10:06:34  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 10:06:34  :: Sending ClientLoginResponse with UUID 8ead5c6b-350b-4e4f-b292-04c40b5fb94f
+2019-09-11 10:06:34  :: Sending Instrument Batch 
+2019-09-11 10:06:34  :: Sending ClientUserRecord
+2019-09-11 10:06:34  :: Sending ClientMarketStateBatch
+2019-09-11 10:06:34  :: Sending ClientAccountRecordBatch 
+2019-09-11 10:06:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:06:39  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:06:39  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 10:06:39  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 10:07:06  :: SubscriptionResponse UUID:8ead5c6b-350b-4e4f-b292-04c40b5fb94f Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-09-11 10:07:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:15  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:07:15  :: Incoming subscription for service Oy - ServiceKey:*
+2019-09-11 10:07:15  :: Exception processing onMessage:El índice (basado en cero) debe ser mayor o igual a cero y menor que el tamaño de la lista de argumentos.
+2019-09-11 10:07:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:07:35  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:07:35  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@*@*
+2019-09-11 10:07:44  :: Sending all orders for MM1_CLOBUI@*@* subscription. Count=21
+2019-09-11 10:08:04  :: SubscriptionResponse UUID:8ead5c6b-350b-4e4f-b292-04c40b5fb94f Service:Oy ServiceKey:MM1_CLOBUI@*@* Success:True
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:08:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:20:45  :: Initializing Mock Server...
+2019-09-11 10:20:45  :: Initializing all collections...
+2019-09-11 10:20:46  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 10:20:47  :: Collections Initialized...
+2019-09-11 10:20:59  :: Connecting for the first time to client 43299
+2019-09-11 10:20:59  :: Connected for the first time to client 43299
+2019-09-11 10:21:15  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 10:21:15  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 10:21:15  :: Sending ClientLoginResponse with UUID dd496e5f-0b3b-47b4-9b57-8c59acefb7fb
+2019-09-11 10:21:15  :: Sending Instrument Batch 
+2019-09-11 10:21:15  :: Sending ClientUserRecord
+2019-09-11 10:21:15  :: Sending ClientMarketStateBatch
+2019-09-11 10:21:15  :: Sending ClientAccountRecordBatch 
+2019-09-11 10:21:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:21:21  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:21:21  :: Incoming subscription for service LT - ServiceKey:2
+2019-09-11 10:22:22  :: SubscriptionResponse UUID:dd496e5f-0b3b-47b4-9b57-8c59acefb7fb Service:LT ServiceKey:2 Success:True
+2019-09-11 10:22:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:22:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:22:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:22:36  :: Initializing Mock Server...
+2019-09-11 10:22:36  :: Initializing all collections...
+2019-09-11 10:22:37  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 10:22:37  :: Collections Initialized...
+2019-09-11 10:22:44  :: Connecting for the first time to client 43406
+2019-09-11 10:22:44  :: Connected for the first time to client 43406
+2019-09-11 10:22:51  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 10:22:51  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 10:22:51  :: Sending ClientLoginResponse with UUID 9e0e0dfa-4c5a-412b-a960-7c7349b25a70
+2019-09-11 10:22:51  :: Sending Instrument Batch 
+2019-09-11 10:22:51  :: Sending ClientUserRecord
+2019-09-11 10:22:51  :: Sending ClientMarketStateBatch
+2019-09-11 10:22:51  :: Sending ClientAccountRecordBatch 
+2019-09-11 10:22:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:22:56  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 10:22:56  :: Incoming subscription for service LT - ServiceKey:*
+2019-09-11 10:22:56  :: SubscriptionResponse UUID:9e0e0dfa-4c5a-412b-a960-7c7349b25a70 Service:LT ServiceKey:* Success:True
+2019-09-11 10:22:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 10:23:00  :: Turning threads off on socket disconnection
