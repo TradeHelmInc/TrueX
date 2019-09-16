@@ -16,6 +16,8 @@ namespace DGTLBackendMock.Common.DTO.Account
 
         public string ClearingFirmId { get; set; }
 
+        public bool Default { get; set; }
+
         public string CFirmName { get; set; }
 
         public string CFSortName { get; set; }

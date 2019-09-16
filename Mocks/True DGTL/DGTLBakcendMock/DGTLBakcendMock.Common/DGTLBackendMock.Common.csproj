@@ -48,7 +48,14 @@
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\CreditUICreditLimit.cs" />
     <Compile Include="DTO\Account\V2\ClientCreditUpdate.cs" />
+    <Compile Include="DTO\Account\V2\ClientFirmRecord.cs" />
+    <Compile Include="DTO\Account\V2\FirmsCreditLimitRecord.cs" />
+    <Compile Include="DTO\Account\V2\FirmsCreditLimitUpdateRequest.cs" />
+    <Compile Include="DTO\Account\V2\FirmsCreditLimitUpdateResponse.cs" />
+    <Compile Include="DTO\Account\V2\FirmsListRequest.cs" />
+    <Compile Include="DTO\Account\V2\FirmsListResponse.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />

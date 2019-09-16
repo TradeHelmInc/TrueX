@@ -1901,6 +1901,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     if (!ProcessRejectionsForNewOrders(legOrdReq,socket))
                     {
+
+                        //AccountRecord accReccord = null;
+                        //accReccord = AccountRecords.Where(x => x.AccountId == AccountRecordsFirmId && x.AccountId == legOrdReq.AccountId).FirstOrDefault();
+
+                        //if(accReccord==null)
+                        //    accReccord = AccountRecords.Where(x => x.AccountId == AccountRecordsFirmId && x.Default).FirstOrDefault();
+
+
                         //We send the mock ack
                         LegacyOrderAck legOrdAck = new LegacyOrderAck()
                         {

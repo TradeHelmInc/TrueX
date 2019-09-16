@@ -1,0 +1,167 @@
+2019-09-12 8:59:20  :: Initializing Mock Server...
+2019-09-12 8:59:20  :: Initializing all collections...
+2019-09-12 8:59:22  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-12 8:59:22  :: Collections Initialized...
+2019-09-12 8:59:44  :: Connecting for the first time to client 10283
+2019-09-12 8:59:44  :: Connected for the first time to client 10283
+2019-09-12 9:01:29  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-12 9:01:29  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-12 9:01:29  :: Sending ClientLoginResponse with UUID b41a0a11-b3a1-4d1a-8e36-d744b7d81c80
+2019-09-12 9:01:29  :: Sending Instrument Batch 
+2019-09-12 9:01:29  :: Sending ClientUserRecord
+2019-09-12 9:01:29  :: Sending ClientMarketStateBatch
+2019-09-12 9:01:29  :: Sending ClientAccountRecordBatch 
+2019-09-12 9:01:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:01:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:01:35  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-12 9:01:35  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-12 9:01:35  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-12 9:01:35  :: SubscriptionResponse UUID:b41a0a11-b3a1-4d1a-8e36-d744b7d81c80 Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-09-12 9:02:05  :: Turning threads off on socket disconnection
+2019-09-12 9:02:08  :: Turning threads off on socket disconnection
+2019-09-12 9:02:11  :: Turning threads off on socket disconnection
+2019-09-12 9:02:14  :: Turning threads off on socket disconnection
+2019-09-12 9:02:17  :: Turning threads off on socket disconnection
+2019-09-12 9:02:20  :: Turning threads off on socket disconnection
+2019-09-12 9:13:45  :: Initializing Mock Server...
+2019-09-12 9:13:45  :: Initializing all collections...
+2019-09-12 9:13:46  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-12 9:13:47  :: Collections Initialized...
+2019-09-12 9:13:56  :: Connecting for the first time to client 10777
+2019-09-12 9:13:56  :: Connected for the first time to client 10777
+2019-09-12 9:14:22  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-12 9:14:22  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-12 9:14:22  :: Sending ClientLoginResponse with UUID 2f497ace-847a-497a-b5c4-4624106861a0
+2019-09-12 9:14:22  :: Sending Instrument Batch 
+2019-09-12 9:14:22  :: Sending ClientUserRecord
+2019-09-12 9:14:22  :: Sending ClientMarketStateBatch
+2019-09-12 9:14:22  :: Sending ClientAccountRecordBatch 
+2019-09-12 9:14:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:28  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-12 9:14:28  :: Sending ClientOrderResponse ...
+2019-09-12 9:14:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-12 9:14:43  :: Turning threads off on socket disconnection
+2019-09-12 9:14:46  :: Turning threads off on socket disconnection
+2019-09-12 9:14:49  :: Turning threads off on socket disconnection
+2019-09-12 9:14:52  :: Turning threads off on socket disconnection
+2019-09-12 9:14:55  :: Turning threads off on socket disconnection
+2019-09-12 9:14:58  :: Turning threads off on socket disconnection
+2019-09-12 9:15:01  :: Turning threads off on socket disconnection
+2019-09-12 9:15:04  :: Turning threads off on socket disconnection
+2019-09-12 9:15:07  :: Turning threads off on socket disconnection
+2019-09-12 9:15:10  :: Turning threads off on socket disconnection
+2019-09-12 9:15:13  :: Turning threads off on socket disconnection
+2019-09-12 9:15:16  :: Turning threads off on socket disconnection
+2019-09-12 9:15:19  :: Turning threads off on socket disconnection
+2019-09-12 9:15:22  :: Turning threads off on socket disconnection
+2019-09-12 9:15:25  :: Turning threads off on socket disconnection
+2019-09-12 9:15:28  :: Turning threads off on socket disconnection
+2019-09-12 9:15:31  :: Turning threads off on socket disconnection
+2019-09-12 9:15:34  :: Turning threads off on socket disconnection
+2019-09-12 9:15:37  :: Turning threads off on socket disconnection
+2019-09-12 9:15:40  :: Turning threads off on socket disconnection
+2019-09-12 9:15:43  :: Turning threads off on socket disconnection
+2019-09-12 9:15:46  :: Turning threads off on socket disconnection
+2019-09-12 9:15:49  :: Turning threads off on socket disconnection
+2019-09-12 9:15:52  :: Turning threads off on socket disconnection
+2019-09-12 9:15:55  :: Turning threads off on socket disconnection
+2019-09-12 9:15:58  :: Turning threads off on socket disconnection
+2019-09-12 9:16:01  :: Turning threads off on socket disconnection
+2019-09-12 9:16:04  :: Turning threads off on socket disconnection
+2019-09-12 9:16:07  :: Turning threads off on socket disconnection
+2019-09-12 9:16:10  :: Turning threads off on socket disconnection
+2019-09-12 9:16:13  :: Turning threads off on socket disconnection
+2019-09-12 9:16:16  :: Turning threads off on socket disconnection
+2019-09-12 9:16:19  :: Turning threads off on socket disconnection
+2019-09-12 9:16:22  :: Turning threads off on socket disconnection
+2019-09-12 9:16:25  :: Turning threads off on socket disconnection
+2019-09-12 9:16:28  :: Turning threads off on socket disconnection
+2019-09-12 9:16:31  :: Turning threads off on socket disconnection
+2019-09-12 9:16:34  :: Turning threads off on socket disconnection
+2019-09-12 9:16:37  :: Turning threads off on socket disconnection
+2019-09-12 9:16:40  :: Turning threads off on socket disconnection
+2019-09-12 9:16:43  :: Turning threads off on socket disconnection
+2019-09-12 9:16:46  :: Turning threads off on socket disconnection
+2019-09-12 9:16:49  :: Turning threads off on socket disconnection
+2019-09-12 9:16:52  :: Turning threads off on socket disconnection
+2019-09-12 9:16:55  :: Turning threads off on socket disconnection
+2019-09-12 9:16:58  :: Turning threads off on socket disconnection
+2019-09-12 9:17:01  :: Turning threads off on socket disconnection
+2019-09-12 9:17:04  :: Turning threads off on socket disconnection
+2019-09-12 9:17:07  :: Turning threads off on socket disconnection
+2019-09-12 9:17:10  :: Turning threads off on socket disconnection
+2019-09-12 9:17:13  :: Turning threads off on socket disconnection
+2019-09-12 9:17:16  :: Turning threads off on socket disconnection
+2019-09-12 9:17:19  :: Turning threads off on socket disconnection
+2019-09-12 9:17:22  :: Turning threads off on socket disconnection
+2019-09-12 9:17:25  :: Turning threads off on socket disconnection
+2019-09-12 9:17:28  :: Turning threads off on socket disconnection
+2019-09-12 9:17:31  :: Turning threads off on socket disconnection
+2019-09-12 9:17:34  :: Turning threads off on socket disconnection
+2019-09-12 9:17:37  :: Turning threads off on socket disconnection
+2019-09-12 9:17:40  :: Turning threads off on socket disconnection
+2019-09-12 9:17:43  :: Turning threads off on socket disconnection
+2019-09-12 9:17:46  :: Turning threads off on socket disconnection
+2019-09-12 9:17:49  :: Turning threads off on socket disconnection
+2019-09-12 9:17:52  :: Turning threads off on socket disconnection
+2019-09-12 9:17:55  :: Turning threads off on socket disconnection
+2019-09-12 9:17:58  :: Turning threads off on socket disconnection
+2019-09-12 9:18:01  :: Turning threads off on socket disconnection
+2019-09-12 9:18:04  :: Turning threads off on socket disconnection
+2019-09-12 9:18:07  :: Turning threads off on socket disconnection
+2019-09-12 9:18:10  :: Turning threads off on socket disconnection
+2019-09-12 9:18:13  :: Turning threads off on socket disconnection
+2019-09-12 9:18:16  :: Turning threads off on socket disconnection
+2019-09-12 9:18:19  :: Turning threads off on socket disconnection
+2019-09-12 9:18:22  :: Turning threads off on socket disconnection
+2019-09-12 9:18:25  :: Turning threads off on socket disconnection
+2019-09-12 9:18:28  :: Turning threads off on socket disconnection
+2019-09-12 9:18:31  :: Turning threads off on socket disconnection
+2019-09-12 9:18:34  :: Turning threads off on socket disconnection
+2019-09-12 9:18:37  :: Turning threads off on socket disconnection
+2019-09-12 9:18:40  :: Turning threads off on socket disconnection
+2019-09-12 9:18:43  :: Turning threads off on socket disconnection
+2019-09-12 9:18:46  :: Turning threads off on socket disconnection
+2019-09-12 9:18:49  :: Turning threads off on socket disconnection
+2019-09-12 9:18:52  :: Turning threads off on socket disconnection
+2019-09-12 9:18:55  :: Turning threads off on socket disconnection
+2019-09-12 9:18:58  :: Turning threads off on socket disconnection
+2019-09-12 9:19:01  :: Turning threads off on socket disconnection
+2019-09-12 9:19:04  :: Turning threads off on socket disconnection
+2019-09-12 9:19:07  :: Turning threads off on socket disconnection
+2019-09-12 9:19:10  :: Turning threads off on socket disconnection
+2019-09-12 9:19:13  :: Turning threads off on socket disconnection
+2019-09-12 9:43:39  :: Initializing Mock Server...
+2019-09-12 9:43:39  :: Initializing all collections...
+2019-09-12 14:29:33  :: Initializing Mock Server...
+2019-09-12 14:29:33  :: Initializing all collections...
+2019-09-12 14:29:33  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-12 14:29:34  :: Collections Initialized...
+2019-09-12 14:30:09  :: Initializing Mock Server...
+2019-09-12 14:30:09  :: Initializing all collections...
+2019-09-12 14:30:09  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-12 14:30:10  :: Collections Initialized...
+2019-09-12 14:30:47  :: Initializing Mock Server...
+2019-09-12 14:30:47  :: Initializing all collections...
+2019-09-12 14:30:47  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-12 14:30:47  :: Collections Initialized...
+2019-09-12 14:30:54  :: Connecting for the first time to client 19139
+2019-09-12 14:30:54  :: Connected for the first time to client 19139
+2019-09-12 14:30:58  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2019-09-12 14:30:58  :: Incoming Login request for user MM1_CLOBUI2
+2019-09-12 14:30:58  :: user MM1_CLOBUI2 Successfully logged in
+2019-09-12 14:31:00  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:02  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:04  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:06  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:08  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:10  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:12  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1
+2019-09-12 14:31:14  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-12 14:31:14  :: Incoming subscription for service TA - ServiceKey:*
+2019-09-12 14:31:16  :: SubscriptionResponse UUID:APIClientUUID Service:TA ServiceKey:* Success:True
+2019-09-12 14:31:16  :: OnMessage ClientHeartbeatResponse from IP -> 127.0.0.1

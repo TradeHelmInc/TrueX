@@ -57,6 +57,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected ILogSource Logger;
 
+        protected string AccountRecordsFirmId { get; set; }
+
         protected UserRecord[] UserRecords { get; set; }
 
         protected DailySettlementPrice[] DailySettlementPrices { get; set; }
@@ -385,10 +387,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessAccountRecord(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
+            string prevServiceKey = subscrMsg.ServiceKey;
             if (subscrMsg.ServiceKey != "*")
             {
                 if (subscrMsg.ServiceKey.EndsWith("@*"))
                     subscrMsg.ServiceKey = subscrMsg.ServiceKey.Replace("@*", "");
+
+                AccountRecordsFirmId = subscrMsg.ServiceKey;
 
                 List<AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == subscrMsg.ServiceKey).ToList();
 
@@ -397,7 +402,7 @@ namespace DGTLBackendMock.DataAccessLayer
             else
                 AccountRecords.ToList().ForEach(x => DoSend<AccountRecord>(socket, x));
 
-            ProcessSubscriptionResponse(socket, "TD", subscrMsg.ServiceKey, subscrMsg.UUID);
+            ProcessSubscriptionResponse(socket, "TD", prevServiceKey, subscrMsg.UUID);
         }
 
        

@@ -29,14 +29,8 @@ namespace DGTLBackendMock.DataAccessLayer
         public DGTLWebSocketV2Server(string pURL, string pRESTAdddress)
             : base(pURL, pRESTAdddress)
         {
-            NextOrderId = _INITIAL_ORDER_ID;
+            
         }
-
-        #endregion
-
-        #region Protected Static Consts
-
-        private static long _INITIAL_ORDER_ID = 10000;
 
         #endregion
 
@@ -50,15 +44,931 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected bool SubscribedLQ { get; set; }
 
-        protected long NextOrderId { get; set; }
-
         public string LoggedFirmId { get; set; }
 
         public string LoggedUserId { get; set; }
 
+        protected FirmsListResponse FirmListResp { get; set; }
+
         #endregion
 
-        #region Private and Protected Methods
+        #region Private Methods
+
+        //1.2.1-We update market data for a new trade
+        private void EvalMarketData(IWebSocketConnection socket, LegacyTradeHistory newTrade,ClientInstrument instr,string UUID)
+        {
+
+            DoLog(string.Format("We update LastSale MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
+
+            LastSale ls = LastSales.Where(x => x.Symbol == newTrade.Symbol).FirstOrDefault();
+
+            if (ls == null)
+            {
+                ls = new LastSale() { Change = 0, DiffPrevDay = 0, Msg = "LastSale", Symbol = newTrade.Symbol, Volume = 0 };
+                LastSales.Add(ls);
+
+            }
+
+            if (!ls.FirstPrice.HasValue)
+                ls.FirstPrice = ls.LastPrice;
+
+            ls.LastPrice = Convert.ToDecimal(newTrade.TradePrice);
+            ls.LastShares = Convert.ToDecimal(newTrade.TradeQuantity);
+            ls.LastTime = newTrade.TradeTimeStamp;
+            ls.Volume += Convert.ToDecimal(newTrade.TradeQuantity);
+            ls.Change = ls.LastPrice - ls.FirstPrice;
+            ls.DiffPrevDay = ((ls.LastPrice / ls.FirstPrice) - 1) * 100;
+
+            if (!ls.High.HasValue || Convert.ToDecimal(newTrade.TradePrice) > ls.High)
+                ls.High = Convert.ToDecimal(newTrade.TradePrice);
+
+            if (!ls.Low.HasValue || Convert.ToDecimal(newTrade.TradePrice) < ls.Low)
+                ls.Low = Convert.ToDecimal(newTrade.TradePrice);
+
+            DoLog(string.Format("LastSale updated..."), MessageType.Information);
+
+
+            DoLog(string.Format("We udate Quotes MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
+            UpdateQuotes(socket, instr, UUID);
+            DoLog(string.Format("Quotes updated..."), MessageType.Information);
+        }
+
+
+        //1.1-We eliminate the price level (@DepthOfBook and @Orders and we send the message)
+        private void RemovePriceLevel(DepthOfBook bestOffer, char bidOrAsk, IWebSocketConnection socket,ClientInstrument instr, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            DoLog(string.Format("We eliminate the {2} price level {0} for symbol{1} (@DepthOfBook and @Orders and we send the message)",
+                bestOffer.Price, bestOffer.Symbol, bidOrAsk == DepthOfBook._BID_ENTRY ? "bid" : "ask"), MessageType.Information);
+
+
+            List<LegacyOrderRecord> updOrders = Orders.Where(x => x.InstrumentId == bestOffer.Symbol
+                                                                  && x.Price.Value == Convert.ToDouble(bestOffer.Price)
+                                                                  && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList();
+
+            foreach (LegacyOrderRecord order in updOrders)
+            {
+                order.SetFilledStatus();
+                TranslateAndSendOldLegacyOrderRecord(socket, UUID, order);
+
+                if (order.Price.HasValue)
+                {
+                    DoLog(string.Format("We send the Trade for my other affected filled order for symbol {0} Side={1} Price={2} ", order.InstrumentId, order.cSide == LegacyOrderRecord._SIDE_BUY ? "buy" : "sell", order.Price.Value), MessageType.Information);
+                    SendNewTrade(order.cSide, Convert.ToDecimal(order.Price.Value), Convert.ToDecimal(order.OrdQty), socket, instr, UUID);
+                }
+            }
+
+
+            DepthOfBooks.Remove(bestOffer);
+
+            DoLog(string.Format("We send the DepthOfBookMessage removing the {2} price level {0} for symbol{1} (@DepthOfBook and @Orders and we send the message)",
+                  bestOffer.Price, bestOffer.Symbol, bidOrAsk == DepthOfBook._BID_ENTRY ? "bid" : "ask"), MessageType.Information);
+            DepthOfBook remPriceLevel = new DepthOfBook();
+            remPriceLevel.cAction = DepthOfBook._ACTION_REMOVE;
+            remPriceLevel.cBidOrAsk = bidOrAsk;
+            remPriceLevel.DepthTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+            remPriceLevel.Index = 0;
+            remPriceLevel.Msg = "DepthOfBook";
+            remPriceLevel.Price = bestOffer.Price;
+            remPriceLevel.Sender = 0;
+            remPriceLevel.Size = 0;
+            remPriceLevel.Symbol = bestOffer.Symbol;
+
+            TranslateAndSendOldDepthOfBook(socket, remPriceLevel, instr, UUID);
+            //DoSend<DepthOfBook>(socket, remPriceLevel);
+        }
+
+        //1.2- We send a Trade by <size>
+        private void SendNewTrade(char side, decimal price, decimal size, IWebSocketConnection socket, ClientInstrument instr, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            DoLog(string.Format("We send a Trade for Size={0} and Price={1} for symbol {2}", size, price, instr.InstrumentName), MessageType.Information);
+
+            LegacyTradeHistory newTrade = new LegacyTradeHistory()
+            {
+                cMySide = side,
+                Msg = "LegacyTradeHistory",
+                MyTrade = true,
+                Sender = 0,
+                Symbol = instr.InstrumentName,
+                TradeId = Guid.NewGuid().ToString(),
+                TradePrice = Convert.ToDouble(price),
+                TradeQuantity = Convert.ToDouble(size),
+                TradeTimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds)
+
+            };
+            TranslateAndSendOldLegacyTradeHistory(socket, UUID, newTrade);
+            //DoSend<LegacyTradeHistory>(socket, newTrade);
+
+            //1.2.1-We update market data for a new trade
+            EvalMarketData(socket, newTrade, instr, UUID);
+
+            //1.2.2-We send a trade notification for the new trade
+            //SendTradeNotification(newTrade, legOrdReq.UserId, socket);
+
+        }
+
+        //1.1- we update the price level to be: Size=mod(leftQty) ->(@DepthOfBook, and we send the message)
+        private void UpdatePriceLevel(ref DepthOfBook bestOffer, char bidOrAsk, double tradeSize, IWebSocketConnection socket, ClientInstrument instr, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            string symbol = bestOffer.Symbol;
+            double bestOfferPrice = Convert.ToDouble(bestOffer.Price);
+
+            DoLog(string.Format("We update the {2} price level {0} for symbol {1} (@DepthOfBook and @Orders and we send the message)",
+                                bestOffer.Price, bestOffer.Symbol, bidOrAsk == DepthOfBook._BID_ENTRY ? "bid" : "ask"), MessageType.Information);
+
+            bestOffer.Size -= Convert.ToDecimal(tradeSize);
+            bestOffer.cAction = DepthOfBook._ACTION_CHANGE;
+
+            DoLog(string.Format("Searching for affecter orders for symbol {0}", bestOffer.Symbol), MessageType.Information);
+
+            List<LegacyOrderRecord> updOrders = Orders.Where(x => x.InstrumentId == symbol
+                                                                 && x.Price.Value == bestOfferPrice
+                                                                 && x.cSide == (bidOrAsk == DepthOfBook._BID_ENTRY ? LegacyOrderRecord._SIDE_BUY : LegacyOrderRecord._SIDE_SELL)).ToList();
+
+            foreach (LegacyOrderRecord order in updOrders)
+            {
+                DoLog(string.Format("Updating order status for price level {0}", order.Price.Value), MessageType.Information);
+
+                double prevFillQty = order.FillQty;
+                order.SetPartiallyFilledStatus(ref tradeSize);
+                TranslateAndSendOldLegacyOrderRecord(socket, UUID, order);
+                //DoSend<LegacyOrderRecord>(socket, order);
+
+                if (order.Price.HasValue)
+                {
+                    DoLog(string.Format("We send the Trade for my other affected {3} order for symbol {0} Side={1} Price={2} Trade Size={4} ", order.InstrumentId, order.cSide == LegacyOrderRecord._SIDE_BUY ? "buy" : "sell", order.Price.Value, order.cStatus, Convert.ToDecimal(order.FillQty - prevFillQty)), MessageType.Information);
+                    SendNewTrade(order.cSide, Convert.ToDecimal(order.Price.Value), Convert.ToDecimal(order.FillQty - prevFillQty), socket, instr, UUID);
+                }
+            }
+
+
+            DoLog(string.Format("We send the DepthOfBook Message updating the ask price level {0} for symbol {1} (@DepthOfBook and @Orders and we send the message)", bestOffer.Price, bestOffer.Symbol), MessageType.Information);
+
+            TranslateAndSendOldDepthOfBook(socket, bestOffer, instr, UUID);
+        }
+
+        private void CreatePriceLevel(char side, decimal price, decimal size, IWebSocketConnection socket, ClientInstrument instr, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            DepthOfBook newPriceLevel = new DepthOfBook();
+            newPriceLevel.cAction = DepthOfBook._ACTION_INSERT;
+            newPriceLevel.cBidOrAsk = side;
+            newPriceLevel.DepthTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+            newPriceLevel.Index = 0;
+            newPriceLevel.Msg = "DepthOfBook";
+            newPriceLevel.Price = price;
+            newPriceLevel.Sender = 0;
+            newPriceLevel.Size = size;
+            newPriceLevel.Symbol = instr.InstrumentName;
+
+
+            DepthOfBooks.Add(newPriceLevel);
+
+            TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, UUID);
+            //DoSend<DepthOfBook>(socket, newPriceLevel);
+        }
+
+        private void EvalNewOrder(IWebSocketConnection socket, ClientOrderReq ordReq, char cStatus, double fillQty, ClientInstrument instr, string UUID)
+        {
+            lock (Orders)
+            {
+                TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+                LegacyOrderRecord OyMsg = new LegacyOrderRecord();
+
+                OyMsg.ClientOrderId = ordReq.ClientOrderId;
+                OyMsg.cSide = ordReq.cSide;
+                OyMsg.cStatus = cStatus;
+                OyMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
+                OyMsg.FillQty = fillQty;
+                OyMsg.InstrumentId = instr.InstrumentName;
+                OyMsg.LvsQty = Convert.ToDouble(ordReq.Quantity) - fillQty;
+                OyMsg.Msg = "LegacyOrderRecord";
+                //OyMsg.OrderId = Guid.NewGuid().ToString();
+                OyMsg.OrderId = ordReq.ClientOrderId;
+                OyMsg.OrdQty = Convert.ToDouble(ordReq.Quantity);
+                OyMsg.Price = (double?)ordReq.Price;
+                OyMsg.Sender = 0;
+                OyMsg.UpdateTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                OyMsg.UserId = ordReq.UserId;
+
+                TranslateAndSendOldLegacyOrderRecord(socket, UUID, OyMsg);
+
+                DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
+                Orders.Add(OyMsg);
+
+                //RefreshOpenOrders(socket, OyMsg.InstrumentId, OyMsg.UserId);
+
+            }
+        }
+
+        private void EvalPriceLevelsIfNotTrades(IWebSocketConnection socket, ClientOrderReq ordReq, ClientInstrument instr)
+        {
+            lock (Orders)
+            {
+                TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+                if (ordReq.cSide == LegacyOrderReq._SIDE_BUY)
+                {
+                    DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                           && x.Symbol == instr.InstrumentName
+                                                                           && x.Price == ordReq.Price).FirstOrDefault();
+
+                    if (existingPriceLevel != null)
+                    {
+
+                        DepthOfBook updPriceLevel = new DepthOfBook();
+                        updPriceLevel.cAction = DepthOfBook._ACTION_CHANGE;
+                        updPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                        updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                        updPriceLevel.Index = existingPriceLevel.Index;
+                        updPriceLevel.Msg = existingPriceLevel.Msg;
+                        updPriceLevel.Price = existingPriceLevel.Price;
+                        updPriceLevel.Sender = existingPriceLevel.Sender;
+                        updPriceLevel.Size = existingPriceLevel.Size + ordReq.Quantity;
+                        updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                        existingPriceLevel.Size = updPriceLevel.Size;
+                        DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.UUID);
+                    }
+                    else
+                    {
+
+                        DepthOfBook newPriceLevel = new DepthOfBook();
+                        newPriceLevel.cAction = DepthOfBook._ACTION_INSERT;
+                        newPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                        newPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                        newPriceLevel.Index = 0;
+                        newPriceLevel.Msg = "DepthOfBook";
+                        newPriceLevel.Price = ordReq.Price.HasValue ? ordReq.Price.Value : 0;
+                        newPriceLevel.Sender = 0;
+                        newPriceLevel.Size = ordReq.Quantity;
+                        newPriceLevel.Symbol = instr.InstrumentName;
+
+                        DepthOfBooks.Add(newPriceLevel);
+                        DoLog(string.Format("Sending new bid entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
+                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.UUID);
+                    }
+
+                }
+                else if (ordReq.cSide == LegacyOrderReq._SIDE_SELL)
+                {
+                    DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                           && x.Symbol == instr.InstrumentName
+                                                                           && x.Price == ordReq.Price).FirstOrDefault();
+
+                    if (existingPriceLevel != null)
+                    {
+
+                        DepthOfBook updPriceLevel = new DepthOfBook();
+                        updPriceLevel.cAction = DepthOfBook._ACTION_CHANGE;
+                        updPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                        updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                        updPriceLevel.Index = existingPriceLevel.Index;
+                        updPriceLevel.Msg = existingPriceLevel.Msg;
+                        updPriceLevel.Price = existingPriceLevel.Price;
+                        updPriceLevel.Sender = existingPriceLevel.Sender;
+                        updPriceLevel.Size = existingPriceLevel.Size + ordReq.Quantity;
+                        updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                        existingPriceLevel.Size = updPriceLevel.Size;
+                        DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.UUID);
+                    }
+                    else
+                    {
+
+                        DepthOfBook newPriceLevel = new DepthOfBook();
+                        newPriceLevel.cAction = DepthOfBook._ACTION_INSERT;
+                        newPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                        newPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                        newPriceLevel.Index = 0;
+                        newPriceLevel.Msg = "DepthOfBook";
+                        newPriceLevel.Price = ordReq.Price.HasValue ? ordReq.Price.Value : 0;
+                        newPriceLevel.Sender = 0;
+                        newPriceLevel.Size = ordReq.Quantity;
+                        newPriceLevel.Symbol = instr.InstrumentName;
+
+                        DepthOfBooks.Add(newPriceLevel);
+                        DoLog(string.Format("Sending new ask entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
+                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.UUID);
+                    }
+
+                }
+            }
+        }
+
+        private bool EvalTrades(ClientOrderReq orderReq,ClientInstrument instr, string UUID, IWebSocketConnection socket)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            lock (Orders)
+            {
+                //1- Main algo for updating price levels and publish the trades
+                if (orderReq.cSide == LegacyOrderReq._SIDE_BUY)
+                {
+                    DepthOfBook bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName &&
+                                                                 x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
+
+                    if (bestAsk == null)
+                        return false;
+
+                    DoLog(string.Format("Best ask for buy order (Limit Price={1}) found at price {0}", bestAsk.Price, orderReq.Price.Value), MessageType.Information);
+                    if (orderReq.Price.HasValue && orderReq.Price.Value >= bestAsk.Price)
+                    {
+                        //we had a trade
+                        decimal leftQty = orderReq.Quantity;
+
+                        bool fullFill = false;
+                        while (leftQty > 0 && bestAsk != null && orderReq.Price.Value >= bestAsk.Price)
+                        {
+                            decimal prevLeftQty = leftQty;
+                            leftQty -= bestAsk.Size;
+
+                            if (leftQty >= 0)
+                            {
+                                //1.1-We eliminate the price level (@DepthOfBook and @Orders and we send the message)
+                                RemovePriceLevel(bestAsk, DepthOfBook._ASK_ENTRY, socket, instr, UUID);
+
+                                //1.2- We send a Trade by bestAsk.Size
+                                SendNewTrade(orderReq.cSide, bestAsk.Price, bestAsk.Size, socket, instr, UUID);
+
+                                //1.3-Calculamos el nuevo bestAsk
+                                bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
+                                                                 && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
+
+                                fullFill = leftQty == 0;
+
+                            }
+                            else//order fully filled
+                            {
+                                //1.1- we update the price level to be: Size=mod(leftQty) ->(@DepthOfBook, and we send the message)
+                                UpdatePriceLevel(ref bestAsk, DepthOfBook._ASK_ENTRY, Convert.ToDouble(prevLeftQty), socket, instr, UUID);
+
+                                //1.2- We send a trade by prevLeftQty
+                                SendNewTrade(orderReq.cSide, bestAsk.Price, prevLeftQty, socket, instr, UUID);
+
+                                fullFill = true;
+                            }
+
+                            bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
+                        }
+
+                        if (leftQty > 0)
+                        {
+                            DoLog(string.Format("We create the remaining buy price level {1}  for size {0}", leftQty, orderReq.Price.Value), MessageType.Information);
+
+                            //2-We send the new price level for the remaining order
+                            CreatePriceLevel(DepthOfBook._BID_ENTRY, orderReq.Price.Value, leftQty, socket,instr,UUID);
+                        }
+                        else
+                        {
+                            DoLog(string.Format("Final leftQty=0 out of loop for buy order at price level {0}", orderReq.Price.Value), MessageType.Information);
+                        }
+
+
+                        //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
+                        EvalNewOrder(socket, orderReq,
+                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : /*LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/LegacyOrderRecord._STATUS_OPEN,
+                                     Convert.ToDouble(fullFill ? orderReq.Quantity : orderReq.Quantity - leftQty),
+                                     instr,UUID);
+
+                        //4-We update the final quotes state
+                        UpdateQuotes(socket,instr,UUID);
+
+                        return true;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Could not find matching sell price for symbol {0} and order price {1}", instr.InstrumentName, orderReq.Price), MessageType.Information);
+                        return false;
+                    }
+                }
+                else if (orderReq.cSide == LegacyOrderReq._SIDE_SELL)
+                {
+                    DepthOfBook bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
+                                                                  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+
+                    if (bestBid == null)
+                        return false;
+
+                    DoLog(string.Format("Best bid for sell order (Limit Price={1}) found at price {0}", bestBid.Price, orderReq.Price.Value), MessageType.Information);
+                    if (orderReq.Price.HasValue && orderReq.Price.Value <= bestBid.Price)
+                    {
+                        //we had a trade
+                        decimal leftQty = orderReq.Quantity;
+
+                        bool fullFill = false;
+                        while (leftQty > 0 && bestBid != null && orderReq.Price.Value <= bestBid.Price)
+                        {
+                            decimal prevLeftQty = leftQty;
+                            leftQty -= bestBid.Size;
+
+                            if (leftQty >= 0)
+                            {
+                                //1.1-We eliminate the price level (@DepthOfBook and @Orders and we send the message)
+                                RemovePriceLevel(bestBid, DepthOfBook._BID_ENTRY, socket, instr, UUID);
+
+                                //1.2- We send a Trade by bestBid.Size
+                                SendNewTrade(orderReq.cSide, bestBid.Price, bestBid.Size, socket, instr, UUID);
+
+                                //1.3-Calculamos el nuevo bestBid
+                                bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
+                                                                 && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+
+                                fullFill = leftQty == 0;
+
+                            }
+                            else//order fully filled
+                            {
+                                //1.1- we update the price level to be: Size=mod(leftQty) ->(@DepthOfBook, and we send the message)
+                                UpdatePriceLevel(ref bestBid, DepthOfBook._BID_ENTRY, Convert.ToDouble(prevLeftQty), socket,instr,UUID);
+
+                                //1.2- We send a trade by prevLeftQty
+                                SendNewTrade(orderReq.cSide, bestBid.Price, prevLeftQty, socket,instr, UUID);
+
+                                fullFill = true;
+                            }
+
+                            bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
+                        }
+
+                        if (leftQty > 0)
+                        {
+                            DoLog(string.Format("We create the remaining buy price level {1}  for size {0}", leftQty, orderReq.Price.Value), MessageType.Information);
+
+                            //2-We send the new price level for the remaining order
+                            CreatePriceLevel(DepthOfBook._ASK_ENTRY, orderReq.Price.Value, leftQty, socket,instr,UUID);
+                        }
+                        else
+                        {
+                            DoLog(string.Format("Final leftQty=0 out of loop for sell order at price level {0}", orderReq.Price.Value), MessageType.Information);
+                        }
+
+                        //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
+                        EvalNewOrder(socket, orderReq,
+                                     fullFill ? LegacyOrderRecord._STATUS_FILLED : /* LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/ LegacyOrderRecord._STATUS_OPEN,
+                                     Convert.ToDouble(fullFill ? orderReq.Quantity : orderReq.Quantity - leftQty),
+                                     instr,UUID);
+
+                        //4-We update the final quotes state
+                        UpdateQuotes(socket, instr,UUID);
+                        return true;
+                    }
+                    else
+                    {
+                        DoLog(string.Format("Could not find matching buy price for symbol {0} and order price {1}", instr.InstrumentName, orderReq.Price), MessageType.Information);
+                        return false;
+                    }
+                }
+                else
+                {
+                    DoLog(string.Format("Could not process side {1} for symbol {0} ", instr.InstrumentName, orderReq.cSide), MessageType.Information);
+                    return false;
+                }
+            }
+
+        }
+
+        private bool ProcessRejectionsForNewOrders(ClientOrderReq clientOrderReq, IWebSocketConnection socket)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            //TODO : Conseguir InstrumentId de instrumento para rechazar
+            if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == _REJECTED_SECURITY_ID && clientOrderReq.Price.Value < 6000)
+            {
+
+
+                ClientOrderResponse clientOrdAck = new ClientOrderResponse()
+                {
+                    Msg = "ClientOrderResponse",
+                    ClientOrderId = clientOrderReq.ClientOrderId,
+                    InstrumentId = clientOrderReq.InstrumentId,
+                    Message = string.Format("Invalid Order for security id {0}", clientOrderReq.InstrumentId),
+                    Success = false,
+                    OrderId = 0,
+                    UserId = clientOrderReq.UserId,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = clientOrderReq.UUID
+                };
+                DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
+                DoSend<ClientOrderResponse>(socket, clientOrdAck);
+
+                ////We reject the messageas a convention, we cannot send messages lower than 6000 USD
+                //ClientOrderRej reject = new ClientOrderRej()
+                //{
+                //    Msg = "ClientOrderRej",
+                //    cRejectCode='0',
+                //    ExchangeId=0,
+                //    UUID=clientOrderReq.UUID,
+                //    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
+
+                //};
+
+                //DoSend<ClientOrderRej>(socket, reject);
+
+                return true;
+            }
+
+            return false;
+
+        }
+
+        private void ProcessFirmsCreditLimitUpdateRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            FirmsCreditLimitUpdateRequest wsFirmCreditLimitUpdRq = JsonConvert.DeserializeObject<FirmsCreditLimitUpdateRequest>(m);
+
+
+            if (FirmListResp != null)
+            {
+                ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id == wsFirmCreditLimitUpdRq.FirmId).FirstOrDefault();
+
+                if (firm != null)
+                {
+                    try
+                    {
+                        firm.CreditLimit[0].TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
+                        firm.CreditLimit[0].Total = wsFirmCreditLimitUpdRq.CreditLimitTotal;
+                        //Balance = Total - Usage
+                        firm.CreditLimit[0].Usage = wsFirmCreditLimitUpdRq.CreditLimitUsage;
+                        firm.CreditLimit[0].MaxTradeSize = wsFirmCreditLimitUpdRq.CreditLimitMaxTradeSize;
+
+                        if (wsFirmCreditLimitUpdRq.CreditLimitBalance != (wsFirmCreditLimitUpdRq.CreditLimitTotal - wsFirmCreditLimitUpdRq.CreditLimitUsage))
+                            throw new Exception("Balance must be Total - Usage");
+
+                        FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
+                        {
+                            cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_TRUE,
+                            FirmId = wsFirmCreditLimitUpdRq.FirmId,
+                            JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
+                            Message = "success",
+                            Msg = "FirmsCreditLimitUpdateResponse",
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsFirmCreditLimitUpdRq.UUID,
+                            Firm = firm
+                        };
+
+                        DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
+                    }
+                    catch (Exception ex)
+                    {
+                        FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
+                        {
+                            cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                            FirmId = wsFirmCreditLimitUpdRq.FirmId,
+                            JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
+                            Message = string.Format("Error updating firm Id {0} not found:{1}", wsFirmCreditLimitUpdRq.FirmId, ex.Message),
+                            Msg = "FirmsCreditLimitUpdateResponse",
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsFirmCreditLimitUpdRq.UUID
+                        };
+
+                        DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
+
+                    }
+                }
+                else
+                {
+                    FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
+                    {
+                        cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                        FirmId = wsFirmCreditLimitUpdRq.FirmId,
+                        JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
+                        Message = string.Format("Firm Id {0} not found", wsFirmCreditLimitUpdRq.FirmId),
+                        Msg = "FirmsCreditLimitUpdateResponse",
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsFirmCreditLimitUpdRq.UUID
+
+                    };
+
+                    DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
+                }
+            }
+            else
+            {
+                FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
+                {
+                    cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                    FirmId = wsFirmCreditLimitUpdRq.FirmId,
+                    JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
+                    Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
+                    Msg = "FirmsCreditLimitUpdateResponse",
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsFirmCreditLimitUpdRq.UUID
+
+                };
+
+                DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
+            
+            }
+        
+        }
+
+        private void ProcessFirmsListRequest (IWebSocketConnection socket, string m)
+        {
+            FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            try
+            {
+                Dictionary<string, ClientFirmRecord> firms = new Dictionary<string, ClientFirmRecord>();
+                List<ClientFirmRecord> finalList = new List<ClientFirmRecord>();
+
+                foreach (AccountRecord accRecord in AccountRecords)
+                {
+                    if (!firms.ContainsKey(accRecord.EPFirmId))
+                    {
+                        //1- We create the accounts list
+                        List<AccountRecord> firmAccounts = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId).ToList();
+                        List<ClientAccountRecord> v2accountList = new List<ClientAccountRecord>();
+                        firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x)));
+
+                        //2- We creat the credit list
+                        List<CreditUICreditLimit> creditLimits = new List<CreditUICreditLimit>();
+                        CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
+                        DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
+                        CreditUICreditLimit creditLimit = new CreditUICreditLimit()
+                        {
+                            CurrencyRootId = accRecord.RouteId,
+                            cTradingStatus = CreditUICreditLimit._TRADING_STATUS_TRUE,
+                            FirmCreditId = accRecord.EPFirmId,
+                            MaxQtySize = accRecord.MaxNotional,
+                            MaxTradeSize = accRecord.MaxNotional,
+                            PotentialExposure = accRecord.MaxNotional,
+                            Total = defaultAccount != null ? defaultAccount.CreditLimit : -1,
+                            Usage = creditRecord != null ? creditRecord.CreditUsed : 0
+                        };
+
+                        creditLimits.Add(creditLimit);
+
+                        ClientFirmRecord firm = new ClientFirmRecord()
+                        {
+                            Id = Convert.ToInt64(accRecord.EPFirmId),
+                            Name = accRecord.CFirmName,
+                            ShortName = accRecord.CFSortName,
+                            Accounts = v2accountList.ToArray(),
+                            CreditLimit = creditLimits.ToArray()
+                        };
+
+                        firms.Add(accRecord.EPFirmId, firm);
+                        finalList.Add(firm);
+                    }
+                }
+
+                
+                double totalPages = Math.Ceiling(Convert.ToDouble(finalList.Count / wsFirmListRq.PageRecords));
+                FirmListResp = new FirmsListResponse()
+                {
+                    Msg = "FirmsListResponse",
+                    cSuccess = FirmsListResponse._SUCCESS_TRUE,
+                    Firms = finalList.Skip(wsFirmListRq.PageNo * wsFirmListRq.PageRecords).Take(wsFirmListRq.PageRecords).ToArray(),
+                    JsonWebToken = wsFirmListRq.JsonWebToken,
+                    UUID = wsFirmListRq.UUID,
+                    Message = "success",
+                    PageNo = wsFirmListRq.PageNo,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    TotalPages = Convert.ToInt32(totalPages),
+                };
+
+
+
+                DoSend<FirmsListResponse>(socket, FirmListResp);
+            }
+            catch (Exception ex)
+            {
+
+                FirmsListResponse firmListResp = new FirmsListResponse()
+                {
+                    Msg = "FirmsListResponse",
+                    cSuccess = FirmsListResponse._SUCCESS_FALSE,
+                    JsonWebToken = wsFirmListRq.JsonWebToken,
+                    UUID = wsFirmListRq.UUID,
+                    Message = ex.Message,
+                    PageNo = wsFirmListRq.PageNo,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    TotalPages = 0,
+                };
+
+                DoSend<FirmsListResponse>(socket, firmListResp);
+            }
+        
+        }
+
+        private void ProcessTokenResponse(IWebSocketConnection socket, string m)
+        {
+            TokenRequest wsTokenReq = JsonConvert.DeserializeObject<TokenRequest>(m);
+
+            LastTokenGenerated = Guid.NewGuid().ToString();
+
+            TokenResponse resp = new TokenResponse()
+            {
+                Msg = "TokenResponse",
+                JsonWebToken = LastTokenGenerated,
+                UUID = wsTokenReq.UUID,
+                cSuccess = TokenResponse._STATUS_OK,
+                Time = wsTokenReq.Time
+            };
+
+            DoSend<TokenResponse>(socket, resp);
+        }
+
+        private void SendLoginRejectReject(IWebSocketConnection socket, ClientLoginRequest wsLogin, string msg)
+        {
+            ClientLoginResponse reject = new ClientLoginResponse()
+            {
+                Msg = "ClientLoginResponse",
+                UUID = wsLogin.UUID,
+                JsonWebToken = LastTokenGenerated,
+                Message = msg,
+                cSuccess = ClientLoginResponse._STATUS_FAILED,
+                Time = wsLogin.Time,
+                UserId = null
+            };
+
+            DoSend<ClientLoginResponse>(socket, reject);
+        }
+
+        private void SendCRMInstruments(IWebSocketConnection socket, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            int i = 1;
+
+            List<ClientInstrument> instrList = new List<ClientInstrument>();
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+
+                ClientInstrument instrumentMsg = new ClientInstrument();
+                instrumentMsg.Msg = "ClientInstrument";
+                instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.LastUpdatedBy = "";
+                instrumentMsg.ExchangeId = 0;
+                instrumentMsg.Description = security.Description;
+                instrumentMsg.InstrumentDate = security.MaturityDate;
+                instrumentMsg.InstrumentId = i;
+                instrumentMsg.InstrumentName = security.Symbol;
+                instrumentMsg.LastUpdatedBy = "fernandom";
+                instrumentMsg.LotSize = security.LotSize;
+                instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
+                instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
+                instrumentMsg.cProductType = ClientInstrument.GetProductType(security.AssetClass);
+                instrumentMsg.MinQuotePrice = security.MinPrice;
+                instrumentMsg.MaxQuotePrice = security.MaxPrice;
+                instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
+                instrumentMsg.MaxNotionalValue = security.MaxPrice * security.LotSize;
+                instrumentMsg.Currency1 = security.CurrencyPair;
+                instrumentMsg.Currency2 = "";
+                instrumentMsg.Test = false;
+                //instrumentMsg.UUID = Uuid;
+
+                security.InstrumentId = i;
+                i++;
+
+                //DoLog(string.Format("Sending Instrument "), MessageType.Information);
+                //DoSend<Instrument>(socket, instrumentMsg);
+                instrList.Add(instrumentMsg);
+            }
+
+            InstrBatch = new ClientInstrumentBatch() { Msg = "ClientInstrumentBatch", messages = instrList.ToArray() };
+            DoLog(string.Format("Sending Instrument Batch "), MessageType.Information);
+            DoSend<ClientInstrumentBatch>(socket, InstrBatch);
+
+        }
+
+        //Sending logged user
+        private void SendCRMUsers(IWebSocketConnection socket, string login, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
+
+            if (userRecord != null)
+            {
+                ClientUserRecord userRecordMsg = new ClientUserRecord();
+                userRecordMsg.Address = "";
+                userRecordMsg.cConnectionType = '0';
+                userRecordMsg.City = "";
+                userRecordMsg.cUserType = '0';
+                userRecordMsg.Email = "";
+                userRecordMsg.FirmId = Convert.ToInt64(userRecord.FirmId);
+                userRecordMsg.FirstName = userRecord.FirstName;
+                userRecordMsg.GroupId = "";
+                userRecordMsg.IsAdmin = false;
+                userRecordMsg.LastName = userRecord.LastName;
+                userRecordMsg.Msg = "ClientUserRecord";
+                userRecordMsg.PostalCode = "";
+                userRecordMsg.State = "";
+                userRecordMsg.UserId = userRecord.UserId;
+                //userRecordMsg.UUID = Uuid;
+
+                DoLog(string.Format("Sending ClientUserRecord"), MessageType.Information);
+                DoSend<ClientUserRecord>(socket, userRecordMsg);
+            }
+            else
+                throw new Exception(string.Format("User not found {0}", login));
+        }
+
+        private void SendMarketStatus(IWebSocketConnection socket, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            ClientMarketState marketStateMsg = new ClientMarketState();
+            marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+            marketStateMsg.cReasonCode = '0';
+            marketStateMsg.cState = ClientMarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
+            marketStateMsg.Msg = "ClientMarketState";
+            marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+            //marketStateMsg.UUID = Uuid;
+
+
+            ClientMarketStateBatch marketStateBatch = new ClientMarketStateBatch()
+            {
+                Msg = "ClientMarketStateBatch",
+                messages = new ClientMarketState[] { marketStateMsg }
+
+            };
+
+            DoLog(string.Format("Sending ClientMarketStateBatch"), MessageType.Information);
+            DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
+        }
+
+        private ClientAccountRecord GetClientAccountRecordFromV1AccountRecord(DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord)
+        {
+            ClientAccountRecord v2AccountRecordMsg = new ClientAccountRecord();
+            v2AccountRecordMsg.Msg = "ClientAccountRecord";
+            v2AccountRecordMsg.AccountId = accountRecord.AccountId;
+            v2AccountRecordMsg.FirmId = Convert.ToInt64(accountRecord.EPFirmId);
+            v2AccountRecordMsg.SettlementFirmId = "1";
+            v2AccountRecordMsg.AccountName = accountRecord.EPNickName;
+            v2AccountRecordMsg.AccountAlias = accountRecord.AccountId;
+
+
+            v2AccountRecordMsg.AccountNumber = "";
+            v2AccountRecordMsg.AccountType = 0;
+            v2AccountRecordMsg.cStatus = ClientAccountRecord._STATUS_ACTIVE;
+            v2AccountRecordMsg.cUserType = ClientAccountRecord._DEFAULT_USER_TYPE;
+            v2AccountRecordMsg.cCti = ClientAccountRecord._CTI_OTHER;
+            v2AccountRecordMsg.Lei = "";
+            v2AccountRecordMsg.Currency = "";
+            v2AccountRecordMsg.IsSuspense = false;
+            v2AccountRecordMsg.UsDomicile = true;
+            v2AccountRecordMsg.UpdatedAt = 0;
+            v2AccountRecordMsg.CreatedAt = 0;
+            v2AccountRecordMsg.LastUpdatedBy = "";
+            v2AccountRecordMsg.WalletAddress = "";
+            //accountRecordMsg.UUID = Uuid;
+
+            return v2AccountRecordMsg;
+        
+        }
+
+        private void SendCRMAccounts(IWebSocketConnection socket, string login, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
+
+            if (userRecord != null)
+            {
+                List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
+
+                List<ClientAccountRecord> accRecordList = new List<ClientAccountRecord>();
+                foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
+                {
+                    ClientAccountRecord accountRecordMsg = GetClientAccountRecordFromV1AccountRecord(accountRecord);
+                    accRecordList.Add(accountRecordMsg);
+                }
+
+                ClientAccountRecordBatch accRecordBatch = new ClientAccountRecordBatch()
+                {
+                    Msg = "ClientAccountRecordBatch",
+                    messages = accRecordList.ToArray()
+                };
+
+                DoLog(string.Format("Sending ClientAccountRecordBatch "), MessageType.Information);
+                DoSend<ClientAccountRecordBatch>(socket, accRecordBatch);
+            }
+            else
+                throw new Exception(string.Format("User not found {0}", login));
+
+        }
+
+        private void SendCRMMessages(IWebSocketConnection socket, string login, string Uuid = null)
+        {
+            SendCRMInstruments(socket, Uuid);
+
+            SendCRMUsers(socket, login, Uuid);
+
+            SendMarketStatus(socket, Uuid);
+
+            SendCRMAccounts(socket, login, Uuid);
+        }
+
+        #endregion
+
+        #region Protected Methods
 
         protected override void DoCLoseThread(object p)
         {
@@ -195,212 +1105,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
         }
-
-        private void ProcessTokenResponse(IWebSocketConnection socket, string m)
-        {
-            TokenRequest wsTokenReq = JsonConvert.DeserializeObject<TokenRequest>(m);
-
-            LastTokenGenerated = Guid.NewGuid().ToString();
-
-            TokenResponse resp = new TokenResponse() 
-            {
-                Msg = "TokenResponse", 
-                JsonWebToken = LastTokenGenerated, 
-                UUID = wsTokenReq.UUID,
-                cSuccess=TokenResponse._STATUS_OK,
-                Time=wsTokenReq.Time
-            };
-
-            DoSend<TokenResponse>(socket, resp);
-        }
-
-        private void SendLoginRejectReject(IWebSocketConnection socket, ClientLoginRequest wsLogin, string msg)
-        {
-            ClientLoginResponse reject = new ClientLoginResponse()
-            {
-                Msg = "ClientLoginResponse",
-                UUID = wsLogin.UUID,
-                JsonWebToken = LastTokenGenerated,
-                Message = msg,
-                cSuccess = ClientLoginResponse._STATUS_FAILED,
-                Time=wsLogin.Time,
-                UserId = null
-            };
-
-            DoSend<ClientLoginResponse>(socket, reject);
-        }
-
-        private void SendCRMInstruments(IWebSocketConnection socket,string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            int i = 1;
-
-            List<ClientInstrument> instrList = new List<ClientInstrument>();
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
-            {
-
-                ClientInstrument instrumentMsg = new ClientInstrument();
-                instrumentMsg.Msg = "ClientInstrument";
-                instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-                instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-                instrumentMsg.LastUpdatedBy = "";
-                instrumentMsg.ExchangeId = 0;
-                instrumentMsg.Description = security.Description;
-                instrumentMsg.InstrumentDate = security.MaturityDate;
-                instrumentMsg.InstrumentId = i;
-                instrumentMsg.InstrumentName = security.Symbol;
-                instrumentMsg.LastUpdatedBy = "fernandom";
-                instrumentMsg.LotSize = security.LotSize;
-                instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
-                instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
-                instrumentMsg.cProductType = ClientInstrument.GetProductType(security.AssetClass);
-                instrumentMsg.MinQuotePrice = security.MinPrice;
-                instrumentMsg.MaxQuotePrice = security.MaxPrice;
-                instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
-                instrumentMsg.MaxNotionalValue = security.MaxPrice * security.LotSize;
-                instrumentMsg.Currency1 = security.CurrencyPair;
-                instrumentMsg.Currency2 = "";
-                instrumentMsg.Test = false;
-                //instrumentMsg.UUID = Uuid;
-
-                security.InstrumentId = i;
-                i++;
-
-                //DoLog(string.Format("Sending Instrument "), MessageType.Information);
-                //DoSend<Instrument>(socket, instrumentMsg);
-                instrList.Add(instrumentMsg);
-            }
-
-            InstrBatch = new ClientInstrumentBatch() { Msg = "ClientInstrumentBatch", messages = instrList.ToArray() };
-            DoLog(string.Format("Sending Instrument Batch "), MessageType.Information);
-            DoSend<ClientInstrumentBatch>(socket, InstrBatch);
         
-        }
-
-        //Sending logged user
-        private void SendCRMUsers(IWebSocketConnection socket, string login, string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            UserRecord userRecord =   UserRecords.Where(x=>x.UserId==login).FirstOrDefault();
-
-            if (userRecord != null)
-            {
-                ClientUserRecord userRecordMsg = new ClientUserRecord();
-                userRecordMsg.Address = "";
-                userRecordMsg.cConnectionType = '0';
-                userRecordMsg.City = "";
-                userRecordMsg.cUserType = '0';
-                userRecordMsg.Email = "";
-                userRecordMsg.FirmId = userRecord.FirmId;
-                userRecordMsg.FirstName = userRecord.FirstName;
-                userRecordMsg.GroupId = "";
-                userRecordMsg.IsAdmin = false;
-                userRecordMsg.LastName = userRecord.LastName;
-                userRecordMsg.Msg = "ClientUserRecord";
-                userRecordMsg.PostalCode = "";
-                userRecordMsg.State = "";
-                userRecordMsg.UserId = userRecord.UserId;
-                //userRecordMsg.UUID = Uuid;
-
-                DoLog(string.Format("Sending ClientUserRecord"), MessageType.Information);
-                DoSend<ClientUserRecord>(socket, userRecordMsg);
-            }
-            else
-                throw new Exception(string.Format("User not found {0}", login));
-        }
-
-        private void SendMarketStatus(IWebSocketConnection socket,string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-            ClientMarketState marketStateMsg = new ClientMarketState();
-            marketStateMsg.cExchangeId=ClientMarketState._DEFAULT_EXCHANGE_ID;
-            marketStateMsg.cReasonCode='0';
-            marketStateMsg.cState = ClientMarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
-            marketStateMsg.Msg = "ClientMarketState";
-            marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-            //marketStateMsg.UUID = Uuid;
-
-
-            ClientMarketStateBatch marketStateBatch = new ClientMarketStateBatch()
-            {
-                Msg = "ClientMarketStateBatch",
-                messages = new ClientMarketState[] { marketStateMsg }
-
-            };
-
-            DoLog(string.Format("Sending ClientMarketStateBatch"), MessageType.Information);
-            DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
-        }
-
-        private void SendCRMAccounts(IWebSocketConnection socket, string login,string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
-
-            if (userRecord != null)
-            {
-                List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
-
-                List<ClientAccountRecord> accRecordList = new List<ClientAccountRecord>();
-                foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
-                {
-                    ClientAccountRecord accountRecordMsg = new ClientAccountRecord();
-                    accountRecordMsg.Msg = "ClientAccountRecord";
-                    accountRecordMsg.AccountId = accountRecord.AccountId;
-                    accountRecordMsg.FirmId = userRecord.FirmId;
-                    accountRecordMsg.SettlementFirmId = "1";
-                    accountRecordMsg.AccountName = accountRecord.EPNickName;
-                    accountRecordMsg.AccountAlias = accountRecord.AccountId;
-                    
-                    
-                    accountRecordMsg.AccountNumber = "";
-                    accountRecordMsg.AccountType = 0;
-                    accountRecordMsg.cStatus = ClientAccountRecord._STATUS_ACTIVE;
-                    accountRecordMsg.cUserType = ClientAccountRecord._DEFAULT_USER_TYPE;
-                    accountRecordMsg.cCti = ClientAccountRecord._CTI_OTHER;
-                    accountRecordMsg.Lei = "";
-                    accountRecordMsg.Currency = "";
-                    accountRecordMsg.IsSuspense = false;
-                    accountRecordMsg.UsDomicile = true;
-                    accountRecordMsg.UpdatedAt = 0;
-                    accountRecordMsg.CreatedAt = 0;
-                    accountRecordMsg.LastUpdatedBy = "";
-                    accountRecordMsg.WalletAddress = "";
-                    //accountRecordMsg.UUID = Uuid;
-
-                    //DoLog(string.Format("Sending AccountRecord "), MessageType.Information);
-                    //DoSend<ClientAccountRecord>(socket, accountRecordMsg);
-                    accRecordList.Add(accountRecordMsg);
-                }
-
-
-                ClientAccountRecordBatch accRecordBatch = new ClientAccountRecordBatch()
-                {
-                    Msg = "ClientAccountRecordBatch",
-                    messages = accRecordList.ToArray()
-                };
-
-                DoLog(string.Format("Sending ClientAccountRecordBatch "), MessageType.Information);
-                DoSend<ClientAccountRecordBatch>(socket, accRecordBatch);
-            }
-            else
-                throw new Exception(string.Format("User not found {0}", login));
-        
-        }
-
-        private void SendCRMMessages(IWebSocketConnection socket,string login,string Uuid=null)
-        {
-            SendCRMInstruments(socket, Uuid);
-
-            SendCRMUsers(socket, login,Uuid);
-
-            SendMarketStatus(socket, Uuid);
-
-            SendCRMAccounts(socket, login, Uuid);
-        }
-
-        private void ProcessClientLoginV2(IWebSocketConnection socket, string m)
+        protected void ProcessClientLoginV2(IWebSocketConnection socket, string m)
         {
             ClientLoginRequest wsLogin = JsonConvert.DeserializeObject<ClientLoginRequest>(m);
 
@@ -466,50 +1172,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private bool ProcessRejectionsForNewOrders(ClientOrderReq clientOrderReq, IWebSocketConnection socket)
-        {
-            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            //TODO : Conseguir InstrumentId de instrumento para rechazar
-            if (clientOrderReq.cSide == ClientOrderReq._SIDE_BUY && clientOrderReq.InstrumentId == _REJECTED_SECURITY_ID && clientOrderReq.Price.Value < 6000)
-            {
-
-
-                ClientOrderResponse clientOrdAck = new ClientOrderResponse()
-                {
-                    Msg = "ClientOrderResponse",
-                    ClientOrderId = clientOrderReq.ClientOrderId,
-                    InstrumentId = clientOrderReq.InstrumentId,
-                    Message = string.Format("Invalid Order for security id {0}", clientOrderReq.InstrumentId),
-                    Success = false,
-                    OrderId = NextOrderId,
-                    UserId = clientOrderReq.UserId,
-                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = clientOrderReq.UUID
-                };
-                DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
-                DoSend<ClientOrderResponse>(socket, clientOrdAck);
-
-                ////We reject the messageas a convention, we cannot send messages lower than 6000 USD
-                //ClientOrderRej reject = new ClientOrderRej()
-                //{
-                //    Msg = "ClientOrderRej",
-                //    cRejectCode='0',
-                //    ExchangeId=0,
-                //    UUID=clientOrderReq.UUID,
-                //    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
-
-                //};
-
-                //DoSend<ClientOrderRej>(socket, reject);
-
-                return true;
-            }
-
-            return false;
-
-        }
-
-        protected void ProcessLegacyOrderReqMock(IWebSocketConnection socket, string m)
+        protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
         {
             try
             {
@@ -521,6 +1184,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (!ProcessRejectionsForNewOrders(clientOrderReq, socket))
                     {
 
+                        ClientInstrument instr =  GetInstrumentByServiceKey(clientOrderReq.InstrumentId.ToString());
+
                         ClientOrderResponse clientOrdAck = new ClientOrderResponse()
                         {
                             Msg = "ClientOrderResponse",
@@ -528,14 +1193,13 @@ namespace DGTLBackendMock.DataAccessLayer
                             InstrumentId = clientOrderReq.InstrumentId,
                             Message = "success",
                             Success = true,
-                            OrderId = NextOrderId,
+                            OrderId = GUIDToLongConverter.GUIDToLong(Guid.NewGuid().ToString()),
                             UserId=clientOrderReq.UserId,
                             Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                             UUID = clientOrderReq.UUID
                         };
                         DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
                         DoSend<ClientOrderResponse>(socket, clientOrdAck);
-                        NextOrderId++;
 
                         //We send the mock ack
                         //ClientOrderAck clientOrdAck = new ClientOrderAck()
@@ -552,16 +1216,16 @@ namespace DGTLBackendMock.DataAccessLayer
                         //DoSend<ClientOrderAck>(socket, clientOrdAck);
 
 
-                        //TODO: Implement this when the order book is implementd
-                        //if (!EvalTrades(legOrdReq, socket))
-                        //{
-                        //    DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
-                        //    EvalPriceLevelsIfNotTrades(socket, legOrdReq);
-                        //    DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
-                        //    EvalNewOrder(socket, legOrdReq, LegacyOrderRecord._STATUS_OPEN, 0);
-                        //    DoLog(string.Format("Updating quotes ..."), MessageType.Information);
-                        //    UpdateQuotes(socket, legOrdReq.InstrumentId);
-                        //}
+
+                        if (!EvalTrades(clientOrderReq, instr, clientOrderReq.UUID, socket))
+                        {
+                            DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
+                            EvalPriceLevelsIfNotTrades(socket, clientOrderReq, instr);
+                            DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
+                            EvalNewOrder(socket, clientOrderReq, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.UUID);
+                            DoLog(string.Format("Updating quotes ..."), MessageType.Information);
+                            UpdateQuotes(socket, instr, clientOrderReq.UUID);
+                        }
                     }
                 }
             }
@@ -572,7 +1236,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
         }
-
 
 
         #endregion
@@ -720,7 +1383,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     TradePrice = legacyTradeHistory.TradePrice,
                     TradeQty = legacyTradeHistory.TradeQuantity,
-                    UserId = 0,
+                    UserId = LoggedUserId,
                     UUID = UUID
                 };
 
@@ -746,7 +1409,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     CumQty = legacyOrderRecord.FillQty,
                     ExchageFees = 0,
                     FirmId = Convert.ToInt64(LoggedFirmId),
-                    UserId = 0,
+                    UserId = LoggedUserId,
                     InstrumentId = instr.InstrumentId,
                     LeavesQty = legacyOrderRecord.LvsQty,
                     Message = "",
@@ -770,8 +1433,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientBestBidOffer cBidOffer = new ClientBestBidOffer()
                 {
                     Msg = "ClientBestBidOffer",
-                    Ask = legacyLastQuote.Ask,
-                    AskSize = legacyLastQuote.AskSize,
+                    Offer = legacyLastQuote.Ask,
+                    OfferSize = legacyLastQuote.AskSize,
                     Bid = legacyLastQuote.Bid,
                     BidSize = legacyLastQuote.BidSize,
                     InstrumentId = instr.InstrumentId,
@@ -846,8 +1509,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Quote legacyLastQuote  = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
 
-                    TranslateAndSendOldQuote(socket, subscrMsg.UUID, legacyLastQuote, instr);
-                    Thread.Sleep(3000);//3 seconds
+                    if (legacyLastQuote != null)
+                    {
+
+                        TranslateAndSendOldQuote(socket, subscrMsg.UUID, legacyLastQuote, instr);
+                        Thread.Sleep(3000);//3 seconds
+                    }
                     if (!subscResp)
                     {
                         ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
@@ -855,6 +1522,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         subscResp = true;
                         SubscribedLQ = true;
                     }
+
+                    if (legacyLastQuote == null)
+                        break;
                 }
             }
             catch (Exception ex)
@@ -886,7 +1556,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Sending LQ for symbol {0}. Best bid={1} Best ask={2}", instr.InstrumentName, quote.Bid, quote.Ask), MessageType.Information);
 
                         TranslateAndSendOldQuote(socket, UUID, quote,instr);
-                        DoSend<Quote>(socket, quote);
+                        //DoSend<Quote>(socket, quote);
 
                     }
                     else
@@ -1297,6 +1967,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessTokenResponse(socket, m);
                 }
+                else if (wsResp.Msg == "FirmsListRequest")
+                {
+                    ProcessFirmsListRequest(socket, m);
+                }
+                else if (wsResp.Msg == "FirmsCreditLimitUpdateRequest")
+                {
+                    ProcessFirmsCreditLimitUpdateRequest(socket, m);
+                }
                 else if (wsResp.Msg == "ClientHeartbeat")
                 {
                     //We do nothing//
@@ -1305,7 +1983,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "ClientOrderReq")
                 {
 
-                    ProcessLegacyOrderReqMock(socket, m);
+                    ProcessOrderReqMock(socket, m);
 
                 }
                 else if (wsResp.Msg == "ResetPasswordRequest")

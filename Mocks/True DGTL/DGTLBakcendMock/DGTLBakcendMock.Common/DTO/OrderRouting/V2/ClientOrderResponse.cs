@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string UUID { get; set; }
 
-        public long UserId { get; set; }
+        public string UserId { get; set; }
 
         public long InstrumentId { get; set; }
 

@@ -18,9 +18,9 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public decimal? BidSize { get; set; }
 
-        public decimal? Ask { get; set; }
+        public decimal? Offer { get; set; }
 
-        public decimal? AskSize { get; set; }
+        public decimal? OfferSize { get; set; }
 
         public decimal? MidPrice{ get; set; }
 

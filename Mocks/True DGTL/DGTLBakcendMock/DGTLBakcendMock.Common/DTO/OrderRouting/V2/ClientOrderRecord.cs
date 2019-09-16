@@ -28,7 +28,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public long FirmId{ get; set; }
 
-         public long UserId { get; set; }
+         public string UserId { get; set; }
 
          public long OrderId { get; set; }
 

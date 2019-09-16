@@ -13,7 +13,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public string UserId { get; set; }
 
-        public string FirmId { get; set; }
+        public long FirmId { get; set; }
 
         public string GroupId { get; set; }
 

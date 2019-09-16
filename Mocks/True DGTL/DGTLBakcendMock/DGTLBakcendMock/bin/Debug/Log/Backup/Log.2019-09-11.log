@@ -217,3 +217,35 @@
 2019-09-11 10:22:56  :: SubscriptionResponse UUID:9e0e0dfa-4c5a-412b-a960-7c7349b25a70 Service:LT ServiceKey:* Success:True
 2019-09-11 10:22:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
 2019-09-11 10:23:00  :: Turning threads off on socket disconnection
+2019-09-11 18:01:43  :: Initializing Mock Server...
+2019-09-11 18:01:43  :: Initializing all collections...
+2019-09-11 18:01:44  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-11 18:01:45  :: Collections Initialized...
+2019-09-11 18:01:57  :: Connecting for the first time to client 3733
+2019-09-11 18:01:57  :: Connected for the first time to client 3733
+2019-09-11 18:02:02  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-11 18:02:02  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-11 18:02:02  :: Sending ClientLoginResponse with UUID cec24d5d-134f-43ff-ad83-358b4be44834
+2019-09-11 18:02:02  :: Sending Instrument Batch 
+2019-09-11 18:02:02  :: Sending ClientUserRecord
+2019-09-11 18:02:02  :: Sending ClientMarketStateBatch
+2019-09-11 18:02:02  :: Sending ClientAccountRecordBatch 
+2019-09-11 18:02:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:07  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-11 18:02:07  :: Sending ClientOrderResponse rejected ...
+2019-09-11 18:02:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:15  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 18:02:15  :: Incoming subscription for service LT - ServiceKey:2
+2019-09-11 18:02:15  :: SubscriptionResponse UUID:cec24d5d-134f-43ff-ad83-358b4be44834 Service:LT ServiceKey:2 Success:True
+2019-09-11 18:02:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:21  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-11 18:02:21  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-09-11 18:02:21  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-09-11 18:02:21  :: SubscriptionResponse UUID:cec24d5d-134f-43ff-ad83-358b4be44834 Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-09-11 18:02:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-11 18:02:32  :: Turning threads off on socket disconnection

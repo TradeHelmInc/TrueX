@@ -34,7 +34,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public string AccountId { get; set; }
 
-        public string FirmId { get; set; }
+        public long FirmId { get; set; }
 
         public string SettlementFirmId { get; set; }
 

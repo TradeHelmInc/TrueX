@@ -53,6 +53,8 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("LoginClient <userId> <UUID> <Password>");
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
+            Console.WriteLine("FirmListRequest");
+            Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Limit> <Total> <MaxTradeSize>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("RouteAndCancelOrder <AccountId> (Harcoded..)");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
@@ -139,6 +141,14 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "Subscribe")
             {
                 ProcessSubscribe(param);
+            }
+            else if (mainCmd == "FirmListRequest")
+            {
+                ProcessFirmListRequest(param);
+            }
+            else if (mainCmd == "CreditLimitUpdateRequest")
+            {
+                ProcessCreditLimitUpdateRequest(param);
             }
             else if (mainCmd == "LogoutClient")
             {
@@ -352,13 +362,13 @@ namespace DGTLBackendAPIClientV2
                 cSide = ConfigurationManager.AppSettings["OrderSide"] == "B" ? ClientOrderReq._SIDE_BUY : ClientOrderReq._SIDE_SELL,//Buy or sell
                 cTimeInForce = ClientOrderReq._TIF_DAY,
                 ClientOrderId= Guid.NewGuid().ToString(),
-                FirmId = "",
+                FirmId = 0,
                 InstrumentId = Convert.ToInt32(ConfigurationManager.AppSettings["OrderInstrumentId"]),
                 //JsonWebToken = Token,
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
                 //SendingTime = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UserId = 10
+                UserId = UserId
             };
 
             return clientOrderReq;
@@ -387,6 +397,47 @@ namespace DGTLBackendAPIClientV2
             else
                 DoLog(string.Format("Missing mandatory parameters for ClientOrderReq message"));
 
+        }
+
+        private static void ProcessCreditLimitUpdateRequest(string[] param)
+        {
+            if (param.Length == 6)
+            {
+                FirmsCreditLimitUpdateRequest firmsCreditLimitUpdReq = new FirmsCreditLimitUpdateRequest()
+                {
+                    Msg = "FirmsCreditLimitUpdateRequest",
+                    CreditLimitTotal = Convert.ToDouble(param[4]),
+                    CreditLimitUsage = Convert.ToDouble(param[3]),
+                    CreditLimitBalance = Convert.ToDouble(param[4]) - Convert.ToDouble(param[3]),
+                    CreditLimitMaxTradeSize = Convert.ToDecimal(param[5]),
+                    cTradingStatus = Convert.ToChar(param[2]),
+                    FirmId = Convert.ToInt64(param[1]),
+                    JsonWebToken = Token,
+                    UUID = UUID
+                };
+
+                DoSend<FirmsCreditLimitUpdateRequest>(firmsCreditLimitUpdReq);
+            
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for FirmsCreditLimitUpdateRequest message"));
+        
+        }
+
+        private static void ProcessFirmListRequest(string[] param)
+        { 
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            FirmsListRequest req = new FirmsListRequest()
+            {
+                JsonWebToken = Token,
+                Msg = "FirmsListRequest",
+                PageNo = 0,
+                PageRecords = 100,
+                Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                UUID = UUID
+
+            };
+            DoSend<FirmsListRequest>(req);
         }
 
         private static void ProcessLoginClient(string[] param)
