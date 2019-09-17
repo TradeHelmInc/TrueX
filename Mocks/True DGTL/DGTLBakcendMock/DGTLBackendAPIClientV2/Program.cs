@@ -31,11 +31,15 @@ namespace DGTLBackendAPIClientV2
 
         protected static string UUID { get; set; }
 
-        protected static string UserId { get; set; }
+        protected static long UserId { get; set; }
+
+        protected static long FirmId { get; set; }
 
         protected static string TempUser { get; set; }
 
         protected static string TempPassword { get; set; }
+
+        protected static ClientOrderReq LastOrderCreated { get; set; }
 
         #endregion
 
@@ -56,7 +60,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("FirmListRequest");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Limit> <Total> <MaxTradeSize>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
-            Console.WriteLine("RouteAndCancelOrder <AccountId> (Harcoded..)");
+            Console.WriteLine("CancelLastCreatedOrder");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
             Console.WriteLine("MassiveCancel");
             Console.WriteLine("-CLEAR");
@@ -157,6 +161,10 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "RouteOrder")
             {
                 ProcessRouteOrder(param);
+            }
+            else if (mainCmd == "CancelLastCreatedOrder")
+            {
+                ProcessCancelLastCreatedOrderparam(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR")
             {
@@ -272,6 +280,7 @@ namespace DGTLBackendAPIClientV2
                    
                     UUID = loginResp.UUID;
                     UserId = loginResp.UserId;
+                    FirmId = 0;
                 }
 
                 ProcessJsonMessage<ClientLoginResponse>(loginResp);
@@ -285,7 +294,8 @@ namespace DGTLBackendAPIClientV2
                 ClientLogout logoutResp = (ClientLogout)msg;
 
                 Token = null;
-                UserId = null;
+                UserId = 0;
+                FirmId = 0;
                 UUID = null;
 
                 ProcessJsonMessage<ClientLogout>((ClientLogout)msg);
@@ -368,10 +378,39 @@ namespace DGTLBackendAPIClientV2
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
                 //SendingTime = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UserId = UserId
+                UserId = UserId.ToString()
             };
 
             return clientOrderReq;
+        }
+
+
+        private static void ProcessCancelLastCreatedOrderparam(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (LastOrderCreated != null)
+            {
+                ClientOrderCancelReq cxlReq = new ClientOrderCancelReq()
+                {
+                    UUID = UUID,
+                    CancelReason = "Cancelled from test client",
+                    ClientOrderId = LastOrderCreated.ClientOrderId,
+                    FirmId = LastOrderCreated.FirmId,
+                    Msg = "ClientOrderCancelReq",
+                    OrderId = 0,
+                    UserId = UserId,
+                };
+
+                DoSend<ClientOrderCancelReq>(cxlReq);
+            }
+            else
+                DoLog(string.Format("Last Order Created Missing"));
+
         }
 
         private static void ProcessRouteOrder(string[] param)
@@ -385,6 +424,8 @@ namespace DGTLBackendAPIClientV2
             if (param.Length >= 1)
             {
                 ClientOrderReq clientOrderReq = CreateNewOrder(param);
+
+                LastOrderCreated = clientOrderReq;
 
                 string strMsg = JsonConvert.SerializeObject(clientOrderReq, Newtonsoft.Json.Formatting.None,
                                                  new JsonSerializerSettings
@@ -415,6 +456,8 @@ namespace DGTLBackendAPIClientV2
                     JsonWebToken = Token,
                     UUID = UUID
                 };
+
+                FirmId = firmsCreditLimitUpdReq.FirmId;
 
                 DoSend<FirmsCreditLimitUpdateRequest>(firmsCreditLimitUpdReq);
             
@@ -498,7 +541,7 @@ namespace DGTLBackendAPIClientV2
                 {
                     Msg = "ClientLogoutRequest",
                     JsonWebToken = Token,
-                    UserId = UserId,
+                    UserId = UserId.ToString(),
                     UUID = UUID,
                 };
 

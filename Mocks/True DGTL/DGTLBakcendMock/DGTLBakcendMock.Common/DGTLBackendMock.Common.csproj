@@ -99,6 +99,8 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
+    <Compile Include="DTO\OrderRouting\V2\ClientOrderCancelReq.cs" />
+    <Compile Include="DTO\OrderRouting\V2\ClientOrderCancelResponse.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderRecord.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientTradeRecord.cs" />
     <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderAck.cs" />

@@ -54,6 +54,89 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Methods
 
+        private void EvalPriceLevels(IWebSocketConnection socket, ClientOrderRecord order,string UUID)
+        {
+
+            ClientInstrument instr = GetInstrumentByIntInstrumentId(order.InstrumentId);
+            if (!order.Price.HasValue)
+                return;
+
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (order.cSide == LegacyOrderReq._SIDE_BUY)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._BID_ENTRY
+                                                                       && x.Symbol == instr.InstrumentName
+                                                                       && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+                    decimal newSize = existingPriceLevel.Size - Convert.ToDecimal(order.LeavesQty);
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = newSize > 0 ? DepthOfBook._ACTION_CHANGE : DepthOfBook._ACTION_REMOVE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._BID_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = newSize;
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+
+                    if (updPriceLevel.cAction == DepthOfBook._ACTION_REMOVE)
+                        DepthOfBooks.Remove(existingPriceLevel);
+
+                    DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                    TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, UUID);
+                    //DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+
+                    throw new Exception(string.Format("Critical Error: Cancelling an order for an unexisting bid price level: {0}", order.Price.Value));
+                }
+
+            }
+            else if (order.cSide == LegacyOrderReq._SIDE_SELL)
+            {
+                DepthOfBook existingPriceLevel = DepthOfBooks.Where(x => x.cBidOrAsk == DepthOfBook._ASK_ENTRY
+                                                                       && x.Symbol == instr.InstrumentName
+                                                                       && x.Price == Convert.ToDecimal(order.Price.Value)).FirstOrDefault();
+
+                if (existingPriceLevel != null)
+                {
+                    decimal newSize = existingPriceLevel.Size - Convert.ToDecimal(order.LeavesQty);
+
+                    DepthOfBook updPriceLevel = new DepthOfBook();
+                    updPriceLevel.cAction = newSize > 0 ? DepthOfBook._ACTION_CHANGE : DepthOfBook._ACTION_REMOVE;
+                    updPriceLevel.cBidOrAsk = DepthOfBook._ASK_ENTRY;
+                    updPriceLevel.DepthTime = Convert.ToInt64(elaped.TotalMilliseconds);
+                    updPriceLevel.Index = existingPriceLevel.Index;
+                    updPriceLevel.Msg = existingPriceLevel.Msg;
+                    updPriceLevel.Price = existingPriceLevel.Price;
+                    updPriceLevel.Sender = existingPriceLevel.Sender;
+                    updPriceLevel.Size = existingPriceLevel.Size - Convert.ToDecimal(order.LeavesQty);
+                    updPriceLevel.Symbol = existingPriceLevel.Symbol;
+
+                    existingPriceLevel.Size = updPriceLevel.Size;
+
+                    if (updPriceLevel.cAction == DepthOfBook._ACTION_REMOVE)
+                        DepthOfBooks.Remove(existingPriceLevel);
+
+                    DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
+                    TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, UUID);
+                    //DoSend<DepthOfBook>(socket, updPriceLevel);
+                }
+                else
+                {
+                    throw new Exception(string.Format("Critical Error: Cancelling an order for an unexisting ask price level: {0}", order.Price.Value));
+                }
+            }
+        }
+
         //1.2.1-We update market data for a new trade
         private void EvalMarketData(IWebSocketConnection socket, LegacyTradeHistory newTrade,ClientInstrument instr,string UUID)
         {
@@ -800,7 +883,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Message = msg,
                 Success = false,
                 Time = wsLogin.Time,
-                UserId = null
+                UserId = 0
             };
 
             DoSend<ClientLoginResponse>(socket, reject);
@@ -1167,7 +1250,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     JsonWebToken = LastTokenGenerated,
                     Success = true,
                     Time = wsLogin.Time,
-                    UserId = memUserRecord.UserId
+                    UserId = GUIDToLongConverter.GUIDToLong(memUserRecord.DeskId)
                 };
 
                 DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.UUID), MessageType.Information);
@@ -1184,6 +1267,80 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
                 SendLoginRejectReject(socket, wsLogin,string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message));
             }
+        }
+
+        protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
+        {
+
+            DoLog(string.Format("Processing ClientOrderCancelReq"), MessageType.Information);
+            ClientOrderCancelReq ordCxlReq = JsonConvert.DeserializeObject<ClientOrderCancelReq>(m);
+
+            //TODO: Implement cancellation rejections
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    DoLog(string.Format("Searching order by ClientOrderId={0} )", ordCxlReq.ClientOrderId), MessageType.Information);
+                    LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
+
+                    if (order != null)
+                    {
+
+                        ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+
+                        //1-We send el CancelAck
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.FirmId = ordCxlReq.FirmId;
+                        ack.Message = "Just cancelled @ mock v2";
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = GUIDToLongConverter.GUIDToLong(order.OrderId);
+                        ack.Success = true;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.UserId = ordCxlReq.UserId;
+                        ack.UUID = ordCxlReq.UUID;
+
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
+
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty }, ordCxlReq.UUID);
+
+                        //3-Upd orders in mem
+                        DoLog(string.Format("Updating orders in mem"), MessageType.Information);
+                        Orders.Remove(order);
+
+                        //4- Update Quotes
+                        DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
+                        UpdateQuotes(socket, instr, ordCxlReq.UUID);
+
+                        //5-
+                        //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
+
+                        //6-Send LegacyOrderRecord
+                        CanceledLegacyOrderREcord(order, socket);
+
+                    }
+                    else
+                    {
+                        //TODO: LegacyOrderCancelRejAck
+                        DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: LegacyOrderCancelRejAck
+                DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
+            }
+        
+
+
         }
 
         protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
@@ -1267,25 +1424,31 @@ namespace DGTLBackendMock.DataAccessLayer
             return  InstrBatch.messages.Where(x => x.InstrumentName == symbol).FirstOrDefault();
         }
 
+
+        protected ClientInstrument GetInstrumentByIntInstrumentId(long instrumentId)
+        {
+
+            ClientInstrument instr = InstrBatch.messages.Where(x => x.InstrumentId == instrumentId).FirstOrDefault();
+            return instr;
+        }
+
+
         protected ClientInstrument GetInstrumentByServiceKey(string serviceKey)
         {
             if (InstrBatch == null)
                 throw new Exception("Initial load for instrument not finished!");
 
-            int filterIntrId=0;
+            long filterIntrId=0;
             try
             {
-                filterIntrId = Convert.ToInt32(serviceKey);
+                filterIntrId = Convert.ToInt64(serviceKey);
             }
             catch(Exception ex)
             {
                 throw new Exception(string.Format("Wrong format for instrumentId (serviceKey): {}. The instrumentId has to be an integer",serviceKey));
             }
 
-
-
-            ClientInstrument instr  = InstrBatch.messages.Where(x => x.InstrumentId == filterIntrId).FirstOrDefault();
-            return instr;
+            return GetInstrumentByIntInstrumentId(filterIntrId);
         }
 
         protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, string UUID, bool success = true, string msg = "success")
@@ -2008,6 +2171,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ProcessOrderReqMock(socket, m);
 
+                }
+                else if (wsResp.Msg == "ClientOrderCancelReq")
+                {
+                    ProcessClientOrderCancelReq(socket, m);
                 }
                 else if (wsResp.Msg == "ResetPasswordRequest")
                 {

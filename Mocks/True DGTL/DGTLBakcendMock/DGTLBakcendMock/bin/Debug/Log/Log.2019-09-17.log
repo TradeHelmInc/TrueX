@@ -926,3 +926,129 @@
 2019-09-17 16:35:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
 2019-09-17 16:35:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
 2019-09-17 16:35:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:25:18  :: Initializing Mock Server...
+2019-09-17 17:25:18  :: Initializing all collections...
+2019-09-17 17:25:19  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:25:20  :: Collections Initialized...
+2019-09-17 17:25:48  :: Initializing Mock Server...
+2019-09-17 17:25:48  :: Initializing all collections...
+2019-09-17 17:25:48  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:25:49  :: Collections Initialized...
+2019-09-17 17:27:30  :: Initializing Mock Server...
+2019-09-17 17:27:30  :: Initializing all collections...
+2019-09-17 17:27:31  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:27:31  :: Collections Initialized...
+2019-09-17 17:27:43  :: Connecting for the first time to client 8057
+2019-09-17 17:27:43  :: Connected for the first time to client 8057
+2019-09-17 17:30:20  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-17 17:30:20  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-17 17:30:20  :: Sending ClientLoginResponse with UUID 8dd1f13d-c45d-4e95-8492-2739d1259946
+2019-09-17 17:30:20  :: Sending Instrument Batch 
+2019-09-17 17:30:20  :: Sending ClientUserRecord
+2019-09-17 17:30:20  :: Sending ClientMarketStateBatch
+2019-09-17 17:30:20  :: Sending ClientAccountRecordBatch 
+2019-09-17 17:30:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:24  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-17 17:30:24  :: Sending ClientOrderResponse ...
+2019-09-17 17:30:24  :: Best ask for buy order (Limit Price=9100.0) found at price 14999.0
+2019-09-17 17:30:24  :: Could not find matching sell price for symbol ETH-USD and order price 9100.0
+2019-09-17 17:30:24  :: Evaluating price levels ...
+2019-09-17 17:30:24  :: Sending new bid entry: Price=9100.0 Size=100.0 ...
+2019-09-17 17:30:24  :: Evaluating LegacyOrderRecord ...
+2019-09-17 17:30:24  :: Creating new order in Orders collection for ClOrderId = d1619691-48ed-4018-9698-528a320f2b5b
+2019-09-17 17:30:24  :: Updating quotes ...
+2019-09-17 17:30:24  :: Updating best bid and ask for symbol ETH-USD
+2019-09-17 17:30:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:30:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:31:02  :: Turning threads off on socket disconnection
+2019-09-17 17:31:34  :: Initializing Mock Server...
+2019-09-17 17:31:34  :: Initializing all collections...
+2019-09-17 17:31:34  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:31:35  :: Collections Initialized...
+2019-09-17 17:31:41  :: Connecting for the first time to client 8320
+2019-09-17 17:31:41  :: Connected for the first time to client 8320
+2019-09-17 17:31:49  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-17 17:31:49  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-17 17:31:49  :: Sending ClientLoginResponse with UUID 73e3cb5c-f456-4dcc-a9c3-1392df1065a1
+2019-09-17 17:31:49  :: Sending Instrument Batch 
+2019-09-17 17:31:49  :: Sending ClientUserRecord
+2019-09-17 17:31:54  :: Sending ClientMarketStateBatch
+2019-09-17 17:31:54  :: Sending ClientAccountRecordBatch 
+2019-09-17 17:38:42  :: Initializing Mock Server...
+2019-09-17 17:38:42  :: Initializing all collections...
+2019-09-17 17:38:43  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:38:43  :: Collections Initialized...
+2019-09-17 17:39:03  :: Connecting for the first time to client 8716
+2019-09-17 17:39:03  :: Connected for the first time to client 8716
+2019-09-17 17:39:08  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-17 17:39:09  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-17 17:39:09  :: Sending ClientLoginResponse with UUID 91091d4b-e431-4488-872b-b5a8ed9ad844
+2019-09-17 17:39:09  :: Sending Instrument Batch 
+2019-09-17 17:39:11  :: Sending ClientUserRecord
+2019-09-17 17:39:11  :: Sending ClientMarketStateBatch
+2019-09-17 17:39:11  :: Sending ClientAccountRecordBatch 
+2019-09-17 17:39:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:18  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-17 17:39:19  :: Sending ClientOrderResponse ...
+2019-09-17 17:39:19  :: Best ask for buy order (Limit Price=9100.0) found at price 14999.0
+2019-09-17 17:39:19  :: Could not find matching sell price for symbol ETH-USD and order price 9100.0
+2019-09-17 17:39:19  :: Evaluating price levels ...
+2019-09-17 17:39:19  :: Sending new bid entry: Price=9100.0 Size=100.0 ...
+2019-09-17 17:39:19  :: Evaluating LegacyOrderRecord ...
+2019-09-17 17:39:19  :: Creating new order in Orders collection for ClOrderId = f8ee7d86-304a-4a89-ba04-a0929a00dd23
+2019-09-17 17:39:19  :: Updating quotes ...
+2019-09-17 17:39:19  :: Updating best bid and ask for symbol ETH-USD
+2019-09-17 17:39:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:39:36  :: OnMessage ClientOrderCancelReq from IP -> 127.0.0.1
+2019-09-17 17:39:40  :: Processing ClientOrderCancelReq
+2019-09-17 17:39:43  :: Searching order by ClientOrderId=f8ee7d86-304a-4a89-ba04-a0929a00dd23 )
+2019-09-17 17:40:58  :: Initializing Mock Server...
+2019-09-17 17:40:58  :: Initializing all collections...
+2019-09-17 17:40:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-17 17:40:59  :: Collections Initialized...
+2019-09-17 17:41:07  :: Connecting for the first time to client 8782
+2019-09-17 17:41:07  :: Connected for the first time to client 8782
+2019-09-17 17:41:16  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-17 17:41:16  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-17 17:41:16  :: Sending ClientLoginResponse with UUID d92d22f6-32cd-406e-b03b-15589af9f277
+2019-09-17 17:41:16  :: Sending Instrument Batch 
+2019-09-17 17:41:16  :: Sending ClientUserRecord
+2019-09-17 17:41:16  :: Sending ClientMarketStateBatch
+2019-09-17 17:41:16  :: Sending ClientAccountRecordBatch 
+2019-09-17 17:41:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:41:21  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-17 17:41:21  :: Sending ClientOrderResponse ...
+2019-09-17 17:41:21  :: Best ask for buy order (Limit Price=9100.0) found at price 14999.0
+2019-09-17 17:41:21  :: Could not find matching sell price for symbol ETH-USD and order price 9100.0
+2019-09-17 17:41:21  :: Evaluating price levels ...
+2019-09-17 17:41:21  :: Sending new bid entry: Price=9100.0 Size=100.0 ...
+2019-09-17 17:41:21  :: Evaluating LegacyOrderRecord ...
+2019-09-17 17:41:21  :: Creating new order in Orders collection for ClOrderId = 42a35a2b-b103-444f-b986-f68f4e92bb80
+2019-09-17 17:41:21  :: Updating quotes ...
+2019-09-17 17:41:21  :: Updating best bid and ask for symbol ETH-USD
+2019-09-17 17:41:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-17 17:41:25  :: OnMessage ClientOrderCancelReq from IP -> 127.0.0.1
+2019-09-17 17:41:27  :: Processing ClientOrderCancelReq
+2019-09-17 17:41:28  :: Searching order by ClientOrderId=42a35a2b-b103-444f-b986-f68f4e92bb80 )
+2019-09-17 17:41:33  :: Sending cancellation ack for ClOrdId: 42a35a2b-b103-444f-b986-f68f4e92bb80
+2019-09-17 17:41:43  :: Evaluating price levels for ClOrdId: 42a35a2b-b103-444f-b986-f68f4e92bb80
+2019-09-17 17:41:43  :: Sending upd bid entry: Price=9100.0 Size=0.0 ...
+2019-09-17 17:41:53  :: Updating orders in mem
+2019-09-17 17:41:54  :: Updating quotes on order cancelation
+2019-09-17 17:41:55  :: Updating best bid and ask for symbol ETH-USD
