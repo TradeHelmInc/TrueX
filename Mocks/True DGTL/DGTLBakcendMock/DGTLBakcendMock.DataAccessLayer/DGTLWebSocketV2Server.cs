@@ -613,6 +613,16 @@ namespace DGTLBackendMock.DataAccessLayer
                         };
 
                         DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
+
+                        FirmsCreditLimitRecord newCreditLimit = new FirmsCreditLimitRecord()
+                        {
+                            Msg = "FirmsCreditLimitRecord",
+                            Firm = firm,
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsFirmCreditLimitUpdRq.UUID
+                        };
+
+                        DoSend<FirmsCreditLimitRecord>(socket, newCreditLimit);
                     }
                     catch (Exception ex)
                     {
@@ -668,74 +678,78 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
+        private void CreateFirmListCreditStructure(string UUID, string token, int pageNo,int pageRecords)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            Dictionary<string, ClientFirmRecord> firms = new Dictionary<string, ClientFirmRecord>();
+            List<ClientFirmRecord> finalList = new List<ClientFirmRecord>();
+
+            foreach (AccountRecord accRecord in AccountRecords)
+            {
+                if (!firms.ContainsKey(accRecord.EPFirmId))
+                {
+                    //1- We create the accounts list
+                    List<AccountRecord> firmAccounts = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId).ToList();
+                    List<ClientAccountRecord> v2accountList = new List<ClientAccountRecord>();
+                    firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x)));
+
+                    //2- We creat the credit list
+                    List<CreditUICreditLimit> creditLimits = new List<CreditUICreditLimit>();
+                    CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
+                    DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
+                    CreditUICreditLimit creditLimit = new CreditUICreditLimit()
+                    {
+                        CurrencyRootId = accRecord.RouteId,
+                        cTradingStatus = CreditUICreditLimit._TRADING_STATUS_TRUE,
+                        FirmCreditId = accRecord.EPFirmId,
+                        MaxQtySize = accRecord.MaxNotional,
+                        MaxTradeSize = accRecord.MaxNotional,
+                        PotentialExposure = accRecord.MaxNotional,
+                        Total = defaultAccount != null ? defaultAccount.CreditLimit : -1,
+                        Usage = creditRecord != null ? creditRecord.CreditUsed : 0
+                    };
+
+                    creditLimits.Add(creditLimit);
+
+                    ClientFirmRecord firm = new ClientFirmRecord()
+                    {
+                        Id = Convert.ToInt64(accRecord.EPFirmId),
+                        Name = accRecord.CFirmName,
+                        ShortName = accRecord.CFSortName,
+                        Accounts = v2accountList.ToArray(),
+                        CreditLimit = creditLimits.ToArray()
+                    };
+
+                    firms.Add(accRecord.EPFirmId, firm);
+                    finalList.Add(firm);
+                }
+            }
+
+
+            double totalPages = Math.Ceiling(Convert.ToDouble(finalList.Count / pageRecords));
+            FirmListResp = new FirmsListResponse()
+            {
+                Msg = "FirmsListResponse",
+                cSuccess = FirmsListResponse._SUCCESS_TRUE,
+                Firms = finalList.Skip(pageNo * pageRecords).Take(pageRecords).ToArray(),
+                JsonWebToken = token,
+                UUID = UUID,
+                Message = "success",
+                PageNo = pageNo,
+                Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                TotalPages = Convert.ToInt32(totalPages),
+            };
+        
+        }
+
         private void ProcessFirmsListRequest (IWebSocketConnection socket, string m)
         {
-            FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
+            FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
             try
             {
-                Dictionary<string, ClientFirmRecord> firms = new Dictionary<string, ClientFirmRecord>();
-                List<ClientFirmRecord> finalList = new List<ClientFirmRecord>();
-
-                foreach (AccountRecord accRecord in AccountRecords)
-                {
-                    if (!firms.ContainsKey(accRecord.EPFirmId))
-                    {
-                        //1- We create the accounts list
-                        List<AccountRecord> firmAccounts = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId).ToList();
-                        List<ClientAccountRecord> v2accountList = new List<ClientAccountRecord>();
-                        firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x)));
-
-                        //2- We creat the credit list
-                        List<CreditUICreditLimit> creditLimits = new List<CreditUICreditLimit>();
-                        CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
-                        DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
-                        CreditUICreditLimit creditLimit = new CreditUICreditLimit()
-                        {
-                            CurrencyRootId = accRecord.RouteId,
-                            cTradingStatus = CreditUICreditLimit._TRADING_STATUS_TRUE,
-                            FirmCreditId = accRecord.EPFirmId,
-                            MaxQtySize = accRecord.MaxNotional,
-                            MaxTradeSize = accRecord.MaxNotional,
-                            PotentialExposure = accRecord.MaxNotional,
-                            Total = defaultAccount != null ? defaultAccount.CreditLimit : -1,
-                            Usage = creditRecord != null ? creditRecord.CreditUsed : 0
-                        };
-
-                        creditLimits.Add(creditLimit);
-
-                        ClientFirmRecord firm = new ClientFirmRecord()
-                        {
-                            Id = Convert.ToInt64(accRecord.EPFirmId),
-                            Name = accRecord.CFirmName,
-                            ShortName = accRecord.CFSortName,
-                            Accounts = v2accountList.ToArray(),
-                            CreditLimit = creditLimits.ToArray()
-                        };
-
-                        firms.Add(accRecord.EPFirmId, firm);
-                        finalList.Add(firm);
-                    }
-                }
-
-                
-                double totalPages = Math.Ceiling(Convert.ToDouble(finalList.Count / wsFirmListRq.PageRecords));
-                FirmListResp = new FirmsListResponse()
-                {
-                    Msg = "FirmsListResponse",
-                    cSuccess = FirmsListResponse._SUCCESS_TRUE,
-                    Firms = finalList.Skip(wsFirmListRq.PageNo * wsFirmListRq.PageRecords).Take(wsFirmListRq.PageRecords).ToArray(),
-                    JsonWebToken = wsFirmListRq.JsonWebToken,
-                    UUID = wsFirmListRq.UUID,
-                    Message = "success",
-                    PageNo = wsFirmListRq.PageNo,
-                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    TotalPages = Convert.ToInt32(totalPages),
-                };
-
-
-
+                if(FirmListResp==null)
+                    CreateFirmListCreditStructure(wsFirmListRq.UUID, wsFirmListRq.JsonWebToken, wsFirmListRq.PageNo, wsFirmListRq.PageRecords);
                 DoSend<FirmsListResponse>(socket, FirmListResp);
             }
             catch (Exception ex)
@@ -784,7 +798,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 UUID = wsLogin.UUID,
                 JsonWebToken = LastTokenGenerated,
                 Message = msg,
-                cSuccess = ClientLoginResponse._STATUS_FAILED,
+                Success = false,
                 Time = wsLogin.Time,
                 UserId = null
             };
@@ -1151,7 +1165,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ClientLoginResponse",
                     UUID = wsLogin.UUID,
                     JsonWebToken = LastTokenGenerated,
-                    cSuccess = ClientLoginResponse._STATUS_OK,
+                    Success = true,
                     Time = wsLogin.Time,
                     UserId = memUserRecord.UserId
                 };
@@ -1474,25 +1488,36 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, CreditRecordUpdate creditRecordUpdate,
-                                                           DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount, string UUID = null)
+        private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
-            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            ClientCreditUpdate ccUpd = new ClientCreditUpdate()
-            {
-                Msg = "ClientCreditUpdate",
-                AccountId = Convert.ToInt64(defaultAccount.AccountId),
-                CreditLimit = defaultAccount.CreditLimit,
-                CreditUsed = creditRecordUpdate.CreditUsed,
-                cStatus = ClientCreditUpdate._SEC_STATUS_TRADING,
-                cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
-                FirmId = Convert.ToInt32(creditRecordUpdate.FirmId),
-                MaxNotional = defaultAccount.MaxNotional,
-                Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UUID = UUID
-            };
+            if(FirmListResp==null)
+                CreateFirmListCreditStructure(subscrMsg.UUID, subscrMsg.JsonWebToken, 0, 10000);
 
-            DoSend<ClientCreditUpdate>(socket, ccUpd);
+            ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id == Convert.ToInt32(subscrMsg.ServiceKey)).FirstOrDefault();
+
+            if (firm != null)
+            {
+               
+
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                ClientCreditUpdate ccUpd = new ClientCreditUpdate()
+                {
+                    Msg = "ClientCreditUpdate",
+                    AccountId = 0,
+                    CreditLimit = firm.CreditLimit[0].Total,
+                    CreditUsed = firm.CreditLimit[0].Usage,
+                    cStatus = firm.CreditLimit[0].cTradingStatus,
+                    cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
+                    FirmId = firm.Id,
+                    MaxNotional = firm.CreditLimit[0].MaxTradeSize,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = subscrMsg.UUID
+                };
+
+                DoSend<ClientCreditUpdate>(socket, ccUpd);
+            }
+            else
+                throw new Exception(string.Format("Unknown firm {0}", subscrMsg.ServiceKey));
         }
 
         private void QuoteThread(object param)
@@ -1738,17 +1763,15 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessCreditRecordUpdates(IWebSocketConnection socket, Subscribe subscrMsg)
         {
-            DGTLBackendMock.Common.DTO.Account.CreditRecordUpdate creditRecordUpdate = CreditRecordUpdates.Where(x => x.FirmId == subscrMsg.ServiceKey).FirstOrDefault();
-            DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == subscrMsg.ServiceKey).FirstOrDefault();
-
-            if (creditRecordUpdate != null)
+            try
             {
-                TranslateAndSendOldCreditRecordUpdate(socket, creditRecordUpdate, defaultAccount, subscrMsg.UUID);
+                TranslateAndSendOldCreditRecordUpdate(socket, subscrMsg);
                 ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID);
             }
-            else
+            catch (Exception ex)
             {
-                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: string.Format("Unknown Credit Record Update for FirmId {0}", subscrMsg.ServiceKey));
+
+                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: ex.Message);
             }
         }
 
@@ -1809,7 +1832,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 JsonWebToken = wsLogout.JsonWebToken,
                 UUID = wsLogout.UUID,
                 Time = wsLogout.Time,
-                cSuccess = ClientLogoutResponse._STATUS_OK,
+                Success = true,
                 Message = "Successfully logged out"
 
             };
