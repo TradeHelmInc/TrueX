@@ -5,17 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DGTLBackendMock.Common.DTO.Account.V2
+namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 {
     public class FirmsCreditLimitUpdateResponse : WebSocketMessageV2
     {
-
-        #region Public Static Consts
-
-        public static char _SUCCESS_FALSE = '0';
-        public static char _SUCCESS_TRUE = '1';
-
-        #endregion
 
         #region Public Attributes
 
@@ -25,15 +18,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public long FirmId { get; set; }
 
-        private byte success;
-        public byte Success
-        {
-            get { return success; }
-            set { success = Convert.ToByte(value); }
-        }
-
-        [JsonIgnore]
-        public char cSuccess { get { return Convert.ToChar(Success); } set { Success = Convert.ToByte(value); } }
+        public bool Success { get; set; }
 
         public string Message { get; set; }
 

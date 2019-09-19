@@ -1,5 +1,6 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account.V2;
+using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
@@ -58,6 +59,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("FirmListRequest");
+            Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Limit> <Total> <MaxTradeSize>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("CancelLastCreatedOrder");
@@ -153,6 +155,10 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "CreditLimitUpdateRequest")
             {
                 ProcessCreditLimitUpdateRequest(param);
+            }
+            else if (mainCmd == "FirmsTradingStatusUpdateRequest")
+            {
+                ProcessFirmsTradingStatusUpdateRequest(param);
             }
             else if (mainCmd == "LogoutClient")
             {
@@ -310,24 +316,12 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<SubscriptionResponse>((SubscriptionResponse)msg);
             else if (msg is ClientAccountRecord)
                 ProcessJsonMessage<ClientAccountRecord>((ClientAccountRecord)msg);
-            //else if (msg is DailySettlementPrice)
-            //    ProcessJsonMessage<DailySettlementPrice>((DailySettlementPrice)msg);
-            //else if (msg is FirmRecord)
-            //    ProcessJsonMessage<FirmRecord>((FirmRecord)msg);
-            //else if (msg is OfficialFixingPrice)
-            //    ProcessJsonMessage<OfficialFixingPrice>((OfficialFixingPrice)msg);
-            //else if (msg is RefereceRateMsg)
-            //    ProcessJsonMessage<RefereceRateMsg>((RefereceRateMsg)msg);
-            //else if (msg is UserRecord)
-            //    ProcessJsonMessage<UserRecord>((UserRecord)msg);
             else if (msg is ClientLastSale)
                 ProcessJsonMessage<ClientLastSale>((ClientLastSale)msg);
+            else if (msg is FirmsTradingStatusUpdateResponse)
+                ProcessJsonMessage<FirmsTradingStatusUpdateResponse>((FirmsTradingStatusUpdateResponse)msg);
             else if (msg is ClientBestBidOffer)
                 ProcessJsonMessage<ClientBestBidOffer>((ClientBestBidOffer)msg);
-            //else if (msg is CreditRecordUpdate)
-            //    ProcessJsonMessage<CreditRecordUpdate>((CreditRecordUpdate)msg);
-            //else if (msg is DepthOfBook)
-            //    ProcessJsonMessage<DepthOfBook>((DepthOfBook)msg);
             else if (msg is ClientMarketState)
                 ProcessJsonMessage<ClientMarketState>((ClientMarketState)msg);
             else if (msg is ClientInstrument)
@@ -338,8 +332,12 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientOrderRej>((ClientOrderRej)msg);
             else if (msg is ClientOrderReq)
                 ProcessJsonMessage<ClientOrderReq>((ClientOrderReq)msg);
-         
-         
+            else if (msg is FirmsListResponse)
+                ProcessJsonMessage<FirmsListResponse>((FirmsListResponse)msg);
+            else if (msg is FirmsCreditLimitUpdateResponse)
+                ProcessJsonMessage<FirmsCreditLimitUpdateResponse>((FirmsCreditLimitUpdateResponse)msg);
+            else if (msg is FirmsTradingStatusUpdateResponse)
+                ProcessJsonMessage<FirmsTradingStatusUpdateResponse>((FirmsTradingStatusUpdateResponse)msg);
             else if (msg is UnknownMessageV2)
             {
                 UnknownMessageV2 unknownMsg = (UnknownMessageV2)msg;
@@ -438,6 +436,29 @@ namespace DGTLBackendAPIClientV2
             else
                 DoLog(string.Format("Missing mandatory parameters for ClientOrderReq message"));
 
+        }
+
+        private static void ProcessFirmsTradingStatusUpdateRequest(string[] param)
+        {
+            if (param.Length == 3)
+            {
+                FirmsTradingStatusUpdateRequest firmsCreditLimitUpdReq = new FirmsTradingStatusUpdateRequest()
+                {
+                    Msg = "FirmsTradingStatusUpdateRequest",
+                    Time = 0,
+                    cTradingStatus = Convert.ToChar(param[2]),
+                    FirmId = Convert.ToInt64(param[1]),
+                    JsonWebToken = Token,
+                    UUID = UUID
+                };
+
+                FirmId = firmsCreditLimitUpdReq.FirmId;
+
+                DoSend<FirmsTradingStatusUpdateRequest>(firmsCreditLimitUpdReq);
+
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for FirmsTradingStatusUpdateRequest message"));
         }
 
         private static void ProcessCreditLimitUpdateRequest(string[] param)

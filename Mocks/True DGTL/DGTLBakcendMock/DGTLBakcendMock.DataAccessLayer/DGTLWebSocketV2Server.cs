@@ -1,6 +1,7 @@
 ﻿using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Account.V2;
+using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
@@ -660,6 +661,95 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+
+        private void ProcessFirmsTradingStatusUpdateRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            FirmsTradingStatusUpdateRequest wsFirmsTradingStatusUpdateRequest = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateRequest>(m);
+            if (FirmListResp != null)
+            {
+                ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id == wsFirmsTradingStatusUpdateRequest.FirmId).FirstOrDefault();
+
+                if (firm != null)
+                {
+                    try
+                    {
+                        firm.CreditLimit[0].cTradingStatus = wsFirmsTradingStatusUpdateRequest.cTradingStatus;
+
+                        FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
+                        {
+                            Success = true,
+                            FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
+                            JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
+                            Msg = "FirmsTradingStatusUpdateResponse",
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            cTradingStatus=firm.CreditLimit[0].cTradingStatus,
+                            UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                        };
+
+                        DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
+                    }
+                    catch (Exception ex)
+                    {
+                        FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
+                        {
+                            Success = false,
+                            FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
+                            JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
+                            Message = ex.Message,
+                            Msg = "FirmsTradingStatusUpdateResponse",
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                        };
+
+                        DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
+                    }
+
+
+                }
+                else
+                {
+
+                    FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
+                    {
+                        Success = false,
+                        FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
+                        JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
+                        Message = string.Format("FirmId {0} not found", wsFirmsTradingStatusUpdateRequest.FirmId),
+                        Msg = "FirmsTradingStatusUpdateResponse",
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsFirmsTradingStatusUpdateRequest.UUID
+
+                    };
+
+                    DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
+                
+                }
+            
+            
+            }
+            else
+            {
+                FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
+                {
+                    Success = false,
+                    FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
+                    JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
+                    Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
+                    Msg = "FirmsTradingStatusUpdateResponse",
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsFirmsTradingStatusUpdateRequest.UUID
+
+                };
+
+                DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
+
+            }
+
+
+        }
+
         private void ProcessFirmsCreditLimitUpdateRequest(IWebSocketConnection socket, string m)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -680,15 +770,15 @@ namespace DGTLBackendMock.DataAccessLayer
                         firm.CreditLimit[0].Usage = wsFirmCreditLimitUpdRq.CreditLimitUsage;
                         firm.CreditLimit[0].MaxTradeSize = wsFirmCreditLimitUpdRq.CreditLimitMaxTradeSize;
 
-                        if (wsFirmCreditLimitUpdRq.CreditLimitBalance != (wsFirmCreditLimitUpdRq.CreditLimitTotal - wsFirmCreditLimitUpdRq.CreditLimitUsage))
-                            throw new Exception("Balance must be Total - Usage");
+                        //if (wsFirmCreditLimitUpdRq.CreditLimitBalance != (wsFirmCreditLimitUpdRq.CreditLimitTotal - wsFirmCreditLimitUpdRq.CreditLimitUsage))
+                        //    throw new Exception("Balance must be Total - Usage");
 
                         FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                         {
-                            cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_TRUE,
+                            Success = true,
                             FirmId = wsFirmCreditLimitUpdRq.FirmId,
                             JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
-                            Message = "success",
+                            Message = null,
                             Msg = "FirmsCreditLimitUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                             UUID = wsFirmCreditLimitUpdRq.UUID,
@@ -711,7 +801,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                         {
-                            cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                            Success = false,
                             FirmId = wsFirmCreditLimitUpdRq.FirmId,
                             JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
                             Message = string.Format("Error updating firm Id {0} not found:{1}", wsFirmCreditLimitUpdRq.FirmId, ex.Message),
@@ -728,7 +818,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                     {
-                        cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                        Success = false,
                         FirmId = wsFirmCreditLimitUpdRq.FirmId,
                         JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
                         Message = string.Format("Firm Id {0} not found", wsFirmCreditLimitUpdRq.FirmId),
@@ -745,7 +835,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                 {
-                    cSuccess = FirmsCreditLimitUpdateResponse._SUCCESS_FALSE,
+                    Success = false,
                     FirmId = wsFirmCreditLimitUpdRq.FirmId,
                     JsonWebToken = wsFirmCreditLimitUpdRq.JsonWebToken,
                     Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
@@ -777,13 +867,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x)));
 
                     //2- We creat the credit list
-                    List<CreditUICreditLimit> creditLimits = new List<CreditUICreditLimit>();
+                    List<CreditLimit> creditLimits = new List<CreditLimit>();
                     CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
-                    CreditUICreditLimit creditLimit = new CreditUICreditLimit()
+                    CreditLimit creditLimit = new CreditLimit()
                     {
                         CurrencyRootId = accRecord.RouteId,
-                        cTradingStatus = CreditUICreditLimit._TRADING_STATUS_TRUE,
+                        cTradingStatus = CreditLimit._TRADING_STATUS_TRUE,
                         FirmCreditId = accRecord.EPFirmId,
                         MaxQtySize = accRecord.MaxNotional,
                         MaxTradeSize = accRecord.MaxNotional,
@@ -813,11 +903,11 @@ namespace DGTLBackendMock.DataAccessLayer
             FirmListResp = new FirmsListResponse()
             {
                 Msg = "FirmsListResponse",
-                cSuccess = FirmsListResponse._SUCCESS_TRUE,
+                Success = true,
                 Firms = finalList.Skip(pageNo * pageRecords).Take(pageRecords).ToArray(),
                 JsonWebToken = token,
                 UUID = UUID,
-                Message = "success",
+                Message = null,
                 PageNo = pageNo,
                 Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                 TotalPages = Convert.ToInt32(totalPages),
@@ -833,6 +923,8 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 if(FirmListResp==null)
                     CreateFirmListCreditStructure(wsFirmListRq.UUID, wsFirmListRq.JsonWebToken, wsFirmListRq.PageNo, wsFirmListRq.PageRecords);
+
+                FirmListResp.UUID = wsFirmListRq.UUID;
                 DoSend<FirmsListResponse>(socket, FirmListResp);
             }
             catch (Exception ex)
@@ -841,7 +933,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 FirmsListResponse firmListResp = new FirmsListResponse()
                 {
                     Msg = "FirmsListResponse",
-                    cSuccess = FirmsListResponse._SUCCESS_FALSE,
+                    Success = false,
                     JsonWebToken = wsFirmListRq.JsonWebToken,
                     UUID = wsFirmListRq.UUID,
                     Message = ex.Message,
@@ -1271,7 +1363,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
         {
-
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             DoLog(string.Format("Processing ClientOrderCancelReq"), MessageType.Information);
             ClientOrderCancelReq ordCxlReq = JsonConvert.DeserializeObject<ClientOrderCancelReq>(m);
 
@@ -1280,7 +1372,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 lock (Orders)
                 {
-                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                    
 
                     DoLog(string.Format("Searching order by ClientOrderId={0} )", ordCxlReq.ClientOrderId), MessageType.Information);
                     LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
@@ -1327,20 +1419,40 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
-                        //TODO: LegacyOrderCancelRejAck
+                        //1-Rejecting cancelation because client orderId not found
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.FirmId = ordCxlReq.FirmId;
+                        ack.Message = string.Format("Rejecting cancelation because client orderId {0} not found", ordCxlReq.ClientOrderId);
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = 0;
+                        ack.Success = false;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.UserId = ordCxlReq.UserId;
+                        ack.UUID = ordCxlReq.UUID;
+
                         DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
                         //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
                     }
                 }
             }
             catch (Exception ex)
             {
-                //TODO: LegacyOrderCancelRejAck
+                //1-Rejecting cancelation because client orderId not found
+                ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                ack.FirmId = ordCxlReq.FirmId;
+                ack.Message = string.Format("Rejecting cancelation because of an error: {0}", ex.Message);
+                ack.Msg = "ClientOrderCancelResponse";
+                ack.OrderId = 0;
+                ack.Success = false;
+                ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                ack.UserId = ordCxlReq.UserId;
+                ack.UUID = ordCxlReq.UUID;
                 DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
+                DoSend<ClientOrderCancelResponse>(socket, ack);
             }
-        
-
-
         }
 
         protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
@@ -1362,7 +1474,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Msg = "ClientOrderResponse",
                             ClientOrderId = clientOrderReq.ClientOrderId,
                             InstrumentId = clientOrderReq.InstrumentId,
-                            Message = "success",
+                            Message = null,
                             Success = true,
                             OrderId = GUIDToLongConverter.GUIDToLong(Guid.NewGuid().ToString()),
                             UserId=clientOrderReq.UserId,
@@ -2157,9 +2269,13 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessFirmsListRequest(socket, m);
                 }
-                else if (wsResp.Msg == "FirmsCreditLimitUpdateRequest")
+                else if (wsResp.Msg == "FirmsCreditLimitUpdateRequest")//
                 {
                     ProcessFirmsCreditLimitUpdateRequest(socket, m);
+                }
+                else if (wsResp.Msg == "FirmsTradingStatusUpdateRequest")//
+                {
+                    ProcessFirmsTradingStatusUpdateRequest(socket, m);
                 }
                 else if (wsResp.Msg == "ClientHeartbeat")
                 {

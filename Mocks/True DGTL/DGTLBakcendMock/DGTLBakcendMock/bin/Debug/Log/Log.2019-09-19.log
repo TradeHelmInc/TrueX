@@ -1,0 +1,244 @@
+2019-09-19 17:43:10  :: Initializing Mock Server...
+2019-09-19 17:43:10  :: Initializing all collections...
+2019-09-19 17:43:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-19 17:43:12  :: Collections Initialized...
+2019-09-19 17:53:10  :: Initializing Mock Server...
+2019-09-19 17:53:10  :: Initializing all collections...
+2019-09-19 17:53:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-19 17:53:11  :: Collections Initialized...
+2019-09-19 17:54:31  :: Connecting for the first time to client 10797
+2019-09-19 17:54:31  :: Connected for the first time to client 10797
+2019-09-19 17:55:56  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-19 17:55:56  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-19 17:55:56  :: Sending ClientLoginResponse with UUID 05fb33be-e490-42ea-9802-8dd0c6cc291f
+2019-09-19 17:55:56  :: Sending Instrument Batch 
+2019-09-19 17:55:56  :: Sending ClientUserRecord
+2019-09-19 17:55:56  :: Sending ClientMarketStateBatch
+2019-09-19 17:55:56  :: Sending ClientAccountRecordBatch 
+2019-09-19 17:56:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:01  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-09-19 17:56:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:36  :: Initializing Mock Server...
+2019-09-19 17:56:36  :: Initializing all collections...
+2019-09-19 17:56:36  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-19 17:56:36  :: Collections Initialized...
+2019-09-19 17:56:44  :: Connecting for the first time to client 10830
+2019-09-19 17:56:44  :: Connected for the first time to client 10830
+2019-09-19 17:56:51  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-19 17:56:51  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-19 17:56:51  :: Sending ClientLoginResponse with UUID ecabfa50-1c72-477b-bf82-c7378065714f
+2019-09-19 17:56:51  :: Sending Instrument Batch 
+2019-09-19 17:56:51  :: Sending ClientUserRecord
+2019-09-19 17:56:51  :: Sending ClientMarketStateBatch
+2019-09-19 17:56:51  :: Sending ClientAccountRecordBatch 
+2019-09-19 17:56:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:56:55  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-09-19 17:59:19  :: Initializing Mock Server...
+2019-09-19 17:59:19  :: Initializing all collections...
+2019-09-19 17:59:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-19 17:59:20  :: Collections Initialized...
+2019-09-19 17:59:27  :: Connecting for the first time to client 11156
+2019-09-19 17:59:27  :: Connected for the first time to client 11156
+2019-09-19 17:59:34  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-19 17:59:34  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-19 17:59:34  :: Sending ClientLoginResponse with UUID 90c498d9-30c9-4277-96b8-844f47de1ef1
+2019-09-19 17:59:34  :: Sending Instrument Batch 
+2019-09-19 17:59:34  :: Sending ClientUserRecord
+2019-09-19 17:59:34  :: Sending ClientMarketStateBatch
+2019-09-19 17:59:34  :: Sending ClientAccountRecordBatch 
+2019-09-19 17:59:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:38  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-09-19 17:59:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:48  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-19 17:59:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 17:59:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:01  :: Initializing Mock Server...
+2019-09-19 18:01:01  :: Initializing all collections...
+2019-09-19 18:01:01  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-19 18:01:02  :: Collections Initialized...
+2019-09-19 18:01:07  :: Connecting for the first time to client 11446
+2019-09-19 18:01:07  :: Connected for the first time to client 11446
+2019-09-19 18:01:15  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-19 18:01:15  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-19 18:01:15  :: Sending ClientLoginResponse with UUID 769447e7-d65e-4e83-b6ca-c62359566427
+2019-09-19 18:01:15  :: Sending Instrument Batch 
+2019-09-19 18:01:15  :: Sending ClientUserRecord
+2019-09-19 18:01:15  :: Sending ClientMarketStateBatch
+2019-09-19 18:01:15  :: Sending ClientAccountRecordBatch 
+2019-09-19 18:01:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:24  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-19 18:01:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:32  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-09-19 18:01:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:35  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-19 18:01:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:44  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-19 18:01:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:01:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:02:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:03:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:04:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:05:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:06:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:07:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:08:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-19 18:09:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

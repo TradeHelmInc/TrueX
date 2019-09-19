@@ -1,6 +1,11 @@
 ﻿using DGTLBackendMock.Common.DTO;
+using DGTLBackendMock.Common.DTO.Account.V2;
+using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
+using DGTLBackendMock.Common.DTO.SecurityList.V2;
+using DGTLBackendMock.Common.DTO.Subscription.V2;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -89,6 +94,66 @@ namespace DGTLBackendMock.DataAccessLayer
                             {
                                 TokenResponse tokenReponse = JsonConvert.DeserializeObject<TokenResponse>(resp);
                                 OnEvent(tokenReponse);
+                            }
+                            else if (wsResp.Msg == "SubscriptionResponse")
+                            {
+                                SubscriptionResponse msg = JsonConvert.DeserializeObject<SubscriptionResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientAccountRecord")
+                            {
+                                ClientAccountRecord msg = JsonConvert.DeserializeObject<ClientAccountRecord>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientLastSale")
+                            {
+                                ClientLastSale msg = JsonConvert.DeserializeObject<ClientLastSale>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientBestBidOffer")
+                            {
+                                ClientBestBidOffer msg = JsonConvert.DeserializeObject<ClientBestBidOffer>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientMarketState")
+                            {
+                                ClientMarketState msg = JsonConvert.DeserializeObject<ClientMarketState>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientInstrument")
+                            {
+                                ClientInstrument msg = JsonConvert.DeserializeObject<ClientInstrument>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientOrderAck")
+                            {
+                                ClientOrderAck msg = JsonConvert.DeserializeObject<ClientOrderAck>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientOrderRej")
+                            {
+                                ClientOrderRej msg = JsonConvert.DeserializeObject<ClientOrderRej>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "ClientOrderReq")
+                            {
+                                ClientOrderReq msg = JsonConvert.DeserializeObject<ClientOrderReq>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "FirmsCreditLimitUpdateResponse")
+                            {
+                                FirmsCreditLimitUpdateResponse msg = JsonConvert.DeserializeObject<FirmsCreditLimitUpdateResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "FirmsTradingStatusUpdateResponse")
+                            {
+                                FirmsTradingStatusUpdateResponse msg = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "FirmsListResponse")
+                            {
+                                FirmsListResponse msg = JsonConvert.DeserializeObject<FirmsListResponse>(resp);
+                                OnEvent(msg);
                             }
                             else if (wsResp.Msg == "ClientHeartbeat")
                                 OnEvent(JsonConvert.DeserializeObject<ClientHeartbeat>(resp));
