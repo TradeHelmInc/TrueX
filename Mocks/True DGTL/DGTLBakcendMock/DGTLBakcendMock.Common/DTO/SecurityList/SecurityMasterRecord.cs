@@ -42,5 +42,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
         public string MaturityDate { get; set; }
 
         public string Status { get; set; }
+
+        public decimal? MaxNotional { get; set; }
     }
 }

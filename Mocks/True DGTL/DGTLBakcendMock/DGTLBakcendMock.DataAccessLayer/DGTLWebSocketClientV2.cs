@@ -2,6 +2,7 @@
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.Auth.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
@@ -148,6 +149,26 @@ namespace DGTLBackendMock.DataAccessLayer
                             else if (wsResp.Msg == "FirmsTradingStatusUpdateResponse")
                             {
                                 FirmsTradingStatusUpdateResponse msg = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "EmailNotificationsListResponse")
+                            {
+                                EmailNotificationsListResponse msg = JsonConvert.DeserializeObject<EmailNotificationsListResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "EmailNotificationsCreateResponse")
+                            {
+                                EmailNotificationsCreateResponse msg = JsonConvert.DeserializeObject<EmailNotificationsCreateResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "EmailNotificationsUpdateResponse")
+                            {
+                                EmailNotificationsUpdateResponse msg = JsonConvert.DeserializeObject<EmailNotificationsUpdateResponse>(resp);
+                                OnEvent(msg);
+                            }
+                            else if (wsResp.Msg == "EmailNotificationsDeleteResponse")
+                            {
+                                EmailNotificationsDeleteResponse msg = JsonConvert.DeserializeObject<EmailNotificationsDeleteResponse>(resp);
                                 OnEvent(msg);
                             }
                             else if (wsResp.Msg == "FirmsListResponse")

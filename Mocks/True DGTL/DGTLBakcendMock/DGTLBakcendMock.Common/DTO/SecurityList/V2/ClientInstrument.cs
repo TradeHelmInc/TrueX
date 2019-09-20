@@ -43,7 +43,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public decimal MinPriceIncrement { get; set; }
 
-        public decimal MaxNotionalValue { get; set; }
+        public decimal? MaxNotionalValue { get; set; }
 
         public string InstrumentDate { get; set; } //format YYYYMMDD 
 

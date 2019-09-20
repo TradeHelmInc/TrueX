@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.Auth.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting;
@@ -14,6 +15,7 @@ using DGTLBackendMock.Common.DTO.Subscription.V2;
 using DGTLBackendMock.Common.Util;
 using Fleck;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +32,9 @@ namespace DGTLBackendMock.DataAccessLayer
         public DGTLWebSocketV2Server(string pURL, string pRESTAdddress)
             : base(pURL, pRESTAdddress)
         {
-            
+            NotificationEmails = new Dictionary<string, string[]>();
+
+            LoadTestEmails();
         }
 
         #endregion
@@ -51,9 +55,18 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected FirmsListResponse FirmListResp { get; set; }
 
+        protected Dictionary<string, string[]> NotificationEmails { get; set; }
+
         #endregion
 
         #region Private Methods
+
+        private void LoadTestEmails()
+        {
+            NotificationEmails.Add("548346919", new string[] { "test548346919@test.com" });
+            NotificationEmails.Add("271058668", new string[] { "test271058668@test.com" });
+            NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
+        }
 
         private void EvalPriceLevels(IWebSocketConnection socket, ClientOrderRecord order,string UUID)
         {
@@ -750,6 +763,308 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+        private void ProcessEmailNotificationsDeleteRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            EmailNotificationsDeleteRequest wsEmailNotifDeleteReq = JsonConvert.DeserializeObject<EmailNotificationsDeleteRequest>(m);
+
+            try
+            {
+                string[] emails;
+                if (NotificationEmails.ContainsKey(wsEmailNotifDeleteReq.SettlementFirmId))
+                {
+                    emails = NotificationEmails[wsEmailNotifDeleteReq.SettlementFirmId];
+
+                    string prevEmail = emails.Where(x => x == wsEmailNotifDeleteReq.Email).FirstOrDefault();
+
+                    if (prevEmail != null)
+                    {
+                        List<Mail> newEmailList = new List<Mail>();
+
+                        emails.Where(x => x != wsEmailNotifDeleteReq.Email).ToList().ForEach(x => newEmailList.Add(new Mail() { Email = x }));
+
+                        List<string> strEmails = new List<string>();
+                        newEmailList.ToList().ForEach(x => strEmails.Add(x.Email));
+                        NotificationEmails[wsEmailNotifDeleteReq.SettlementFirmId] = strEmails.ToArray();
+
+                        EmailNotificationsDeleteResponse resp = new EmailNotificationsDeleteResponse()
+                        {
+                            JsonWebToken = wsEmailNotifDeleteReq.JsonWebToken,
+                            Msg = "EmailNotificationsDeleteResponse",
+                            SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
+                            Emails = newEmailList.ToArray(),
+                            Success = true,
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsEmailNotifDeleteReq.UUID
+                        };
+
+                        DoSend<EmailNotificationsDeleteResponse>(socket, resp);
+                    }
+                    else
+                    {
+
+                        EmailNotificationsDeleteResponse resp = new EmailNotificationsDeleteResponse()
+                        {
+                            JsonWebToken = wsEmailNotifDeleteReq.JsonWebToken,
+                            Message = string.Format("No email {0} found for Settlement Firm Id {1} found", wsEmailNotifDeleteReq.Email, wsEmailNotifDeleteReq.SettlementFirmId),
+                            Msg = "EmailNotificationsDeleteResponse",
+                            SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
+                            Success = false,
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsEmailNotifDeleteReq.UUID
+                        };
+
+                        DoSend<EmailNotificationsDeleteResponse>(socket, resp);
+                    }
+
+
+                }
+                else
+                {
+                    EmailNotificationsDeleteResponse resp = new EmailNotificationsDeleteResponse()
+                    {
+                        JsonWebToken = wsEmailNotifDeleteReq.JsonWebToken,
+                        Message = string.Format("No Settlement Firm Id {0} found", wsEmailNotifDeleteReq.SettlementFirmId),
+                        Msg = "EmailNotificationsDeleteResponse",
+                        SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
+                        Success = false,
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsEmailNotifDeleteReq.UUID
+                    };
+
+                    DoSend<EmailNotificationsDeleteResponse>(socket, resp);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                EmailNotificationsUpdateResponse resp = new EmailNotificationsUpdateResponse()
+                {
+                    JsonWebToken = wsEmailNotifDeleteReq.JsonWebToken,
+                    Message = ex.Message,
+                    Msg = "EmailNotificationsUpdateResponse",
+                    SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
+                    Success = false,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsEmailNotifDeleteReq.UUID
+                };
+
+                DoSend<EmailNotificationsUpdateResponse>(socket, resp);
+            }
+        
+        }
+
+        private void ProcessEmailNotificationsUpdateRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            EmailNotificationsUpdateRequest wsEmailNotifUpdateReq = JsonConvert.DeserializeObject<EmailNotificationsUpdateRequest>(m);
+
+            try
+            {
+                string[] emails;
+                if (NotificationEmails.ContainsKey(wsEmailNotifUpdateReq.SettlementFirmId))
+                {
+                    emails = NotificationEmails[wsEmailNotifUpdateReq.SettlementFirmId];
+
+                    string prevEmail = emails.Where(x => x == wsEmailNotifUpdateReq.EmailCurrent).FirstOrDefault();
+
+                    if (prevEmail != null)
+                    {
+                        List<Mail> newEmailList = new List<Mail>();
+
+                        emails.Where(x => x != wsEmailNotifUpdateReq.EmailCurrent).ToList().ForEach(x => newEmailList.Add(new Mail() { Email = x }));
+                        newEmailList.Add(new Mail() { Email = wsEmailNotifUpdateReq.EmailNew });
+
+                        List<string> strEmails = new List<string>();
+                        newEmailList.ToList().ForEach(x => strEmails.Add(x.Email));
+                        NotificationEmails[wsEmailNotifUpdateReq.SettlementFirmId] = strEmails.ToArray();
+
+                        EmailNotificationsUpdateResponse resp = new EmailNotificationsUpdateResponse()
+                        {
+                            JsonWebToken = wsEmailNotifUpdateReq.JsonWebToken,
+                            Msg = "EmailNotificationsUpdateResponse",
+                            SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
+                            Emails = newEmailList.ToArray(),
+                            Success = true,
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsEmailNotifUpdateReq.UUID
+                        };
+
+                        DoSend<EmailNotificationsUpdateResponse>(socket, resp);
+                    }
+                    else
+                    {
+
+                        EmailNotificationsUpdateResponse resp = new EmailNotificationsUpdateResponse()
+                        {
+                            JsonWebToken = wsEmailNotifUpdateReq.JsonWebToken,
+                            Message = string.Format("No email {0} found for Settlement Firm Id {1} found", wsEmailNotifUpdateReq.EmailCurrent, wsEmailNotifUpdateReq.SettlementFirmId),
+                            Msg = "EmailNotificationsUpdateResponse",
+                            SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
+                            Success = false,
+                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                            UUID = wsEmailNotifUpdateReq.UUID
+                        };
+
+                        DoSend<EmailNotificationsUpdateResponse>(socket, resp);
+                    }
+
+                   
+                }
+                else
+                {
+                    EmailNotificationsUpdateResponse resp = new EmailNotificationsUpdateResponse()
+                    {
+                        JsonWebToken = wsEmailNotifUpdateReq.JsonWebToken,
+                        Message = string.Format("No Settlement Firm Id {0} found", wsEmailNotifUpdateReq.SettlementFirmId),
+                        Msg = "EmailNotificationsUpdateResponse",
+                        SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
+                        Success = false,
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsEmailNotifUpdateReq.UUID
+                    };
+
+                    DoSend<EmailNotificationsUpdateResponse>(socket, resp);
+                }
+
+             
+            }
+            catch (Exception ex)
+            {
+                EmailNotificationsUpdateResponse resp = new EmailNotificationsUpdateResponse()
+                {
+                    JsonWebToken = wsEmailNotifUpdateReq.JsonWebToken,
+                    Message = ex.Message,
+                    Msg = "EmailNotificationsUpdateResponse",
+                    SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
+                    Success = false,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsEmailNotifUpdateReq.UUID
+                };
+
+                DoSend<EmailNotificationsUpdateResponse>(socket, resp);
+            }
+        
+        }
+
+        private void ProcessEmailNotificationsCreateRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            EmailNotificationsCreateRequest wsEmailNotifCreateReq = JsonConvert.DeserializeObject<EmailNotificationsCreateRequest>(m);
+
+            try
+            {
+                string[] emails;
+                if (NotificationEmails.ContainsKey(wsEmailNotifCreateReq.SettlementFirmId))
+                {
+                    emails = NotificationEmails[wsEmailNotifCreateReq.SettlementFirmId];
+
+                    Array.Resize(ref emails, emails.Length + 1);
+                    emails[emails.Length - 1] = wsEmailNotifCreateReq.Email;
+
+                    NotificationEmails[wsEmailNotifCreateReq.SettlementFirmId] = emails;
+                }
+                else
+                {
+                    emails = new string[] { wsEmailNotifCreateReq.Email };
+                    NotificationEmails.Add(wsEmailNotifCreateReq.SettlementFirmId, emails);
+                }
+
+                List<Mail> mails = new List<Mail>();
+                NotificationEmails[wsEmailNotifCreateReq.SettlementFirmId].ToList().ForEach(x => mails.Add(new Mail() { Email = x }));
+
+                EmailNotificationsCreateResponse resp = new EmailNotificationsCreateResponse()
+                {
+                    JsonWebToken = wsEmailNotifCreateReq.JsonWebToken,
+                    Msg = "EmailNotificationsCreateResponse",
+                    SettlementFirmId = wsEmailNotifCreateReq.SettlementFirmId,
+                    Emails = mails.ToArray(),
+                    Success = true,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsEmailNotifCreateReq.UUID
+                };
+
+                DoSend<EmailNotificationsCreateResponse>(socket, resp);
+            }
+            catch (Exception ex)
+            {
+                EmailNotificationsCreateResponse resp = new EmailNotificationsCreateResponse()
+                {
+                    JsonWebToken = wsEmailNotifCreateReq.JsonWebToken,
+                    Message = ex.Message,
+                    Msg = "EmailNotificationsCreateResponse",
+                    SettlementFirmId = wsEmailNotifCreateReq.SettlementFirmId,
+                    Success = false,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsEmailNotifCreateReq.UUID
+                };
+
+                DoSend<EmailNotificationsCreateResponse>(socket, resp);
+            }
+        
+        }
+
+        private void ProcessEmailNotificationsListRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            EmailNotificationsListRequest wsEmailNotifListReq = JsonConvert.DeserializeObject<EmailNotificationsListRequest>(m);
+
+            try
+            {
+                if (NotificationEmails.ContainsKey(wsEmailNotifListReq.SettlementFirmId))
+                {
+                    List<Mail> emails = new List<Mail>();
+
+                    NotificationEmails[wsEmailNotifListReq.SettlementFirmId].ToList().ForEach(x => emails.Add(new Mail() { Email = x }));
+
+                    EmailNotificationsListResponse resp = new EmailNotificationsListResponse()
+                    {
+                        JsonWebToken = wsEmailNotifListReq.JsonWebToken,
+                        Msg = "EmailNotificationsListResponse",
+                        SettlementFirmId = wsEmailNotifListReq.SettlementFirmId,
+                        Emails = emails.ToArray(),
+                        Success = true,
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsEmailNotifListReq.UUID
+                    };
+
+                    DoSend<EmailNotificationsListResponse>(socket, resp);
+
+                }
+                else
+                {
+                    EmailNotificationsListResponse resp = new EmailNotificationsListResponse()
+                    {
+                        JsonWebToken = wsEmailNotifListReq.JsonWebToken,
+                        Msg = "EmailNotificationsListResponse",
+                        SettlementFirmId = wsEmailNotifListReq.SettlementFirmId,
+                        Success = true,
+                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                        UUID = wsEmailNotifListReq.UUID
+                    };
+
+                    DoSend<EmailNotificationsListResponse>(socket, resp);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                EmailNotificationsListResponse resp = new EmailNotificationsListResponse()
+                {
+                    JsonWebToken = wsEmailNotifListReq.JsonWebToken,
+                    Message = ex.Message,
+                    Msg = "EmailNotificationsListResponse",
+                    SettlementFirmId = wsEmailNotifListReq.SettlementFirmId,
+                    Success = false,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    UUID = wsEmailNotifListReq.UUID
+                };
+
+                DoSend<EmailNotificationsListResponse>(socket, resp);
+            }
+        }
+
         private void ProcessFirmsCreditLimitUpdateRequest(IWebSocketConnection socket, string m)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1008,7 +1323,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
-                instrumentMsg.MaxNotionalValue = security.MaxPrice * security.LotSize;
+                instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue ? (decimal?) security.MaxNotional.Value : null;
                 instrumentMsg.Currency1 = security.CurrencyPair;
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
@@ -2276,6 +2591,22 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "FirmsTradingStatusUpdateRequest")//
                 {
                     ProcessFirmsTradingStatusUpdateRequest(socket, m);
+                }
+                else if (wsResp.Msg == "EmailNotificationsListRequest")
+                {
+                    ProcessEmailNotificationsListRequest(socket, m);
+                }
+                else if (wsResp.Msg == "EmailNotificationsCreateRequest")
+                {
+                    ProcessEmailNotificationsCreateRequest(socket, m);
+                }
+                else if (wsResp.Msg == "EmailNotificationsUpdateRequest")
+                {
+                    ProcessEmailNotificationsUpdateRequest(socket, m);
+                }
+                else if (wsResp.Msg == "EmailNotificationsDeleteRequest")
+                {
+                    ProcessEmailNotificationsDeleteRequest(socket, m);
                 }
                 else if (wsResp.Msg == "ClientHeartbeat")
                 {

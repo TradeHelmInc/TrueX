@@ -2,6 +2,7 @@
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.Auth.V2;
+using DGTLBackendMock.Common.DTO.Auth.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
@@ -61,6 +62,10 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("FirmListRequest");
             Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Limit> <Total> <MaxTradeSize>");
+            Console.WriteLine("EmailNotificationsListRequest <SettlementFirmId>");
+            Console.WriteLine("EmailNotificationsCreateRequest <SettlementFirmId> <email>");
+            Console.WriteLine("EmailNotificationsUpdateRequest <SettlementFirmId> <old_email> <new_email>");
+            Console.WriteLine("EmailNotificationsDeleteRequest <SettlementFirmId> <email>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("CancelLastCreatedOrder");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
@@ -151,6 +156,22 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "FirmListRequest")
             {
                 ProcessFirmListRequest(param);
+            }
+            else if (mainCmd == "EmailNotificationsListRequest")
+            {
+                ProcessEmailNotificationsListRequest(param);
+            }
+            else if (mainCmd == "EmailNotificationsCreateRequest")
+            {
+                ProcessEmailNotificationsCreateRequest(param);
+            }
+            else if (mainCmd == "EmailNotificationsUpdateRequest")
+            {
+                ProcessEmailNotificationsUpdateRequest(param);
+            }
+            else if (mainCmd == "EmailNotificationsDeleteRequest")
+            {
+                ProcessEmailNotificationsDeleteRequest(param);
             }
             else if (mainCmd == "CreditLimitUpdateRequest")
             {
@@ -338,6 +359,14 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<FirmsCreditLimitUpdateResponse>((FirmsCreditLimitUpdateResponse)msg);
             else if (msg is FirmsTradingStatusUpdateResponse)
                 ProcessJsonMessage<FirmsTradingStatusUpdateResponse>((FirmsTradingStatusUpdateResponse)msg);
+            else if (msg is EmailNotificationsListResponse)
+                ProcessJsonMessage<EmailNotificationsListResponse>((EmailNotificationsListResponse)msg);
+            else if (msg is EmailNotificationsCreateResponse)
+                ProcessJsonMessage<EmailNotificationsCreateResponse>((EmailNotificationsCreateResponse)msg);
+            else if (msg is EmailNotificationsUpdateResponse)
+                ProcessJsonMessage<EmailNotificationsUpdateResponse>((EmailNotificationsUpdateResponse)msg);
+            else if (msg is EmailNotificationsDeleteResponse)
+                ProcessJsonMessage<EmailNotificationsDeleteResponse>((EmailNotificationsDeleteResponse)msg);
             else if (msg is UnknownMessageV2)
             {
                 UnknownMessageV2 unknownMsg = (UnknownMessageV2)msg;
@@ -485,6 +514,96 @@ namespace DGTLBackendAPIClientV2
             }
             else
                 DoLog(string.Format("Missing mandatory parameters for FirmsCreditLimitUpdateRequest message"));
+        
+        }
+
+        private static void ProcessEmailNotificationsDeleteRequest(string[] param)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (param.Length == 3)
+            {
+                EmailNotificationsDeleteRequest req = new EmailNotificationsDeleteRequest()
+                {
+                    JsonWebToken = Token,
+                    Msg = "EmailNotificationsDeleteRequest",
+                    SettlementFirmId = param[1],
+                    Email = param[2],
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID
+
+                };
+                DoSend<EmailNotificationsDeleteRequest>(req);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for EmailNotificationsDeleteRequest message"));
+        
+        }
+
+        private static void ProcessEmailNotificationsUpdateRequest(string[] param)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (param.Length == 4)
+            {
+                EmailNotificationsUpdateRequest req = new EmailNotificationsUpdateRequest()
+                {
+                    JsonWebToken = Token,
+                    Msg = "EmailNotificationsUpdateRequest",
+                    SettlementFirmId = param[1],
+                    EmailCurrent = param[2],
+                    EmailNew = param[3],
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID
+
+                };
+                DoSend<EmailNotificationsUpdateRequest>(req);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for EmailNotificationsUpdateRequest message"));
+        }
+
+        private static void ProcessEmailNotificationsCreateRequest(string[] param)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (param.Length == 3)
+            {
+                EmailNotificationsCreateRequest req = new EmailNotificationsCreateRequest()
+                {
+                    JsonWebToken = Token,
+                    Msg = "EmailNotificationsCreateRequest",
+                    SettlementFirmId = param[1],
+                    Email = param[2],
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID
+
+                };
+                DoSend<EmailNotificationsCreateRequest>(req);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for EmailNotificationsCreateRequest message"));
+        }
+
+        private static void ProcessEmailNotificationsListRequest(string[] param)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            if (param.Length == 2)
+            {
+                EmailNotificationsListRequest req = new EmailNotificationsListRequest()
+                {
+                    JsonWebToken = Token,
+                    Msg = "EmailNotificationsListRequest",
+                    SettlementFirmId = param[1],
+                    Time = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    UUID = UUID
+
+                };
+                DoSend<EmailNotificationsListRequest>(req);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for EmailNotificationsListRequest message"));
         
         }
 

@@ -72,6 +72,15 @@
     <Compile Include="DTO\Auth\V2\ClientLogoutRequest.cs" />
     <Compile Include="DTO\Auth\V2\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientReject.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsCreateRequest.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsCreateResponse.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsDeleteRequest.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsDeleteResponse.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsListRequest.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsListResponse.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsUpdateRequest.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsUpdateResponse.cs" />
+    <Compile Include="DTO\Auth\V2\Credit UI\Mail.cs" />
     <Compile Include="DTO\Auth\V2\JsonCredentials.cs" />
     <Compile Include="DTO\Auth\V2\TokenRequest.cs" />
     <Compile Include="DTO\Auth\V2\TokenResponse.cs" />
