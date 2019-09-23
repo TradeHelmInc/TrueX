@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         #region Public Methods
 
-        public long UserId { get; set; }
+        public string UserId { get; set; }
 
         public string JsonWebToken { get; set; }
 

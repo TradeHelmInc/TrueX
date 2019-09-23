@@ -221,3 +221,190 @@
 2019-09-20 15:54:09  :: Turning threads off on socket disconnection
 2019-09-20 15:54:12  :: Turning threads off on socket disconnection
 2019-09-20 15:54:15  :: Turning threads off on socket disconnection
+2019-09-20 15:54:18  :: Turning threads off on socket disconnection
+2019-09-20 15:54:21  :: Turning threads off on socket disconnection
+2019-09-20 15:54:24  :: Turning threads off on socket disconnection
+2019-09-20 15:54:27  :: Turning threads off on socket disconnection
+2019-09-20 15:54:30  :: Turning threads off on socket disconnection
+2019-09-20 15:54:33  :: Turning threads off on socket disconnection
+2019-09-20 15:54:36  :: Turning threads off on socket disconnection
+2019-09-20 15:54:39  :: Turning threads off on socket disconnection
+2019-09-20 15:54:42  :: Turning threads off on socket disconnection
+2019-09-20 15:54:45  :: Turning threads off on socket disconnection
+2019-09-20 15:54:48  :: Turning threads off on socket disconnection
+2019-09-20 15:54:51  :: Turning threads off on socket disconnection
+2019-09-20 15:54:54  :: Turning threads off on socket disconnection
+2019-09-20 15:54:57  :: Turning threads off on socket disconnection
+2019-09-20 15:55:00  :: Turning threads off on socket disconnection
+2019-09-20 15:55:03  :: Turning threads off on socket disconnection
+2019-09-20 15:55:06  :: Turning threads off on socket disconnection
+2019-09-20 15:55:09  :: Turning threads off on socket disconnection
+2019-09-20 15:55:12  :: Turning threads off on socket disconnection
+2019-09-20 15:55:15  :: Turning threads off on socket disconnection
+2019-09-20 15:55:18  :: Turning threads off on socket disconnection
+2019-09-20 15:55:21  :: Turning threads off on socket disconnection
+2019-09-20 15:55:24  :: Turning threads off on socket disconnection
+2019-09-20 15:55:27  :: Turning threads off on socket disconnection
+2019-09-20 15:55:30  :: Turning threads off on socket disconnection
+2019-09-20 15:55:33  :: Turning threads off on socket disconnection
+2019-09-20 15:55:36  :: Turning threads off on socket disconnection
+2019-09-20 15:55:39  :: Turning threads off on socket disconnection
+2019-09-20 15:55:42  :: Turning threads off on socket disconnection
+2019-09-20 15:55:45  :: Turning threads off on socket disconnection
+2019-09-20 15:55:48  :: Turning threads off on socket disconnection
+2019-09-20 15:55:51  :: Turning threads off on socket disconnection
+2019-09-20 15:55:54  :: Turning threads off on socket disconnection
+2019-09-20 15:55:57  :: Turning threads off on socket disconnection
+2019-09-20 16:05:59  :: Initializing Mock Server...
+2019-09-20 16:05:59  :: Initializing all collections...
+2019-09-20 16:05:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-20 16:06:00  :: Collections Initialized...
+2019-09-20 16:06:07  :: Connecting for the first time to client 24627
+2019-09-20 16:06:07  :: Connected for the first time to client 24627
+2019-09-20 16:06:16  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-20 16:06:16  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-20 16:06:16  :: Sending ClientLoginResponse with UUID c3946d57-406d-458b-9f83-4bb524e3f0a8
+2019-09-20 16:06:16  :: Sending Instrument Batch 
+2019-09-20 16:06:16  :: Sending ClientUserRecord
+2019-09-20 16:06:16  :: Sending ClientMarketStateBatch
+2019-09-20 16:06:16  :: Sending ClientAccountRecordBatch 
+2019-09-20 16:06:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:21  :: OnMessage EmailNotificationsListRequest from IP -> 127.0.0.1
+2019-09-20 16:06:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:50  :: OnMessage EmailNotificationsCreateRequest from IP -> 127.0.0.1
+2019-09-20 16:06:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:06:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:13  :: OnMessage EmailNotificationsUpdateRequest from IP -> 127.0.0.1
+2019-09-20 16:07:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:33  :: OnMessage EmailNotificationsDeleteRequest from IP -> 127.0.0.1
+2019-09-20 16:07:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:07:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:08:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:09:16  :: Turning threads off on socket disconnection
+2019-09-20 16:15:09  :: Initializing Mock Server...
+2019-09-20 16:15:09  :: Initializing all collections...
+2019-09-20 16:15:10  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-20 16:15:10  :: Collections Initialized...
+2019-09-20 16:15:16  :: Connecting for the first time to client 25043
+2019-09-20 16:15:16  :: Connected for the first time to client 25043
+2019-09-20 16:15:21  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-20 16:15:21  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-20 16:15:21  :: Sending ClientLoginResponse with UUID 54142f09-12dc-4f4c-8f07-ecbc8431fc3d
+2019-09-20 16:15:21  :: Sending Instrument Batch 
+2019-09-20 16:15:21  :: Sending ClientUserRecord
+2019-09-20 16:15:21  :: Sending ClientMarketStateBatch
+2019-09-20 16:15:21  :: Sending ClientAccountRecordBatch 
+2019-09-20 16:15:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:15:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:15:28  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-20 16:15:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:15:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:15:33  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-09-20 16:15:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 16:15:39  :: OnMessage FirmsTradingStatusUpdateRequest from IP -> 127.0.0.1
+2019-09-20 16:15:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:12  :: Initializing Mock Server...
+2019-09-20 17:23:12  :: Initializing all collections...
+2019-09-20 17:23:12  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-20 17:23:13  :: Collections Initialized...
+2019-09-20 17:23:21  :: Connecting for the first time to client 26588
+2019-09-20 17:23:21  :: Connected for the first time to client 26588
+2019-09-20 17:23:28  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-20 17:23:28  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-20 17:23:28  :: Sending ClientLoginResponse with UUID d72f1a55-3fb3-4cc0-91a2-56e4fcf8b255
+2019-09-20 17:23:28  :: Sending Instrument Batch 
+2019-09-20 17:23:28  :: Sending ClientUserRecord
+2019-09-20 17:23:28  :: Sending ClientMarketStateBatch
+2019-09-20 17:23:28  :: Sending ClientAccountRecordBatch 
+2019-09-20 17:23:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:34  :: OnMessage EmailNotificationsListRequest from IP -> 127.0.0.1
+2019-09-20 17:23:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:43  :: OnMessage EmailNotificationsListRequest from IP -> 127.0.0.1
+2019-09-20 17:23:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:23:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:28:51  :: Initializing Mock Server...
+2019-09-20 17:28:51  :: Initializing all collections...
+2019-09-20 17:28:52  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-20 17:28:53  :: Collections Initialized...
+2019-09-20 17:29:01  :: Connecting for the first time to client 26744
+2019-09-20 17:29:01  :: Connected for the first time to client 26744
+2019-09-20 17:29:05  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-20 17:29:05  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-20 17:29:05  :: Sending ClientLoginResponse with UUID c69e281a-615a-43be-98d8-2861aa3880b7
+2019-09-20 17:29:05  :: Sending Instrument Batch 
+2019-09-20 17:29:05  :: Sending ClientUserRecord
+2019-09-20 17:29:05  :: Sending ClientMarketStateBatch
+2019-09-20 17:29:05  :: Sending ClientAccountRecordBatch 
+2019-09-20 17:29:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 17:29:10  :: OnMessage EmailNotificationsListRequest from IP -> 127.0.0.1
+2019-09-20 17:29:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 18:03:04  :: Initializing Mock Server...
+2019-09-20 18:03:04  :: Initializing all collections...
+2019-09-20 18:03:05  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-20 18:03:05  :: Collections Initialized...
+2019-09-20 18:03:12  :: Connecting for the first time to client 27816
+2019-09-20 18:03:12  :: Connected for the first time to client 27816
+2019-09-20 18:03:19  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-20 18:03:19  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-20 18:03:19  :: Sending ClientLoginResponse with UUID 11c47271-732e-4a0b-88ea-a0c7ea79e943
+2019-09-20 18:03:19  :: Sending Instrument Batch 
+2019-09-20 18:03:19  :: Sending ClientUserRecord
+2019-09-20 18:03:19  :: Sending ClientMarketStateBatch
+2019-09-20 18:03:19  :: Sending ClientAccountRecordBatch 
+2019-09-20 18:03:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-20 18:03:24  :: OnMessage EmailNotificationsListRequest from IP -> 127.0.0.1
+2019-09-20 18:03:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

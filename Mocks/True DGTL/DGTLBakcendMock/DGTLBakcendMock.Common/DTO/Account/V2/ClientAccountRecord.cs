@@ -63,6 +63,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
         public int CreatedAt { get; set; }
 
         public string LastUpdatedBy { get; set; }
+
+        public bool Default { get; set; }
      
 
         private byte status;

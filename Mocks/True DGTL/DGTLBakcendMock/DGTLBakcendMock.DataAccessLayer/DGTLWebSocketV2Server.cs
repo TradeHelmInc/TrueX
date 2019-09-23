@@ -693,11 +693,10 @@ namespace DGTLBackendMock.DataAccessLayer
                         FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
                         {
                             Success = true,
-                            FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
+                            Firm = firm,
                             JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
                             Msg = "FirmsTradingStatusUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            cTradingStatus=firm.CreditLimit[0].cTradingStatus,
                             UUID = wsFirmsTradingStatusUpdateRequest.UUID
                         };
 
@@ -708,7 +707,6 @@ namespace DGTLBackendMock.DataAccessLayer
                         FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
                         {
                             Success = false,
-                            FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
                             JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
                             Message = ex.Message,
                             Msg = "FirmsTradingStatusUpdateResponse",
@@ -718,8 +716,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
                     }
-
-
                 }
                 else
                 {
@@ -727,7 +723,6 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
                     {
                         Success = false,
-                        FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
                         JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
                         Message = string.Format("FirmId {0} not found", wsFirmsTradingStatusUpdateRequest.FirmId),
                         Msg = "FirmsTradingStatusUpdateResponse",
@@ -737,17 +732,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     };
 
                     DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
-                
                 }
-            
-            
             }
             else
             {
                 FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
                 {
                     Success = false,
-                    FirmId = wsFirmsTradingStatusUpdateRequest.FirmId,
                     JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
                     Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
                     Msg = "FirmsTradingStatusUpdateResponse",
@@ -767,6 +758,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             EmailNotificationsDeleteRequest wsEmailNotifDeleteReq = JsonConvert.DeserializeObject<EmailNotificationsDeleteRequest>(m);
+            List<Mail> genEmails = new List<Mail>();
 
             try
             {
@@ -810,6 +802,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Msg = "EmailNotificationsDeleteResponse",
                             SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
                             Success = false,
+                            Emails = genEmails.ToArray(),
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                             UUID = wsEmailNotifDeleteReq.UUID
                         };
@@ -828,6 +821,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Msg = "EmailNotificationsDeleteResponse",
                         SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
                         Success = false,
+                        Emails = genEmails.ToArray(),
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                         UUID = wsEmailNotifDeleteReq.UUID
                     };
@@ -846,6 +840,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "EmailNotificationsUpdateResponse",
                     SettlementFirmId = wsEmailNotifDeleteReq.SettlementFirmId,
                     Success = false,
+                    Emails = genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                     UUID = wsEmailNotifDeleteReq.UUID
                 };
@@ -859,6 +854,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             EmailNotificationsUpdateRequest wsEmailNotifUpdateReq = JsonConvert.DeserializeObject<EmailNotificationsUpdateRequest>(m);
+            List<Mail> genEmails = new List<Mail>();
 
             try
             {
@@ -903,6 +899,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Msg = "EmailNotificationsUpdateResponse",
                             SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
                             Success = false,
+                            Emails=genEmails.ToArray(),
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                             UUID = wsEmailNotifUpdateReq.UUID
                         };
@@ -921,6 +918,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Msg = "EmailNotificationsUpdateResponse",
                         SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
                         Success = false,
+                        Emails = genEmails.ToArray(),
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                         UUID = wsEmailNotifUpdateReq.UUID
                     };
@@ -939,6 +937,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "EmailNotificationsUpdateResponse",
                     SettlementFirmId = wsEmailNotifUpdateReq.SettlementFirmId,
                     Success = false,
+                    Emails = genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                     UUID = wsEmailNotifUpdateReq.UUID
                 };
@@ -952,6 +951,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             EmailNotificationsCreateRequest wsEmailNotifCreateReq = JsonConvert.DeserializeObject<EmailNotificationsCreateRequest>(m);
+            List<Mail> genEmails = new List<Mail>();
 
             try
             {
@@ -996,6 +996,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "EmailNotificationsCreateResponse",
                     SettlementFirmId = wsEmailNotifCreateReq.SettlementFirmId,
                     Success = false,
+                    Emails=genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                     UUID = wsEmailNotifCreateReq.UUID
                 };
@@ -1009,12 +1010,12 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             EmailNotificationsListRequest wsEmailNotifListReq = JsonConvert.DeserializeObject<EmailNotificationsListRequest>(m);
+            List<Mail> emails = new List<Mail>();
 
             try
             {
                 if (NotificationEmails.ContainsKey(wsEmailNotifListReq.SettlementFirmId))
                 {
-                    List<Mail> emails = new List<Mail>();
 
                     NotificationEmails[wsEmailNotifListReq.SettlementFirmId].ToList().ForEach(x => emails.Add(new Mail() { Email = x }));
 
@@ -1034,12 +1035,15 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else
                 {
+                    
+
                     EmailNotificationsListResponse resp = new EmailNotificationsListResponse()
                     {
                         JsonWebToken = wsEmailNotifListReq.JsonWebToken,
                         Msg = "EmailNotificationsListResponse",
                         SettlementFirmId = wsEmailNotifListReq.SettlementFirmId,
                         Success = true,
+                        Emails = emails.ToArray(), 
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                         UUID = wsEmailNotifListReq.UUID
                     };
@@ -1057,6 +1061,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "EmailNotificationsListResponse",
                     SettlementFirmId = wsEmailNotifListReq.SettlementFirmId,
                     Success = false,
+                    Emails = emails.ToArray(), 
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                     UUID = wsEmailNotifListReq.UUID
                 };
@@ -1290,7 +1295,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Message = msg,
                 Success = false,
                 Time = wsLogin.Time,
-                UserId = 0
+                UserId = ""
             };
 
             DoSend<ClientLoginResponse>(socket, reject);
@@ -1423,6 +1428,7 @@ namespace DGTLBackendMock.DataAccessLayer
             v2AccountRecordMsg.CreatedAt = 0;
             v2AccountRecordMsg.LastUpdatedBy = "";
             v2AccountRecordMsg.WalletAddress = "";
+            v2AccountRecordMsg.Default = accountRecord.Default;
             //accountRecordMsg.UUID = Uuid;
 
             return v2AccountRecordMsg;
@@ -1657,7 +1663,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     JsonWebToken = LastTokenGenerated,
                     Success = true,
                     Time = wsLogin.Time,
-                    UserId = GUIDToLongConverter.GUIDToLong(memUserRecord.DeskId)
+                    UserId = memUserRecord.UserId
                 };
 
                 DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.UUID), MessageType.Information);

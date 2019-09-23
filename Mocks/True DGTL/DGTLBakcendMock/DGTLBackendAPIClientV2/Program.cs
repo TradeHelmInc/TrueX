@@ -33,7 +33,7 @@ namespace DGTLBackendAPIClientV2
 
         protected static string UUID { get; set; }
 
-        protected static long UserId { get; set; }
+        protected static string UserId { get; set; }
 
         protected static long FirmId { get; set; }
 
@@ -321,7 +321,7 @@ namespace DGTLBackendAPIClientV2
                 ClientLogout logoutResp = (ClientLogout)msg;
 
                 Token = null;
-                UserId = 0;
+                UserId = UserId;
                 FirmId = 0;
                 UUID = null;
 

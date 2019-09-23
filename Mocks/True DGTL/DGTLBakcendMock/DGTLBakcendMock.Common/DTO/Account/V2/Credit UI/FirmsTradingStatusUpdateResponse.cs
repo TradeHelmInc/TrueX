@@ -15,21 +15,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string UUID { get; set; }
 
-        public long FirmId { get; set; }
-
-        private byte tradingStatus;
-        public byte TradingStatus
-        {
-            get { return tradingStatus; }
-            set
-            {
-                tradingStatus = Convert.ToByte(value);
-
-            }
-        }
-
-        [JsonIgnore]
-        public char cTradingStatus { get { return Convert.ToChar(TradingStatus); } set { TradingStatus = Convert.ToByte(value); } }
+        public ClientFirmRecord Firm { get; set; }
 
         public bool Success { get; set; }
 
