@@ -1,0 +1,425 @@
+2019-09-24 11:40:16  :: Initializing Mock Server...
+2019-09-24 11:40:16  :: Initializing all collections...
+2019-09-24 11:40:17  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 11:40:17  :: Collections Initialized...
+2019-09-24 11:40:25  :: Connecting for the first time to client 27327
+2019-09-24 11:40:25  :: Connected for the first time to client 27327
+2019-09-24 11:40:38  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 11:40:38  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 11:40:38  :: Sending ClientLoginResponse with UUID 041473c3-1487-4eea-97b0-dd9675dacb80
+2019-09-24 11:40:38  :: Sending Instrument Batch 
+2019-09-24 11:40:38  :: Sending ClientUserRecord
+2019-09-24 11:40:38  :: Sending ClientMarketStateBatch
+2019-09-24 11:40:38  :: Sending ClientAccountRecordBatch 
+2019-09-24 11:40:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 11:40:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 11:40:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 11:40:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 11:40:51  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-24 11:40:51  :: Incoming subscription for service T - ServiceKey:548346916
+2019-09-24 11:40:51  :: SubscriptionResponse UUID:041473c3-1487-4eea-97b0-dd9675dacb80 Service:T ServiceKey:548346916 Success:True
+2019-09-24 11:40:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 11:40:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 12:05:42  :: Turning threads off on socket disconnection
+2019-09-24 13:52:11  :: Initializing Mock Server...
+2019-09-24 13:52:11  :: Initializing all collections...
+2019-09-24 13:52:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 13:52:12  :: Collections Initialized...
+2019-09-24 13:52:32  :: Connecting for the first time to client 12807
+2019-09-24 13:52:32  :: Connected for the first time to client 12807
+2019-09-24 13:52:38  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 13:52:38  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 13:52:38  :: Sending ClientLoginResponse with UUID 40708db0-c700-47dd-a432-702f0ede9fef
+2019-09-24 13:52:38  :: Sending Instrument Batch 
+2019-09-24 13:52:38  :: Sending ClientUserRecord
+2019-09-24 13:52:38  :: Sending ClientMarketStateBatch
+2019-09-24 13:52:38  :: Sending ClientAccountRecordBatch 
+2019-09-24 16:19:03  :: Initializing Mock Server...
+2019-09-24 16:19:03  :: Initializing all collections...
+2019-09-24 16:19:04  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 16:19:05  :: Collections Initialized...
+2019-09-24 17:39:19  :: Initializing Mock Server...
+2019-09-24 17:39:19  :: Initializing all collections...
+2019-09-24 17:39:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 17:39:20  :: Collections Initialized...
+2019-09-24 17:39:28  :: Connecting for the first time to client 10787
+2019-09-24 17:39:28  :: Connected for the first time to client 10787
+2019-09-24 17:39:39  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 17:39:39  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 17:39:39  :: Sending ClientLoginResponse with UUID 98945bbc-405c-481b-9659-46c88e07b5b7
+2019-09-24 17:39:39  :: Sending Instrument Batch 
+2019-09-24 17:39:39  :: Sending ClientUserRecord
+2019-09-24 17:39:39  :: Sending ClientMarketStateBatch
+2019-09-24 17:39:39  :: Sending ClientAccountRecordBatch 
+2019-09-24 17:39:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:39:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-24 17:39:44  :: Sending ClientOrderResponse ...
+2019-09-24 17:39:44  :: Best ask for buy order (Limit Price=14999.0) found at price 14999.0
+2019-09-24 17:39:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:39:44  :: Searching for affecter orders for symbol ETH-USD
+2019-09-24 17:39:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:39:44  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-24 17:39:44  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:39:44  :: LastSale updated...
+2019-09-24 17:39:44  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:39:44  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 17:39:44  :: Quotes updated...
+2019-09-24 17:39:44  :: Not sending Trade Notification for Size=100 and Price=14999 for symbol ETH-USD because it was not subscribed
+2019-09-24 17:39:44  :: Final leftQty=0 out of loop for buy order at price level 14999.0
+2019-09-24 17:39:44  :: Creating new order in Orders collection for ClOrderId = 2be2a866-bdae-4033-8cc1-3b3db6fd9f80
+2019-09-24 17:39:44  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 17:39:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:39:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:40:16  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-24 17:40:16  :: Sending ClientOrderResponse ...
+2019-09-24 17:40:16  :: Best ask for buy order (Limit Price=14999.0) found at price 14999.0
+2019-09-24 17:40:16  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:40:16  :: Searching for affecter orders for symbol ETH-USD
+2019-09-24 17:40:16  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:40:16  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-24 17:40:20  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:40:20  :: LastSale updated...
+2019-09-24 17:40:20  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:40:20  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 17:40:20  :: Quotes updated...
+2019-09-24 17:41:06  :: Initializing Mock Server...
+2019-09-24 17:41:06  :: Initializing all collections...
+2019-09-24 17:41:07  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 17:41:07  :: Collections Initialized...
+2019-09-24 17:41:20  :: Connecting for the first time to client 10825
+2019-09-24 17:41:20  :: Connected for the first time to client 10825
+2019-09-24 17:41:25  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 17:41:25  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 17:41:25  :: Sending ClientLoginResponse with UUID c23c68eb-1d02-46e5-9818-4533ad1e0e36
+2019-09-24 17:41:25  :: Sending Instrument Batch 
+2019-09-24 17:41:25  :: Sending ClientUserRecord
+2019-09-24 17:41:25  :: Sending ClientMarketStateBatch
+2019-09-24 17:41:25  :: Sending ClientAccountRecordBatch 
+2019-09-24 17:41:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:41:30  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-24 17:41:30  :: Sending ClientOrderResponse ...
+2019-09-24 17:41:30  :: Best ask for buy order (Limit Price=14999.0) found at price 14999.0
+2019-09-24 17:41:30  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:41:30  :: Searching for affecter orders for symbol ETH-USD
+2019-09-24 17:41:30  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 17:41:30  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-24 17:41:32  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:41:32  :: LastSale updated...
+2019-09-24 17:41:32  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:41:32  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 17:41:32  :: Quotes updated...
+2019-09-24 17:41:32  :: We send a Trade Notification for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 17:41:32  :: Final leftQty=0 out of loop for buy order at price level 14999.0
+2019-09-24 17:41:32  :: Creating new order in Orders collection for ClOrderId = be23b537-15ef-4a77-bb63-29df9ce37f92
+2019-09-24 17:41:32  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 17:41:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:41:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 17:52:29  :: Initializing Mock Server...
+2019-09-24 17:52:29  :: Initializing all collections...
+2019-09-24 17:52:30  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 17:52:31  :: Collections Initialized...
+2019-09-24 17:52:39  :: Connecting for the first time to client 11722
+2019-09-24 17:52:39  :: Connected for the first time to client 11722
+2019-09-24 17:52:41  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 17:52:41  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 17:52:41  :: Sending ClientLoginResponse with UUID efa505e7-2919-47ec-8cad-5e51108d871e
+2019-09-24 17:52:41  :: Sending Instrument Batch 
+2019-09-24 17:52:41  :: Sending ClientUserRecord
+2019-09-24 17:52:41  :: Sending ClientMarketStateBatch
+2019-09-24 17:52:41  :: Sending ClientAccountRecordBatch 
+2019-09-24 17:52:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:06:10  :: Initializing Mock Server...
+2019-09-24 18:06:10  :: Initializing all collections...
+2019-09-24 18:06:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 18:06:11  :: Collections Initialized...
+2019-09-24 18:06:18  :: Connecting for the first time to client 12318
+2019-09-24 18:06:18  :: Connected for the first time to client 12318
+2019-09-24 18:06:23  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 18:06:23  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 18:06:23  :: Sending ClientLoginResponse with UUID 793864be-13ac-49db-93ce-9b826597afbd
+2019-09-24 18:06:23  :: Sending Instrument Batch 
+2019-09-24 18:06:23  :: Sending ClientUserRecord
+2019-09-24 18:06:23  :: Sending ClientMarketStateBatch
+2019-09-24 18:06:23  :: Sending ClientAccountRecordBatch 
+2019-09-24 18:06:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:07:26  :: Turning threads off on socket disconnection
+2019-09-24 18:07:29  :: Turning threads off on socket disconnection
+2019-09-24 18:07:32  :: Turning threads off on socket disconnection
+2019-09-24 18:07:35  :: Turning threads off on socket disconnection
+2019-09-24 18:07:38  :: Turning threads off on socket disconnection
+2019-09-24 18:07:41  :: Turning threads off on socket disconnection
+2019-09-24 18:07:44  :: Turning threads off on socket disconnection
+2019-09-24 18:07:47  :: Turning threads off on socket disconnection
+2019-09-24 18:07:50  :: Turning threads off on socket disconnection
+2019-09-24 18:07:53  :: Turning threads off on socket disconnection
+2019-09-24 18:07:56  :: Turning threads off on socket disconnection
+2019-09-24 18:07:59  :: Turning threads off on socket disconnection
+2019-09-24 18:08:02  :: Turning threads off on socket disconnection
+2019-09-24 18:08:05  :: Turning threads off on socket disconnection
+2019-09-24 18:08:08  :: Turning threads off on socket disconnection
+2019-09-24 18:08:11  :: Turning threads off on socket disconnection
+2019-09-24 18:08:14  :: Turning threads off on socket disconnection
+2019-09-24 18:08:17  :: Turning threads off on socket disconnection
+2019-09-24 18:08:20  :: Turning threads off on socket disconnection
+2019-09-24 18:08:23  :: Turning threads off on socket disconnection
+2019-09-24 18:08:26  :: Turning threads off on socket disconnection
+2019-09-24 18:08:29  :: Turning threads off on socket disconnection
+2019-09-24 18:08:32  :: Turning threads off on socket disconnection
+2019-09-24 18:08:35  :: Turning threads off on socket disconnection
+2019-09-24 18:08:38  :: Turning threads off on socket disconnection
+2019-09-24 18:08:41  :: Turning threads off on socket disconnection
+2019-09-24 18:08:44  :: Turning threads off on socket disconnection
+2019-09-24 18:08:47  :: Turning threads off on socket disconnection
+2019-09-24 18:08:50  :: Turning threads off on socket disconnection
+2019-09-24 18:08:53  :: Turning threads off on socket disconnection
+2019-09-24 18:08:56  :: Turning threads off on socket disconnection
+2019-09-24 18:08:59  :: Turning threads off on socket disconnection
+2019-09-24 18:09:02  :: Turning threads off on socket disconnection
+2019-09-24 18:09:05  :: Turning threads off on socket disconnection
+2019-09-24 18:09:08  :: Turning threads off on socket disconnection
+2019-09-24 18:09:11  :: Turning threads off on socket disconnection
+2019-09-24 18:09:14  :: Turning threads off on socket disconnection
+2019-09-24 18:09:17  :: Turning threads off on socket disconnection
+2019-09-24 18:09:20  :: Turning threads off on socket disconnection
+2019-09-24 18:09:23  :: Turning threads off on socket disconnection
+2019-09-24 18:09:26  :: Turning threads off on socket disconnection
+2019-09-24 18:09:29  :: Turning threads off on socket disconnection
+2019-09-24 18:09:32  :: Turning threads off on socket disconnection
+2019-09-24 18:09:35  :: Turning threads off on socket disconnection
+2019-09-24 18:09:38  :: Turning threads off on socket disconnection
+2019-09-24 18:09:41  :: Turning threads off on socket disconnection
+2019-09-24 18:09:44  :: Turning threads off on socket disconnection
+2019-09-24 18:09:47  :: Turning threads off on socket disconnection
+2019-09-24 18:09:50  :: Turning threads off on socket disconnection
+2019-09-24 18:09:53  :: Turning threads off on socket disconnection
+2019-09-24 18:09:56  :: Turning threads off on socket disconnection
+2019-09-24 18:09:59  :: Turning threads off on socket disconnection
+2019-09-24 18:10:02  :: Turning threads off on socket disconnection
+2019-09-24 18:10:05  :: Turning threads off on socket disconnection
+2019-09-24 18:10:08  :: Turning threads off on socket disconnection
+2019-09-24 18:10:11  :: Turning threads off on socket disconnection
+2019-09-24 18:10:14  :: Turning threads off on socket disconnection
+2019-09-24 18:10:17  :: Turning threads off on socket disconnection
+2019-09-24 18:10:20  :: Turning threads off on socket disconnection
+2019-09-24 18:10:23  :: Turning threads off on socket disconnection
+2019-09-24 18:10:26  :: Turning threads off on socket disconnection
+2019-09-24 18:10:29  :: Turning threads off on socket disconnection
+2019-09-24 18:10:32  :: Turning threads off on socket disconnection
+2019-09-24 18:10:35  :: Turning threads off on socket disconnection
+2019-09-24 18:10:38  :: Turning threads off on socket disconnection
+2019-09-24 18:10:41  :: Turning threads off on socket disconnection
+2019-09-24 18:10:44  :: Turning threads off on socket disconnection
+2019-09-24 18:10:47  :: Turning threads off on socket disconnection
+2019-09-24 18:10:50  :: Turning threads off on socket disconnection
+2019-09-24 18:10:53  :: Turning threads off on socket disconnection
+2019-09-24 18:10:56  :: Turning threads off on socket disconnection
+2019-09-24 18:10:59  :: Turning threads off on socket disconnection
+2019-09-24 18:11:02  :: Turning threads off on socket disconnection
+2019-09-24 18:25:19  :: Initializing Mock Server...
+2019-09-24 18:25:19  :: Initializing all collections...
+2019-09-24 18:25:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 18:25:20  :: Collections Initialized...
+2019-09-24 18:25:30  :: Connecting for the first time to client 12953
+2019-09-24 18:25:30  :: Connected for the first time to client 12953
+2019-09-24 18:25:40  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 18:25:40  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 18:25:40  :: Sending ClientLoginResponse with UUID 5ccf256a-f028-4417-b02a-4a2fa40d3111
+2019-09-24 18:25:40  :: Sending Instrument Batch 
+2019-09-24 18:25:40  :: Sending ClientUserRecord
+2019-09-24 18:25:40  :: Sending ClientMarketStateBatch
+2019-09-24 18:25:40  :: Sending ClientAccountRecordBatch 
+2019-09-24 18:25:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:25:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:25:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:25:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:25:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:25:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:05  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-24 18:26:05  :: Incoming subscription for service Ot - ServiceKey:*
+2019-09-24 18:26:05  :: Subscribe to service Ot 
+2019-09-24 18:26:05  :: Sending open order count for all symbols : 2
+2019-09-24 18:26:05  :: SubscriptionResponse UUID:5ccf256a-f028-4417-b02a-4a2fa40d3111 Service:Ot ServiceKey:* Success:True
+2019-09-24 18:26:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:26:20  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-24 18:26:20  :: Sending ClientOrderResponse ...
+2019-09-24 18:26:20  :: Best ask for buy order (Limit Price=14999.0) found at price 14999.0
+2019-09-24 18:26:20  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 18:26:20  :: Searching for affecter orders for symbol ETH-USD
+2019-09-24 18:26:20  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-24 18:26:20  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-24 18:26:20  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 18:26:20  :: LastSale updated...
+2019-09-24 18:26:20  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 18:26:20  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 18:26:20  :: Quotes updated...
+2019-09-24 18:26:20  :: We send a Trade Notification for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-24 18:26:20  :: Final leftQty=0 out of loop for buy order at price level 14999.0
+2019-09-24 18:26:20  :: Creating new order in Orders collection for ClOrderId = 7fa3b676-ed5f-4afe-a66a-ee1786fb72c4
+2019-09-24 18:26:20  :: Sending open order count for all symbols : 2
+2019-09-24 18:26:20  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 18:26:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:29:18  :: Initializing Mock Server...
+2019-09-24 18:29:18  :: Initializing all collections...
+2019-09-24 18:29:18  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 18:29:18  :: Collections Initialized...
+2019-09-24 18:29:24  :: Connecting for the first time to client 13087
+2019-09-24 18:29:24  :: Connected for the first time to client 13087
+2019-09-24 18:29:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 18:29:31  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 18:29:31  :: Sending ClientLoginResponse with UUID 8c0beee6-2f46-40ba-a01b-18d024ae5d03
+2019-09-24 18:29:31  :: Sending Instrument Batch 
+2019-09-24 18:29:31  :: Sending ClientUserRecord
+2019-09-24 18:29:31  :: Sending ClientMarketStateBatch
+2019-09-24 18:29:31  :: Sending ClientAccountRecordBatch 
+2019-09-24 18:29:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:29:35  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-24 18:29:35  :: Incoming subscription for service Ot - ServiceKey:*
+2019-09-24 18:29:35  :: Subscribe to service Ot 
+2019-09-24 18:29:35  :: Sending open order count for all symbols : 2
+2019-09-24 18:29:35  :: SubscriptionResponse UUID:8c0beee6-2f46-40ba-a01b-18d024ae5d03 Service:Ot ServiceKey:* Success:True
+2019-09-24 18:29:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:29:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:29:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:29:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:30:00  :: Initializing Mock Server...
+2019-09-24 18:30:00  :: Initializing all collections...
+2019-09-24 18:30:00  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 18:30:00  :: Collections Initialized...
+2019-09-24 18:30:40  :: Connecting for the first time to client 13115
+2019-09-24 18:30:40  :: Connected for the first time to client 13115
+2019-09-24 18:30:46  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 18:30:46  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 18:30:46  :: Sending ClientLoginResponse with UUID d6d61a6a-5028-4998-821d-99648238fe32
+2019-09-24 18:30:46  :: Sending Instrument Batch 
+2019-09-24 18:30:46  :: Sending ClientUserRecord
+2019-09-24 18:30:46  :: Sending ClientMarketStateBatch
+2019-09-24 18:30:46  :: Sending ClientAccountRecordBatch 
+2019-09-24 18:30:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:30:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:30:54  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-24 18:30:54  :: Incoming subscription for service Ot - ServiceKey:*
+2019-09-24 18:30:54  :: Subscribe to service Ot 
+2019-09-24 18:30:54  :: Sending open order count for all symbols : 2
+2019-09-24 18:30:54  :: SubscriptionResponse UUID:d6d61a6a-5028-4998-821d-99648238fe32 Service:Ot ServiceKey:* Success:True
+2019-09-24 18:30:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:30:57  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-24 18:30:57  :: Sending ClientOrderResponse ...
+2019-09-24 18:30:57  :: Best ask for buy order (Limit Price=12000.0) found at price 14999.0
+2019-09-24 18:30:57  :: Could not find matching sell price for symbol ETH-USD and order price 12000.0
+2019-09-24 18:30:57  :: Evaluating price levels ...
+2019-09-24 18:30:57  :: Sending new bid entry: Price=12000.0 Size=100.0 ...
+2019-09-24 18:30:57  :: Evaluating LegacyOrderRecord ...
+2019-09-24 18:30:57  :: Creating new order in Orders collection for ClOrderId = 916b3256-d61b-4ba1-a186-ecde298fc911
+2019-09-24 18:30:59  :: Sending open order count for all symbols : 3
+2019-09-24 18:30:59  :: Updating quotes ...
+2019-09-24 18:30:59  :: Updating best bid and ask for symbol ETH-USD
+2019-09-24 18:30:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:31:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:34:47  :: Initializing Mock Server...
+2019-09-24 18:34:47  :: Initializing all collections...
+2019-09-24 18:34:47  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-24 18:34:47  :: Collections Initialized...
+2019-09-24 18:34:54  :: Connecting for the first time to client 13277
+2019-09-24 18:34:54  :: Connected for the first time to client 13277
+2019-09-24 18:35:00  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-24 18:35:00  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-24 18:35:00  :: Sending ClientLoginResponse with UUID f24fe4fb-39b6-4e2f-aaf0-aad3f3a354ec
+2019-09-24 18:35:00  :: Sending Instrument Batch 
+2019-09-24 18:35:00  :: Sending ClientUserRecord
+2019-09-24 18:35:00  :: Sending ClientMarketStateBatch
+2019-09-24 18:35:00  :: Sending ClientAccountRecordBatch 
+2019-09-24 18:35:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:04  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-24 18:35:04  :: Incoming subscription for service Ot - ServiceKey:*
+2019-09-24 18:35:04  :: Subscribe to service Ot 
+2019-09-24 18:35:04  :: Sending open order count for all symbols : 2
+2019-09-24 18:35:04  :: SubscriptionResponse UUID:f24fe4fb-39b6-4e2f-aaf0-aad3f3a354ec Service:Ot ServiceKey:* Success:True
+2019-09-24 18:35:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:35:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:36:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-24 18:37:48  :: Turning threads off on socket disconnection

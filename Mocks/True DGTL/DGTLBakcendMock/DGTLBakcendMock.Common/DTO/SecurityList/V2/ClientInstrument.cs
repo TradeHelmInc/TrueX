@@ -89,7 +89,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
             else if (productType == _STR_SPOT)
                 return _SPOT;
             else if (productType == _STR_SWP)
-                return _NONE;
+                return _DF;
             else 
                 return _NONE;
         
