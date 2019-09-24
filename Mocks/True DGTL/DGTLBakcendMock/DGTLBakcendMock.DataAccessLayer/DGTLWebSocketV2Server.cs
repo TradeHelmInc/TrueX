@@ -68,6 +68,65 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
         }
 
+        private void RefreshOpenOrders(IWebSocketConnection socket, string userId,string UUID)
+        {
+            TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
+
+            try
+            {
+                int openOrdersCount = Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList().Count;
+
+                DoLog(string.Format("Sending open order count for all symbols : {0}", openOrdersCount), MessageType.Information);
+
+                OrderCount openOrders = new OrderCount()
+                {
+                    Msg = "OrderCount",
+                    UserId=userId,
+                    TimeStamp=Convert.ToInt64(elaped.TotalMilliseconds),
+                    UUID=UUID,
+                    Count=openOrdersCount
+                };
+
+                DoSend<OrderCount>(socket, openOrders);
+               
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception on RefreshOpenOrders: {0}", ex.Message), MessageType.Error);
+            }
+        }
+
+        private void SendTradeNotification(IWebSocketConnection socket, LegacyTradeHistory trade, string userId, ClientInstrument instr, string UUID)
+        {
+            //if (NotificationsSubscriptions.Contains(trade.Symbol))
+            //{
+                DoLog(string.Format("We send a Trade Notification for Size={0} and Price={1} for symbol {2}", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+
+                ClientNotification notif = new ClientNotification()
+                {
+                    Msg = "ClientNotification",
+                    InstrumentId = instr.InstrumentId.ToString(),
+                    cSide = trade.cMySide,
+                    Price = trade.TradePrice,
+                    Size = trade.TradeQuantity,
+                    UserId=userId,
+                    UUID=UUID,
+                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    
+                    
+
+                };
+
+                DoSend<ClientNotification>(socket, notif);
+            //}
+            //else
+            //    DoLog(string.Format("Not sending Trade Notification for Size={0} and Price={1} for symbol {2} because it was not subscribed", trade.TradeQuantity, trade.TradePrice, trade.Symbol), MessageType.Information);
+
+
+        }
+
         private void EvalPriceLevels(IWebSocketConnection socket, ClientOrderRecord order,string UUID)
         {
 
@@ -260,9 +319,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
             //1.2.1-We update market data for a new trade
             EvalMarketData(socket, newTrade, instr, UUID);
-
+            
             //1.2.2-We send a trade notification for the new trade
-            //SendTradeNotification(newTrade, legOrdReq.UserId, socket);
+            SendTradeNotification(socket, newTrade, LoggedUserId, instr, UUID);
 
         }
 
@@ -358,7 +417,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
                 Orders.Add(OyMsg);
 
-                //RefreshOpenOrders(socket, OyMsg.InstrumentId, OyMsg.UserId);
+                RefreshOpenOrders(socket, OyMsg.UserId,UUID);
 
             }
         }
@@ -1276,9 +1335,9 @@ namespace DGTLBackendMock.DataAccessLayer
             TokenResponse resp = new TokenResponse()
             {
                 Msg = "TokenResponse",
-                JsonWebToken = LastTokenGenerated,
+                Token = LastTokenGenerated,
                 UUID = wsTokenReq.UUID,
-                cSuccess = TokenResponse._STATUS_OK,
+                Success = true,
                 Time = wsTokenReq.Time
             };
 
@@ -1410,7 +1469,7 @@ namespace DGTLBackendMock.DataAccessLayer
             v2AccountRecordMsg.Msg = "ClientAccountRecord";
             v2AccountRecordMsg.AccountId = accountRecord.AccountId;
             v2AccountRecordMsg.FirmId = Convert.ToInt64(accountRecord.EPFirmId);
-            v2AccountRecordMsg.SettlementFirmId = "1";
+            v2AccountRecordMsg.SettlementFirmId = accountRecord.ClearingFirmId;
             v2AccountRecordMsg.AccountName = accountRecord.EPNickName;
             v2AccountRecordMsg.AccountAlias = accountRecord.AccountId;
 
@@ -2001,19 +2060,21 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void TranslateAndSendOldLegacyOrderRecord(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord)
+        private void TranslateAndSendOldLegacyOrderRecord(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord, bool newOrder=true)
         {
             TimeSpan startFromToday = DateTime.Now.Date - new DateTime(1970, 1, 1);
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             if (legacyOrderRecord != null)
             {
                 ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
+                
+                
                 ClientOrderRecord order = new ClientOrderRecord()
                 {
                     Msg = "ClientOrderRecord",
                     AveragePrice = legacyOrderRecord.Price,
                     ClientOrderId = legacyOrderRecord.ClientOrderId,
-                    CreateTimeStamp = Convert.ToInt64(startFromToday.TotalMilliseconds),
+                    CreateTimeStamp =newOrder?  Convert.ToInt64(elapsed.TotalMilliseconds):legacyOrderRecord.UpdateTime,
                     cSide = legacyOrderRecord.cSide,
                     cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
                     CumQty = legacyOrderRecord.FillQty,
@@ -2371,6 +2432,22 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessOpenOrderCount(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            try
+            {
+                DoLog(string.Format("Subscribe to service Ot "), MessageType.Information);
+                RefreshOpenOrders(socket, LoggedUserId, subscrMsg.UUID);
+                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error Subscribing to service Ot :{0}", ex.Message), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+
+            }
+        }
+
         protected void ProcessMyOrders(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             string instrumentId = "";
@@ -2394,10 +2471,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
             DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
 
-            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.UUID, x));// Translate and send
+            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.UUID, x, newOrder:true));// Translate and send
             
             //Now we have to launch something to create deltas (insert, change, remove)
-            //RefreshOpenOrders(socket, subscrMsg.ServiceKey, subscrMsg.UserId);
+            RefreshOpenOrders(socket, LoggedUserId, subscrMsg.UUID);
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
         }
 
@@ -2528,10 +2605,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 //    if (subscrMsg.ServiceKey != null)
                 //        ProcessOficialFixingPrice(socket, subscrMsg);
                 //}
-                //else if (subscrMsg.Service == "Ot")
-                //{
-                //    ProcessOpenOrderCount(socket, subscrMsg);
-                //}
+                else if (subscrMsg.Service == "Ot")
+                {
+                    ProcessOpenOrderCount(socket, subscrMsg);
+                }
                 //else if (subscrMsg.Service == "TN")
                 //{
                 //    ProcessNotifications(socket, subscrMsg);
@@ -2541,10 +2618,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 //    if (subscrMsg.ServiceKey != null)
                 //        ProcessDailySettlement(socket, subscrMsg);
                 //}
-                //else if (subscrMsg.Service == "Cm")
-                //{
-                //    ProcessCreditLimitUpdates(socket, subscrMsg);
-                //}
+         
                 //else if (subscrMsg.Service == "FO")
                 //{
                 //    ProcessFillOffers(socket, subscrMsg);

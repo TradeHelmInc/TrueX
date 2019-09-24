@@ -18,23 +18,13 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         #region Public Attributes
 
-        public string JsonWebToken { get; set; }
+        public string Token { get; set; }
+
+        //public string JsonWebToken { get; set; }
 
         public string UUID { get; set; }
 
-        private byte success;
-        public byte Success
-        {
-            get { return success; }
-            set
-            {
-                success = Convert.ToByte(value);
-
-            }
-        }
-
-        [JsonIgnore]
-        public char cSuccess { get { return Convert.ToChar(Success); } set { Success = Convert.ToByte(value); } }
+        public bool Success { get; set; }
 
         public long Time { get; set; }
 

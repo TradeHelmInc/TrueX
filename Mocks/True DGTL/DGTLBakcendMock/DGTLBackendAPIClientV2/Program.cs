@@ -275,10 +275,10 @@ namespace DGTLBackendAPIClientV2
         private static void ProcessTokenResponse(WebSocketMessageV2 msg)
         {
             TokenResponse tokenResp = (TokenResponse)msg;
-            Token = tokenResp.JsonWebToken;
+            Token = tokenResp.Token;
 
-            DoLog(string.Format("Creating Secret for token {0}", tokenResp.JsonWebToken));
-            string secret = GetSecret(TempUser, TempPassword, tokenResp.JsonWebToken); ; //Now we prepare the hash with UserId and Password (using Token received)
+            DoLog(string.Format("Creating Secret for token {0}", tokenResp.Token));
+            string secret = GetSecret(TempUser, TempPassword, tokenResp.Token); ; //Now we prepare the hash with UserId and Password (using Token received)
 
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             ClientLoginRequest login = new ClientLoginRequest()
@@ -291,8 +291,8 @@ namespace DGTLBackendAPIClientV2
             
             
             DoSend<ClientLoginRequest>(login);
-            
-            DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.JsonWebToken, secret));
+
+            DoLog(string.Format("Secret {1} for token {0} created and sent", tokenResp.Token, secret));
         }
 
         private static void ProcessEvent(WebSocketMessageV2 msg)

@@ -110,10 +110,12 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
+    <Compile Include="DTO\OrderRouting\V2\ClientNotification.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderCancelReq.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderCancelResponse.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderRecord.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientTradeRecord.cs" />
+    <Compile Include="DTO\OrderRouting\V2\OrderCount.cs" />
     <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderAck.cs" />
     <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderRej.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderReq.cs" />
@@ -157,7 +159,9 @@
     <Compile Include="Wrappers\NewOrderSingleWrapper.cs" />
     <Compile Include="Wrappers\OrderCancelRequestWrapper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DTO\OrderRouting\V2\Blotters\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fwk\zHFT.Main.BusinessEntities\zHFT.Main.BusinessEntities.csproj">
       <Project>{97f7f85d-864c-44ed-8901-547f2f693427}</Project>
