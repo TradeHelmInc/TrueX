@@ -10,7 +10,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
     {
         #region Public Attributes
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public ClientFirmRecord Firm { get; set; }
 

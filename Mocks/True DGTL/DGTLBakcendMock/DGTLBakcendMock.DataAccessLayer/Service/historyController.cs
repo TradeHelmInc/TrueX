@@ -34,7 +34,7 @@ namespace DGTLBackendMock.DataAccessLayer.Service
 
         [HttpGet]
         public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition=null,
-                                       string receivedate=null, bool export=true, string startDate=null, string endDate=null)
+                                       string receivedate=null, bool export=true, string fromDate=null, string toDate=null)
         {
             try
             {

@@ -29,7 +29,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         //public int ExchangeId { get; set; }
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public int InstrumentId { get; set; }
 

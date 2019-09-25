@@ -83,7 +83,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "OrderCount",
                     UserId=userId,
                     TimeStamp=Convert.ToInt64(elaped.TotalMilliseconds),
-                    UUID=UUID,
+                    Uuid=UUID,
                     Count=openOrdersCount
                 };
 
@@ -112,8 +112,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     Price = trade.TradePrice,
                     Size = trade.TradeQuantity,
                     UserId=userId,
-                    UUID=UUID,
-                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    Uuid=UUID,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     
                     
 
@@ -388,7 +388,7 @@ namespace DGTLBackendMock.DataAccessLayer
             //DoSend<DepthOfBook>(socket, newPriceLevel);
         }
 
-        private void EvalNewOrder(IWebSocketConnection socket, ClientOrderReq ordReq, char cStatus, double fillQty, ClientInstrument instr, string UUID)
+        private void EvalNewOrder(IWebSocketConnection socket, ClientOrderReq ordReq,long orderId, char cStatus, double fillQty, ClientInstrument instr, string UUID)
         {
             lock (Orders)
             {
@@ -404,8 +404,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 OyMsg.InstrumentId = instr.InstrumentName;
                 OyMsg.LvsQty = Convert.ToDouble(ordReq.Quantity) - fillQty;
                 OyMsg.Msg = "LegacyOrderRecord";
-                //OyMsg.OrderId = Guid.NewGuid().ToString();
-                OyMsg.OrderId = ordReq.ClientOrderId;
+                OyMsg.OrderId = orderId.ToString();
                 OyMsg.OrdQty = Convert.ToDouble(ordReq.Quantity);
                 OyMsg.Price = (double?)ordReq.Price;
                 OyMsg.Sender = 0;
@@ -450,7 +449,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         existingPriceLevel.Size = updPriceLevel.Size;
                         DoLog(string.Format("Sending upd bid entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
-                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.UUID);
+                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.Uuid);
                     }
                     else
                     {
@@ -468,7 +467,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         DepthOfBooks.Add(newPriceLevel);
                         DoLog(string.Format("Sending new bid entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
-                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.UUID);
+                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.Uuid);
                     }
 
                 }
@@ -494,7 +493,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         existingPriceLevel.Size = updPriceLevel.Size;
                         DoLog(string.Format("Sending upd ask entry: Price={0} Size={1} ...", updPriceLevel.Price, updPriceLevel.Size), MessageType.Information);
-                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.UUID);
+                        TranslateAndSendOldDepthOfBook(socket, updPriceLevel, instr, ordReq.Uuid);
                     }
                     else
                     {
@@ -512,14 +511,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         DepthOfBooks.Add(newPriceLevel);
                         DoLog(string.Format("Sending new ask entry: Price={0} Size={1} ...", newPriceLevel.Price, newPriceLevel.Size), MessageType.Information);
-                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.UUID);
+                        TranslateAndSendOldDepthOfBook(socket, newPriceLevel, instr, ordReq.Uuid);
                     }
 
                 }
             }
         }
 
-        private bool EvalTrades(ClientOrderReq orderReq,ClientInstrument instr, string UUID, IWebSocketConnection socket)
+        private bool EvalTrades(ClientOrderReq orderReq, ClientOrderResponse clientOrdAck, ClientInstrument instr, string UUID, IWebSocketConnection socket)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
             lock (Orders)
@@ -588,7 +587,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
                         //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
-                        EvalNewOrder(socket, orderReq,
+                        EvalNewOrder(socket, orderReq,clientOrdAck.OrderId,
                                      fullFill ? LegacyOrderRecord._STATUS_FILLED : /*LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/LegacyOrderRecord._STATUS_OPEN,
                                      Convert.ToDouble(fullFill ? orderReq.Quantity : orderReq.Quantity - leftQty),
                                      instr,UUID);
@@ -666,7 +665,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         }
 
                         //3-We send the full fill/partiall fill for the order --> Oy:LegacyOrderRecord
-                        EvalNewOrder(socket, orderReq,
+                        EvalNewOrder(socket, orderReq,clientOrdAck.OrderId,
                                      fullFill ? LegacyOrderRecord._STATUS_FILLED : /* LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/ LegacyOrderRecord._STATUS_OPEN,
                                      Convert.ToDouble(fullFill ? orderReq.Quantity : orderReq.Quantity - leftQty),
                                      instr,UUID);
@@ -708,7 +707,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     OrderId = 0,
                     UserId = clientOrderReq.UserId,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = clientOrderReq.UUID
+                    Uuid = clientOrderReq.Uuid
                 };
                 DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
                 DoSend<ClientOrderResponse>(socket, clientOrdAck);
@@ -756,7 +755,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
                             Msg = "FirmsTradingStatusUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                            Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
                         };
 
                         DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
@@ -770,7 +769,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Message = ex.Message,
                             Msg = "FirmsTradingStatusUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                            Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
                         };
 
                         DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
@@ -786,7 +785,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Message = string.Format("FirmId {0} not found", wsFirmsTradingStatusUpdateRequest.FirmId),
                         Msg = "FirmsTradingStatusUpdateResponse",
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                        Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
 
                     };
 
@@ -802,7 +801,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
                     Msg = "FirmsTradingStatusUpdateResponse",
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsFirmsTradingStatusUpdateRequest.UUID
+                    Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
 
                 };
 
@@ -846,7 +845,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Emails = newEmailList.ToArray(),
                             Success = true,
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsEmailNotifDeleteReq.UUID
+                            Uuid = wsEmailNotifDeleteReq.Uuid
                         };
 
                         DoSend<EmailNotificationsDeleteResponse>(socket, resp);
@@ -863,7 +862,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Success = false,
                             Emails = genEmails.ToArray(),
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsEmailNotifDeleteReq.UUID
+                            Uuid = wsEmailNotifDeleteReq.Uuid
                         };
 
                         DoSend<EmailNotificationsDeleteResponse>(socket, resp);
@@ -882,7 +881,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Success = false,
                         Emails = genEmails.ToArray(),
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsEmailNotifDeleteReq.UUID
+                        Uuid = wsEmailNotifDeleteReq.Uuid
                     };
 
                     DoSend<EmailNotificationsDeleteResponse>(socket, resp);
@@ -901,7 +900,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Success = false,
                     Emails = genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsEmailNotifDeleteReq.UUID
+                    Uuid = wsEmailNotifDeleteReq.Uuid
                 };
 
                 DoSend<EmailNotificationsUpdateResponse>(socket, resp);
@@ -943,7 +942,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Emails = newEmailList.ToArray(),
                             Success = true,
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsEmailNotifUpdateReq.UUID
+                            Uuid = wsEmailNotifUpdateReq.Uuid
                         };
 
                         DoSend<EmailNotificationsUpdateResponse>(socket, resp);
@@ -960,7 +959,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Success = false,
                             Emails=genEmails.ToArray(),
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsEmailNotifUpdateReq.UUID
+                            Uuid = wsEmailNotifUpdateReq.Uuid
                         };
 
                         DoSend<EmailNotificationsUpdateResponse>(socket, resp);
@@ -979,7 +978,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Success = false,
                         Emails = genEmails.ToArray(),
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsEmailNotifUpdateReq.UUID
+                        Uuid = wsEmailNotifUpdateReq.Uuid
                     };
 
                     DoSend<EmailNotificationsUpdateResponse>(socket, resp);
@@ -998,7 +997,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Success = false,
                     Emails = genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsEmailNotifUpdateReq.UUID
+                    Uuid = wsEmailNotifUpdateReq.Uuid
                 };
 
                 DoSend<EmailNotificationsUpdateResponse>(socket, resp);
@@ -1041,7 +1040,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Emails = mails.ToArray(),
                     Success = true,
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsEmailNotifCreateReq.UUID
+                    Uuid = wsEmailNotifCreateReq.Uuid
                 };
 
                 DoSend<EmailNotificationsCreateResponse>(socket, resp);
@@ -1057,7 +1056,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Success = false,
                     Emails=genEmails.ToArray(),
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsEmailNotifCreateReq.UUID
+                    Uuid = wsEmailNotifCreateReq.Uuid
                 };
 
                 DoSend<EmailNotificationsCreateResponse>(socket, resp);
@@ -1086,7 +1085,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Emails = emails.ToArray(),
                         Success = true,
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsEmailNotifListReq.UUID
+                        Uuid = wsEmailNotifListReq.Uuid
                     };
 
                     DoSend<EmailNotificationsListResponse>(socket, resp);
@@ -1104,7 +1103,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Success = true,
                         Emails = emails.ToArray(), 
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsEmailNotifListReq.UUID
+                        Uuid = wsEmailNotifListReq.Uuid
                     };
 
                     DoSend<EmailNotificationsListResponse>(socket, resp);
@@ -1122,7 +1121,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Success = false,
                     Emails = emails.ToArray(), 
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsEmailNotifListReq.UUID
+                    Uuid = wsEmailNotifListReq.Uuid
                 };
 
                 DoSend<EmailNotificationsListResponse>(socket, resp);
@@ -1160,7 +1159,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Message = null,
                             Msg = "FirmsCreditLimitUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsFirmCreditLimitUpdRq.UUID,
+                            Uuid = wsFirmCreditLimitUpdRq.Uuid,
                             Firm = firm
                         };
 
@@ -1171,7 +1170,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Msg = "FirmsCreditLimitRecord",
                             Firm = firm,
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsFirmCreditLimitUpdRq.UUID
+                            Uuid = wsFirmCreditLimitUpdRq.Uuid
                         };
 
                         DoSend<FirmsCreditLimitRecord>(socket, newCreditLimit);
@@ -1186,7 +1185,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             Message = string.Format("Error updating firm Id {0} not found:{1}", wsFirmCreditLimitUpdRq.FirmId, ex.Message),
                             Msg = "FirmsCreditLimitUpdateResponse",
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            UUID = wsFirmCreditLimitUpdRq.UUID
+                            Uuid = wsFirmCreditLimitUpdRq.Uuid
                         };
 
                         DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
@@ -1203,7 +1202,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         Message = string.Format("Firm Id {0} not found", wsFirmCreditLimitUpdRq.FirmId),
                         Msg = "FirmsCreditLimitUpdateResponse",
                         Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        UUID = wsFirmCreditLimitUpdRq.UUID
+                        Uuid = wsFirmCreditLimitUpdRq.Uuid
 
                     };
 
@@ -1220,7 +1219,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
                     Msg = "FirmsCreditLimitUpdateResponse",
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    UUID = wsFirmCreditLimitUpdRq.UUID
+                    Uuid = wsFirmCreditLimitUpdRq.Uuid
 
                 };
 
@@ -1285,7 +1284,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Success = true,
                 Firms = finalList.Skip(pageNo * pageRecords).Take(pageRecords).ToArray(),
                 JsonWebToken = token,
-                UUID = UUID,
+                Uuid = UUID,
                 Message = null,
                 PageNo = pageNo,
                 Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
@@ -1301,9 +1300,9 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 if(FirmListResp==null)
-                    CreateFirmListCreditStructure(wsFirmListRq.UUID, wsFirmListRq.JsonWebToken, wsFirmListRq.PageNo, wsFirmListRq.PageRecords);
+                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, wsFirmListRq.JsonWebToken, wsFirmListRq.PageNo, wsFirmListRq.PageRecords);
 
-                FirmListResp.UUID = wsFirmListRq.UUID;
+                FirmListResp.Uuid = wsFirmListRq.Uuid;
                 DoSend<FirmsListResponse>(socket, FirmListResp);
             }
             catch (Exception ex)
@@ -1314,7 +1313,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "FirmsListResponse",
                     Success = false,
                     JsonWebToken = wsFirmListRq.JsonWebToken,
-                    UUID = wsFirmListRq.UUID,
+                    Uuid = wsFirmListRq.Uuid,
                     Message = ex.Message,
                     PageNo = wsFirmListRq.PageNo,
                     Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
@@ -1336,7 +1335,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 Msg = "TokenResponse",
                 Token = LastTokenGenerated,
-                UUID = wsTokenReq.UUID,
+                Uuid = wsTokenReq.Uuid,
                 Success = true,
                 Time = wsTokenReq.Time
             };
@@ -1349,7 +1348,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientLoginResponse reject = new ClientLoginResponse()
             {
                 Msg = "ClientLoginResponse",
-                UUID = wsLogin.UUID,
+                Uuid = wsLogin.Uuid,
                 JsonWebToken = LastTokenGenerated,
                 Message = msg,
                 Success = false,
@@ -1657,7 +1656,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientHeartbeat",
                     JsonWebToken = token,
-                    UUID = uuid,
+                    Uuid = uuid,
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds)
 
                 };
@@ -1718,21 +1717,21 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientLoginResponse loginResp = new ClientLoginResponse()
                 {
                     Msg = "ClientLoginResponse",
-                    UUID = wsLogin.UUID,
+                    Uuid = wsLogin.Uuid,
                     JsonWebToken = LastTokenGenerated,
                     Success = true,
                     Time = wsLogin.Time,
                     UserId = memUserRecord.UserId
                 };
 
-                DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.UUID), MessageType.Information);
+                DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.Uuid), MessageType.Information);
 
                 DoSend<ClientLoginResponse>(socket, loginResp);
 
                 SendCRMMessages(socket, jsonCredentials.UserId);
 
                 HeartbeatThread = new Thread(SendHeartbeat);
-                HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.UUID });
+                HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.Uuid });
             }
             catch (Exception ex)
             {
@@ -1772,7 +1771,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.Success = true;
                         ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
                         ack.UserId = ordCxlReq.UserId;
-                        ack.UUID = ordCxlReq.UUID;
+                        ack.Uuid = ordCxlReq.Uuid;
 
                         DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
                         DoSend<ClientOrderCancelResponse>(socket, ack);
@@ -1780,7 +1779,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //2-Actualizamos el PL
                         DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
-                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty }, ordCxlReq.UUID);
+                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty }, ordCxlReq.Uuid);
 
                         //3-Upd orders in mem
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
@@ -1788,7 +1787,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //4- Update Quotes
                         DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
-                        UpdateQuotes(socket, instr, ordCxlReq.UUID);
+                        UpdateQuotes(socket, instr, ordCxlReq.Uuid);
 
                         //5-
                         //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
@@ -1809,7 +1808,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.Success = false;
                         ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
                         ack.UserId = ordCxlReq.UserId;
-                        ack.UUID = ordCxlReq.UUID;
+                        ack.Uuid = ordCxlReq.Uuid;
 
                         DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
                         DoSend<ClientOrderCancelResponse>(socket, ack);
@@ -1829,7 +1828,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ack.Success = false;
                 ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
                 ack.UserId = ordCxlReq.UserId;
-                ack.UUID = ordCxlReq.UUID;
+                ack.Uuid = ordCxlReq.Uuid;
                 DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
                 DoSend<ClientOrderCancelResponse>(socket, ack);
             }
@@ -1859,35 +1858,20 @@ namespace DGTLBackendMock.DataAccessLayer
                             OrderId = GUIDToLongConverter.GUIDToLong(Guid.NewGuid().ToString()),
                             UserId=clientOrderReq.UserId,
                             Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                            UUID = clientOrderReq.UUID
+                            Uuid = clientOrderReq.Uuid
                         };
                         DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
                         DoSend<ClientOrderResponse>(socket, clientOrdAck);
 
-                        //We send the mock ack
-                        //ClientOrderAck clientOrdAck = new ClientOrderAck()
-                        //{
-                        //    Msg = "ClientOrderAck",
-                        //    ClientOrderId = clientOrderReq.ClientOrderId,
-                        //    OrderId = Guid.NewGuid().ToString(),
-                        //    TransactionTime = Convert.ToInt64(elapsed.TotalMilliseconds),
-                        //    UUID = clientOrderReq.UUID,
-                        //    UserId = clientOrderReq.UserId.ToString()
-                        //};
 
-                        //DoLog(string.Format("Sending ClientOrderAck ..."), MessageType.Information);
-                        //DoSend<ClientOrderAck>(socket, clientOrdAck);
-
-
-
-                        if (!EvalTrades(clientOrderReq, instr, clientOrderReq.UUID, socket))
+                        if (!EvalTrades(clientOrderReq, clientOrdAck, instr, clientOrderReq.Uuid, socket))
                         {
                             DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
                             EvalPriceLevelsIfNotTrades(socket, clientOrderReq, instr);
                             DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
-                            EvalNewOrder(socket, clientOrderReq, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.UUID);
+                            EvalNewOrder(socket, clientOrderReq, clientOrdAck.OrderId, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.Uuid);
                             DoLog(string.Format("Updating quotes ..."), MessageType.Information);
-                            UpdateQuotes(socket, instr, clientOrderReq.UUID);
+                            UpdateQuotes(socket, instr, clientOrderReq.Uuid);
                         }
                     }
                 }
@@ -1951,12 +1935,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 Success = success,
                 Service = service,
                 ServiceKey = serviceKey,
-                UUID = UUID,
+                Uuid = UUID,
                 Msg = "SubscriptionResponse"
 
             };
 
-            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}", resp.UUID, resp.Service, resp.ServiceKey, resp.Success), MessageType.Information);
+            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}", resp.Uuid, resp.Service, resp.ServiceKey, resp.Success), MessageType.Information);
             DoSend<DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse>(socket, resp);
         }
 
@@ -1975,11 +1959,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 while (true)
                 {
                     LastSale legacyLastSale = LastSales.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
-                    TranslateAndSendOldSale(socket, subscrMsg.UUID, legacyLastSale, instr);
+                    TranslateAndSendOldSale(socket, subscrMsg.Uuid, legacyLastSale, instr);
                     Thread.Sleep(3000);//3 seconds
                     if (!subscResp)
                     {
-                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID);
+                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.Uuid);
                         Thread.Sleep(2000);
                         subscResp = true;
                     }
@@ -2008,7 +1992,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Low = legacyLastSale.Low,
                     Open = legacyLastSale.Open,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID,
+                    Uuid = UUID,
                     Volume = legacyLastSale.Volume
 
                 };
@@ -2023,7 +2007,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ClientLastSale",
                     InstrumentId = instr.InstrumentId,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID,
+                    Uuid = UUID,
                 };
 
                 DoSend<ClientLastSale>(socket, lastSale);
@@ -2053,7 +2037,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     TradePrice = legacyTradeHistory.TradePrice,
                     TradeQty = legacyTradeHistory.TradeQuantity,
                     UserId = LoggedUserId,
-                    UUID = UUID
+                    Uuid = UUID
                 };
 
                 DoSend<ClientTradeRecord>(socket, trade);
@@ -2067,6 +2051,17 @@ namespace DGTLBackendMock.DataAccessLayer
             if (legacyOrderRecord != null)
             {
                 ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
+
+                long finalOrderId = 0;
+
+                try
+                {
+                    finalOrderId = GUIDToLongConverter.GUIDToLong(legacyOrderRecord.OrderId);
+                }
+                catch (Exception ex)
+                {
+                    finalOrderId = Convert.ToInt64(legacyOrderRecord.OrderId);
+                }
                 
                 
                 ClientOrderRecord order = new ClientOrderRecord()
@@ -2085,12 +2080,11 @@ namespace DGTLBackendMock.DataAccessLayer
                     LeavesQty = legacyOrderRecord.LvsQty,
                     Message = "",
                     Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
-                    OrderId = GUIDToLongConverter.GUIDToLong(legacyOrderRecord.OrderId),
+                    OrderId = finalOrderId,
                     Price = legacyOrderRecord.Price,
                     Quantity = legacyOrderRecord.OrdQty,
                     TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    
-                    UUID = UUID
+                    Uuid = UUID
                 };
 
                 DoSend<ClientOrderRecord>(socket, order);
@@ -2110,7 +2104,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     BidSize = legacyLastQuote.BidSize,
                     InstrumentId = instr.InstrumentId,
                     MidPrice = legacyLastQuote.MidPoint,
-                    UUID = UUID,
+                    Uuid = UUID,
                 };
 
                 DoSend<ClientBestBidOffer>(socket, cBidOffer);
@@ -2121,7 +2115,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientBestBidOffer",
                     InstrumentId = instr.InstrumentId,
-                    UUID = UUID,
+                    Uuid = UUID,
                 };
 
                 DoSend<ClientBestBidOffer>(socket, cBidOffer);
@@ -2133,13 +2127,13 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientDepthOfBook depthOfBook = new ClientDepthOfBook()
             {
                 Msg = "ClientDepthOfBook",
-                cAction = legacyDepthOfBook.cAction,
-                cSide = legacyDepthOfBook.cBidOrAsk,
+                cAction = ClientDepthOfBook.TranslateOldAction(legacyDepthOfBook.cAction),
+                cSide = ClientDepthOfBook.TranslateOldSide(legacyDepthOfBook.cBidOrAsk),
                 InstrumentId = instr.InstrumentId,
                 Price = legacyDepthOfBook.Price,
                 Size = legacyDepthOfBook.Size,
-                UUID=UUID
-                
+                Uuid = UUID
+
             };
 
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
@@ -2148,7 +2142,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             if(FirmListResp==null)
-                CreateFirmListCreditStructure(subscrMsg.UUID, subscrMsg.JsonWebToken, 0, 10000);
+                CreateFirmListCreditStructure(subscrMsg.Uuid, subscrMsg.JsonWebToken, 0, 10000);
 
             ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id == Convert.ToInt32(subscrMsg.ServiceKey)).FirstOrDefault();
 
@@ -2168,7 +2162,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmId = firm.Id,
                     MaxNotional = firm.CreditLimit[0].MaxTradeSize,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = subscrMsg.UUID
+                    Uuid = subscrMsg.Uuid
                 };
 
                 DoSend<ClientCreditUpdate>(socket, ccUpd);
@@ -2194,12 +2188,12 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (legacyLastQuote != null)
                     {
 
-                        TranslateAndSendOldQuote(socket, subscrMsg.UUID, legacyLastQuote, instr);
+                        TranslateAndSendOldQuote(socket, subscrMsg.Uuid, legacyLastQuote, instr);
                         Thread.Sleep(3000);//3 seconds
                     }
                     if (!subscResp)
                     {
-                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID);
+                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid);
                         Thread.Sleep(2000);
                         subscResp = true;
                         SubscribedLQ = true;
@@ -2271,14 +2265,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     catch (Exception ex)
                     {
                         DoLog(string.Format(ex.Message), MessageType.Error);
-                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+                        ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
                     }
                 }
             }
             else
             {
                 DoLog(string.Format("Double subscription for service LS for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
-                ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+                ProcessSubscriptionResponse(socket, "LS", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "Double subscription");
 
             }
 
@@ -2301,14 +2295,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     catch (Exception ex)
                     {
                         DoLog(string.Format(ex.Message), MessageType.Error);
-                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
                     }
                 }
             }
             else
             {
                 DoLog(string.Format("Double subscription for service LQ for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
-                ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.UUID, false, "Double subscription");
+                ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "Double subscription");
             }
         }
 
@@ -2402,19 +2396,19 @@ namespace DGTLBackendMock.DataAccessLayer
                 List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName).ToList();
                 if (depthOfBooks != null && depthOfBooks.Count>0)
                 {
-                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, subscrMsg.UUID));
+                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, subscrMsg.Uuid));
                     Thread.Sleep(1000);
                 }
 
                 if(SubscribedLQ)
-                    UpdateQuotes(socket, instr, subscrMsg.UUID);
-                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID, msg: "success");
+                    UpdateQuotes(socket, instr, subscrMsg.Uuid);
+                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.Uuid, msg: "success");
             }
             catch (Exception ex)
             {
 
                 DoLog(string.Format(ex.Message), MessageType.Error);
-                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+                ProcessSubscriptionResponse(socket, "LD", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
             }
         }
 
@@ -2423,12 +2417,45 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 TranslateAndSendOldCreditRecordUpdate(socket, subscrMsg);
-                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID);
+                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.Uuid);
             }
             catch (Exception ex)
             {
 
-                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.UUID, success: false, msg: ex.Message);
+                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.Uuid, success: false, msg: ex.Message);
+            }
+        }
+
+        protected void ProcessNotifications(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            try
+            {
+                if (subscrMsg.ServiceKey != "*")
+                {
+                    if (subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries).Length != 2)
+                        throw new Exception(string.Format("Invalid service key {0}", subscrMsg.ServiceKey));
+
+
+
+                    string symbol = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    DoLog(string.Format("Subscribe to service TN for symbol {0}", symbol), MessageType.Information);
+                    NotificationsSubscriptions.Add(symbol);
+                    ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.Uuid, true);
+
+                }
+                else
+                {
+
+                    DoLog(string.Format("Cannot Subscribe to service TN for generic symbol {0}", subscrMsg.ServiceKey), MessageType.Information);
+
+                    ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.Uuid, false, string.Format("Uknown service key {0}", subscrMsg.Service));
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error Subscribing to service TN for  symbol {0}:{1}", subscrMsg.ServiceKey, ex.Message), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "TN", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
+
             }
         }
 
@@ -2437,13 +2464,13 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 DoLog(string.Format("Subscribe to service Ot "), MessageType.Information);
-                RefreshOpenOrders(socket, LoggedUserId, subscrMsg.UUID);
-                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+                RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
+                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.Uuid, true);
             }
             catch (Exception ex)
             {
                 DoLog(string.Format("Error Subscribing to service Ot :{0}", ex.Message), MessageType.Information);
-                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.UUID, false, ex.Message);
+                ProcessSubscriptionResponse(socket, "Ot", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
 
             }
         }
@@ -2471,11 +2498,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
             DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
 
-            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.UUID, x, newOrder:true));// Translate and send
+            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, x, newOrder:true));// Translate and send
             
             //Now we have to launch something to create deltas (insert, change, remove)
-            RefreshOpenOrders(socket, LoggedUserId, subscrMsg.UUID);
-            ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.UUID);
+            RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
+            ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
         protected void ProcessMyTrades(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -2490,9 +2517,9 @@ namespace DGTLBackendMock.DataAccessLayer
             else
                 trades = Trades.ToList();
 
-            trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.UUID, x));
+            trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
             //Now we have to launch something to create deltas (insert, change, remove)
-            ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.UUID);
+            ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
         protected void ProcessClientLogoutV2(IWebSocketConnection socket, string m)
@@ -2503,7 +2530,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 Msg = "ClientLogoutResponse",
                 JsonWebToken = wsLogout.JsonWebToken,
-                UUID = wsLogout.UUID,
+                Uuid = wsLogout.Uuid,
                 Time = wsLogout.Time,
                 Success = true,
                 Message = "Successfully logged out"
@@ -2609,10 +2636,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessOpenOrderCount(socket, subscrMsg);
                 }
-                //else if (subscrMsg.Service == "TN")
-                //{
-                //    ProcessNotifications(socket, subscrMsg);
-                //}
+                else if (subscrMsg.Service == "TN")
+                {
+                    ProcessNotifications(socket, subscrMsg);
+                }
                 //else if (subscrMsg.Service == "FD")
                 //{
                 //    if (subscrMsg.ServiceKey != null)

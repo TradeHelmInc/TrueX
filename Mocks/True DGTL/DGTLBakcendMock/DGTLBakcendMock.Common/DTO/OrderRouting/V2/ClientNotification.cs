@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         #region Public Attributes
 
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public string UserId { get; set; }
 
@@ -27,7 +27,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         [JsonIgnore]
         public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
 
-        public long TimeStamp { get; set; }
+        public long Timestamp { get; set; }
 
         #endregion
     }

@@ -26,7 +26,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         #region Public Attributes
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public long FirmId { get; set; }
 

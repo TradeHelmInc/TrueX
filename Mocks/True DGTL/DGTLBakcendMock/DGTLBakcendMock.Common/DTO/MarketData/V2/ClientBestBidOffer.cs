@@ -10,7 +10,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
     {
         #region Public  Attributes
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public long InstrumentId { get; set; }
 

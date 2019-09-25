@@ -122,7 +122,7 @@ namespace DGTLBackendAPIClientV2
                     JsonWebToken = Token,
                     Service = param[1],
                     ServiceKey = param.Length == 3 ? param[2] : "*",
-                    UUID = UUID,
+                    Uuid = UUID,
                 };
 
                 string strMsg = JsonConvert.SerializeObject(subscribe, Newtonsoft.Json.Formatting.None,
@@ -285,7 +285,7 @@ namespace DGTLBackendAPIClientV2
                                                                 {
                                                                     Msg = "ClientLoginRequest",
                                                                     Secret = secret,
-                                                                    UUID = Guid.NewGuid().ToString(),
+                                                                    Uuid = Guid.NewGuid().ToString(),
                                                                     Time = Convert.ToInt64(elapsed.TotalMilliseconds)
                                                                 };
             
@@ -305,7 +305,7 @@ namespace DGTLBackendAPIClientV2
                 if (loginResp.JsonWebToken != null)
                 {
                    
-                    UUID = loginResp.UUID;
+                    UUID = loginResp.Uuid;
                     UserId = loginResp.UserId;
                     FirmId = 0;
                 }
@@ -424,7 +424,7 @@ namespace DGTLBackendAPIClientV2
             {
                 ClientOrderCancelReq cxlReq = new ClientOrderCancelReq()
                 {
-                    UUID = UUID,
+                    Uuid = UUID,
                     CancelReason = "Cancelled from test client",
                     ClientOrderId = LastOrderCreated.ClientOrderId,
                     FirmId = LastOrderCreated.FirmId,
@@ -478,7 +478,7 @@ namespace DGTLBackendAPIClientV2
                     cTradingStatus = Convert.ToChar(param[2]),
                     FirmId = Convert.ToInt64(param[1]),
                     JsonWebToken = Token,
-                    UUID = UUID
+                    Uuid = UUID
                 };
 
                 FirmId = firmsCreditLimitUpdReq.FirmId;
@@ -504,7 +504,7 @@ namespace DGTLBackendAPIClientV2
                     cTradingStatus = Convert.ToChar(param[2]),
                     FirmId = Convert.ToInt64(param[1]),
                     JsonWebToken = Token,
-                    UUID = UUID
+                    Uuid = UUID
                 };
 
                 FirmId = firmsCreditLimitUpdReq.FirmId;
@@ -530,7 +530,7 @@ namespace DGTLBackendAPIClientV2
                     SettlementFirmId = param[1],
                     Email = param[2],
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID
+                    Uuid = UUID
 
                 };
                 DoSend<EmailNotificationsDeleteRequest>(req);
@@ -554,7 +554,7 @@ namespace DGTLBackendAPIClientV2
                     EmailCurrent = param[2],
                     EmailNew = param[3],
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID
+                    Uuid = UUID
 
                 };
                 DoSend<EmailNotificationsUpdateRequest>(req);
@@ -576,7 +576,7 @@ namespace DGTLBackendAPIClientV2
                     SettlementFirmId = param[1],
                     Email = param[2],
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID
+                    Uuid = UUID
 
                 };
                 DoSend<EmailNotificationsCreateRequest>(req);
@@ -597,7 +597,7 @@ namespace DGTLBackendAPIClientV2
                     Msg = "EmailNotificationsListRequest",
                     SettlementFirmId = param[1],
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    UUID = UUID
+                    Uuid = UUID
 
                 };
                 DoSend<EmailNotificationsListRequest>(req);
@@ -617,7 +617,7 @@ namespace DGTLBackendAPIClientV2
                 PageNo = 0,
                 PageRecords = 100,
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds),
-                UUID = UUID
+                Uuid = UUID
 
             };
             DoSend<FirmsListRequest>(req);
@@ -636,7 +636,7 @@ namespace DGTLBackendAPIClientV2
                 {
                     Msg = "TokenRequest",
                     SourceIP = GetMyIpAddress(),
-                    UUID = Guid.NewGuid().ToString(),
+                    Uuid = Guid.NewGuid().ToString(),
                     Time = Convert.ToInt64(elapsed.TotalMilliseconds)
                 };
 
@@ -660,7 +660,7 @@ namespace DGTLBackendAPIClientV2
             {
                 Msg = "ClientHeartbeat",
                 JsonWebToken = heartBeat.JsonWebToken,
-                UUID = heartBeat.UUID,
+                Uuid = heartBeat.Uuid,
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds)
             };
             DoSend<ClientHeartbeat>(heartBeat);
@@ -682,7 +682,7 @@ namespace DGTLBackendAPIClientV2
                     Msg = "ClientLogoutRequest",
                     JsonWebToken = Token,
                     UserId = UserId.ToString(),
-                    UUID = UUID,
+                    Uuid = UUID,
                 };
 
                 DoSend<ClientLogoutRequest>(logoutReq);

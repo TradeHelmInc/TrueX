@@ -19,7 +19,7 @@ namespace DGTLBackendMock.Common.DTO.Subscription.V2
 
         #region Public Methods
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public string JsonWebToken { get; set; }
 

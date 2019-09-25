@@ -22,7 +22,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         //public string JsonWebToken { get; set; }
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public bool Success { get; set; }
 

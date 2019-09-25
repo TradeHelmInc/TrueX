@@ -35,7 +35,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         #region Public Attributes
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public long InstrumentId { get; set; }
 
@@ -65,6 +65,38 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public char cAction { get { return Convert.ToChar(Action); } set { Action = Convert.ToByte(value); } }
 
+
+        #endregion
+
+        #region Public Static Mehtods
+
+        public static char TranslateOldAction(char oldAction)
+        {
+            if (oldAction == DepthOfBook._ACTION_CHANGE)
+                return ClientDepthOfBook._ACTION_UPDATE;
+            else if (oldAction == DepthOfBook._ACTION_INSERT)
+                return ClientDepthOfBook._ACTION_INSERT;
+            else if (oldAction == DepthOfBook._ACTION_REMOVE)
+                return ClientDepthOfBook._ACTION_DELETE;
+            else
+                throw new Exception(string.Format("Unknown old depth of book action {0}", oldAction));
+        
+        
+        }
+
+
+        public static char TranslateOldSide(char oldSide)
+        {
+            if (oldSide == DepthOfBook._ASK_ENTRY)
+                return ClientDepthOfBook._OFFER_ENTRY;
+            else if (oldSide == DepthOfBook._BID_ENTRY)
+                return ClientDepthOfBook._BID_ENTRY;
+         
+            else
+                throw new Exception(string.Format("Unknown old depth of book side {0}", oldSide));
+
+
+        }
 
         #endregion
     }

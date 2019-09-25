@@ -13,7 +13,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public long Time { get; set; }
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
 
     }

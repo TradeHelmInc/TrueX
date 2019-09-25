@@ -13,7 +13,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string JsonWebToken { get; set; }
 
-        public string UUID { get; set; }
+        public string Uuid { get; set; }
 
         public ClientFirmRecord Firm { get; set; }
 
