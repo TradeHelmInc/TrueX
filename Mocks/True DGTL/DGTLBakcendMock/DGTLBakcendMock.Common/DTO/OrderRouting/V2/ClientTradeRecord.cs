@@ -30,6 +30,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public long? OrderId { get; set; }
 
+        public long TradeId { get; set; }
+
         public string ClientOrderId { get; set; }
 
         public long InstrumentId { get; set; }

@@ -1,0 +1,386 @@
+2019-09-27 11:47:34  :: Initializing Mock Server...
+2019-09-27 11:47:34  :: Initializing all collections...
+2019-09-27 11:47:35  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 11:47:35  :: Collections Initialized...
+2019-09-27 11:47:53  :: Connecting for the first time to client 39868
+2019-09-27 11:47:53  :: Connected for the first time to client 39868
+2019-09-27 11:48:08  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 11:48:08  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 11:48:08  :: Sending ClientLoginResponse with UUID a81a5fc7-d0f5-4730-9306-a0f85c61244a
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending Instrument Batch 
+2019-09-27 11:48:08  :: Sending ClientUserRecord
+2019-09-27 11:48:08  :: Sending ClientMarketStateBatch
+2019-09-27 11:48:08  :: Sending ClientAccountRecordBatch 
+2019-09-27 11:48:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:48:20  :: Turning threads off on socket disconnection
+2019-09-27 11:48:23  :: Turning threads off on socket disconnection
+2019-09-27 11:48:26  :: Turning threads off on socket disconnection
+2019-09-27 11:48:29  :: Turning threads off on socket disconnection
+2019-09-27 11:48:32  :: Turning threads off on socket disconnection
+2019-09-27 11:48:35  :: Turning threads off on socket disconnection
+2019-09-27 11:48:38  :: Turning threads off on socket disconnection
+2019-09-27 11:48:41  :: Turning threads off on socket disconnection
+2019-09-27 11:48:44  :: Turning threads off on socket disconnection
+2019-09-27 11:48:47  :: Turning threads off on socket disconnection
+2019-09-27 11:48:50  :: Turning threads off on socket disconnection
+2019-09-27 11:48:53  :: Turning threads off on socket disconnection
+2019-09-27 11:48:56  :: Turning threads off on socket disconnection
+2019-09-27 11:48:59  :: Turning threads off on socket disconnection
+2019-09-27 11:49:02  :: Turning threads off on socket disconnection
+2019-09-27 11:49:05  :: Turning threads off on socket disconnection
+2019-09-27 11:49:08  :: Turning threads off on socket disconnection
+2019-09-27 11:49:11  :: Turning threads off on socket disconnection
+2019-09-27 11:49:14  :: Turning threads off on socket disconnection
+2019-09-27 11:49:17  :: Turning threads off on socket disconnection
+2019-09-27 11:49:20  :: Turning threads off on socket disconnection
+2019-09-27 11:49:23  :: Turning threads off on socket disconnection
+2019-09-27 11:49:26  :: Turning threads off on socket disconnection
+2019-09-27 11:49:29  :: Turning threads off on socket disconnection
+2019-09-27 11:49:32  :: Turning threads off on socket disconnection
+2019-09-27 11:49:35  :: Turning threads off on socket disconnection
+2019-09-27 11:58:41  :: Initializing Mock Server...
+2019-09-27 11:58:41  :: Initializing all collections...
+2019-09-27 11:58:41  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 11:58:41  :: Collections Initialized...
+2019-09-27 11:58:54  :: Connecting for the first time to client 40027
+2019-09-27 11:58:54  :: Connected for the first time to client 40027
+2019-09-27 11:59:01  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 11:59:01  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 11:59:01  :: Sending ClientLoginResponse with UUID 744e8c59-d5e2-49df-9b04-a9cf5705b661
+2019-09-27 11:59:01  :: Sending Instrument Batch 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientInstrumentState 
+2019-09-27 11:59:01  :: Sending ClientUserRecord
+2019-09-27 11:59:01  :: Sending ClientMarketStateBatch
+2019-09-27 11:59:01  :: Sending ClientAccountRecordBatch 
+2019-09-27 11:59:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 11:59:39  :: Initializing Mock Server...
+2019-09-27 11:59:39  :: Initializing all collections...
+2019-09-27 11:59:39  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 11:59:40  :: Collections Initialized...
+2019-09-27 11:59:46  :: Connecting for the first time to client 40035
+2019-09-27 11:59:46  :: Connected for the first time to client 40035
+2019-09-27 12:00:15  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 12:00:15  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 12:00:15  :: Sending ClientLoginResponse with UUID 148323bc-6827-439c-8932-8666fcaafbdb
+2019-09-27 12:00:15  :: Sending Instrument Batch 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientInstrumentState 
+2019-09-27 12:00:15  :: Sending ClientUserRecord
+2019-09-27 12:00:15  :: Sending ClientMarketStateBatch
+2019-09-27 12:00:15  :: Sending ClientAccountRecordBatch 
+2019-09-27 12:00:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:00:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:10  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-27 12:01:10  :: Sending ClientOrderResponse ...
+2019-09-27 12:01:10  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-09-27 12:01:10  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:01:10  :: Searching for affecter orders for symbol ETH-USD
+2019-09-27 12:01:10  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:01:10  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-27 12:01:10  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:01:10  :: LastSale updated...
+2019-09-27 12:01:10  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:01:10  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:01:10  :: Quotes updated...
+2019-09-27 12:01:19  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-09-27 12:01:21  :: We send a Trade Notification for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:01:21  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-09-27 12:01:21  :: Creating new order in Orders collection for ClOrderId = afe6c408-fd0d-42e4-9773-7db22b85bbc5
+2019-09-27 12:01:21  :: Sending open order count for all symbols : 2
+2019-09-27 12:01:21  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:04:21  :: Initializing Mock Server...
+2019-09-27 12:04:21  :: Initializing all collections...
+2019-09-27 12:04:21  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 12:04:22  :: Collections Initialized...
+2019-09-27 12:04:31  :: Connecting for the first time to client 40102
+2019-09-27 12:04:31  :: Connected for the first time to client 40102
+2019-09-27 12:04:39  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 12:04:39  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 12:04:39  :: Sending ClientLoginResponse with UUID b32e3e4f-f814-4a6e-9a87-1cfb771b5e97
+2019-09-27 12:04:39  :: Sending Instrument Batch 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientInstrumentState 
+2019-09-27 12:04:39  :: Sending ClientUserRecord
+2019-09-27 12:04:39  :: Sending ClientMarketStateBatch
+2019-09-27 12:04:39  :: Sending ClientAccountRecordBatch 
+2019-09-27 12:09:56  :: Initializing Mock Server...
+2019-09-27 12:09:56  :: Initializing all collections...
+2019-09-27 12:09:56  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 12:09:57  :: Collections Initialized...
+2019-09-27 12:10:04  :: Connecting for the first time to client 40162
+2019-09-27 12:10:04  :: Connected for the first time to client 40162
+2019-09-27 12:10:11  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 12:10:11  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 12:10:11  :: Sending ClientLoginResponse with UUID 9454f595-f231-4b8a-997d-ea75b10f4293
+2019-09-27 12:10:11  :: Sending Instrument Batch 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientInstrumentState 
+2019-09-27 12:10:11  :: Sending ClientUserRecord
+2019-09-27 12:10:11  :: Sending ClientMarketStateBatch
+2019-09-27 12:10:11  :: Sending ClientAccountRecordBatch 
+2019-09-27 12:10:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:26  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-27 12:10:26  :: Sending ClientOrderResponse ...
+2019-09-27 12:10:26  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-09-27 12:10:26  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:10:26  :: Searching for affecter orders for symbol ETH-USD
+2019-09-27 12:10:26  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:10:26  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-27 12:10:26  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:10:26  :: LastSale updated...
+2019-09-27 12:10:26  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:10:26  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:10:26  :: Quotes updated...
+2019-09-27 12:10:28  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-09-27 12:10:28  :: We send a Trade Notification for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:10:28  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-09-27 12:10:28  :: Creating new order in Orders collection for ClOrderId = e926a18a-0495-41c9-a2d8-e46829bfe5dd
+2019-09-27 12:10:28  :: Sending open order count for all symbols : 2
+2019-09-27 12:10:28  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:10:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:10:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:11:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:11:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:11:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:11:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:02  :: Initializing Mock Server...
+2019-09-27 12:24:02  :: Initializing all collections...
+2019-09-27 12:24:03  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 12:24:03  :: Collections Initialized...
+2019-09-27 12:24:13  :: Connecting for the first time to client 40328
+2019-09-27 12:24:13  :: Connected for the first time to client 40328
+2019-09-27 12:24:26  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 12:24:26  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 12:24:26  :: Sending ClientLoginResponse with UUID 1321ac09-ae35-408e-901d-8b3ec665ad60
+2019-09-27 12:24:26  :: Sending Instrument Batch 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientInstrumentState 
+2019-09-27 12:24:26  :: Sending ClientUserRecord
+2019-09-27 12:24:26  :: Sending ClientMarketStateBatch
+2019-09-27 12:24:26  :: Sending ClientAccountRecordBatch 
+2019-09-27 12:24:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:44  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-09-27 12:24:44  :: Incoming subscription for service LT - ServiceKey:2
+2019-09-27 12:24:44  :: SubscriptionResponse UUID:1321ac09-ae35-408e-901d-8b3ec665ad60 Service:LT ServiceKey:2 Success:True
+2019-09-27 12:24:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:24:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:25:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:25:05  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-09-27 12:25:05  :: Sending ClientOrderResponse ...
+2019-09-27 12:25:05  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-09-27 12:25:05  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:25:05  :: Searching for affecter orders for symbol ETH-USD
+2019-09-27 12:25:05  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-09-27 12:25:05  :: We send a Trade for Size=100.0 and Price=14999.0 for symbol ETH-USD
+2019-09-27 12:25:05  :: We update LastSale MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:25:05  :: LastSale updated...
+2019-09-27 12:25:05  :: We udate Quotes MD for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:25:05  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:25:05  :: Quotes updated...
+2019-09-27 12:25:05  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-09-27 12:25:05  :: We send a Trade Notification for Size=100 and Price=14999 for symbol ETH-USD
+2019-09-27 12:25:05  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-09-27 12:25:05  :: Creating new order in Orders collection for ClOrderId = 873ef365-ba14-4296-9f9a-4354147d3891
+2019-09-27 12:25:05  :: Sending open order count for all symbols : 2
+2019-09-27 12:25:05  :: Updating best bid and ask for symbol ETH-USD
+2019-09-27 12:25:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:25:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:25:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-09-27 12:49:43  :: Initializing Mock Server...
+2019-09-27 12:49:43  :: Initializing all collections...
+2019-09-27 12:49:44  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-09-27 12:49:44  :: Collections Initialized...
+2019-09-27 12:49:49  :: Connecting for the first time to client 5519
+2019-09-27 12:49:49  :: Connected for the first time to client 5519
+2019-09-27 12:49:55  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-09-27 12:49:55  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-09-27 12:49:55  :: Sending ClientLoginResponse with UUID 24ea5dad-029d-4e53-bc96-535d6b1f29f7
+2019-09-27 12:49:55  :: Sending Instrument Batch 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientInstrumentState 
+2019-09-27 12:49:55  :: Sending ClientUserRecord
+2019-09-27 12:49:55  :: Sending ClientMarketStateBatch
+2019-09-27 12:49:55  :: Sending ClientAccountRecordBatch 

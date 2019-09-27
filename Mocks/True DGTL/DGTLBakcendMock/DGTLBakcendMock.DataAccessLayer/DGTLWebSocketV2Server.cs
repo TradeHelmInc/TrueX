@@ -39,6 +39,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #endregion
 
+        #region Private Static Consts
+
+        private static decimal _HALTING_THRESHOLD = 10m;
+
+        #endregion
+
         #region Protected Attributes
 
         protected ClientInstrumentBatch InstrBatch { get; set; }
@@ -210,6 +216,35 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        //1.2.1.1- If change is more than 5% , we halt the security
+        private void EvalHaltingSecurity(IWebSocketConnection socket, decimal? prevLastPrice, LegacyTradeHistory newTrade, ClientInstrument instr)
+        {
+            if (prevLastPrice.HasValue)
+            {
+
+                decimal pctChange = ((Convert.ToDecimal(newTrade.TradePrice) / prevLastPrice.Value) - 1) * 100;
+                if(pctChange<0)
+                    pctChange*=-1;
+
+                if (pctChange > _HALTING_THRESHOLD) 
+                {//we halt the security
+
+                    ClientInstrumentState state = new ClientInstrumentState();
+                    state.Msg = "ClientInstrumentState";
+                    state.cState = ClientInstrumentState._STATE_HALT;
+                    state.ExchangeId = 0;
+                    state.InstrumentId = instr.InstrumentId;
+                    state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
+                    state.TriggerPrice = newTrade.TradePrice;
+
+                    DoLog(string.Format("Halting security {0} because of price change {1} % ",instr.InstrumentName,pctChange), MessageType.Information);
+                    DoSend<ClientInstrumentState>(socket, state);
+                }
+            }
+        
+        
+        }
+
         //1.2.1-We update market data for a new trade
         private void EvalMarketData(IWebSocketConnection socket, LegacyTradeHistory newTrade,ClientInstrument instr,string UUID)
         {
@@ -228,6 +263,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (!ls.FirstPrice.HasValue)
                 ls.FirstPrice = ls.LastPrice;
 
+            decimal? prevLastPrice = ls.LastPrice;
             ls.LastPrice = Convert.ToDecimal(newTrade.TradePrice);
             ls.LastShares = Convert.ToDecimal(newTrade.TradeQuantity);
             ls.LastTime = newTrade.TradeTimeStamp;
@@ -247,6 +283,8 @@ namespace DGTLBackendMock.DataAccessLayer
             DoLog(string.Format("We udate Quotes MD for Size={0} and Price={1} for symbol {2}", newTrade.TradeQuantity, newTrade.TradePrice, newTrade.Symbol), MessageType.Information);
             UpdateQuotes(socket, instr, UUID);
             DoLog(string.Format("Quotes updated..."), MessageType.Information);
+
+            EvalHaltingSecurity(socket, prevLastPrice, newTrade, instr);
         }
 
 
@@ -1359,6 +1397,28 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientLoginResponse>(socket, reject);
         }
 
+        private void SendInstrumentStates(IWebSocketConnection socket, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            int i = 1;
+
+            List<ClientInstrument> instrList = new List<ClientInstrument>();
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                ClientInstrumentState state = new ClientInstrumentState();
+                state.Msg = "ClientInstrumentState";
+                state.cState = ClientInstrumentState._STATE_OPEN;
+                state.ExchangeId = 0;
+                state.InstrumentId = security.InstrumentId;
+                state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
+                state.TriggerPrice = null;
+
+                DoLog(string.Format("Sending ClientInstrumentState "), MessageType.Information);
+                DoSend<ClientInstrumentState>(socket, state);
+            }
+
+        }
+
         private void SendCRMInstruments(IWebSocketConnection socket, string Uuid)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1526,6 +1586,8 @@ namespace DGTLBackendMock.DataAccessLayer
         private void SendCRMMessages(IWebSocketConnection socket, string login, string Uuid = null)
         {
             SendCRMInstruments(socket, Uuid);
+
+            SendInstrumentStates(socket, Uuid);
 
             SendCRMUsers(socket, login, Uuid);
 
@@ -2025,6 +2087,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientTradeRecord",
                     ClientOrderId = null,
+                    TradeId=GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
                     CreateTimeStamp = legacyTradeHistory.TradeTimeStamp,
                     cSide = legacyTradeHistory.cMySide,
                     cStatus = ClientTradeRecord._STATUS_OPEN,
@@ -2501,7 +2564,7 @@ namespace DGTLBackendMock.DataAccessLayer
             orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, x, newOrder:true));// Translate and send
             
             //Now we have to launch something to create deltas (insert, change, remove)
-            RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
+            //RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
             ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 

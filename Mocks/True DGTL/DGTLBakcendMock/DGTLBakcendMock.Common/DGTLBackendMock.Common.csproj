@@ -130,6 +130,7 @@
     <Compile Include="DTO\SecurityList\UserRecord.cs" />
     <Compile Include="DTO\SecurityList\V2\ClientInstrumentBatch.cs" />
     <Compile Include="DTO\SecurityList\V2\ClientInstrument.cs" />
+    <Compile Include="DTO\SecurityList\V2\ClientInstrumentState.cs" />
     <Compile Include="DTO\SecurityList\V2\ClientMarketState.cs" />
     <Compile Include="DTO\SecurityList\V2\ClientMarketStateBatch.cs" />
     <Compile Include="DTO\SecurityList\V2\ClientUserRecord.cs" />
