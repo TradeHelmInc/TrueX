@@ -18,7 +18,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
         private static char _NONE = 'X';
 
         private static string _STR_SPOT = "Spot";
-        private static string _STR_SWP = "SWP";
+        public static string _STR_SWP = "SWP";
         private static string _STR_NDF = "NDF";
 
         #endregion

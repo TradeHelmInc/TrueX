@@ -74,6 +74,31 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
         }
 
+        protected void CanceledLegacyOrderRecord(IWebSocketConnection socket, LegacyOrderRecord ordRecord,string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            LegacyOrderRecord OyMsg = new LegacyOrderRecord();
+
+            OyMsg.ClientOrderId = ordRecord.ClientOrderId;
+            OyMsg.cSide = ordRecord.cSide;
+            OyMsg.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+            OyMsg.cTimeInForce = LegacyOrderRecord._TIMEINFORCE_DAY;
+            OyMsg.FillQty = ordRecord.FillQty;
+            OyMsg.InstrumentId = ordRecord.InstrumentId;
+            OyMsg.LvsQty = 0;
+            OyMsg.Msg = "LegacyOrderRecord";
+            //OyMsg.OrderId = Guid.NewGuid().ToString();
+            OyMsg.OrderId = ordRecord.OrderId;
+            OyMsg.OrdQty = Convert.ToDouble(ordRecord.OrdQty);
+            OyMsg.Price = (double?)ordRecord.Price;
+            OyMsg.Sender = 0;
+            OyMsg.UpdateTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+            OyMsg.UserId = ordRecord.UserId;
+
+            TranslateAndSendOldLegacyOrderRecord(socket, UUID, OyMsg, newOrder: false);
+        }
+
         private void RefreshOpenOrders(IWebSocketConnection socket, string userId,string UUID)
         {
             TimeSpan elaped = DateTime.Now - new DateTime(1970, 1, 1);
@@ -101,6 +126,38 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoLog(string.Format("Exception on RefreshOpenOrders: {0}", ex.Message), MessageType.Error);
             }
         }
+
+         //1.2.3-Update and send ClientCreditUpdate
+         private void  UpdateCreditOnTrade(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
+         {
+             if (FirmListResp == null)
+                 CreateFirmListCreditStructure(UUID, "", 0, 10000);
+
+             ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id.ToString() == LoggedFirmId).FirstOrDefault();
+
+             if (firm != null)
+             {
+                 TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                 ClientCreditUpdate ccUpd = new ClientCreditUpdate()
+                 {
+                     Msg = "ClientCreditUpdate",
+                     AccountId = 0,
+                     CreditLimit = firm.CreditLimit[0].Total,
+                     CreditUsed = firm.CreditLimit[0].Usage + (newTrade.TradePrice * newTrade.TradeQuantity),
+                     cStatus = firm.CreditLimit[0].cTradingStatus,
+                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
+                     FirmId = firm.Id,
+                     MaxNotional = firm.CreditLimit[0].MaxTradeSize,
+                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                     Uuid = UUID
+                 };
+
+                 firm.CreditLimit[0].Usage += (newTrade.TradePrice * newTrade.TradeQuantity);
+
+                 DoSend<ClientCreditUpdate>(socket, ccUpd);
+             }
+         
+         }
 
         private void SendTradeNotification(IWebSocketConnection socket, LegacyTradeHistory trade, string userId, ClientInstrument instr, string UUID)
         {
@@ -360,6 +417,9 @@ namespace DGTLBackendMock.DataAccessLayer
             
             //1.2.2-We send a trade notification for the new trade
             SendTradeNotification(socket, newTrade, LoggedUserId, instr, UUID);
+
+            //1.2.3-Update and send ClientCreditUpdate
+            UpdateCreditOnTrade(socket, newTrade, UUID);
 
         }
 
@@ -1802,6 +1862,28 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected long ProcessOrderIdToLong(string orderId)
+        {
+
+            try
+            {
+                return GUIDToLongConverter.GUIDToLong(orderId);
+
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+
+                    return Convert.ToInt64(orderId);
+                }
+                catch (Exception ex2)
+                {
+                    throw new Exception(string.Format("Invalid Order Id :{0}", orderId));
+                }
+            }
+        }
+
         protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1829,7 +1911,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.FirmId = ordCxlReq.FirmId;
                         ack.Message = "Just cancelled @ mock v2";
                         ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = GUIDToLongConverter.GUIDToLong(order.OrderId);
+                        ack.OrderId = ProcessOrderIdToLong(order.OrderId);
                         ack.Success = true;
                         ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
                         ack.UserId = ordCxlReq.UserId;
@@ -1851,11 +1933,11 @@ namespace DGTLBackendMock.DataAccessLayer
                         DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
                         UpdateQuotes(socket, instr, ordCxlReq.Uuid);
 
-                        //5-
-                        //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
+                        //5-Refreshing open orders
+                        RefreshOpenOrders(socket, ordCxlReq.UserId, ordCxlReq.Uuid);
 
                         //6-Send LegacyOrderRecord
-                        CanceledLegacyOrderREcord(order, socket);
+                        CanceledLegacyOrderRecord(socket, order, ordCxlReq.Uuid);
 
                     }
                     else
@@ -2115,18 +2197,8 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
 
-                long finalOrderId = 0;
+                long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
 
-                try
-                {
-                    finalOrderId = GUIDToLongConverter.GUIDToLong(legacyOrderRecord.OrderId);
-                }
-                catch (Exception ex)
-                {
-                    finalOrderId = Convert.ToInt64(legacyOrderRecord.OrderId);
-                }
-                
-                
                 ClientOrderRecord order = new ClientOrderRecord()
                 {
                     Msg = "ClientOrderRecord",

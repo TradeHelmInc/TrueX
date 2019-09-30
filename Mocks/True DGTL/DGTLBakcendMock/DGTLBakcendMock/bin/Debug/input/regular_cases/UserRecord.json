@@ -93,5 +93,18 @@
 
 ,{"UserKey":"0","UserId":"QATWO","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"QATWO","LastName":"CLOB","NickName":"QATWO","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
 
+,{"UserKey":"0","UserId":"SIMUSER_3_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"SIMUSER_3_UI1","LastName":"CLOB","NickName":"SIMUSER_3_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"SIMUSER_4_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"SIMUSER_4_UI1","LastName":"CLOB","NickName":"SIMUSER_4_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"SIMUSER_16_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"SIMUSER_16_UI1","LastName":"CLOB","NickName":"SIMUSER_16_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"SIMUSER_17_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"SIMUSER_17_UI1","LastName":"CLOB","NickName":"SIMUSER_17_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"mikew_trader","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"mikew_trader","LastName":"CLOB","NickName":"mikew_trader","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"suellen_trader","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"suellen_trader","LastName":"CLOB","NickName":"suellen_trader","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
+
+,{"UserKey":"0","UserId":"MM4_CLOBUI1","FirmId":"271058657","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c21","FirstName":"MM4","LastName":"CLOBUI1","NickName":"MM4_CLOBUI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
 
 ]

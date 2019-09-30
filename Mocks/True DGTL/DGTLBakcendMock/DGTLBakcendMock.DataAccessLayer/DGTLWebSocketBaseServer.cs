@@ -157,10 +157,36 @@ namespace DGTLBackendMock.DataAccessLayer
             PlatformStatus.StatusTime = Convert.ToInt64(elapsed.TotalSeconds);
         }
 
+     
+
         protected void ProcessPlatformStatus(IWebSocketConnection socket, WebSocketSubscribeMessage subscrMsg)
         {
+
+            bool doLogout = false;
+            if (PlatformStatus.cState == PlatformStatus._STATE_SEND_CLIENT_LOGOUT)
+            {
+                PlatformStatus.cState = PlatformStatus._STATE_OPEN;
+                doLogout = true;
+            }
+
             DoSend<PlatformStatus>(socket, PlatformStatus);
             ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
+
+            if (doLogout)
+            {
+                Thread.Sleep(10 * 1000);
+                DoLog(string.Format("Returning ClientLogoutResponse..."), MessageType.Information);
+                ClientLogoutResponse logout = new ClientLogoutResponse()
+                {
+                    Msg = "ClientLogoutResponse",
+                    Sender = 0,
+                    Time = 0,
+                    UserId = subscrMsg.UserId,
+                    ReLogin = false
+                };
+
+                DoSend<ClientLogoutResponse>(socket, logout);
+            }
         }
 
         protected virtual void ProcessClientLoginMock(IWebSocketConnection socket, string m)
