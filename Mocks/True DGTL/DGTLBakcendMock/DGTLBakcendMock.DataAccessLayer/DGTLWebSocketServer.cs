@@ -144,6 +144,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Methods
 
+        protected void AppendTrades(LegacyTradeHistory newTrade)
+        {
+            List<LegacyTradeHistory> trades = new List<LegacyTradeHistory>();
+            Trades.ToList().ForEach(x => trades.Add(x));
+            trades.Add(newTrade);
+            Trades = trades.ToArray();
+        }
+
         protected override void DoCLoseThread(object p)
         {
             lock (tLock)
@@ -1492,6 +1500,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             };
             DoSend<LegacyTradeHistory>(socket, newTrade);
+            AppendTrades(newTrade);
 
             //1.2.1-We update market data for a new trade
             EvalMarketData(socket,newTrade);

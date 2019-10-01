@@ -165,15 +165,22 @@ namespace DGTLBackendMock.DataAccessLayer
             bool doLogout = false;
             if (PlatformStatus.cState == PlatformStatus._STATE_SEND_CLIENT_LOGOUT)
             {
+                DoLog(string.Format("Sending state open because of status 7 <will send ClientLogoutResponse>"), MessageType.Information);
                 PlatformStatus.cState = PlatformStatus._STATE_OPEN;
                 doLogout = true;
             }
+            else
+                DoLog(string.Format("Senting platform status {0}", PlatformStatus.cState), MessageType.Information);
+
+
 
             DoSend<PlatformStatus>(socket, PlatformStatus);
             ProcessSubscriptionResponse(socket, "PS", subscrMsg.ServiceKey, subscrMsg.UUID, true);
 
             if (doLogout)
             {
+                PlatformStatus.cState = PlatformStatus._STATE_SEND_CLIENT_LOGOUT;
+                DoLog(string.Format("Sleeping before Returning ClientLogoutResponse..."), MessageType.Information);
                 Thread.Sleep(10 * 1000);
                 DoLog(string.Format("Returning ClientLogoutResponse..."), MessageType.Information);
                 ClientLogoutResponse logout = new ClientLogoutResponse()
@@ -186,6 +193,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 };
 
                 DoSend<ClientLogoutResponse>(socket, logout);
+                DoLog(string.Format(" ClientLogoutResponse sent..."), MessageType.Information);
             }
         }
 

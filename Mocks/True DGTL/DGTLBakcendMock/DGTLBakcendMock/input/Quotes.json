@@ -10,6 +10,7 @@
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "ETH-USD",  "Bid" : 9013.5,  "BidSize" : 302841.0,  "Ask" : 14999.00, "MidPoint":12006.25,  "AskSize" : 500.00},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-Z19",  "Bid" : 9058.5,  "BidSize" : 100.0,  "Ask" : 9135.00, "MidPoint":9096.75,  "AskSize" : 10995.00},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XMR-USD",  "Bid" : 90.5,  "BidSize" : 51.3,  "Ask" : 95.8, "MidPoint":93.15,  "AskSize" : 25.12},
-
-
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "ADA-USD",  "Bid" : 120.55,  "BidSize" : 13.3,  "Ask" : 120.56, "MidPoint":120.555,  "AskSize" : 18.12},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "XRP-USD",  "Bid" : 300.55,  "BidSize" : 17.9,  "Ask" : 310.17, "MidPoint":305.363,  "AskSize" : 7},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "ZEC-USD",  "Bid" : 189.34,  "BidSize" : 4.3,  "Ask" : 196.67, "MidPoint":193.008,  "AskSize" : 4.12},
 ]

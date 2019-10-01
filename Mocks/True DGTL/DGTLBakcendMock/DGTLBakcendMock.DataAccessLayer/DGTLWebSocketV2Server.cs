@@ -74,6 +74,8 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
         }
 
+        
+
         protected void CanceledLegacyOrderRecord(IWebSocketConnection socket, LegacyOrderRecord ordRecord,string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -273,6 +275,20 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private char GetStateOnSymbol(ClientInstrument instr)
+        {
+            if (instr.InstrumentName == "ADA-USD")
+                return ClientInstrumentState._STATE_CLOSE;
+            else if (instr.InstrumentName == "XMR-USD")
+                return ClientInstrumentState._STATE_INACTIVE;
+            else if (instr.InstrumentName == "XRP-USD")
+                return ClientInstrumentState._STATE_UNKNOWN;
+            else
+                return ClientInstrumentState._STATE_HALT;
+        
+        
+        }
+
         //1.2.1.1- If change is more than 5% , we halt the security
         private void EvalHaltingSecurity(IWebSocketConnection socket, decimal? prevLastPrice, LegacyTradeHistory newTrade, ClientInstrument instr)
         {
@@ -288,7 +304,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ClientInstrumentState state = new ClientInstrumentState();
                     state.Msg = "ClientInstrumentState";
-                    state.cState = ClientInstrumentState._STATE_HALT;
+                    state.cState = GetStateOnSymbol(instr);
                     state.ExchangeId = 0;
                     state.InstrumentId = instr.InstrumentId;
                     state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
@@ -410,6 +426,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             };
             TranslateAndSendOldLegacyTradeHistory(socket, UUID, newTrade);
+            AppendTrades(newTrade);
             //DoSend<LegacyTradeHistory>(socket, newTrade);
 
             //1.2.1-We update market data for a new trade
@@ -1884,6 +1901,26 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void ProcessFakeCancellationRejection(IWebSocketConnection socket, ClientOrderCancelReq ordCxlReq, ClientInstrument instr)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            DoLog(string.Format("Processing Fake cancellation Rejection for security {0}", instr.InstrumentName), MessageType.Information);
+
+            ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+            ack.ClientOrderId = ordCxlReq.ClientOrderId;
+            ack.FirmId = ordCxlReq.FirmId;
+            ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.ClientOrderId);
+            ack.Msg = "ClientOrderCancelResponse";
+            ack.OrderId = 0;
+            ack.Success = false;
+            ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+            ack.UserId = ordCxlReq.UserId;
+            ack.Uuid = ordCxlReq.Uuid;
+
+            DoSend<ClientOrderCancelResponse>(socket,ack);
+        }
+
         protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1903,7 +1940,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     if (order != null)
                     {
 
+
                         ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+
+                        if (instr.InstrumentName == "SWP-XBT-USD-Z19")
+                        {
+                            ProcessFakeCancellationRejection(socket, ordCxlReq, instr);
+                            return;
+                        }
 
                         //1-We send el CancelAck
                         ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
@@ -1927,7 +1971,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //3-Upd orders in mem
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
-                        Orders.Remove(order);
+                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        order.LvsQty = 0;
+                        //Orders.Remove(order);
 
                         //4- Update Quotes
                         DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
