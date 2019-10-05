@@ -17,7 +17,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public static char _STATE_CLOSE = 'C';
 
-        public static char _STATE_INACTIVE = 'H';
+        public static char _STATE_INACTIVE = 'I';
 
         public static char _STATE_UNKNOWN = 'U';
 

@@ -473,6 +473,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     DoLog(string.Format("We send the Trade for my other affected {3} order for symbol {0} Side={1} Price={2} Trade Size={4} ", order.InstrumentId, order.cSide == LegacyOrderRecord._SIDE_BUY ? "buy" : "sell", order.Price.Value, order.cStatus, Convert.ToDecimal(order.FillQty - prevFillQty)), MessageType.Information);
                     SendNewTrade(order.cSide, Convert.ToDecimal(order.Price.Value), Convert.ToDecimal(order.FillQty - prevFillQty), socket, instr, UUID);
                 }
+
+                if (tradeSize <= 0)
+                    break;
             }
 
 
@@ -827,18 +830,24 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
                 DoSend<ClientOrderResponse>(socket, clientOrdAck);
 
-                ////We reject the messageas a convention, we cannot send messages lower than 6000 USD
-                //ClientOrderRej reject = new ClientOrderRej()
-                //{
-                //    Msg = "ClientOrderRej",
-                //    cRejectCode='0',
-                //    ExchangeId=0,
-                //    UUID=clientOrderReq.UUID,
-                //    TransactionTimes=Convert.ToInt64(elapsed.TotalMilliseconds)
+                ClientInstrument instr = GetInstrumentByServiceKey(clientOrderReq.InstrumentId.ToString());
 
-                //};
+                LegacyOrderRecord rejOrder = new LegacyOrderRecord();
+                rejOrder.Msg = "LegacyOrderRecord";
+                rejOrder.ClientOrderId = clientOrderReq.ClientOrderId;
+                rejOrder.OrderId = GUIDToLongConverter.GUIDToLong(Guid.NewGuid().ToString()).ToString();
+                rejOrder.InstrumentId = instr != null ? instr.InstrumentName : "";
+                rejOrder.LvsQty = 0;
+                rejOrder.OrdQty = Convert.ToDouble(clientOrderReq.Quantity);
+                rejOrder.Price = Convert.ToDouble(clientOrderReq.Price);
+                rejOrder.cSide = clientOrderReq.cSide;
+                rejOrder.cStatus = LegacyOrderRecord._STATUS_REJECTED;
+                rejOrder.UpdateTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+                //rejOrder.rej = string.Format("Order {0} not found!", legOrdCxlReq.OrigClOrderId)
+                rejOrder.UserId=LoggedUserId;
 
-                //DoSend<ClientOrderRej>(socket, reject);
+                Orders.Add(rejOrder);
+                TranslateAndSendOldLegacyOrderRecord(socket, clientOrderReq.Uuid, rejOrder, newOrder: true);
 
                 return true;
             }
@@ -1921,6 +1930,79 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientOrderCancelResponse>(socket,ack);
         }
 
+        protected void ProcessClientMassCancelReq(IWebSocketConnection socket, string m)
+        {
+            DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
+            ClientMassCancelReq clientMassCxlReq = JsonConvert.DeserializeObject<ClientMassCancelReq>(m);
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList())
+                    {
+                        //1-Manamos el ClientOrderCancelResponse
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        ack.ClientOrderId = order.ClientOrderId;
+                        ack.FirmId = Convert.ToInt64(LoggedFirmId);
+                        ack.Message = "Just cancelled @ mock v2 after mass cancellation";
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = ProcessOrderIdToLong(order.OrderId);
+                        ack.Success = true;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.UserId = clientMassCxlReq.UserId;
+                        ack.Uuid = clientMassCxlReq.Uuid;
+
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+                        ClientOrderRecord newOrder = new ClientOrderRecord() { InstrumentId=instr.InstrumentId ,  cSide = order.cSide, Price = order.Price, LeavesQty = order.LvsQty };
+                        EvalPriceLevels(socket, newOrder, clientMassCxlReq.Uuid);
+
+                        //2.1 We update the order status
+                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        order.LvsQty = 0;
+                        TranslateAndSendOldLegacyOrderRecord(socket, clientMassCxlReq.Uuid, order, newOrder: false);
+
+                        //3-Upd Quotes
+                        UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
+
+                    }
+
+
+                    //4-We send the final response
+                    ClientMassCancelResponse resp = new ClientMassCancelResponse();
+                    resp.Msg = "ClientMassCancelResponse";
+                    resp.UserId = clientMassCxlReq.UserId;
+                    resp.Success = true;
+                    resp.Message = "";
+                    resp.Uuid = clientMassCxlReq.UserId;
+                    DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
+                    DoSend<ClientMassCancelResponse>(socket, resp);
+
+                    //5-We send the final response
+                    RefreshOpenOrders(socket, "*", clientMassCxlReq.UserId);
+                }
+            }
+            catch (Exception ex)
+            {
+                ClientMassCancelResponse resp = new ClientMassCancelResponse();
+                resp.Msg = "ClientMassCancelResponse";
+                resp.UserId = clientMassCxlReq.UserId;
+                resp.Success = false;
+                resp.Message = ex.Message;
+                resp.Uuid = clientMassCxlReq.UserId;
+                DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
+                DoSend<ClientMassCancelResponse>(socket, resp);
+                DoLog(string.Format("Exception processing LegacyOrderMassCancelReq: {0}", ex.Message), MessageType.Error);
+            }
+        
+        }
+
         protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1936,6 +2018,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     DoLog(string.Format("Searching order by ClientOrderId={0} )", ordCxlReq.ClientOrderId), MessageType.Information);
                     LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
+
+                    if(order==null)
+                        order = Orders.Where(x => x.OrderId == ordCxlReq.OrderId.ToString()).FirstOrDefault();
 
                     if (order != null)
                     {
@@ -2911,6 +2996,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessClientOrderCancelReq(socket, m);
                 }
+                else if (wsResp.Msg == "ClientMassCancelReq")
+                {
+                    ProcessClientMassCancelReq(socket, m);
+                }
                 else if (wsResp.Msg == "ResetPasswordRequest")
                 {
 
@@ -2923,14 +3012,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessSubscriptions(socket, m);
 
                 }
-                else if (wsResp.Msg == "LegacyOrderCancelReq")
-                {
-                    ProcessLegacyOrderCancelMock(socket, m);
-                }
-                else if (wsResp.Msg == "LegacyOrderMassCancelReq")
-                {
-                    ProcessLegacyOrderMassCancelMock(socket, m);
-                }
+              
                 else
                 {
                     UnknownMessage unknownMsg = new UnknownMessage()

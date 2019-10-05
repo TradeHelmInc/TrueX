@@ -176,6 +176,11 @@ namespace DGTLBackendMock.DataAccessLayer
                                 FirmsListResponse msg = JsonConvert.DeserializeObject<FirmsListResponse>(resp);
                                 OnEvent(msg);
                             }
+                            else if (wsResp.Msg == "ClientMassCancelResponse")
+                            {
+                                ClientMassCancelResponse msg = JsonConvert.DeserializeObject<ClientMassCancelResponse>(resp);
+                                OnEvent(msg);
+                            }
                             else if (wsResp.Msg == "ClientHeartbeat")
                                 OnEvent(JsonConvert.DeserializeObject<ClientHeartbeat>(resp));
                             else

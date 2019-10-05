@@ -1,0 +1,215 @@
+2019-10-04 12:33:46  :: Initializing Mock Server...
+2019-10-04 12:33:46  :: Initializing all collections...
+2019-10-04 12:33:47  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 12:33:47  :: Collections Initialized...
+2019-10-04 12:33:57  :: Connecting for the first time to client 35120
+2019-10-04 12:33:57  :: Connected for the first time to client 35120
+2019-10-04 12:34:07  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-04 12:34:07  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-04 12:34:07  :: Sending ClientLoginResponse with UUID e8be2691-0af8-40a8-9b68-54a79730a15d
+2019-10-04 12:34:07  :: Sending Instrument Batch 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:07  :: Sending ClientInstrumentState 
+2019-10-04 12:34:08  :: Sending ClientUserRecord
+2019-10-04 12:34:08  :: Exception unencrypting secret 03eoGYYnv41h/DapWoLbceCJjSMZ90kAVH4GB9TJvJIdAqCTLdmJAIf5b8a9Wi/K: Unknown state trasnlation for PlatformStatus 7
+2019-10-04 12:34:16  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:34:16  :: Sending ClientOrderResponse ...
+2019-10-04 12:34:16  :: Best ask for buy order (Limit Price=11000.0) found at price 14999.0
+2019-10-04 12:34:16  :: Could not find matching sell price for symbol ETH-USD and order price 11000.0
+2019-10-04 12:34:16  :: Evaluating price levels ...
+2019-10-04 12:34:17  :: Sending new bid entry: Price=11000.0 Size=10.0 ...
+2019-10-04 12:34:17  :: Evaluating LegacyOrderRecord ...
+2019-10-04 12:34:17  :: Creating new order in Orders collection for ClOrderId = f8da247c-4915-458a-9bfb-7afbf21d3683
+2019-10-04 12:34:17  :: Sending open order count for all symbols : 3
+2019-10-04 12:34:17  :: Updating quotes ...
+2019-10-04 12:34:17  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:34:17  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:34:17  :: Sending ClientOrderResponse ...
+2019-10-04 12:34:17  :: Best ask for buy order (Limit Price=11000.0) found at price 14999.0
+2019-10-04 12:34:17  :: Could not find matching sell price for symbol ETH-USD and order price 11000.0
+2019-10-04 12:34:17  :: Evaluating price levels ...
+2019-10-04 12:34:17  :: Sending upd bid entry: Price=11000.0 Size=20.0 ...
+2019-10-04 12:34:17  :: Evaluating LegacyOrderRecord ...
+2019-10-04 12:34:17  :: Creating new order in Orders collection for ClOrderId = fd42bcb8-c78c-4ed2-b39f-5283a3d92fae
+2019-10-04 12:34:17  :: Sending open order count for all symbols : 4
+2019-10-04 12:34:17  :: Updating quotes ...
+2019-10-04 12:34:17  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:34:36  :: Initializing Mock Server...
+2019-10-04 12:34:36  :: Initializing all collections...
+2019-10-04 12:34:37  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 12:34:38  :: Collections Initialized...
+2019-10-04 12:34:44  :: Connecting for the first time to client 35159
+2019-10-04 12:34:44  :: Connected for the first time to client 35159
+2019-10-04 12:34:53  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-04 12:34:53  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-04 12:34:53  :: Sending ClientLoginResponse with UUID 7fff01eb-74cc-4332-bc04-a6c163bc6351
+2019-10-04 12:34:53  :: Sending Instrument Batch 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientInstrumentState 
+2019-10-04 12:34:53  :: Sending ClientUserRecord
+2019-10-04 12:34:53  :: Exception unencrypting secret 98QOuCA92T5YumZY66nmz1rTDRRkzBRDu6VYwoZRwTAupyuYhYPbhmk3W18z0eNN: Unknown state trasnlation for PlatformStatus 7
+2019-10-04 12:35:00  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:35:00  :: Sending ClientOrderResponse ...
+2019-10-04 12:35:00  :: Best ask for buy order (Limit Price=11000.0) found at price 14999.0
+2019-10-04 12:35:00  :: Could not find matching sell price for symbol ETH-USD and order price 11000.0
+2019-10-04 12:35:00  :: Evaluating price levels ...
+2019-10-04 12:35:00  :: Sending new bid entry: Price=11000.0 Size=10.0 ...
+2019-10-04 12:35:00  :: Evaluating LegacyOrderRecord ...
+2019-10-04 12:35:00  :: Creating new order in Orders collection for ClOrderId = 2a845aad-7b95-457f-9dfe-59bca4d13151
+2019-10-04 12:35:00  :: Sending open order count for all symbols : 3
+2019-10-04 12:35:00  :: Updating quotes ...
+2019-10-04 12:35:00  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:01  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:35:01  :: Sending ClientOrderResponse ...
+2019-10-04 12:35:01  :: Best ask for buy order (Limit Price=11000.0) found at price 14999.0
+2019-10-04 12:35:01  :: Could not find matching sell price for symbol ETH-USD and order price 11000.0
+2019-10-04 12:35:01  :: Evaluating price levels ...
+2019-10-04 12:35:01  :: Sending upd bid entry: Price=11000.0 Size=20.0 ...
+2019-10-04 12:35:01  :: Evaluating LegacyOrderRecord ...
+2019-10-04 12:35:01  :: Creating new order in Orders collection for ClOrderId = 933b2a1f-528e-4795-859b-db24e7c3e720
+2019-10-04 12:35:01  :: Sending open order count for all symbols : 4
+2019-10-04 12:35:01  :: Updating quotes ...
+2019-10-04 12:35:01  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:06  :: OnMessage ClientMassCancelReq from IP -> 127.0.0.1
+2019-10-04 12:35:06  :: Processing ProcessLegacyOrderMassCancelMock
+2019-10-04 12:35:06  :: Sending cancellation ack for ClOrdId: 
+2019-10-04 12:35:06  :: Evaluating price levels for ClOrdId: 
+2019-10-04 12:35:06  :: Sending upd bid entry: Price=7490.0 Size=997.0 ...
+2019-10-04 12:35:06  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:06  :: Sending cancellation ack for ClOrdId: 
+2019-10-04 12:35:06  :: Evaluating price levels for ClOrdId: 
+2019-10-04 12:35:06  :: Sending upd bid entry: Price=7468.0 Size=1595.0 ...
+2019-10-04 12:35:06  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:06  :: Sending cancellation ack for ClOrdId: 2a845aad-7b95-457f-9dfe-59bca4d13151
+2019-10-04 12:35:06  :: Evaluating price levels for ClOrdId: 2a845aad-7b95-457f-9dfe-59bca4d13151
+2019-10-04 12:35:06  :: Sending upd bid entry: Price=11000.0 Size=10.0 ...
+2019-10-04 12:35:06  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:06  :: Sending cancellation ack for ClOrdId: 933b2a1f-528e-4795-859b-db24e7c3e720
+2019-10-04 12:35:06  :: Evaluating price levels for ClOrdId: 933b2a1f-528e-4795-859b-db24e7c3e720
+2019-10-04 12:35:06  :: Sending upd bid entry: Price=11000.0 Size=0.0 ...
+2019-10-04 12:35:06  :: Updating best bid and ask for symbol ETH-USD
+2019-10-04 12:35:06  :: Sending ClientMassCancelResponse
+2019-10-04 12:35:06  :: Sending open order count for all symbols : 0
+2019-10-04 12:36:38  :: Initializing Mock Server...
+2019-10-04 12:36:38  :: Initializing all collections...
+2019-10-04 12:36:38  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 12:36:39  :: Collections Initialized...
+2019-10-04 12:36:54  :: Connecting for the first time to client 35376
+2019-10-04 12:36:54  :: Connected for the first time to client 35376
+2019-10-04 12:37:21  :: Closing previous client 
+2019-10-04 12:37:21  :: Turning threads off on socket disconnection
+2019-10-04 12:37:57  :: Initializing Mock Server...
+2019-10-04 12:37:57  :: Initializing all collections...
+2019-10-04 12:37:58  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 12:37:59  :: Collections Initialized...
+2019-10-04 12:38:06  :: Connecting for the first time to client 35434
+2019-10-04 12:38:06  :: Connected for the first time to client 35434
+2019-10-04 12:38:11  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-04 12:38:11  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-04 12:38:11  :: Sending ClientLoginResponse with UUID 2131f7ec-eac4-406d-87f1-6e08d52f2a20
+2019-10-04 12:38:11  :: Sending Instrument Batch 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientInstrumentState 
+2019-10-04 12:38:11  :: Sending ClientUserRecord
+2019-10-04 12:38:11  :: Exception unencrypting secret GD8yisuNOc8vpwa5b/ZBGx3S9JbkW21swAR37tES94W5A5/Rg9hzQmo5L3fpzP7A: Unknown state trasnlation for PlatformStatus 7
+2019-10-04 12:38:28  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:38:28  :: Sending ClientOrderResponse rejected ...
+2019-10-04 12:38:28  :: Exception processing ClientOrderReq: Invalid Order Id :
+2019-10-04 12:39:07  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:39:12  :: Sending ClientOrderResponse rejected ...
+2019-10-04 12:41:13  :: Initializing Mock Server...
+2019-10-04 12:41:13  :: Initializing all collections...
+2019-10-04 12:41:14  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 12:41:15  :: Collections Initialized...
+2019-10-04 12:41:24  :: Connecting for the first time to client 35586
+2019-10-04 12:41:24  :: Connected for the first time to client 35586
+2019-10-04 12:41:39  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-04 12:41:39  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-04 12:41:39  :: Sending ClientLoginResponse with UUID f7ff57ac-bbb7-48d7-a58a-4f1b967147eb
+2019-10-04 12:41:39  :: Sending Instrument Batch 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientInstrumentState 
+2019-10-04 12:41:39  :: Sending ClientUserRecord
+2019-10-04 12:41:40  :: Exception unencrypting secret 8yHhBtQKHP7Z9Ui6u8fkvl8wRehLjR5etx73whFZXil5CmSbe2Nl9rSeNtS01Dlt: Unknown state trasnlation for PlatformStatus 7
+2019-10-04 12:41:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-04 12:41:45  :: Sending ClientOrderResponse rejected ...
+2019-10-04 16:47:58  :: Initializing Mock Server...
+2019-10-04 16:47:58  :: Initializing all collections...
+2019-10-04 16:47:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-04 16:47:59  :: Collections Initialized...

@@ -68,6 +68,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("EmailNotificationsDeleteRequest <SettlementFirmId> <email>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("CancelLastCreatedOrder");
+            Console.WriteLine("MassCancelRequest");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
             Console.WriteLine("MassiveCancel");
             Console.WriteLine("-CLEAR");
@@ -192,6 +193,10 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "CancelLastCreatedOrder")
             {
                 ProcessCancelLastCreatedOrderparam(param);
+            }
+            else if (mainCmd == "MassCancelRequest")
+            {
+                ProcessMassCancelRequest(param);
             }
             else if (mainCmd.ToUpper() == "CLEAR")
             {
@@ -351,6 +356,8 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientOrderAck>((ClientOrderAck)msg);
             else if (msg is ClientOrderRej)
                 ProcessJsonMessage<ClientOrderRej>((ClientOrderRej)msg);
+            else if (msg is ClientMassCancelResponse)
+                ProcessJsonMessage<ClientMassCancelResponse>((ClientMassCancelResponse)msg);
             else if (msg is ClientOrderReq)
                 ProcessJsonMessage<ClientOrderReq>((ClientOrderReq)msg);
             else if (msg is FirmsListResponse)
@@ -411,6 +418,26 @@ namespace DGTLBackendAPIClientV2
             return clientOrderReq;
         }
 
+
+        private static void ProcessMassCancelRequest(string[] param)
+        {
+
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            ClientMassCancelReq cxlMassReq = new ClientMassCancelReq()
+            {
+                Uuid = UUID,
+                Msg = "ClientMassCancelReq",
+                UserId = UserId,
+                JsonWebToken=Token
+            };
+
+            DoSend<ClientMassCancelReq>(cxlMassReq);
+        }
 
         private static void ProcessCancelLastCreatedOrderparam(string[] param)
         {
