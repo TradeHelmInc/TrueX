@@ -91,3 +91,1963 @@
 2019-10-14 10:49:28  :: Collections Initialized...
 2019-10-14 10:49:32  :: Received REST request for record type T fromDate=20111014 toDate=20191014
 2019-10-14 10:50:42  :: Received REST request for record type O fromDate=20111014 toDate=20191014
+2019-10-14 11:09:53  :: Initializing Mock Server...
+2019-10-14 11:09:53  :: Initializing all collections...
+2019-10-14 11:09:53  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 11:09:54  :: Collections Initialized...
+2019-10-14 11:10:03  :: Connecting for the first time to client 42181
+2019-10-14 11:10:03  :: Connected for the first time to client 42181
+2019-10-14 11:11:01  :: Initializing Mock Server...
+2019-10-14 11:11:01  :: Initializing all collections...
+2019-10-14 11:11:01  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 11:11:02  :: Collections Initialized...
+2019-10-14 11:11:10  :: Connecting for the first time to client 42196
+2019-10-14 11:11:10  :: Connected for the first time to client 42196
+2019-10-14 11:11:25  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-14 11:11:25  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-14 11:11:25  :: Sending ClientLoginResponse with UUID 71f1a775-c3b2-47fe-ba21-d48e34e88270
+2019-10-14 11:11:25  :: Sending Instrument Batch 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientInstrumentState 
+2019-10-14 11:11:25  :: Sending ClientUserRecord
+2019-10-14 11:11:25  :: Exception unencrypting secret bMaN8qPazviftn4QSqobWQ1QOrnlRlKpwOY1FleiE54i89zCRdnpVRUjtzsJVXUL: Unknown state trasnlation for PlatformStatus 7
+2019-10-14 11:11:34  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:11:34  :: Sending ClientOrderResponse ...
+2019-10-14 11:11:34  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:11:34  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:11:34  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:11:34  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:11:34  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:11:34  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:11:34  :: LastSale updated...
+2019-10-14 11:11:34  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:11:34  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:11:34  :: Quotes updated...
+2019-10-14 11:11:34  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-10-14 11:11:34  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:11:34  ::  OnClose for client 42196
+2019-10-14 11:11:34  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:11:34  :: Turning threads off on socket disconnection
+2019-10-14 11:12:08  :: Initializing Mock Server...
+2019-10-14 11:12:08  :: Initializing all collections...
+2019-10-14 11:12:09  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 11:12:09  :: Collections Initialized...
+2019-10-14 11:12:16  :: Connecting for the first time to client 42278
+2019-10-14 11:12:16  :: Connected for the first time to client 42278
+2019-10-14 11:12:20  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-14 11:12:20  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-14 11:12:20  :: Sending ClientLoginResponse with UUID 2935ce27-a29b-4e70-9278-36b60676fc89
+2019-10-14 11:12:20  :: Sending Instrument Batch 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientInstrumentState 
+2019-10-14 11:12:20  :: Sending ClientUserRecord
+2019-10-14 11:12:20  :: Exception unencrypting secret jMeFH5MUA6f2bOo94xCHaxubjBcXaV3ngLIiBVF45qKMwiNQfDfY792CCriGPBG5: Unknown state trasnlation for PlatformStatus 7
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 81bb137c-d5b0-4210-8017-2bd4ad38fc2e
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 7d0b9ffc-2c8e-4e75-857f-43051544d81f
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 196f93be-22be-48db-9b8c-be2f5d6a2b1b
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 32facb5b-2601-453d-b898-0b5e28d17547
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 7672d0cd-51c6-42f7-89de-f3e75e1a555f
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 564fd352-ee86-499d-afad-af558f3e9142
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = fa0fa10d-04f1-49f3-9f63-15262eeaaf15
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = fa7a88f9-7e89-40da-9ce3-90a9178b76ea
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:29  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:29  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:29  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:29  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:29  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:29  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: LastSale updated...
+2019-10-14 11:12:29  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:29  :: Quotes updated...
+2019-10-14 11:12:29  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:29  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:29  :: Creating new order in Orders collection for ClOrderId = 8f789cd2-d14b-447a-9c6c-6c47e045ce35
+2019-10-14 11:12:29  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:29  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:30  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:30  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:30  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:30  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:30  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:30  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:30  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:30  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:30  :: LastSale updated...
+2019-10-14 11:12:30  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:30  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:30  :: Quotes updated...
+2019-10-14 11:12:30  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:30  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:30  :: Creating new order in Orders collection for ClOrderId = 1bca5b66-3a30-40aa-8ddc-681358338a51
+2019-10-14 11:12:30  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:30  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:38  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:38  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:38  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:38  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:38  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:38  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:38  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:38  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:38  :: LastSale updated...
+2019-10-14 11:12:38  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:38  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:38  :: Quotes updated...
+2019-10-14 11:12:38  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:38  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:38  :: Creating new order in Orders collection for ClOrderId = 3d0c7df1-db35-45be-aa70-0a8c1dcb37a9
+2019-10-14 11:12:38  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:38  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 40d17cfb-6f77-4f6f-976a-355afe8ae7fd
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 6ccf6c68-3a2f-4d0c-8820-161d914cb5b7
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 688552a2-fb13-4714-899a-adda9943c60d
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 47aa06ba-65cc-4a21-a338-d32c447b71f0
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 3794047e-2607-47da-8114-520a3e6c4f5b
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 78ae8ebc-37e5-4ad8-9b19-69d2f92ba725
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = ca1649aa-e737-4d90-832b-4a837cc95aea
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = ca83e4de-968b-4446-a802-834f78cd81d7
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:39  :: Creating new order in Orders collection for ClOrderId = 645ffcfa-d3b4-4c76-b461-d5124a33a1da
+2019-10-14 11:12:39  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:39  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:39  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:39  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:39  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:39  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:39  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: LastSale updated...
+2019-10-14 11:12:39  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:39  :: Quotes updated...
+2019-10-14 11:12:39  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:39  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = ea9552ee-9bc3-413c-9797-6fc7b7148b09
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = 22bad90b-941b-433b-9ada-2e01e398375a
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = fbff9b06-2bc4-453a-a361-e79b9f138b3a
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = 0bf7f3d3-943e-4bc6-bdde-d4041b58e28f
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = 045e3e7e-4e94-4f15-8a24-79633af58343
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = b11dc8ea-442a-40b3-ae2c-eff35e56b5fd
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = a18e90dd-daeb-4f81-be9c-4b8a13157675
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = 0cd9037b-a894-4564-95dc-bd47e2325e59
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = b2c63ac4-b857-40c0-921f-86343b8ccee9
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:40  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:40  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:40  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:40  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:40  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:40  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: LastSale updated...
+2019-10-14 11:12:40  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:40  :: Quotes updated...
+2019-10-14 11:12:40  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:40  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:40  :: Creating new order in Orders collection for ClOrderId = df75aaa7-2c26-419b-8694-ad1c6aa0245e
+2019-10-14 11:12:40  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = 4b1100c5-33ec-469a-afa7-6b28b53eb830
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = de64ec3e-f972-41a2-a1b9-ed8dc8a8a515
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = a885bba9-8134-4e67-ba31-a853e9f08e0e
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = 1f0b8f61-e9d6-4923-8da2-0cf4f25effbf
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = 01826317-6a86-4095-a777-af98ae59a3a1
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = def469eb-32fb-4e0f-8b0c-22eeb8f85e95
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = 5ea33af1-21ae-4b03-8544-1c8c6e9edd2a
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = a206a7f7-774a-4efe-a01a-11965b83a7bc
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:41  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:41  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:41  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:41  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:41  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:41  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: LastSale updated...
+2019-10-14 11:12:41  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:41  :: Quotes updated...
+2019-10-14 11:12:41  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:41  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:41  :: Creating new order in Orders collection for ClOrderId = a6f8026b-134e-4817-a971-91499bd1372e
+2019-10-14 11:12:41  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:41  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = 31ecf921-05b3-4038-9ba2-3934508f79ba
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = e88c4506-72a3-467d-a8e4-5d5a982626e2
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = b6da29f4-7b30-4f5b-9eff-5c07b7673bf1
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = bb002530-1d2d-4cc6-8e37-431b627c8448
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = 8ee00435-cc16-4777-a624-854a8c186343
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = 34c5ee17-d5d6-4b52-a9d6-c2a2e117fdd4
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = d969f602-57af-49a8-b17c-eafa39fc1205
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = f8336c3e-53e6-49d1-abbf-4f13d3a8dba9
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = 9b8454d4-6465-4cd4-be91-52b022bde307
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:42  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:42  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:42  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:42  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:42  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:42  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: LastSale updated...
+2019-10-14 11:12:42  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:42  :: Quotes updated...
+2019-10-14 11:12:42  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:42  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:42  :: Creating new order in Orders collection for ClOrderId = d277a5a4-b45b-4f97-90b6-1fa859481bfd
+2019-10-14 11:12:42  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:42  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 290c6657-1b52-48e3-a60b-3f39018c5a00
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 053911c9-7f28-4ec2-867e-07e86cd3dd67
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 2bca6dc2-2d45-4a8c-be26-396c51a4b243
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 4f24aaaa-1676-410d-bb44-2db221ef0c5d
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 80d9622e-1bce-45a0-b89e-3e5b5bc92895
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = e7a39581-9e3c-4ba3-8ab0-b4ccedbc3a4c
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = abc75205-8dd5-48bf-840e-8e84bbef8232
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 0d3cde79-1e5a-4f8a-8715-1daf7fa55815
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:43  :: Creating new order in Orders collection for ClOrderId = 5c5ee8cd-d39c-4934-b064-9591e134a337
+2019-10-14 11:12:43  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:43  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:43  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:43  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:43  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:43  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:43  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: LastSale updated...
+2019-10-14 11:12:43  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:43  :: Quotes updated...
+2019-10-14 11:12:43  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:43  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 900d026f-3d9d-4fda-80ec-738e137b1d84
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = d294bbbc-83e0-4eca-a3cf-cfa2813a47ff
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 7b07dfc8-e0f7-4166-85f6-cfd813da402f
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 82d7cd85-e179-4c5c-bd68-eb407fbcf70d
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = e860ecc8-5108-48dd-9314-a3ffc186b8bc
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 9720df1c-f969-4731-8dfc-ba8690b6ceca
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 8c1ed2e2-9a98-4668-aad8-f5b12bce6a07
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = 638a064e-181c-4c6a-8c11-d9f5b8425415
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = d9ba83bc-0c1a-48ef-85ad-e365eace3ad5
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:44  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:44  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:44  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:44  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:44  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:44  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: LastSale updated...
+2019-10-14 11:12:44  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:44  :: Quotes updated...
+2019-10-14 11:12:44  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:44  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:44  :: Creating new order in Orders collection for ClOrderId = d379ed04-ae63-4138-ba06-ad061d074ec4
+2019-10-14 11:12:44  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:44  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = 31988cb3-264f-4b0e-b296-be2ff63c453f
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = 3e42e202-c792-444c-a5a9-01bc4c461e78
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = 7622150b-dd79-432b-a01d-c9029ba2b186
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = 6f3f35d8-dd55-4235-8b1d-41dcbf531157
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = a5079f5a-2848-4746-ac07-cc787108366b
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = ff636452-2c5b-4eb4-b047-02c0bbfcc30e
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = 27175755-8875-4411-877d-e3a635fa8d64
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = e37d0f08-264f-42b2-b22f-6743efbe5d62
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:45  :: Creating new order in Orders collection for ClOrderId = e962035a-30b8-4dd0-ab5a-52067bf6a861
+2019-10-14 11:12:45  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:45  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:45  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:45  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:45  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:45  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:45  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: LastSale updated...
+2019-10-14 11:12:45  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:45  :: Quotes updated...
+2019-10-14 11:12:45  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:45  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 9508181f-80fa-4c3c-93ee-9be3d8257ccd
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = bc7868d7-5a87-41e2-b117-65217e6fd45c
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = b5bb9338-2286-4c07-8c97-604aa2b5861e
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 40a6b1aa-95b0-4d04-b14d-6378c2b04298
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 809ebed1-f05b-4eff-8d31-10babcd3fa74
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = fb9ca392-e98b-476e-b98a-c1d36da5991d
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 8ff9027d-5dbb-4e7b-a213-ccf21c1036df
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 51b3d4ce-787b-4f93-b35c-e9fe7aae94da
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 93d75937-8dc4-4a70-8324-5738cf430479
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:46  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:46  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:46  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:46  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:46  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:46  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: LastSale updated...
+2019-10-14 11:12:46  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:46  :: Quotes updated...
+2019-10-14 11:12:46  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:46  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:46  :: Creating new order in Orders collection for ClOrderId = 15c4c552-f974-4dc6-89d2-ed763ea7e2db
+2019-10-14 11:12:46  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:46  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = a31211b7-073f-4157-b369-8818e5c5cd0d
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = 8d400742-2df0-4c5c-b381-04ac2e2ba70b
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = c1b877cb-b849-427f-92f3-756823b63eb4
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = 1e8eccc1-ff17-41de-b36d-d76dc9976e7a
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = ee61171b-6a47-409e-96ba-1e5a76983007
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = b3db6375-9a7f-4127-915a-2ad047aa2248
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = deec4135-07b1-4ceb-8b77-c5847cff8ee9
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = 68b70e52-1f18-460e-83b8-b6c14afbe6a8
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:47  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:47  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:47  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:47  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:47  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:47  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: LastSale updated...
+2019-10-14 11:12:47  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: Quotes updated...
+2019-10-14 11:12:47  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:47  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:47  :: Creating new order in Orders collection for ClOrderId = ec63ad4a-bf47-40b7-b611-51f01500a1f8
+2019-10-14 11:12:47  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:47  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:47  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 43d2f075-571a-4a2f-9f09-ce8726f00e10
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 46a616db-a3a1-4436-a89a-334f0ad76d10
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 61bdc725-ad88-4142-9572-f0410ed5abb9
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = f8be0d30-e057-4ff2-8507-c45313d77c4a
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 2cb2576a-3aa4-44c1-8def-704f894368a5
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = ed0e0e4b-2758-4d13-8702-cf6e071e0edc
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 7ecaf54d-077c-4912-95ce-090b7a89cf6a
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 58061efb-d23c-40b0-ae8f-7b4e2907a343
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:48  :: Creating new order in Orders collection for ClOrderId = 1e320302-0e89-44b9-addb-3e2c7c982d02
+2019-10-14 11:12:48  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:48  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:48  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:48  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:48  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:48  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:48  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: LastSale updated...
+2019-10-14 11:12:48  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:48  :: Quotes updated...
+2019-10-14 11:12:48  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:48  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:49  :: Creating new order in Orders collection for ClOrderId = 5e0ae024-c6a2-4fd0-a3d8-449522b75aa8
+2019-10-14 11:12:49  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:49  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:49  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:49  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:49  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:49  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: LastSale updated...
+2019-10-14 11:12:49  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: Quotes updated...
+2019-10-14 11:12:49  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:49  :: Creating new order in Orders collection for ClOrderId = 67234837-eec8-4fd5-83c0-01c4e7021894
+2019-10-14 11:12:49  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:49  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:49  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:49  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:49  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:49  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: LastSale updated...
+2019-10-14 11:12:49  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: Quotes updated...
+2019-10-14 11:12:49  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:49  :: Creating new order in Orders collection for ClOrderId = 45f93253-248a-4360-8c60-43d45812dbea
+2019-10-14 11:12:49  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:49  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:49  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:49  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:49  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:49  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: LastSale updated...
+2019-10-14 11:12:49  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: Quotes updated...
+2019-10-14 11:12:49  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:49  :: Creating new order in Orders collection for ClOrderId = b19ba5f2-4919-4240-a1e4-278549ca38fa
+2019-10-14 11:12:49  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 11:12:49  :: Sending ClientOrderResponse ...
+2019-10-14 11:12:49  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 11:12:49  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 11:12:49  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 11:12:49  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 11:12:49  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: LastSale updated...
+2019-10-14 11:12:49  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 11:12:49  :: Quotes updated...
+2019-10-14 11:12:49  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-14 11:12:49  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 11:12:49  :: Creating new order in Orders collection for ClOrderId = 14ee4a54-4b63-4038-810f-f6ed7982ea98
+2019-10-14 11:12:49  :: Sending open order count for all symbols : 2
+2019-10-14 11:12:49  :: Updating best bid and ask for symbol ETH-USD

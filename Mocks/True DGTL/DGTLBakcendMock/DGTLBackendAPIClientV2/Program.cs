@@ -19,6 +19,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DGTLBackendAPIClientV2
@@ -67,6 +68,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("EmailNotificationsUpdateRequest <SettlementFirmId> <old_email> <new_email>");
             Console.WriteLine("EmailNotificationsDeleteRequest <SettlementFirmId> <email>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
+            Console.WriteLine("RouteOrderBulk <Count>");
             Console.WriteLine("CancelLastCreatedOrder");
             Console.WriteLine("MassCancelRequest");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
@@ -189,6 +191,10 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "RouteOrder")
             {
                 ProcessRouteOrder(param);
+            }
+            else if (mainCmd == "RouteOrderBulk")
+            {
+                ProcessRouteOrderBulk(param);
             }
             else if (mainCmd == "CancelLastCreatedOrder")
             {
@@ -488,6 +494,41 @@ namespace DGTLBackendAPIClientV2
                                                  });
 
                 DoSend(strMsg);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ClientOrderReq message"));
+
+        }
+
+        private static void ProcessRouteOrderBulk(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length == 2)
+            {
+
+                int count = Convert.ToInt32(param[1]);
+
+                for (int i = 0; i < count; i++)
+                {
+
+                    ClientOrderReq clientOrderReq = CreateNewOrder(param);
+
+                    LastOrderCreated = clientOrderReq;
+
+                    string strMsg = JsonConvert.SerializeObject(clientOrderReq, Newtonsoft.Json.Formatting.None,
+                                                     new JsonSerializerSettings
+                                                     {
+                                                         NullValueHandling = NullValueHandling.Ignore
+                                                     });
+
+                    DoSend(strMsg);
+                    Thread.Sleep(100);
+                }
             }
             else
                 DoLog(string.Format("Missing mandatory parameters for ClientOrderReq message"));
