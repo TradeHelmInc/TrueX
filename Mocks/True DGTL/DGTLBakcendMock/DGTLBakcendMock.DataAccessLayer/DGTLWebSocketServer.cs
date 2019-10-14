@@ -350,7 +350,7 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        private void LoadHistoryService()
+        protected virtual void LoadHistoryService()
         {
             string url = RESTURL;
 

@@ -1,0 +1,93 @@
+2019-10-14 10:24:17  :: Initializing Mock Server...
+2019-10-14 10:24:17  :: Initializing all collections...
+2019-10-14 10:24:18  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:24:18  :: Collections Initialized...
+2019-10-14 10:24:43  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:36:24  :: Initializing Mock Server...
+2019-10-14 10:36:24  :: Initializing all collections...
+2019-10-14 10:36:24  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:36:24  :: Collections Initialized...
+2019-10-14 10:36:28  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:36:41  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:09  :: Initializing Mock Server...
+2019-10-14 10:37:09  :: Initializing all collections...
+2019-10-14 10:37:09  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:37:09  :: Collections Initialized...
+2019-10-14 10:37:10  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:12  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:13  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:15  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:15  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:15  :: Received REST request for record type O fromDate=20190101 toDate=20191112
+2019-10-14 10:37:26  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:37:28  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:37:29  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:37:29  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:37:29  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:37:43  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:38:24  :: Initializing Mock Server...
+2019-10-14 10:38:24  :: Initializing all collections...
+2019-10-14 10:38:24  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:38:24  :: Collections Initialized...
+2019-10-14 10:38:27  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:38:27  :: Received REST request for record type O fromDate=20110101 toDate=20191112
+2019-10-14 10:41:57  :: Received REST request for record type T fromDate=20191014 toDate=20191014
+2019-10-14 10:42:38  :: Initializing Mock Server...
+2019-10-14 10:42:38  :: Initializing all collections...
+2019-10-14 10:42:39  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:42:39  :: Collections Initialized...
+2019-10-14 10:42:51  :: Connecting for the first time to client 41566
+2019-10-14 10:42:51  :: Connected for the first time to client 41566
+2019-10-14 10:43:20  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-14 10:43:20  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-14 10:43:20  :: Sending ClientLoginResponse with UUID 6ff7dedc-6b2a-4217-ac1f-e316fa2d8040
+2019-10-14 10:43:20  :: Sending Instrument Batch 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientInstrumentState 
+2019-10-14 10:43:20  :: Sending ClientUserRecord
+2019-10-14 10:43:20  :: Exception unencrypting secret wMf7jI7larpqIW8pLjlt+f0nuw97RirdOEe4o4TfZDl3GI3hUWerIgdYVoeArzgJ: Unknown state trasnlation for PlatformStatus 7
+2019-10-14 10:43:27  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-14 10:43:27  :: Sending ClientOrderResponse ...
+2019-10-14 10:43:27  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-14 10:43:27  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 10:43:27  :: Searching for affecter orders for symbol ETH-USD
+2019-10-14 10:43:27  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-14 10:43:27  :: We send a Trade for Size=10.0 and Price=14999.0 for symbol ETH-USD
+2019-10-14 10:43:27  :: We update LastSale MD for Size=10 and Price=14999 for symbol ETH-USD
+2019-10-14 10:43:27  :: LastSale updated...
+2019-10-14 10:43:27  :: We udate Quotes MD for Size=10 and Price=14999 for symbol ETH-USD
+2019-10-14 10:43:27  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 10:43:27  :: Quotes updated...
+2019-10-14 10:43:27  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-10-14 10:43:27  :: We send a Trade Notification for Size=10 and Price=14999 for symbol ETH-USD
+2019-10-14 10:43:27  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-14 10:43:27  :: Creating new order in Orders collection for ClOrderId = e928f7fe-8581-404e-95a9-5280c71da0fa
+2019-10-14 10:43:27  :: Sending open order count for all symbols : 2
+2019-10-14 10:43:27  :: Updating best bid and ask for symbol ETH-USD
+2019-10-14 10:44:03  :: Received REST request for record type T fromDate=20191014 toDate=20191014
+2019-10-14 10:44:21  :: Received REST request for record type O fromDate=20191014 toDate=20191014
+2019-10-14 10:49:28  :: Initializing Mock Server...
+2019-10-14 10:49:28  :: Initializing all collections...
+2019-10-14 10:49:28  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-14 10:49:28  :: Collections Initialized...
+2019-10-14 10:49:32  :: Received REST request for record type T fromDate=20111014 toDate=20191014
+2019-10-14 10:50:42  :: Received REST request for record type O fromDate=20111014 toDate=20191014

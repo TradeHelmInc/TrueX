@@ -13,6 +13,8 @@ using DGTLBackendMock.Common.DTO.SecurityList.V2;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.Common.DTO.Subscription.V2;
 using DGTLBackendMock.Common.Util;
+using DGTLBackendMock.DataAccessLayer.Service;
+using DGTLBackendMock.DataAccessLayer.Service.V2;
 using Fleck;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,6 +24,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.SelfHost;
 
 namespace DGTLBackendMock.DataAccessLayer
 {
@@ -74,7 +78,103 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
         }
 
+        protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to)
+        {
+            if (InstrBatch == null)
+                InstrBatch = LoadInstrBatch();
+
+            List<ClientOrderRecord> orderList = new List<ClientOrderRecord>();
+
+            long epochFrom = Convert.ToInt64( (from - new DateTime(1970, 1, 1)).TotalMilliseconds);
+            long epochTo = Convert.ToInt64((to - new DateTime(1970, 1, 1)).TotalMilliseconds);
+
+
+            foreach(LegacyOrderRecord legOrder in Orders)
+            {
+                if (legOrder.UpdateTime >= epochFrom && legOrder.UpdateTime <= epochTo)
+                {
+
+                    ClientInstrument instr = GetInstrumentBySymbol(legOrder.InstrumentId);
+                    ClientOrderRecord clOrder = TranslateOldLegacyOrderRecord(legOrder, instr, true, null);
+                    orderList.Add(clOrder);
+                }
+            
+            }
+
+            return orderList.ToArray();
         
+        }
+
+        protected ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to)
+        {
+
+            if(InstrBatch==null)
+                InstrBatch = LoadInstrBatch();
+
+            List<ClientTradeRecord> tradeList = new List<ClientTradeRecord>();
+
+            long epochFrom = Convert.ToInt64((from - new DateTime(1970, 1, 1)).TotalMilliseconds);
+            long epochTo = Convert.ToInt64((to - new DateTime(1970, 1, 1)).TotalMilliseconds);
+
+            foreach (LegacyTradeHistory trade in Trades)
+            {
+
+                if (trade.TradeTimeStamp >= epochFrom && trade.TradeTimeStamp <= epochTo)
+                {
+                    ClientInstrument instr = GetInstrumentBySymbol(trade.Symbol);
+                    ClientTradeRecord clTrade = TranslateOldLegacyTradeHistory(trade, instr, null);
+                    tradeList.Add(clTrade);
+                }
+            }
+
+            return tradeList.ToArray();
+        }
+
+        protected override void LoadHistoryService()
+        {
+            string url = RESTURL;
+
+            try
+            {
+
+                DoLog(string.Format("Creating history service for controller HistoryServiceController on URL {0}", url),
+                      MessageType.Information);
+
+                HttpSelfHostConfiguration config = new HttpSelfHostConfiguration(url);
+
+                config.Routes.MapHttpRoute(name: "DefaultApi",
+                                           routeTemplate: "{controller}/{id}",
+                                           defaults: new {  id = RouteParameter.Optional });
+
+
+                historyController.OnLog += DoLog;
+                historyController.OverridenGet += historyControllerV2.Get;
+                historyControllerV2.OnLog += DoLog;
+                historyControllerV2.OnGetAllTrades += GetAllTrades;
+                historyControllerV2.OnGetAllOrders += GetAllOrders;
+
+                Server = new HttpSelfHostServer(config);
+                Server.OpenAsync().Wait();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+                Exception innerEx = ex.InnerException;
+
+                while (innerEx != null)
+                {
+                    error += "-" + innerEx.Message;
+                    innerEx = innerEx.InnerException;
+                }
+
+
+                DoLog(string.Format("Critical error creating history service for controller HistoryServiceController on URL {0}:{1}",
+                      url, error), MessageType.Error);
+            }
+
+
+        }
+
 
         protected void CanceledLegacyOrderRecord(IWebSocketConnection socket, LegacyOrderRecord ordRecord,string UUID)
         {
@@ -1505,12 +1605,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void SendCRMInstruments(IWebSocketConnection socket, string Uuid)
+        private ClientInstrumentBatch LoadInstrBatch()
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             int i = 1;
 
             List<ClientInstrument> instrList = new List<ClientInstrument>();
+
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
 
@@ -1532,7 +1633,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = security.MinPriceIncrement;
-                instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue ? (decimal?) security.MaxNotional.Value : null;
+                instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue ? (decimal?)security.MaxNotional.Value : null;
                 instrumentMsg.Currency1 = security.CurrencyPair;
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
@@ -1547,6 +1648,13 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
             InstrBatch = new ClientInstrumentBatch() { Msg = "ClientInstrumentBatch", messages = instrList.ToArray() };
+
+            return InstrBatch;
+        }
+
+        private void SendCRMInstruments(IWebSocketConnection socket, string Uuid)
+        {
+            InstrBatch = LoadInstrBatch();
             DoLog(string.Format("Sending Instrument Batch "), MessageType.Information);
             DoSend<ClientInstrumentBatch>(socket, InstrBatch);
 
@@ -2290,34 +2398,72 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        private void TranslateAndSendOldLegacyTradeHistory(IWebSocketConnection socket, string UUID, LegacyTradeHistory legacyTradeHistory)
+        protected ClientTradeRecord TranslateOldLegacyTradeHistory(LegacyTradeHistory legacyTradeHistory, ClientInstrument instr,string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            ClientTradeRecord trade = new ClientTradeRecord()
+            {
+                Msg = "ClientTradeRecord",
+                ClientOrderId = null,
+                TradeId = GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
+                CreateTimeStamp = legacyTradeHistory.TradeTimeStamp,
+                cSide = legacyTradeHistory.cMySide,
+                cStatus = ClientTradeRecord._STATUS_OPEN,
+                ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
+                FirmId = Convert.ToInt64(LoggedFirmId),
+                InstrumentId = instr.InstrumentId,
+                Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
+                OrderId = 0,
+                TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                TradePrice = legacyTradeHistory.TradePrice,
+                TradeQty = legacyTradeHistory.TradeQuantity,
+                UserId = LoggedUserId,
+                Uuid = UUID
+            };
+
+
+            return trade;
+        }
+
+        private void TranslateAndSendOldLegacyTradeHistory(IWebSocketConnection socket, string UUID, LegacyTradeHistory legacyTradeHistory)
+        {
+            
             if (legacyTradeHistory != null)
             {
                 ClientInstrument instr = GetInstrumentBySymbol(legacyTradeHistory.Symbol);
-                ClientTradeRecord trade = new ClientTradeRecord()
-                {
-                    Msg = "ClientTradeRecord",
-                    ClientOrderId = null,
-                    TradeId=GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
-                    CreateTimeStamp = legacyTradeHistory.TradeTimeStamp,
-                    cSide = legacyTradeHistory.cMySide,
-                    cStatus = ClientTradeRecord._STATUS_OPEN,
-                    ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
-                    FirmId = Convert.ToInt64(LoggedFirmId),
-                    InstrumentId = instr.InstrumentId,
-                    Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
-                    OrderId = 0,
-                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    TradePrice = legacyTradeHistory.TradePrice,
-                    TradeQty = legacyTradeHistory.TradeQuantity,
-                    UserId = LoggedUserId,
-                    Uuid = UUID
-                };
-
+                ClientTradeRecord trade = TranslateOldLegacyTradeHistory(legacyTradeHistory, instr, UUID);
                 DoSend<ClientTradeRecord>(socket, trade);
             }
+        }
+
+        protected ClientOrderRecord TranslateOldLegacyOrderRecord(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
+            ClientOrderRecord order = new ClientOrderRecord()
+            {
+                Msg = "ClientOrderRecord",
+                AveragePrice = legacyOrderRecord.Price,
+                ClientOrderId = legacyOrderRecord.ClientOrderId,
+                CreateTimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+                cSide = legacyOrderRecord.cSide,
+                cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
+                CumQty = legacyOrderRecord.FillQty,
+                ExchageFees = 0,
+                FirmId = Convert.ToInt64(LoggedFirmId),
+                UserId = LoggedUserId,
+                InstrumentId = instr.InstrumentId,
+                LeavesQty = legacyOrderRecord.LvsQty,
+                Message = "",
+                Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
+                OrderId = finalOrderId,
+                Price = legacyOrderRecord.Price,
+                Quantity = legacyOrderRecord.OrdQty,
+                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+                Uuid = UUID
+            };
+
+            return order;
         }
 
         private void TranslateAndSendOldLegacyOrderRecord(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord, bool newOrder=true)
@@ -2328,30 +2474,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
 
-                long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
-
-                ClientOrderRecord order = new ClientOrderRecord()
-                {
-                    Msg = "ClientOrderRecord",
-                    AveragePrice = legacyOrderRecord.Price,
-                    ClientOrderId = legacyOrderRecord.ClientOrderId,
-                    CreateTimeStamp =newOrder?  Convert.ToInt64(elapsed.TotalMilliseconds):legacyOrderRecord.UpdateTime,
-                    cSide = legacyOrderRecord.cSide,
-                    cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
-                    CumQty = legacyOrderRecord.FillQty,
-                    ExchageFees = 0,
-                    FirmId = Convert.ToInt64(LoggedFirmId),
-                    UserId = LoggedUserId,
-                    InstrumentId = instr.InstrumentId,
-                    LeavesQty = legacyOrderRecord.LvsQty,
-                    Message = "",
-                    Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
-                    OrderId = finalOrderId,
-                    Price = legacyOrderRecord.Price,
-                    Quantity = legacyOrderRecord.OrdQty,
-                    TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
-                    Uuid = UUID
-                };
+                ClientOrderRecord order = TranslateOldLegacyOrderRecord(legacyOrderRecord, instr, newOrder, UUID);
 
                 DoSend<ClientOrderRecord>(socket, order);
             }
@@ -2751,20 +2874,21 @@ namespace DGTLBackendMock.DataAccessLayer
             else
                 throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
 
-
-            
             List<LegacyOrderRecord> orders = null;
             if (instrumentId != "*")
             {
                 ClientInstrument instr = GetInstrumentByServiceKey(instrumentId);
                 orders = Orders.Where(x => x.InstrumentId == instr.InstrumentName).ToList();
+
+                DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
+
+
+                foreach (LegacyOrderRecord order in orders)
+                {
+                    TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, order, newOrder: false);
+                }
             }
-            else
-                orders = Orders.ToList();
-
-            DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
-
-            orders.ForEach(x => TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, x, newOrder:true));// Translate and send
+          
             
             //Now we have to launch something to create deltas (insert, change, remove)
             //RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
@@ -2779,11 +2903,10 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
                 trades = Trades.Where(x => x.Symbol == instr.InstrumentName).ToList();
-            }
-            else
-                trades = Trades.ToList();
 
-            trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
+                trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
+            }
+           
             //Now we have to launch something to create deltas (insert, change, remove)
             ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }

@@ -1,0 +1,210 @@
+2019-10-08 19:47:50  :: Initializing Mock Server...
+2019-10-08 19:47:50  :: Initializing all collections...
+2019-10-08 19:47:52  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-08 19:47:52  :: Collections Initialized...
+2019-10-08 19:48:03  :: Connecting for the first time to client 17169
+2019-10-08 19:48:03  :: Connected for the first time to client 17169
+2019-10-08 19:48:11  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-08 19:48:11  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-08 19:48:11  :: Sending ClientLoginResponse with UUID 9f94dc09-cf2d-4689-9e39-f3eb5149067d
+2019-10-08 19:48:11  :: Sending Instrument Batch 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientInstrumentState 
+2019-10-08 19:48:11  :: Sending ClientUserRecord
+2019-10-08 19:48:11  :: Exception unencrypting secret gvK+6DdDlaXND8h8Sx4Tm120tlxRS1HOTAzVqBvV6biRup79/RGXgWSqQX5c/WiV: Unknown state trasnlation for PlatformStatus 7
+2019-10-08 19:48:16  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:48:16  :: Sending ClientOrderResponse rejected ...
+2019-10-08 19:48:51  :: Initializing Mock Server...
+2019-10-08 19:48:51  :: Initializing all collections...
+2019-10-08 19:48:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-08 19:48:52  :: Collections Initialized...
+2019-10-08 19:49:26  :: Connecting for the first time to client 17199
+2019-10-08 19:49:26  :: Connected for the first time to client 17199
+2019-10-08 19:49:32  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-08 19:49:32  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-08 19:49:32  :: Sending ClientLoginResponse with UUID 8eb5a6f2-d526-46b0-bab1-79540df5af61
+2019-10-08 19:49:32  :: Sending Instrument Batch 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientInstrumentState 
+2019-10-08 19:49:32  :: Sending ClientUserRecord
+2019-10-08 19:49:32  :: Exception unencrypting secret f6NW0gsUchuO94H6lp0C3qyZAKDOVHTqRbuhKxDyDkJg3OOBgI+zySPBtNDef8Zq: Unknown state trasnlation for PlatformStatus 7
+2019-10-08 19:49:38  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:49:38  :: Sending ClientOrderResponse ...
+2019-10-08 19:49:38  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:49:38  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:49:38  :: Evaluating price levels ...
+2019-10-08 19:49:38  :: Sending new bid entry: Price=9400.0 Size=10.0 ...
+2019-10-08 19:49:38  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:49:38  :: Creating new order in Orders collection for ClOrderId = fe3a0f81-ac83-4309-af68-8c29501c5e50
+2019-10-08 19:49:38  :: Sending open order count for all symbols : 3
+2019-10-08 19:49:38  :: Updating quotes ...
+2019-10-08 19:49:38  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:49:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:49:40  :: Sending ClientOrderResponse ...
+2019-10-08 19:49:40  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:49:40  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:49:40  :: Evaluating price levels ...
+2019-10-08 19:49:40  :: Sending upd bid entry: Price=9400.0 Size=20.0 ...
+2019-10-08 19:49:40  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:49:40  :: Creating new order in Orders collection for ClOrderId = 5b8b1394-8c5b-4b0c-8439-e58a171367ae
+2019-10-08 19:49:40  :: Sending open order count for all symbols : 4
+2019-10-08 19:49:40  :: Updating quotes ...
+2019-10-08 19:49:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:49:40  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:49:40  :: Sending ClientOrderResponse ...
+2019-10-08 19:49:40  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:49:40  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:49:40  :: Evaluating price levels ...
+2019-10-08 19:49:40  :: Sending upd bid entry: Price=9400.0 Size=30.0 ...
+2019-10-08 19:49:40  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:49:40  :: Creating new order in Orders collection for ClOrderId = 1fe018d9-7cc5-4c7f-b3b4-885dbb3d17c4
+2019-10-08 19:49:40  :: Sending open order count for all symbols : 5
+2019-10-08 19:49:40  :: Updating quotes ...
+2019-10-08 19:49:40  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:49:51  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-08 19:49:51  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-10-08 19:49:51  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=24
+2019-10-08 19:54:55  :: Initializing Mock Server...
+2019-10-08 19:54:55  :: Initializing all collections...
+2019-10-08 19:54:55  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-08 19:54:56  :: Collections Initialized...
+2019-10-08 19:55:04  :: Connecting for the first time to client 17270
+2019-10-08 19:55:04  :: Connected for the first time to client 17270
+2019-10-08 19:55:18  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-08 19:55:19  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-08 19:55:19  :: Sending ClientLoginResponse with UUID b3f4b8b6-51a8-4119-b5f6-2f839335d22b
+2019-10-08 19:55:19  :: Sending Instrument Batch 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientInstrumentState 
+2019-10-08 19:55:19  :: Sending ClientUserRecord
+2019-10-08 19:55:19  :: Exception unencrypting secret 880z2SCGFxWh64n6njzVQRhckhYO3d6VoK+94F8HkV7SbeZFpymkL4WNLf2yffpW: Unknown state trasnlation for PlatformStatus 7
+2019-10-08 19:55:22  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:55:22  :: Sending ClientOrderResponse ...
+2019-10-08 19:55:22  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:55:22  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:55:22  :: Evaluating price levels ...
+2019-10-08 19:55:22  :: Sending new bid entry: Price=9400.0 Size=10.0 ...
+2019-10-08 19:55:22  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:55:22  :: Creating new order in Orders collection for ClOrderId = 19443835-3e3a-4b8b-808e-85db33915261
+2019-10-08 19:55:22  :: Sending open order count for all symbols : 3
+2019-10-08 19:55:22  :: Updating quotes ...
+2019-10-08 19:55:22  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:55:23  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:55:23  :: Sending ClientOrderResponse ...
+2019-10-08 19:55:23  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:55:23  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:55:23  :: Evaluating price levels ...
+2019-10-08 19:55:23  :: Sending upd bid entry: Price=9400.0 Size=20.0 ...
+2019-10-08 19:55:23  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:55:23  :: Creating new order in Orders collection for ClOrderId = 579ff5b1-404c-4d29-9ae4-03d82105ac67
+2019-10-08 19:55:23  :: Sending open order count for all symbols : 4
+2019-10-08 19:55:23  :: Updating quotes ...
+2019-10-08 19:55:23  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:55:24  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-08 19:55:24  :: Sending ClientOrderResponse ...
+2019-10-08 19:55:24  :: Best ask for buy order (Limit Price=9400.0) found at price 14999.0
+2019-10-08 19:55:24  :: Could not find matching sell price for symbol ETH-USD and order price 9400.0
+2019-10-08 19:55:24  :: Evaluating price levels ...
+2019-10-08 19:55:24  :: Sending upd bid entry: Price=9400.0 Size=30.0 ...
+2019-10-08 19:55:24  :: Evaluating LegacyOrderRecord ...
+2019-10-08 19:55:24  :: Creating new order in Orders collection for ClOrderId = 6712297a-926f-4877-99ed-eab24c03e15d
+2019-10-08 19:55:24  :: Sending open order count for all symbols : 5
+2019-10-08 19:55:24  :: Updating quotes ...
+2019-10-08 19:55:24  :: Updating best bid and ask for symbol ETH-USD
+2019-10-08 19:55:34  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-08 19:55:34  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-10-08 19:55:34  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=24
+2019-10-08 19:55:34  :: SubscriptionResponse UUID:b3f4b8b6-51a8-4119-b5f6-2f839335d22b Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-10-08 19:56:51  :: Initializing Mock Server...
+2019-10-08 19:56:51  :: Initializing all collections...
+2019-10-08 19:56:52  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-08 19:56:52  :: Collections Initialized...
+2019-10-08 19:56:57  :: Connecting for the first time to client 17403
+2019-10-08 19:56:57  :: Connected for the first time to client 17403
+2019-10-08 19:57:02  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-08 19:57:03  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-08 19:57:03  :: Sending ClientLoginResponse with UUID 9c7117ba-c2ae-4b06-80de-c8f7f8f6e184
+2019-10-08 19:57:03  :: Sending Instrument Batch 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientInstrumentState 
+2019-10-08 19:57:03  :: Sending ClientUserRecord
+2019-10-08 19:57:03  :: Exception unencrypting secret /keChwdEfdw50t3LvPF0bnbLndR3lOp5W9fN/cWMZWbt9x804LnAf+GhkGVVbIgg: Unknown state trasnlation for PlatformStatus 7
+2019-10-08 19:57:10  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-08 19:57:10  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-10-08 19:57:10  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
