@@ -45,7 +45,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public decimal? MaxNotionalValue { get; set; }
 
-        public string InstrumentDate { get; set; } //format YYYYMMDD 
+        public int InstrumentDate { get; set; } //format YYYYMMDD 
 
         public bool Test { get; set; }
 

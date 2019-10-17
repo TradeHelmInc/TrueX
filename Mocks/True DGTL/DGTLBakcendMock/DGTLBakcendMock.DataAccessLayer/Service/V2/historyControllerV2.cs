@@ -40,9 +40,10 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
             {
                 try
                 {
+                    //format yyyy-MM-dd
                     int year = Convert.ToInt32(strDate.Substring(0, 4));
-                    int month = Convert.ToInt32(strDate.Substring(4, 2));
-                    int day = Convert.ToInt32(strDate.Substring(6, 2));
+                    int month = Convert.ToInt32(strDate.Substring(5, 2));
+                    int day = Convert.ToInt32(strDate.Substring(8, 2));
 
                     return isFrom ? new DateTime(year, month, day, 0, 0, 0) : new DateTime(year, month, day, 23, 59, 59);
                 }

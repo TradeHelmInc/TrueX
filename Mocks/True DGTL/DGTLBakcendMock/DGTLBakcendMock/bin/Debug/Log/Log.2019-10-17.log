@@ -1,0 +1,161 @@
+2019-10-17 9:16:14  :: Initializing Mock Server...
+2019-10-17 9:16:14  :: Initializing all collections...
+2019-10-17 9:16:15  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 9:16:16  :: Collections Initialized...
+2019-10-17 9:16:33  :: Connecting for the first time to client 20703
+2019-10-17 9:16:33  :: Connected for the first time to client 20703
+2019-10-17 9:17:01  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 9:17:01  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 9:17:01  :: Sending ClientLoginResponse with UUID ce24fd60-537a-4151-b8f8-e93cb4e2523a
+2019-10-17 9:17:01  :: Exception unencrypting secret +W/4xoF7bix64H5VawNiwjoBSUjJCC1iy80zb/zNEoZ19oTn3wz9bfb/qh7qsREC: La cadena de entrada no tiene el formato correcto.
+2019-10-17 9:17:12  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-17 9:17:12  :: Incoming subscription for service LT - ServiceKey:2
+2019-10-17 9:17:12  :: Exception processing onMessage:Initial load for instrument not finished!
+2019-10-17 9:17:23  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 9:17:23  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 9:17:23  :: Sending ClientLoginResponse with UUID 531bb019-4a77-4115-bb9d-e454d69a047c
+2019-10-17 9:17:23  :: Exception unencrypting secret EpLYx7N+kcUvQHpDHz0LjadrF/rlCLIB9sP/G2XqTpUZMTIuTJoiFENhZFQ2az20: La cadena de entrada no tiene el formato correcto.
+2019-10-17 9:17:38  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 9:17:38  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 9:17:45  :: Sending ClientLoginResponse with UUID 9638ad23-70a1-4610-9fe6-f32c4a30100c
+2019-10-17 9:19:30  :: Initializing Mock Server...
+2019-10-17 9:19:30  :: Initializing all collections...
+2019-10-17 9:19:30  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 9:19:30  :: Collections Initialized...
+2019-10-17 9:19:39  :: Connecting for the first time to client 20722
+2019-10-17 9:19:39  :: Connected for the first time to client 20722
+2019-10-17 9:19:45  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 9:19:45  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 9:19:47  :: Sending ClientLoginResponse with UUID 9d36ada9-c69b-4d8e-b170-a1b2d9de0eee
+2019-10-17 9:19:47  :: Sending Instrument Batch 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientInstrumentState 
+2019-10-17 9:19:47  :: Sending ClientUserRecord
+2019-10-17 9:19:47  :: Exception unencrypting secret 4tnTmiiBYeG7TW+iqQYu0tybLDmoj2irAIwK2CRSWHaTCCw+l5M4Hh2KJd9vxAZd: Unknown state trasnlation for PlatformStatus 7
+2019-10-17 9:19:53  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-17 9:19:53  :: Incoming subscription for service LT - ServiceKey:2
+2019-10-17 9:19:53  :: SubscriptionResponse UUID:9d36ada9-c69b-4d8e-b170-a1b2d9de0eee Service:LT ServiceKey:2 Success:True
+2019-10-17 9:20:11  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2019-10-17 9:20:11  :: Sending ClientOrderResponse ...
+2019-10-17 9:20:11  :: Best ask for buy order (Limit Price=15000.0) found at price 14999.0
+2019-10-17 9:20:11  :: We update the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-17 9:20:11  :: Searching for affecter orders for symbol ETH-USD
+2019-10-17 9:20:11  :: We send the DepthOfBook Message updating the ask price level 14999.0 for symbol ETH-USD (@DepthOfBook and @Orders and we send the message)
+2019-10-17 9:20:11  :: We send a Trade for Size=1.0 and Price=14999.0 for symbol ETH-USD
+2019-10-17 9:20:11  :: We update LastSale MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-17 9:20:11  :: LastSale updated...
+2019-10-17 9:20:11  :: We udate Quotes MD for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-17 9:20:11  :: Updating best bid and ask for symbol ETH-USD
+2019-10-17 9:20:11  :: Quotes updated...
+2019-10-17 9:20:11  :: Halting security ETH-USD because of price change 66.371614666524686756823909420 % 
+2019-10-17 9:20:11  :: We send a Trade Notification for Size=1 and Price=14999 for symbol ETH-USD
+2019-10-17 9:20:11  :: Final leftQty=0 out of loop for buy order at price level 15000.0
+2019-10-17 9:20:11  :: Creating new order in Orders collection for ClOrderId = ab1f3091-0a0c-49b4-967b-3dac43459b8b
+2019-10-17 9:20:11  :: Sending open order count for all symbols : 2
+2019-10-17 9:20:11  :: Updating best bid and ask for symbol ETH-USD
+2019-10-17 9:20:37  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-17 9:20:37  :: Incoming subscription for service LT - ServiceKey:2
+2019-10-17 9:20:37  :: SubscriptionResponse UUID:9d36ada9-c69b-4d8e-b170-a1b2d9de0eee Service:LT ServiceKey:2 Success:True
+2019-10-17 9:26:11  :: Initializing Mock Server...
+2019-10-17 9:26:11  :: Initializing all collections...
+2019-10-17 9:26:12  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 9:26:12  :: Collections Initialized...
+2019-10-17 9:26:28  :: Received REST request for record type O fromDate=2019-01-01 toDate=2019-11-12
+2019-10-17 9:26:38  :: Received REST request for record type O fromDate=2019-01-01 toDate=2019-11-12
+2019-10-17 9:27:09  :: Initializing Mock Server...
+2019-10-17 9:27:09  :: Initializing all collections...
+2019-10-17 9:27:09  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 9:27:09  :: Collections Initialized...
+2019-10-17 9:27:12  :: Received REST request for record type O fromDate=2019-01-01 toDate=2019-11-12
+2019-10-17 14:49:31  :: Initializing Mock Server...
+2019-10-17 14:49:31  :: Initializing all collections...
+2019-10-17 14:49:31  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 14:49:32  :: Collections Initialized...
+2019-10-17 14:49:41  :: Connecting for the first time to client 30242
+2019-10-17 14:49:41  :: Connected for the first time to client 30242
+2019-10-17 14:49:56  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 14:49:56  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 14:49:56  :: Sending ClientLoginResponse with UUID 6734f165-cee8-4891-bdef-9a309b879752
+2019-10-17 14:49:56  :: Sending Instrument Batch 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientInstrumentState 
+2019-10-17 14:49:56  :: Sending ClientUserRecord
+2019-10-17 14:49:56  :: Exception unencrypting secret LmEkU30pyAlUys0nSNhk4sqmsUsE4rs2T3DBipFi9c6pRTwO75iGKJphDiphYEMR: Unknown state trasnlation for PlatformStatus 7
+2019-10-17 14:50:05  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-17 14:50:05  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-10-17 14:50:05  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-10-17 14:51:12  :: Initializing Mock Server...
+2019-10-17 14:51:12  :: Initializing all collections...
+2019-10-17 14:51:12  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-17 14:51:12  :: Collections Initialized...
+2019-10-17 14:51:23  :: Connecting for the first time to client 30265
+2019-10-17 14:51:23  :: Connected for the first time to client 30265
+2019-10-17 14:51:26  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-17 14:51:26  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-17 14:51:26  :: Sending ClientLoginResponse with UUID 98056c3b-3a19-4b81-b65d-1a04cae75d77
+2019-10-17 14:51:26  :: Sending Instrument Batch 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientInstrumentState 
+2019-10-17 14:51:26  :: Sending ClientUserRecord
+2019-10-17 14:51:26  :: Exception unencrypting secret CqaX3m9nrkRNM1gsQ8KTPHbSKyfJ4UbOduy1B/Ebay8tChdIpEH2HlYSMHum/xC3: Unknown state trasnlation for PlatformStatus 7
+2019-10-17 14:51:35  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-10-17 14:51:35  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-10-17 14:51:35  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-10-17 14:51:35  :: SubscriptionResponse UUID:98056c3b-3a19-4b81-b65d-1a04cae75d77 Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True

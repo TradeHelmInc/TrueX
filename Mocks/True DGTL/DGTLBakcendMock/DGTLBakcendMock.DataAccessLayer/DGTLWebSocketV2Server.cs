@@ -1622,7 +1622,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.LastUpdatedBy = "";
                 instrumentMsg.ExchangeId = 0;
                 instrumentMsg.Description = security.Description;
-                instrumentMsg.InstrumentDate = security.MaturityDate;
+                instrumentMsg.InstrumentDate = !string.IsNullOrEmpty(security.MaturityDate) ? Convert.ToInt32(security.MaturityDate) : 0;
                 instrumentMsg.InstrumentId = i;
                 instrumentMsg.InstrumentName = security.Symbol;
                 instrumentMsg.LastUpdatedBy = "fernandom";
@@ -1998,7 +1998,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected long ProcessOrderIdToLong(string orderId)
         {
-
+          
             try
             {
                 return GUIDToLongConverter.GUIDToLong(orderId);
@@ -2414,7 +2414,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 InstrumentId = instr.InstrumentId,
                 Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
                 OrderId = 0,
-                TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                TimeStamp = legacyTradeHistory.TradeTimeStamp,
                 TradePrice = legacyTradeHistory.TradePrice,
                 TradeQty = legacyTradeHistory.TradeQuantity,
                 UserId = LoggedUserId,
@@ -2911,6 +2911,22 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
+        protected void ProcessMyTradesForBlotter(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            if (subscrMsg.ServiceKey == "*")
+                ProcessSubscriptionResponse(socket, "rt", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            else
+                ProcessSubscriptionResponse(socket, "rt", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "rt service has to be suscribed with ServiceKey = *");
+        }
+
+        protected void ProcessMyOrdersForBlotter(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            if (subscrMsg.ServiceKey == "*")
+                ProcessSubscriptionResponse(socket, "ro", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            else
+                ProcessSubscriptionResponse(socket, "ro", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "ro service has to be suscribed with ServiceKey = *");
+        }
+
         protected void ProcessClientLogoutV2(IWebSocketConnection socket, string m)
         {
             ClientLogoutRequest wsLogout = JsonConvert.DeserializeObject<ClientLogoutRequest>(m);
@@ -3015,6 +3031,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (subscrMsg.Service == "LT")
                 {
                     ProcessMyTrades(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "rt")
+                {
+                    ProcessMyTradesForBlotter(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "ro")
+                {
+                    ProcessMyOrdersForBlotter(socket, subscrMsg);
                 }
                 //else if (subscrMsg.Service == "FP")
                 //{
