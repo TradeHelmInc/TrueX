@@ -1,0 +1,96 @@
+2019-10-24 10:29:22  :: Initializing Mock Server...
+2019-10-24 10:29:22  :: Initializing all collections...
+2019-10-24 10:29:22  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 10:29:23  :: Collections Initialized...
+2019-10-24 10:29:38  :: Connecting for the first time to client 34284
+2019-10-24 10:29:38  :: Connected for the first time to client 34284
+2019-10-24 10:29:59  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-24 11:34:20  :: Initializing Mock Server...
+2019-10-24 11:34:20  :: Initializing all collections...
+2019-10-24 11:34:21  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 11:34:21  :: Collections Initialized...
+2019-10-24 11:38:25  :: Connecting for the first time to client 39191
+2019-10-24 11:38:25  :: Connected for the first time to client 39191
+2019-10-24 11:38:48  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-24 14:25:29  :: Initializing Mock Server...
+2019-10-24 14:25:29  :: Initializing all collections...
+2019-10-24 14:25:30  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 14:25:31  :: Collections Initialized...
+2019-10-24 14:25:43  :: Connecting for the first time to client 45935
+2019-10-24 14:25:43  :: Connected for the first time to client 45935
+2019-10-24 14:25:48  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-24 14:32:20  :: Initializing Mock Server...
+2019-10-24 14:32:20  :: Initializing all collections...
+2019-10-24 14:32:21  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 14:32:22  :: Collections Initialized...
+2019-10-24 14:32:37  :: Connecting for the first time to client 46115
+2019-10-24 14:32:37  :: Connected for the first time to client 46115
+2019-10-24 14:32:39  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-24 14:35:51  :: Initializing Mock Server...
+2019-10-24 14:35:51  :: Initializing all collections...
+2019-10-24 14:35:52  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 14:35:52  :: Collections Initialized...
+2019-10-24 14:36:01  :: Connecting for the first time to client 46226
+2019-10-24 14:36:01  :: Connected for the first time to client 46226
+2019-10-24 14:36:06  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-24 14:36:06  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-24 14:36:06  :: Sending ClientLoginResponse with UUID 1d9f1203-add7-4b2c-acdb-9e2234ea2425
+2019-10-24 14:36:06  :: Sending Instrument Batch 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientInstrumentState 
+2019-10-24 14:36:06  :: Sending ClientUserRecord
+2019-10-24 14:36:07  :: Exception unencrypting secret hOUGhTPEkMBxTb+4U295W1t0udsG61yVsbkoGo8NUAv2s+bsFolByDU4aoWN5aah: Unknown state trasnlation for PlatformStatus 7
+2019-10-24 14:37:12  :: Initializing Mock Server...
+2019-10-24 14:37:12  :: Initializing all collections...
+2019-10-24 14:37:13  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-24 14:37:13  :: Collections Initialized...
+2019-10-24 14:37:29  :: Connecting for the first time to client 46257
+2019-10-24 14:37:29  :: Connected for the first time to client 46257
+2019-10-24 14:37:35  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-24 14:37:35  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-24 14:37:36  :: Sending ClientLoginResponse with UUID 96da2591-e70d-4b0d-8187-0d242e3cd569
+2019-10-24 14:37:36  :: Sending Instrument Batch 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientInstrumentState 
+2019-10-24 14:37:36  :: Sending ClientUserRecord
+2019-10-24 14:37:36  :: Sending ClientMarketStateBatch
+2019-10-24 14:37:36  :: Sending ClientAccountRecordBatch 
+2019-10-24 14:37:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

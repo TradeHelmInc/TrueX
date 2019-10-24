@@ -68,6 +68,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public long TimeStamp { get; set; }
 
+        public string AccountId { get; set; }
+
 
         #endregion
     }

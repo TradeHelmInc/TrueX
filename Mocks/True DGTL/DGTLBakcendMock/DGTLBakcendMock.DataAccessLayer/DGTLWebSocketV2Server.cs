@@ -244,17 +244,17 @@ namespace DGTLBackendMock.DataAccessLayer
                  {
                      Msg = "ClientCreditUpdate",
                      AccountId = 0,
-                     CreditLimit = firm.CreditLimit[0].Total,
-                     CreditUsed = firm.CreditLimit[0].Usage + (newTrade.TradePrice * newTrade.TradeQuantity),
-                     cStatus = firm.CreditLimit[0].cTradingStatus,
+                     CreditLimit = firm.CreditLimit.Total,
+                     CreditUsed = firm.CreditLimit.Usage + (newTrade.TradePrice * newTrade.TradeQuantity),
+                     cStatus = firm.CreditLimit.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = firm.Id,
-                     MaxNotional = firm.CreditLimit[0].MaxTradeSize,
+                     MaxNotional = firm.CreditLimit.MaxTradeSize,
                      Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                      Uuid = UUID
                  };
 
-                 firm.CreditLimit[0].Usage += (newTrade.TradePrice * newTrade.TradeQuantity);
+                 firm.CreditLimit.Usage += (newTrade.TradePrice * newTrade.TradeQuantity);
 
                  DoSend<ClientCreditUpdate>(socket, ccUpd);
              }
@@ -970,7 +970,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     try
                     {
-                        firm.CreditLimit[0].cTradingStatus = wsFirmsTradingStatusUpdateRequest.cTradingStatus;
+                        firm.CreditLimit.cTradingStatus = wsFirmsTradingStatusUpdateRequest.cTradingStatus;
 
                         FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
                         {
@@ -1366,11 +1366,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     try
                     {
-                        firm.CreditLimit[0].TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
-                        firm.CreditLimit[0].Total = wsFirmCreditLimitUpdRq.CreditLimitTotal;
+                        firm.CreditLimit.TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
+                        firm.CreditLimit.Total = wsFirmCreditLimitUpdRq.CreditLimitTotal;
                         //Balance = Total - Usage
-                        firm.CreditLimit[0].Usage = wsFirmCreditLimitUpdRq.CreditLimitUsage;
-                        firm.CreditLimit[0].MaxTradeSize = wsFirmCreditLimitUpdRq.CreditLimitMaxTradeSize;
+                        firm.CreditLimit.Usage = wsFirmCreditLimitUpdRq.CreditLimitUsage;
+                        firm.CreditLimit.MaxTradeSize = wsFirmCreditLimitUpdRq.CreditLimitMaxTradeSize;
 
                         //if (wsFirmCreditLimitUpdRq.CreditLimitBalance != (wsFirmCreditLimitUpdRq.CreditLimitTotal - wsFirmCreditLimitUpdRq.CreditLimitUsage))
                         //    throw new Exception("Balance must be Total - Usage");
@@ -1469,7 +1469,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x)));
 
                     //2- We creat the credit list
-                    List<CreditLimit> creditLimits = new List<CreditLimit>();
+                   
                     CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
                     CreditLimit creditLimit = new CreditLimit()
@@ -1484,15 +1484,13 @@ namespace DGTLBackendMock.DataAccessLayer
                         Usage = creditRecord != null ? creditRecord.CreditUsed : 0
                     };
 
-                    creditLimits.Add(creditLimit);
-
                     ClientFirmRecord firm = new ClientFirmRecord()
                     {
                         Id = Convert.ToInt64(accRecord.EPFirmId),
                         Name = accRecord.CFirmName,
                         ShortName = accRecord.CFSortName,
                         Accounts = v2accountList.ToArray(),
-                        CreditLimit = creditLimits.ToArray()
+                        CreditLimit = creditLimit
                     };
 
                     firms.Add(accRecord.EPFirmId, firm);
@@ -1524,10 +1522,23 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 if(FirmListResp==null)
-                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, wsFirmListRq.JsonWebToken, wsFirmListRq.PageNo, wsFirmListRq.PageRecords);
+                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, wsFirmListRq.JsonWebToken, 0,int.MaxValue);
 
                 FirmListResp.Uuid = wsFirmListRq.Uuid;
-                DoSend<FirmsListResponse>(socket, FirmListResp);
+
+                double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
+
+                FirmsListResponse thisResp = new FirmsListResponse();
+                thisResp.Firms = FirmListResp.Firms;
+                thisResp.JsonWebToken = FirmListResp.JsonWebToken;
+                thisResp.Message = FirmListResp.Message;
+                thisResp.Msg = FirmListResp.Msg;
+                thisResp.PageNo = wsFirmListRq.PageNo;
+                thisResp.TotalPages = Convert.ToInt32(totalPages) ;
+                thisResp.Uuid = wsFirmListRq.Uuid;
+                thisResp.Success = true;
+
+                DoSend<FirmsListResponse>(socket, thisResp);
             }
             catch (Exception ex)
             {
@@ -2418,6 +2429,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 TradePrice = legacyTradeHistory.TradePrice,
                 TradeQty = legacyTradeHistory.TradeQuantity,
                 UserId = LoggedUserId,
+                AccountId="test account",
                 Uuid = UUID
             };
 
@@ -2544,12 +2556,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientCreditUpdate",
                     AccountId = 0,
-                    CreditLimit = firm.CreditLimit[0].Total,
-                    CreditUsed = firm.CreditLimit[0].Usage,
-                    cStatus = firm.CreditLimit[0].cTradingStatus,
+                    CreditLimit = firm.CreditLimit.Total,
+                    CreditUsed = firm.CreditLimit.Usage,
+                    cStatus = firm.CreditLimit.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = firm.Id,
-                    MaxNotional = firm.CreditLimit[0].MaxTradeSize,
+                    MaxNotional = firm.CreditLimit.MaxTradeSize,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     Uuid = subscrMsg.Uuid
                 };

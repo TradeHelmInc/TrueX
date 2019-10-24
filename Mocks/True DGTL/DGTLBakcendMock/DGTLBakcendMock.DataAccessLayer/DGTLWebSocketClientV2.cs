@@ -46,8 +46,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Public Methods
 
-
-
         public override async void ReadResponses(object param)
         {
             while (true)

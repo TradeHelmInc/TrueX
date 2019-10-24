@@ -16,7 +16,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string ShortName { get; set; }
 
-        public CreditLimit[] CreditLimit { get; set; }
+        public CreditLimit CreditLimit { get; set; }
 
         public ClientAccountRecord[] Accounts { get; set; }
 
