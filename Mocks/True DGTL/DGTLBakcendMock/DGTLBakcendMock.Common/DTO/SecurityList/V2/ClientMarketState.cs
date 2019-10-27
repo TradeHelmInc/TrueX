@@ -14,9 +14,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public static char _DEFAULT_EXCHANGE_ID='a';
 
-        private static char _MARKET_HALTED = '1';
-        private static char _MARKET_OPEN = '2';
-        private static char _MARKET_CLOSED = '3'; 
+        public static char _MARKET_HALTED = '1';
+        public static char _MARKET_OPEN = '2';
+        public static char _MARKET_CLOSED = '3'; 
 
         #endregion
 

@@ -11,8 +11,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
     {
         #region Public Static Consts
 
-        public static char _TRADING_STATUS_FALSE = '0';
-        public static char _TRADING_STATUS_TRUE = '1';
+        public static char _TRADING_STATUS_SUSPENDED = 'S';
+        public static char _TRADING_STATUS_TRADING = 'T';
 
 
         #endregion

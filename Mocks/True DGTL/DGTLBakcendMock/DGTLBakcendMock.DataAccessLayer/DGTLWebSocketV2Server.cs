@@ -45,7 +45,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Static Consts
 
-        private static decimal _HALTING_THRESHOLD = 10m;
+        private static decimal _SECURITY_HALTING_THRESHOLD = 10m;
+
+        private static decimal _MARKET_HALTING_THRESHOLD = 20m;
+
+        private static decimal _MARKET_CLOSED_THRESHOLD = 30m;
 
         #endregion
 
@@ -390,8 +394,11 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
         //1.2.1.1- If change is more than 5% , we halt the security
-        private void EvalHaltingSecurity(IWebSocketConnection socket, decimal? prevLastPrice, LegacyTradeHistory newTrade, ClientInstrument instr)
+        //         If change is more than 20% , we halt the market
+        //         If change is more than 30% , we close the market
+        private void EvalHaltingSecurityOrMarket(IWebSocketConnection socket, decimal? prevLastPrice, LegacyTradeHistory newTrade, ClientInstrument instr)
         {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             if (prevLastPrice.HasValue)
             {
 
@@ -399,7 +406,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if(pctChange<0)
                     pctChange*=-1;
 
-                if (pctChange > _HALTING_THRESHOLD) 
+                if (pctChange > _SECURITY_HALTING_THRESHOLD && pctChange < _MARKET_HALTING_THRESHOLD) 
                 {//we halt the security
 
                     ClientInstrumentState state = new ClientInstrumentState();
@@ -413,6 +420,33 @@ namespace DGTLBackendMock.DataAccessLayer
                     DoLog(string.Format("Halting security {0} because of price change {1} % ",instr.InstrumentName,pctChange), MessageType.Information);
                     DoSend<ClientInstrumentState>(socket, state);
                 }
+                else if (pctChange > _MARKET_HALTING_THRESHOLD && pctChange < _MARKET_CLOSED_THRESHOLD)
+                {//we halt the MARKET
+
+                    ClientMarketState marketStateMsg = new ClientMarketState();
+                    marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+                    marketStateMsg.cReasonCode = '0';
+                    marketStateMsg.cState = ClientMarketState._MARKET_HALTED;
+                    marketStateMsg.Msg = "ClientMarketState";
+                    marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+
+                    DoLog(string.Format("Halting market because of price change {0} % ", pctChange), MessageType.Information);
+                    DoSend<ClientMarketState>(socket, marketStateMsg);
+                }
+                else if (pctChange > _MARKET_CLOSED_THRESHOLD)
+                {//we halt the MARKET
+
+                    ClientMarketState marketStateMsg = new ClientMarketState();
+                    marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+                    marketStateMsg.cReasonCode = '0';
+                    marketStateMsg.cState = ClientMarketState._MARKET_CLOSED;
+                    marketStateMsg.Msg = "ClientMarketState";
+                    marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+
+                    DoLog(string.Format("Closing market because of price change {0} % ", pctChange), MessageType.Information);
+                    DoSend<ClientMarketState>(socket, marketStateMsg);
+                }
+
             }
         
         
@@ -457,7 +491,7 @@ namespace DGTLBackendMock.DataAccessLayer
             UpdateQuotes(socket, instr, UUID);
             DoLog(string.Format("Quotes updated..."), MessageType.Information);
 
-            EvalHaltingSecurity(socket, prevLastPrice, newTrade, instr);
+            EvalHaltingSecurityOrMarket(socket, prevLastPrice, newTrade, instr);
         }
 
 
@@ -1475,7 +1509,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     CreditLimit creditLimit = new CreditLimit()
                     {
                         CurrencyRootId = accRecord.RouteId,
-                        cTradingStatus = CreditLimit._TRADING_STATUS_TRUE,
+                        cTradingStatus = CreditLimit._TRADING_STATUS_TRADING,
                         FirmCreditId = accRecord.EPFirmId,
                         MaxQtySize = accRecord.MaxNotional,
                         MaxTradeSize = accRecord.MaxNotional,

@@ -1,0 +1,92 @@
+2019-10-27 14:31:58  :: Initializing Mock Server...
+2019-10-27 14:31:58  :: Initializing all collections...
+2019-10-27 14:31:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-27 14:32:00  :: Critical error creating history service for controller HistoryServiceController on URL http://localhost:29400/:Se han producido uno o varios errores.-HTTP no pudo registrar la dirección URL http://+:29400/. El proceso no tiene derechos de acceso a este espacio de nombres (consulte http://go.microsoft.com/fwlink/?LinkId=70353 para obtener más información).-Acceso denegado
+2019-10-27 14:32:00  :: Collections Initialized...
+2019-10-27 14:32:57  :: Initializing Mock Server...
+2019-10-27 14:32:57  :: Initializing all collections...
+2019-10-27 14:32:58  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-27 14:32:58  :: Critical error creating history service for controller HistoryServiceController on URL http://localhost:29400/:Se han producido uno o varios errores.-HTTP no pudo registrar la dirección URL http://+:29400/. El proceso no tiene derechos de acceso a este espacio de nombres (consulte http://go.microsoft.com/fwlink/?LinkId=70353 para obtener más información).-Acceso denegado
+2019-10-27 14:32:58  :: Collections Initialized...
+2019-10-27 14:33:30  :: Initializing Mock Server...
+2019-10-27 14:33:30  :: Initializing all collections...
+2019-10-27 14:33:30  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-27 14:33:31  :: Critical error creating history service for controller HistoryServiceController on URL http://localhost:29400/:Se han producido uno o varios errores.-HTTP no pudo registrar la dirección URL http://+:29400/. El proceso no tiene derechos de acceso a este espacio de nombres (consulte http://go.microsoft.com/fwlink/?LinkId=70353 para obtener más información).-Acceso denegado
+2019-10-27 14:33:31  :: Collections Initialized...
+2019-10-27 14:33:46  :: Connecting for the first time to client 4709
+2019-10-27 14:33:46  :: Connected for the first time to client 4709
+2019-10-27 14:33:58  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-27 14:33:58  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-27 14:33:58  :: Sending ClientLoginResponse with UUID fd56cbc9-09f8-42e9-a754-0f83a9d02417
+2019-10-27 14:33:58  :: Sending Instrument Batch 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientInstrumentState 
+2019-10-27 14:33:58  :: Sending ClientUserRecord
+2019-10-27 14:33:58  :: Sending ClientMarketStateBatch
+2019-10-27 14:33:58  :: Sending ClientAccountRecordBatch 
+2019-10-27 14:34:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-10-27 14:34:04  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-27 14:34:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-10-27 14:41:26  :: Initializing Mock Server...
+2019-10-27 14:41:26  :: Initializing all collections...
+2019-10-27 14:41:26  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-10-27 14:41:27  :: Critical error creating history service for controller HistoryServiceController on URL http://localhost:29400/:Se han producido uno o varios errores.-HTTP no pudo registrar la dirección URL http://+:29400/. El proceso no tiene derechos de acceso a este espacio de nombres (consulte http://go.microsoft.com/fwlink/?LinkId=70353 para obtener más información).-Acceso denegado
+2019-10-27 14:41:27  :: Collections Initialized...
+2019-10-27 14:41:38  :: Connecting for the first time to client 4845
+2019-10-27 14:41:38  :: Connected for the first time to client 4845
+2019-10-27 14:41:51  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-10-27 14:41:52  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-10-27 14:41:52  :: Sending ClientLoginResponse with UUID ebf670c2-6268-44f2-90de-abe561e3c842
+2019-10-27 14:41:52  :: Sending Instrument Batch 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientInstrumentState 
+2019-10-27 14:41:52  :: Sending ClientUserRecord
+2019-10-27 14:41:52  :: Sending ClientMarketStateBatch
+2019-10-27 14:41:52  :: Sending ClientAccountRecordBatch 
+2019-10-27 14:41:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-10-27 14:41:56  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-10-27 14:41:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-10-27 14:42:01  :: Turning threads off on socket disconnection
+2019-10-27 14:42:04  :: Turning threads off on socket disconnection
+2019-10-27 14:42:07  :: Turning threads off on socket disconnection
+2019-10-27 14:42:10  :: Turning threads off on socket disconnection
+2019-10-27 14:42:13  :: Turning threads off on socket disconnection
+2019-10-27 14:42:16  :: Turning threads off on socket disconnection
