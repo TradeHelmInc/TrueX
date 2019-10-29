@@ -14,9 +14,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public static char _DEFAULT_EXCHANGE_ID='a';
 
-        public static char _MARKET_HALTED = '1';
-        public static char _MARKET_OPEN = '2';
-        public static char _MARKET_CLOSED = '3'; 
+        public static char _MARKET_OPEN = '1';
+        public static char _MARKET_CLOSED = '3';
+        public static char _SYSTEM_CLOSED = '5';
 
         #endregion
 
@@ -81,9 +81,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
             if (platformStatus == PlatformStatus._STATE_OPEN)
                 return _MARKET_OPEN;
             else if (platformStatus == PlatformStatus._STATE_MARKET_CLOSED)
-                return _MARKET_HALTED;
-            else if (platformStatus == PlatformStatus._STATE_SYSTEM_CLOSED)
                 return _MARKET_CLOSED;
+            else if (platformStatus == PlatformStatus._STATE_SYSTEM_CLOSED)
+                return _SYSTEM_CLOSED;
             else
                 throw new Exception(string.Format("Unknown state trasnlation for PlatformStatus {0}", platformStatus));
         }

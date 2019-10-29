@@ -426,7 +426,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ClientMarketState marketStateMsg = new ClientMarketState();
                     marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
                     marketStateMsg.cReasonCode = '0';
-                    marketStateMsg.cState = ClientMarketState._MARKET_HALTED;
+                    marketStateMsg.cState = ClientMarketState._MARKET_CLOSED;
                     marketStateMsg.Msg = "ClientMarketState";
                     marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
 
@@ -439,7 +439,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ClientMarketState marketStateMsg = new ClientMarketState();
                     marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
                     marketStateMsg.cReasonCode = '0';
-                    marketStateMsg.cState = ClientMarketState._MARKET_CLOSED;
+                    marketStateMsg.cState = ClientMarketState._SYSTEM_CLOSED;
                     marketStateMsg.Msg = "ClientMarketState";
                     marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
 
@@ -1394,13 +1394,16 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (FirmListResp != null)
             {
+                DoLog(string.Format("Looking form Firm with Id {0} to update its credit limit", wsFirmCreditLimitUpdRq.FirmId), MessageType.Information);
                 ClientFirmRecord firm = FirmListResp.Firms.Where(x => x.Id == wsFirmCreditLimitUpdRq.FirmId).FirstOrDefault();
 
                 if (firm != null)
                 {
+                    DoLog(string.Format("Firm {0} found. Updating its credit limit", wsFirmCreditLimitUpdRq.FirmId), MessageType.Information);
+
                     try
                     {
-                        firm.CreditLimit.TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
+                        //firm.CreditLimit.TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
                         firm.CreditLimit.Total = wsFirmCreditLimitUpdRq.CreditLimitTotal;
                         //Balance = Total - Usage
                         firm.CreditLimit.Usage = wsFirmCreditLimitUpdRq.CreditLimitUsage;
@@ -1435,6 +1438,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     catch (Exception ex)
                     {
+
                         FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                         {
                             Success = false,
@@ -1452,6 +1456,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else
                 {
+                    DoLog(string.Format("Firm {0} not found", wsFirmCreditLimitUpdRq.FirmId), MessageType.Error);
+
                     FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                     {
                         Success = false,
@@ -1555,10 +1561,13 @@ namespace DGTLBackendMock.DataAccessLayer
             FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
             try
             {
+               
                 if(FirmListResp==null)
                     CreateFirmListCreditStructure(wsFirmListRq.Uuid, wsFirmListRq.JsonWebToken, 0,int.MaxValue);
 
                 FirmListResp.Uuid = wsFirmListRq.Uuid;
+
+                DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
 
                 double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
 
@@ -1576,6 +1585,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
+                DoLog(string.Format("Process FirmsListReqest Error: {0} ", ex.Message), MessageType.Error);
 
                 FirmsListResponse firmListResp = new FirmsListResponse()
                 {
