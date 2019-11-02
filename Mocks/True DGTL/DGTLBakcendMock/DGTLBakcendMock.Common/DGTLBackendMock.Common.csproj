@@ -94,6 +94,7 @@
     <Compile Include="DTO\MarketData\V2\ClientBestBidOffer.cs" />
     <Compile Include="DTO\MarketData\V2\ClientDepthOfBook.cs" />
     <Compile Include="DTO\MarketData\V2\ClientLastSale.cs" />
+    <Compile Include="DTO\MarketData\V2\DailySettlementPrice.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetExecutionsBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetOrdersBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\LegacyOrderBlotter.cs" />

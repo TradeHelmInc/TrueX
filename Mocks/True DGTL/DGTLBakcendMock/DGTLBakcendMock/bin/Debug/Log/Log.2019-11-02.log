@@ -1,0 +1,73 @@
+2019-11-02 13:09:50  :: Initializing Mock Server...
+2019-11-02 13:09:50  :: Initializing all collections...
+2019-11-02 13:09:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-11-02 13:09:52  :: Collections Initialized...
+2019-11-02 13:10:00  :: Connecting for the first time to client 5360
+2019-11-02 13:10:00  :: Connected for the first time to client 5360
+2019-11-02 13:10:33  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-11-02 13:10:33  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-11-02 13:10:33  :: Sending ClientLoginResponse with UUID c8320ffc-21b5-437a-ad06-04e475f5bff9
+2019-11-02 13:10:33  :: Sending Instrument Batch 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientInstrumentState 
+2019-11-02 13:10:33  :: Sending ClientUserRecord
+2019-11-02 13:10:33  :: Sending ClientMarketStateBatch
+2019-11-02 13:10:33  :: Sending ClientAccountRecordBatch 
+2019-11-02 13:10:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-02 13:10:37  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-11-02 13:10:37  :: Incoming subscription for service SP - ServiceKey:9
+2019-11-02 13:10:37  :: SubscriptionResponse UUID:c8320ffc-21b5-437a-ad06-04e475f5bff9 Service:SP ServiceKey:9 Success:True
+2019-11-02 13:10:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-02 13:10:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-02 13:10:45  :: Turning threads off on socket disconnection
+2019-11-02 13:10:48  :: Turning threads off on socket disconnection
+2019-11-02 13:10:51  :: Turning threads off on socket disconnection
+2019-11-02 13:10:54  :: Turning threads off on socket disconnection
+2019-11-02 13:10:57  :: Turning threads off on socket disconnection
+2019-11-02 13:11:00  :: Turning threads off on socket disconnection
+2019-11-02 13:11:03  :: Turning threads off on socket disconnection
+2019-11-02 13:11:06  :: Turning threads off on socket disconnection
+2019-11-02 13:11:09  :: Turning threads off on socket disconnection
+2019-11-02 13:11:12  :: Turning threads off on socket disconnection
+2019-11-02 13:11:15  :: Turning threads off on socket disconnection
+2019-11-02 13:11:18  :: Turning threads off on socket disconnection
+2019-11-02 13:11:21  :: Turning threads off on socket disconnection
+2019-11-02 13:11:24  :: Turning threads off on socket disconnection
+2019-11-02 13:11:27  :: Turning threads off on socket disconnection
+2019-11-02 13:11:30  :: Turning threads off on socket disconnection
+2019-11-02 13:11:33  :: Turning threads off on socket disconnection
+2019-11-02 13:11:36  :: Turning threads off on socket disconnection
+2019-11-02 13:11:39  :: Turning threads off on socket disconnection
+2019-11-02 13:11:42  :: Turning threads off on socket disconnection
+2019-11-02 13:11:45  :: Turning threads off on socket disconnection
+2019-11-02 13:11:48  :: Turning threads off on socket disconnection
+2019-11-02 13:11:51  :: Turning threads off on socket disconnection
+2019-11-02 13:11:54  :: Turning threads off on socket disconnection
+2019-11-02 13:11:57  :: Turning threads off on socket disconnection
+2019-11-02 13:12:00  :: Turning threads off on socket disconnection
+2019-11-02 13:12:03  :: Turning threads off on socket disconnection
+2019-11-02 13:12:06  :: Turning threads off on socket disconnection
+2019-11-02 13:12:09  :: Turning threads off on socket disconnection
+2019-11-02 13:12:13  :: Turning threads off on socket disconnection
+2019-11-02 13:12:16  :: Turning threads off on socket disconnection
+2019-11-02 13:12:19  :: Turning threads off on socket disconnection
+2019-11-02 13:12:22  :: Turning threads off on socket disconnection

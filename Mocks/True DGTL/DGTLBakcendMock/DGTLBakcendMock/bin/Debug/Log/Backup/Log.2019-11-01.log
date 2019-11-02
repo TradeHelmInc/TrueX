@@ -1,0 +1,47 @@
+2019-11-01 15:10:04  :: Initializing Mock Server...
+2019-11-01 15:10:04  :: Initializing all collections...
+2019-11-01 15:10:05  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-11-01 15:10:05  :: Collections Initialized...
+2019-11-01 15:10:44  :: Connecting for the first time to client 32016
+2019-11-01 15:10:44  :: Connected for the first time to client 32016
+2019-11-01 15:10:48  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-11-01 15:10:49  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-11-01 15:10:49  :: Sending ClientLoginResponse with UUID 9769ba24-6500-4615-b983-633d03ad680c
+2019-11-01 15:10:49  :: Sending Instrument Batch 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientInstrumentState 
+2019-11-01 15:10:49  :: Sending ClientUserRecord
+2019-11-01 15:10:49  :: Sending ClientMarketStateBatch
+2019-11-01 15:10:49  :: Sending ClientAccountRecordBatch 
+2019-11-01 15:10:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:10:54  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-11-01 15:10:54  :: Incoming subscription for service SP - ServiceKey:*@NDF-XBT-USD-X18@*
+2019-11-01 15:10:55  :: SubscriptionResponse UUID:9769ba24-6500-4615-b983-633d03ad680c Service:SP ServiceKey:*@NDF-XBT-USD-X18@* Success:True
+2019-11-01 15:10:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:10:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-01 15:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

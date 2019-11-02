@@ -124,6 +124,11 @@ namespace DGTLBackendMock.DataAccessLayer
                                 ClientInstrument msg = JsonConvert.DeserializeObject<ClientInstrument>(resp);
                                 OnEvent(msg);
                             }
+                            else if (wsResp.Msg == "DailySettlementPrice")
+                            {
+                                DailySettlement msg = JsonConvert.DeserializeObject<DailySettlement>(resp);
+                                OnEvent(msg);
+                            }
                             else if (wsResp.Msg == "ClientOrderAck")
                             {
                                 ClientOrderAck msg = JsonConvert.DeserializeObject<ClientOrderAck>(resp);

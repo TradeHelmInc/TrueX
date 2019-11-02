@@ -2522,6 +2522,23 @@ namespace DGTLBackendMock.DataAccessLayer
             return order;
         }
 
+        private void TranslateAndSendOldDailySettlementPrice(IWebSocketConnection socket,
+                                                            DGTLBackendMock.Common.DTO.SecurityList.DailySettlementPrice v1DailySettl,
+                                                            ClientInstrument instr,string UUID)
+        {
+            DGTLBackendMock.Common.DTO.MarketData.V2.DailySettlement v2DailySettl = new Common.DTO.MarketData.V2.DailySettlement();
+            v2DailySettl.Msg = "DailySettlementPrice";
+            v2DailySettl.InstrumentId = instr.InstrumentId.ToString();
+            v2DailySettl.InstrumentName = instr.InstrumentName;
+            v2DailySettl.Uuid = UUID;
+            v2DailySettl.CalculationDate =Convert.ToInt32( DateTime.Now.ToString("yyyyMMdd"));
+            v2DailySettl.CalculationTime = Convert.ToInt64(DateTime.Now.ToString("hhmmss"));
+            v2DailySettl.DailySettlementPrice = v1DailySettl.Price;
+
+            DoSend<DGTLBackendMock.Common.DTO.MarketData.V2.DailySettlement>(socket, v2DailySettl);
+        
+        }
+
         private void TranslateAndSendOldLegacyOrderRecord(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord, bool newOrder=true)
         {
             TimeSpan startFromToday = DateTime.Now.Date - new DateTime(1970, 1, 1);
@@ -2920,6 +2937,22 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessDailySettlementPrice(IWebSocketConnection socket, Subscribe subscrMsg) 
+        {
+            try
+            {
+                long instrumentId = Convert.ToInt32(subscrMsg.ServiceKey);
+                ClientInstrument instr = GetInstrumentByIntInstrumentId(instrumentId);
+                DGTLBackendMock.Common.DTO.SecurityList.DailySettlementPrice v1SettlPrice = DailySettlementPrices.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);
+                ProcessSubscriptionResponse(socket, "SP", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "SP", subscrMsg.ServiceKey, subscrMsg.Uuid,false,ex.Message);
+            }
+        }
+
         protected void ProcessMyOrders(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             string instrumentId = "";
@@ -3079,6 +3112,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (subscrMsg.Service == "T")
                 {
                     ProcessCreditRecordUpdates(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "SP")
+                {
+                    ProcessDailySettlementPrice(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "Oy")
                 {
