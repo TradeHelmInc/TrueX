@@ -2937,15 +2937,40 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessDailySettlementPriceThread(object param)
+        {
+            DailySettlementPrice v1SettlPrice = (DailySettlementPrice)((object[])param)[0];
+            IWebSocketConnection socket = (IWebSocketConnection)((object[])param)[1];
+            ClientInstrument instr = (ClientInstrument)((object[])param)[2];
+            string UUID = (string)((object[])param)[3];
+
+            try
+            {
+                while (true)
+                {
+                    Thread.Sleep(10 * 1000);
+                    v1SettlPrice.Price += (decimal?) 0.01;
+                    TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, UUID);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Error updating Daily Settlement Thread:{0}", ex.Message), MessageType.Error);
+            }
+        }
+
         protected void ProcessDailySettlementPrice(IWebSocketConnection socket, Subscribe subscrMsg) 
         {
             try
             {
                 long instrumentId = Convert.ToInt32(subscrMsg.ServiceKey);
                 ClientInstrument instr = GetInstrumentByIntInstrumentId(instrumentId);
-                DGTLBackendMock.Common.DTO.SecurityList.DailySettlementPrice v1SettlPrice = DailySettlementPrices.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                DailySettlementPrice v1SettlPrice = DailySettlementPrices.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
                 TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);
                 ProcessSubscriptionResponse(socket, "SP", subscrMsg.ServiceKey, subscrMsg.Uuid);
+
+                Thread processDailySettlementPriceThread = new Thread(ProcessDailySettlementPriceThread);
+                processDailySettlementPriceThread.Start(new object[] { v1SettlPrice, socket, instr, subscrMsg.Uuid });
             }
             catch (Exception ex)
             {
