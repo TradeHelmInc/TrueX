@@ -1,5 +1,5 @@
 ﻿[
-	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"548346919","RouteId":"947f2fae-c698-3494-4116-f8bb4615443c","CreditUsed":0.00},
-	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"271058655","RouteId":"947f2fae-c698-3494-4116-f8bb4615443d","CreditUsed":0.00},
-	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"271058656","RouteId":"947f2fae-c698-3494-4116-f8bb4615443e","CreditUsed":0.00}
+	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"548346919","RouteId":"947f2fae-c698-3494-4116-f8bb4615443c",CreditUsed:50000.00},
+	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"271058655","RouteId":"947f2fae-c698-3494-4116-f8bb4615443d",CreditUsed:100.00},
+	{"Msg" : "CreditRecordUpdate","Sender" : 23 ,"FirmId":"271058656","RouteId":"947f2fae-c698-3494-4116-f8bb4615443e"}
 ]
