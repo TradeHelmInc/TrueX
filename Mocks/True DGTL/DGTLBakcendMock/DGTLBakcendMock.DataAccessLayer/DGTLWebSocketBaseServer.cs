@@ -560,7 +560,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     if (UserLogged)
                     {
-                        ClientHeartbeatRequest heartbeatReq = new ClientHeartbeatRequest()
+                        ClientHeartbeat heartbeatReq = new ClientHeartbeat()
                         {
                             Msg = "ClientHeartbeatRequest",
                             UserId = "user1",
@@ -571,7 +571,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         };
                     
-                        DoSend<ClientHeartbeatRequest>(socket, heartbeatReq);
+                        DoSend<ClientHeartbeat>(socket, heartbeatReq);
                         HeartbeatSeqNum++;
                     }
 

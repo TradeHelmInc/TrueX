@@ -15,6 +15,8 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public string Uuid { get; set; }
 
+        public bool ReLogin { get; set; }
+
 
     }
 }

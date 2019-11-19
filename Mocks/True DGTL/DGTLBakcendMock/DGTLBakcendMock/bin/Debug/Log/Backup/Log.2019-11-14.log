@@ -1,0 +1,51 @@
+2019-11-14 13:52:22  :: Initializing Mock Server...
+2019-11-14 13:52:22  :: Initializing all collections...
+2019-11-14 13:52:23  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-11-14 13:52:23  :: Critical error creating history service for controller HistoryServiceController on URL http://localhost:29400/:Se han producido uno o varios errores.-HTTP no pudo registrar la dirección URL http://+:29400/ porque otra aplicación está usando el puerto TCP 29400.-El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso
+2019-11-14 13:52:23  :: Collections Initialized...
+2019-11-14 13:52:36  :: Connecting for the first time to client 25530
+2019-11-14 13:52:36  :: Connected for the first time to client 25530
+2019-11-14 13:52:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-11-14 13:52:45  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-11-14 13:52:45  :: Sending ClientLoginResponse with UUID 90a7ebc0-1ca3-48ff-bae2-3c41efeed5b1
+2019-11-14 13:52:45  :: Sending Instrument Batch 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientInstrumentState 
+2019-11-14 13:52:45  :: Sending ClientUserRecord
+2019-11-14 13:52:45  :: Sending ClientMarketStateBatch
+2019-11-14 13:52:45  :: Sending ClientAccountRecordBatch 
+2019-11-14 13:52:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:52:50  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-11-14 13:52:50  :: Incoming subscription for service Oy - ServiceKey:MM1_CLOBUI@2@*
+2019-11-14 13:52:50  :: Sending all orders for MM1_CLOBUI@2@* subscription. Count=21
+2019-11-14 13:52:50  :: SubscriptionResponse UUID:90a7ebc0-1ca3-48ff-bae2-3c41efeed5b1 Service:Oy ServiceKey:MM1_CLOBUI@2@* Success:True
+2019-11-14 13:52:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:52:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:52:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-11-14 13:53:21  :: Turning threads off on socket disconnection

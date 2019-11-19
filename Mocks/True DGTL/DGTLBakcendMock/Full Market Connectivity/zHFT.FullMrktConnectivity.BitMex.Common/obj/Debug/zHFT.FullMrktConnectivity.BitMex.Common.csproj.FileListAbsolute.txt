@@ -7,4 +7,3 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\bin\Debug\zHFT.FullMrktConnectivity.BitMex.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.pdb
-C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.csprojResolveAssemblyReference.cache

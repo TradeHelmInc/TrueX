@@ -99,7 +99,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 OnEvent(subscrResponse);
                             }
                             else if (wsResp.Msg == "ClientHeartbeatRequest")
-                                OnEvent(JsonConvert.DeserializeObject<ClientHeartbeatRequest>(resp));
+                                OnEvent(JsonConvert.DeserializeObject<ClientHeartbeat>(resp));
                             else if (wsResp.Msg == "AccountRecord")
                                 OnEvent(JsonConvert.DeserializeObject<AccountRecord>(resp));
                             else if (wsResp.Msg == "CreditRecordUpdate")

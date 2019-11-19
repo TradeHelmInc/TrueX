@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth
 {
-    public class ClientHeartbeatRequest : WebSocketMessage
+    public class ClientHeartbeat : WebSocketMessage
     {
         public int Time { get; set; }
 

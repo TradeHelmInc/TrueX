@@ -23,22 +23,24 @@ namespace DGTLBackendMock.Common.DTO.Subscription.V2
 
         public string JsonWebToken { get; set; }
 
-        private byte action;
-        public byte Action
+        private byte subscriptionType;
+        public byte SubscriptionType
         {
-            get { return action; }
+            get { return subscriptionType; }
             set
             {
-                action = Convert.ToByte(value);
+                subscriptionType = Convert.ToByte(value);
 
             }
         }
 
         [JsonIgnore]
-        public char cAction { get { return Convert.ToChar(Action); } set { Action = Convert.ToByte(value); } }
+        public char cAction { get { return Convert.ToChar(SubscriptionType); } set { SubscriptionType = Convert.ToByte(value); } }
         //Action
 
         public string Service { get; set; }
+
+        public int userId { get; set; }
 
         public string ServiceKey { get; set; }
 

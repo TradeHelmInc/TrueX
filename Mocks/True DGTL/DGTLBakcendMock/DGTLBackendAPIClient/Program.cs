@@ -124,10 +124,10 @@ namespace DGTLBackendAPIClient
 
                 ProcessJsonMessage<ClientLogoutResponse>((ClientLogoutResponse)msg);
             }
-            else if (msg is ClientHeartbeatRequest)
+            else if (msg is ClientHeartbeat)
             {
-                ClientHeartbeatRequest heartBeatReq = (ClientHeartbeatRequest)msg;
-                ProcessJsonMessage<ClientHeartbeatRequest>((ClientHeartbeatRequest)msg);
+                ClientHeartbeat heartBeatReq = (ClientHeartbeat)msg;
+                ProcessJsonMessage<ClientHeartbeat>((ClientHeartbeat)msg);
                 ProcessHeartbeat(heartBeatReq.SeqNum);
             }
             else if (msg is UnknownMessage)

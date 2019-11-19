@@ -1682,8 +1682,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.InstrumentName = security.Symbol;
                 instrumentMsg.LastUpdatedBy = "fernandom";
                 instrumentMsg.LotSize = security.LotSize;
-                instrumentMsg.MaxLotSize = Convert.ToDouble(security.MaxSize);
-                instrumentMsg.MinLotSize = Convert.ToDouble(security.MinSize);
+                instrumentMsg.MaxOrdQty = Convert.ToDouble(security.MaxSize);
+                instrumentMsg.MinOrdQty = Convert.ToDouble(security.MinSize);
                 instrumentMsg.cProductType = ClientInstrument.GetProductType(security.AssetClass);
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
@@ -2010,6 +2010,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     SendLoginRejectReject(socket, wsLogin, string.Format("Unknown user: {0}", jsonCredentials.UserId));
                     return;
                 
+                }
+
+
+                if (jsonCredentials.UserId == "SIMUSER_3_UI1" && !wsLogin.ReLogin)
+                {
+                    DoLog(string.Format("Sending user already logged in for for user {0}", jsonCredentials.UserId), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Duplicate Login request", jsonCredentials.UserId, jsonCredentials.UserId));
+                    return;
                 }
 
 
@@ -2640,21 +2648,25 @@ namespace DGTLBackendMock.DataAccessLayer
             Subscribe subscrMsg = (Subscribe)paramArray[1];
             ClientInstrument instr = (ClientInstrument)paramArray[2];
             bool subscResp = false;
-
+            DoLog(string.Format("chkpnt @QuoteThread"), MessageType.Information);
             try
             {
                 while (true)
                 {
+                    DoLog(string.Format("chkpnt @QuoteThread2"), MessageType.Information);
                     Quote legacyLastQuote  = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
 
                     if (legacyLastQuote != null)
                     {
+                        DoLog(string.Format("Sending Quote for instrument {0}", instr.InstrumentName), MessageType.Information);
 
                         TranslateAndSendOldQuote(socket, subscrMsg.Uuid, legacyLastQuote, instr);
                         Thread.Sleep(3000);//3 seconds
                     }
+                    DoLog(string.Format("chkpnt @QuoteThread3"), MessageType.Information);
                     if (!subscResp)
                     {
+                        DoLog(string.Format("chkpnt @QuoteThread4"), MessageType.Information);
                         ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid);
                         Thread.Sleep(2000);
                         subscResp = true;
@@ -2749,6 +2761,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     try
                     {
+                        DoLog(string.Format("chkpnt @ProcessQuote"),MessageType.Information);
                         ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
                         Thread ProcessQuoteThread = new Thread(QuoteThread);
                         ProcessQuoteThread.Start(new object[] { socket, subscrMsg, instr });
@@ -2966,11 +2979,15 @@ namespace DGTLBackendMock.DataAccessLayer
                 long instrumentId = Convert.ToInt32(subscrMsg.ServiceKey);
                 ClientInstrument instr = GetInstrumentByIntInstrumentId(instrumentId);
                 DailySettlementPrice v1SettlPrice = DailySettlementPrices.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
-                TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);
+                if(v1SettlPrice!=null)
+                    TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);
                 ProcessSubscriptionResponse(socket, "SP", subscrMsg.ServiceKey, subscrMsg.Uuid);
 
-                Thread processDailySettlementPriceThread = new Thread(ProcessDailySettlementPriceThread);
-                processDailySettlementPriceThread.Start(new object[] { v1SettlPrice, socket, instr, subscrMsg.Uuid });
+                if (v1SettlPrice != null)
+                {
+                    Thread processDailySettlementPriceThread = new Thread(ProcessDailySettlementPriceThread);
+                    processDailySettlementPriceThread.Start(new object[] { v1SettlPrice, socket, instr, subscrMsg.Uuid });
+                }
             }
             catch (Exception ex)
             {
@@ -2980,13 +2997,16 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessMyOrders(IWebSocketConnection socket, Subscribe subscrMsg)
         {
-            string instrumentId = "";
-            string[] fields = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+            //string instrumentId = "";
+            //string[] fields = subscrMsg.ServiceKey.Split(new string[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
 
-            if (fields.Length >= 2)
-                instrumentId = fields[1];
-            else
-                throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
+            //if (fields.Length >= 2)
+            //    instrumentId = fields[1];
+            //else
+            //    throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
+
+
+            string instrumentId = subscrMsg.ServiceKey;
 
             List<LegacyOrderRecord> orders = null;
             if (instrumentId != "*")
@@ -3006,7 +3026,7 @@ namespace DGTLBackendMock.DataAccessLayer
             
             //Now we have to launch something to create deltas (insert, change, remove)
             //RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
-            ProcessSubscriptionResponse(socket, "Oy", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            ProcessSubscriptionResponse(socket, "MO", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
         protected void ProcessMyTrades(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3115,9 +3135,9 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             Subscribe subscrMsg = JsonConvert.DeserializeObject<Subscribe>(m);
 
-            DoLog(string.Format("Incoming subscription for service {0} - ServiceKey:{1}", subscrMsg.Service, subscrMsg.ServiceKey), MessageType.Information);
+            DoLog(string.Format("Incoming subscription for serviceXX {0} - ServiceKey:{1}", subscrMsg.Service, subscrMsg.ServiceKey), MessageType.Information);
 
-            if (subscrMsg.Action == Subscribe._ACTION_SUBSCRIBE)
+            if (subscrMsg.SubscriptionType == Subscribe._ACTION_SUBSCRIBE)
             {
               
                 if (subscrMsg.Service == "LS")
@@ -3127,8 +3147,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else if (subscrMsg.Service == "LQ")
                 {
+                    DoLog("LQ 1", MessageType.Information);
                     if (subscrMsg.ServiceKey != null)
                         ProcessQuote(socket, subscrMsg);
+                    else
+                        DoLog("LQ 2", MessageType.Information);
                 }
                 else if (subscrMsg.Service == "LD")
                 {
@@ -3142,7 +3165,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessDailySettlementPrice(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "Oy")
+                //else if (subscrMsg.Service == "Oy")
+                else if (subscrMsg.Service == "MO")
                 {
                     ProcessMyOrders(socket, subscrMsg);
                 }
@@ -3171,6 +3195,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessNotifications(socket, subscrMsg);
                 }
+                else
+                {
+                    DoLog(string.Format("Unknown service --{0}--", subscrMsg.Service), MessageType.Information);
+                }
                 //else if (subscrMsg.Service == "FD")
                 //{
                 //    if (subscrMsg.ServiceKey != null)
@@ -3191,7 +3219,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 //    ProcessBlotterTrades(socket, subscrMsg);
                 //}
             }
-            else if (subscrMsg.Action == Subscribe._ACTION_UNSUBSCRIBE)
+            else if (subscrMsg.SubscriptionType == Subscribe._ACTION_UNSUBSCRIBE)
             {
                 ProcessUnsubscriptions(subscrMsg);
             }
@@ -3246,7 +3274,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessEmailNotificationsDeleteRequest(socket, m);
                 }
-                else if (wsResp.Msg == "ClientHeartbeat")
+                else if (wsResp.Msg == "ClientHeartbeat" || wsResp.Msg == "ClientHeartbeatResponse")
                 {
                     //We do nothing//
 

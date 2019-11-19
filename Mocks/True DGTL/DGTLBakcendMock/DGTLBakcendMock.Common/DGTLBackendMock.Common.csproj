@@ -58,7 +58,7 @@
     <Compile Include="DTO\Account\V2\Credit UI\FirmsListResponse.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\FirmsTradingStatusUpdateRequest.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\FirmsTradingStatusUpdateResponse.cs" />
-    <Compile Include="DTO\Auth\ClientHeartbeatRequest.cs" />
+    <Compile Include="DTO\Auth\ClientHeartbeat.cs" />
     <Compile Include="DTO\Auth\ClientLoginResponse.cs" />
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\ClientReject.cs" />
