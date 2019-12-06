@@ -111,6 +111,7 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
+    <Compile Include="DTO\OrderRouting\V2\ClientMarketActivity.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientMassCancelReq.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientMassCancelResponse.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientNotification.cs" />

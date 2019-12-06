@@ -18,6 +18,8 @@ namespace DGTLBackendMock.DataAccessLayer
 {
     public delegate void ProcessEvent(WebSocketMessage msg);
 
+    public delegate void OnLog(string msg);
+
     public class DGTLWebSocketClient
     {
         #region Protected Attributes
@@ -49,6 +51,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
 
             SubscriptionWebSocket = new ClientWebSocket();
+
             await SubscriptionWebSocket.ConnectAsync(new Uri(WebSocketURL), CancellationToken.None);
 
             Thread respThread = new Thread(ReadResponses);
@@ -151,14 +154,26 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        public async void Send(string strMsg)
+        public async void Send(string strMsg,OnLog pOnLog = null)
         {
             byte[] msgArray = Encoding.ASCII.GetBytes(strMsg);
 
             ArraySegment<byte> bytesToSend = new ArraySegment<byte>(msgArray);
 
-            await SubscriptionWebSocket.SendAsync(bytesToSend, WebSocketMessageType.Text, true,
-                                                          CancellationToken.None);
+            if (SubscriptionWebSocket.State != WebSocketState.Open)
+            {
+                if (pOnLog != null)
+                    pOnLog(string.Format("Invalid Websocket state:{0}", SubscriptionWebSocket.State.ToString()));
+                //throw new Exception(string.Format("Invalid Websocket state:{0}", SubscriptionWebSocket.State.ToString()));
+                return;
+
+            }
+            else
+            {
+
+                await SubscriptionWebSocket.SendAsync(bytesToSend, WebSocketMessageType.Text, true,
+                                                              CancellationToken.None);
+            }
         
         }
 

@@ -1,0 +1,91 @@
+2019-12-06 15:40:48  :: Initializing Mock Server...
+2019-12-06 15:40:48  :: Initializing all collections...
+2019-12-06 15:40:50  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-06 15:40:52  :: Collections Initialized...
+2019-12-06 15:42:35  :: Initializing Mock Server...
+2019-12-06 15:42:35  :: Initializing all collections...
+2019-12-06 15:42:36  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-06 15:42:37  :: Collections Initialized...
+2019-12-06 15:42:45  :: Connecting for the first time to client 13454
+2019-12-06 15:42:45  :: Connected for the first time to client 13454
+2019-12-06 15:42:47  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-06 15:42:47  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-06 15:42:47  :: Sending ClientLoginResponse with UUID 1308521f-7617-416f-b747-67b9016d5c5c
+2019-12-06 15:42:47  :: Sending Instrument Batch 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientInstrumentState 
+2019-12-06 15:42:47  :: Sending ClientUserRecord
+2019-12-06 15:42:47  :: Sending ClientMarketStateBatch
+2019-12-06 15:42:47  :: Sending ClientAccountRecordBatch 
+2019-12-06 15:42:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:42:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:42:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:00  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-12-06 15:43:00  :: Incoming subscription for serviceXX MA - ServiceKey:2
+2019-12-06 15:43:00  :: SubscriptionResponse UUID:1308521f-7617-416f-b747-67b9016d5c5c Service:MA ServiceKey:2 Success:True
+2019-12-06 15:43:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:43:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:44:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-06 15:45:23  :: Turning threads off on socket disconnection

@@ -92,20 +92,35 @@ namespace DGTLBackendAPIClientV2
 
         private static void DoSend(string strMsg)
         {
-            DoLog(string.Format(">>{0}", strMsg));
-            DGTLWebSocketClient.Send(strMsg);
+            try
+            {
+                DoLog(string.Format(">>{0}", strMsg));
+                DGTLWebSocketClient.Send(strMsg,DoLog);
+            }
+            catch (Exception ex)
+            {
+                DoLog(ex.Message);
+            }
         }
 
         private static void DoSend<T>(T obj)
         {
-            string strMsg = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.None,
-                                                    new JsonSerializerSettings
-                                                    {
-                                                        NullValueHandling = NullValueHandling.Ignore
-                                                    });
+            try
+            {
+                string strMsg = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.None,
+                                                        new JsonSerializerSettings
+                                                        {
+                                                            NullValueHandling = NullValueHandling.Ignore
+                                                        });
 
 
-            DoSend(strMsg);
+                DoSend(strMsg);
+            }
+            catch (Exception ex)
+            {
+
+                DoLog(ex.Message);            
+            }
         }
 
         private static void ProcessSubscribe(string[] param)
@@ -685,7 +700,7 @@ namespace DGTLBackendAPIClientV2
                 JsonWebToken = Token,
                 Msg = "FirmsListRequest",
                 PageNo = 0,
-                PageRecords = 100,
+                PageRecords = 10,
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds),
                 Uuid = UUID
 

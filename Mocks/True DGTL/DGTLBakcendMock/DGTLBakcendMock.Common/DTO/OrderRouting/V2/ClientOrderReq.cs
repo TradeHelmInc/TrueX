@@ -11,8 +11,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
     {
         #region Public Static Conts
 
-        public static char _ORD_TYPE_LIMIT = '1';
-        //public static char _ORD_TYPE_MARKET = '2';
+        public static char _ORD_TYPE_LIMIT = '2';
+        //public static char _ORD_TYPE_MARKET = '??';
 
         public static char _SIDE_BUY = 'B';
         public static char _SIDE_SELL = 'S';

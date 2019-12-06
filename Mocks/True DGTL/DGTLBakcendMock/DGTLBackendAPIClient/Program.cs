@@ -242,7 +242,7 @@ namespace DGTLBackendAPIClient
         private static void DoSend(string strMsg)
         {
             DoLog(string.Format(">>{0}", strMsg));
-            DGTLWebSocketClient.Send(strMsg);
+            DGTLWebSocketClient.Send(strMsg,DoLog);
         }
 
         private static void ProcessSubscribe(string[] param)

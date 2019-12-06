@@ -2460,6 +2460,24 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected ClientMarketActivity TranslateOldLegacyTradeHistoryForMarketActivity(LegacyTradeHistory legacyTradeHistory, ClientInstrument instr, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            ClientMarketActivity trade = new ClientMarketActivity()
+            {
+                Msg = "ClientMarketActivity",
+                InstrumentId = instr.InstrumentId,
+                LastPrice = legacyTradeHistory.TradePrice,
+                LastSize = legacyTradeHistory.TradeQuantity,
+                cMySide = legacyTradeHistory.cMySide,
+                TimeStamp = legacyTradeHistory.TradeTimeStamp,
+                TradeId = GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
+                Uuid = UUID
+            };
+
+            return trade;
+        }
+
 
         protected ClientTradeRecord TranslateOldLegacyTradeHistory(LegacyTradeHistory legacyTradeHistory, ClientInstrument instr,string UUID)
         {
@@ -2499,6 +2517,19 @@ namespace DGTLBackendMock.DataAccessLayer
                 DoSend<ClientTradeRecord>(socket, trade);
             }
         }
+
+
+        private void TranslateAndSendOldLegacyTradeHistoryToMarketActivity(IWebSocketConnection socket, string UUID, LegacyTradeHistory legacyTradeHistory)
+        {
+
+            if (legacyTradeHistory != null)
+            {
+                ClientInstrument instr = GetInstrumentBySymbol(legacyTradeHistory.Symbol);
+                ClientMarketActivity trade = TranslateOldLegacyTradeHistoryForMarketActivity(legacyTradeHistory, instr, UUID);
+                DoSend<ClientMarketActivity>(socket, trade);
+            }
+        }
+
 
         protected ClientOrderRecord TranslateOldLegacyOrderRecord(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
         {
@@ -3038,11 +3069,13 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
                 trades = Trades.Where(x => x.Symbol == instr.InstrumentName).ToList();
 
-                trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
+                //trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
+                trades.ForEach(x => TranslateAndSendOldLegacyTradeHistoryToMarketActivity(socket, subscrMsg.Uuid, x));
             }
            
             //Now we have to launch something to create deltas (insert, change, remove)
-            ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            //ProcessSubscriptionResponse(socket, "LT", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            ProcessSubscriptionResponse(socket, "MA", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
         protected void ProcessMyTradesForBlotter(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3170,7 +3203,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessMyOrders(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "LT")
+                else if (subscrMsg.Service == "MA")
+                //else if (subscrMsg.Service == "LT")
                 {
                     ProcessMyTrades(socket, subscrMsg);
                 }
