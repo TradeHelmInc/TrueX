@@ -559,7 +559,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 TradeTimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds)
 
             };
-            TranslateAndSendOldLegacyTradeHistory(socket, UUID, newTrade);
+            TranslateAndSendOldLegacyTradeHistory(socket, UUID, newTrade);//rt
+            TranslateAndSendOldLegacyTradeHistoryToMarketActivity(socket, UUID, newTrade);//MA
             AppendTrades(newTrade);
             //DoSend<LegacyTradeHistory>(socket, newTrade);
 
