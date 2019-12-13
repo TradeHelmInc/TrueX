@@ -2624,8 +2624,9 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void TranslateAndSendOldDepthOfBook(IWebSocketConnection socket, DepthOfBook legacyDepthOfBook, ClientInstrument instr,string UUID)
+        private ClientDepthOfBook TranslateOldDepthOfBook(DepthOfBook legacyDepthOfBook, ClientInstrument instr, string UUID)
         {
+
             ClientDepthOfBook depthOfBook = new ClientDepthOfBook()
             {
                 Msg = "ClientDepthOfBook",
@@ -2638,6 +2639,12 @@ namespace DGTLBackendMock.DataAccessLayer
 
             };
 
+            return depthOfBook;
+        }
+
+        private void TranslateAndSendOldDepthOfBook(IWebSocketConnection socket, DepthOfBook legacyDepthOfBook, ClientInstrument instr,string UUID)
+        {
+            ClientDepthOfBook depthOfBook = TranslateOldDepthOfBook(legacyDepthOfBook, instr, UUID);
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
@@ -2903,8 +2910,21 @@ namespace DGTLBackendMock.DataAccessLayer
                 List<DepthOfBook> depthOfBooks = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName).ToList();
                 if (depthOfBooks != null && depthOfBooks.Count>0)
                 {
-                    depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, subscrMsg.Uuid));
-                    Thread.Sleep(1000);
+
+                    List<ClientDepthOfBook> newDepthOfBooks = new List<ClientDepthOfBook>();
+                    depthOfBooks.ForEach(x => newDepthOfBooks.Add(TranslateOldDepthOfBook(x, instr, subscrMsg.Uuid)));
+
+
+                    ClientDepthOfBookBatch batchResp = new ClientDepthOfBookBatch()
+                    {
+                        Msg = "ClientDepthOfBookBatch",
+                        messages = newDepthOfBooks.ToArray()
+                    };
+
+                    DoSend<ClientDepthOfBookBatch>(socket, batchResp);
+
+                    //depthOfBooks.ForEach(x => TranslateAndSendOldDepthOfBook(socket, x, instr, subscrMsg.Uuid));
+                    //Thread.Sleep(1000);
                 }
 
                 if(SubscribedLQ)
@@ -2924,12 +2944,12 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
                 TranslateAndSendOldCreditRecordUpdate(socket, subscrMsg);
-                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.Uuid);
+                ProcessSubscriptionResponse(socket, "CC", subscrMsg.ServiceKey, subscrMsg.Uuid);
             }
             catch (Exception ex)
             {
 
-                ProcessSubscriptionResponse(socket, "T", subscrMsg.ServiceKey, subscrMsg.Uuid, success: false, msg: ex.Message);
+                ProcessSubscriptionResponse(socket, "CC", subscrMsg.ServiceKey, subscrMsg.Uuid, success: false, msg: ex.Message);
             }
         }
 
@@ -3191,11 +3211,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessOrderBookDepth(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "T")
+                else if (subscrMsg.Service == "CC")
                 {
                     ProcessCreditRecordUpdates(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "SP")
+                else if (subscrMsg.Service == "DS")
                 {
                     ProcessDailySettlementPrice(socket, subscrMsg);
                 }
@@ -3226,7 +3246,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessOpenOrderCount(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "TN")
+                else if (subscrMsg.Service == "NC")
+                //else if (subscrMsg.Service == "TN")
                 {
                     ProcessNotifications(socket, subscrMsg);
                 }

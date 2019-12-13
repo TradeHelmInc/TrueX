@@ -1,0 +1,40 @@
+2019-12-13 12:47:54  :: Initializing Mock Server...
+2019-12-13 12:47:54  :: Initializing all collections...
+2019-12-13 12:47:55  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-13 12:47:56  :: Collections Initialized...
+2019-12-13 12:48:41  :: Connecting for the first time to client 19459
+2019-12-13 12:48:41  :: Connected for the first time to client 19459
+2019-12-13 12:49:16  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-13 12:49:16  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-13 12:49:16  :: Sending ClientLoginResponse with UUID 7484c6f6-363c-4e98-8c44-fe29711bda79
+2019-12-13 12:49:16  :: Sending Instrument Batch 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientInstrumentState 
+2019-12-13 12:49:16  :: Sending ClientUserRecord
+2019-12-13 12:49:16  :: Sending ClientMarketStateBatch
+2019-12-13 12:49:16  :: Sending ClientAccountRecordBatch 
+2019-12-13 12:49:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-13 12:49:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-13 12:49:24  :: OnMessage Subscribe from IP -> 127.0.0.1
+2019-12-13 12:49:24  :: Incoming subscription for serviceXX LD - ServiceKey:2
+2019-12-13 12:49:24  :: SubscriptionResponse UUID:7484c6f6-363c-4e98-8c44-fe29711bda79 Service:LD ServiceKey:2 Success:True
+2019-12-13 12:49:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-13 12:50:37  :: Turning threads off on socket disconnection
