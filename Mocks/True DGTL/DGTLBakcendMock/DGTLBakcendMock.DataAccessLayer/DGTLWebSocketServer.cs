@@ -41,6 +41,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected SecurityMapping[] SecurityMappings { get; set; }
 
+        protected Config Config { get; set; }
+
         protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
@@ -118,6 +120,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 LoadQuotes();
 
                 LoadSecurityMappings();
+
+                LoadConfig();
 
                 LoadDailySettlementPrices();
 
@@ -207,6 +211,16 @@ namespace DGTLBackendMock.DataAccessLayer
             else
                 DoClose();
 
+        }
+
+        protected void LoadConfig()
+        {
+
+            string strConfigs = File.ReadAllText(@".\input\Config.json");
+
+            //Aca le metemos que serialize el contenido
+            Config = JsonConvert.DeserializeObject<Config>(strConfigs);
+        
         }
 
         protected void LoadSecurityMappings()

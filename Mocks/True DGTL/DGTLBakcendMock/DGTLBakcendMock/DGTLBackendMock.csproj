@@ -73,6 +73,9 @@
     <None Include="input\AccountRecord.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="input\Config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="input\cooked_cases\DepthOfBook.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

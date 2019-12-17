@@ -63,6 +63,7 @@
     <Compile Include="DTO\Auth\ClientLogoutResponse.cs" />
     <Compile Include="DTO\Auth\ClientReject.cs" />
     <Compile Include="DTO\Auth\ClientHeartbeatResponse.cs" />
+    <Compile Include="DTO\Auth\Config.cs" />
     <Compile Include="DTO\Auth\ResetPasswordRequest.cs" />
     <Compile Include="DTO\Auth\ResetPasswordResponse.cs" />
     <Compile Include="DTO\Auth\V2\ClientHeartbeat.cs" />

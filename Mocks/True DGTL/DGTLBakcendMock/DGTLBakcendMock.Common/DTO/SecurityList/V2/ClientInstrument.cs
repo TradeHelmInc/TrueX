@@ -31,17 +31,17 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public string InstrumentName { get; set; }
 
-        public double MinOrdQty { get; set; }
+        public double? MinOrdQty { get; set; }
 
-        public double MaxOrdQty { get; set; }
+        public double? MaxOrdQty { get; set; }
 
-        public decimal LotSize { get; set; }
+        public decimal? LotSize { get; set; }
 
         public decimal MinQuotePrice { get; set; }
 
         public decimal MaxQuotePrice { get; set; }
 
-        public decimal MinPriceIncrement { get; set; }
+        public decimal? MinPriceIncrement { get; set; }
 
         public decimal? MaxNotionalValue { get; set; }
 
