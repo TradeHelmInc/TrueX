@@ -1,1 +1,1 @@
-﻿{"SendMinOrdQty":false,"SendMaxOrdQty":false,"SendLotSize":false,"SendMinPriceIncrement":false,"SendMaxNotionalValue":false,}
+﻿{"SendMinOrdQty":true,"SendMaxOrdQty":true,"SendLotSize":true,"SendMinPriceIncrement":true,"SendMaxNotionalValue":true,}

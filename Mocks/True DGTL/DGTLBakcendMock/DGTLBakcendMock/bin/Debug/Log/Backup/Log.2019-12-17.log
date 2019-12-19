@@ -1,0 +1,886 @@
+2019-12-17 13:50:58  :: Initializing Mock Server...
+2019-12-17 13:50:58  :: Initializing all collections...
+2019-12-17 13:50:59  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\Config.json'....
+2019-12-17 13:51:13  :: Connecting for the first time to client 34254
+2019-12-17 13:51:13  :: Connected for the first time to client 34254
+2019-12-17 13:51:40  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-17 13:51:40  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-17 13:51:40  :: Sending ClientLoginResponse with UUID aa6a0bfb-5482-4b3a-8eec-ab44affd5bb1
+2019-12-17 13:51:40  :: Exception unencrypting secret l9CWX2oED4guErPb/9dBz5KOlkPpNDdrIuW8cJzsS+9oaETxTuY7b7SuWaHMFbTo: Referencia a objeto no establecida como instancia de un objeto.
+2019-12-17 13:52:21  :: Initializing Mock Server...
+2019-12-17 13:52:21  :: Initializing all collections...
+2019-12-17 13:52:43  :: Initializing Mock Server...
+2019-12-17 13:52:43  :: Initializing all collections...
+2019-12-17 13:53:10  :: Initializing Mock Server...
+2019-12-17 13:53:10  :: Initializing all collections...
+2019-12-17 13:53:21  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-17 13:53:21  :: Collections Initialized...
+2019-12-17 13:53:31  :: Connecting for the first time to client 34315
+2019-12-17 13:53:31  :: Connected for the first time to client 34315
+2019-12-17 13:53:33  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-17 13:53:33  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-17 13:53:33  :: Sending ClientLoginResponse with UUID 4870a1e6-53dd-4b9b-8f34-cabc2e91c8e6
+2019-12-17 13:53:33  :: Sending Instrument Batch 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientInstrumentState 
+2019-12-17 13:53:33  :: Sending ClientUserRecord
+2019-12-17 13:53:33  :: Sending ClientMarketStateBatch
+2019-12-17 13:53:33  :: Sending ClientAccountRecordBatch 
+2019-12-17 13:53:48  :: Turning threads off on socket disconnection
+2019-12-17 13:54:48  :: Initializing Mock Server...
+2019-12-17 13:54:48  :: Initializing all collections...
+2019-12-17 13:54:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-17 13:54:51  :: Collections Initialized...
+2019-12-17 13:55:00  :: Connecting for the first time to client 34344
+2019-12-17 13:55:00  :: Connected for the first time to client 34344
+2019-12-17 13:55:01  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-17 13:55:01  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-17 13:55:01  :: Sending ClientLoginResponse with UUID a67c02e3-4914-47f5-a2bd-5585e43cf528
+2019-12-17 13:55:01  :: Sending Instrument Batch 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientInstrumentState 
+2019-12-17 13:55:01  :: Sending ClientUserRecord
+2019-12-17 13:55:01  :: Sending ClientMarketStateBatch
+2019-12-17 13:55:01  :: Sending ClientAccountRecordBatch 
+2019-12-17 13:55:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-17 13:55:25  :: Turning threads off on socket disconnection
+2019-12-17 13:55:28  :: Turning threads off on socket disconnection
+2019-12-17 13:55:31  :: Turning threads off on socket disconnection
+2019-12-17 13:55:34  :: Turning threads off on socket disconnection
+2019-12-17 13:55:37  :: Turning threads off on socket disconnection
+2019-12-17 13:55:40  :: Turning threads off on socket disconnection
+2019-12-17 13:55:43  :: Turning threads off on socket disconnection
+2019-12-17 13:55:46  :: Turning threads off on socket disconnection
+2019-12-17 13:55:49  :: Turning threads off on socket disconnection
+2019-12-17 13:55:52  :: Turning threads off on socket disconnection
+2019-12-17 13:55:55  :: Turning threads off on socket disconnection
+2019-12-17 13:55:58  :: Turning threads off on socket disconnection
+2019-12-17 13:56:01  :: Turning threads off on socket disconnection
+2019-12-17 13:56:04  :: Turning threads off on socket disconnection
+2019-12-17 13:56:07  :: Turning threads off on socket disconnection
+2019-12-17 13:56:10  :: Turning threads off on socket disconnection
+2019-12-17 13:56:13  :: Turning threads off on socket disconnection
+2019-12-17 13:56:16  :: Turning threads off on socket disconnection
+2019-12-17 13:56:19  :: Turning threads off on socket disconnection
+2019-12-17 13:56:22  :: Turning threads off on socket disconnection
+2019-12-17 13:56:25  :: Turning threads off on socket disconnection
+2019-12-17 13:56:28  :: Turning threads off on socket disconnection
+2019-12-17 13:56:32  :: Turning threads off on socket disconnection
+2019-12-17 13:56:35  :: Turning threads off on socket disconnection
+2019-12-17 13:56:40  :: Turning threads off on socket disconnection
+2019-12-17 13:56:43  :: Turning threads off on socket disconnection
+2019-12-17 13:56:46  :: Turning threads off on socket disconnection
+2019-12-17 13:56:49  :: Turning threads off on socket disconnection
+2019-12-17 13:56:52  :: Turning threads off on socket disconnection
+2019-12-17 13:56:55  :: Turning threads off on socket disconnection
+2019-12-17 13:56:58  :: Turning threads off on socket disconnection
+2019-12-17 13:57:01  :: Turning threads off on socket disconnection
+2019-12-17 13:57:04  :: Turning threads off on socket disconnection
+2019-12-17 13:57:07  :: Turning threads off on socket disconnection
+2019-12-17 13:57:10  :: Turning threads off on socket disconnection
+2019-12-17 13:57:13  :: Turning threads off on socket disconnection
+2019-12-17 13:57:16  :: Turning threads off on socket disconnection
+2019-12-17 13:57:19  :: Turning threads off on socket disconnection
+2019-12-17 13:57:22  :: Turning threads off on socket disconnection
+2019-12-17 13:57:25  :: Turning threads off on socket disconnection
+2019-12-17 13:57:28  :: Turning threads off on socket disconnection
+2019-12-17 13:57:31  :: Turning threads off on socket disconnection
+2019-12-17 13:57:34  :: Turning threads off on socket disconnection
+2019-12-17 13:57:37  :: Turning threads off on socket disconnection
+2019-12-17 13:57:40  :: Turning threads off on socket disconnection
+2019-12-17 13:57:43  :: Turning threads off on socket disconnection
+2019-12-17 13:57:46  :: Turning threads off on socket disconnection
+2019-12-17 13:57:49  :: Turning threads off on socket disconnection
+2019-12-17 13:57:52  :: Turning threads off on socket disconnection
+2019-12-17 13:57:55  :: Turning threads off on socket disconnection
+2019-12-17 13:57:58  :: Turning threads off on socket disconnection
+2019-12-17 13:58:01  :: Turning threads off on socket disconnection
+2019-12-17 13:58:04  :: Turning threads off on socket disconnection
+2019-12-17 13:58:07  :: Turning threads off on socket disconnection
+2019-12-17 13:58:10  :: Turning threads off on socket disconnection
+2019-12-17 13:58:13  :: Turning threads off on socket disconnection
+2019-12-17 13:58:16  :: Turning threads off on socket disconnection
+2019-12-17 13:58:19  :: Turning threads off on socket disconnection
+2019-12-17 13:58:22  :: Turning threads off on socket disconnection
+2019-12-17 13:58:25  :: Turning threads off on socket disconnection
+2019-12-17 13:58:28  :: Turning threads off on socket disconnection
+2019-12-17 13:58:31  :: Turning threads off on socket disconnection
+2019-12-17 13:58:34  :: Turning threads off on socket disconnection
+2019-12-17 13:58:37  :: Turning threads off on socket disconnection
+2019-12-17 13:58:40  :: Turning threads off on socket disconnection
+2019-12-17 13:58:43  :: Turning threads off on socket disconnection
+2019-12-17 13:58:46  :: Turning threads off on socket disconnection
+2019-12-17 13:58:49  :: Turning threads off on socket disconnection
+2019-12-17 13:58:52  :: Turning threads off on socket disconnection
+2019-12-17 13:58:55  :: Turning threads off on socket disconnection
+2019-12-17 13:58:58  :: Turning threads off on socket disconnection
+2019-12-17 13:59:01  :: Turning threads off on socket disconnection
+2019-12-17 13:59:04  :: Turning threads off on socket disconnection
+2019-12-17 13:59:07  :: Turning threads off on socket disconnection
+2019-12-17 13:59:10  :: Turning threads off on socket disconnection
+2019-12-17 13:59:13  :: Turning threads off on socket disconnection
+2019-12-17 13:59:16  :: Turning threads off on socket disconnection
+2019-12-17 13:59:19  :: Turning threads off on socket disconnection
+2019-12-17 13:59:22  :: Turning threads off on socket disconnection
+2019-12-17 13:59:25  :: Turning threads off on socket disconnection
+2019-12-17 13:59:28  :: Turning threads off on socket disconnection
+2019-12-17 13:59:31  :: Turning threads off on socket disconnection
+2019-12-17 13:59:34  :: Turning threads off on socket disconnection
+2019-12-17 13:59:37  :: Turning threads off on socket disconnection
+2019-12-17 13:59:40  :: Turning threads off on socket disconnection
+2019-12-17 13:59:43  :: Turning threads off on socket disconnection
+2019-12-17 13:59:46  :: Turning threads off on socket disconnection
+2019-12-17 13:59:49  :: Turning threads off on socket disconnection
+2019-12-17 13:59:52  :: Turning threads off on socket disconnection
+2019-12-17 13:59:55  :: Turning threads off on socket disconnection
+2019-12-17 13:59:58  :: Turning threads off on socket disconnection
+2019-12-17 14:00:01  :: Turning threads off on socket disconnection
+2019-12-17 14:00:04  :: Turning threads off on socket disconnection
+2019-12-17 14:00:07  :: Turning threads off on socket disconnection
+2019-12-17 14:00:10  :: Turning threads off on socket disconnection
+2019-12-17 14:00:13  :: Turning threads off on socket disconnection
+2019-12-17 14:00:16  :: Turning threads off on socket disconnection
+2019-12-17 14:00:19  :: Turning threads off on socket disconnection
+2019-12-17 14:00:22  :: Turning threads off on socket disconnection
+2019-12-17 14:00:25  :: Turning threads off on socket disconnection
+2019-12-17 14:00:28  :: Turning threads off on socket disconnection
+2019-12-17 14:10:27  :: Initializing Mock Server...
+2019-12-17 14:10:27  :: Initializing all collections...
+2019-12-17 14:10:30  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-17 14:10:30  :: Collections Initialized...
+2019-12-17 14:10:40  :: Connecting for the first time to client 35045
+2019-12-17 14:10:40  :: Connected for the first time to client 35045
+2019-12-17 14:10:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-17 14:10:44  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-17 14:10:44  :: Sending ClientLoginResponse with UUID acab4e76-e6ab-4579-aed5-68fc89f6aab8
+2019-12-17 14:10:44  :: Sending Instrument Batch 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientInstrumentState 
+2019-12-17 14:10:44  :: Sending ClientUserRecord
+2019-12-17 14:10:44  :: Sending ClientMarketStateBatch
+2019-12-17 14:10:44  :: Sending ClientAccountRecordBatch 
+2019-12-17 14:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-17 14:10:50  :: Turning threads off on socket disconnection
+2019-12-17 14:11:58  :: Initializing Mock Server...
+2019-12-17 14:11:58  :: Initializing all collections...
+2019-12-17 14:11:59  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-17 14:11:59  :: Collections Initialized...
+2019-12-17 14:12:07  :: Connecting for the first time to client 35126
+2019-12-17 14:12:07  :: Connected for the first time to client 35126
+2019-12-17 14:12:14  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-17 14:12:14  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-17 14:12:14  :: Sending ClientLoginResponse with UUID 727391ca-4762-42c2-9d86-b40388d9f447
+2019-12-17 14:12:14  :: Sending Instrument Batch 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientInstrumentState 
+2019-12-17 14:12:14  :: Sending ClientUserRecord
+2019-12-17 14:12:14  :: Sending ClientMarketStateBatch
+2019-12-17 14:12:14  :: Sending ClientAccountRecordBatch 
+2019-12-17 14:12:44  :: Turning threads off on socket disconnection
+2019-12-17 14:12:47  :: Turning threads off on socket disconnection
+2019-12-17 14:12:50  :: Turning threads off on socket disconnection
+2019-12-17 14:12:53  :: Turning threads off on socket disconnection
+2019-12-17 14:12:56  :: Turning threads off on socket disconnection
+2019-12-17 14:12:59  :: Turning threads off on socket disconnection
+2019-12-17 14:13:02  :: Turning threads off on socket disconnection
+2019-12-17 14:13:05  :: Turning threads off on socket disconnection
+2019-12-17 14:13:08  :: Turning threads off on socket disconnection
+2019-12-17 14:13:11  :: Turning threads off on socket disconnection
+2019-12-17 14:13:14  :: Turning threads off on socket disconnection
+2019-12-17 14:13:17  :: Turning threads off on socket disconnection
+2019-12-17 14:13:20  :: Turning threads off on socket disconnection
+2019-12-17 14:13:23  :: Turning threads off on socket disconnection
+2019-12-17 14:13:26  :: Turning threads off on socket disconnection
+2019-12-17 14:13:29  :: Turning threads off on socket disconnection
+2019-12-17 14:13:32  :: Turning threads off on socket disconnection
+2019-12-17 14:13:35  :: Turning threads off on socket disconnection
+2019-12-17 14:13:38  :: Turning threads off on socket disconnection
+2019-12-17 14:13:41  :: Turning threads off on socket disconnection
+2019-12-17 14:13:44  :: Turning threads off on socket disconnection
+2019-12-17 14:13:47  :: Turning threads off on socket disconnection
+2019-12-17 14:13:50  :: Turning threads off on socket disconnection
+2019-12-17 14:13:53  :: Turning threads off on socket disconnection
+2019-12-17 14:13:56  :: Turning threads off on socket disconnection
+2019-12-17 14:13:59  :: Turning threads off on socket disconnection
+2019-12-17 14:14:02  :: Turning threads off on socket disconnection
+2019-12-17 14:14:05  :: Turning threads off on socket disconnection
+2019-12-17 14:14:08  :: Turning threads off on socket disconnection
+2019-12-17 14:14:11  :: Turning threads off on socket disconnection
+2019-12-17 14:14:14  :: Turning threads off on socket disconnection
+2019-12-17 14:14:17  :: Turning threads off on socket disconnection
+2019-12-17 14:14:20  :: Turning threads off on socket disconnection
+2019-12-17 14:14:23  :: Turning threads off on socket disconnection
+2019-12-17 14:14:26  :: Turning threads off on socket disconnection
+2019-12-17 14:14:29  :: Turning threads off on socket disconnection
+2019-12-17 14:14:32  :: Turning threads off on socket disconnection
+2019-12-17 14:14:35  :: Turning threads off on socket disconnection
+2019-12-17 14:14:38  :: Turning threads off on socket disconnection
+2019-12-17 14:14:41  :: Turning threads off on socket disconnection
+2019-12-17 14:14:44  :: Turning threads off on socket disconnection
+2019-12-17 14:14:47  :: Turning threads off on socket disconnection
+2019-12-17 14:14:50  :: Turning threads off on socket disconnection
+2019-12-17 14:14:53  :: Turning threads off on socket disconnection
+2019-12-17 14:14:56  :: Turning threads off on socket disconnection
+2019-12-17 14:14:59  :: Turning threads off on socket disconnection
+2019-12-17 14:15:02  :: Turning threads off on socket disconnection
+2019-12-17 14:15:05  :: Turning threads off on socket disconnection
+2019-12-17 14:15:08  :: Turning threads off on socket disconnection
+2019-12-17 14:15:11  :: Turning threads off on socket disconnection
+2019-12-17 14:15:14  :: Turning threads off on socket disconnection
+2019-12-17 14:15:17  :: Turning threads off on socket disconnection
+2019-12-17 14:15:20  :: Turning threads off on socket disconnection
+2019-12-17 14:15:23  :: Turning threads off on socket disconnection
+2019-12-17 14:15:26  :: Turning threads off on socket disconnection
+2019-12-17 14:15:29  :: Turning threads off on socket disconnection
+2019-12-17 14:15:32  :: Turning threads off on socket disconnection
+2019-12-17 14:15:35  :: Turning threads off on socket disconnection
+2019-12-17 14:15:38  :: Turning threads off on socket disconnection
+2019-12-17 14:15:41  :: Turning threads off on socket disconnection
+2019-12-17 14:15:44  :: Turning threads off on socket disconnection
+2019-12-17 14:15:47  :: Turning threads off on socket disconnection
+2019-12-17 14:15:50  :: Turning threads off on socket disconnection
+2019-12-17 14:15:53  :: Turning threads off on socket disconnection
+2019-12-17 14:15:56  :: Turning threads off on socket disconnection
+2019-12-17 14:15:59  :: Turning threads off on socket disconnection
+2019-12-17 14:16:02  :: Turning threads off on socket disconnection
+2019-12-17 14:16:05  :: Turning threads off on socket disconnection
+2019-12-17 14:16:08  :: Turning threads off on socket disconnection
+2019-12-17 14:16:11  :: Turning threads off on socket disconnection
+2019-12-17 14:16:14  :: Turning threads off on socket disconnection
+2019-12-17 14:16:17  :: Turning threads off on socket disconnection
+2019-12-17 14:16:20  :: Turning threads off on socket disconnection
+2019-12-17 14:16:23  :: Turning threads off on socket disconnection
+2019-12-17 14:16:26  :: Turning threads off on socket disconnection
+2019-12-17 14:16:29  :: Turning threads off on socket disconnection
+2019-12-17 14:16:32  :: Turning threads off on socket disconnection
+2019-12-17 14:16:35  :: Turning threads off on socket disconnection
+2019-12-17 14:16:38  :: Turning threads off on socket disconnection
+2019-12-17 14:16:41  :: Turning threads off on socket disconnection
+2019-12-17 14:16:44  :: Turning threads off on socket disconnection
+2019-12-17 14:16:47  :: Turning threads off on socket disconnection
+2019-12-17 14:16:50  :: Turning threads off on socket disconnection
+2019-12-17 14:16:53  :: Turning threads off on socket disconnection
+2019-12-17 14:16:56  :: Turning threads off on socket disconnection
+2019-12-17 14:16:59  :: Turning threads off on socket disconnection
+2019-12-17 14:17:02  :: Turning threads off on socket disconnection
+2019-12-17 14:17:05  :: Turning threads off on socket disconnection
+2019-12-17 14:17:08  :: Turning threads off on socket disconnection
+2019-12-17 14:17:11  :: Turning threads off on socket disconnection
+2019-12-17 14:17:14  :: Turning threads off on socket disconnection
+2019-12-17 14:17:17  :: Turning threads off on socket disconnection
+2019-12-17 14:17:20  :: Turning threads off on socket disconnection
+2019-12-17 14:17:23  :: Turning threads off on socket disconnection
+2019-12-17 14:17:26  :: Turning threads off on socket disconnection
+2019-12-17 14:17:29  :: Turning threads off on socket disconnection
+2019-12-17 14:17:32  :: Turning threads off on socket disconnection
+2019-12-17 14:17:35  :: Turning threads off on socket disconnection
+2019-12-17 14:17:38  :: Turning threads off on socket disconnection
+2019-12-17 14:17:41  :: Turning threads off on socket disconnection
+2019-12-17 14:17:44  :: Turning threads off on socket disconnection
+2019-12-17 14:17:47  :: Turning threads off on socket disconnection
+2019-12-17 14:17:50  :: Turning threads off on socket disconnection
+2019-12-17 14:17:53  :: Turning threads off on socket disconnection
+2019-12-17 14:17:56  :: Turning threads off on socket disconnection
+2019-12-17 14:17:59  :: Turning threads off on socket disconnection
+2019-12-17 14:18:02  :: Turning threads off on socket disconnection
+2019-12-17 14:18:05  :: Turning threads off on socket disconnection
+2019-12-17 14:18:08  :: Turning threads off on socket disconnection
+2019-12-17 14:18:11  :: Turning threads off on socket disconnection
+2019-12-17 14:18:14  :: Turning threads off on socket disconnection
+2019-12-17 14:18:17  :: Turning threads off on socket disconnection
+2019-12-17 14:18:20  :: Turning threads off on socket disconnection
+2019-12-17 14:18:23  :: Turning threads off on socket disconnection
+2019-12-17 14:18:26  :: Turning threads off on socket disconnection
+2019-12-17 14:18:29  :: Turning threads off on socket disconnection
+2019-12-17 14:18:32  :: Turning threads off on socket disconnection
+2019-12-17 14:18:35  :: Turning threads off on socket disconnection
+2019-12-17 14:18:38  :: Turning threads off on socket disconnection
+2019-12-17 14:18:41  :: Turning threads off on socket disconnection
+2019-12-17 14:18:44  :: Turning threads off on socket disconnection
+2019-12-17 14:18:47  :: Turning threads off on socket disconnection
+2019-12-17 14:18:50  :: Turning threads off on socket disconnection
+2019-12-17 14:18:53  :: Turning threads off on socket disconnection
+2019-12-17 14:18:56  :: Turning threads off on socket disconnection
+2019-12-17 14:18:59  :: Turning threads off on socket disconnection
+2019-12-17 14:19:02  :: Turning threads off on socket disconnection
+2019-12-17 14:19:05  :: Turning threads off on socket disconnection
+2019-12-17 14:19:08  :: Turning threads off on socket disconnection
+2019-12-17 14:19:11  :: Turning threads off on socket disconnection
+2019-12-17 14:19:14  :: Turning threads off on socket disconnection
+2019-12-17 14:19:17  :: Turning threads off on socket disconnection
+2019-12-17 14:19:20  :: Turning threads off on socket disconnection
+2019-12-17 14:19:23  :: Turning threads off on socket disconnection
+2019-12-17 14:19:26  :: Turning threads off on socket disconnection
+2019-12-17 14:19:29  :: Turning threads off on socket disconnection
+2019-12-17 14:19:32  :: Turning threads off on socket disconnection
+2019-12-17 14:19:36  :: Turning threads off on socket disconnection
+2019-12-17 14:19:39  :: Turning threads off on socket disconnection
+2019-12-17 14:19:42  :: Turning threads off on socket disconnection
+2019-12-17 14:19:45  :: Turning threads off on socket disconnection
+2019-12-17 14:19:48  :: Turning threads off on socket disconnection
+2019-12-17 14:19:51  :: Turning threads off on socket disconnection
+2019-12-17 14:19:54  :: Turning threads off on socket disconnection
+2019-12-17 14:19:57  :: Turning threads off on socket disconnection
+2019-12-17 14:20:00  :: Turning threads off on socket disconnection
+2019-12-17 14:20:03  :: Turning threads off on socket disconnection
+2019-12-17 14:20:06  :: Turning threads off on socket disconnection
+2019-12-17 14:20:09  :: Turning threads off on socket disconnection
+2019-12-17 14:20:12  :: Turning threads off on socket disconnection
+2019-12-17 14:20:15  :: Turning threads off on socket disconnection
+2019-12-17 14:20:18  :: Turning threads off on socket disconnection
+2019-12-17 14:20:21  :: Turning threads off on socket disconnection
+2019-12-17 14:20:24  :: Turning threads off on socket disconnection
+2019-12-17 14:20:27  :: Turning threads off on socket disconnection
+2019-12-17 14:20:30  :: Turning threads off on socket disconnection
+2019-12-17 14:20:33  :: Turning threads off on socket disconnection
+2019-12-17 14:20:36  :: Turning threads off on socket disconnection
+2019-12-17 14:20:39  :: Turning threads off on socket disconnection
+2019-12-17 14:20:42  :: Turning threads off on socket disconnection
+2019-12-17 14:20:45  :: Turning threads off on socket disconnection
+2019-12-17 14:20:48  :: Turning threads off on socket disconnection
+2019-12-17 14:20:51  :: Turning threads off on socket disconnection
+2019-12-17 14:20:54  :: Turning threads off on socket disconnection
+2019-12-17 14:20:57  :: Turning threads off on socket disconnection
+2019-12-17 14:21:00  :: Turning threads off on socket disconnection
+2019-12-17 14:21:03  :: Turning threads off on socket disconnection
+2019-12-17 14:21:06  :: Turning threads off on socket disconnection
+2019-12-17 14:21:09  :: Turning threads off on socket disconnection
+2019-12-17 14:21:12  :: Turning threads off on socket disconnection
+2019-12-17 14:21:15  :: Turning threads off on socket disconnection
+2019-12-17 14:21:18  :: Turning threads off on socket disconnection
+2019-12-17 14:21:21  :: Turning threads off on socket disconnection
+2019-12-17 14:21:24  :: Turning threads off on socket disconnection
+2019-12-17 14:21:27  :: Turning threads off on socket disconnection
+2019-12-17 14:21:30  :: Turning threads off on socket disconnection
+2019-12-17 14:21:33  :: Turning threads off on socket disconnection
+2019-12-17 14:21:36  :: Turning threads off on socket disconnection
+2019-12-17 14:21:39  :: Turning threads off on socket disconnection
+2019-12-17 14:21:42  :: Turning threads off on socket disconnection
+2019-12-17 14:21:45  :: Turning threads off on socket disconnection
+2019-12-17 14:21:48  :: Turning threads off on socket disconnection
+2019-12-17 14:21:51  :: Turning threads off on socket disconnection
+2019-12-17 14:21:54  :: Turning threads off on socket disconnection
+2019-12-17 14:21:57  :: Turning threads off on socket disconnection
+2019-12-17 14:22:00  :: Turning threads off on socket disconnection
+2019-12-17 14:22:03  :: Turning threads off on socket disconnection
+2019-12-17 14:22:06  :: Turning threads off on socket disconnection
+2019-12-17 14:22:09  :: Turning threads off on socket disconnection
+2019-12-17 14:22:12  :: Turning threads off on socket disconnection
+2019-12-17 14:22:15  :: Turning threads off on socket disconnection
+2019-12-17 14:22:18  :: Turning threads off on socket disconnection
+2019-12-17 14:22:21  :: Turning threads off on socket disconnection
+2019-12-17 14:22:24  :: Turning threads off on socket disconnection
+2019-12-17 14:22:29  :: Turning threads off on socket disconnection
+2019-12-17 14:22:33  :: Turning threads off on socket disconnection
+2019-12-17 14:22:37  :: Turning threads off on socket disconnection
+2019-12-17 14:22:40  :: Turning threads off on socket disconnection
+2019-12-17 14:22:43  :: Turning threads off on socket disconnection
+2019-12-17 14:22:46  :: Turning threads off on socket disconnection
+2019-12-17 14:22:49  :: Turning threads off on socket disconnection
+2019-12-17 14:22:52  :: Turning threads off on socket disconnection
+2019-12-17 14:22:55  :: Turning threads off on socket disconnection
+2019-12-17 14:22:58  :: Turning threads off on socket disconnection
+2019-12-17 14:23:01  :: Turning threads off on socket disconnection
+2019-12-17 14:23:04  :: Turning threads off on socket disconnection
+2019-12-17 14:23:07  :: Turning threads off on socket disconnection
+2019-12-17 14:23:10  :: Turning threads off on socket disconnection
+2019-12-17 14:23:13  :: Turning threads off on socket disconnection
+2019-12-17 14:23:16  :: Turning threads off on socket disconnection
+2019-12-17 14:23:19  :: Turning threads off on socket disconnection
+2019-12-17 14:23:22  :: Turning threads off on socket disconnection
+2019-12-17 14:23:25  :: Turning threads off on socket disconnection
+2019-12-17 14:23:28  :: Turning threads off on socket disconnection
+2019-12-17 14:23:31  :: Turning threads off on socket disconnection
+2019-12-17 14:23:34  :: Turning threads off on socket disconnection
+2019-12-17 14:23:37  :: Turning threads off on socket disconnection
+2019-12-17 14:23:40  :: Turning threads off on socket disconnection
+2019-12-17 14:23:43  :: Turning threads off on socket disconnection
+2019-12-17 14:23:46  :: Turning threads off on socket disconnection
+2019-12-17 14:23:49  :: Turning threads off on socket disconnection
+2019-12-17 14:23:52  :: Turning threads off on socket disconnection
+2019-12-17 14:23:55  :: Turning threads off on socket disconnection
+2019-12-17 14:23:58  :: Turning threads off on socket disconnection
+2019-12-17 14:24:01  :: Turning threads off on socket disconnection
+2019-12-17 14:24:04  :: Turning threads off on socket disconnection
+2019-12-17 14:24:07  :: Turning threads off on socket disconnection
+2019-12-17 14:24:10  :: Turning threads off on socket disconnection
+2019-12-17 14:24:13  :: Turning threads off on socket disconnection
+2019-12-17 14:24:16  :: Turning threads off on socket disconnection
+2019-12-17 14:24:19  :: Turning threads off on socket disconnection
+2019-12-17 14:24:22  :: Turning threads off on socket disconnection
+2019-12-17 14:24:25  :: Turning threads off on socket disconnection
+2019-12-17 14:24:28  :: Turning threads off on socket disconnection
+2019-12-17 14:24:31  :: Turning threads off on socket disconnection
+2019-12-17 14:24:34  :: Turning threads off on socket disconnection
+2019-12-17 14:24:37  :: Turning threads off on socket disconnection
+2019-12-17 14:24:40  :: Turning threads off on socket disconnection
+2019-12-17 14:24:43  :: Turning threads off on socket disconnection
+2019-12-17 14:24:46  :: Turning threads off on socket disconnection
+2019-12-17 14:24:49  :: Turning threads off on socket disconnection
+2019-12-17 14:24:52  :: Turning threads off on socket disconnection
+2019-12-17 14:24:55  :: Turning threads off on socket disconnection
+2019-12-17 14:24:58  :: Turning threads off on socket disconnection
+2019-12-17 14:25:01  :: Turning threads off on socket disconnection
+2019-12-17 14:25:04  :: Turning threads off on socket disconnection
+2019-12-17 14:25:07  :: Turning threads off on socket disconnection
+2019-12-17 14:25:10  :: Turning threads off on socket disconnection
+2019-12-17 14:25:13  :: Turning threads off on socket disconnection
+2019-12-17 14:25:16  :: Turning threads off on socket disconnection
+2019-12-17 14:25:19  :: Turning threads off on socket disconnection
+2019-12-17 14:25:22  :: Turning threads off on socket disconnection
+2019-12-17 14:25:25  :: Turning threads off on socket disconnection
+2019-12-17 14:25:28  :: Turning threads off on socket disconnection
+2019-12-17 14:25:31  :: Turning threads off on socket disconnection
+2019-12-17 14:25:34  :: Turning threads off on socket disconnection
+2019-12-17 14:25:37  :: Turning threads off on socket disconnection
+2019-12-17 14:25:40  :: Turning threads off on socket disconnection
+2019-12-17 14:25:43  :: Turning threads off on socket disconnection
+2019-12-17 14:25:46  :: Turning threads off on socket disconnection
+2019-12-17 14:25:49  :: Turning threads off on socket disconnection
+2019-12-17 14:25:52  :: Turning threads off on socket disconnection
+2019-12-17 14:25:55  :: Turning threads off on socket disconnection
+2019-12-17 14:25:58  :: Turning threads off on socket disconnection
+2019-12-17 14:26:01  :: Turning threads off on socket disconnection
+2019-12-17 14:26:04  :: Turning threads off on socket disconnection
+2019-12-17 14:26:07  :: Turning threads off on socket disconnection
+2019-12-17 14:26:10  :: Turning threads off on socket disconnection
+2019-12-17 14:26:13  :: Turning threads off on socket disconnection
+2019-12-17 14:26:16  :: Turning threads off on socket disconnection
+2019-12-17 14:26:19  :: Turning threads off on socket disconnection
+2019-12-17 14:26:22  :: Turning threads off on socket disconnection
+2019-12-17 14:26:25  :: Turning threads off on socket disconnection
+2019-12-17 14:26:29  :: Turning threads off on socket disconnection
+2019-12-17 14:26:32  :: Turning threads off on socket disconnection
+2019-12-17 14:26:35  :: Turning threads off on socket disconnection
+2019-12-17 14:26:38  :: Turning threads off on socket disconnection
+2019-12-17 14:26:41  :: Turning threads off on socket disconnection
+2019-12-17 14:26:44  :: Turning threads off on socket disconnection
+2019-12-17 14:26:47  :: Turning threads off on socket disconnection
+2019-12-17 14:26:50  :: Turning threads off on socket disconnection
+2019-12-17 14:26:53  :: Turning threads off on socket disconnection
+2019-12-17 14:26:56  :: Turning threads off on socket disconnection
+2019-12-17 14:26:59  :: Turning threads off on socket disconnection
+2019-12-17 14:27:02  :: Turning threads off on socket disconnection
+2019-12-17 14:27:05  :: Turning threads off on socket disconnection
+2019-12-17 14:27:08  :: Turning threads off on socket disconnection
+2019-12-17 14:27:11  :: Turning threads off on socket disconnection
+2019-12-17 14:27:14  :: Turning threads off on socket disconnection
+2019-12-17 14:27:17  :: Turning threads off on socket disconnection
+2019-12-17 14:27:20  :: Turning threads off on socket disconnection
+2019-12-17 14:27:23  :: Turning threads off on socket disconnection
+2019-12-17 14:27:26  :: Turning threads off on socket disconnection
+2019-12-17 14:27:29  :: Turning threads off on socket disconnection
+2019-12-17 14:27:32  :: Turning threads off on socket disconnection
+2019-12-17 14:27:35  :: Turning threads off on socket disconnection
+2019-12-17 14:27:38  :: Turning threads off on socket disconnection
+2019-12-17 14:27:41  :: Turning threads off on socket disconnection
+2019-12-17 14:27:44  :: Turning threads off on socket disconnection
+2019-12-17 14:27:47  :: Turning threads off on socket disconnection
+2019-12-17 14:27:50  :: Turning threads off on socket disconnection
+2019-12-17 14:27:53  :: Turning threads off on socket disconnection
+2019-12-17 14:27:56  :: Turning threads off on socket disconnection
+2019-12-17 14:27:59  :: Turning threads off on socket disconnection
+2019-12-17 14:28:02  :: Turning threads off on socket disconnection
+2019-12-17 14:28:05  :: Turning threads off on socket disconnection
+2019-12-17 14:28:08  :: Turning threads off on socket disconnection
+2019-12-17 14:28:11  :: Turning threads off on socket disconnection
+2019-12-17 14:28:14  :: Turning threads off on socket disconnection
+2019-12-17 14:28:17  :: Turning threads off on socket disconnection
+2019-12-17 14:28:20  :: Turning threads off on socket disconnection
+2019-12-17 14:28:23  :: Turning threads off on socket disconnection
+2019-12-17 14:28:27  :: Turning threads off on socket disconnection
+2019-12-17 14:28:30  :: Turning threads off on socket disconnection
+2019-12-17 14:28:33  :: Turning threads off on socket disconnection
+2019-12-17 14:28:36  :: Turning threads off on socket disconnection
+2019-12-17 14:28:39  :: Turning threads off on socket disconnection
+2019-12-17 14:28:42  :: Turning threads off on socket disconnection
+2019-12-17 14:28:45  :: Turning threads off on socket disconnection
+2019-12-17 14:28:48  :: Turning threads off on socket disconnection
+2019-12-17 14:28:51  :: Turning threads off on socket disconnection
+2019-12-17 14:28:54  :: Turning threads off on socket disconnection
+2019-12-17 14:28:57  :: Turning threads off on socket disconnection
+2019-12-17 14:29:00  :: Turning threads off on socket disconnection
+2019-12-17 14:29:03  :: Turning threads off on socket disconnection
+2019-12-17 14:29:06  :: Turning threads off on socket disconnection
+2019-12-17 14:29:09  :: Turning threads off on socket disconnection
+2019-12-17 14:29:12  :: Turning threads off on socket disconnection
+2019-12-17 14:29:15  :: Turning threads off on socket disconnection
+2019-12-17 14:29:18  :: Turning threads off on socket disconnection
+2019-12-17 14:29:21  :: Turning threads off on socket disconnection
+2019-12-17 14:29:24  :: Turning threads off on socket disconnection
+2019-12-17 14:29:27  :: Turning threads off on socket disconnection
+2019-12-17 14:29:30  :: Turning threads off on socket disconnection
+2019-12-17 14:29:33  :: Turning threads off on socket disconnection
+2019-12-17 14:29:36  :: Turning threads off on socket disconnection
+2019-12-17 14:29:39  :: Turning threads off on socket disconnection
+2019-12-17 14:29:42  :: Turning threads off on socket disconnection
+2019-12-17 14:29:45  :: Turning threads off on socket disconnection
+2019-12-17 14:29:48  :: Turning threads off on socket disconnection
+2019-12-17 14:29:51  :: Turning threads off on socket disconnection
+2019-12-17 14:29:54  :: Turning threads off on socket disconnection
+2019-12-17 14:29:57  :: Turning threads off on socket disconnection
+2019-12-17 14:30:00  :: Turning threads off on socket disconnection
+2019-12-17 14:30:03  :: Turning threads off on socket disconnection
+2019-12-17 14:30:06  :: Turning threads off on socket disconnection
+2019-12-17 14:30:09  :: Turning threads off on socket disconnection
+2019-12-17 14:30:12  :: Turning threads off on socket disconnection
+2019-12-17 14:30:15  :: Turning threads off on socket disconnection
+2019-12-17 14:30:18  :: Turning threads off on socket disconnection
+2019-12-17 14:30:21  :: Turning threads off on socket disconnection
+2019-12-17 14:30:24  :: Turning threads off on socket disconnection
+2019-12-17 14:30:27  :: Turning threads off on socket disconnection
+2019-12-17 14:30:30  :: Turning threads off on socket disconnection
+2019-12-17 14:30:33  :: Turning threads off on socket disconnection
+2019-12-17 14:30:36  :: Turning threads off on socket disconnection
+2019-12-17 14:30:39  :: Turning threads off on socket disconnection
+2019-12-17 14:30:42  :: Turning threads off on socket disconnection
+2019-12-17 14:30:45  :: Turning threads off on socket disconnection
+2019-12-17 14:30:48  :: Turning threads off on socket disconnection
+2019-12-17 14:30:51  :: Turning threads off on socket disconnection
+2019-12-17 14:30:55  :: Turning threads off on socket disconnection
+2019-12-17 14:30:58  :: Turning threads off on socket disconnection
+2019-12-17 14:31:01  :: Turning threads off on socket disconnection
+2019-12-17 14:31:04  :: Turning threads off on socket disconnection
+2019-12-17 14:31:07  :: Turning threads off on socket disconnection
+2019-12-17 14:31:10  :: Turning threads off on socket disconnection
+2019-12-17 14:31:13  :: Turning threads off on socket disconnection
+2019-12-17 14:31:16  :: Turning threads off on socket disconnection
+2019-12-17 14:31:19  :: Turning threads off on socket disconnection
+2019-12-17 14:31:22  :: Turning threads off on socket disconnection
+2019-12-17 14:31:25  :: Turning threads off on socket disconnection
+2019-12-17 14:31:28  :: Turning threads off on socket disconnection
+2019-12-17 14:31:31  :: Turning threads off on socket disconnection
+2019-12-17 14:31:35  :: Turning threads off on socket disconnection
+2019-12-17 14:31:38  :: Turning threads off on socket disconnection
+2019-12-17 14:31:41  :: Turning threads off on socket disconnection
+2019-12-17 14:31:44  :: Turning threads off on socket disconnection
+2019-12-17 14:31:47  :: Turning threads off on socket disconnection
+2019-12-17 14:31:50  :: Turning threads off on socket disconnection
+2019-12-17 14:31:53  :: Turning threads off on socket disconnection
+2019-12-17 14:31:56  :: Turning threads off on socket disconnection
+2019-12-17 14:31:59  :: Turning threads off on socket disconnection
+2019-12-17 14:32:02  :: Turning threads off on socket disconnection
+2019-12-17 14:32:05  :: Turning threads off on socket disconnection
+2019-12-17 14:32:08  :: Turning threads off on socket disconnection
+2019-12-17 14:32:11  :: Turning threads off on socket disconnection
+2019-12-17 14:32:14  :: Turning threads off on socket disconnection
+2019-12-17 14:32:18  :: Turning threads off on socket disconnection
+2019-12-17 14:32:21  :: Turning threads off on socket disconnection
+2019-12-17 14:32:24  :: Turning threads off on socket disconnection
+2019-12-17 14:32:27  :: Turning threads off on socket disconnection
+2019-12-17 14:32:30  :: Turning threads off on socket disconnection
+2019-12-17 14:32:33  :: Turning threads off on socket disconnection
+2019-12-17 14:32:36  :: Turning threads off on socket disconnection
+2019-12-17 14:32:39  :: Turning threads off on socket disconnection
+2019-12-17 14:32:42  :: Turning threads off on socket disconnection
+2019-12-17 14:32:45  :: Turning threads off on socket disconnection
+2019-12-17 14:32:48  :: Turning threads off on socket disconnection
+2019-12-17 14:32:51  :: Turning threads off on socket disconnection
+2019-12-17 14:32:54  :: Turning threads off on socket disconnection
+2019-12-17 14:32:57  :: Turning threads off on socket disconnection
+2019-12-17 14:33:00  :: Turning threads off on socket disconnection
+2019-12-17 14:33:03  :: Turning threads off on socket disconnection
+2019-12-17 14:33:06  :: Turning threads off on socket disconnection
+2019-12-17 14:33:09  :: Turning threads off on socket disconnection
+2019-12-17 14:33:12  :: Turning threads off on socket disconnection
+2019-12-17 14:33:15  :: Turning threads off on socket disconnection
+2019-12-17 14:33:18  :: Turning threads off on socket disconnection
+2019-12-17 14:33:21  :: Turning threads off on socket disconnection
+2019-12-17 14:33:24  :: Turning threads off on socket disconnection
+2019-12-17 14:33:27  :: Turning threads off on socket disconnection
+2019-12-17 14:33:30  :: Turning threads off on socket disconnection
+2019-12-17 14:33:33  :: Turning threads off on socket disconnection
+2019-12-17 14:33:36  :: Turning threads off on socket disconnection
+2019-12-17 14:33:39  :: Turning threads off on socket disconnection
+2019-12-17 14:33:42  :: Turning threads off on socket disconnection
+2019-12-17 14:33:45  :: Turning threads off on socket disconnection
+2019-12-17 14:33:48  :: Turning threads off on socket disconnection
+2019-12-17 14:33:51  :: Turning threads off on socket disconnection
+2019-12-17 14:33:54  :: Turning threads off on socket disconnection
+2019-12-17 14:33:57  :: Turning threads off on socket disconnection
+2019-12-17 14:34:00  :: Turning threads off on socket disconnection
+2019-12-17 14:34:03  :: Turning threads off on socket disconnection
+2019-12-17 14:34:06  :: Turning threads off on socket disconnection
+2019-12-17 14:34:09  :: Turning threads off on socket disconnection
+2019-12-17 14:34:12  :: Turning threads off on socket disconnection
+2019-12-17 14:34:15  :: Turning threads off on socket disconnection
+2019-12-17 14:34:18  :: Turning threads off on socket disconnection
+2019-12-17 14:34:22  :: Turning threads off on socket disconnection
+2019-12-17 14:34:24  :: Turning threads off on socket disconnection
+2019-12-17 14:34:27  :: Turning threads off on socket disconnection
+2019-12-17 14:34:31  :: Turning threads off on socket disconnection
+2019-12-17 14:34:34  :: Turning threads off on socket disconnection
+2019-12-17 14:34:37  :: Turning threads off on socket disconnection
+2019-12-17 14:34:40  :: Turning threads off on socket disconnection
+2019-12-17 14:34:43  :: Turning threads off on socket disconnection
+2019-12-17 14:34:46  :: Turning threads off on socket disconnection
+2019-12-17 14:34:49  :: Turning threads off on socket disconnection
+2019-12-17 14:34:52  :: Turning threads off on socket disconnection
+2019-12-17 14:34:55  :: Turning threads off on socket disconnection
+2019-12-17 14:34:58  :: Turning threads off on socket disconnection
+2019-12-17 14:35:01  :: Turning threads off on socket disconnection
+2019-12-17 14:35:04  :: Turning threads off on socket disconnection
+2019-12-17 14:35:07  :: Turning threads off on socket disconnection
+2019-12-17 14:35:10  :: Turning threads off on socket disconnection
+2019-12-17 14:35:13  :: Turning threads off on socket disconnection
+2019-12-17 14:35:16  :: Turning threads off on socket disconnection
+2019-12-17 14:35:19  :: Turning threads off on socket disconnection
+2019-12-17 14:35:22  :: Turning threads off on socket disconnection
+2019-12-17 14:35:25  :: Turning threads off on socket disconnection
+2019-12-17 14:35:28  :: Turning threads off on socket disconnection
+2019-12-17 14:35:31  :: Turning threads off on socket disconnection
+2019-12-17 14:35:34  :: Turning threads off on socket disconnection
+2019-12-17 14:35:37  :: Turning threads off on socket disconnection
+2019-12-17 14:35:40  :: Turning threads off on socket disconnection
+2019-12-17 14:35:43  :: Turning threads off on socket disconnection
+2019-12-17 14:35:46  :: Turning threads off on socket disconnection
+2019-12-17 14:35:49  :: Turning threads off on socket disconnection
+2019-12-17 14:35:52  :: Turning threads off on socket disconnection
+2019-12-17 14:35:55  :: Turning threads off on socket disconnection
+2019-12-17 14:35:58  :: Turning threads off on socket disconnection
+2019-12-17 14:36:01  :: Turning threads off on socket disconnection
+2019-12-17 14:36:04  :: Turning threads off on socket disconnection
+2019-12-17 14:36:07  :: Turning threads off on socket disconnection
+2019-12-17 14:36:11  :: Turning threads off on socket disconnection
+2019-12-17 14:36:14  :: Turning threads off on socket disconnection
+2019-12-17 14:36:17  :: Turning threads off on socket disconnection
+2019-12-17 14:36:20  :: Turning threads off on socket disconnection
+2019-12-17 14:36:23  :: Turning threads off on socket disconnection
+2019-12-17 14:36:26  :: Turning threads off on socket disconnection
+2019-12-17 14:36:29  :: Turning threads off on socket disconnection
+2019-12-17 14:36:32  :: Turning threads off on socket disconnection
+2019-12-17 14:36:35  :: Turning threads off on socket disconnection
+2019-12-17 14:36:39  :: Turning threads off on socket disconnection
+2019-12-17 14:36:42  :: Turning threads off on socket disconnection
+2019-12-17 14:36:45  :: Turning threads off on socket disconnection
+2019-12-17 14:36:48  :: Turning threads off on socket disconnection
+2019-12-17 14:36:51  :: Turning threads off on socket disconnection
+2019-12-17 14:36:54  :: Turning threads off on socket disconnection
+2019-12-17 14:36:57  :: Turning threads off on socket disconnection
+2019-12-17 14:37:00  :: Turning threads off on socket disconnection
+2019-12-17 14:37:03  :: Turning threads off on socket disconnection
+2019-12-17 14:37:06  :: Turning threads off on socket disconnection
+2019-12-17 14:37:09  :: Turning threads off on socket disconnection
+2019-12-17 14:37:12  :: Turning threads off on socket disconnection
+2019-12-17 14:37:16  :: Turning threads off on socket disconnection
+2019-12-17 14:37:19  :: Turning threads off on socket disconnection
+2019-12-17 14:37:22  :: Turning threads off on socket disconnection
+2019-12-17 14:37:25  :: Turning threads off on socket disconnection
+2019-12-17 14:37:28  :: Turning threads off on socket disconnection
+2019-12-17 14:37:31  :: Turning threads off on socket disconnection
+2019-12-17 14:37:35  :: Turning threads off on socket disconnection
+2019-12-17 14:37:38  :: Turning threads off on socket disconnection
+2019-12-17 14:37:43  :: Turning threads off on socket disconnection
+2019-12-17 14:37:46  :: Turning threads off on socket disconnection
+2019-12-17 14:37:49  :: Turning threads off on socket disconnection
+2019-12-17 14:37:52  :: Turning threads off on socket disconnection
+2019-12-17 14:37:55  :: Turning threads off on socket disconnection
+2019-12-17 14:37:58  :: Turning threads off on socket disconnection
+2019-12-17 14:38:01  :: Turning threads off on socket disconnection
+2019-12-17 14:38:04  :: Turning threads off on socket disconnection
+2019-12-17 14:38:08  :: Turning threads off on socket disconnection
+2019-12-17 14:38:11  :: Turning threads off on socket disconnection
+2019-12-17 14:38:14  :: Turning threads off on socket disconnection
+2019-12-17 14:38:17  :: Turning threads off on socket disconnection
+2019-12-17 14:38:20  :: Turning threads off on socket disconnection
+2019-12-17 14:38:23  :: Turning threads off on socket disconnection
+2019-12-17 14:38:26  :: Turning threads off on socket disconnection
+2019-12-17 14:38:29  :: Turning threads off on socket disconnection
+2019-12-17 14:38:33  :: Turning threads off on socket disconnection
+2019-12-17 14:38:36  :: Turning threads off on socket disconnection
+2019-12-17 14:38:39  :: Turning threads off on socket disconnection
+2019-12-17 14:38:42  :: Turning threads off on socket disconnection
+2019-12-17 14:38:45  :: Turning threads off on socket disconnection
+2019-12-17 14:38:48  :: Turning threads off on socket disconnection
+2019-12-17 14:38:51  :: Turning threads off on socket disconnection
+2019-12-17 14:38:54  :: Turning threads off on socket disconnection
+2019-12-17 14:38:57  :: Turning threads off on socket disconnection
+2019-12-17 14:39:00  :: Turning threads off on socket disconnection
+2019-12-17 14:39:03  :: Turning threads off on socket disconnection
+2019-12-17 14:39:06  :: Turning threads off on socket disconnection
+2019-12-17 14:39:09  :: Turning threads off on socket disconnection
+2019-12-17 14:39:12  :: Turning threads off on socket disconnection
+2019-12-17 14:39:15  :: Turning threads off on socket disconnection
+2019-12-17 14:39:18  :: Turning threads off on socket disconnection
+2019-12-17 14:39:21  :: Turning threads off on socket disconnection
+2019-12-17 14:39:24  :: Turning threads off on socket disconnection
+2019-12-17 14:39:27  :: Turning threads off on socket disconnection
+2019-12-17 14:39:30  :: Turning threads off on socket disconnection
+2019-12-17 14:39:33  :: Turning threads off on socket disconnection
+2019-12-17 14:39:36  :: Turning threads off on socket disconnection
+2019-12-17 14:39:39  :: Turning threads off on socket disconnection
+2019-12-17 14:39:42  :: Turning threads off on socket disconnection
+2019-12-17 14:39:45  :: Turning threads off on socket disconnection
+2019-12-17 14:39:48  :: Turning threads off on socket disconnection
+2019-12-17 14:39:51  :: Turning threads off on socket disconnection
+2019-12-17 14:39:54  :: Turning threads off on socket disconnection
+2019-12-17 14:39:57  :: Turning threads off on socket disconnection
+2019-12-17 14:40:00  :: Turning threads off on socket disconnection
+2019-12-17 14:40:03  :: Turning threads off on socket disconnection
+2019-12-17 14:40:06  :: Turning threads off on socket disconnection
+2019-12-17 14:40:09  :: Turning threads off on socket disconnection
+2019-12-17 14:40:12  :: Turning threads off on socket disconnection
+2019-12-17 14:40:15  :: Turning threads off on socket disconnection
+2019-12-17 14:40:18  :: Turning threads off on socket disconnection
+2019-12-17 14:40:21  :: Turning threads off on socket disconnection
+2019-12-17 14:40:24  :: Turning threads off on socket disconnection
+2019-12-17 14:40:27  :: Turning threads off on socket disconnection
+2019-12-17 14:40:30  :: Turning threads off on socket disconnection
+2019-12-17 14:40:33  :: Turning threads off on socket disconnection
+2019-12-17 14:40:36  :: Turning threads off on socket disconnection
+2019-12-17 14:40:39  :: Turning threads off on socket disconnection
+2019-12-17 14:40:42  :: Turning threads off on socket disconnection
+2019-12-17 14:40:45  :: Turning threads off on socket disconnection
+2019-12-17 14:40:48  :: Turning threads off on socket disconnection
+2019-12-17 14:40:51  :: Turning threads off on socket disconnection
+2019-12-17 14:40:54  :: Turning threads off on socket disconnection
+2019-12-17 14:40:57  :: Turning threads off on socket disconnection
+2019-12-17 14:41:00  :: Turning threads off on socket disconnection
+2019-12-17 14:41:03  :: Turning threads off on socket disconnection
+2019-12-17 14:41:06  :: Turning threads off on socket disconnection
+2019-12-17 14:41:09  :: Turning threads off on socket disconnection
+2019-12-17 14:41:12  :: Turning threads off on socket disconnection
+2019-12-17 14:41:15  :: Turning threads off on socket disconnection
+2019-12-17 14:41:18  :: Turning threads off on socket disconnection
+2019-12-17 14:41:21  :: Turning threads off on socket disconnection
+2019-12-17 14:41:24  :: Turning threads off on socket disconnection
+2019-12-17 14:41:27  :: Turning threads off on socket disconnection
+2019-12-17 14:41:30  :: Turning threads off on socket disconnection
+2019-12-17 14:41:33  :: Turning threads off on socket disconnection
+2019-12-17 14:41:36  :: Turning threads off on socket disconnection
+2019-12-17 14:41:40  :: Turning threads off on socket disconnection
+2019-12-17 14:41:43  :: Turning threads off on socket disconnection
+2019-12-17 14:41:46  :: Turning threads off on socket disconnection
+2019-12-17 14:41:49  :: Turning threads off on socket disconnection
+2019-12-17 14:41:52  :: Turning threads off on socket disconnection
+2019-12-17 14:41:55  :: Turning threads off on socket disconnection
+2019-12-17 14:41:58  :: Turning threads off on socket disconnection
+2019-12-17 14:42:01  :: Turning threads off on socket disconnection
+2019-12-17 14:42:04  :: Turning threads off on socket disconnection
+2019-12-17 14:42:07  :: Turning threads off on socket disconnection
+2019-12-17 14:42:10  :: Turning threads off on socket disconnection
+2019-12-17 14:42:13  :: Turning threads off on socket disconnection
+2019-12-17 14:42:16  :: Turning threads off on socket disconnection
+2019-12-17 14:42:19  :: Turning threads off on socket disconnection
+2019-12-17 14:42:22  :: Turning threads off on socket disconnection
+2019-12-17 14:42:25  :: Turning threads off on socket disconnection
+2019-12-17 14:42:28  :: Turning threads off on socket disconnection
+2019-12-17 14:42:31  :: Turning threads off on socket disconnection
+2019-12-17 14:42:34  :: Turning threads off on socket disconnection
+2019-12-17 14:42:37  :: Turning threads off on socket disconnection
+2019-12-17 14:42:40  :: Turning threads off on socket disconnection
+2019-12-17 14:42:43  :: Turning threads off on socket disconnection
+2019-12-17 14:42:46  :: Turning threads off on socket disconnection
+2019-12-17 14:42:49  :: Turning threads off on socket disconnection
+2019-12-17 14:42:52  :: Turning threads off on socket disconnection
+2019-12-17 14:42:56  :: Turning threads off on socket disconnection
+2019-12-17 14:42:59  :: Turning threads off on socket disconnection
+2019-12-17 14:43:02  :: Turning threads off on socket disconnection
+2019-12-17 14:43:05  :: Turning threads off on socket disconnection
+2019-12-17 14:43:08  :: Turning threads off on socket disconnection
+2019-12-17 14:43:12  :: Turning threads off on socket disconnection
+2019-12-17 14:43:15  :: Turning threads off on socket disconnection
+2019-12-17 14:43:18  :: Turning threads off on socket disconnection
+2019-12-17 14:43:21  :: Turning threads off on socket disconnection
+2019-12-17 14:43:24  :: Turning threads off on socket disconnection
+2019-12-17 14:43:27  :: Turning threads off on socket disconnection
+2019-12-17 14:43:30  :: Turning threads off on socket disconnection
+2019-12-17 14:43:33  :: Turning threads off on socket disconnection
+2019-12-17 14:43:36  :: Turning threads off on socket disconnection
+2019-12-17 14:43:39  :: Turning threads off on socket disconnection
+2019-12-17 14:43:42  :: Turning threads off on socket disconnection
+2019-12-17 14:43:45  :: Turning threads off on socket disconnection
+2019-12-17 14:43:48  :: Turning threads off on socket disconnection
+2019-12-17 14:43:51  :: Turning threads off on socket disconnection
+2019-12-17 14:43:54  :: Turning threads off on socket disconnection
+2019-12-17 14:43:57  :: Turning threads off on socket disconnection
+2019-12-17 14:44:00  :: Turning threads off on socket disconnection
+2019-12-17 14:44:03  :: Turning threads off on socket disconnection
+2019-12-17 14:44:06  :: Turning threads off on socket disconnection
+2019-12-17 14:44:09  :: Turning threads off on socket disconnection
+2019-12-17 14:44:12  :: Turning threads off on socket disconnection
+2019-12-17 14:44:15  :: Turning threads off on socket disconnection
+2019-12-17 14:44:18  :: Turning threads off on socket disconnection
+2019-12-17 14:44:21  :: Turning threads off on socket disconnection
+2019-12-17 14:44:24  :: Turning threads off on socket disconnection
+2019-12-17 14:44:27  :: Turning threads off on socket disconnection
+2019-12-17 14:44:30  :: Turning threads off on socket disconnection
+2019-12-17 14:44:33  :: Turning threads off on socket disconnection
+2019-12-17 14:44:36  :: Turning threads off on socket disconnection
+2019-12-17 14:44:39  :: Turning threads off on socket disconnection
+2019-12-17 14:44:42  :: Turning threads off on socket disconnection
+2019-12-17 14:44:45  :: Turning threads off on socket disconnection
+2019-12-17 14:44:48  :: Turning threads off on socket disconnection
+2019-12-17 14:44:51  :: Turning threads off on socket disconnection

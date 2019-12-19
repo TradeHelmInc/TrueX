@@ -45,6 +45,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Static Consts
 
+        private static decimal _MAX_NOTIONAL_DEFAULT = 10000m;
+
         private static decimal _SECURITY_HALTING_THRESHOLD = 10m;
 
         private static decimal _MARKET_HALTING_THRESHOLD = 20m;
@@ -1689,7 +1691,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 instrumentMsg.MinQuotePrice = security.MinPrice;
                 instrumentMsg.MaxQuotePrice = security.MaxPrice;
                 instrumentMsg.MinPriceIncrement = Config.SendMinPriceIncrement ? (decimal?)security.MinPriceIncrement : null;
-                instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue && Config.SendMaxNotionalValue ? (decimal?)security.MaxNotional.Value : null;
+
+                if (Config.SendMaxNotionalValue)
+                    instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue ? (decimal?)security.MaxNotional.Value : _MAX_NOTIONAL_DEFAULT;
+                
                 instrumentMsg.Currency1 = security.CurrencyPair;
                 instrumentMsg.Currency2 = "";
                 instrumentMsg.Test = false;
@@ -2089,9 +2094,10 @@ namespace DGTLBackendMock.DataAccessLayer
             DoLog(string.Format("Processing Fake cancellation Rejection for security {0}", instr.InstrumentName), MessageType.Information);
 
             ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-            ack.ClientOrderId = ordCxlReq.ClientOrderId;
+            //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+            ack.OrderId = ordCxlReq.OrderId;
             ack.FirmId = ordCxlReq.FirmId;
-            ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.ClientOrderId);
+            ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.OrderId);
             ack.Msg = "ClientOrderCancelResponse";
             ack.OrderId = 0;
             ack.Success = false;
@@ -2188,8 +2194,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     
 
-                    DoLog(string.Format("Searching order by ClientOrderId={0} )", ordCxlReq.ClientOrderId), MessageType.Information);
-                    LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
+                    DoLog(string.Format("Searching order by OrderId={0} )", ordCxlReq.OrderId), MessageType.Information);
+                    
+                    //TKT 1183
+                    LegacyOrderRecord order = Orders.Where(x => x.OrderId == ordCxlReq.OrderId.ToString()).FirstOrDefault();
+                    //LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
 
                     if(order==null)
                         order = Orders.Where(x => x.OrderId == ordCxlReq.OrderId.ToString()).FirstOrDefault();
@@ -2208,7 +2217,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //1-We send el CancelAck
                         ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                        ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.OrderId = ordCxlReq.OrderId;
                         ack.FirmId = ordCxlReq.FirmId;
                         ack.Message = "Just cancelled @ mock v2";
                         ack.Msg = "ClientOrderCancelResponse";
@@ -2218,12 +2228,12 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.UserId = ordCxlReq.UserId;
                         ack.Uuid = ordCxlReq.Uuid;
 
-                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        DoLog(string.Format("Sending cancellation ack for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
                         DoSend<ClientOrderCancelResponse>(socket, ack);
 
 
                         //2-Actualizamos el PL
-                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        DoLog(string.Format("Evaluating price levels for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
                         EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty }, ordCxlReq.Uuid);
 
                         //3-Upd orders in mem
@@ -2247,9 +2257,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         //1-Rejecting cancelation because client orderId not found
                         ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                        ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.OrderId = ordCxlReq.OrderId;
                         ack.FirmId = ordCxlReq.FirmId;
-                        ack.Message = string.Format("Rejecting cancelation because client orderId {0} not found", ordCxlReq.ClientOrderId);
+                        ack.Message = string.Format("Rejecting cancelation because client orderId {0} not found", ordCxlReq.OrderId);
                         ack.Msg = "ClientOrderCancelResponse";
                         ack.OrderId = 0;
                         ack.Success = false;
@@ -2257,7 +2268,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.UserId = ordCxlReq.UserId;
                         ack.Uuid = ordCxlReq.Uuid;
 
-                        DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.ClientOrderId), MessageType.Information);
+                        DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.OrderId), MessageType.Information);
                         DoSend<ClientOrderCancelResponse>(socket, ack);
                         //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
                     }
@@ -2267,7 +2278,8 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 //1-Rejecting cancelation because client orderId not found
                 ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                ack.OrderId = ordCxlReq.OrderId;
                 ack.FirmId = ordCxlReq.FirmId;
                 ack.Message = string.Format("Rejecting cancelation because of an error: {0}", ex.Message);
                 ack.Msg = "ClientOrderCancelResponse";
@@ -2567,7 +2579,10 @@ namespace DGTLBackendMock.DataAccessLayer
                                                             ClientInstrument instr,string UUID)
         {
             DGTLBackendMock.Common.DTO.MarketData.V2.DailySettlement v2DailySettl = new Common.DTO.MarketData.V2.DailySettlement();
-            v2DailySettl.Msg = "DailySettlementPrice";
+            
+            //TKT 1185
+            //v2DailySettl.Msg = "DailySettlementPrice";
+            v2DailySettl.Msg = "ClientDSP";
             v2DailySettl.InstrumentId = instr.InstrumentId.ToString();
             v2DailySettl.InstrumentName = instr.InstrumentName;
             v2DailySettl.Uuid = UUID;
