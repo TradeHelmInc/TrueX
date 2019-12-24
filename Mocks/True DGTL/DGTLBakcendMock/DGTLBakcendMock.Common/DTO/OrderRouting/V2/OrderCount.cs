@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 {
-    public class OrderCount : WebSocketMessageV2
+    public class ClientOrderCount : WebSocketMessageV2
     {
         #region Public Attributes
 

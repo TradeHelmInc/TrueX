@@ -65,6 +65,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public char cAction { get { return Convert.ToChar(Action); } set { Action = Convert.ToByte(value); } }
 
+        public long Timestamp { get; set; }
 
         #endregion
 

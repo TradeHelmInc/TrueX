@@ -18,6 +18,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string InstrumentId { get; set; }
 
+        public string ExecId { get; set; }
+
         public double Price { get; set; }
 
         public double Size { get; set; }

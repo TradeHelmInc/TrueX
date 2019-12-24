@@ -28,6 +28,8 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public decimal? Low { get; set; }
 
+        public decimal? PercChangePrevDay { get; set; }
+
         public long Timestamp { get; set; }
 
 

@@ -30,6 +30,10 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public string UserId { get; set; }
 
+         public string AccountId { get; set; }
+
+         public string Symbol { get; set; }
+
          public long OrderId { get; set; }
 
          public string ClientOrderId { get; set; }

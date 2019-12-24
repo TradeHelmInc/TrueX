@@ -126,7 +126,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             }
                             else if (wsResp.Msg == "DailySettlementPrice")
                             {
-                                DailySettlement msg = JsonConvert.DeserializeObject<DailySettlement>(resp);
+                                ClientDSP msg = JsonConvert.DeserializeObject<ClientDSP>(resp);
                                 OnEvent(msg);
                             }
                             else if (wsResp.Msg == "ClientOrderAck")

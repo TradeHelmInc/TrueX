@@ -381,8 +381,8 @@ namespace DGTLBackendAPIClientV2
                 ProcessJsonMessage<ClientMassCancelResponse>((ClientMassCancelResponse)msg);
             else if (msg is ClientOrderReq)
                 ProcessJsonMessage<ClientOrderReq>((ClientOrderReq)msg);
-            else if (msg is DailySettlement)
-                ProcessJsonMessage<DailySettlement>((DailySettlement)msg);
+            else if (msg is ClientDSP)
+                ProcessJsonMessage<ClientDSP>((ClientDSP)msg);
             else if (msg is FirmsListResponse)
                 ProcessJsonMessage<FirmsListResponse>((FirmsListResponse)msg);
             else if (msg is FirmsCreditLimitUpdateResponse)

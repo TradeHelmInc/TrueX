@@ -14,12 +14,12 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         private static char _NDF = 'N';
         private static char _DF = 'D';
-        private static char _SPOT = 'S';
+        public static char _SPOT = 'S';
         private static char _NONE = 'X';
 
-        private static string _STR_SPOT = "Spot";
+        public static string _STR_SPOT = "Spot";
         public static string _STR_SWP = "SWP";
-        private static string _STR_NDF = "NDF";
+        public static string _STR_NDF = "NDF";
 
         #endregion
 

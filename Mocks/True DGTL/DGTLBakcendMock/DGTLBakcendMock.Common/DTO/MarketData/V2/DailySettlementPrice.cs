@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.MarketData.V2
 {
-    public class DailySettlement : WebSocketMessageV2
+    public class ClientDSP : WebSocketMessageV2
     {
         #region Public Attributes
 

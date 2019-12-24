@@ -205,6 +205,7 @@ namespace DGTLBackendMock.DataAccessLayer
             OyMsg.UserId = ordRecord.UserId;
 
             TranslateAndSendOldLegacyOrderRecord(socket, UUID, OyMsg, newOrder: false);
+            TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, UUID, OyMsg, newOrder: false);
         }
 
         private void RefreshOpenOrders(IWebSocketConnection socket, string userId,string UUID)
@@ -217,7 +218,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("Sending open order count for all symbols : {0}", openOrdersCount), MessageType.Information);
 
-                OrderCount openOrders = new OrderCount()
+                ClientOrderCount openOrders = new ClientOrderCount()
                 {
                     Msg = "OrderCount",
                     UserId=userId,
@@ -226,7 +227,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Count=openOrdersCount
                 };
 
-                DoSend<OrderCount>(socket, openOrders);
+                DoSend<ClientOrderCount>(socket, openOrders);
                
             }
             catch (Exception ex)
@@ -283,6 +284,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Price = trade.TradePrice,
                     Size = trade.TradeQuantity,
                     UserId=userId,
+                    ExecId=trade.TradeId,
                     Uuid=UUID,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     
@@ -514,6 +516,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 order.SetFilledStatus();
                 TranslateAndSendOldLegacyOrderRecord(socket, UUID, order);
+                TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, UUID, order);
 
                 if (order.Price.HasValue)
                 {
@@ -603,6 +606,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 double prevFillQty = order.FillQty;
                 order.SetPartiallyFilledStatus(ref tradeSize);
                 TranslateAndSendOldLegacyOrderRecord(socket, UUID, order);
+                TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, UUID, order);
                 //DoSend<LegacyOrderRecord>(socket, order);
 
                 if (order.Price.HasValue)
@@ -667,6 +671,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 OyMsg.UserId = ordReq.UserId;
 
                 TranslateAndSendOldLegacyOrderRecord(socket, UUID, OyMsg);
+                TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, UUID, OyMsg);
 
                 DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
                 Orders.Add(OyMsg);
@@ -985,6 +990,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 Orders.Add(rejOrder);
                 TranslateAndSendOldLegacyOrderRecord(socket, clientOrderReq.Uuid, rejOrder, newOrder: true);
+                TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, clientOrderReq.Uuid, rejOrder, newOrder: true);
 
                 return true;
             }
@@ -1694,9 +1700,18 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 if (Config.SendMaxNotionalValue)
                     instrumentMsg.MaxNotionalValue = security.MaxNotional.HasValue ? (decimal?)security.MaxNotional.Value : _MAX_NOTIONAL_DEFAULT;
-                
-                instrumentMsg.Currency1 = security.CurrencyPair;
-                instrumentMsg.Currency2 = "";
+
+                if (instrumentMsg.cProductType == ClientInstrument._SPOT)
+                {
+                    instrumentMsg.Currency1 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    instrumentMsg.Currency2 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[0];
+                }
+                else
+                {
+                    instrumentMsg.Currency1 = "XBT";
+                    instrumentMsg.Currency2 = "USD";
+                }
+
                 instrumentMsg.Test = false;
                 //instrumentMsg.UUID = Uuid;
 
@@ -1761,7 +1776,8 @@ namespace DGTLBackendMock.DataAccessLayer
             marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
             marketStateMsg.cReasonCode = '0';
             marketStateMsg.cState = ClientMarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
-            marketStateMsg.Msg = "ClientMarketState";
+            //marketStateMsg.Msg = "ClientMarketState";
+            marketStateMsg.Msg = "MarketState";
             marketStateMsg.StateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds);
             //marketStateMsg.UUID = Uuid;
 
@@ -2138,13 +2154,14 @@ namespace DGTLBackendMock.DataAccessLayer
                         //2-Actualizamos el PL
                         DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
                         ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
-                        ClientOrderRecord newOrder = new ClientOrderRecord() { InstrumentId=instr.InstrumentId ,  cSide = order.cSide, Price = order.Price, LeavesQty = order.LvsQty };
+                        ClientOrderRecord newOrder = new ClientOrderRecord() { InstrumentId = instr.InstrumentId, cSide = order.cSide, Price = order.Price, LeavesQty = order.LvsQty };
                         EvalPriceLevels(socket, newOrder, clientMassCxlReq.Uuid);
 
                         //2.1 We update the order status
                         order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
                         order.LvsQty = 0;
                         TranslateAndSendOldLegacyOrderRecord(socket, clientMassCxlReq.Uuid, order, newOrder: false);
+                        TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, clientMassCxlReq.Uuid, order, newOrder: false);
 
                         //3-Upd Quotes
                         UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
@@ -2234,7 +2251,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //2-Actualizamos el PL
                         DoLog(string.Format("Evaluating price levels for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
-                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty }, ordCxlReq.Uuid);
+                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Symbol = instr.InstrumentName, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty, AccountId = "testAccount" }, ordCxlReq.Uuid);
 
                         //3-Upd orders in mem
                         DoLog(string.Format("Updating orders in mem"), MessageType.Information);
@@ -2443,7 +2460,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientLastSale lastSale = new ClientLastSale()
                 {
                     Msg = "ClientLastSale",
-                    Change = legacyLastSale.Change,
+                    Change = legacyLastSale.Change.HasValue && legacyLastSale.LastPrice.HasValue ?
+                            (decimal?)legacyLastSale.Change.Value * legacyLastSale.LastPrice.Value : null,
+                    PercChangePrevDay = legacyLastSale.Change,
                     High = legacyLastSale.High,
                     InstrumentId = instr.InstrumentId,
                     LastPrice = legacyLastSale.LastPrice,
@@ -2505,6 +2524,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 cStatus = ClientTradeRecord._STATUS_OPEN,
                 ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
                 FirmId = Convert.ToInt64(LoggedFirmId),
+                Symbol = instr.InstrumentName,
                 InstrumentId = instr.InstrumentId,
                 Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
                 OrderId = 0,
@@ -2544,6 +2564,28 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
+        protected ClientMyOrders TranslateOldLegacyOrderRecordToMyOrders(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
+            ClientMyOrders order = new ClientMyOrders()
+            {
+                Msg = "ClientMyOrders",
+                Uuid=UUID,
+                OrderId = finalOrderId,
+                InstrumentId = instr.InstrumentId,
+                Price = legacyOrderRecord.Price,
+                Quantity = legacyOrderRecord.OrdQty,
+                cSide = legacyOrderRecord.cSide,
+                LeavesQty = legacyOrderRecord.LvsQty,
+                CumQty = legacyOrderRecord.FillQty,
+                cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
+                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+            };
+
+            return order;
+        }
+
         protected ClientOrderRecord TranslateOldLegacyOrderRecord(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -2551,6 +2593,8 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientOrderRecord order = new ClientOrderRecord()
             {
                 Msg = "ClientOrderRecord",
+                AccountId= "testAcc",
+                Symbol=instr.InstrumentName,
                 AveragePrice = legacyOrderRecord.Price,
                 ClientOrderId = legacyOrderRecord.ClientOrderId,
                 CreateTimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
@@ -2578,7 +2622,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                                             DGTLBackendMock.Common.DTO.SecurityList.DailySettlementPrice v1DailySettl,
                                                             ClientInstrument instr,string UUID)
         {
-            DGTLBackendMock.Common.DTO.MarketData.V2.DailySettlement v2DailySettl = new Common.DTO.MarketData.V2.DailySettlement();
+            DGTLBackendMock.Common.DTO.MarketData.V2.ClientDSP v2DailySettl = new Common.DTO.MarketData.V2.ClientDSP();
             
             //TKT 1185
             //v2DailySettl.Msg = "DailySettlementPrice";
@@ -2590,7 +2634,7 @@ namespace DGTLBackendMock.DataAccessLayer
             v2DailySettl.CalculationTime = Convert.ToInt64(DateTime.Now.ToString("hhmmss"));
             v2DailySettl.DailySettlementPrice = v1DailySettl.Price;
 
-            DoSend<DGTLBackendMock.Common.DTO.MarketData.V2.DailySettlement>(socket, v2DailySettl);
+            DoSend<DGTLBackendMock.Common.DTO.MarketData.V2.ClientDSP>(socket, v2DailySettl);
         
         }
 
@@ -2605,6 +2649,20 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientOrderRecord order = TranslateOldLegacyOrderRecord(legacyOrderRecord, instr, newOrder, UUID);
 
                 DoSend<ClientOrderRecord>(socket, order);
+            }
+        }
+
+        private void TranslateAndSendOldLegacyOrderRecordToMyOrders(IWebSocketConnection socket, string UUID, LegacyOrderRecord legacyOrderRecord, bool newOrder = true)
+        {
+            TimeSpan startFromToday = DateTime.Now.Date - new DateTime(1970, 1, 1);
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (legacyOrderRecord != null)
+            {
+                ClientInstrument instr = GetInstrumentBySymbol(legacyOrderRecord.InstrumentId);
+
+                ClientMyOrders order = TranslateOldLegacyOrderRecordToMyOrders(legacyOrderRecord, instr, newOrder, UUID);
+
+                DoSend<ClientMyOrders>(socket, order);
             }
         }
 
@@ -2641,6 +2699,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private ClientDepthOfBook TranslateOldDepthOfBook(DepthOfBook legacyDepthOfBook, ClientInstrument instr, string UUID)
         {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
             ClientDepthOfBook depthOfBook = new ClientDepthOfBook()
             {
@@ -2650,7 +2709,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 InstrumentId = instr.InstrumentId,
                 Price = legacyDepthOfBook.Price,
                 Size = legacyDepthOfBook.Size,
-                Uuid = UUID
+                Uuid = UUID,
+                Timestamp = Convert.ToInt64(elapsed.TotalSeconds)
 
             };
 
@@ -3086,10 +3146,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 foreach (LegacyOrderRecord order in orders)
                 {
-                    TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, order, newOrder: false);
+                    //TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, order, newOrder: false);
+                    TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, subscrMsg.Uuid, order, newOrder: false);
                 }
             }
-          
             
             //Now we have to launch something to create deltas (insert, change, remove)
             //RefreshOpenOrders(socket, LoggedUserId, subscrMsg.Uuid);
