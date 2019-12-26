@@ -480,7 +480,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ls.LastTime = newTrade.TradeTimeStamp;
             ls.Volume += Convert.ToDecimal(newTrade.TradeQuantity);
             ls.Change = ls.LastPrice - ls.FirstPrice;
-            ls.DiffPrevDay = ((ls.LastPrice / ls.FirstPrice) - 1) * 100;
+            ls.DiffPrevDay = ((ls.LastPrice / ls.FirstPrice) - 1) ;
 
             if (!ls.High.HasValue || Convert.ToDecimal(newTrade.TradePrice) > ls.High)
                 ls.High = Convert.ToDecimal(newTrade.TradePrice);
@@ -1703,8 +1703,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 if (instrumentMsg.cProductType == ClientInstrument._SPOT)
                 {
-                    instrumentMsg.Currency1 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[1];
-                    instrumentMsg.Currency2 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    instrumentMsg.Currency1 = "crypto";
+                    instrumentMsg.Currency2 = "USD";
+                    //instrumentMsg.Currency1 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    //instrumentMsg.Currency2 = security.CurrencyPair.Split(new string[] { "-" }, StringSplitOptions.RemoveEmptyEntries)[0];
                 }
                 else
                 {
@@ -2462,7 +2464,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ClientLastSale",
                     Change = legacyLastSale.Change.HasValue && legacyLastSale.LastPrice.HasValue ?
                             (decimal?)legacyLastSale.Change.Value * legacyLastSale.LastPrice.Value : null,
-                    PercChangePrevDay = legacyLastSale.Change,
+                    PercChangePrevDay = legacyLastSale.DiffPrevDay,
                     High = legacyLastSale.High,
                     InstrumentId = instr.InstrumentId,
                     LastPrice = legacyLastSale.LastPrice,
@@ -3132,10 +3134,10 @@ namespace DGTLBackendMock.DataAccessLayer
             //else
             //    throw new Exception(string.Format("Invalid format from ServiceKey. Valid format:UserID@Symbol@[OrderID,*]. Received: {1}", subscrMsg.ServiceKey));
 
-
             string instrumentId = subscrMsg.ServiceKey;
 
             List<LegacyOrderRecord> orders = null;
+            List<ClientMyOrders> orderList = new List<ClientMyOrders>();
             if (instrumentId != "*")
             {
                 ClientInstrument instr = GetInstrumentByServiceKey(instrumentId);
@@ -3143,12 +3145,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("Sending all orders for {0} subscription. Count={1}", subscrMsg.ServiceKey, orders.Count), MessageType.Information);
 
-
-                foreach (LegacyOrderRecord order in orders)
-                {
-                    //TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, order, newOrder: false);
-                    TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, subscrMsg.Uuid, order, newOrder: false);
-                }
+                orders.ForEach(x => orderList.Add(TranslateOldLegacyOrderRecordToMyOrders(x, instr, false, subscrMsg.Uuid)));
+                //TranslateAndSendOldLegacyOrderRecord(socket, subscrMsg.Uuid, order, newOrder: false);
+                
             }
             
             //Now we have to launch something to create deltas (insert, change, remove)
@@ -3159,14 +3158,18 @@ namespace DGTLBackendMock.DataAccessLayer
         protected void ProcessMyTrades(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             List<LegacyTradeHistory> trades = null;
+            List<ClientMarketActivity> tradeList = new List<ClientMarketActivity>(); 
 
             if (subscrMsg.ServiceKey != "*")
             {
                 ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
                 trades = Trades.Where(x => x.Symbol == instr.InstrumentName).ToList();
 
+                trades.ForEach(x => tradeList.Add(TranslateOldLegacyTradeHistoryForMarketActivity(x, instr, subscrMsg.Uuid)));
+                DoSend<ClientMarketActivityBatch>(socket, new ClientMarketActivityBatch(tradeList.ToArray()));
+
                 //trades.ForEach(x => TranslateAndSendOldLegacyTradeHistory(socket, subscrMsg.Uuid, x));
-                trades.ForEach(x => TranslateAndSendOldLegacyTradeHistoryToMarketActivity(socket, subscrMsg.Uuid, x));
+                //trades.ForEach(x => TranslateAndSendOldLegacyTradeHistoryToMarketActivity(socket, subscrMsg.Uuid, x));
             }
            
             //Now we have to launch something to create deltas (insert, change, remove)
