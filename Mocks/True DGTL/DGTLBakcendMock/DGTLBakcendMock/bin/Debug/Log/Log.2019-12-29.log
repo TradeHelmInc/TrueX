@@ -1,0 +1,345 @@
+2019-12-29 20:01:18  :: Initializing Mock Server...
+2019-12-29 20:01:18  :: Initializing all collections...
+2019-12-29 20:01:18  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:01:19  :: Collections Initialized...
+2019-12-29 20:01:29  :: Connecting for the first time to client 22465
+2019-12-29 20:01:29  :: Connected for the first time to client 22465
+2019-12-29 20:01:36  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:01:36  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:01:36  :: Sending ClientLoginResponse with UUID b1702417-579b-41b9-ade2-8d4f03d3ffab
+2019-12-29 20:01:36  :: Sending Instrument Batch 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientInstrumentState 
+2019-12-29 20:01:36  :: Sending ClientUserRecord
+2019-12-29 20:01:36  :: Sending ClientMarketStateBatch
+2019-12-29 20:01:36  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:01:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:01:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:01:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:01:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:01:49  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:01:49  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:01:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:02:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:02:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:02:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:06  :: Initializing Mock Server...
+2019-12-29 20:05:06  :: Initializing all collections...
+2019-12-29 20:05:06  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:05:06  :: Collections Initialized...
+2019-12-29 20:05:15  :: Connecting for the first time to client 22504
+2019-12-29 20:05:15  :: Connected for the first time to client 22504
+2019-12-29 20:05:20  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:05:20  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:05:20  :: Sending ClientLoginResponse with UUID 7d4306ac-118c-4f5f-900e-a4635cb9aed8
+2019-12-29 20:05:20  :: Sending Instrument Batch 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientInstrumentState 
+2019-12-29 20:05:20  :: Sending ClientUserRecord
+2019-12-29 20:05:20  :: Sending ClientMarketStateBatch
+2019-12-29 20:05:20  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:05:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:30  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:05:30  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:05:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:05:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:06:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:10:32  :: Initializing Mock Server...
+2019-12-29 20:10:32  :: Initializing all collections...
+2019-12-29 20:10:33  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:10:33  :: Collections Initialized...
+2019-12-29 20:10:42  :: Connecting for the first time to client 22625
+2019-12-29 20:10:42  :: Connected for the first time to client 22625
+2019-12-29 20:10:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:10:44  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:10:44  :: Sending ClientLoginResponse with UUID 2e5c7c3b-9f8e-4ce3-9744-30cf051b5d4c
+2019-12-29 20:10:44  :: Sending Instrument Batch 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientInstrumentState 
+2019-12-29 20:10:44  :: Sending ClientUserRecord
+2019-12-29 20:10:44  :: Sending ClientMarketStateBatch
+2019-12-29 20:10:44  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:10:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:10:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:10:52  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:10:52  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:10:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:10:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:10:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:11:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:29:39  :: Initializing Mock Server...
+2019-12-29 20:29:39  :: Initializing all collections...
+2019-12-29 20:29:40  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:29:41  :: Collections Initialized...
+2019-12-29 20:29:49  :: Connecting for the first time to client 22968
+2019-12-29 20:29:49  :: Connected for the first time to client 22968
+2019-12-29 20:29:53  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:29:53  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:29:53  :: Sending ClientLoginResponse with UUID c5f606a8-4e61-44a9-a5a6-6390541253b9
+2019-12-29 20:29:53  :: Sending Instrument Batch 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientInstrumentState 
+2019-12-29 20:29:53  :: Sending ClientUserRecord
+2019-12-29 20:29:53  :: Sending ClientMarketStateBatch
+2019-12-29 20:29:53  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:29:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:29:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:30:01  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2019-12-29 20:31:16  :: Initializing Mock Server...
+2019-12-29 20:31:16  :: Initializing all collections...
+2019-12-29 20:31:17  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:31:17  :: Collections Initialized...
+2019-12-29 20:31:24  :: Connecting for the first time to client 23031
+2019-12-29 20:31:24  :: Connected for the first time to client 23031
+2019-12-29 20:31:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:31:31  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:31:31  :: Sending ClientLoginResponse with UUID 87559093-83d3-49f5-a68a-1dcf1a2d1a8d
+2019-12-29 20:31:31  :: Sending Instrument Batch 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientInstrumentState 
+2019-12-29 20:31:31  :: Sending ClientUserRecord
+2019-12-29 20:31:31  :: Sending ClientMarketStateBatch
+2019-12-29 20:31:31  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:31:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:31:35  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:31:35  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:31:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:31:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:31:40  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2019-12-29 20:31:40  :: Looking form Firm with Id 548346916 to update its credit limit
+2019-12-29 20:31:40  :: Firm 548346916 found. Updating its credit limit
+2019-12-29 20:31:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:31:46  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2019-12-29 20:31:50  :: Looking form Firm with Id 548346916 to update its credit limit
+2019-12-29 20:31:52  :: Firm 548346916 found. Updating its credit limit
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:32:52  :: Turning threads off on socket disconnection
+2019-12-29 20:33:57  :: Initializing Mock Server...
+2019-12-29 20:33:57  :: Initializing all collections...
+2019-12-29 20:33:58  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:33:58  :: Collections Initialized...
+2019-12-29 20:34:05  :: Connecting for the first time to client 23101
+2019-12-29 20:34:05  :: Connected for the first time to client 23101
+2019-12-29 20:34:08  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:34:08  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:34:08  :: Sending ClientLoginResponse with UUID 0d33688d-784e-4c51-94a2-76f56d2bcae0
+2019-12-29 20:34:08  :: Sending Instrument Batch 
+2019-12-29 20:34:08  :: Sending ClientInstrumentState 
+2019-12-29 20:34:08  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientInstrumentState 
+2019-12-29 20:34:09  :: Sending ClientUserRecord
+2019-12-29 20:34:09  :: Sending ClientMarketStateBatch
+2019-12-29 20:34:09  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:34:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:34:13  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:34:13  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:34:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:34:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:34:18  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2019-12-29 20:34:19  :: Looking form Firm with Id 548346916 to update its credit limit
+2019-12-29 20:34:19  :: Firm 548346916 found. Updating its credit limit
+2019-12-29 20:34:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:34:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:34:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:44:31  :: Initializing Mock Server...
+2019-12-29 20:44:31  :: Initializing all collections...
+2019-12-29 20:44:32  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2019-12-29 20:44:33  :: Collections Initialized...
+2019-12-29 20:44:41  :: Connecting for the first time to client 23291
+2019-12-29 20:44:41  :: Connected for the first time to client 23291
+2019-12-29 20:44:45  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2019-12-29 20:44:45  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2019-12-29 20:44:45  :: Sending ClientLoginResponse with UUID 6348b41d-c8bf-4035-9e1b-d41038ce15b8
+2019-12-29 20:44:45  :: Sending Instrument Batch 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientInstrumentState 
+2019-12-29 20:44:45  :: Sending ClientUserRecord
+2019-12-29 20:44:45  :: Sending ClientMarketStateBatch
+2019-12-29 20:44:45  :: Sending ClientAccountRecordBatch 
+2019-12-29 20:44:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:44:50  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2019-12-29 20:44:50  :: Process FirmsListReqest: 9 firms loaded
+2019-12-29 20:44:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:44:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:44:55  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2019-12-29 20:44:55  :: Looking form Firm with Id 548346916 to update its credit limit
+2019-12-29 20:44:55  :: Firm 548346916 found. Updating its credit limit
+2019-12-29 20:45:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:45:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:45:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:45:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2019-12-29 20:45:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

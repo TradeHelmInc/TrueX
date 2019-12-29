@@ -13,6 +13,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string JsonWebToken { get; set; }
 
+        public string SettlementAgentId { get; set; }
+
         public string Uuid { get; set; }
 
         public int PageNo { get; set; }

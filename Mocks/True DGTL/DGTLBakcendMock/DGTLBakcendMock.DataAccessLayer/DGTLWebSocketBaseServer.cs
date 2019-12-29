@@ -477,7 +477,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (accRecord == null)
                 return;
 
-            decimal maxNotional = accRecord.MaxNotional;
+            double maxNotional = accRecord.MaxNotional;
             double creditLimit = accRecord.CreditLimit;
 
             while (true)

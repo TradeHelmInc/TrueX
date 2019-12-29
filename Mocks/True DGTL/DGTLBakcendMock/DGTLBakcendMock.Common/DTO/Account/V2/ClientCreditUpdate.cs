@@ -32,7 +32,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public long AccountId { get; set; }
 
-        public decimal MaxNotional { get; set; }
+        public double MaxNotional { get; set; }
 
         public double CreditLimit { get; set; }
 

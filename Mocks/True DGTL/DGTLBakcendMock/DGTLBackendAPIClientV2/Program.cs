@@ -30,6 +30,8 @@ namespace DGTLBackendAPIClientV2
 
         protected static DGTLWebSocketClient DGTLWebSocketClient { get; set; }
 
+        protected static Dictionary<string, string> SettlementAgentDict { get; set; }
+
         protected static string Token { get; set; }
 
         protected static string UUID { get; set; }
@@ -61,8 +63,8 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("FirmListRequest");
-            Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
-            Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Limit> <Total> <MaxTradeSize>");
+            //Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
+            Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Available> <Used> <MaxNotional>");
             Console.WriteLine("EmailNotificationsListRequest <SettlementFirmId>");
             Console.WriteLine("EmailNotificationsCreateRequest <SettlementFirmId> <email>");
             Console.WriteLine("EmailNotificationsUpdateRequest <SettlementFirmId> <old_email> <new_email>");
@@ -136,7 +138,7 @@ namespace DGTLBackendAPIClientV2
                 Subscribe subscribe = new Subscribe()
                 {
                     Msg = "Subscribe",
-                    cAction = Subscribe._ACTION_SUBSCRIBE,
+                    //cAction = Subscribe._ACTION_SUBSCRIBE,
                     JsonWebToken = Token,
                     Service = param[1],
                     ServiceKey = param.Length == 3 ? param[2] : "*",
@@ -384,7 +386,11 @@ namespace DGTLBackendAPIClientV2
             else if (msg is ClientDSP)
                 ProcessJsonMessage<ClientDSP>((ClientDSP)msg);
             else if (msg is FirmsListResponse)
-                ProcessJsonMessage<FirmsListResponse>((FirmsListResponse)msg);
+            {
+                FirmsListResponse resp = (FirmsListResponse)msg;
+                resp.Firms.ToList().ForEach(x => SettlementAgentDict.Add(x.FirmId.ToString(), resp.SettlementAgentId));
+                ProcessJsonMessage<FirmsListResponse>(resp);
+            }
             else if (msg is FirmsCreditLimitUpdateResponse)
                 ProcessJsonMessage<FirmsCreditLimitUpdateResponse>((FirmsCreditLimitUpdateResponse)msg);
             else if (msg is FirmsTradingStatusUpdateResponse)
@@ -579,15 +585,19 @@ namespace DGTLBackendAPIClientV2
         {
             if (param.Length == 6)
             {
+                TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                 FirmsCreditLimitUpdateRequest firmsCreditLimitUpdReq = new FirmsCreditLimitUpdateRequest()
                 {
                     Msg = "FirmsCreditLimitUpdateRequest",
-                    CreditLimitTotal = Convert.ToDouble(param[4]),
-                    CreditLimitUsage = Convert.ToDouble(param[3]),
-                    CreditLimitBalance = Convert.ToDouble(param[4]) - Convert.ToDouble(param[3]),
-                    CreditLimitMaxTradeSize = Convert.ToDecimal(param[5]),
+                    AvailableCredit = Convert.ToDouble(param[3]),
+                    UsedCredit = Convert.ToDouble(param[4]),
+                    PotentialExposure = 0,
+                    MaxNotional = Convert.ToDouble(param[5]),
+                    MaxQuantity = Convert.ToDouble(param[5]) / 7000,//We use BTC price as reference
                     cTradingStatus = Convert.ToChar(param[2]),
                     FirmId = Convert.ToInt64(param[1]),
+                    Time = Convert.ToInt64(elapsed.TotalSeconds),
+                    SettlementAgentId = SettlementAgentDict.ContainsKey(param[1]) ? SettlementAgentDict[param[1]] : null,
                     JsonWebToken = Token,
                     Uuid = UUID
                 };
@@ -700,11 +710,11 @@ namespace DGTLBackendAPIClientV2
                 JsonWebToken = Token,
                 Msg = "FirmsListRequest",
                 PageNo = 0,
-                PageRecords = 10,
+                PageRecords = 1000,
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds),
                 Uuid = UUID
-
             };
+
             DoSend<FirmsListRequest>(req);
         }
 
@@ -784,8 +794,10 @@ namespace DGTLBackendAPIClientV2
         {
             try
             {
-                DecryptTest();
-                GetSecret("MM1_BLOCK", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
+                //DecryptTest();
+                //GetSecret("MM1_BLOCK", "Testing123", "2b6e7e75-b70e-4944-bb8e-09d07ae18c30");
+
+                SettlementAgentDict = new Dictionary<string, string>();
                 string WebSocketURL = ConfigurationManager.AppSettings["WebSocketURL"];
                 DGTLWebSocketClient = new DGTLWebSocketClientV2(WebSocketURL, ProcessEvent);
                 DoLog(string.Format("Connecting to URL {0}", WebSocketURL));

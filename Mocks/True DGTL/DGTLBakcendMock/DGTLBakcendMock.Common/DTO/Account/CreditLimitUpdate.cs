@@ -16,7 +16,7 @@ namespace DGTLBackendMock.Common.DTO.Account
 
         public double CreditLimit { get; set; }
 
-        public decimal MaxNotional { get; set; }
+        public double MaxNotional { get; set; }
 
         public bool Active { get; set; }
 

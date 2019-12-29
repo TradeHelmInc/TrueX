@@ -26,6 +26,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public long FirmId{ get; set; }
 
+        public string SettlementAgentId { get; set; }
+
         private byte tradingStatus;
         public byte TradingStatus
         {
@@ -37,13 +39,25 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
         public char cTradingStatus { get { return Convert.ToChar(TradingStatus); } set { TradingStatus = Convert.ToByte(value); } }
 
 
-        public double CreditLimitTotal { get; set; }
+        public double AvailableCredit { get; set; }
 
-        public double CreditLimitBalance { get; set; }
+        public double UsedCredit { get; set; }
 
-        public double CreditLimitUsage { get; set; }
+        public double PotentialExposure { get; set; }
 
-        public decimal CreditLimitMaxTradeSize { get; set; }
+        public double MaxNotional { get; set; }
+
+        public double MaxQuantity { get; set; }
+
+        public long Time { get; set; }
+
+        //public double CreditLimitTotal { get; set; }
+
+        //public double CreditLimitBalance { get; set; }
+
+        //public double CreditLimitUsage { get; set; }
+
+        //public decimal CreditLimitMaxTradeSize { get; set; }
 
         #endregion
     }

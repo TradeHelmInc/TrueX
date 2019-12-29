@@ -20,6 +20,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public long Time { get; set; }
 
+        //public string SettlementAgentId { get; set; }
+
         #endregion
     }
 }

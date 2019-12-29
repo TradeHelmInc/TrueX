@@ -34,8 +34,8 @@ namespace DGTLBackendMock.Common.DTO.Subscription.V2
             }
         }
 
-        //[JsonIgnore]
-        //public char cAction { get { return Convert.ToChar(SubscriptionType); } set { SubscriptionType = Convert.ToByte(value); } }
+        [JsonIgnore]
+        public char cAction { get { return Convert.ToChar(SubscriptionType); } set { SubscriptionType = Convert.ToByte(value); } }
         ////Action
 
         public string Service { get; set; }
