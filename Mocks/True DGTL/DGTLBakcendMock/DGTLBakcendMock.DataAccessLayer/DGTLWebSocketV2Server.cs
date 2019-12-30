@@ -1440,7 +1440,16 @@ namespace DGTLBackendMock.DataAccessLayer
                         FirmsCreditLimitRecord newCreditLimit = new FirmsCreditLimitRecord()
                         {
                             Msg = "FirmsCreditLimitRecord",
-                            Firm = firm,
+                            //Firm = firm,
+                            AvailableCredit=firm.AvailableCredit,
+                            cTradingStatus=firm.cTradingStatus,
+                            CurrencyRootId=firm.CurrencyRootId,
+                            FirmId=firm.FirmId.ToString(),
+                            MaxNotional=firm.MaxNotional,
+                            MaxQuantity=firm.MaxQuantity,
+                            Name=firm.Name,
+                            ShortName=firm.ShortName,
+                            UsedCredit=firm.UsedCredit,
                             Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
                             Uuid = wsFirmCreditLimitUpdRq.Uuid
                         };
@@ -1587,20 +1596,42 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
 
-                double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
 
-                FirmsListResponse thisResp = new FirmsListResponse();
-                thisResp.Firms = FirmListResp.Firms;
-                thisResp.SettlementAgentId = "DefaultSettlAgent";
-                thisResp.JsonWebToken = FirmListResp.JsonWebToken;
-                thisResp.Message = FirmListResp.Message;
-                thisResp.Msg = FirmListResp.Msg;
-                thisResp.PageNo = wsFirmListRq.PageNo;
-                thisResp.TotalPages = Convert.ToInt32(totalPages) ;
-                thisResp.Uuid = wsFirmListRq.Uuid;
-                thisResp.Success = true;
+                foreach (var firm in FirmListResp.Firms)
+                {
 
-                DoSend<FirmsListResponse>(socket, thisResp);
+                    FirmsCreditLimitRecord thisResp = new FirmsCreditLimitRecord();
+                    thisResp.Msg = "FirmsCreditLimitRecord";
+                    thisResp.Uuid = wsFirmListRq.Uuid;
+                    thisResp.FirmId = firm.FirmId.ToString();
+                    thisResp.Name = firm.Name;
+                    thisResp.ShortName = firm.ShortName;
+                    thisResp.AvailableCredit = firm.AvailableCredit;
+                    thisResp.UsedCredit = firm.UsedCredit;
+                    thisResp.PotentialExposure = firm.PotentialExposure;
+                    thisResp.MaxNotional = firm.MaxNotional;
+                    thisResp.MaxQuantity = firm.MaxQuantity;
+                    thisResp.CurrencyRootId = firm.CurrencyRootId;
+                    thisResp.TradingStatus = firm.TradingStatus;
+                    thisResp.Time = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+
+                    DoSend<FirmsCreditLimitRecord>(socket, thisResp);
+                }
+
+                //double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
+
+                //FirmsListResponse thisResp = new FirmsListResponse();
+                //thisResp.Firms = FirmListResp.Firms;
+                //thisResp.SettlementAgentId = "DefaultSettlAgent";
+                //thisResp.JsonWebToken = FirmListResp.JsonWebToken;
+                //thisResp.Message = FirmListResp.Message;
+                //thisResp.Msg = FirmListResp.Msg;
+                //thisResp.PageNo = wsFirmListRq.PageNo;
+                //thisResp.TotalPages = Convert.ToInt32(totalPages) ;
+                //thisResp.Uuid = wsFirmListRq.Uuid;
+                //thisResp.Success = true;
+
+                //DoSend<FirmsListResponse>(socket, thisResp);
             }
             catch (Exception ex)
             {
