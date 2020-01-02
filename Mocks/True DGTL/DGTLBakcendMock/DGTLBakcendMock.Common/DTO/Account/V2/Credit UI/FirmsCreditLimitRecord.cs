@@ -13,11 +13,11 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string FirmId { get; set; }
 
-        public string Uuid { get; set; }
+        //public string Uuid { get; set; }
 
-        public string Name { get; set; }
+        //public string Name { get; set; }
 
-        public string ShortName { get; set; }
+        //public string ShortName { get; set; }
 
         public double AvailableCredit { get; set; }
 
@@ -29,7 +29,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public double MaxQuantity { get; set; }
 
-        public bool CurrencyRootId { get; set; }
+        //public bool CurrencyRootId { get; set; }
 
         private byte tradingStatus;
         public byte TradingStatus
@@ -40,6 +40,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         [JsonIgnore]
         public char cTradingStatus { get { return Convert.ToChar(TradingStatus); } set { TradingStatus = Convert.ToByte(value); } }
+
+        public string[] Accounts { get; set; }
 
         //public ClientFirmRecord Firm { get; set; }
 

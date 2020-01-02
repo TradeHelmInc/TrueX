@@ -1,0 +1,290 @@
+2020-01-02 19:14:39  :: Initializing Mock Server...
+2020-01-02 19:14:39  :: Initializing all collections...
+2020-01-02 19:14:40  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-01-02 19:14:41  :: Collections Initialized...
+2020-01-02 19:15:18  :: Connecting for the first time to client 18786
+2020-01-02 19:15:18  :: Connected for the first time to client 18786
+2020-01-02 19:15:37  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-01-02 19:15:37  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-01-02 19:15:37  :: Sending ClientLoginResponse with UUID 04c8c7f9-8b33-4bec-a7f8-e3dc8570f90b
+2020-01-02 19:15:37  :: Sending Instrument Batch 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientInstrumentState 
+2020-01-02 19:15:37  :: Sending ClientUserRecord
+2020-01-02 19:15:37  :: Sending ClientMarketStateBatch
+2020-01-02 19:15:37  :: Sending ClientAccountRecordBatch 
+2020-01-02 19:15:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:40  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:15:40  :: Process FirmsListReqest Error: Referencia a objeto no establecida como instancia de un objeto. 
+2020-01-02 19:15:43  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:15:43  :: Process FirmsListReqest Error: Referencia a objeto no establecida como instancia de un objeto. 
+2020-01-02 19:15:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:49  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:15:49  :: Process FirmsListReqest Error: Referencia a objeto no establecida como instancia de un objeto. 
+2020-01-02 19:15:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:15:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:12  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:16:25  :: Process FirmsListReqest Error: Referencia a objeto no establecida como instancia de un objeto. 
+2020-01-02 19:16:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:30  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:16:30  :: Process FirmsListReqest Error: Referencia a objeto no establecida como instancia de un objeto. 
+2020-01-02 19:16:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:16:37  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:21:19  :: Initializing Mock Server...
+2020-01-02 19:21:19  :: Initializing all collections...
+2020-01-02 19:21:19  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-01-02 19:21:20  :: Collections Initialized...
+2020-01-02 19:22:47  :: Connecting for the first time to client 18905
+2020-01-02 19:22:47  :: Connected for the first time to client 18905
+2020-01-02 19:22:52  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-01-02 19:22:52  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-01-02 19:22:52  :: Sending ClientLoginResponse with UUID 16fa3833-d209-4480-9676-c07603c4af0b
+2020-01-02 19:22:52  :: Sending Instrument Batch 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientInstrumentState 
+2020-01-02 19:22:52  :: Sending ClientUserRecord
+2020-01-02 19:22:52  :: Sending ClientMarketStateBatch
+2020-01-02 19:22:52  :: Sending ClientAccountRecordBatch 
+2020-01-02 19:22:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:22:57  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:22:57  :: Process FirmsListReqest: 9 firms loaded
+2020-01-02 19:22:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:23:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:24:28  :: Initializing Mock Server...
+2020-01-02 19:24:28  :: Initializing all collections...
+2020-01-02 19:24:29  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-01-02 19:24:29  :: Collections Initialized...
+2020-01-02 19:24:38  :: Connecting for the first time to client 18953
+2020-01-02 19:24:38  :: Connected for the first time to client 18953
+2020-01-02 19:24:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-01-02 19:24:44  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-01-02 19:24:44  :: Sending ClientLoginResponse with UUID aa61a686-6c20-4903-bbf9-1abf50cece24
+2020-01-02 19:24:44  :: Sending Instrument Batch 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientInstrumentState 
+2020-01-02 19:24:45  :: Sending ClientUserRecord
+2020-01-02 19:24:45  :: Sending ClientMarketStateBatch
+2020-01-02 19:24:45  :: Sending ClientAccountRecordBatch 
+2020-01-02 19:24:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:24:49  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:24:49  :: Process FirmsListReqest: 9 firms loaded
+2020-01-02 19:24:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:24:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:24:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:25:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:26:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:27:25  :: Initializing Mock Server...
+2020-01-02 19:27:25  :: Initializing all collections...
+2020-01-02 19:27:26  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-01-02 19:27:27  :: Collections Initialized...
+2020-01-02 19:27:34  :: Connecting for the first time to client 18983
+2020-01-02 19:27:34  :: Connected for the first time to client 18983
+2020-01-02 19:27:44  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-01-02 19:27:44  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-01-02 19:27:44  :: Sending ClientLoginResponse with UUID e0a50c7d-f914-4002-aa22-65857da49880
+2020-01-02 19:27:44  :: Sending Instrument Batch 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientInstrumentState 
+2020-01-02 19:27:44  :: Sending ClientUserRecord
+2020-01-02 19:27:44  :: Sending ClientMarketStateBatch
+2020-01-02 19:27:44  :: Sending ClientAccountRecordBatch 
+2020-01-02 19:27:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:27:50  :: Turning threads off on socket disconnection
+2020-01-02 19:28:47  :: Initializing Mock Server...
+2020-01-02 19:28:47  :: Initializing all collections...
+2020-01-02 19:28:48  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-01-02 19:28:48  :: Collections Initialized...
+2020-01-02 19:28:55  :: Connecting for the first time to client 19003
+2020-01-02 19:28:55  :: Connected for the first time to client 19003
+2020-01-02 19:29:00  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-01-02 19:29:00  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-01-02 19:29:00  :: Sending ClientLoginResponse with UUID 58111dd2-030f-4a0c-87f7-a3d25cd87870
+2020-01-02 19:29:00  :: Sending Instrument Batch 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientInstrumentState 
+2020-01-02 19:29:00  :: Sending ClientUserRecord
+2020-01-02 19:29:00  :: Sending ClientMarketStateBatch
+2020-01-02 19:29:00  :: Sending ClientAccountRecordBatch 
+2020-01-02 19:29:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:05  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-01-02 19:29:05  :: Process FirmsListReqest: 9 firms loaded
+2020-01-02 19:29:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:36  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-01-02 19:29:36  :: Looking form Firm with Id 548346916 to update its credit limit
+2020-01-02 19:29:36  :: Firm 548346916 found. Updating its credit limit
+2020-01-02 19:29:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:29:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:30:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:30:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:30:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-01-02 19:30:09  :: Turning threads off on socket disconnection
+2020-01-02 19:30:12  :: Turning threads off on socket disconnection
+2020-01-02 19:30:15  :: Turning threads off on socket disconnection
+2020-01-02 19:30:18  :: Turning threads off on socket disconnection
+2020-01-02 19:30:21  :: Turning threads off on socket disconnection
+2020-01-02 19:30:24  :: Turning threads off on socket disconnection
+2020-01-02 19:30:27  :: Turning threads off on socket disconnection
+2020-01-02 19:30:30  :: Turning threads off on socket disconnection
+2020-01-02 19:30:33  :: Turning threads off on socket disconnection
+2020-01-02 19:30:36  :: Turning threads off on socket disconnection
+2020-01-02 19:30:39  :: Turning threads off on socket disconnection
+2020-01-02 19:30:42  :: Turning threads off on socket disconnection
+2020-01-02 19:30:45  :: Turning threads off on socket disconnection
+2020-01-02 19:30:48  :: Turning threads off on socket disconnection
+2020-01-02 19:30:51  :: Turning threads off on socket disconnection
+2020-01-02 19:30:54  :: Turning threads off on socket disconnection
+2020-01-02 19:30:57  :: Turning threads off on socket disconnection
+2020-01-02 19:31:00  :: Turning threads off on socket disconnection
+2020-01-02 19:31:03  :: Turning threads off on socket disconnection
+2020-01-02 19:31:06  :: Turning threads off on socket disconnection
+2020-01-02 19:31:09  :: Turning threads off on socket disconnection
+2020-01-02 19:31:12  :: Turning threads off on socket disconnection
+2020-01-02 19:31:15  :: Turning threads off on socket disconnection
+2020-01-02 19:31:18  :: Turning threads off on socket disconnection
+2020-01-02 19:31:21  :: Turning threads off on socket disconnection
+2020-01-02 19:31:24  :: Turning threads off on socket disconnection

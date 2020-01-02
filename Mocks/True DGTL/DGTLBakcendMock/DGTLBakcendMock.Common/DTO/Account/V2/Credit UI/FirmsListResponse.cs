@@ -11,7 +11,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
     {
         #region Public Attributes
 
-        public string JsonWebToken { get; set; }
+        //public string JsonWebToken { get; set; }
 
         public string SettlementAgentId { get; set; }
 
@@ -19,13 +19,15 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public int PageNo { get; set; }
 
-        public int TotalPages { get; set; }
+        public int PageRecords { get; set; }
 
         public bool Success { get; set; }
    
-        public string Message { get; set; }
+        public string Msg { get; set; }
 
-        public ClientFirmRecord[] Firms { get; set; }
+        //public ClientFirmRecord[] Firms { get; set; }
+
+        public FirmsCreditLimitRecord[] Firms { get; set; }
 
         public long Time { get; set; }
 
