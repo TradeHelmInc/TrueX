@@ -10,6 +10,10 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.Blotters
     {
         public string Msg { get; set; }
 
+        //public bool Success { get; set; }
+
+        //public string Uuid { get; set; }
+
         public LegacyTradeBlotter[] data { get; set; }  
     }
 }

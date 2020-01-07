@@ -75,13 +75,15 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
                 if (recordtype == "O")//RecordType O --> Orders
                 {
                     ClientOrderRecord[] allOrders = OnGetAllOrders(from,to);
+                    GetOrdersBlotterResponse ordersResp = new GetOrdersBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetOrdersBlotterResponse", data = allOrders };
                     HttpResponseMessage resp =  Request.CreateResponse(HttpStatusCode.OK);
-                    resp.Content = new StringContent(JsonConvert.SerializeObject(allOrders), Encoding.UTF8, "application/json");
+                    resp.Content = new StringContent(JsonConvert.SerializeObject(ordersResp), Encoding.UTF8, "application/json");
                     return resp;
                 }
                 else if (recordtype == "T") //RecordType T --> Executions
                 {
                     ClientTradeRecord[] allTrades = OnGetAllTrades(from, to);
+                    GetExecutionsBlotterResponse execResp = new GetExecutionsBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetExecutionsBlotterResponse", data = allTrades };
                     HttpResponseMessage resp = Request.CreateResponse(HttpStatusCode.OK);
                     resp.Content = new StringContent(JsonConvert.SerializeObject(allTrades), Encoding.UTF8, "application/json");
                     return resp;

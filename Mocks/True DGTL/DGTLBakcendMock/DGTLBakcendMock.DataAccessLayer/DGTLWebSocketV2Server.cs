@@ -671,10 +671,13 @@ namespace DGTLBackendMock.DataAccessLayer
                 OyMsg.UpdateTime = Convert.ToInt64(elaped.TotalMilliseconds);
                 OyMsg.UserId = ordReq.UserId;
 
+                DoLog(string.Format("brkpnt Creating new order in Orders collection for OrderId = {0}", OyMsg.OrderId), MessageType.Information);
+
+
                 TranslateAndSendOldLegacyOrderRecord(socket, UUID, OyMsg);
                 TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, UUID, OyMsg);
 
-                DoLog(string.Format("Creating new order in Orders collection for ClOrderId = {0}", OyMsg.ClientOrderId), MessageType.Information);
+                DoLog(string.Format("Creating new order in Orders collection for OrderId = {0}", OyMsg.OrderId), MessageType.Information);
                 Orders.Add(OyMsg);
 
                 RefreshOpenOrders(socket, OyMsg.UserId,UUID);
@@ -1600,7 +1603,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
 
                     FirmsCreditLimitRecord firmResp = new FirmsCreditLimitRecord();
-                    firmResp.Msg = "FirmsCreditLimitRecord";
+                    firmResp.Msg = "FirmCreditRecord ";
                     //firmResp.Uuid = wsFirmListRq.Uuid;
                     firmResp.FirmId = firm.FirmId.ToString();
                     //firmResp.Name = firm.Name;
@@ -1625,7 +1628,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 FirmsListResponse thisResp = new FirmsListResponse();
                 thisResp.Firms = firmsCreditLimitRecord.ToArray();
                 thisResp.SettlementAgentId = "DefaultSettlAgent";
-                thisResp.Msg = "FirmsCreditLimitRecord";
+                thisResp.Msg = "FirmsListResponse";
                 thisResp.PageNo = 0;
                 thisResp.PageRecords = 1;
                 thisResp.Uuid = wsFirmListRq.Uuid;
@@ -2130,15 +2133,21 @@ namespace DGTLBackendMock.DataAccessLayer
           
             try
             {
-                return GUIDToLongConverter.GUIDToLong(orderId);
+                
+                Guid guidId = new Guid(orderId);
+                long fromGuid = GUIDToLongConverter.GUIDToLong(guidId.ToString());
+                DoLog(string.Format("brkpnt Converting from OrderId {0} to Long {1}", orderId, fromGuid), MessageType.Information);
+                return fromGuid;
 
             }
             catch (Exception ex)
             {
                 try
                 {
-
-                    return Convert.ToInt64(orderId);
+                    DoLog(string.Format("brkpnt Converting from OrderId {0} as Int 64", orderId), MessageType.Information);
+                    long longOrderId = Convert.ToInt64(orderId);
+                    DoLog(string.Format("brkpnt  OrderId {0} converted to Int 64", longOrderId), MessageType.Information);
+                    return longOrderId;
                 }
                 catch (Exception ex2)
                 {
@@ -2255,14 +2264,11 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     
 
-                    DoLog(string.Format("Searching order by OrderId={0} )", ordCxlReq.OrderId), MessageType.Information);
+                    DoLog(string.Format("Searching order by OrderId={0}", ordCxlReq.OrderId), MessageType.Information);
                     
                     //TKT 1183
-                    LegacyOrderRecord order = Orders.Where(x => x.OrderId == ordCxlReq.OrderId.ToString()).FirstOrDefault();
+                    LegacyOrderRecord order = Orders.Where(x => x.OrderId.Trim() == ordCxlReq.OrderId.ToString()).FirstOrDefault();
                     //LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
-
-                    if(order==null)
-                        order = Orders.Where(x => x.OrderId == ordCxlReq.OrderId.ToString()).FirstOrDefault();
 
                     if (order != null)
                     {
@@ -2316,12 +2322,15 @@ namespace DGTLBackendMock.DataAccessLayer
                     }
                     else
                     {
+
+                        DoLog(string.Format("Last OrderId existing : {0}", Orders.OrderByDescending(x => x.UpdateTime).FirstOrDefault().OrderId), MessageType.Information);
+
                         //1-Rejecting cancelation because client orderId not found
                         ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
                         //ack.ClientOrderId = ordCxlReq.ClientOrderId;
                         ack.OrderId = ordCxlReq.OrderId;
                         ack.FirmId = ordCxlReq.FirmId;
-                        ack.Message = string.Format("Rejecting cancelation because client orderId {0} not found", ordCxlReq.OrderId);
+                        ack.Message = string.Format("Rejecting cancelation because orderId {0} not found", ordCxlReq.OrderId);
                         ack.Msg = "ClientOrderCancelResponse";
                         ack.OrderId = 0;
                         ack.Success = false;
@@ -2329,7 +2338,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.UserId = ordCxlReq.UserId;
                         ack.Uuid = ordCxlReq.Uuid;
 
-                        DoLog(string.Format("Rejecting cancelation because client orderId not found: {0}", ordCxlReq.OrderId), MessageType.Information);
+                        DoLog(string.Format("Rejecting cancelation because orderId not found: {0}", ordCxlReq.OrderId), MessageType.Information);
                         DoSend<ClientOrderCancelResponse>(socket, ack);
                         //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
                     }
@@ -2337,7 +2346,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                //1-Rejecting cancelation because client orderId not found
+                //1-Rejecting cancelation because  orderId not found
                 ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
                 //ack.ClientOrderId = ordCxlReq.ClientOrderId;
                 ack.OrderId = ordCxlReq.OrderId;
@@ -2806,12 +2815,12 @@ namespace DGTLBackendMock.DataAccessLayer
             Subscribe subscrMsg = (Subscribe)paramArray[1];
             ClientInstrument instr = (ClientInstrument)paramArray[2];
             bool subscResp = false;
-            DoLog(string.Format("chkpnt @QuoteThread"), MessageType.Information);
+            //DoLog(string.Format("chkpnt @QuoteThread"), MessageType.Information);
             try
             {
                 while (true)
                 {
-                    DoLog(string.Format("chkpnt @QuoteThread2"), MessageType.Information);
+                    //DoLog(string.Format("chkpnt @QuoteThread2"), MessageType.Information);
                     Quote legacyLastQuote  = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
 
                     if (legacyLastQuote != null)
@@ -2821,10 +2830,10 @@ namespace DGTLBackendMock.DataAccessLayer
                         TranslateAndSendOldQuote(socket, subscrMsg.Uuid, legacyLastQuote, instr);
                         Thread.Sleep(3000);//3 seconds
                     }
-                    DoLog(string.Format("chkpnt @QuoteThread3"), MessageType.Information);
+                    //DoLog(string.Format("chkpnt @QuoteThread3"), MessageType.Information);
                     if (!subscResp)
                     {
-                        DoLog(string.Format("chkpnt @QuoteThread4"), MessageType.Information);
+                        //DoLog(string.Format("chkpnt @QuoteThread4"), MessageType.Information);
                         ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid);
                         Thread.Sleep(2000);
                         subscResp = true;
@@ -2919,7 +2928,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     try
                     {
-                        DoLog(string.Format("chkpnt @ProcessQuote"),MessageType.Information);
+                        //DoLog(string.Format("chkpnt @ProcessQuote"),MessageType.Information);
                         ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
                         Thread ProcessQuoteThread = new Thread(QuoteThread);
                         ProcessQuoteThread.Start(new object[] { socket, subscrMsg, instr });

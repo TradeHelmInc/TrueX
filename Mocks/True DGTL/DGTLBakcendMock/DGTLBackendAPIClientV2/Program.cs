@@ -71,7 +71,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("EmailNotificationsDeleteRequest <SettlementFirmId> <email>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("RouteOrderBulk <Count>");
-            Console.WriteLine("CancelLastCreatedOrder");
+            Console.WriteLine("CancelOrder <OrderId>");
             Console.WriteLine("MassCancelRequest");
             Console.WriteLine("ResetPassword <OldPwd> <NewPwd>");
             Console.WriteLine("MassiveCancel");
@@ -213,9 +213,9 @@ namespace DGTLBackendAPIClientV2
             {
                 ProcessRouteOrderBulk(param);
             }
-            else if (mainCmd == "CancelLastCreatedOrder")
+            else if (mainCmd == "CancelOrder")
             {
-                ProcessCancelLastCreatedOrderparam(param);
+                ProcessCancelOrder(param);
             }
             else if (mainCmd == "MassCancelRequest")
             {
@@ -468,7 +468,7 @@ namespace DGTLBackendAPIClientV2
             DoSend<ClientMassCancelReq>(cxlMassReq);
         }
 
-        private static void ProcessCancelLastCreatedOrderparam(string[] param)
+        private static void ProcessCancelOrder(string[] param)
         {
             if (Token == null)
             {
@@ -476,23 +476,18 @@ namespace DGTLBackendAPIClientV2
                 return;
             }
 
-            if (LastOrderCreated != null)
+            ClientOrderCancelReq cxlReq = new ClientOrderCancelReq()
             {
-                ClientOrderCancelReq cxlReq = new ClientOrderCancelReq()
-                {
-                    Uuid = UUID,
-                    CancelReason = "Cancelled from test client",
-                    ClientOrderId = LastOrderCreated.ClientOrderId,
-                    FirmId = LastOrderCreated.FirmId,
-                    Msg = "ClientOrderCancelReq",
-                    OrderId = 0,
-                    UserId = UserId,
-                };
+                Uuid = UUID,
+                CancelReason = "Cancelled from test client",
+                //ClientOrderId = LastOrderCreated.ClientOrderId,
+                FirmId = LastOrderCreated.FirmId,
+                Msg = "ClientOrderCancelReq",
+                OrderId = Convert.ToInt64(param[1]),
+                UserId = UserId,
+            };
 
-                DoSend<ClientOrderCancelReq>(cxlReq);
-            }
-            else
-                DoLog(string.Format("Last Order Created Missing"));
+            DoSend<ClientOrderCancelReq>(cxlReq);
 
         }
 
