@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string UUID { get; set; }
 
-        public byte ExchangeId { get; set; }
+        public string ExchangeId { get; set; }
 
         public string ClientOrderId { get; set; }
 

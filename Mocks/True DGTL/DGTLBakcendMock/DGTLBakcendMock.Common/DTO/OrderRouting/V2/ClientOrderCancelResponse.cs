@@ -18,7 +18,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string UserId { get; set; }
 
-        public long OrderId { get; set; }
+        public string OrderId { get; set; }
 
         public string ClientOrderId { get; set; }
 
@@ -26,7 +26,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string Message { get; set; }
 
-        public long TimeStamp { get; set; }
+        public string TimeStamp { get; set; }
 
         #endregion
     }

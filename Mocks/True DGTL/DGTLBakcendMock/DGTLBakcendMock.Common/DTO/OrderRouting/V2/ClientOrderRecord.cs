@@ -34,11 +34,11 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public string Symbol { get; set; }
 
-         public long OrderId { get; set; }
+         public string OrderId { get; set; }
 
          public string ClientOrderId { get; set; }
 
-         public long InstrumentId { get; set; }
+         public string InstrumentId { get; set; }
 
          private byte side;
          public byte Side
@@ -75,9 +75,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
          [JsonIgnore]
          public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
-         public long CreateTimeStamp { get; set; }
+         public string CreateTimeStamp { get; set; }
 
-         public long TimeStamp { get; set; }
+         public string TimeStamp { get; set; }
 
 
          public string Message { get; set; }

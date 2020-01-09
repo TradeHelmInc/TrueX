@@ -223,7 +223,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //Msg = "OrderCount",
                     Msg = "ClientOrderCount",
                     UserId=userId,
-                    TimeStamp=Convert.ToInt64(elaped.TotalMilliseconds),
+                    TimeStamp=Convert.ToInt64(elaped.TotalMilliseconds).ToString(),
                     Uuid=UUID,
                     Count=openOrdersCount
                 };
@@ -287,7 +287,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     UserId=userId,
                     ExecId=trade.TradeId,
                     Uuid=UUID,
-                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
                     
                     
 
@@ -417,7 +417,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ClientInstrumentState state = new ClientInstrumentState();
                     state.Msg = "ClientInstrumentState";
                     state.cState = GetStateOnSymbol(instr);
-                    state.ExchangeId = 0;
+                    state.ExchangeId = "0";
                     state.InstrumentId = instr.InstrumentId;
                     state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
                     state.TriggerPrice = newTrade.TradePrice;
@@ -429,7 +429,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {//we halt the MARKET
 
                     ClientMarketState marketStateMsg = new ClientMarketState();
-                    marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+                    marketStateMsg.ExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
                     marketStateMsg.cReasonCode = '0';
                     marketStateMsg.cState = ClientMarketState._MARKET_CLOSED;
                     marketStateMsg.Msg = "ClientMarketState";
@@ -442,7 +442,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {//we halt the MARKET
 
                     ClientMarketState marketStateMsg = new ClientMarketState();
-                    marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+                    marketStateMsg.ExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
                     marketStateMsg.cReasonCode = '0';
                     marketStateMsg.cState = ClientMarketState._SYSTEM_CLOSED;
                     marketStateMsg.Msg = "ClientMarketState";
@@ -648,7 +648,7 @@ namespace DGTLBackendMock.DataAccessLayer
             //DoSend<DepthOfBook>(socket, newPriceLevel);
         }
 
-        private void EvalNewOrder(IWebSocketConnection socket, ClientOrderReq ordReq,long orderId, char cStatus, double fillQty, ClientInstrument instr, string UUID)
+        private void EvalNewOrder(IWebSocketConnection socket, ClientOrderReq ordReq,string orderId, char cStatus, double fillQty, ClientInstrument instr, string UUID)
         {
             lock (Orders)
             {
@@ -968,9 +968,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     InstrumentId = clientOrderReq.InstrumentId,
                     Message = string.Format("Invalid Order for security id {0}", clientOrderReq.InstrumentId),
                     Success = false,
-                    OrderId = 0,
+                    OrderId = "0",
                     UserId = clientOrderReq.UserId,
-                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
                     Uuid = clientOrderReq.Uuid
                 };
                 DoLog(string.Format("Sending ClientOrderResponse rejected ..."), MessageType.Information);
@@ -1703,8 +1703,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientInstrumentState state = new ClientInstrumentState();
                 state.Msg = "ClientInstrumentState";
                 state.cState = ClientInstrumentState._STATE_OPEN;
-                state.ExchangeId = 0;
-                state.InstrumentId = security.InstrumentId;
+                state.ExchangeId = "0";
+                state.InstrumentId = security.InstrumentId.ToString();
                 state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
                 state.TriggerPrice = null;
 
@@ -1726,13 +1726,13 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 ClientInstrument instrumentMsg = new ClientInstrument();
                 instrumentMsg.Msg = "ClientInstrument";
-                instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-                instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                instrumentMsg.CreatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds).ToString();
+                instrumentMsg.UpdatedAt = Convert.ToInt64(epochElapsed.TotalMilliseconds).ToString();
                 instrumentMsg.LastUpdatedBy = "";
-                instrumentMsg.ExchangeId = 0;
+                instrumentMsg.ExchangeId = "0";
                 instrumentMsg.Description = security.Description;
                 instrumentMsg.InstrumentDate = !string.IsNullOrEmpty(security.MaturityDate) ? Convert.ToInt32(security.MaturityDate) : 0;
-                instrumentMsg.InstrumentId = i;
+                instrumentMsg.InstrumentId = i.ToString();
                 instrumentMsg.InstrumentName = security.Symbol;
                 instrumentMsg.LastUpdatedBy = "fernandom";
                 instrumentMsg.LotSize = Config.SendLotSize ? (decimal?) security.LotSize : null ;
@@ -1820,7 +1820,7 @@ namespace DGTLBackendMock.DataAccessLayer
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
             ClientMarketState marketStateMsg = new ClientMarketState();
-            marketStateMsg.cExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
+            marketStateMsg.ExchangeId = ClientMarketState._DEFAULT_EXCHANGE_ID;
             marketStateMsg.cReasonCode = '0';
             marketStateMsg.cState = ClientMarketState.TranslateV1StatesToV2States(PlatformStatus.cState);
             //marketStateMsg.Msg = "ClientMarketState";
@@ -1860,8 +1860,8 @@ namespace DGTLBackendMock.DataAccessLayer
             v2AccountRecordMsg.Currency = "";
             v2AccountRecordMsg.IsSuspense = false;
             v2AccountRecordMsg.UsDomicile = true;
-            v2AccountRecordMsg.UpdatedAt = 0;
-            v2AccountRecordMsg.CreatedAt = 0;
+            v2AccountRecordMsg.UpdatedAt = "0";
+            v2AccountRecordMsg.CreatedAt = "0";
             v2AccountRecordMsg.LastUpdatedBy = "";
             v2AccountRecordMsg.WalletAddress = "";
             v2AccountRecordMsg.Default = accountRecord.Default;
@@ -2128,33 +2128,33 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        protected long ProcessOrderIdToLong(string orderId)
-        {
+        //protected long ProcessOrderIdToLong(string orderId)
+        //{
           
-            try
-            {
+        //    try
+        //    {
                 
-                Guid guidId = new Guid(orderId);
-                long fromGuid = GUIDToLongConverter.GUIDToLong(guidId.ToString());
-                DoLog(string.Format("brkpnt Converting from OrderId {0} to Long {1}", orderId, fromGuid), MessageType.Information);
-                return fromGuid;
+        //        Guid guidId = new Guid(orderId);
+        //        long fromGuid = GUIDToLongConverter.GUIDToLong(guidId.ToString());
+        //        DoLog(string.Format("brkpnt Converting from OrderId {0} to Long {1}", orderId, fromGuid), MessageType.Information);
+        //        return fromGuid;
 
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    DoLog(string.Format("brkpnt Converting from OrderId {0} as Int 64", orderId), MessageType.Information);
-                    long longOrderId = Convert.ToInt64(orderId);
-                    DoLog(string.Format("brkpnt  OrderId {0} converted to Int 64", longOrderId), MessageType.Information);
-                    return longOrderId;
-                }
-                catch (Exception ex2)
-                {
-                    throw new Exception(string.Format("Invalid Order Id :{0}", orderId));
-                }
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        try
+        //        {
+        //            DoLog(string.Format("brkpnt Converting from OrderId {0} as Int 64", orderId), MessageType.Information);
+        //            long longOrderId = Convert.ToInt64(orderId);
+        //            DoLog(string.Format("brkpnt  OrderId {0} converted to Int 64", longOrderId), MessageType.Information);
+        //            return longOrderId;
+        //        }
+        //        catch (Exception ex2)
+        //        {
+        //            throw new Exception(string.Format("Invalid Order Id :{0}", orderId));
+        //        }
+        //    }
+        //}
 
         private void ProcessFakeCancellationRejection(IWebSocketConnection socket, ClientOrderCancelReq ordCxlReq, ClientInstrument instr)
         {
@@ -2168,9 +2168,9 @@ namespace DGTLBackendMock.DataAccessLayer
             ack.FirmId = ordCxlReq.FirmId;
             ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.OrderId);
             ack.Msg = "ClientOrderCancelResponse";
-            ack.OrderId = 0;
+            ack.OrderId = "0";
             ack.Success = false;
-            ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+            ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
             ack.UserId = ordCxlReq.UserId;
             ack.Uuid = ordCxlReq.Uuid;
 
@@ -2195,9 +2195,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.FirmId = Convert.ToInt64(LoggedFirmId);
                         ack.Message = "Just cancelled @ mock v2 after mass cancellation";
                         ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = ProcessOrderIdToLong(order.OrderId);
+                        ack.OrderId = order.OrderId;
                         ack.Success = true;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
                         ack.UserId = clientMassCxlReq.UserId;
                         ack.Uuid = clientMassCxlReq.Uuid;
 
@@ -2289,9 +2289,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.FirmId = ordCxlReq.FirmId;
                         ack.Message = "Just cancelled @ mock v2";
                         ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = ProcessOrderIdToLong(order.OrderId);
+                        ack.OrderId = order.OrderId;
                         ack.Success = true;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
                         ack.UserId = ordCxlReq.UserId;
                         ack.Uuid = ordCxlReq.Uuid;
 
@@ -2332,9 +2332,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         ack.FirmId = ordCxlReq.FirmId;
                         ack.Message = string.Format("Rejecting cancelation because orderId {0} not found", ordCxlReq.OrderId);
                         ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = 0;
+                        ack.OrderId = "0";
                         ack.Success = false;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
                         ack.UserId = ordCxlReq.UserId;
                         ack.Uuid = ordCxlReq.Uuid;
 
@@ -2353,9 +2353,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 ack.FirmId = ordCxlReq.FirmId;
                 ack.Message = string.Format("Rejecting cancelation because of an error: {0}", ex.Message);
                 ack.Msg = "ClientOrderCancelResponse";
-                ack.OrderId = 0;
+                ack.OrderId = "0";
                 ack.Success = false;
-                ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds);
+                ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
                 ack.UserId = ordCxlReq.UserId;
                 ack.Uuid = ordCxlReq.Uuid;
                 DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
@@ -2384,9 +2384,9 @@ namespace DGTLBackendMock.DataAccessLayer
                             InstrumentId = clientOrderReq.InstrumentId,
                             Message = null,
                             Success = true,
-                            OrderId = GUIDToLongConverter.GUIDToLong(Guid.NewGuid().ToString()),
+                            OrderId = Guid.NewGuid().ToString(),
                             UserId=clientOrderReq.UserId,
-                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
                             Uuid = clientOrderReq.Uuid
                         };
                         DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
@@ -2418,7 +2418,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         #region Private Static Consts
 
-        private static int _REJECTED_SECURITY_ID = 1;
+        private static string _REJECTED_SECURITY_ID = "1";
 
         #endregion
 
@@ -2430,7 +2430,7 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
 
-        protected ClientInstrument GetInstrumentByIntInstrumentId(long instrumentId)
+        protected ClientInstrument GetInstrumentByIntInstrumentId(string instrumentId)
         {
 
             ClientInstrument instr = InstrBatch.messages.Where(x => x.InstrumentId == instrumentId).FirstOrDefault();
@@ -2443,17 +2443,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (InstrBatch == null)
                 throw new Exception("Initial load for instrument not finished!");
 
-            long filterIntrId=0;
-            try
-            {
-                filterIntrId = Convert.ToInt64(serviceKey);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(string.Format("Wrong format for instrumentId (serviceKey): {}. The instrumentId has to be an integer",serviceKey));
-            }
-
-            return GetInstrumentByIntInstrumentId(filterIntrId);
+            return GetInstrumentByIntInstrumentId(serviceKey);
         }
 
         protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, string UUID, bool success = true, string msg = "success")
@@ -2555,8 +2545,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 LastPrice = legacyTradeHistory.TradePrice,
                 LastSize = legacyTradeHistory.TradeQuantity,
                 cMySide = legacyTradeHistory.cMySide,
-                TimeStamp = legacyTradeHistory.TradeTimeStamp,
-                TradeId = GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
+                TimeStamp = legacyTradeHistory.TradeTimeStamp.ToString(),
+                TradeId = legacyTradeHistory.TradeId,
                 Uuid = UUID
             };
 
@@ -2571,8 +2561,8 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 Msg = "ClientTradeRecord",
                 ClientOrderId = null,
-                TradeId = GUIDToLongConverter.GUIDToLong(legacyTradeHistory.TradeId),
-                CreateTimeStamp = legacyTradeHistory.TradeTimeStamp,
+                TradeId = legacyTradeHistory.TradeId,
+                CreateTimeStamp = legacyTradeHistory.TradeTimeStamp.ToString(),
                 cSide = legacyTradeHistory.cMySide,
                 cStatus = ClientTradeRecord._STATUS_OPEN,
                 ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
@@ -2580,8 +2570,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 Symbol = instr.InstrumentName,
                 InstrumentId = instr.InstrumentId,
                 Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
-                OrderId = 0,
-                TimeStamp = legacyTradeHistory.TradeTimeStamp,
+                OrderId = "0",
+                TimeStamp = legacyTradeHistory.TradeTimeStamp.ToString(),
                 TradePrice = legacyTradeHistory.TradePrice,
                 TradeQty = legacyTradeHistory.TradeQuantity,
                 UserId = LoggedUserId,
@@ -2620,12 +2610,12 @@ namespace DGTLBackendMock.DataAccessLayer
         protected ClientMyOrders TranslateOldLegacyOrderRecordToMyOrders(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
+            
             ClientMyOrders order = new ClientMyOrders()
             {
                 Msg = "ClientMyOrders",
                 Uuid=UUID,
-                OrderId = finalOrderId,
+                OrderId = legacyOrderRecord.OrderId,
                 InstrumentId = instr.InstrumentId,
                 Price = legacyOrderRecord.Price,
                 Quantity = legacyOrderRecord.OrdQty,
@@ -2633,7 +2623,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 LeavesQty = legacyOrderRecord.LvsQty,
                 CumQty = legacyOrderRecord.FillQty,
                 cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
-                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
             };
 
             return order;
@@ -2642,7 +2632,6 @@ namespace DGTLBackendMock.DataAccessLayer
         protected ClientOrderRecord TranslateOldLegacyOrderRecord(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            long finalOrderId = ProcessOrderIdToLong(legacyOrderRecord.OrderId);
             ClientOrderRecord order = new ClientOrderRecord()
             {
                 Msg = "ClientOrderRecord",
@@ -2650,7 +2639,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Symbol=instr.InstrumentName,
                 AveragePrice = legacyOrderRecord.Price,
                 ClientOrderId = legacyOrderRecord.ClientOrderId,
-                CreateTimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+                CreateTimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 cSide = legacyOrderRecord.cSide,
                 cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
                 CumQty = legacyOrderRecord.FillQty,
@@ -2661,10 +2650,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 LeavesQty = legacyOrderRecord.LvsQty,
                 Message = "",
                 Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
-                OrderId = finalOrderId,
+                OrderId = legacyOrderRecord.OrderId,
                 Price = legacyOrderRecord.Price,
                 Quantity = legacyOrderRecord.OrdQty,
-                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds) : legacyOrderRecord.UpdateTime,
+                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 Uuid = UUID
             };
 
@@ -3156,8 +3145,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             try
             {
-                long instrumentId = Convert.ToInt32(subscrMsg.ServiceKey);
-                ClientInstrument instr = GetInstrumentByIntInstrumentId(instrumentId);
+                ClientInstrument instr = GetInstrumentByIntInstrumentId(subscrMsg.ServiceKey);
                 DailySettlementPrice v1SettlPrice = DailySettlementPrices.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
                 if(v1SettlPrice!=null)
                     TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);

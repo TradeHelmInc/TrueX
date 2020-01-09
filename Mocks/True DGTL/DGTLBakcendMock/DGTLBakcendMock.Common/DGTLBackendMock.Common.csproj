@@ -113,6 +113,8 @@
     <Compile Include="DTO\OrderRouting\LegacyOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\OpenOrdersCount.cs" />
     <Compile Include="DTO\OrderRouting\TradeNotification.cs" />
+    <Compile Include="DTO\OrderRouting\V2\Blotters\GetExecutionsBlotterResponse.cs" />
+    <Compile Include="DTO\OrderRouting\V2\Blotters\GetOrdersBlotterResponse.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientMarketActivity.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientMarketActivityBatch.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientMassCancelReq.cs" />
@@ -168,9 +170,7 @@
     <Compile Include="Wrappers\NewOrderSingleWrapper.cs" />
     <Compile Include="Wrappers\OrderCancelRequestWrapper.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\OrderRouting\V2\Blotters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Fwk\zHFT.Main.BusinessEntities\zHFT.Main.BusinessEntities.csproj">
       <Project>{97f7f85d-864c-44ed-8901-547f2f693427}</Project>

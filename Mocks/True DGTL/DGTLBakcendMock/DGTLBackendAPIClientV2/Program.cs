@@ -436,7 +436,7 @@ namespace DGTLBackendAPIClientV2
                 cTimeInForce = ClientOrderReq._TIF_DAY,
                 ClientOrderId= Guid.NewGuid().ToString(),
                 FirmId = 0,
-                InstrumentId = Convert.ToInt32(ConfigurationManager.AppSettings["OrderInstrumentId"]),
+                InstrumentId = ConfigurationManager.AppSettings["OrderInstrumentId"],
                 //JsonWebToken = Token,
                 Price = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderPrice"]),
                 Quantity = Convert.ToDecimal(ConfigurationManager.AppSettings["OrderSize"]),
@@ -483,7 +483,7 @@ namespace DGTLBackendAPIClientV2
                 //ClientOrderId = LastOrderCreated.ClientOrderId,
                 FirmId = LastOrderCreated.FirmId,
                 Msg = "ClientOrderCancelReq",
-                OrderId = Convert.ToInt64(param[1]),
+                OrderId = param[1],
                 UserId = UserId,
             };
 

@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public string Uuid { get; set; }
 
-        public long InstrumentId { get; set; }
+        public string InstrumentId { get; set; }
 
         public decimal? LastPrice { get; set; }
 

@@ -25,9 +25,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         #region Protected Attributes
 
-        public int ExchangeId { get; set; }
+        public string ExchangeId { get; set; }
 
-        public int InstrumentId { get; set; }
+        public string InstrumentId { get; set; }
 
         public string InstrumentName { get; set; }
 
@@ -51,9 +51,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public string Description { get; set; }
 
-        public long UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
-        public long CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         public string LastUpdatedBy { get; set; }
 

@@ -19,7 +19,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string Uuid { get; set; }
 
-        public long InstrumentId { get; set; }
+        public string InstrumentId { get; set; }
 
         public double LastPrice { get; set; }
 
@@ -35,9 +35,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         [JsonIgnore]
         public char? cMySide { get { return Convert.ToChar(MySide); } set { MySide = Convert.ToByte(value); } } 
 
-        public long TradeId { get; set; }
+        public string TradeId { get; set; }
 
-        public long TimeStamp { get; set; }
+        public string TimeStamp { get; set; }
 
 
         #endregion

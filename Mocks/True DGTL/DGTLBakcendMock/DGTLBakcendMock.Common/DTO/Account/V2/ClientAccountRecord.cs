@@ -58,9 +58,9 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public string Lei { get; set; }
 
-        public int UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
-        public int CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         public string LastUpdatedBy { get; set; }
 

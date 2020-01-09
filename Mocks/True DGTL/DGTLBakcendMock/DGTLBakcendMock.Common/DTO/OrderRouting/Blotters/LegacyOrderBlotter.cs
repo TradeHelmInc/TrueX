@@ -19,9 +19,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.Blotters
 
         public string ClOrderId { get; set; }
 
-        public long StartTime { get; set; }
+        public string StartTime { get; set; }
 
-        public long EndTime { get; set; }
+        public string EndTime { get; set; }
 
         public decimal ExecNotional { get; set; }
 

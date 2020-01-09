@@ -656,7 +656,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 orderBlotter.ClOrderId = order.ClientOrderId;
                 orderBlotter.cSide = order.cSide;
                 orderBlotter.cStatus = order.cStatus;
-                orderBlotter.EndTime = order.UpdateTime;
+                orderBlotter.EndTime = order.UpdateTime.ToString();
                 orderBlotter.ExecNotional = 0;
                 orderBlotter.Fees = 0;
                 orderBlotter.FillQty = order.FillQty;
@@ -668,7 +668,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 orderBlotter.OrderType = LegacyOrderRecord._ORDER_TYPE_LIMIT;
                 orderBlotter.RejectReason = order.cStatus == LegacyOrderRecord._STATUS_REJECTED ? "TEST Rej Msg" : null;
                 orderBlotter.Sender = 0;
-                orderBlotter.StartTime = order.UpdateTime;
+                orderBlotter.StartTime = order.UpdateTime.ToString();
                 orderBlotter.Symbol = order.InstrumentId;
                 orderBlotter.Time = 0;
                 ordersBlotters.Add(orderBlotter);

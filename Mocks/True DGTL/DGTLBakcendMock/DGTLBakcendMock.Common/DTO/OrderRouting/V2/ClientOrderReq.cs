@@ -25,13 +25,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         #region Public Attributes
 
-        //public string JsonWebToken { get; set; }
-
-        //public int ExchangeId { get; set; }
-
         public string Uuid { get; set; }
 
-        public int InstrumentId { get; set; }
+        public string InstrumentId { get; set; }
 
         public string UserId { get; set; }
 

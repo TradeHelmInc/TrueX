@@ -12,7 +12,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
     {
         #region Private Static Consts
 
-        public static char _DEFAULT_EXCHANGE_ID='a';
+        public static int _DEFAULT_EXCHANGE_ID = 0;
 
         public static char _MARKET_OPEN = '1';
         public static char _MARKET_CLOSED = '3';
@@ -22,20 +22,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         #region Public Attributes
 
-        private byte exchangeId;
-        public byte ExchangeId
-        {
-            get { return exchangeId; }
-            set
-            {
-                exchangeId = Convert.ToByte(value);
-
-            }
-        }
-
-        [JsonIgnore]
-        public char cExchangeId { get { return Convert.ToChar(ExchangeId); } set { ExchangeId = Convert.ToByte(value); } }
-
+        public int ExchangeId { get; set; }
 
         private byte state;
         public byte State
@@ -51,8 +38,6 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
         [JsonIgnore]
         public char cState { get { return Convert.ToChar(State); } set { State = Convert.ToByte(value); } }
         //Market State
-
-
 
         private byte reasonCode;
         public byte ReasonCode

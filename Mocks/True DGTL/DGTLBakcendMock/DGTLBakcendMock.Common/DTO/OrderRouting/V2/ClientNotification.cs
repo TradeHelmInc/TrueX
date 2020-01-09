@@ -29,7 +29,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         [JsonIgnore]
         public char cSide { get { return Convert.ToChar(Side); } set { Side = Convert.ToByte(value); } }
 
-        public long Timestamp { get; set; }
+        public string Timestamp { get; set; }
 
         #endregion
     }

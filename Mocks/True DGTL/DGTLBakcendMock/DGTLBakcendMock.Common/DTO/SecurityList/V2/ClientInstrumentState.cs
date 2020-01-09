@@ -30,9 +30,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         #region Protected Attributes
 
-        public int ExchangeId { get; set; }
+        public string ExchangeId { get; set; }
 
-        public int InstrumentId { get; set; }
+        public string InstrumentId { get; set; }
 
         private byte state;
         public byte State
