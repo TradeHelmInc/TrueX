@@ -25,6 +25,11 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public static char _REASON_CODE_3 = '3';
 
+        public static string _OLD_STATUS_ACTIVE = "84";
+        public static string _OLD_STATUS_HALTED = "H";
+        public static string _OLD_STATUS_COSED = "C";
+        public static string _OLD_STATUS_INACTIVE = "I";
+
         #endregion
 
 
@@ -64,6 +69,24 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
         public char cReasonCode { get { return Convert.ToChar(ReasonCode); } set { ReasonCode = Convert.ToByte(value); } }
 
         public double? TriggerPrice { get; set; }
+
+        #endregion
+
+        #region Public Static Methods
+
+        public static char GetSecurityStatus(string prevStatus)
+        {
+            if (prevStatus == _OLD_STATUS_ACTIVE)
+                return _STATE_OPEN;
+            else if (prevStatus == _OLD_STATUS_COSED)
+                return _STATE_CLOSE;
+            else if (prevStatus == _OLD_STATUS_HALTED)
+                return _STATE_HALT;
+            else if (prevStatus == _OLD_STATUS_INACTIVE)
+                return _STATE_INACTIVE;
+            else
+                return _STATE_UNKNOWN;
+        }
 
         #endregion
     }

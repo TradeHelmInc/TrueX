@@ -1702,7 +1702,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ClientInstrumentState state = new ClientInstrumentState();
                 state.Msg = "ClientInstrumentState";
-                state.cState = ClientInstrumentState._STATE_OPEN;
+                state.cState = ClientInstrumentState.GetSecurityStatus(security.Status);
                 state.ExchangeId = "0";
                 state.InstrumentId = security.InstrumentId.ToString();
                 state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
@@ -2636,24 +2636,30 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 Msg = "ClientOrderRecord",
                 AccountId= "testAcc",
+                Contract=instr.InstrumentName,
                 Symbol=instr.InstrumentName,
                 AveragePrice = legacyOrderRecord.Price,
-                ClientOrderId = legacyOrderRecord.ClientOrderId,
-                CreateTimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                ClientOrderId = string.IsNullOrEmpty(legacyOrderRecord.ClientOrderId) ? legacyOrderRecord.OrderId : legacyOrderRecord.ClientOrderId,
+                CreateAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                UpdatedAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                StartTime = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                Time=Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
+                Type=ClientOrderRecord._LIMIT_ORDER_TYPE,
                 cSide = legacyOrderRecord.cSide,
                 cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
                 CumQty = legacyOrderRecord.FillQty,
-                ExchageFees = 0,
-                FirmId = Convert.ToInt64(LoggedFirmId),
+                ExchangeFees = 0,
+                //Fees = 0,
+                //FirmId = Convert.ToInt64(LoggedFirmId),
                 UserId = LoggedUserId,
                 InstrumentId = instr.InstrumentId,
                 LeavesQty = legacyOrderRecord.LvsQty,
-                Message = "",
                 Notional = legacyOrderRecord.Price.HasValue ? legacyOrderRecord.Price.Value * legacyOrderRecord.OrdQty : 0,
                 OrderId = legacyOrderRecord.OrderId,
                 Price = legacyOrderRecord.Price,
+                LimitPrice = legacyOrderRecord.Price,
                 Quantity = legacyOrderRecord.OrdQty,
-                TimeStamp = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                //OrderQty = legacyOrderRecord.OrdQty,
                 Uuid = UUID
             };
 

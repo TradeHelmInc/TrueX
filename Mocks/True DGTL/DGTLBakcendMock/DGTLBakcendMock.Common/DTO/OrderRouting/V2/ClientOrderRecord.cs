@@ -20,21 +20,27 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         public static char _STATUS_FILLED = 'F';
         public static char _STATUS_EXPIRED = 'E';
 
+        public static int _LIMIT_ORDER_TYPE = 50;
+
         #endregion
 
         #region Public Attributes
 
         public string Uuid { get; set; }
 
-         public long FirmId{ get; set; }
+         //public long FirmId{ get; set; }
 
          public string UserId { get; set; }
 
          public string AccountId { get; set; }
 
+         public string Contract { get; set; }
+
          public string Symbol { get; set; }
 
          public string OrderId { get; set; }
+
+         //public string TradeId { get; set; }
 
          public string ClientOrderId { get; set; }
 
@@ -52,7 +58,11 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public double? Price { get; set; }
 
+         public double? LimitPrice { get; set; }
+
          public double Quantity { get; set; }
+
+         //public double OrderQty { get; set; }
 
          public double LeavesQty { get; set; }
 
@@ -62,8 +72,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public double? Notional{ get; set; }
 
-         public decimal? ExchageFees{ get; set; }
+         public decimal? ExchangeFees{ get; set; }
 
+         public decimal? Fees { get; set; }
 
          private byte status;
          public byte Status
@@ -75,12 +86,27 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
          [JsonIgnore]
          public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
-         public string CreateTimeStamp { get; set; }
+         //public string CreateTimeStamp { get; set; }
 
-         public string TimeStamp { get; set; }
+         //public string TimeStamp { get; set; }
 
+         //public string Message { get; set; }
 
-         public string Message { get; set; }
+         //public double? TradePrice { get; set; }
+
+         //public double? TradeQty { get; set; }
+
+         public string CreateAt { get; set; }
+
+         public string UpdatedAt { get; set; }
+
+         public string EndTime { get; set; }
+
+         public string StartTime { get; set; }
+
+         public string Time { get; set; }
+
+         public int Type { get; set; }
 
         #endregion
     }

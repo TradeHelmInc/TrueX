@@ -75,6 +75,8 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
                 if (recordtype == "O")//RecordType O --> Orders
                 {
                     ClientOrderRecord[] allOrders = OnGetAllOrders(from,to);
+                    allOrders.ToList().ForEach(x => x.Uuid = uuid);
+                    allOrders.ToList().ForEach(x => x.UserId = userid);
                     GetOrdersBlotterResponse ordersResp = new GetOrdersBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetOrdersBlotterResponse", data = allOrders };
                     HttpResponseMessage resp =  Request.CreateResponse(HttpStatusCode.OK);
                     resp.Content = new StringContent(JsonConvert.SerializeObject(ordersResp), Encoding.UTF8, "application/json");
