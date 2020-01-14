@@ -33,6 +33,12 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
 
         #region Private Static Methods
 
+        private static void ValidateDateTimes(string strFrom, string strTo)
+        {
+            if (strFrom == "2019-12-31" && strTo == "2019-12-31")
+                throw new Exception("Invalid request. Could not process dates for 2019-12-31");
+        }
+
         private static DateTime ConverDateTime(string strDate, bool isFrom)
         {
 
@@ -74,20 +80,33 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
 
                 if (recordtype == "O")//RecordType O --> Orders
                 {
+                    ValidateDateTimes(fromDate, toDate);
                     ClientOrderRecord[] allOrders = OnGetAllOrders(from,to);
                     allOrders.ToList().ForEach(x => x.Uuid = uuid);
                     allOrders.ToList().ForEach(x => x.UserId = userid);
-                    GetOrdersBlotterResponse ordersResp = new GetOrdersBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetOrdersBlotterResponse", data = allOrders };
-                    HttpResponseMessage resp =  Request.CreateResponse(HttpStatusCode.OK);
-                    resp.Content = new StringContent(JsonConvert.SerializeObject(ordersResp), Encoding.UTF8, "application/json");
+                    
+                    //GetOrdersBlotterResponse ordersResp = new GetOrdersBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetOrdersBlotterResponse", data = allOrders };
+                    //HttpResponseMessage resp =  Request.CreateResponse(HttpStatusCode.OK);
+                    //resp.Content = new StringContent(JsonConvert.SerializeObject(ordersResp), Encoding.UTF8, "application/json");
+
+
+                    HttpResponseMessage resp = Request.CreateResponse(HttpStatusCode.OK);
+                    resp.Content = new StringContent(JsonConvert.SerializeObject(allOrders), Encoding.UTF8, "application/json");
+
                     return resp;
                 }
                 else if (recordtype == "T") //RecordType T --> Executions
                 {
+                    ValidateDateTimes(fromDate, toDate);
                     ClientTradeRecord[] allTrades = OnGetAllTrades(from, to);
-                    GetExecutionsBlotterResponse execResp = new GetExecutionsBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetExecutionsBlotterResponse", data = allTrades };
+                    
+                    //GetExecutionsBlotterResponse execResp = new GetExecutionsBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetExecutionsBlotterResponse", data = allTrades };
+                    //HttpResponseMessage resp = Request.CreateResponse(HttpStatusCode.OK);
+                    //resp.Content = new StringContent(JsonConvert.SerializeObject(allTrades), Encoding.UTF8, "application/json");
+
                     HttpResponseMessage resp = Request.CreateResponse(HttpStatusCode.OK);
                     resp.Content = new StringContent(JsonConvert.SerializeObject(allTrades), Encoding.UTF8, "application/json");
+                    
                     return resp;
                 }
                 else throw new Exception(string.Format("Unknown record type {0}", recordtype));

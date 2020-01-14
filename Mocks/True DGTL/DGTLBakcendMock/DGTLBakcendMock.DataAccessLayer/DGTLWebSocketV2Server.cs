@@ -2635,16 +2635,16 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientOrderRecord order = new ClientOrderRecord()
             {
                 Msg = "ClientOrderRecord",
-                AccountId= "testAcc",
-                Contract=instr.InstrumentName,
-                Symbol=instr.InstrumentName,
+                AccountId = "testAcc",
+                Contract = instr.InstrumentName,
+                Symbol = instr.InstrumentName,
                 AveragePrice = legacyOrderRecord.Price,
                 ClientOrderId = string.IsNullOrEmpty(legacyOrderRecord.ClientOrderId) ? legacyOrderRecord.OrderId : legacyOrderRecord.ClientOrderId,
                 CreateAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 UpdatedAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 StartTime = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
-                Time=Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
-                Type=ClientOrderRecord._LIMIT_ORDER_TYPE,
+                Time = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
+                Type = ClientOrderRecord._LIMIT_ORDER_TYPE,
                 cSide = legacyOrderRecord.cSide,
                 cStatus = legacyOrderRecord.cStatus,//Both systems V1 and V2 keep the same status
                 CumQty = legacyOrderRecord.FillQty,
@@ -2660,7 +2660,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 LimitPrice = legacyOrderRecord.Price,
                 Quantity = legacyOrderRecord.OrdQty,
                 //OrderQty = legacyOrderRecord.OrdQty,
-                Uuid = UUID
+                Uuid = UUID,
+                Sender = 0
             };
 
             return order;

@@ -30,6 +30,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          //public long FirmId{ get; set; }
 
+        public int Sender { get; set; }
+
          public string UserId { get; set; }
 
          public string AccountId { get; set; }
@@ -74,7 +76,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public decimal? ExchangeFees{ get; set; }
 
-         public decimal? Fees { get; set; }
+         //public decimal? Fees { get; set; }
 
          private byte status;
          public byte Status
