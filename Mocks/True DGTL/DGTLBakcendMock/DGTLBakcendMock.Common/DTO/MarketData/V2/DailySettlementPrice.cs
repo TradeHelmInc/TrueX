@@ -20,7 +20,11 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public int CalculationDate { get; set; }
 
-        public long CalculationTime { get; set; }
+        public string CalculationTime { get; set; }
+
+        public int Sender { get; set; }
+
+        public string Time { get; set; }
 
         #endregion
     }

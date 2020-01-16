@@ -2672,6 +2672,8 @@ namespace DGTLBackendMock.DataAccessLayer
                                                             ClientInstrument instr,string UUID)
         {
             DGTLBackendMock.Common.DTO.MarketData.V2.ClientDSP v2DailySettl = new Common.DTO.MarketData.V2.ClientDSP();
+
+            TimeSpan elapsed= DateTime.Now - new DateTime(1970, 1, 1);
             
             //TKT 1185
             //v2DailySettl.Msg = "DailySettlementPrice";
@@ -2680,7 +2682,8 @@ namespace DGTLBackendMock.DataAccessLayer
             v2DailySettl.InstrumentName = instr.InstrumentName;
             v2DailySettl.Uuid = UUID;
             v2DailySettl.CalculationDate =Convert.ToInt32( DateTime.Now.ToString("yyyyMMdd"));
-            v2DailySettl.CalculationTime = Convert.ToInt64(DateTime.Now.ToString("hhmmss"));
+            //v2DailySettl.CalculationTime = Convert.ToInt64(DateTime.Now.ToString("hhmmss"));
+            v2DailySettl.CalculationTime = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
             v2DailySettl.DailySettlementPrice = v1DailySettl.Price;
 
             DoSend<DGTLBackendMock.Common.DTO.MarketData.V2.ClientDSP>(socket, v2DailySettl);
