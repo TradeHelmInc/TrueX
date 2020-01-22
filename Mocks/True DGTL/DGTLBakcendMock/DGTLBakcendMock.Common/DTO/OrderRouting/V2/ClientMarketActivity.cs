@@ -37,7 +37,7 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
         public string TradeId { get; set; }
 
-        public string TimeStamp { get; set; }
+        public string Timestamp { get; set; }
 
 
         #endregion

@@ -63,6 +63,9 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public string PostalCode { get; set; }
 
+        public string DefaultAccount { get; set; }
+
+     
         #endregion
     }
 }

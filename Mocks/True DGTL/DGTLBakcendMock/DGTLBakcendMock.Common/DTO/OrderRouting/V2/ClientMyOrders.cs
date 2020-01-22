@@ -51,8 +51,13 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         public char? cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
         //O-> Open, C-> Cancelled,R-> Rejected, F-> Filled, E-> Expired
 
-        public string TimeStamp { get; set; }
+        public string Timestamp { get; set; }
 
+        public int Time { get; set; }
+
+        public string UserId { get; set; }
+
+        public int Sender { get; set; }
 
         #endregion
     }

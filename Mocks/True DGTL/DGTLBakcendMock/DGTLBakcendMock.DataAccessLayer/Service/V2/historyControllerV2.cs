@@ -115,7 +115,7 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
             catch (Exception ex)
             {
 
-                return Request.CreateResponse(HttpStatusCode.OK,
+                return Request.CreateResponse(HttpStatusCode.InternalServerError,
                                                         new
                                                         {
                                                             IsOK = false,

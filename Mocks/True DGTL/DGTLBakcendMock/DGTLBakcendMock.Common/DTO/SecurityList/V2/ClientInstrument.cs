@@ -61,6 +61,8 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
 
         public string Currency2 { get; set; }
 
+        public bool IsTrading { get; set; }
+
         //missing CurrencyPair,
 
 
