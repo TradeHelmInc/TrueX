@@ -247,13 +247,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
              if (firm != null)
              {
+                 firm.UsedCredit += newTrade != null ? (newTrade.TradePrice * newTrade.TradeQuantity) : 0;
+
                  TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                  ClientCreditUpdate ccUpd = new ClientCreditUpdate()
                  {
                      Msg = "ClientCreditUpdate",
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
-                     CreditUsed = firm.UsedCredit + (newTrade.TradePrice * newTrade.TradeQuantity),
+                     CreditUsed = newTrade != null ? firm.UsedCredit + (newTrade.TradePrice * newTrade.TradeQuantity) : firm.UsedCredit,
+                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
+                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -262,7 +266,7 @@ namespace DGTLBackendMock.DataAccessLayer
                      Uuid = UUID
                  };
 
-                 firm.UsedCredit += (newTrade.TradePrice * newTrade.TradeQuantity);
+                 
 
                  DoSend<ClientCreditUpdate>(socket, ccUpd);
              }
@@ -682,6 +686,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 RefreshOpenOrders(socket, OyMsg.UserId,UUID);
 
+                //We have a new open order --> we have new potential buy/sell exposure
+                UpdateCreditOnTrade(socket, null, UUID);
+
             }
         }
 
@@ -820,6 +827,12 @@ namespace DGTLBackendMock.DataAccessLayer
                                 bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
                                                                  && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
+
+                                //1.4 - We update the credit used
+                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
+
+
+
                                 fullFill = leftQty == 0;
 
                             }
@@ -830,6 +843,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                                 //1.2- We send a trade by prevLeftQty
                                 SendNewTrade(orderReq.cSide, bestAsk.Price, prevLeftQty, socket, instr, UUID);
+
+                                //1.3 - We update the credit used
+                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
 
                                 fullFill = true;
                             }
@@ -858,6 +874,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //4-We update the final quotes state
                         UpdateQuotes(socket,instr,UUID);
+
+                        //5-we update the credit for potential exposures
+                        UpdateCreditOnTrade(socket, null, UUID);
 
                         return true;
                     }
@@ -899,6 +918,10 @@ namespace DGTLBackendMock.DataAccessLayer
                                 bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
                                                                  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
 
+                                //1.4 - We update the credit used
+                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
+
+
                                 fullFill = leftQty == 0;
 
                             }
@@ -909,6 +932,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                                 //1.2- We send a trade by prevLeftQty
                                 SendNewTrade(orderReq.cSide, bestBid.Price, prevLeftQty, socket,instr, UUID);
+
+                                //1.3 - We update the credit used
+                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
 
                                 fullFill = true;
                             }
@@ -936,6 +962,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //4-We update the final quotes state
                         UpdateQuotes(socket, instr,UUID);
+
+                        //5-we update the credit for potential exposures
+                        UpdateCreditOnTrade(socket, null, UUID);
                         return true;
                     }
                     else
@@ -2224,6 +2253,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         //3-Upd Quotes
                         UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
 
+                        //4-We update the trade for potentail exposures
+                        UpdateCreditOnTrade(socket, null, clientMassCxlReq.Uuid);
+
                     }
 
 
@@ -2323,6 +2355,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //6-Send LegacyOrderRecord
                         CanceledLegacyOrderRecord(socket, order, ordCxlReq.Uuid);
+
+                        //7-we update the credit for potential exposures
+                        UpdateCreditOnTrade(socket, null, ordCxlReq.Uuid);
 
                     }
                     else
@@ -2567,7 +2602,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 Msg = "ClientTradeRecord",
                 ClientOrderId = null,
                 TradeId = legacyTradeHistory.TradeId,
-                CreateTimeStamp = legacyTradeHistory.TradeTimeStamp.ToString(),
+                CreatedAt = legacyTradeHistory.TradeTimeStamp.ToString(),
                 cSide = legacyTradeHistory.cMySide,
                 cStatus = ClientTradeRecord._STATUS_OPEN,
                 ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
@@ -2576,7 +2611,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 InstrumentId = instr.InstrumentId,
                 Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
                 OrderId = "0",
-                TimeStamp = legacyTradeHistory.TradeTimeStamp.ToString(),
+                UpdatedAt = legacyTradeHistory.TradeTimeStamp.ToString(),
                 TradePrice = legacyTradeHistory.TradePrice,
                 TradeQty = legacyTradeHistory.TradeQuantity,
                 UserId = LoggedUserId,
@@ -2780,6 +2815,18 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
+        private long GetPotentialExposure(char side)
+        {
+            List<LegacyOrderRecord> orders = Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN).ToList();
+
+            double exposure = 0;
+
+            orders.ForEach(x => exposure += (x.Price.HasValue) ? (x.LvsQty * x.Price.Value) : 0);
+
+            return Convert.ToInt64(exposure); ;
+        
+        }
+
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             if(FirmListResp==null)
@@ -2796,8 +2843,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     Msg = "ClientCreditUpdate",
                     AccountId = 0,
-                    CreditLimit = firm.AvailableCredit+firm.UsedCredit,
+                    CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                     CreditUsed = firm.UsedCredit,
+                    BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
+                    SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
                     cStatus = firm.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = Convert.ToInt32(firm.FirmId),

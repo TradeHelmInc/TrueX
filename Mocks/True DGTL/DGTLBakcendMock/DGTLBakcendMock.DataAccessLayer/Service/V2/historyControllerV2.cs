@@ -68,9 +68,12 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
 
         #region Public Methods
 
+        [HttpGet]
+        public static HttpResponseMessage Get(HttpRequestMessage Request, string userid, string uuid, string recordtype, string condition = null,
+                               string receivedate = null, string fromDate = null, string toDate = null)
 
-        public static HttpResponseMessage Get(HttpRequestMessage Request,string requesterid, string userid, string uuid, string recordtype, string condition=null,
-                                       string receivedate=null, bool export=true, string fromDate=null, string toDate=null)
+        //public static HttpResponseMessage Get(HttpRequestMessage Request,string requesterid, string userid, string uuid, string recordtype, string condition=null,
+        //                               string receivedate=null, bool export=true, string fromDate=null, string toDate=null)
         {
             try
             {

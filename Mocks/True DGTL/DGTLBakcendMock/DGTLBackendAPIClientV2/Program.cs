@@ -138,7 +138,7 @@ namespace DGTLBackendAPIClientV2
                 Subscribe subscribe = new Subscribe()
                 {
                     Msg = "Subscribe",
-                    //cAction = Subscribe._ACTION_SUBSCRIBE,
+                    cAction = Subscribe._ACTION_SUBSCRIBE,
                     JsonWebToken = Token,
                     Service = param[1],
                     ServiceKey = param.Length == 3 ? param[2] : "*",

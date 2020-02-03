@@ -66,9 +66,9 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
         [JsonIgnore]
         public char cStatus { get { return Convert.ToChar(Status); } set { Status = Convert.ToByte(value); } }
 
-        public string CreateTimeStamp { get; set; }
+        public string CreatedAt { get; set; }
 
-        public string TimeStamp { get; set; }
+        public string UpdatedAt { get; set; }
 
         public string AccountId { get; set; }
 

@@ -19,8 +19,12 @@ namespace DGTLBackendMock.DataAccessLayer.Service
 
     public delegate GetExecutionsBlotterFulFilled GetAllTrades();
 
-    public delegate HttpResponseMessage OnGet(HttpRequestMessage Request,string requesterid, string userid, string uuid, string recordtype, string condition = null,
-                                           string receivedate = null, bool export = true, string fromDate = null, string toDate = null);
+    public delegate HttpResponseMessage OnGet(HttpRequestMessage Request,  string userid, string uuid, string recordtype, string condition = null,
+                                       string receivedate = null, string fromDate = null, string toDate = null);
+
+
+    //public delegate HttpResponseMessage OnGet(HttpRequestMessage Request,string requesterid, string userid, string uuid, string recordtype, string condition = null,
+    //                                       string receivedate = null, bool export = true, string fromDate = null, string toDate = null);
 
     public class historyController : ApiController
     {
@@ -40,8 +44,11 @@ namespace DGTLBackendMock.DataAccessLayer.Service
         #region Public Methods
 
         [HttpGet]
-        public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition = null,
-                                       string receivedate = null, bool export = true, string fromDate = null, string toDate = null)
+        public HttpResponseMessage Get( string userid, string uuid, string recordtype, string condition = null,
+                               string receivedate = null,  string fromDate = null, string toDate = null)
+
+        //public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition = null,
+        //                               string receivedate = null, bool export = true, string fromDate = null, string toDate = null)
         {
             try
             {
@@ -49,7 +56,9 @@ namespace DGTLBackendMock.DataAccessLayer.Service
                 //RecordType O --> Orders
                 if (OverridenGet != null)
                 {
-                    return OverridenGet(Request,requesterid, userid, uuid, recordtype, condition, receivedate, export, fromDate, toDate);
+                    return OverridenGet(Request, userid, uuid, recordtype, condition, receivedate,fromDate, toDate);
+
+                    //return OverridenGet(Request,requesterid, userid, uuid, recordtype, condition, receivedate, export, fromDate, toDate);
                 }
                 else if (recordtype == "O")
                 {
