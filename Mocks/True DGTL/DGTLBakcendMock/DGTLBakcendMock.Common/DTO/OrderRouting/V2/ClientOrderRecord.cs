@@ -110,6 +110,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting.V2
 
          public int Type { get; set; }
 
+         public string OrderRejectReason { get; set; }
+
         #endregion
     }
 }

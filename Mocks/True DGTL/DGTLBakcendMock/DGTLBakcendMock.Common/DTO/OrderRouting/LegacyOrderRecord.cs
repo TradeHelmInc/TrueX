@@ -75,6 +75,8 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
 
         public double FillQty { get; set; }
 
+        public string OrdRejReson { get; set; }
+
         private byte status;
         public byte Status
         {

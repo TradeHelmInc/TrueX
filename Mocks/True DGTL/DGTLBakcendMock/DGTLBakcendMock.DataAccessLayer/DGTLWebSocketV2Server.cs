@@ -101,7 +101,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
 
                     ClientInstrument instr = GetInstrumentBySymbol(legOrder.InstrumentId);
-                    ClientOrderRecord clOrder = TranslateOldLegacyOrderRecord(legOrder, instr, true, null);
+                    ClientOrderRecord clOrder = TranslateOldLegacyOrderRecord(legOrder, instr, false, null);
                     orderList.Add(clOrder);
                 }
             
@@ -1018,7 +1018,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 rejOrder.cSide = clientOrderReq.cSide;
                 rejOrder.cStatus = LegacyOrderRecord._STATUS_REJECTED;
                 rejOrder.UpdateTime = Convert.ToInt64(elapsed.TotalMilliseconds);
-                //rejOrder.rej = string.Format("Order {0} not found!", legOrdCxlReq.OrigClOrderId)
+                rejOrder.OrdRejReson = string.Format("Invalid Order for security id {0}", clientOrderReq.InstrumentId);
                 rejOrder.UserId=LoggedUserId;
 
                 Orders.Add(rejOrder);
@@ -2699,8 +2699,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 Price = legacyOrderRecord.Price,
                 LimitPrice = legacyOrderRecord.Price,
                 Quantity = legacyOrderRecord.OrdQty,
+
                 //OrderQty = legacyOrderRecord.OrdQty,
                 Uuid = UUID,
+                OrderRejectReason = legacyOrderRecord.OrdRejReson,
                 Sender = 0
             };
 
