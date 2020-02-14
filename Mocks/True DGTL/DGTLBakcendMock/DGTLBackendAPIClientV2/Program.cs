@@ -69,6 +69,8 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("EmailNotificationsCreateRequest <SettlementFirmId> <email>");
             Console.WriteLine("EmailNotificationsUpdateRequest <SettlementFirmId> <old_email> <new_email>");
             Console.WriteLine("EmailNotificationsDeleteRequest <SettlementFirmId> <email>");
+            Console.WriteLine("ForgotPasswordRequest");
+            Console.WriteLine("ResetPasswordRequest <oldPwd> <NewPwd>");
             Console.WriteLine("RouteOrder <AccountId> (Harcoded..)");
             Console.WriteLine("RouteOrderBulk <Count>");
             Console.WriteLine("CancelOrder <OrderId>");
@@ -216,6 +218,14 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "CancelOrder")
             {
                 ProcessCancelOrder(param);
+            }
+            else if (mainCmd == "ForgotPasswordRequest")
+            {
+                ProcessForgotPasswordRequest(param);
+            }
+            else if (mainCmd == "ResetPasswordRequest")
+            {
+                ProcessResetPasswordRequest(param);
             }
             else if (mainCmd == "MassCancelRequest")
             {
@@ -466,6 +476,53 @@ namespace DGTLBackendAPIClientV2
             };
 
             DoSend<ClientMassCancelReq>(cxlMassReq);
+        }
+
+        private static void ProcessResetPasswordRequest(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 3)
+            {
+                ResetPasswordRequest resetPwdReq = new ResetPasswordRequest()
+                {
+                    MessageName = "ResetPasswordRequest",
+                    Uuid = UUID,
+                    TempSecret = GetSecret(TempUser, param[1], Token),
+                    NewSecret = GetSecret(TempUser, param[2], Token),
+                };
+
+                DoSend<ResetPasswordRequest>(resetPwdReq);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ProcessResetPasswordRequest message"));
+        
+        }
+
+        private static void ProcessForgotPasswordRequest(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            ForgotPasswordRequest forgotReq = new ForgotPasswordRequest()
+            {
+                MessageName = "ForgotPasswordRequest",
+                TokenId = Token,
+                UserId = UserId,
+                Uuid = UUID,
+                Email = "test@gmail.com"
+            };
+
+            DoSend<ForgotPasswordRequest>(forgotReq);
+        
+        
         }
 
         private static void ProcessCancelOrder(string[] param)

@@ -82,7 +82,10 @@
     <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsUpdateRequest.cs" />
     <Compile Include="DTO\Auth\V2\Credit UI\EmailNotificationsUpdateResponse.cs" />
     <Compile Include="DTO\Auth\V2\Credit UI\Mail.cs" />
+    <Compile Include="DTO\Auth\V2\ForgotPasswordRequest.cs" />
+    <Compile Include="DTO\Auth\V2\ForgotPasswordResponse.cs" />
     <Compile Include="DTO\Auth\V2\JsonCredentials.cs" />
+    <Compile Include="DTO\Auth\V2\ResetPasswordRequest.cs" />
     <Compile Include="DTO\Auth\V2\TokenRequest.cs" />
     <Compile Include="DTO\Auth\V2\TokenResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="DTO\OrderRouting\V2\_old\ClientOrderRej.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderReq.cs" />
     <Compile Include="DTO\OrderRouting\V2\ClientOrderResponse.cs" />
+    <Compile Include="DTO\PasswordResetMessageV2.cs" />
     <Compile Include="DTO\Platform\ChangePlatformStatusRequest.cs" />
     <Compile Include="DTO\Platform\PlatformStatus.cs" />
     <Compile Include="DTO\SecurityList\DailySettlementPrice.cs" />

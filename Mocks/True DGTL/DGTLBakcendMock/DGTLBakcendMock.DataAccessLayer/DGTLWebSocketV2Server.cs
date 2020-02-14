@@ -2403,6 +2403,94 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
+        {
+
+            ResetPasswordRequest resetPwdReq = JsonConvert.DeserializeObject<ResetPasswordRequest>(m);
+
+            try
+            {
+                //byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
+
+                //byte[] IV = keyBytes;
+
+                //byte[] secretByteArr = Convert.FromBase64String(resetPwdReq.TempSecret);
+
+                //string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
+
+                //JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
+
+
+                ClientLoginResponse logged = new ClientLoginResponse()
+                {
+                    Msg = "ClientLoginResponse",
+                    Uuid = resetPwdReq.Uuid,
+                    JsonWebToken = LastTokenGenerated,
+                    Message = null,
+                    Success = true,
+                    Time = 0,
+                    UserId = ""
+                };
+
+                DoSend<ClientLoginResponse>(socket, logged);
+
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing ProcessResetPasswordRequest: {0}", ex.Message), MessageType.Error);
+
+
+                ClientLoginResponse logged = new ClientLoginResponse()
+                {
+                    Msg = "ClientLoginResponse",
+                    Uuid = resetPwdReq.Uuid,
+                    JsonWebToken = LastTokenGenerated,
+                    Message = ex.Message,
+                    Success = false,
+                    Time = 0,
+                    UserId = ""
+                };
+
+                DoSend<ClientLoginResponse>(socket, logged);
+            }
+        
+        }
+
+        protected void ProcessForgotPasswordRequest(IWebSocketConnection socket, string m)
+        {
+            ForgotPasswordRequest forgotPwdReq = JsonConvert.DeserializeObject<ForgotPasswordRequest>(m);
+
+            try
+            {
+
+
+                if (forgotPwdReq.UserId == "MM3_CLOBUI2")
+                    throw new Exception("Cannot change password for user MM3_CLOBUI2");
+
+                ForgotPasswordResponse resp = new ForgotPasswordResponse()
+                {
+                    MessageName = "ForgotPasswordResponse",
+                    Uuid = forgotPwdReq.Uuid,
+                    Message = "Success"
+                };
+
+                DoSend<ForgotPasswordResponse>(socket, resp);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing ProcessForgotPasswordRequest: {0}", ex.Message), MessageType.Error);
+
+                ForgotPasswordResponse resp = new ForgotPasswordResponse()
+                {
+                    MessageName = "ForgotPasswordResponse",
+                    Uuid = forgotPwdReq.Uuid,
+                    Message = string.Format("Error updating password:{0}", ex.Message)
+                };
+
+                DoSend<ForgotPasswordResponse>(socket, resp);
+            }
+        }
+
         protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
         {
             try
@@ -3537,6 +3625,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessOrderReqMock(socket, m);
 
                 }
+                
                 else if (wsResp.Msg == "ClientOrderCancelReq")
                 {
                     ProcessClientOrderCancelReq(socket, m);
@@ -3560,15 +3649,28 @@ namespace DGTLBackendMock.DataAccessLayer
               
                 else
                 {
-                    UnknownMessage unknownMsg = new UnknownMessage()
+
+                    PasswordResetMessageV2 pwdReset = JsonConvert.DeserializeObject<PasswordResetMessageV2>(m);
+                    if (pwdReset.MessageName == "ForgotPasswordRequest")
                     {
-                        Msg = "MessageReject",
-                        Reason = string.Format("Unknown message type {0}", wsResp.Msg)
+                        ProcessForgotPasswordRequest(socket, m);
+                    }
+                    else if (pwdReset.MessageName == "ResetPasswordRequest")
+                    {
+                        ProcessResetPasswordRequest(socket, m);
+                    }
+                    else
+                    {
 
-                    };
+                        UnknownMessage unknownMsg = new UnknownMessage()
+                        {
+                            Msg = "MessageReject",
+                            Reason = string.Format("Unknown message type {0}", wsResp.Msg)
 
+                        };
 
-                    DoSend<UnknownMessage>(socket, unknownMsg);
+                        DoSend<UnknownMessage>(socket, unknownMsg);
+                    }
                 }
 
             }
