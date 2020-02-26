@@ -256,8 +256,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = newTrade != null ? firm.UsedCredit + (newTrade.TradePrice * newTrade.TradeQuantity) : firm.UsedCredit,
-                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
-                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
+                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY, newTrade.Symbol=="NDF-XBT-USD-V19"),
+                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL, newTrade.Symbol == "NDF-XBT-USD-V19"),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -2905,7 +2905,7 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private long GetPotentialExposure(char side)
+        private long GetPotentialExposure(char side, bool revert=false)
         {
             List<LegacyOrderRecord> orders = Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN).ToList();
 
@@ -2913,7 +2913,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             orders.ForEach(x => exposure += (x.Price.HasValue) ? (x.LvsQty * x.Price.Value) : 0);
 
-            return Convert.ToInt64(exposure); ;
+            return Convert.ToInt64(exposure) * (!revert ? 1 : -1);
         
         }
 
