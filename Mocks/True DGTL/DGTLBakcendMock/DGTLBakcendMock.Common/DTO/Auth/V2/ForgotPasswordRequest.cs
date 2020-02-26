@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth.V2
 {
-    public class ForgotPasswordRequest : PasswordResetMessageV2
+    public class ForgotPasswordRequest : WebSocketMessage
     {
         #region Protected Attributes
 
@@ -16,7 +16,7 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public string Email { get; set; }
 
-        public string TokenId { get; set; }
+        public string RequestingUser { get; set; }
 
         #endregion
     }

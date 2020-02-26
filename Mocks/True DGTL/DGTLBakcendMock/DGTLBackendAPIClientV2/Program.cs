@@ -490,10 +490,12 @@ namespace DGTLBackendAPIClientV2
             {
                 ResetPasswordRequest resetPwdReq = new ResetPasswordRequest()
                 {
-                    MessageName = "ResetPasswordRequest",
-                    Uuid = UUID,
-                    TempSecret = GetSecret(TempUser, param[1], Token),
-                    NewSecret = GetSecret(TempUser, param[2], Token),
+                    Msg = "ResetPasswordRequest",
+                    UUID = UUID,
+                    UserId = UserId,
+                    JsonWebToken = Token,
+                    OldPassword = GetSecret(TempUser, param[1], Token),
+                    NewPassword = GetSecret(TempUser, param[2], Token),
                 };
 
                 DoSend<ResetPasswordRequest>(resetPwdReq);
@@ -513,8 +515,8 @@ namespace DGTLBackendAPIClientV2
 
             ForgotPasswordRequest forgotReq = new ForgotPasswordRequest()
             {
-                MessageName = "ForgotPasswordRequest",
-                TokenId = Token,
+                Msg = "ForgotPasswordRequest",
+                RequestingUser = UserId,
                 UserId = UserId,
                 Uuid = UUID,
                 Email = "test@gmail.com"

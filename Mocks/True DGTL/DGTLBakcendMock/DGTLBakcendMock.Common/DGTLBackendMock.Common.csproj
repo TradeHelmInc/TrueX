@@ -86,6 +86,7 @@
     <Compile Include="DTO\Auth\V2\ForgotPasswordResponse.cs" />
     <Compile Include="DTO\Auth\V2\JsonCredentials.cs" />
     <Compile Include="DTO\Auth\V2\ResetPasswordRequest.cs" />
+    <Compile Include="DTO\Auth\V2\ResetPasswordResponse.cs" />
     <Compile Include="DTO\Auth\V2\TokenRequest.cs" />
     <Compile Include="DTO\Auth\V2\TokenResponse.cs" />
     <Compile Include="DTO\Auth\WebSocketLoginMessage.cs" />

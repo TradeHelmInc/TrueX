@@ -266,7 +266,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      Uuid = UUID
                  };
 
-                 
+                 //Note: We will only revert the buy exposure sell exposure (becoming negative) if the security being traded is
+                 //NDF-XBT-USD-V19. It's the only reason why the buy exposure might be on the left of the credit used.
 
                  DoSend<ClientCreditUpdate>(socket, ccUpd);
              }
@@ -2424,7 +2425,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientLoginResponse logged = new ClientLoginResponse()
                 {
                     Msg = "ClientLoginResponse",
-                    Uuid = resetPwdReq.Uuid,
+                    Uuid = resetPwdReq.UUID,
                     JsonWebToken = LastTokenGenerated,
                     Message = null,
                     Success = true,
@@ -2443,7 +2444,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientLoginResponse logged = new ClientLoginResponse()
                 {
                     Msg = "ClientLoginResponse",
-                    Uuid = resetPwdReq.Uuid,
+                    Uuid = resetPwdReq.UUID,
                     JsonWebToken = LastTokenGenerated,
                     Message = ex.Message,
                     Success = false,
@@ -2469,9 +2470,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 ForgotPasswordResponse resp = new ForgotPasswordResponse()
                 {
-                    MessageName = "ForgotPasswordResponse",
-                    Uuid = forgotPwdReq.Uuid,
-                    Message = "Success"
+                    Msg = "ForgotPasswordResponse",
+                    UUID = forgotPwdReq.Uuid,
+                    Success = true,
+                    Message = null
                 };
 
                 DoSend<ForgotPasswordResponse>(socket, resp);
@@ -2482,8 +2484,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 ForgotPasswordResponse resp = new ForgotPasswordResponse()
                 {
-                    MessageName = "ForgotPasswordResponse",
-                    Uuid = forgotPwdReq.Uuid,
+                    Msg = "ForgotPasswordResponse",
+                    UUID = forgotPwdReq.Uuid,
+                    Success = false,
                     Message = string.Format("Error updating password:{0}", ex.Message)
                 };
 
@@ -2770,6 +2773,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientOrderId = string.IsNullOrEmpty(legacyOrderRecord.ClientOrderId) ? legacyOrderRecord.OrderId : legacyOrderRecord.ClientOrderId,
                 CreateAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 UpdatedAt = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
+                EndTime = legacyOrderRecord.IsFinisheStatus() ? legacyOrderRecord.UpdateTime.ToString() : "0",
                 StartTime = newOrder ? Convert.ToInt64(elapsed.TotalMilliseconds).ToString() : legacyOrderRecord.UpdateTime.ToString(),
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
                 Type = ClientOrderRecord._LIMIT_ORDER_TYPE,

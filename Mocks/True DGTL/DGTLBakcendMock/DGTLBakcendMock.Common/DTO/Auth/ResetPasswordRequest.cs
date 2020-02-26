@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth
 {
-    public class ResetPasswordRequest:  WebSocketMessage
+    public class ResetPasswordRequest : WebSocketMessage
     {
         #region Pulic Attributes
 

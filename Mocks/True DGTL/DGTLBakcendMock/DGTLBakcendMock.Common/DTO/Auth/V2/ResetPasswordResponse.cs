@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Auth.V2
 {
-    public class ForgotPasswordResponse : WebSocketMessage
+    public class ResetPasswordResponse : WebSocketMessage
     {
-        #region Public Attributes
-
         public string UUID { get; set; }
+
+        public string UserId { get; set; }
 
         public bool Success { get; set; }
 
         public string Message { get; set; }
-
-        #endregion
     }
 }

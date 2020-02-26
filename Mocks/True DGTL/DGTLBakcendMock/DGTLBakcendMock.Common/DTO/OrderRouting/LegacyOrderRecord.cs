@@ -143,6 +143,15 @@ namespace DGTLBackendMock.Common.DTO.OrderRouting
         
         }
 
+        public  bool IsFinisheStatus()
+        {
+            return cStatus == _STATUS_REJECTED || cStatus == _STATUS_CANCELED || cStatus == _STATUS_FILLED 
+                    || cStatus == _STATUS_EXPIRED;
+        
+        }
+
+
+
         #endregion
     }
 }
