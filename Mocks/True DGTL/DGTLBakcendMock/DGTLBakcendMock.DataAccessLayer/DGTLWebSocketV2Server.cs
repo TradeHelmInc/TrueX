@@ -238,10 +238,10 @@ namespace DGTLBackendMock.DataAccessLayer
         }
 
          //1.2.3-Update and send ClientCreditUpdate
-         private void  UpdateCreditOnTrade(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
+         private void  UpdateCredit(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
          {
              if (FirmListResp == null)
-                 CreateFirmListCreditStructure(UUID, "", 0, 10000);
+                 CreateFirmListCreditStructure(UUID, 0, 10000);
 
              FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId.ToString() == LoggedFirmId).FirstOrDefault();
 
@@ -256,8 +256,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = newTrade != null ? firm.UsedCredit + (newTrade.TradePrice * newTrade.TradeQuantity) : firm.UsedCredit,
-                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY, newTrade.Symbol=="NDF-XBT-USD-V19"),
-                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL, newTrade.Symbol == "NDF-XBT-USD-V19"),
+                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
+                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -266,12 +266,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      Uuid = UUID
                  };
 
-                 //Note: We will only revert the buy exposure sell exposure (becoming negative) if the security being traded is
-                 //NDF-XBT-USD-V19. It's the only reason why the buy exposure might be on the left of the credit used.
-
                  DoSend<ClientCreditUpdate>(socket, ccUpd);
              }
-         
          }
 
         private void SendTradeNotification(IWebSocketConnection socket, LegacyTradeHistory trade, string userId, ClientInstrument instr, string UUID)
@@ -582,7 +578,7 @@ namespace DGTLBackendMock.DataAccessLayer
             SendTradeNotification(socket, newTrade, LoggedUserId, instr, UUID);
 
             //1.2.3-Update and send ClientCreditUpdate
-            UpdateCreditOnTrade(socket, newTrade, UUID);
+            UpdateCredit(socket, newTrade, UUID);
 
         }
 
@@ -688,7 +684,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 RefreshOpenOrders(socket, OyMsg.UserId,UUID);
 
                 //We have a new open order --> we have new potential buy/sell exposure
-                UpdateCreditOnTrade(socket, null, UUID);
+                UpdateCredit(socket, null, UUID);
 
             }
         }
@@ -830,7 +826,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
 
                                 //1.4 - We update the credit used
-                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
+                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
 
 
 
@@ -846,7 +842,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 SendNewTrade(orderReq.cSide, bestAsk.Price, prevLeftQty, socket, instr, UUID);
 
                                 //1.3 - We update the credit used
-                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
+                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
 
                                 fullFill = true;
                             }
@@ -877,7 +873,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         UpdateQuotes(socket,instr,UUID);
 
                         //5-we update the credit for potential exposures
-                        UpdateCreditOnTrade(socket, null, UUID);
+                        UpdateCredit(socket, null, UUID);
 
                         return true;
                     }
@@ -920,7 +916,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                                                  && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
 
                                 //1.4 - We update the credit used
-                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
+                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
 
 
                                 fullFill = leftQty == 0;
@@ -935,7 +931,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 SendNewTrade(orderReq.cSide, bestBid.Price, prevLeftQty, socket,instr, UUID);
 
                                 //1.3 - We update the credit used
-                                UpdateCreditOnTrade(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
+                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
 
                                 fullFill = true;
                             }
@@ -965,7 +961,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         UpdateQuotes(socket, instr,UUID);
 
                         //5-we update the credit for potential exposures
-                        UpdateCreditOnTrade(socket, null, UUID);
+                        UpdateCredit(socket, null, UUID);
                         return true;
                     }
                     else
@@ -1545,7 +1541,7 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void CreateFirmListCreditStructure(string UUID, string token, int pageNo,int pageRecords)
+        private void CreateFirmListCreditStructure(string UUID, int pageNo,int pageRecords)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             Dictionary<string, FirmsCreditLimitRecord> firms = new Dictionary<string, FirmsCreditLimitRecord>();
@@ -1622,7 +1618,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                
                 if(FirmListResp==null)
-                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, wsFirmListRq.JsonWebToken, 0,int.MaxValue);
+                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, 0,int.MaxValue);
 
                 FirmListResp.Uuid = wsFirmListRq.Uuid;
 
@@ -2124,6 +2120,28 @@ namespace DGTLBackendMock.DataAccessLayer
                     return;
                 }
 
+                if (jsonCredentials.Password == "temp123")
+                {
+                    UserRecord memUsr = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
+
+                    ClientLoginResponse chgPwdResp = new ClientLoginResponse()
+                    {
+                        Msg = "ClientLoginResponse",
+                        Uuid = wsLogin.Uuid,
+                        JsonWebToken = LastTokenGenerated,
+                        Success = true,
+                        Time = wsLogin.Time,
+                        UserId = memUsr != null ? memUsr.UserId : null,
+                        PasswordReset = true
+                    };
+
+                    DoLog(string.Format("Sending ClientLoginResponse<PasswordReset=true> with UUID {0}", wsLogin.Uuid), MessageType.Information);
+
+
+                    DoSend<ClientLoginResponse>(socket, chgPwdResp);
+                
+                }
+
 
                 if (jsonCredentials .Password!= "Testing123")
                 {
@@ -2255,7 +2273,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
 
                         //4-We update the trade for potentail exposures
-                        UpdateCreditOnTrade(socket, null, clientMassCxlReq.Uuid);
+                        UpdateCredit(socket, null, clientMassCxlReq.Uuid);
 
                     }
 
@@ -2358,7 +2376,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         CanceledLegacyOrderRecord(socket, order, ordCxlReq.Uuid);
 
                         //7-we update the credit for potential exposures
-                        UpdateCreditOnTrade(socket, null, ordCxlReq.Uuid);
+                        UpdateCredit(socket, null, ordCxlReq.Uuid);
 
                     }
                     else
@@ -2404,6 +2422,63 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void ProcessClientCreditRequest(IWebSocketConnection socket, string m)
+        {
+
+            ClientCreditRequest clientCreditReq = JsonConvert.DeserializeObject<ClientCreditRequest>(m);
+
+            try
+            {
+                ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
+
+
+                ClientCreditResponse resp = new ClientCreditResponse()
+                {
+                    Msg = "ClientCreditResponse",
+                    UserId = LoggedUserId,
+                    FirmId = clientCreditReq.FirmId,
+                    CreditAvailable = true,//later we will decide if we trully have credit available
+                    ExposureChange = 0,//later we will decide the real exposure change
+                    Uuid = clientCreditReq.Uuid
+                };
+
+                long exposure = clientCreditReq.Quantity;
+
+                if (instr.cProductType == ClientInstrument._DF)//we change sign for swaps <DFs>
+                {
+                    exposure *= -1;
+                    resp.CreditAvailable = true;
+                    resp.ExposureChange = exposure;
+                }
+                else
+                {
+                     if(FirmListResp==null)
+                        CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
+
+                    FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
+
+                    resp.ExposureChange = exposure;
+                    resp.CreditAvailable = (firm.UsedCredit + GetPotentialExposure(clientCreditReq.cSide) + exposure) < (firm.UsedCredit + firm.AvailableCredit);
+                }
+
+                DoSend<ClientCreditResponse>(socket, resp);
+            }
+            catch (Exception ex)
+            {
+                ClientCreditResponse resp = new ClientCreditResponse()
+                {
+                    Msg = "ClientCreditResponse",
+                    UserId = LoggedUserId,
+                    FirmId = clientCreditReq.FirmId,
+                    CreditAvailable = false,//later we will decide if we trully have credit available
+                    ExposureChange = 0,//later we will decide the real exposure change
+                    Uuid = clientCreditReq.Uuid
+                };
+
+                DoSend<ClientCreditResponse>(socket, resp);
+            }
+        }
+
         protected void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
         {
 
@@ -2411,16 +2486,18 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
-                //byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
+                byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
 
-                //byte[] IV = keyBytes;
+                byte[] IV = keyBytes;
 
-                //byte[] secretByteArr = Convert.FromBase64String(resetPwdReq.TempSecret);
+                byte[] secretByteArr = Convert.FromBase64String(resetPwdReq.TempSecret);
 
-                //string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
+                string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
 
-                //JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
+                JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
 
+                if (jsonCredentials.Password != "temp123")//el tempsecret no tiene el pwd temporal valido
+                    throw new Exception("Invalid Temp password");
 
                 ClientLoginResponse logged = new ClientLoginResponse()
                 {
@@ -2471,7 +2548,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ForgotPasswordResponse resp = new ForgotPasswordResponse()
                 {
                     Msg = "ForgotPasswordResponse",
-                    UUID = forgotPwdReq.Uuid,
+                    Uuid = forgotPwdReq.Uuid,
                     Success = true,
                     Message = null
                 };
@@ -2485,7 +2562,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 ForgotPasswordResponse resp = new ForgotPasswordResponse()
                 {
                     Msg = "ForgotPasswordResponse",
-                    UUID = forgotPwdReq.Uuid,
+                    Uuid = forgotPwdReq.Uuid,
                     Success = false,
                     Message = string.Format("Error updating password:{0}", ex.Message)
                 };
@@ -2532,6 +2609,8 @@ namespace DGTLBackendMock.DataAccessLayer
                             EvalNewOrder(socket, clientOrderReq, clientOrdAck.OrderId, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.Uuid);
                             DoLog(string.Format("Updating quotes ..."), MessageType.Information);
                             UpdateQuotes(socket, instr, clientOrderReq.Uuid);
+                            DoLog(string.Format("Updating credit ..."), MessageType.Information);
+                            UpdateCredit(socket, null, clientOrderReq.Uuid);
                         }
                     }
                 }
@@ -2909,22 +2988,32 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private long GetPotentialExposure(char side, bool revert=false)
+        private long GetPotentialExposure(char side)
         {
             List<LegacyOrderRecord> orders = Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN).ToList();
 
             double exposure = 0;
 
-            orders.ForEach(x => exposure += (x.Price.HasValue) ? (x.LvsQty * x.Price.Value) : 0);
 
-            return Convert.ToInt64(exposure) * (!revert ? 1 : -1);
-        
+            //Note: Exposures for Swaps (DFs) are processed as negative 
+
+            foreach (LegacyOrderRecord order in orders)
+            {
+                ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+
+                if (instr.cProductType == ClientInstrument._DF)
+                    exposure -= order.LvsQty * order.Price.Value;
+                else
+                    exposure += order.LvsQty * order.Price.Value;
+            }
+
+            return Convert.ToInt64(exposure);
         }
 
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             if(FirmListResp==null)
-                CreateFirmListCreditStructure(subscrMsg.Uuid, subscrMsg.JsonWebToken, 0, 10000);
+                CreateFirmListCreditStructure(subscrMsg.Uuid, 0, 10000);
 
             FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==subscrMsg.ServiceKey).FirstOrDefault();
 
@@ -3644,37 +3733,33 @@ namespace DGTLBackendMock.DataAccessLayer
                     ProcessResetPasswordRequest(socket, m);
 
                 }
+                else if (wsResp.Msg == "ClientCreditRequest")
+                {
+                    ProcessClientCreditRequest(socket, m);
+                }
                 else if (wsResp.Msg == "Subscribe")
                 {
-
                     ProcessSubscriptions(socket, m);
-
                 }
-              
+                else if (wsResp.Msg == "ForgotPasswordRequest")
+                {
+                    ProcessForgotPasswordRequest(socket, m);
+                }
+                else if (wsResp.Msg == "ResetPasswordRequest")
+                {
+                    ProcessResetPasswordRequest(socket, m);
+                }
                 else
                 {
 
-                    PasswordResetMessageV2 pwdReset = JsonConvert.DeserializeObject<PasswordResetMessageV2>(m);
-                    if (pwdReset.MessageName == "ForgotPasswordRequest")
+                    UnknownMessage unknownMsg = new UnknownMessage()
                     {
-                        ProcessForgotPasswordRequest(socket, m);
-                    }
-                    else if (pwdReset.MessageName == "ResetPasswordRequest")
-                    {
-                        ProcessResetPasswordRequest(socket, m);
-                    }
-                    else
-                    {
+                        Msg = "MessageReject",
+                        Reason = string.Format("Unknown message type {0}", wsResp.Msg)
 
-                        UnknownMessage unknownMsg = new UnknownMessage()
-                        {
-                            Msg = "MessageReject",
-                            Reason = string.Format("Unknown message type {0}", wsResp.Msg)
+                    };
 
-                        };
-
-                        DoSend<UnknownMessage>(socket, unknownMsg);
-                    }
+                    DoSend<UnknownMessage>(socket, unknownMsg);
                 }
 
             }

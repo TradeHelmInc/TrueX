@@ -13,7 +13,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList.V2
         #region Private Static Consts
 
         private static char _NDF = 'N';
-        private static char _DF = 'D';
+        public static char _DF = 'D';
         public static char _SPOT = 'S';
         private static char _NONE = 'X';
 

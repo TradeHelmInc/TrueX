@@ -26,6 +26,8 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public string Message { get; set; }
 
+        public bool PasswordReset { get; set; }
+
 
         #endregion
     }

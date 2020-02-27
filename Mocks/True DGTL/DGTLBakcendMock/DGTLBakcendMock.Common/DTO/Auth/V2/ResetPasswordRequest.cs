@@ -12,13 +12,13 @@ namespace DGTLBackendMock.Common.DTO.Auth.V2
 
         public string UUID { get; set; }
 
-        //public string TempSecret { get; set; }
+        public string TempSecret { get; set; }
 
-        public string OldPassword { get; set; }
+        //public string OldPassword { get; set; }
 
-        //public string NewSecret { get; set; }
+        public string NewSecret { get; set; }
 
-        public string NewPassword { get; set; }
+        //public string NewPassword { get; set; }
 
         public string UserId { get; set; }
 

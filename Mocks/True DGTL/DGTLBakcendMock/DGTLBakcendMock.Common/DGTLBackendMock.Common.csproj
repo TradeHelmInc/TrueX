@@ -48,6 +48,8 @@
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\Credit UI\ClientCreditRequest.cs" />
+    <Compile Include="DTO\Account\V2\Credit UI\ClientCreditResponse.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\CreditLimit.cs" />
     <Compile Include="DTO\Account\V2\ClientCreditUpdate.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientFirmRecord.cs" />
