@@ -22,6 +22,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public bool CreditAvailable { get; set; }
 
+        public string Message { get; set; }
+
         #endregion
     }
 }

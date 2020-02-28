@@ -63,6 +63,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("LogoutClient (Cxt credentials will be used)");
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("FirmListRequest");
+            Console.WriteLine("ClientCreditRequest <firm> <InstrumentId> <Side> <Quantity>");
             //Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Available> <Used> <MaxNotional>");
             Console.WriteLine("EmailNotificationsListRequest <SettlementFirmId>");
@@ -231,6 +232,10 @@ namespace DGTLBackendAPIClientV2
             {
                 ProcessMassCancelRequest(param);
             }
+            else if (mainCmd == "ClientCreditRequest")
+            {
+                ProcessClientCreditRequest(param);
+            }
             else if (mainCmd.ToUpper() == "CLEAR")
             {
                 Console.Clear();
@@ -263,8 +268,8 @@ namespace DGTLBackendAPIClientV2
 
         private static void DecryptTest()
         {
-            string Token = "d1d59655-6bb8-4322-8424-14b724a45b77";
-            string Secret = "h/VNzVF6HoIMZ+cg/Jz9GAKmIkL4HDooz4c18+3LT8DIQlcPzApftN212zUSof2D";
+            string Token = "9aac2d7d-4a28-458d-955e-c962d2e6e59c";
+            string Secret = "S9e80BH7LRKSGKRKydpGrX7ezgX6Lh9Hb8hWOTZ6o55ARVa3KVPBYBlDuKbVTbsl";
 
             byte[] KeyBytes = AESCryptohandler.makePassPhrase(Token);
 
@@ -457,6 +462,34 @@ namespace DGTLBackendAPIClientV2
             return clientOrderReq;
         }
 
+        private static void ProcessClientCreditRequest(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length >= 5)
+            {
+
+                ClientCreditRequest clientCreditReq = new ClientCreditRequest()
+                {
+                    Uuid = UUID,
+                    Msg = "ClientCreditRequest",
+                    AccountId = "test account",
+                    FirmId= param[1],
+                    InstrumentId=param[2],
+                    cSide= Convert.ToChar(param [3]),
+                    Quantity=Convert.ToInt64(param[4]),
+                    SettlementAgentId="test settl agent"
+                };
+
+                DoSend<ClientCreditRequest>(clientCreditReq);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for ClientCreditRequest message"));
+        }
 
         private static void ProcessMassCancelRequest(string[] param)
         {

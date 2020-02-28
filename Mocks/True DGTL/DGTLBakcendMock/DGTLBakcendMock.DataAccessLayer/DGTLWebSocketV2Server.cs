@@ -2091,7 +2091,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
-                
                 //byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
                 byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
@@ -2137,8 +2136,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     DoLog(string.Format("Sending ClientLoginResponse<PasswordReset=true> with UUID {0}", wsLogin.Uuid), MessageType.Information);
 
-
                     DoSend<ClientLoginResponse>(socket, chgPwdResp);
+                    return;
                 
                 }
 
@@ -2458,7 +2457,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
 
                     resp.ExposureChange = exposure;
-                    resp.CreditAvailable = (firm.UsedCredit + GetPotentialExposure(clientCreditReq.cSide) + exposure) < (firm.UsedCredit + firm.AvailableCredit);
+                    double neededCredit = firm.UsedCredit + GetPotentialExposure(clientCreditReq.cSide) + exposure;
+                    double totalCredit = firm.UsedCredit + firm.AvailableCredit;
+                    resp.CreditAvailable = neededCredit < totalCredit;
+
+
+                    if(!resp.CreditAvailable)
+                        throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",
+                                                          neededCredit,  totalCredit));
                 }
 
                 DoSend<ClientCreditResponse>(socket, resp);
@@ -2472,7 +2478,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmId = clientCreditReq.FirmId,
                     CreditAvailable = false,//later we will decide if we trully have credit available
                     ExposureChange = 0,//later we will decide the real exposure change
-                    Uuid = clientCreditReq.Uuid
+                    Uuid = clientCreditReq.Uuid,
+                    Message = ex.Message
                 };
 
                 DoSend<ClientCreditResponse>(socket, resp);
