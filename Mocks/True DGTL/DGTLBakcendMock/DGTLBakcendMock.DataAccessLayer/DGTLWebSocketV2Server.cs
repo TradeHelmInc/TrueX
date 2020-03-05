@@ -820,14 +820,13 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.2- We send a Trade by bestAsk.Size
                                 SendNewTrade(orderReq.cSide, bestAsk.Price, bestAsk.Size, socket, instr, UUID);
 
-                                //1.3-Calculamos el nuevo bestAsk
-                                bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
-                                                                 && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
-
-
-                                //1.4 - We update the credit used
+                                //1.3 - We update the credit used
                                 UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
 
+
+                                //1.4-Calculamos el nuevo bestAsk
+                                bestAsk = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
+                                                                 && x.cBidOrAsk == DepthOfBook._ASK_ENTRY).ToList().OrderBy(x => x.Price).FirstOrDefault();
 
 
                                 fullFill = leftQty == 0;
@@ -911,13 +910,13 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.2- We send a Trade by bestBid.Size
                                 SendNewTrade(orderReq.cSide, bestBid.Price, bestBid.Size, socket, instr, UUID);
 
-                                //1.3-Calculamos el nuevo bestBid
-                                bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
-                                                                 && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
-
-                                //1.4 - We update the credit used
+                                //1.3 - We update the credit used
                                 UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
 
+
+                                //1.4-Calculamos el nuevo bestBid
+                                bestBid = DepthOfBooks.Where(x => x.Symbol == instr.InstrumentName
+                                                                 && x.cBidOrAsk == DepthOfBook._BID_ENTRY).ToList().OrderByDescending(x => x.Price).FirstOrDefault();
 
                                 fullFill = leftQty == 0;
 
@@ -2438,6 +2437,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmId = clientCreditReq.FirmId,
                     CreditAvailable = true,//later we will decide if we trully have credit available
                     ExposureChange = 0,//later we will decide the real exposure change
+                    Success=true,
                     Uuid = clientCreditReq.Uuid
                 };
 
@@ -2479,6 +2479,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     CreditAvailable = false,//later we will decide if we trully have credit available
                     ExposureChange = 0,//later we will decide the real exposure change
                     Uuid = clientCreditReq.Uuid,
+                    Success=false,
                     Message = ex.Message
                 };
 
