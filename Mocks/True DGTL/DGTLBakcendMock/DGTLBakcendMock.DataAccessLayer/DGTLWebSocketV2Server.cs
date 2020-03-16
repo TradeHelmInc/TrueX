@@ -2090,17 +2090,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
-                //byte[] IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-                byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
-
-                byte[] IV = keyBytes;
-
-                byte[] secretByteArr = Convert.FromBase64String(wsLogin.Secret);
-
-                string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
-
-                JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
+                JsonCredentials jsonCredentials = AESCryptohandler.DecryptCredentials(wsLogin.Secret, LastTokenGenerated);
 
                 if (!UserRecords.Any(x => x.UserId == jsonCredentials.UserId))
                 {
@@ -2244,7 +2235,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
                         ack.ClientOrderId = order.ClientOrderId;
                         ack.FirmId = Convert.ToInt64(LoggedFirmId);
-                        ack.Message = "Just cancelled @ mock v2 after mass cancellation";
+                        //ack.Message = "Just cancelled @ mock v2 after mass cancellation";
+                        ack.Message = null;
                         ack.Msg = "ClientOrderCancelResponse";
                         ack.OrderId = order.OrderId;
                         ack.Success = true;
@@ -2341,7 +2333,8 @@ namespace DGTLBackendMock.DataAccessLayer
                         //ack.ClientOrderId = ordCxlReq.ClientOrderId;
                         ack.OrderId = ordCxlReq.OrderId;
                         ack.FirmId = ordCxlReq.FirmId;
-                        ack.Message = "Just cancelled @ mock v2";
+                        //ack.Message = "Just cancelled @ mock v2";
+                        ack.Message = null;
                         ack.Msg = "ClientOrderCancelResponse";
                         ack.OrderId = order.OrderId;
                         ack.Success = true;
@@ -2429,6 +2422,23 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
 
+                if (instr.InstrumentName == "SWP-XBT-USD-X18")
+                {
+                    ClientReject reject = new ClientReject()
+                    {
+                        Msg = "ClientReject",
+                        RejectCode = ClientReject._GENERIC_REJECT_CODE,
+                        Sender = 0,
+                        Text = "Test Client Reject",
+                        Time = 0,
+                        Uuid = clientCreditReq.Uuid
+                    };
+
+                    DoSend<ClientReject>(socket, reject);
+
+                    return;
+                }
+
 
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
@@ -2494,18 +2504,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
-                byte[] keyBytes = AESCryptohandler.makePassPhrase(LastTokenGenerated);
 
-                byte[] IV = keyBytes;
+                JsonCredentials tempCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.TempSecret, LastTokenGenerated);
 
-                byte[] secretByteArr = Convert.FromBase64String(resetPwdReq.TempSecret);
+                JsonCredentials newCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.NewSecret, LastTokenGenerated);
 
-                string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
-
-                JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
-
-                if (jsonCredentials.Password != "temp123")//el tempsecret no tiene el pwd temporal valido
+                if (tempCredentials.Password != "temp123")//el tempsecret no tiene el pwd temporal valido
                     throw new Exception("Invalid Temp password");
+
+                if (newCredentials.Password == "WillReject70$71")//el new no tiene un pwd válido
+                    throw new Exception("Invalid New password!!");
+
 
                 ClientLoginResponse logged = new ClientLoginResponse()
                 {

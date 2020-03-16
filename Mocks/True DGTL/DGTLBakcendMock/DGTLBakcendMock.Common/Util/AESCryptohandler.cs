@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DGTLBackendMock.Common.DTO.Auth.V2;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -113,7 +115,22 @@ namespace DGTLBackendMock.Common.Util
 
         }
 
-      
+
+        public static JsonCredentials DecryptCredentials(string encrypted, string token)
+        {
+            byte[] keyBytes = AESCryptohandler.makePassPhrase(token);
+
+            byte[] IV = keyBytes;
+
+            byte[] secretByteArr = Convert.FromBase64String(encrypted);
+
+            string jsonUserAndPassword = AESCryptohandler.DecryptStringFromBytes(secretByteArr, keyBytes, IV);
+
+            JsonCredentials jsonCredentials = JsonConvert.DeserializeObject<JsonCredentials>(jsonUserAndPassword);
+
+
+            return jsonCredentials;
+        }
 
     }
 }
