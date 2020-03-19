@@ -2418,9 +2418,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
             ClientCreditRequest clientCreditReq = JsonConvert.DeserializeObject<ClientCreditRequest>(m);
 
+            ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
+
             try
             {
-                ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
+               
 
                 if (instr.InstrumentName == "SWP-XBT-USD-X18")
                 {
@@ -2481,13 +2483,14 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
+                long exposure = instr.cProductType == ClientInstrument._DF ? clientCreditReq.Quantity * -1 : clientCreditReq.Quantity;
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",
                     UserId = LoggedUserId,
                     FirmId = clientCreditReq.FirmId,
                     CreditAvailable = false,//later we will decide if we trully have credit available
-                    ExposureChange = 0,//later we will decide the real exposure change
+                    ExposureChange = exposure,//later we will decide the real exposure change
                     Uuid = clientCreditReq.Uuid,
                     Success=false,
                     Message = ex.Message
@@ -2559,7 +2562,7 @@ namespace DGTLBackendMock.DataAccessLayer
             {
 
 
-                if (forgotPwdReq.UserId == "MM3_CLOBUI2")
+                if (forgotPwdReq.User == "MM3_CLOBUI2")
                     throw new Exception("Cannot change password for user MM3_CLOBUI2");
 
                 ForgotPasswordResponse resp = new ForgotPasswordResponse()
@@ -2567,7 +2570,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ForgotPasswordResponse",
                     Uuid = forgotPwdReq.Uuid,
                     Success = true,
-                    Message = null
+                    Message = null,
+                    JsonWebToken = forgotPwdReq.JsonWebToken,
+                    Sender = 0,
+                    Time = "0"
                 };
 
                 DoSend<ForgotPasswordResponse>(socket, resp);
@@ -2581,7 +2587,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     Msg = "ForgotPasswordResponse",
                     Uuid = forgotPwdReq.Uuid,
                     Success = false,
-                    Message = string.Format("Error updating password:{0}", ex.Message)
+                    Message = string.Format("Error updating password:{0}", ex.Message),
+                    JsonWebToken = forgotPwdReq.JsonWebToken,
+                    Sender = 0,
+                    Time = "0"
                 };
 
                 DoSend<ForgotPasswordResponse>(socket, resp);

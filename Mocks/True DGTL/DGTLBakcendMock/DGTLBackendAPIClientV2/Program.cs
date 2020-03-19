@@ -550,7 +550,8 @@ namespace DGTLBackendAPIClientV2
             {
                 Msg = "ForgotPasswordRequest",
                 RequestingUser = UserId,
-                UserId = UserId,
+                User = UserId,
+                Time = 0,
                 Uuid = UUID,
                 Email = "test@gmail.com"
             };
