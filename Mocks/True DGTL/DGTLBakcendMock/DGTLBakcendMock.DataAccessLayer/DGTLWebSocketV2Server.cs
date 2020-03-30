@@ -2453,7 +2453,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                long exposure = clientCreditReq.Quantity;
+                long exposure = clientCreditReq.Quantity * 8000;//we use 8000 as a convention
 
                 if (instr.cProductType == ClientInstrument._DF)//we change sign for swaps <DFs>
                 {
