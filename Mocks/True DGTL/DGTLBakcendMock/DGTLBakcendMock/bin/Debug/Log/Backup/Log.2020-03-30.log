@@ -1,0 +1,113 @@
+2020-03-30 9:33:04  :: Initializing Mock Server...
+2020-03-30 9:33:04  :: Initializing all collections...
+2020-03-30 9:33:05  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-03-30 9:33:05  :: Collections Initialized...
+2020-03-30 9:33:15  :: Connecting for the first time to client 3990
+2020-03-30 9:33:15  :: Connected for the first time to client 3990
+2020-03-30 9:33:17  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-03-30 9:33:17  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-03-30 9:33:17  :: Sending ClientLoginResponse with UUID ff6a0c58-953e-4eb4-b06e-77a7a2fa0efc
+2020-03-30 9:33:17  :: Sending Instrument Batch 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientInstrumentState 
+2020-03-30 9:33:17  :: Sending ClientUserRecord
+2020-03-30 9:33:17  :: Sending ClientMarketStateBatch
+2020-03-30 9:33:17  :: Sending ClientAccountRecordBatch 
+2020-03-30 9:33:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:21  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-03-30 9:33:21  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-03-30 9:33:21  :: Sending ClientLoginResponse with UUID 71d5768a-8a1b-49da-926b-9148edb891dd
+2020-03-30 9:33:21  :: Sending Instrument Batch 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientInstrumentState 
+2020-03-30 9:33:21  :: Sending ClientUserRecord
+2020-03-30 9:33:21  :: Sending ClientMarketStateBatch
+2020-03-30 9:33:21  :: Sending ClientAccountRecordBatch 
+2020-03-30 9:33:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:33:39  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-03-30 9:34:03  :: Turning threads off on socket disconnection
+2020-03-30 9:34:03  :: Turning threads off on socket disconnection
+2020-03-30 9:34:03  ::  OnClose for client 3990
+2020-03-30 9:34:03  :: Turning threads off on socket disconnection
+2020-03-30 9:34:51  :: Initializing Mock Server...
+2020-03-30 9:34:51  :: Initializing all collections...
+2020-03-30 9:34:51  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-03-30 9:34:52  :: Collections Initialized...
+2020-03-30 9:35:05  :: Connecting for the first time to client 4003
+2020-03-30 9:35:05  :: Connected for the first time to client 4003
+2020-03-30 9:35:08  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-03-30 9:35:08  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-03-30 9:35:08  :: Sending ClientLoginResponse with UUID 57491895-bf62-47de-bea5-12c2331158ea
+2020-03-30 9:35:08  :: Sending Instrument Batch 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientInstrumentState 
+2020-03-30 9:35:08  :: Sending ClientUserRecord
+2020-03-30 9:35:08  :: Sending ClientMarketStateBatch
+2020-03-30 9:35:08  :: Sending ClientAccountRecordBatch 
+2020-03-30 9:35:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-03-30 9:35:12  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-03-30 9:35:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1

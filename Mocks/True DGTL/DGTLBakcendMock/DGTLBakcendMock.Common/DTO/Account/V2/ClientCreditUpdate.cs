@@ -38,9 +38,9 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public double CreditUsed { get; set; }
 
-        public long BuyExposure { get; set; }
+        public double BuyExposure { get; set; }
 
-        public long SellExposure { get; set; }
+        public double SellExposure { get; set; }
 
         private byte status;
         public byte Status

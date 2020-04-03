@@ -27,7 +27,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         //public ClientFirmRecord[] Firms { get; set; }
 
-        public FirmsCreditLimitRecord[] Firms { get; set; }
+        public FirmsCreditRecord[] Firms { get; set; }
 
         public long Time { get; set; }
 

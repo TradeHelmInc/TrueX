@@ -20,6 +20,8 @@ namespace DGTLBackendMock.Common.DTO.Auth
 
         public bool SendMaxNotionalValue { get; set; }
 
+        public double MarginPct { get; set; }
+
 
         #endregion
 

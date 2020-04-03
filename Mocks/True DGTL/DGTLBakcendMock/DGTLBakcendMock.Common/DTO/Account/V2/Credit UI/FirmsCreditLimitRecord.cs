@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 {
-    public class FirmsCreditLimitRecord : WebSocketMessageV2
+    public class FirmsCreditRecord : WebSocketMessageV2
     {
         #region Public Attributes
 

@@ -127,7 +127,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 LoadOfficialFixingPrices();
 
-                LoadCreditRecordUpdates();
+                //LoadCreditRecordUpdates();
 
                 LoadDepthOfBooks();
 

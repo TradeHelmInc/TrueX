@@ -1,4 +1,5 @@
-﻿using DGTLBackendMock.Common.DTO;
+﻿using DGTLBackendMock.BusinessEntities.enums;
+using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
@@ -20,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -39,6 +41,8 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails = new Dictionary<string, string[]>();
 
             LoadTestEmails();
+
+            LoadPositions();
         }
 
         #endregion
@@ -73,6 +77,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Dictionary<string, string[]> NotificationEmails { get; set; }
 
+        protected ClientPosition[] Positions { get; set; }
+
         #endregion
 
         #region Private Methods
@@ -82,6 +88,14 @@ namespace DGTLBackendMock.DataAccessLayer
             NotificationEmails.Add("548346919", new string[] { "test548346919@test.com" });
             NotificationEmails.Add("271058668", new string[] { "test271058668@test.com" });
             NotificationEmails.Add("579693223", new string[] { "test579693223@test.com" });
+        }
+
+        private void LoadPositions()
+        {
+            string strPositions = File.ReadAllText(@".\input\Positions.json");
+
+            Positions = JsonConvert.DeserializeObject<ClientPosition[]>(strPositions);
+        
         }
 
         protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to)
@@ -243,7 +257,7 @@ namespace DGTLBackendMock.DataAccessLayer
              if (FirmListResp == null)
                  CreateFirmListCreditStructure(UUID, 0, 10000);
 
-             FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId.ToString() == LoggedFirmId).FirstOrDefault();
+             FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId.ToString() == LoggedFirmId).FirstOrDefault();
 
              if (firm != null)
              {
@@ -255,7 +269,7 @@ namespace DGTLBackendMock.DataAccessLayer
                      Msg = "ClientCreditUpdate",
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
-                     CreditUsed = newTrade != null ? firm.UsedCredit + (newTrade.TradePrice * newTrade.TradeQuantity) : firm.UsedCredit,
+                     CreditUsed = newTrade != null ? GetUsedCreditByFirm(LoggedFirmId) : firm.UsedCredit,
                      BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
                      SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
                      cStatus = firm.cTradingStatus,
@@ -820,8 +834,14 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.2- We send a Trade by bestAsk.Size
                                 SendNewTrade(orderReq.cSide, bestAsk.Price, bestAsk.Size, socket, instr, UUID);
 
+
+                                LegacyTradeHistory newTrade = new LegacyTradeHistory() { cMySide = LegacyTradeHistory._SIDE_BUY, TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price), Symbol = instr.InstrumentName };
+
+                                //1.2.bis - We create the position
+                                CreatePosition(newTrade,LoggedUserId);
+
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(bestAsk.Size), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
+                                UpdateCredit(socket, newTrade, UUID);
 
 
                                 //1.4-Calculamos el nuevo bestAsk
@@ -837,11 +857,18 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.1- we update the price level to be: Size=mod(leftQty) ->(@DepthOfBook, and we send the message)
                                 UpdatePriceLevel(ref bestAsk, DepthOfBook._ASK_ENTRY, Convert.ToDouble(prevLeftQty), socket, instr, UUID);
 
+                                
+
                                 //1.2- We send a trade by prevLeftQty
                                 SendNewTrade(orderReq.cSide, bestAsk.Price, prevLeftQty, socket, instr, UUID);
 
+                                LegacyTradeHistory newTrade = new LegacyTradeHistory() { cMySide = LegacyTradeHistory._SIDE_BUY, TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestAsk.Price), Symbol = instr.InstrumentName };
+
+                                //1.2.bis - We create the position
+                                CreatePosition(newTrade, LoggedUserId);
+
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestAsk.Price) }, UUID);
+                                UpdateCredit(socket, newTrade, UUID);
 
                                 fullFill = true;
                             }
@@ -910,8 +937,13 @@ namespace DGTLBackendMock.DataAccessLayer
                                 //1.2- We send a Trade by bestBid.Size
                                 SendNewTrade(orderReq.cSide, bestBid.Price, bestBid.Size, socket, instr, UUID);
 
+                                LegacyTradeHistory newTrade = new LegacyTradeHistory() { cMySide=LegacyTradeHistory._SIDE_SELL, TradeQuantity = Convert.ToDouble(bestBid.Size), TradePrice = Convert.ToDouble(bestBid.Price), Symbol = instr.InstrumentName };
+
+                                //1.2.bis - We create the position
+                                CreatePosition(newTrade, LoggedUserId);
+
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
+                                UpdateCredit(socket, newTrade, UUID);
 
 
                                 //1.4-Calculamos el nuevo bestBid
@@ -928,6 +960,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
                                 //1.2- We send a trade by prevLeftQty
                                 SendNewTrade(orderReq.cSide, bestBid.Price, prevLeftQty, socket,instr, UUID);
+
+                                LegacyTradeHistory newTrade = new LegacyTradeHistory() { cMySide = LegacyTradeHistory._SIDE_SELL, TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price), Symbol = instr.InstrumentName };
+
+                                //1.2.bis - We create the position
+                                CreatePosition(newTrade, LoggedUserId);
 
                                 //1.3 - We update the credit used
                                 UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
@@ -1036,7 +1073,7 @@ namespace DGTLBackendMock.DataAccessLayer
             FirmsTradingStatusUpdateRequest wsFirmsTradingStatusUpdateRequest = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateRequest>(m);
             if (FirmListResp != null)
             {
-                FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmsTradingStatusUpdateRequest.FirmId.ToString()).FirstOrDefault();
+                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmsTradingStatusUpdateRequest.FirmId.ToString()).FirstOrDefault();
 
                 if (firm != null)
                 {
@@ -1430,7 +1467,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if (FirmListResp != null)
             {
                 DoLog(string.Format("Looking form Firm with Id {0} to update its credit limit", wsFirmCreditLimitUpdRq.FirmId), MessageType.Information);
-                FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmCreditLimitUpdRq.FirmId.ToString()).FirstOrDefault();
+                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmCreditLimitUpdRq.FirmId.ToString()).FirstOrDefault();
 
                 if (firm != null)
                 {
@@ -1438,17 +1475,17 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     try
                     {
+
+                        CreateFakePositionToConciliateUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString(), wsFirmCreditLimitUpdRq.UsedCredit - firm.UsedCredit);
+
                         //firm.CreditLimit.TradingStatus = wsFirmCreditLimitUpdRq.TradingStatus;
                         firm.AvailableCredit = wsFirmCreditLimitUpdRq.AvailableCredit;
+                        
                         //Balance = Total - Usage
-                        firm.UsedCredit = wsFirmCreditLimitUpdRq.UsedCredit;
+                        firm.UsedCredit = GetUsedCreditByFirm(wsFirmCreditLimitUpdRq.FirmId.ToString());
                         firm.MaxNotional = wsFirmCreditLimitUpdRq.MaxNotional;
                         firm.MaxQuantity = wsFirmCreditLimitUpdRq.MaxQuantity;
                         firm.PotentialExposure = wsFirmCreditLimitUpdRq.PotentialExposure;
-                        
-
-                        //if (wsFirmCreditLimitUpdRq.CreditLimitBalance != (wsFirmCreditLimitUpdRq.CreditLimitTotal - wsFirmCreditLimitUpdRq.CreditLimitUsage))
-                        //    throw new Exception("Balance must be Total - Usage");
 
                         FirmsCreditLimitUpdateResponse resp = new FirmsCreditLimitUpdateResponse()
                         {
@@ -1464,7 +1501,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         DoSend<FirmsCreditLimitUpdateResponse>(socket, resp);
 
-                        FirmsCreditLimitRecord newCreditLimit = new FirmsCreditLimitRecord()
+                        FirmsCreditRecord newCreditLimit = new FirmsCreditRecord()
                         {
                             Msg = "FirmsCreditLimitRecord",
                             //Firm = firm,
@@ -1481,7 +1518,7 @@ namespace DGTLBackendMock.DataAccessLayer
                             //Uuid = wsFirmCreditLimitUpdRq.Uuid
                         };
 
-                        DoSend<FirmsCreditLimitRecord>(socket, newCreditLimit);
+                        DoSend<FirmsCreditRecord>(socket, newCreditLimit);
                     }
                     catch (Exception ex)
                     {
@@ -1540,11 +1577,100 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
+        private double GetPositionsExposure(bool? marginProvided)
+        {
+            double acumExposure = 0;
+            foreach(SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+                Positions.Where(x=>x.Symbol==security.Symbol && (!marginProvided.HasValue || marginProvided.Value==x.MarginFunded)).ToList().ForEach(x=>netContracts += x.Contracts);
+
+
+                List<ClientPosition> netPositions = new List<ClientPosition>();
+
+                double acumCovers = 0;
+                foreach (ClientPosition pos in Positions.Where(x => x.Symbol == security.Symbol && (!marginProvided.HasValue || marginProvided.Value == x.MarginFunded)))
+                {
+                    if (Math.Sign(pos.Contracts) == Math.Sign(netContracts))
+                    {
+                        netPositions.Add(pos);
+
+                    }
+                    else
+                    {
+                        acumCovers += pos.Contracts;
+                    }
+                }
+
+
+                foreach (ClientPosition notCovPos in netPositions)
+                {
+                    if (Math.Abs(acumCovers) > Math.Abs(notCovPos.Contracts))
+                    {
+                        acumCovers += notCovPos.Contracts;
+                        notCovPos.Contracts = 0;
+                    }
+                    else
+                    {
+
+                        notCovPos.Contracts += acumCovers;
+                        acumCovers = 0;
+                        break;
+                    }
+                }
+
+                netPositions.ForEach(x => acumExposure += (Math.Abs(x.Contracts) * x.Price));
+            }
+
+            return acumExposure;
+        }
+
+        private double GetTotalSideExposure(char side)
+        {
+            //1-We get the exposure for all the positions
+            double totlPositionsExposure = GetPositionsExposure(null);
+
+            //2-Calculate the exposure for the Buy/Sell orders
+            double sideOrdersExposure = GetPotentialExposure(side);
+
+            //3- Calculat the postential buy exposure
+            double PxE = totlPositionsExposure + sideOrdersExposure;
+
+            //4- Calculate the potential buy margin
+            double PxM = PxE * Convert.ToDouble(Config.MarginPct);
+
+            //5-Get Base Margin
+            double BM = GetBaseMargin(LoggedFirmId);
+            
+            //6-Get Potential Exposure
+            return Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
+        
+        }
+
+        private double  GetBaseMargin(string firmId)
+        {
+
+            return GetPositionsExposure(true) * Config.MarginPct;
+        }
+
+        private double GetUsedCreditByFirm(string firmId)
+        {
+            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
+
+            double creditUsed = 0;
+            foreach(UserRecord user in usersForFirm)
+            {
+                Positions.Where(x => x.UserId == user.UserId && !x.MarginFunded).ToList().ForEach(pos => creditUsed += Math.Abs(pos.Contracts) * pos.Price);
+            }
+
+            return creditUsed;
+        }
+
         private void CreateFirmListCreditStructure(string UUID, int pageNo,int pageRecords)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            Dictionary<string, FirmsCreditLimitRecord> firms = new Dictionary<string, FirmsCreditLimitRecord>();
-            List<FirmsCreditLimitRecord> finalList = new List<FirmsCreditLimitRecord>();
+            Dictionary<string, FirmsCreditRecord> firms = new Dictionary<string, FirmsCreditRecord>();
+            List<FirmsCreditRecord> finalList = new List<FirmsCreditRecord>();
 
             foreach (AccountRecord accRecord in AccountRecords)
             {
@@ -1557,34 +1683,19 @@ namespace DGTLBackendMock.DataAccessLayer
                     firmAccounts.ForEach(x => v2accountList.Add(GetClientAccountRecordFromV1AccountRecord(x).AccountId));
 
                     //2- We creat the credit list
-                   
-                    CreditRecordUpdate creditRecord = CreditRecordUpdates.Where(x => x.FirmId == accRecord.EPFirmId).ToList().FirstOrDefault();
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
-                    //CreditLimit creditLimit = new CreditLimit()
-                    //{
-                    //    CurrencyRootId = accRecord.RouteId,
-                    //    cTradingStatus = CreditLimit._TRADING_STATUS_TRADING,
-                    //    FirmCreditId = accRecord.EPFirmId,
-                    //    MaxQtySize = accRecord.MaxNotional,
-                    //    MaxTradeSize = accRecord.MaxNotional,
-                    //    PotentialExposure = accRecord.MaxNotional,
-                    //    Total = defaultAccount != null ? defaultAccount.CreditLimit : -1,
-                    //    Usage = creditRecord != null ? creditRecord.CreditUsed : 0
-                    //};
 
-                    FirmsCreditLimitRecord firm = new FirmsCreditLimitRecord()
+                    double creditUsed = GetUsedCreditByFirm(accRecord.EPFirmId);
+                    FirmsCreditRecord firm = new FirmsCreditRecord()
                     {
                         FirmId = accRecord.EPFirmId,
-                        //Name = accRecord.CFirmName,
-                        //ShortName = accRecord.CFSortName,
-                        AvailableCredit = (defaultAccount != null && creditRecord != null) ? (defaultAccount.CreditLimit - creditRecord.CreditUsed) : 0,
-                        UsedCredit = creditRecord != null ? creditRecord.CreditUsed : 0,
+                        AvailableCredit = (defaultAccount != null) ? (defaultAccount.CreditLimit - creditUsed) : 0,
+                        UsedCredit = creditUsed,
                         PotentialExposure = 0,
                         MaxNotional = accRecord.MaxNotional,
                         MaxQuantity = accRecord.MaxNotional / 7000,//We set an hypothetical maxqty based on BTC price
                         cTradingStatus = CreditLimit._TRADING_STATUS_TRADING,
                         Accounts = v2accountList.ToArray(),
-                        //CreditLimit = creditLimit
                     };
 
                     firms.Add(accRecord.EPFirmId, firm);
@@ -1609,6 +1720,50 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
+        private void CreatePosition(LegacyTradeHistory newTrade,string userId)
+        {
+            ClientPosition newPos = new ClientPosition()
+            {
+                Contracts = newTrade.cMySide == LegacyTradeHistory._SIDE_BUY ? newTrade.TradeQuantity : newTrade.TradeQuantity * -1,
+                MarginFunded = false,
+                Msg = "Position",
+                Price = newTrade.TradePrice,
+                Symbol = newTrade.Symbol,
+                UserId = userId
+            };
+
+            List<ClientPosition> tempPos = Positions.ToList();
+            tempPos.Add(newPos);
+            Positions = tempPos.ToArray();
+        
+        }
+
+        //When updating a firm's credit level, we create a fake position so the Used Credit = Positions Used Credit
+        private void CreateFakePositionToConciliateUsedCredit(string firmId ,double usedDiff)
+        {
+
+            DailySettlementPrice firstDSP = DailySettlementPrices.Where(x => x.Price.HasValue).FirstOrDefault();
+            UserRecord firstUser = UserRecords.Where(x => x.FirmId == firmId).FirstOrDefault();
+
+            if (firstDSP != null && firstUser != null)
+            {
+                double price = Convert.ToDouble(firstDSP.Price.Value);
+                ClientPosition unkPos = new ClientPosition()
+                {
+                    Contracts = usedDiff / price,
+                    MarginFunded = false,
+                    Msg = "Position",
+                    Price = price,
+                    Symbol = firstDSP.Symbol + "<conc>",
+                    UserId = firstUser.UserId
+                };
+
+                List<ClientPosition> tempList = Positions.ToList();
+                tempList.Add(unkPos);
+                Positions = tempList.ToArray();
+            }
+        }
+
         private void ProcessFirmsListRequest (IWebSocketConnection socket, string m)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1623,11 +1778,11 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
 
-                List<FirmsCreditLimitRecord> firmsCreditLimitRecord = new List<FirmsCreditLimitRecord>();
+                List<FirmsCreditRecord> firmsCreditLimitRecord = new List<FirmsCreditRecord>();
                 foreach (var firm in FirmListResp.Firms)
                 {
 
-                    FirmsCreditLimitRecord firmResp = new FirmsCreditLimitRecord();
+                    FirmsCreditRecord firmResp = new FirmsCreditRecord();
                     firmResp.Msg = "FirmCreditRecord ";
                     //firmResp.Uuid = wsFirmListRq.Uuid;
                     firmResp.FirmId = firm.FirmId.ToString();
@@ -2466,7 +2621,7 @@ namespace DGTLBackendMock.DataAccessLayer
                      if(FirmListResp==null)
                         CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
 
-                    FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
+                    FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
 
                     resp.ExposureChange = exposure;
                     double neededCredit = firm.UsedCredit + GetPotentialExposure(clientCreditReq.cSide) + exposure;
@@ -2483,7 +2638,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                long exposure = instr.cProductType == ClientInstrument._DF ? clientCreditReq.Quantity * -1 : clientCreditReq.Quantity;
+                long exposure = instr.cProductType == ClientInstrument._DF ? clientCreditReq.Quantity*8000 * -1 : clientCreditReq.Quantity*8000;
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",
@@ -3014,7 +3169,7 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private long GetPotentialExposure(char side)
+        private double GetPotentialExposure(char side)
         {
             List<LegacyOrderRecord> orders = Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN).ToList();
 
@@ -3033,7 +3188,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     exposure += order.LvsQty * order.Price.Value;
             }
 
-            return Convert.ToInt64(exposure);
+            return exposure;
         }
 
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3041,7 +3196,7 @@ namespace DGTLBackendMock.DataAccessLayer
             if(FirmListResp==null)
                 CreateFirmListCreditStructure(subscrMsg.Uuid, 0, 10000);
 
-            FirmsCreditLimitRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==subscrMsg.ServiceKey).FirstOrDefault();
+            FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==subscrMsg.ServiceKey).FirstOrDefault();
 
             if (firm != null)
             {

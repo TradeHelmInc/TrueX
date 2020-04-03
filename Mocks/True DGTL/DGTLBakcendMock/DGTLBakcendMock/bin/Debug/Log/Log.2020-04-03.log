@@ -1,0 +1,503 @@
+2020-04-03 10:20:13  :: Initializing Mock Server...
+2020-04-03 10:20:13  :: Initializing all collections...
+2020-04-03 10:20:14  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 10:20:15  :: Collections Initialized...
+2020-04-03 15:48:53  :: Initializing Mock Server...
+2020-04-03 15:48:53  :: Initializing all collections...
+2020-04-03 15:48:55  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 15:48:55  :: Collections Initialized...
+2020-04-03 15:49:38  :: Initializing Mock Server...
+2020-04-03 15:49:38  :: Initializing all collections...
+2020-04-03 15:49:39  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 15:49:39  :: Collections Initialized...
+2020-04-03 15:50:34  :: Initializing Mock Server...
+2020-04-03 15:50:34  :: Initializing all collections...
+2020-04-03 15:50:35  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 15:50:35  :: Collections Initialized...
+2020-04-03 15:50:51  :: Connecting for the first time to client 50485
+2020-04-03 15:50:51  :: Connected for the first time to client 50485
+2020-04-03 15:51:01  :: OnMessage ClientLogin from IP -> 127.0.0.1
+2020-04-03 15:52:06  :: Closing previous client 
+2020-04-03 15:52:06  :: Turning threads off on socket disconnection
+2020-04-03 15:52:15  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 15:52:15  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 15:52:15  :: Sending ClientLoginResponse with UUID 42715849-02df-4a04-8fad-fd695491dceb
+2020-04-03 15:52:15  :: Sending Instrument Batch 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientInstrumentState 
+2020-04-03 15:52:15  :: Sending ClientUserRecord
+2020-04-03 15:52:15  :: Sending ClientMarketStateBatch
+2020-04-03 15:52:15  :: Sending ClientAccountRecordBatch 
+2020-04-03 15:52:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:52:21  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 15:52:21  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 15:52:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:52:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:52:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:52:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:18  :: Turning threads off on socket disconnection
+2020-04-03 15:54:21  :: Turning threads off on socket disconnection
+2020-04-03 15:54:24  :: Turning threads off on socket disconnection
+2020-04-03 15:54:25  :: Connecting for the first time to client 50567
+2020-04-03 15:54:25  :: Connected for the first time to client 50567
+2020-04-03 15:54:27  :: Turning threads off on socket disconnection
+2020-04-03 15:54:30  :: Turning threads off on socket disconnection
+2020-04-03 15:54:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 15:54:31  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 15:54:31  :: Sending ClientLoginResponse with UUID 6c9849c0-b60b-45ee-bbc2-725cbe0a99e2
+2020-04-03 15:54:31  :: Sending Instrument Batch 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientInstrumentState 
+2020-04-03 15:54:31  :: Sending ClientUserRecord
+2020-04-03 15:54:31  :: Sending ClientMarketStateBatch
+2020-04-03 15:54:31  :: Sending ClientAccountRecordBatch 
+2020-04-03 15:54:33  :: Turning threads off on socket disconnection
+2020-04-03 15:54:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:36  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 15:54:36  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 15:54:36  :: Turning threads off on socket disconnection
+2020-04-03 15:54:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:39  :: Turning threads off on socket disconnection
+2020-04-03 15:54:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:54:47  :: Initializing Mock Server...
+2020-04-03 15:54:47  :: Initializing all collections...
+2020-04-03 15:54:47  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 15:54:48  :: Collections Initialized...
+2020-04-03 15:54:57  :: Connecting for the first time to client 50584
+2020-04-03 15:54:57  :: Connected for the first time to client 50584
+2020-04-03 15:55:01  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 15:55:02  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 15:55:02  :: Sending ClientLoginResponse with UUID b7dfdce8-8b55-44a7-84d1-75b66d9ee315
+2020-04-03 15:55:02  :: Sending Instrument Batch 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientInstrumentState 
+2020-04-03 15:55:02  :: Sending ClientUserRecord
+2020-04-03 15:55:02  :: Sending ClientMarketStateBatch
+2020-04-03 15:55:02  :: Sending ClientAccountRecordBatch 
+2020-04-03 15:55:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 15:55:06  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:00:23  :: Initializing Mock Server...
+2020-04-03 16:00:23  :: Initializing all collections...
+2020-04-03 16:00:23  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 16:00:24  :: Collections Initialized...
+2020-04-03 16:00:33  :: Connecting for the first time to client 50736
+2020-04-03 16:00:33  :: Connected for the first time to client 50736
+2020-04-03 16:00:45  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:00:45  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:00:45  :: Sending ClientLoginResponse with UUID 65ee0b69-e7e1-455b-b478-459754d20e30
+2020-04-03 16:00:45  :: Sending Instrument Batch 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientInstrumentState 
+2020-04-03 16:00:45  :: Sending ClientUserRecord
+2020-04-03 16:00:45  :: Sending ClientMarketStateBatch
+2020-04-03 16:00:45  :: Sending ClientAccountRecordBatch 
+2020-04-03 16:00:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:00:51  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:00:51  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:00:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:00:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:00:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:01:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:02:21  :: Initializing Mock Server...
+2020-04-03 16:02:21  :: Initializing all collections...
+2020-04-03 16:02:22  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:02:33  :: Connecting for the first time to client 50756
+2020-04-03 16:02:33  :: Connected for the first time to client 50756
+2020-04-03 16:02:37  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:02:37  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:02:38  :: Sending ClientLoginResponse with UUID 5e55d2f6-39f0-4e1d-b8df-992785296568
+2020-04-03 16:02:38  :: Sending Instrument Batch 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientInstrumentState 
+2020-04-03 16:02:38  :: Sending ClientUserRecord
+2020-04-03 16:02:38  :: Exception unencrypting secret jsNNU2opkmeZTR7Zhpx3rS3CQiV/G9o0fNsqrK73Ir5e0878DGiAUWabKzFJCZSB: Referencia a objeto no establecida como instancia de un objeto.
+2020-04-03 16:02:43  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:02:43  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:02:43  :: Sending ClientLoginResponse with UUID ff53ea79-15f0-496d-a36f-38d0381ac198
+2020-04-03 16:02:43  :: Sending Instrument Batch 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientInstrumentState 
+2020-04-03 16:02:43  :: Sending ClientUserRecord
+2020-04-03 16:02:43  :: Exception unencrypting secret 8Ct3OyjgIjgiuinHoigsPYLBHuKUqIHwrWDY1y+id6s8x8kT8R5W+fDJzpltBlCa: Referencia a objeto no establecida como instancia de un objeto.
+2020-04-03 16:02:47  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:02:47  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:09:31  :: Initializing Mock Server...
+2020-04-03 16:09:31  :: Initializing all collections...
+2020-04-03 16:09:31  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:10:07  :: Connecting for the first time to client 51018
+2020-04-03 16:10:07  :: Connected for the first time to client 51018
+2020-04-03 16:10:09  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:10:09  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:10:09  :: Sending ClientLoginResponse with UUID d4246b10-6853-46f3-9ead-0efdb6b5e04d
+2020-04-03 16:10:09  :: Sending Instrument Batch 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientInstrumentState 
+2020-04-03 16:10:09  :: Sending ClientUserRecord
+2020-04-03 16:10:09  :: Exception unencrypting secret fHyrulhBGi4at4t5zf2TNbEqYdPDXsyqw/sZ8A1CVj2VpW+ZvS5PnJXUfj416kxA: Referencia a objeto no establecida como instancia de un objeto.
+2020-04-03 16:10:16  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-04-03 16:10:33  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:10:33  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:10:38  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-04-03 16:10:38  :: Looking form Firm with Id 548346919 to update its credit limit
+2020-04-03 16:10:38  :: Firm 548346919 found. Updating its credit limit
+2020-04-03 16:12:01  :: Initializing Mock Server...
+2020-04-03 16:12:01  :: Initializing all collections...
+2020-04-03 16:12:01  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:12:10  :: Connecting for the first time to client 51080
+2020-04-03 16:12:10  :: Connected for the first time to client 51080
+2020-04-03 16:12:13  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:12:13  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:12:13  :: Sending ClientLoginResponse with UUID fa7a01bc-6501-4d80-8d90-9588a36ff465
+2020-04-03 16:12:13  :: Sending Instrument Batch 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientInstrumentState 
+2020-04-03 16:12:13  :: Sending ClientUserRecord
+2020-04-03 16:12:13  :: Exception unencrypting secret sORY4fdLYFzpw6VPdevI/aUB0H5lKR0bkVxJ3SrYHY+/iERBLZoo3vfwnoI9XpLl: Referencia a objeto no establecida como instancia de un objeto.
+2020-04-03 16:12:17  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:12:17  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:12:39  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-04-03 16:12:39  :: Looking form Firm with Id 548346919 to update its credit limit
+2020-04-03 16:12:39  :: Firm 548346919 found. Updating its credit limit
+2020-04-03 16:13:16  :: Initializing Mock Server...
+2020-04-03 16:13:16  :: Initializing all collections...
+2020-04-03 16:13:17  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:13:25  :: Connecting for the first time to client 51114
+2020-04-03 16:13:25  :: Connected for the first time to client 51114
+2020-04-03 16:13:29  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:13:29  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:13:29  :: Sending ClientLoginResponse with UUID 5cfb0e4d-8fcf-437c-8632-862cdfbe0bfa
+2020-04-03 16:13:29  :: Sending Instrument Batch 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientInstrumentState 
+2020-04-03 16:13:29  :: Sending ClientUserRecord
+2020-04-03 16:13:29  :: Exception unencrypting secret cM28sCGImDbf6G4fO5Ip7cyIryZfKsyY0NmvAndyUOBWgUJGXNYt6LnAC5qbQBLq: Referencia a objeto no establecida como instancia de un objeto.
+2020-04-03 16:13:36  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:13:36  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:13:51  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-04-03 16:13:51  :: Looking form Firm with Id 548346919 to update its credit limit
+2020-04-03 16:13:51  :: Firm 548346919 found. Updating its credit limit
+2020-04-03 16:16:29  :: Initializing Mock Server...
+2020-04-03 16:16:29  :: Initializing all collections...
+2020-04-03 16:16:30  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:16:54  :: Connecting for the first time to client 51274
+2020-04-03 16:16:54  :: Connected for the first time to client 51274
+2020-04-03 16:18:19  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:18:19  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:18:19  :: Sending ClientLoginResponse with UUID 01ebabc9-f8e4-4097-b924-39c0107765a2
+2020-04-03 16:18:22  :: Sending Instrument Batch 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:23  :: Sending ClientInstrumentState 
+2020-04-03 16:18:24  :: Sending ClientUserRecord
+2020-04-03 16:18:31  :: Sending Instrument Batch 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:32  :: Sending ClientInstrumentState 
+2020-04-03 16:18:33  :: Sending ClientUserRecord
+2020-04-03 16:19:54  :: Initializing Mock Server...
+2020-04-03 16:19:54  :: Initializing all collections...
+2020-04-03 16:19:55  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:20:16  :: Initializing Mock Server...
+2020-04-03 16:20:16  :: Initializing all collections...
+2020-04-03 16:20:17  :: Error initializing collections: No se pudo encontrar el archivo 'C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\CreditRecordUpdate.json'....
+2020-04-03 16:20:43  :: Initializing Mock Server...
+2020-04-03 16:20:43  :: Initializing all collections...
+2020-04-03 16:21:19  :: Initializing Mock Server...
+2020-04-03 16:21:19  :: Initializing all collections...
+2020-04-03 16:21:20  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 16:21:21  :: Collections Initialized...
+2020-04-03 16:21:35  :: Initializing Mock Server...
+2020-04-03 16:21:35  :: Initializing all collections...
+2020-04-03 16:21:36  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 16:21:37  :: Collections Initialized...
+2020-04-03 16:21:52  :: Connecting for the first time to client 51627
+2020-04-03 16:21:52  :: Connected for the first time to client 51627
+2020-04-03 16:22:12  :: Initializing Mock Server...
+2020-04-03 16:22:12  :: Initializing all collections...
+2020-04-03 16:22:13  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-03 16:22:14  :: Collections Initialized...
+2020-04-03 16:22:24  :: Connecting for the first time to client 51646
+2020-04-03 16:22:24  :: Connected for the first time to client 51646
+2020-04-03 16:22:31  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-03 16:22:32  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-03 16:22:32  :: Sending ClientLoginResponse with UUID 7cf49bdf-29b6-4fb3-928e-719e0c37ff7c
+2020-04-03 16:22:34  :: Sending Instrument Batch 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientInstrumentState 
+2020-04-03 16:22:34  :: Sending ClientUserRecord
+2020-04-03 16:22:34  :: Sending ClientMarketStateBatch
+2020-04-03 16:22:34  :: Sending ClientAccountRecordBatch 
+2020-04-03 16:22:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:43  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-03 16:22:43  :: Process FirmsListReqest: 9 firms loaded
+2020-04-03 16:22:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:50  :: OnMessage FirmsCreditLimitUpdateRequest from IP -> 127.0.0.1
+2020-04-03 16:22:50  :: Looking form Firm with Id 548346919 to update its credit limit
+2020-04-03 16:22:50  :: Firm 548346919 found. Updating its credit limit
+2020-04-03 16:22:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-03 16:22:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
