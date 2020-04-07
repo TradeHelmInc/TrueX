@@ -11,6 +11,13 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
     public class SecurityMasterRecord : WebSocketMessage
     {
+        #region Public Static Consts
+
+        public static string _AS_SPOT = "Spot";
+
+        #endregion
+        #region Public Attributes
+
         public int InstrumentId { get; set; }
 
         public string Symbol { get; set; }
@@ -44,5 +51,7 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
         public string Status { get; set; }
 
         public decimal? MaxNotional { get; set; }
+
+        #endregion
     }
 }

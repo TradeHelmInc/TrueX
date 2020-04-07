@@ -16,7 +16,7 @@ namespace DGTLBackendMock.Common.DTO.MarketData.V2
 
         public string InstrumentName { get; set; }
 
-        public decimal? DailySettlementPrice { get; set; }
+        public double? DailySettlementPrice { get; set; }
 
         public int CalculationDate { get; set; }
 

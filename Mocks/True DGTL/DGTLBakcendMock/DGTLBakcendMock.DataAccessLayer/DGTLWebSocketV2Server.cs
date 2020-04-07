@@ -270,8 +270,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = newTrade != null ? GetUsedCreditByFirm(LoggedFirmId) : firm.UsedCredit,
-                     BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
-                     SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
+                     BuyExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY),
+                     SellExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -592,7 +592,7 @@ namespace DGTLBackendMock.DataAccessLayer
             SendTradeNotification(socket, newTrade, LoggedUserId, instr, UUID);
 
             //1.2.3-Update and send ClientCreditUpdate
-            UpdateCredit(socket, newTrade, UUID);
+            //UpdateCredit(socket, newTrade, UUID);
 
         }
 
@@ -696,9 +696,6 @@ namespace DGTLBackendMock.DataAccessLayer
                 Orders.Add(OyMsg);
 
                 RefreshOpenOrders(socket, OyMsg.UserId,UUID);
-
-                //We have a new open order --> we have new potential buy/sell exposure
-                UpdateCredit(socket, null, UUID);
 
             }
         }
@@ -841,7 +838,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 CreatePosition(newTrade,LoggedUserId);
 
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, newTrade, UUID);
+                                //UpdateCredit(socket, newTrade, UUID);
 
 
                                 //1.4-Calculamos el nuevo bestAsk
@@ -868,7 +865,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 CreatePosition(newTrade, LoggedUserId);
 
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, newTrade, UUID);
+                                //UpdateCredit(socket, newTrade, UUID);
 
                                 fullFill = true;
                             }
@@ -943,7 +940,7 @@ namespace DGTLBackendMock.DataAccessLayer
                                 CreatePosition(newTrade, LoggedUserId);
 
                                 //1.3 - We update the credit used
-                                UpdateCredit(socket, newTrade, UUID);
+                                //UpdateCredit(socket, newTrade, UUID);
 
 
                                 //1.4-Calculamos el nuevo bestBid
@@ -965,9 +962,6 @@ namespace DGTLBackendMock.DataAccessLayer
 
                                 //1.2.bis - We create the position
                                 CreatePosition(newTrade, LoggedUserId);
-
-                                //1.3 - We update the credit used
-                                UpdateCredit(socket, new LegacyTradeHistory() { TradeQuantity = Convert.ToDouble(prevLeftQty), TradePrice = Convert.ToDouble(bestBid.Price) }, UUID);
 
                                 fullFill = true;
                             }
@@ -1577,80 +1571,36 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private double GetPositionsExposure(bool? marginProvided)
-        {
-            double acumExposure = 0;
-            foreach(SecurityMasterRecord security in SecurityMasterRecords)
-            {
-                double netContracts = 0;
-                Positions.Where(x=>x.Symbol==security.Symbol && (!marginProvided.HasValue || marginProvided.Value==x.MarginFunded)).ToList().ForEach(x=>netContracts += x.Contracts);
-
-
-                List<ClientPosition> netPositions = new List<ClientPosition>();
-
-                double acumCovers = 0;
-                foreach (ClientPosition pos in Positions.Where(x => x.Symbol == security.Symbol && (!marginProvided.HasValue || marginProvided.Value == x.MarginFunded)))
-                {
-                    if (Math.Sign(pos.Contracts) == Math.Sign(netContracts))
-                    {
-                        netPositions.Add(pos);
-
-                    }
-                    else
-                    {
-                        acumCovers += pos.Contracts;
-                    }
-                }
-
-
-                foreach (ClientPosition notCovPos in netPositions)
-                {
-                    if (Math.Abs(acumCovers) > Math.Abs(notCovPos.Contracts))
-                    {
-                        acumCovers += notCovPos.Contracts;
-                        notCovPos.Contracts = 0;
-                    }
-                    else
-                    {
-
-                        notCovPos.Contracts += acumCovers;
-                        acumCovers = 0;
-                        break;
-                    }
-                }
-
-                netPositions.ForEach(x => acumExposure += (Math.Abs(x.Contracts) * x.Price));
-            }
-
-            return acumExposure;
-        }
-
         private double GetTotalSideExposure(char side)
         {
-            //1-We get the exposure for all the positions
-            double totlPositionsExposure = GetPositionsExposure(null);
+            //1-Get Base Margin
+            double BM = GetBaseMargin(LoggedFirmId);
 
             //2-Calculate the exposure for the Buy/Sell orders
-            double sideOrdersExposure = GetPotentialExposure(side);
+            double PxM = GetPotentialxMargin(side);
 
-            //3- Calculat the postential buy exposure
-            double PxE = totlPositionsExposure + sideOrdersExposure;
-
-            //4- Calculate the potential buy margin
-            double PxM = PxE * Convert.ToDouble(Config.MarginPct);
-
-            //5-Get Base Margin
-            double BM = GetBaseMargin(LoggedFirmId);
-            
-            //6-Get Potential Exposure
+            //3- Calculate the potential x Exposure
             return Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
         
         }
 
         private double  GetBaseMargin(string firmId)
         {
+            double acumMargin = 0;
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+                Positions.Where(x => x.Symbol == security.Symbol && x.UserId == LoggedUserId).ToList().ForEach(x => netContracts += x.Contracts);
+                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
 
-            return GetPositionsExposure(true) * Config.MarginPct;
+                if (DSP != null && DSP.Price.HasValue)
+                {
+                    acumMargin += Math.Abs(netContracts) * DSP.Price.Value * Config.MarginPct;
+                }
+            }
+
+            //TODO : implement the calendar spreads margin calculation
+            return acumMargin;
         }
 
         private double GetUsedCreditByFirm(string firmId)
@@ -1660,7 +1610,16 @@ namespace DGTLBackendMock.DataAccessLayer
             double creditUsed = 0;
             foreach(UserRecord user in usersForFirm)
             {
-                Positions.Where(x => x.UserId == user.UserId && !x.MarginFunded).ToList().ForEach(pos => creditUsed += Math.Abs(pos.Contracts) * pos.Price);
+                
+                foreach (SecurityMasterRecord security in SecurityMasterRecords)
+                {
+                    double netContracts = 0;
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                    DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+
+                    if(DSP!=null && DSP.Price.HasValue && netContracts!=0)
+                        creditUsed += Math.Abs(netContracts) * DSP.Price.Value;
+                }
             }
 
             return creditUsed;
@@ -1725,7 +1684,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientPosition newPos = new ClientPosition()
             {
                 Contracts = newTrade.cMySide == LegacyTradeHistory._SIDE_BUY ? newTrade.TradeQuantity : newTrade.TradeQuantity * -1,
-                MarginFunded = false,
+                MarginFunded = true,
                 Msg = "Position",
                 Price = newTrade.TradePrice,
                 Symbol = newTrade.Symbol,
@@ -2624,7 +2583,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
 
                     resp.ExposureChange = exposure;
-                    double neededCredit = firm.UsedCredit + GetPotentialExposure(clientCreditReq.cSide) + exposure;
+                    double neededCredit = firm.UsedCredit + GetTotalSideExposure(clientCreditReq.cSide) + exposure;
                     double totalCredit = firm.UsedCredit + firm.AvailableCredit;
                     resp.CreditAvailable = neededCredit < totalCredit;
 
@@ -3169,26 +3128,29 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private double GetPotentialExposure(char side)
+        private double GetPotentialxMargin(char side)
         {
-            List<LegacyOrderRecord> orders = Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN).ToList();
-
-            double exposure = 0;
-
-
-            //Note: Exposures for Swaps (DFs) are processed as negative 
-
-            foreach (LegacyOrderRecord order in orders)
+            double acumMargin = 0;
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
-                ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+                double potentialNetContracts = 0;
 
-                if (instr.cProductType == ClientInstrument._DF)
-                    exposure -= order.LvsQty * order.Price.Value;
-                else
-                    exposure += order.LvsQty * order.Price.Value;
+                Positions.Where(x => x.Symbol == security.Symbol && x.UserId==LoggedUserId).ToList().ForEach(x => potentialNetContracts += x.Contracts);
+
+                Orders.Where(x =>   x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN 
+                                 && x.InstrumentId==security.Symbol && x.UserId==LoggedUserId).ToList()
+                    .ForEach(x => potentialNetContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
+                
+                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+
+                if (DSP != null && DSP.Price.HasValue)
+                {
+                    acumMargin += Math.Abs(potentialNetContracts) * DSP.Price.Value * Config.MarginPct;
+                }
             }
 
-            return exposure;
+            //TODO : implement the calendar spreads margin calculation
+            return acumMargin;
         }
 
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3209,8 +3171,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     AccountId = 0,
                     CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                     CreditUsed = firm.UsedCredit,
-                    BuyExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_BUY),
-                    SellExposure = GetPotentialExposure(LegacyOrderRecord._SIDE_SELL),
+                    BuyExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY),
+                    SellExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL),
                     cStatus = firm.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = Convert.ToInt32(firm.FirmId),
@@ -3559,7 +3521,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 while (true)
                 {
                     Thread.Sleep(10 * 1000);
-                    v1SettlPrice.Price += (decimal?) 0.01;
+                    v1SettlPrice.Price += (double?) 0.01;
                     TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, UUID);
                 }
             }
