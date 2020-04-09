@@ -261,7 +261,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
              if (firm != null)
              {
-                 firm.UsedCredit += newTrade != null ? (newTrade.TradePrice * newTrade.TradeQuantity) : 0;
+                 double prevUsedCredit = firm.UsedCredit;
+                 firm.UsedCredit = GetUsedCredit(LoggedFirmId);
+                 firm.AvailableCredit -= firm.UsedCredit-prevUsedCredit;
 
                  TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
                  ClientCreditUpdate ccUpd = new ClientCreditUpdate()
@@ -269,7 +271,7 @@ namespace DGTLBackendMock.DataAccessLayer
                      Msg = "ClientCreditUpdate",
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
-                     CreditUsed = newTrade != null ? GetUsedCreditByFirm(LoggedFirmId) : firm.UsedCredit,
+                     CreditUsed = firm.UsedCredit,
                      BuyExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY),
                      SellExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL),
                      cStatus = firm.cTradingStatus,
@@ -1476,7 +1478,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         firm.AvailableCredit = wsFirmCreditLimitUpdRq.AvailableCredit;
                         
                         //Balance = Total - Usage
-                        firm.UsedCredit = GetUsedCreditByFirm(wsFirmCreditLimitUpdRq.FirmId.ToString());
+                        firm.UsedCredit = GetUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString());
                         firm.MaxNotional = wsFirmCreditLimitUpdRq.MaxNotional;
                         firm.MaxQuantity = wsFirmCreditLimitUpdRq.MaxQuantity;
                         firm.PotentialExposure = wsFirmCreditLimitUpdRq.PotentialExposure;
@@ -1580,46 +1582,108 @@ namespace DGTLBackendMock.DataAccessLayer
             double PxM = GetPotentialxMargin(side);
 
             //3- Calculate the potential x Exposure
-            return Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
+            //double exposure = Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
+            double exposure = Convert.ToDouble(PxM - BM) / Config.MarginPct;
+            DoLog(string.Format("Side {0} exposure:{1}", side, exposure), MessageType.Information);
+            return Convert.ToDouble(PxM - BM)/Config.MarginPct;
         
         }
 
         private double  GetBaseMargin(string firmId)
         {
             double acumMargin = 0;
+
+            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == LoggedFirmId).ToList();
+
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
                 double netContracts = 0;
-                Positions.Where(x => x.Symbol == security.Symbol && x.UserId == LoggedUserId).ToList().ForEach(x => netContracts += x.Contracts);
+                foreach (UserRecord userForFirms in usersForFirm)
+                {
+                    
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
+                                .ForEach(x => netContracts += x.Contracts);
+
+
+                    
+                }
+
                 DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
 
                 if (DSP != null && DSP.Price.HasValue)
                 {
                     acumMargin += Math.Abs(netContracts) * DSP.Price.Value * Config.MarginPct;
                 }
-            }
 
+                DoLog(string.Format("Net Contracts for Security {0} :{1}", security.Symbol, netContracts), MessageType.Information);
+
+            }
+           
             //TODO : implement the calendar spreads margin calculation
+            DoLog(string.Format("Base Margin for FirmId {0}:{1}", LoggedFirmId, acumMargin), MessageType.Information);
+
             return acumMargin;
         }
 
-        private double GetUsedCreditByFirm(string firmId)
+        //here I can work with just 1 security
+        private double GetSecurityPotentialExposure(char side,double qty,string symbol,string firmId)
         {
+            double finalExposure = 0;
+            double currentExposure = 0;
+            double netContracts = 0;
+            qty = (ClientOrderRecord._SIDE_BUY == side) ? qty : -1 * qty;
+
+            
+
+            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
+
+            foreach (UserRecord user in usersForFirm)
+            {
+                Positions.Where(x => x.Symbol == symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+
+                //open orders too
+                Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN
+                                         && x.InstrumentId == symbol && x.UserId == user.UserId).ToList()
+                            .ForEach(x => netContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
+            }
+
+            DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
+
+            if (DSP != null && DSP.Price.HasValue)
+            {
+                currentExposure = (Math.Abs(netContracts) * DSP.Price.Value);
+                finalExposure = (Math.Abs(netContracts + qty) * DSP.Price.Value);
+            }
+
+
+
+            return finalExposure - currentExposure;
+        }
+
+        private double GetUsedCredit(string firmId)
+        {
+
             List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
 
             double creditUsed = 0;
-            foreach(UserRecord user in usersForFirm)
-            {
+          
                 
-                foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+                foreach (UserRecord user in usersForFirm)
                 {
-                    double netContracts = 0;
+                    
                     Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                    DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
-
-                    if(DSP!=null && DSP.Price.HasValue && netContracts!=0)
-                        creditUsed += Math.Abs(netContracts) * DSP.Price.Value;
+                    
                 }
+
+                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+
+                if(DSP!=null && DSP.Price.HasValue && netContracts!=0)
+                    creditUsed += Math.Abs(netContracts) * DSP.Price.Value;
+
+                DoLog(string.Format("Final Net Contracts for Security Id {0}:{1}", security.Symbol, netContracts), MessageType.Information);
             }
 
             return creditUsed;
@@ -1644,7 +1708,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //2- We creat the credit list
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
 
-                    double creditUsed = GetUsedCreditByFirm(accRecord.EPFirmId);
+                    double creditUsed = GetUsedCredit(accRecord.EPFirmId);
                     FirmsCreditRecord firm = new FirmsCreditRecord()
                     {
                         FirmId = accRecord.EPFirmId,
@@ -2527,6 +2591,26 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        private void TestClientReject(IWebSocketConnection socket, ClientCreditRequest clientCreditReq, ClientInstrument instr)
+        {
+            if (instr.InstrumentName == "SWP-XBT-USD-X18")
+            {
+                ClientReject reject = new ClientReject()
+                {
+                    Msg = "ClientReject",
+                    RejectCode = ClientReject._GENERIC_REJECT_CODE,
+                    Sender = 0,
+                    Text = "Test Client Reject",
+                    Time = 0,
+                    Uuid = clientCreditReq.Uuid
+                };
+
+                DoSend<ClientReject>(socket, reject);
+
+                return;
+            }
+        }
+
         private void ProcessClientCreditRequest(IWebSocketConnection socket, string m)
         {
 
@@ -2536,24 +2620,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             try
             {
-               
-
-                if (instr.InstrumentName == "SWP-XBT-USD-X18")
-                {
-                    ClientReject reject = new ClientReject()
-                    {
-                        Msg = "ClientReject",
-                        RejectCode = ClientReject._GENERIC_REJECT_CODE,
-                        Sender = 0,
-                        Text = "Test Client Reject",
-                        Time = 0,
-                        Uuid = clientCreditReq.Uuid
-                    };
-
-                    DoSend<ClientReject>(socket, reject);
-
-                    return;
-                }
+                TestClientReject(socket,clientCreditReq, instr);
 
 
                 ClientCreditResponse resp = new ClientCreditResponse()
@@ -2567,44 +2634,33 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                long exposure = clientCreditReq.Quantity * 8000;//we use 8000 as a convention
+                double deltaExp = GetSecurityPotentialExposure(clientCreditReq.cSide,clientCreditReq.Quantity,instr.InstrumentName, LoggedFirmId);
 
-                if (instr.cProductType == ClientInstrument._DF)//we change sign for swaps <DFs>
-                {
-                    exposure *= -1;
-                    resp.CreditAvailable = true;
-                    resp.ExposureChange = exposure;
-                }
-                else
-                {
-                     if(FirmListResp==null)
-                        CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
+                if (FirmListResp == null)
+                    CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
+                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
-                    FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==clientCreditReq.FirmId).FirstOrDefault();
+                double neededCredit = firm.UsedCredit + GetTotalSideExposure(clientCreditReq.cSide) + deltaExp;
+                double totalCredit = firm.UsedCredit + firm.AvailableCredit;
+                resp.CreditAvailable = neededCredit < totalCredit;
+                resp.ExposureChange = Convert.ToInt64(deltaExp);
 
-                    resp.ExposureChange = exposure;
-                    double neededCredit = firm.UsedCredit + GetTotalSideExposure(clientCreditReq.cSide) + exposure;
-                    double totalCredit = firm.UsedCredit + firm.AvailableCredit;
-                    resp.CreditAvailable = neededCredit < totalCredit;
-
-
-                    if(!resp.CreditAvailable)
-                        throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",
-                                                          neededCredit,  totalCredit));
-                }
+                if (!resp.CreditAvailable)
+                    throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",
+                                                      neededCredit, totalCredit));
 
                 DoSend<ClientCreditResponse>(socket, resp);
             }
             catch (Exception ex)
             {
-                long exposure = instr.cProductType == ClientInstrument._DF ? clientCreditReq.Quantity*8000 * -1 : clientCreditReq.Quantity*8000;
+                double exposure = GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",
                     UserId = LoggedUserId,
                     FirmId = clientCreditReq.FirmId,
                     CreditAvailable = false,//later we will decide if we trully have credit available
-                    ExposureChange = exposure,//later we will decide the real exposure change
+                    ExposureChange = Convert.ToInt64(exposure),//later we will decide the real exposure change
                     Uuid = clientCreditReq.Uuid,
                     Success=false,
                     Message = ex.Message
@@ -3131,16 +3187,29 @@ namespace DGTLBackendMock.DataAccessLayer
         private double GetPotentialxMargin(char side)
         {
             double acumMargin = 0;
+
+            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == LoggedFirmId).ToList();
+
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
                 double potentialNetContracts = 0;
 
-                Positions.Where(x => x.Symbol == security.Symbol && x.UserId==LoggedUserId).ToList().ForEach(x => potentialNetContracts += x.Contracts);
+                foreach (UserRecord userForFirms in usersForFirm)
+                {
 
-                Orders.Where(x =>   x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN 
-                                 && x.InstrumentId==security.Symbol && x.UserId==LoggedUserId).ToList()
-                    .ForEach(x => potentialNetContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
-                
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
+                            .ForEach(x => potentialNetContracts += x.Contracts);
+
+                    
+                    Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN
+                                        && x.InstrumentId == security.Symbol && x.UserId == userForFirms.UserId).ToList()
+                        .ForEach(x => potentialNetContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
+
+                    
+                }
+
+                DoLog(string.Format("Potential Contracts for Security {0}  after Orders:{1}", security.Symbol, potentialNetContracts), MessageType.Information);
+
                 DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
 
                 if (DSP != null && DSP.Price.HasValue)
@@ -3148,8 +3217,10 @@ namespace DGTLBackendMock.DataAccessLayer
                     acumMargin += Math.Abs(potentialNetContracts) * DSP.Price.Value * Config.MarginPct;
                 }
             }
+            
 
             //TODO : implement the calendar spreads margin calculation
+            DoLog(string.Format("Acum Margin for FirmId {0} after Orders:{1}", LoggedFirmId, acumMargin), MessageType.Information);
             return acumMargin;
         }
 

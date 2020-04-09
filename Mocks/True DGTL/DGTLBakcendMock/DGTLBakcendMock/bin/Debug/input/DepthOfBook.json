@@ -112,10 +112,19 @@
 
 ,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9058.50,"Size":112.12,"Msg":"DepthOfBook","Sender":0}
 
-,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":100.36,"Size":91.12,"Msg":"DepthOfBook","Sender":0}
-
-,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":100.37,"Size":11.39,"Msg":"DepthOfBook","Sender":0}
-
 ,{"Symbol":"SWP-XBT-USD-G19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9102,"Size":20,"Msg":"DepthOfBook","Sender":0}
+
+
+,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9500.00,"Size":100,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8500.00,"Size":200,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9600.00,"Size":100,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8400.00,"Size":200,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9700.00,"Size":5,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8300.00,"Size":10,"Msg":"DepthOfBook","Sender":0}
 
 ]

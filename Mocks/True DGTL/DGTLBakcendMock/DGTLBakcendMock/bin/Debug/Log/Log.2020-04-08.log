@@ -1,0 +1,891 @@
+2020-04-08 13:06:20  :: Initializing Mock Server...
+2020-04-08 13:06:20  :: Initializing all collections...
+2020-04-08 13:06:21  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 13:06:21  :: Collections Initialized...
+2020-04-08 13:06:40  :: Connecting for the first time to client 15451
+2020-04-08 13:06:40  :: Connected for the first time to client 15451
+2020-04-08 16:16:45  :: Initializing Mock Server...
+2020-04-08 16:16:45  :: Initializing all collections...
+2020-04-08 16:16:47  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:16:48  :: Collections Initialized...
+2020-04-08 16:17:12  :: Connecting for the first time to client 6007
+2020-04-08 16:17:12  :: Connected for the first time to client 6007
+2020-04-08 16:17:14  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:17:15  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:17:15  :: Sending ClientLoginResponse with UUID 35514d58-859d-499f-8d2a-4e40fa97223d
+2020-04-08 16:17:15  :: Sending Instrument Batch 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientInstrumentState 
+2020-04-08 16:17:15  :: Sending ClientUserRecord
+2020-04-08 16:17:15  :: Sending ClientMarketStateBatch
+2020-04-08 16:17:15  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:17:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:17:18  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:17:18  :: Sending ClientOrderResponse ...
+2020-04-08 16:17:18  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:17:18  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:17:18  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:18  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:17:18  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:18  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: LastSale updated...
+2020-04-08 16:17:19  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:17:19  :: Quotes updated...
+2020-04-08 16:17:19  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:19  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:19  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:17:19  :: brkpnt Creating new order in Orders collection for OrderId = 98566c6d-4593-4c2d-b686-6125185dff23
+2020-04-08 16:17:19  :: Creating new order in Orders collection for OrderId = 98566c6d-4593-4c2d-b686-6125185dff23
+2020-04-08 16:17:19  :: Sending open order count for all symbols : 2
+2020-04-08 16:17:19  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:19  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:17:22  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:22  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:25  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:25  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:28  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:28  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:31  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:31  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:34  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:34  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:37  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:37  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:40  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:40  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:43  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:43  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:46  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:46  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:49  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:49  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:52  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:52  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:55  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:55  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:17:58  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:17:58  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:18:01  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:18:01  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:18:01  :: Turning threads off on socket disconnection
+2020-04-08 16:18:01  :: Critical error processing quote message for symbol SWP-XBT-USD-G19: Subproceso anulado....
+2020-04-08 16:18:03  :: Turning threads off on socket disconnection
+2020-04-08 16:18:06  :: Turning threads off on socket disconnection
+2020-04-08 16:18:09  :: Turning threads off on socket disconnection
+2020-04-08 16:18:12  :: Turning threads off on socket disconnection
+2020-04-08 16:18:15  :: Turning threads off on socket disconnection
+2020-04-08 16:18:22  :: Initializing Mock Server...
+2020-04-08 16:18:22  :: Initializing all collections...
+2020-04-08 16:18:22  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:18:22  :: Collections Initialized...
+2020-04-08 16:18:30  :: Connecting for the first time to client 6073
+2020-04-08 16:18:30  :: Connected for the first time to client 6073
+2020-04-08 16:18:32  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:18:32  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:18:32  :: Sending ClientLoginResponse with UUID 0d4af3f1-6936-44fb-9558-14198bf714a7
+2020-04-08 16:18:32  :: Sending Instrument Batch 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientInstrumentState 
+2020-04-08 16:18:32  :: Sending ClientUserRecord
+2020-04-08 16:18:32  :: Sending ClientMarketStateBatch
+2020-04-08 16:18:32  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:18:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:35  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:18:35  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:18:35  :: Sending ClientLoginResponse with UUID 5c7cc309-6679-44e7-b667-41c0a0c309ce
+2020-04-08 16:18:35  :: Sending Instrument Batch 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientInstrumentState 
+2020-04-08 16:18:35  :: Sending ClientUserRecord
+2020-04-08 16:18:35  :: Sending ClientMarketStateBatch
+2020-04-08 16:18:35  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:18:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:49  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:18:49  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:18:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:18:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:28  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:19:28  :: Sending ClientOrderResponse ...
+2020-04-08 16:19:28  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:19:28  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:19:28  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:19:28  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: LastSale updated...
+2020-04-08 16:19:28  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:19:28  :: Quotes updated...
+2020-04-08 16:19:28  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:28  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:28  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:19:28  :: brkpnt Creating new order in Orders collection for OrderId = d5b51bd3-3992-495f-a64b-8de87fe1a09b
+2020-04-08 16:19:28  :: Creating new order in Orders collection for OrderId = d5b51bd3-3992-495f-a64b-8de87fe1a09b
+2020-04-08 16:19:28  :: Sending open order count for all symbols : 2
+2020-04-08 16:19:28  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:28  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:19:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:19:31  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:31  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:34  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:34  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:37  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:37  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:40  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:40  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:43  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:43  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:46  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:46  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:49  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:49  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:19:52  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:19:52  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:20:12  :: Initializing Mock Server...
+2020-04-08 16:20:12  :: Initializing all collections...
+2020-04-08 16:20:12  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:20:13  :: Collections Initialized...
+2020-04-08 16:20:20  :: Connecting for the first time to client 6115
+2020-04-08 16:20:20  :: Connected for the first time to client 6115
+2020-04-08 16:20:22  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:20:22  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:20:22  :: Sending ClientLoginResponse with UUID 47bc2a39-9451-4834-a14f-3d6ec977e10e
+2020-04-08 16:20:22  :: Sending Instrument Batch 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientInstrumentState 
+2020-04-08 16:20:22  :: Sending ClientUserRecord
+2020-04-08 16:20:22  :: Sending ClientMarketStateBatch
+2020-04-08 16:20:22  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:20:25  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:20:33  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:20:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:51  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:20:51  :: Sending ClientOrderResponse ...
+2020-04-08 16:20:51  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:20:51  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:20:51  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:51  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:20:51  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:51  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:51  :: LastSale updated...
+2020-04-08 16:20:51  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:20:52  :: Quotes updated...
+2020-04-08 16:20:52  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:20:52  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:20:52  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:20:52  :: brkpnt Creating new order in Orders collection for OrderId = 33fb2db9-270c-4166-b92e-35e5b47edc14
+2020-04-08 16:20:52  :: Creating new order in Orders collection for OrderId = 33fb2db9-270c-4166-b92e-35e5b47edc14
+2020-04-08 16:20:52  :: Sending open order count for all symbols : 2
+2020-04-08 16:20:52  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:20:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:55  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:20:55  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:20:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:20:58  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:20:58  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:21:01  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:21:01  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:21:04  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:21:04  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:25:10  :: Initializing Mock Server...
+2020-04-08 16:25:10  :: Initializing all collections...
+2020-04-08 16:25:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:25:11  :: Collections Initialized...
+2020-04-08 16:26:08  :: Initializing Mock Server...
+2020-04-08 16:26:08  :: Initializing all collections...
+2020-04-08 16:26:08  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:26:09  :: Collections Initialized...
+2020-04-08 16:26:17  :: Connecting for the first time to client 6286
+2020-04-08 16:26:17  :: Connected for the first time to client 6286
+2020-04-08 16:26:19  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:26:20  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:26:20  :: Sending ClientLoginResponse with UUID 381071a7-5bfb-4919-90bb-ed7c89c317d7
+2020-04-08 16:26:20  :: Sending Instrument Batch 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientInstrumentState 
+2020-04-08 16:26:20  :: Sending ClientUserRecord
+2020-04-08 16:26:20  :: Sending ClientMarketStateBatch
+2020-04-08 16:26:20  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:26:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:26:24  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:26:24  :: Sending ClientOrderResponse ...
+2020-04-08 16:26:24  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:26:24  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:26:24  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:26:24  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: LastSale updated...
+2020-04-08 16:26:24  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:26:24  :: Quotes updated...
+2020-04-08 16:26:24  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:24  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:24  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:26:24  :: brkpnt Creating new order in Orders collection for OrderId = d899de6d-ceb1-4122-9f5b-8431ed0835db
+2020-04-08 16:26:24  :: Creating new order in Orders collection for OrderId = d899de6d-ceb1-4122-9f5b-8431ed0835db
+2020-04-08 16:26:24  :: Sending open order count for all symbols : 2
+2020-04-08 16:26:24  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:24  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:26:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:26:27  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:27  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:30  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:30  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:33  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:33  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:36  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:36  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:39  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:39  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:42  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:42  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:45  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:45  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:48  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:48  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:51  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:51  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:54  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:54  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:26:57  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:26:57  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:00  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:00  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:03  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:03  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:06  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:06  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:09  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:09  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:12  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:12  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:15  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:15  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:18  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:18  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:21  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:21  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:24  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:24  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:27  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:27  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:30  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:30  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:33  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:33  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:36  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:36  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:39  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:39  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:42  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:27:42  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:27:50  :: Initializing Mock Server...
+2020-04-08 16:27:50  :: Initializing all collections...
+2020-04-08 16:27:50  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:27:51  :: Collections Initialized...
+2020-04-08 16:27:58  :: Connecting for the first time to client 6379
+2020-04-08 16:27:58  :: Connected for the first time to client 6379
+2020-04-08 16:28:06  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:28:06  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:28:06  :: Sending ClientLoginResponse with UUID fc56b7c1-4995-4794-898c-0b13ae15ee46
+2020-04-08 16:28:06  :: Sending Instrument Batch 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientInstrumentState 
+2020-04-08 16:28:06  :: Sending ClientUserRecord
+2020-04-08 16:28:06  :: Sending ClientMarketStateBatch
+2020-04-08 16:28:06  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:28:09  :: Turning threads off on socket disconnection
+2020-04-08 16:28:12  :: Turning threads off on socket disconnection
+2020-04-08 16:28:18  :: Initializing Mock Server...
+2020-04-08 16:28:18  :: Initializing all collections...
+2020-04-08 16:28:18  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:28:18  :: Collections Initialized...
+2020-04-08 16:28:26  :: Connecting for the first time to client 6391
+2020-04-08 16:28:26  :: Connected for the first time to client 6391
+2020-04-08 16:28:33  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:28:34  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:28:34  :: Sending ClientLoginResponse with UUID 48e9b667-bdf6-41b4-b41c-40d1b9fbe79d
+2020-04-08 16:28:34  :: Sending Instrument Batch 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientInstrumentState 
+2020-04-08 16:28:34  :: Sending ClientUserRecord
+2020-04-08 16:28:34  :: Sending ClientMarketStateBatch
+2020-04-08 16:28:34  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:28:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:28:38  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:28:38  :: Sending ClientOrderResponse ...
+2020-04-08 16:28:38  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:28:38  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:28:38  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:28:38  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: LastSale updated...
+2020-04-08 16:28:38  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:28:38  :: Quotes updated...
+2020-04-08 16:28:38  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:28:38  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:28:38  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:28:38  :: brkpnt Creating new order in Orders collection for OrderId = 469a7a9a-bf0c-4362-9f77-331ec92e0114
+2020-04-08 16:28:38  :: Creating new order in Orders collection for OrderId = 469a7a9a-bf0c-4362-9f77-331ec92e0114
+2020-04-08 16:28:38  :: Sending open order count for all symbols : 2
+2020-04-08 16:28:38  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:38  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:28:57  :: Initializing Mock Server...
+2020-04-08 16:28:57  :: Initializing all collections...
+2020-04-08 16:28:58  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:28:58  :: Collections Initialized...
+2020-04-08 16:29:04  :: Connecting for the first time to client 6424
+2020-04-08 16:29:04  :: Connected for the first time to client 6424
+2020-04-08 16:29:10  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:29:10  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:30:45  :: Initializing Mock Server...
+2020-04-08 16:30:45  :: Initializing all collections...
+2020-04-08 16:30:46  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:30:46  :: Collections Initialized...
+2020-04-08 16:30:53  :: Connecting for the first time to client 6489
+2020-04-08 16:30:53  :: Connected for the first time to client 6489
+2020-04-08 16:30:56  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:30:56  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:30:56  :: Sending ClientLoginResponse with UUID cd4c123f-2c80-4587-b7ce-5ab7c0df18de
+2020-04-08 16:30:56  :: Sending Instrument Batch 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientInstrumentState 
+2020-04-08 16:30:56  :: Sending ClientUserRecord
+2020-04-08 16:30:56  :: Sending ClientMarketStateBatch
+2020-04-08 16:30:56  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:30:59  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:30:59  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:30:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:31:39  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:31:39  :: Sending ClientOrderResponse ...
+2020-04-08 16:31:39  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:31:39  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:31:39  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:31:39  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: LastSale updated...
+2020-04-08 16:31:39  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:31:39  :: Quotes updated...
+2020-04-08 16:31:39  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:31:39  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:31:39  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:31:39  :: brkpnt Creating new order in Orders collection for OrderId = 142b0423-b879-44a7-b1a6-babad1689ba9
+2020-04-08 16:31:39  :: Creating new order in Orders collection for OrderId = 142b0423-b879-44a7-b1a6-babad1689ba9
+2020-04-08 16:31:39  :: Sending open order count for all symbols : 2
+2020-04-08 16:31:39  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:39  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:31:47  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:31:47  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:31:50  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:31:50  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:31:54  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:31:55  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:12  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:12  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:21  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:23  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:26  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:26  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:29  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:29  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:32:32  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:32  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:35  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:35  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:38  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:38  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:41  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:41  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:44  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:44  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:47  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:47  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:50  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:50  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:53  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:53  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:56  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:56  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:32:59  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:32:59  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:02  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:02  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:05  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:05  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:08  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:08  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:11  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:11  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:14  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:14  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:17  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:17  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:23  :: Initializing Mock Server...
+2020-04-08 16:33:23  :: Initializing all collections...
+2020-04-08 16:33:23  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:33:23  :: Collections Initialized...
+2020-04-08 16:33:31  :: Connecting for the first time to client 6566
+2020-04-08 16:33:31  :: Connected for the first time to client 6566
+2020-04-08 16:33:34  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:33:34  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:33:34  :: Sending ClientLoginResponse with UUID 49b50735-4767-49e8-b49a-a1956a1ca8fd
+2020-04-08 16:33:34  :: Sending Instrument Batch 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientInstrumentState 
+2020-04-08 16:33:34  :: Sending ClientUserRecord
+2020-04-08 16:33:34  :: Sending ClientMarketStateBatch
+2020-04-08 16:33:34  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:33:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:33:38  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:33:38  :: Sending ClientOrderResponse ...
+2020-04-08 16:33:38  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:33:38  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:33:38  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:38  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:33:38  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:38  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:38  :: LastSale updated...
+2020-04-08 16:33:38  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:39  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:39  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:39  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:33:39  :: Quotes updated...
+2020-04-08 16:33:39  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:39  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:33:39  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:39  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:33:39  :: brkpnt Creating new order in Orders collection for OrderId = 8ead4227-3b0c-40d3-8328-b422c459e121
+2020-04-08 16:33:39  :: Creating new order in Orders collection for OrderId = 8ead4227-3b0c-40d3-8328-b422c459e121
+2020-04-08 16:33:39  :: Sending open order count for all symbols : 2
+2020-04-08 16:33:39  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:39  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:33:48  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:33:54  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:34:21  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:34:21  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:34:25  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:34:25  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:34:29  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:34:29  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:34:35  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:34:44  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:37:14  :: Initializing Mock Server...
+2020-04-08 16:37:14  :: Initializing all collections...
+2020-04-08 16:37:15  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:37:15  :: Collections Initialized...
+2020-04-08 16:37:28  :: Connecting for the first time to client 6672
+2020-04-08 16:37:28  :: Connected for the first time to client 6672
+2020-04-08 16:37:33  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:37:33  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:37:33  :: Sending ClientLoginResponse with UUID 5203621f-5b4d-4819-b75e-981f70b80edd
+2020-04-08 16:37:33  :: Sending Instrument Batch 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientInstrumentState 
+2020-04-08 16:37:33  :: Sending ClientUserRecord
+2020-04-08 16:37:33  :: Sending ClientMarketStateBatch
+2020-04-08 16:37:33  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:37:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:37:37  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:37:37  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:37:37  :: Sending ClientLoginResponse with UUID 408373ce-d2fd-476c-b726-65824ff24c61
+2020-04-08 16:37:37  :: Sending Instrument Batch 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientInstrumentState 
+2020-04-08 16:37:37  :: Sending ClientUserRecord
+2020-04-08 16:37:37  :: Sending ClientMarketStateBatch
+2020-04-08 16:37:37  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:37:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:37:39  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:38:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:39:03  :: Initializing Mock Server...
+2020-04-08 16:39:03  :: Initializing all collections...
+2020-04-08 16:39:04  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 16:39:04  :: Collections Initialized...
+2020-04-08 16:39:12  :: Connecting for the first time to client 6701
+2020-04-08 16:39:12  :: Connected for the first time to client 6701
+2020-04-08 16:39:17  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-04-08 16:39:17  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-04-08 16:39:17  :: Sending ClientLoginResponse with UUID 9242098e-1601-46f1-880e-dd9744ff0d58
+2020-04-08 16:39:17  :: Sending Instrument Batch 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientInstrumentState 
+2020-04-08 16:39:17  :: Sending ClientUserRecord
+2020-04-08 16:39:17  :: Sending ClientMarketStateBatch
+2020-04-08 16:39:17  :: Sending ClientAccountRecordBatch 
+2020-04-08 16:39:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:39:20  :: OnMessage FirmsListRequest from IP -> 127.0.0.1
+2020-04-08 16:40:07  :: Process FirmsListReqest: 9 firms loaded
+2020-04-08 16:40:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:40:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:40:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:40:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:40:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-04-08 16:40:13  :: OnMessage ClientOrderReq from IP -> 127.0.0.1
+2020-04-08 16:40:13  :: Sending ClientOrderResponse ...
+2020-04-08 16:40:13  :: Best ask for buy order (Limit Price=9103.0) found at price 9102
+2020-04-08 16:40:13  :: We update the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:40:13  :: Searching for affecter orders for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: We send the DepthOfBook Message updating the ask price level 9102 for symbol SWP-XBT-USD-G19 (@DepthOfBook and @Orders and we send the message)
+2020-04-08 16:40:13  :: We send a Trade for Size=10.0 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: We update LastSale MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: LastSale updated...
+2020-04-08 16:40:13  :: We udate Quotes MD for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: Inserting quotes for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: Quotes for symbol SWP-XBT-USD-G19 inserted
+2020-04-08 16:40:13  :: Quotes updated...
+2020-04-08 16:40:13  :: We send a Trade Notification for Size=10 and Price=9102 for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:40:13  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:40:13  :: Final leftQty=0 out of loop for buy order at price level 9103.0
+2020-04-08 16:40:13  :: brkpnt Creating new order in Orders collection for OrderId = a5c4c99b-2dc5-4f70-9231-bbb13a0e0d20
+2020-04-08 16:40:13  :: Creating new order in Orders collection for OrderId = a5c4c99b-2dc5-4f70-9231-bbb13a0e0d20
+2020-04-08 16:40:13  :: Sending open order count for all symbols : 2
+2020-04-08 16:40:13  :: Updating best bid and ask for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:13  :: Erasing best bid for symbol SWP-XBT-USD-G19
+2020-04-08 16:40:19  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:40:19  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:40:33  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:40:33  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:41:05  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:41:05  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:41:11  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:41:11  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:41:32  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:41:32  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:41:51  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:41:51  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:42:16  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:42:16  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:42:47  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:42:47  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:43:37  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:43:37  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 16:43:45  :: Searching quotes for symbol SWP-XBT-USD-G19. 
+2020-04-08 16:43:45  :: Sending LQ for symbol SWP-XBT-USD-G19. Best bid= Best ask=9102
+2020-04-08 17:01:31  :: Initializing Mock Server...
+2020-04-08 17:01:31  :: Initializing all collections...
+2020-04-08 17:01:33  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 17:01:33  :: Collections Initialized...
+2020-04-08 17:01:43  :: Connecting for the first time to client 7256
+2020-04-08 17:01:43  :: Connected for the first time to client 7256
+2020-04-08 17:08:17  :: Initializing Mock Server...
+2020-04-08 17:08:17  :: Initializing all collections...
+2020-04-08 17:08:19  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-04-08 17:08:20  :: Collections Initialized...
