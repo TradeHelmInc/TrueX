@@ -13,6 +13,7 @@ using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
 using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.Common.DTO.Subscription.V2;
+using DGTLBackendMock.Common.DTO.Temp.Positions;
 using DGTLBackendMock.Common.Util;
 using DGTLBackendMock.DataAccessLayer.Service;
 using DGTLBackendMock.DataAccessLayer.Service.V2;
@@ -1660,10 +1661,66 @@ namespace DGTLBackendMock.DataAccessLayer
             return finalExposure - currentExposure;
         }
 
+        private double CalculateSpreadDiscount(NetPositionDTO currContract, NetPositionDTO nextContract, int spreadIndex)
+        {
+            double totalDiscount = 0;
+            if (Math.Sign(nextContract.NetContracts) != Math.Sign(currContract.NetContracts))//we have a spread
+            {
+
+                double netSpread = Math.Min(Math.Abs(currContract.NetContracts), Math.Abs(nextContract.NetContracts));
+
+
+                if (netSpread != 0)
+                {
+                    DailySettlementPrice DSP1 = DailySettlementPrices.Where(x => x.Symbol == currContract.Symbol).FirstOrDefault();
+                    DailySettlementPrice DSP2 = DailySettlementPrices.Where(x => x.Symbol == nextContract.Symbol).FirstOrDefault();
+
+                    if (spreadIndex == 1)//1-wide spread
+                        totalDiscount += netSpread * Config.MarginPct * Config.OneWideCalDisc * (DSP1.Price.Value + DSP2.Price.Value);
+                    else if (spreadIndex == 2)//2-wide spread
+                        totalDiscount += netSpread * Config.MarginPct * Config.TwoWideCalDisc* (DSP1.Price.Value + DSP2.Price.Value);
+                    else if (spreadIndex >= 3)//3-wide spread or wider
+                        totalDiscount += netSpread * Config.MarginPct * Config.ThreeWideCalDisc* (DSP1.Price.Value + DSP2.Price.Value);;
+
+                    currContract.NetContracts -= (currContract.NetContracts > 0) ? netSpread : (-1 * netSpread);
+                    nextContract.NetContracts -= (nextContract.NetContracts > 0) ? netSpread : (-1 * netSpread);
+                }
+            }
+
+            return totalDiscount;
+        }
+
+        private double CalculateCalendarMarginDiscounts(NetPositionDTO[] netPositionsArr,string assetClass)
+        {
+            double totalDiscount = 0;
+            int spreadIndex = 1;
+            NetPositionDTO[] assetClassNetPositionsArr = netPositionsArr.Where(x => x.AssetClass == assetClass).ToArray();
+
+            for (int i = 0; i < assetClassNetPositionsArr.Length; i++)
+            {
+
+                for (int j = 0; j < assetClassNetPositionsArr.Length; j++)
+                {
+                    NetPositionDTO currContract = assetClassNetPositionsArr.OrderBy(x => x.MaturityDate).ToArray()[j];
+                    if ((j + spreadIndex) < assetClassNetPositionsArr.Length)
+                    {
+                        NetPositionDTO nextContract = assetClassNetPositionsArr.OrderBy(x => x.MaturityDate).ToArray()[j + spreadIndex];
+
+                        totalDiscount += CalculateSpreadDiscount(currContract, nextContract, spreadIndex);
+                    }
+                }
+
+                spreadIndex += 1;
+            }
+
+            return totalDiscount;
+        }
+
         private double GetUsedCredit(string firmId)
         {
 
             List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
+            List<NetPositionDTO> netPositionsArr = new List<NetPositionDTO>();
 
             double creditUsed = 0;
           
@@ -1673,9 +1730,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 double netContracts = 0;
                 foreach (UserRecord user in usersForFirm)
                 {
-                    
                     Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                    
                 }
 
                 DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
@@ -1683,7 +1738,16 @@ namespace DGTLBackendMock.DataAccessLayer
                 if(DSP!=null && DSP.Price.HasValue && netContracts!=0)
                     creditUsed += Math.Abs(netContracts) * DSP.Price.Value;
 
+                if(security.MaturityDate!="")
+                    netPositionsArr.Add(new NetPositionDTO() {AssetClass=security.AssetClass, Symbol = security.Symbol, MaturityDate = security.GetMaturityDate(), NetContracts = netContracts });
+
                 DoLog(string.Format("Final Net Contracts for Security Id {0}:{1}", security.Symbol, netContracts), MessageType.Information);
+            }
+
+            if (Config.ImplementCalendarMarginDiscount)
+            {
+                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "SWP") / Config.MarginPct);
+                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "NDF") / Config.MarginPct);
             }
 
             return creditUsed;

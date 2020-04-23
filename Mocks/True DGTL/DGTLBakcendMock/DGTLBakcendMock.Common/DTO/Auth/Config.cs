@@ -22,6 +22,14 @@ namespace DGTLBackendMock.Common.DTO.Auth
 
         public double MarginPct { get; set; }
 
+        public double OneWideCalDisc { get; set; }
+
+        public double TwoWideCalDisc { get; set; }
+
+        public double ThreeWideCalDisc { get; set; }
+
+        public bool ImplementCalendarMarginDiscount { get; set; }
+
 
         #endregion
 

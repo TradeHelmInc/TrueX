@@ -217,6 +217,23 @@
     <Content Include="BitMex\incomingBitmex.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc813.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc813.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc812.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc812.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc811.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc811.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc810.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc810.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc809.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc809.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc808.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc808.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_prices_no_calendar_template.txt" />
+    <Content Include="input\calendar_spreads\daily_settlement_calendar_template_tc807.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template.txt" />
+    <Content Include="input\calendar_spreads\positions_calendar_template_tc807.txt" />
+    <Content Include="input\calendar_spreads\positions_no_calendar_template.txt" />
     <Content Include="toreplace.js" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +248,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

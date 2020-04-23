@@ -53,5 +53,16 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
         public decimal? MaxNotional { get; set; }
 
         #endregion
+
+        #region Public Methods
+
+        public DateTime GetMaturityDate()
+        {
+
+            return DateTime.ParseExact(MaturityDate, "yyyyMMdd", null);
+        
+        }
+
+        #endregion
     }
 }

@@ -156,6 +156,7 @@
     <Compile Include="DTO\Subscription\SubscriptionResponse.cs" />
     <Compile Include="DTO\Subscription\V2\Subscribe.cs" />
     <Compile Include="DTO\Subscription\V2\SubscriptionResponse.cs" />
+    <Compile Include="DTO\Temp\Positions\NetPositionDTO.cs" />
     <Compile Include="DTO\UnknownMessageV2.cs" />
     <Compile Include="DTO\WebSocketMessage.cs" />
     <Compile Include="DTO\ErrorMessage.cs" />
