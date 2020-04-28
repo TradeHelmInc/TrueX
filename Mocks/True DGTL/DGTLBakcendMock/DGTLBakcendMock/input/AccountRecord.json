@@ -13,6 +13,7 @@
 ,{"AccountKey":"0","UniqueId":"8df4ef65-99d5-45a4-99d7-d62b3c2e60f5","ClearingFirmId":"271058657","CFirmName":"Virtuoso FCM 10","CFSortName":"VFM10","AccountId":"FCM10_ACC","EPFirmId":"271058657", "Default":true,"RouteId":"1cadc034-9c03-e2b4-9daf-16d1e0f6cf45","EPNickName":"FCM10_ACC","CFNickName":"FCM10_ACC","MaxNotional":80000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
 ,{"AccountKey":"0","UniqueId":"8df4ef65-99d5-45a4-99d7-d62b3c2e60f6","ClearingFirmId":"271058657","CFirmName":"Virtuoso FCM 10","CFSortName":"VFM11","AccountId":"FCM11_ACC","EPFirmId":"271058657", "Default":true,"RouteId":"1cadc034-9c03-e2b4-9daf-16d1e0f6cf46","EPNickName":"FCM11_ACC","CFNickName":"FCM11_ACC","MaxNotional":90000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
 ,{"AccountKey":"0","UniqueId":"8df4ef65-99d5-45a4-99d7-d62b3c2e60f7","ClearingFirmId":"271058657","CFirmName":"Virtuoso FCM 11","CFSortName":"VFM12","AccountId":"FCM12_ACC","EPFirmId":"271058657", "Default":true,"RouteId":"1cadc034-9c03-e2b4-9daf-16d1e0f6cf47","EPNickName":"FCM12_ACC","CFNickName":"FCM12_ACC","MaxNotional":100000.0,"Active":true,"Msg":"AccountRecord","Sender":0}
+,{"AccountKey":"0","UniqueId":"8df4ef65-99d5-45a4-99d7-d62b3c2e60f7","ClearingFirmId":"548349999","CFirmName":"Virtuoso FCM 11","CFSortName":"VFM12","AccountId":"FCM12_ACC","EPFirmId":"548349999", "Default":true,"RouteId":"1cadc034-9c03-e2b4-9daf-16d1e0f6cf47","EPNickName":"FCM13_ACC","CFNickName":"FCM13_ACC","MaxNotional":100000.0,"CreditLimit":500000,"Active":true,"Msg":"AccountRecord","Sender":0}
 ]
 
 

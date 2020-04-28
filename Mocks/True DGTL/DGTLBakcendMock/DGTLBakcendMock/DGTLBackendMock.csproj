@@ -234,6 +234,9 @@
     <Content Include="input\calendar_spreads\positions_calendar_template.txt" />
     <Content Include="input\calendar_spreads\positions_calendar_template_tc807.txt" />
     <Content Include="input\calendar_spreads\positions_no_calendar_template.txt" />
+    <None Include="input\FundedMargins.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="toreplace.js" />
   </ItemGroup>
   <ItemGroup>

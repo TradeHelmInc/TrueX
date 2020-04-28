@@ -44,6 +44,8 @@ namespace DGTLBackendMock.DataAccessLayer
             LoadTestEmails();
 
             LoadPositions();
+
+            LoadFundedMargins();
         }
 
         #endregion
@@ -80,6 +82,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected ClientPosition[] Positions { get; set; }
 
+        protected FundedMargin[] FundedMargins { get; set; }
+
         #endregion
 
         #region Private Methods
@@ -97,6 +101,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
             Positions = JsonConvert.DeserializeObject<ClientPosition[]>(strPositions);
         
+        }
+
+        private void LoadFundedMargins()
+        {
+            string strFundedMargins = File.ReadAllText(@".\input\FundedMargins.json");
+
+            FundedMargins = JsonConvert.DeserializeObject<FundedMargin[]>(strFundedMargins);
+
         }
 
         protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to)
@@ -1577,7 +1589,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private double GetTotalSideExposure(char side)
         {
             //1-Get Base Margin
-            double BM = GetBaseMargin(LoggedFirmId);
+            double BM = GetBaseMargin(LoggedFirmId) - GetFundedMargin(LoggedFirmId) ;
 
             //2-Calculate the exposure for the Buy/Sell orders
             double PxM = GetPotentialxMargin(side);
@@ -1716,6 +1728,22 @@ namespace DGTLBackendMock.DataAccessLayer
             return totalDiscount;
         }
 
+        private double GetFundedMargin(string firmId)
+        {
+            return GetFundedCredit(firmId) * Config.MarginPct;
+        }
+
+
+        private double GetFundedCredit(string firmId)
+        {
+            FundedMargin fundedMargin = FundedMargins.Where(x => x.FirmId == firmId).FirstOrDefault();
+
+            if (fundedMargin != null)
+                return fundedMargin.Margin / Config.MarginPct;
+            else
+                return 0;
+        }
+
         private double GetUsedCredit(string firmId)
         {
 
@@ -1750,7 +1778,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "NDF") / Config.MarginPct);
             }
 
-            return creditUsed;
+            return creditUsed - GetFundedCredit(firmId) ;
         }
 
         private void CreateFirmListCreditStructure(string UUID, int pageNo,int pageRecords)
@@ -1812,7 +1840,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientPosition newPos = new ClientPosition()
             {
                 Contracts = newTrade.cMySide == LegacyTradeHistory._SIDE_BUY ? newTrade.TradeQuantity : newTrade.TradeQuantity * -1,
-                MarginFunded = true,
+                MarginFunded = false,
                 Msg = "Position",
                 Price = newTrade.TradePrice,
                 Symbol = newTrade.Symbol,
@@ -3285,7 +3313,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             //TODO : implement the calendar spreads margin calculation
             DoLog(string.Format("Acum Margin for FirmId {0} after Orders:{1}", LoggedFirmId, acumMargin), MessageType.Information);
-            return acumMargin;
+            return acumMargin - GetFundedMargin(LoggedFirmId);
         }
 
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
