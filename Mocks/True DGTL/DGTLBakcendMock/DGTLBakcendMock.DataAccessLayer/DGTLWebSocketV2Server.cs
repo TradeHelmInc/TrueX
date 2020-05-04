@@ -913,6 +913,9 @@ namespace DGTLBackendMock.DataAccessLayer
                         //5-we update the credit for potential exposures
                         UpdateCredit(socket, null, UUID);
 
+                        //6-we update the account balance (margin tab) for the firm
+                        DoSendAccountBalance(socket, UUID);
+
                         return true;
                     }
                     else
@@ -1007,6 +1010,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                         //5-we update the credit for potential exposures
                         UpdateCredit(socket, null, UUID);
+
+                        //6-we update the account balance (margin tab) for the firm
+                        DoSendAccountBalance(socket, UUID);
                         return true;
                     }
                     else
@@ -2138,6 +2144,31 @@ namespace DGTLBackendMock.DataAccessLayer
 
             DoLog(string.Format("Sending ClientMarketStateBatch"), MessageType.Information);
             DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
+        }
+
+        private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
+        {
+            double todayMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+            double totalMargin = GetUsedCredit(LoggedFirmId)* Config.MarginPct;
+
+
+            AccountBalance balance = new AccountBalance()
+            {
+                Msg = "AccountBalance",
+                Uuid = Uuid,
+                FirmId = LoggedFirmId,
+                UserId = LoggedUserId,
+                Collateral = 0,
+                TodaysIM = todayMargin,
+                PriorDaysIM = todayMargin,
+                IMRequirement = totalMargin,
+                VMRequirement = totalMargin - todayMargin,
+                cStatus = AccountBalance._ACTIVE_STATUS,
+                MarginCall = todayMargin < 0
+            };
+
+            DoLog(string.Format("Sending AccountBalance "), MessageType.Information);
+            DoSend<AccountBalance>(socket, balance);
         }
 
         private ClientAccountRecord GetClientAccountRecordFromV1AccountRecord(DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord)
@@ -3756,6 +3787,13 @@ namespace DGTLBackendMock.DataAccessLayer
             ProcessSubscriptionResponse(socket, "RC", subscrMsg.ServiceKey, subscrMsg.Uuid);
         }
 
+        protected void ProcessAccountBalance(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            ProcessSubscriptionResponse(socket, "SC", subscrMsg.ServiceKey, subscrMsg.Uuid);
+
+            DoSendAccountBalance(socket, subscrMsg.Uuid);
+        }
+
         protected void ProcessMyTrades(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             List<LegacyTradeHistory> trades = null;
@@ -3907,6 +3945,10 @@ namespace DGTLBackendMock.DataAccessLayer
                 //else if (subscrMsg.Service == "LT")
                 {
                     ProcessMyTrades(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "SC")
+                {
+                    ProcessAccountBalance(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "RC")
                 {

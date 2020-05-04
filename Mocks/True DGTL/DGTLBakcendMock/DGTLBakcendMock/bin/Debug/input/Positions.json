@@ -4,6 +4,6 @@
 
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-V19","Msg":"Position","Contracts":-100,"Price":7915.23,"MarginFunded": false},
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-X19","Msg":"Position","Contracts":300,"Price":7658.87,"MarginFunded":false},
-{UserId:"MM_FUNDEDUSER","Symbol":"SWP-XBT-USD-V19","Msg":"Position","Contracts":100,"Price":7658.87,"MarginFunded":true},
+{UserId:"MM_FUNDEDUSER","Symbol":"SWP-XBT-USD-Z19","Msg":"Position","Contracts":100,"Price":7658.87,"MarginFunded":true},
 
 ]

@@ -1,17 +1,18 @@
 [
-{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":20.0,"Price":8145.12,"MarginFunded":true},
-{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":20.0,"Price":8133.40,"MarginFunded":true},
+{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":20.0,"Price":8145.12,"MarginFunded":false},
+{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":20.0,"Price":8133.40,"MarginFunded":false},
 
-{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":20.0,"Price":7915.23,"MarginFunded": true},
-{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":20.0,"Price":7658.87,"MarginFunded":true},
+{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":20.0,"Price":7915.23,"MarginFunded": false},
+{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":20.0,"Price":7658.87,"MarginFunded":false},
 
-{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X18","Msg":"Position","Contracts":-25.0,"Price":7312.17,"MarginFunded":true},
+{UserId:"MM1_CLOBUI","Symbol":"NDF-XBT-USD-X18","Msg":"Position","Contracts":-25.0,"Price":7312.17,"MarginFunded":false},
 
 
 
-{UserId:"SIMUSER_3_UI1","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":-12.0,"Price":7154.23,"MarginFunded": true},
+{UserId:"SIMUSER_3_UI1","Symbol":"NDF-XBT-USD-V19","Msg":"Position","Contracts":-12.0,"Price":7154.23,"MarginFunded": false},
 
-{UserId:"SIMUSER_3_UI1","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":-14.0,"Price":7328.17,"MarginFunded":true}
+{UserId:"SIMUSER_3_UI1","Symbol":"NDF-XBT-USD-X19","Msg":"Position","Contracts":-14.0,"Price":7328.17,"MarginFunded":false},
 
+{UserId:"MM_FUNDEDUSER","Symbol":"SWP-XBT-USD-V19","Msg":"Position","Contracts":100,"Price":7658.87,"MarginFunded":true},
 
 ]
