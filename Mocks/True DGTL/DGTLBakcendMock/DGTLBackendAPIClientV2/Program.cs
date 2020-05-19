@@ -64,6 +64,8 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("Subscribe <Service> <ServiceKey>");
             Console.WriteLine("FirmListRequest");
             Console.WriteLine("ClientCreditRequest <firm> <InstrumentId> <Side> <Quantity>");
+            Console.WriteLine("ClientGetAccountPositions <FirmId>");
+            Console.WriteLine("ClientSettlementStatusReq <FirmId>");
             //Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Available> <Used> <MaxNotional>");
             Console.WriteLine("EmailNotificationsListRequest <SettlementFirmId>");
@@ -145,6 +147,8 @@ namespace DGTLBackendAPIClientV2
                     JsonWebToken = Token,
                     Service = param[1],
                     ServiceKey = param.Length == 3 ? param[2] : "*",
+                    UserId = UserId,
+                    RequestPattern = "subscription",
                     Uuid = UUID,
                 };
 
@@ -207,6 +211,14 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "LogoutClient")
             {
                 ProcessLogoutClient(param);
+            }
+            else if (mainCmd == "ClientGetAccountPositions")
+            {
+                ProcessClientGetAccountPositions(param);
+            }
+            else if (mainCmd == "ClientSettlementStatusReq")
+            {
+                ProcessClientSettlementStatusReq(param);
             }
             else if (mainCmd == "RouteOrder")
             {
@@ -350,6 +362,7 @@ namespace DGTLBackendAPIClientV2
                    
                     UUID = loginResp.Uuid;
                     UserId = loginResp.UserId;
+                    Token = loginResp.JsonWebToken;
                     FirmId = 0;
                 }
 
@@ -847,6 +860,62 @@ namespace DGTLBackendAPIClientV2
                 Time = Convert.ToInt64(elapsed.TotalMilliseconds)
             };
             DoSend<ClientHeartbeat>(heartBeat);
+        }
+
+
+        private static void ProcessClientGetAccountPositions(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length == 2)
+            {
+                ClientGetAccountPositions getPosReq = new ClientGetAccountPositions()
+                {
+                    Msg = "ClientGetAccountPositions",
+                    UserId = UserId.ToString(),
+                    Uuid = UUID,
+                    FirmId = param[1],
+                    AccountId = null,
+                    SettlementAgentId = null
+                };
+
+                DoSend<ClientGetAccountPositions>(getPosReq);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for logout message"));
+        
+        }
+
+        private static void ProcessClientSettlementStatusReq(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            if (param.Length == 2)
+            {
+                ClientSettlementStatusReq sttlStatus = new ClientSettlementStatusReq()
+                {
+                    Msg = "ClientSettlementStatusReq",
+                    UserId = UserId.ToString(),
+                    Uuid = UUID,
+                    FirmId = param[1],
+                    AccountId = null,
+                    InstrumentId=null,
+                    SettlmentDate=DateTime.Now.ToString("MM-dd-yyyy"),
+                };
+
+                DoSend<ClientSettlementStatusReq>(sttlStatus);
+            }
+            else
+                DoLog(string.Format("Missing mandatory parameters for logout message"));
+
         }
 
         private static void ProcessLogoutClient(string[] param)

@@ -47,9 +47,14 @@
     <Compile Include="DTO\Account\CreditRecordUpdate.cs" />
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Account\V2\AccountBalance.cs" />
+    <Compile Include="DTO\Account\V2\ClientAccountPositionRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\ClientGetAccountPositions.cs" />
     <Compile Include="DTO\Account\V2\ClientPosition.cs" />
+    <Compile Include="DTO\Account\V2\ClientSettlementStatus.cs" />
+    <Compile Include="DTO\Account\V2\ClientSettlementStatusReq.cs" />
+    <Compile Include="DTO\Account\V2\ClientSettlementStatusUpdate.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditRequest.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditResponse.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\CreditLimit.cs" />

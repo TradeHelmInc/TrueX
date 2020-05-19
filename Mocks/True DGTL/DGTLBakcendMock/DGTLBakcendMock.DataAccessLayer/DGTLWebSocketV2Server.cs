@@ -1608,13 +1608,13 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private double  GetBaseMargin(string firmId)
+        private double  GetBaseMargin(string firmId,string symbol = null)
         {
             double acumMargin = 0;
 
             List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == LoggedFirmId).ToList();
 
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            foreach (SecurityMasterRecord security in SecurityMasterRecords.Where(x=> (symbol==null || x.Symbol==symbol) ))
             {
                 double netContracts = 0;
                 foreach (UserRecord userForFirms in usersForFirm)
@@ -2146,10 +2146,125 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
         }
 
+        private void ProcessClientSettlementStatusReq(IWebSocketConnection socket, string msg)
+        {
+            ClientSettlementStatusReq settlReq = JsonConvert.DeserializeObject<ClientSettlementStatusReq>(msg);
+
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+
+                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == settlReq.FirmId).ToList();
+
+                foreach (UserRecord user in usersForFirm)
+                {
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                }
+
+                if (netContracts == 0)
+                    continue;
+
+                //we calculate today's margin and previoys days margin , simulating a 5% increase in BTC price
+                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+
+                double todayMargin = DSP != null ? netContracts * DSP.Price.Value * Config.MarginPct : 0;
+                double priorMargin = DSP != null ? netContracts * (0.95d * DSP.Price.Value) * Config.MarginPct : 0;
+
+                ClientSettlementStatus settlStatus = new ClientSettlementStatus();
+                settlStatus.Msg = "ClientSettlementStatus";
+                settlStatus.Uuid = settlReq.Uuid;
+                settlStatus.FirmId = LoggedFirmId;
+                settlStatus.UserId = LoggedUserId;
+                settlStatus.AccountId = "settlAccountId";
+                settlStatus.InstrumentId = security.Symbol;
+                settlStatus.SettlementDate = DateTime.Now.ToString("MM-dd-yyyy");
+                
+                settlStatus.FiatDeliveryCurrency = ClientSettlementStatus._FIAT_DELIVERY_CURRENCY;
+                settlStatus.FiatDeliveryWalletAddress = new Guid().ToString();
+                settlStatus.FiatDeliveryAmount = todayMargin - priorMargin;
+
+                double underlCrypto = DSP != null && DSP.Price.HasValue ? Math.Abs(settlStatus.FiatDeliveryAmount) / DSP.Price.Value : 0 ;
+
+                if (settlStatus.FiatDeliveryAmount > 0)//SENDING MONEY
+                {
+                    //just as a temporary test convention we change the sign between the crypto to receive 
+                    //and the money to send
+                    underlCrypto *= -1;
+                    settlStatus.SettlementDirection = ClientSettlementStatus._SETTL_DIRECTION_SEND;
+                    settlStatus.ReceiveAmount = underlCrypto;
+                    settlStatus.ReceiveCurrency = ClientSettlementStatus._CRYPTO_DELIVERY_CURRENCY;
+                    settlStatus.ReceiveAddress = Guid.NewGuid().ToString();
+                    settlStatus.ReceiveStatus = ClientSettlementStatus._STATUS_PENDING_CONFIRMATION;
+                    settlStatus.ReceiveTxId = Guid.NewGuid().ToString() ;
+                }
+                else//RECV MONEY
+                {
+                    settlStatus.SettlementDirection = ClientSettlementStatus._SETTL_DIRECTION_RECEIVE;
+                    settlStatus.SendAmount = underlCrypto;
+                    settlStatus.SendCurrency = ClientSettlementStatus._CRYPTO_DELIVERY_CURRENCY;
+                    settlStatus.SendAddress = Guid.NewGuid().ToString();
+                    settlStatus.SendStatus = ClientSettlementStatus._STATUS_CONFIRMED;
+                    settlStatus.SendTxId = Guid.NewGuid().ToString();
+                }
+
+                DoLog(string.Format("Sending ClientSettlementStatus "), MessageType.Information);
+                DoSend<ClientSettlementStatus>(socket, settlStatus);
+            }
+        }
+
+        private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
+        {
+
+            ClientAccountPositionRecord accPosReq = JsonConvert.DeserializeObject<ClientAccountPositionRecord>(msg);
+
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+
+                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == accPosReq.FirmId).ToList();
+
+                foreach (UserRecord user in usersForFirm)
+                {
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                }
+
+                if (netContracts == 0)
+                    continue;
+
+                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
+
+                double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
+                double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
+
+                double prevNotional = GetFundedCredit(LoggedFirmId) ;
+                double currNotional = GetUsedCredit(LoggedFirmId) ;
+
+                ClientAccountPositionRecord position = new ClientAccountPositionRecord()
+                {
+                    Msg = "ClientAccountPositionRecord",
+                    Uuid = accPosReq.Uuid,
+                    AccountId = "",
+                    FirmId = LoggedFirmId,
+                    CurrentNetPosition = Convert.ToInt32(netContracts),
+                    Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
+                    Contract = security.Symbol,
+                    CurrentDayDSP = dblTodayDSP,
+                    PriorDayDSP = dblPrevDSP,
+                    ProfitAndLoss = currNotional - prevNotional,
+                    TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
+                };
+
+                DoLog(string.Format("Sending ClientAccountPositionRecord "), MessageType.Information);
+                DoSend<ClientAccountPositionRecord>(socket, position);
+            }
+        }
+
         private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
         {
-            double todayMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
-            double totalMargin = GetUsedCredit(LoggedFirmId)* Config.MarginPct;
+            double prevMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+            double initMargin = GetUsedCredit(LoggedFirmId)* Config.MarginPct;
 
 
             AccountBalance balance = new AccountBalance()
@@ -2159,12 +2274,12 @@ namespace DGTLBackendMock.DataAccessLayer
                 FirmId = LoggedFirmId,
                 UserId = LoggedUserId,
                 Collateral = 0,
-                TodaysIM = todayMargin,
-                PriorDaysIM = todayMargin,
-                IMRequirement = totalMargin,
-                VMRequirement = totalMargin - todayMargin,
+                TodaysIM = prevMargin,
+                PriorDaysIM = prevMargin,
+                IMRequirement = initMargin,
+                VMRequirement = initMargin - prevMargin,
                 cStatus = AccountBalance._ACTIVE_STATUS,
-                MarginCall = todayMargin < 0
+                MarginCall = prevMargin < 0
             };
 
             DoLog(string.Format("Sending AccountBalance "), MessageType.Information);
@@ -4088,6 +4203,14 @@ namespace DGTLBackendMock.DataAccessLayer
                 else if (wsResp.Msg == "Subscribe")
                 {
                     ProcessSubscriptions(socket, m);
+                }
+                else if (wsResp.Msg == "ClientGetAccountPositions")
+                {
+                    ProcessClientGetAccountPositions(socket, m);
+                }
+                else if (wsResp.Msg == "ClientSettlementStatusReq")
+                {
+                    ProcessClientSettlementStatusReq(socket, m);
                 }
                 else if (wsResp.Msg == "ForgotPasswordRequest")
                 {

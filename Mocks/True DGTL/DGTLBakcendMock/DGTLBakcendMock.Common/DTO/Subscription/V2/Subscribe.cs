@@ -40,9 +40,11 @@ namespace DGTLBackendMock.Common.DTO.Subscription.V2
 
         public string Service { get; set; }
 
-        public string userId { get; set; }
+        public string UserId { get; set; }
 
         public string ServiceKey { get; set; }
+
+        public string RequestPattern { get; set; }
 
         #endregion
     }
