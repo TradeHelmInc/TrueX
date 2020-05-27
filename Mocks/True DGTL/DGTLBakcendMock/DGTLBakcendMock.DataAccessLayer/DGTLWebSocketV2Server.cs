@@ -2150,6 +2150,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             ClientSettlementStatusReq settlReq = JsonConvert.DeserializeObject<ClientSettlementStatusReq>(msg);
 
+            List<ClientSettlementStatus> settlStatusList = new List<ClientSettlementStatus>();
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
@@ -2208,9 +2209,20 @@ namespace DGTLBackendMock.DataAccessLayer
                     settlStatus.SendTxId = Guid.NewGuid().ToString();
                 }
 
-                DoLog(string.Format("Sending ClientSettlementStatus "), MessageType.Information);
-                DoSend<ClientSettlementStatus>(socket, settlStatus);
+                settlStatusList.Add(settlStatus);
+
+               
             }
+
+            ClientSettlementStatusBatch sttlBatch = new ClientSettlementStatusBatch()
+            {
+                Msg = "ClientSettlementStatusBatch",
+                messages = settlStatusList.ToArray()
+
+            };
+
+            DoLog(string.Format("Sending ClientSettlementStatusBatch "), MessageType.Information);
+            DoSend<ClientSettlementStatusBatch>(socket, sttlBatch);
         }
 
         private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
@@ -2219,6 +2231,7 @@ namespace DGTLBackendMock.DataAccessLayer
             ClientAccountPositionRecord accPosReq = JsonConvert.DeserializeObject<ClientAccountPositionRecord>(msg);
 
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            List<ClientAccountPositionRecord> positionsList = new List<ClientAccountPositionRecord>();
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
                 double netContracts = 0;
@@ -2256,9 +2269,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
                 };
 
-                DoLog(string.Format("Sending ClientAccountPositionRecord "), MessageType.Information);
-                DoSend<ClientAccountPositionRecord>(socket, position);
+                positionsList.Add(position);
+               
             }
+
+            ClientAccountPositionRecordBatch positionsBatch = new ClientAccountPositionRecordBatch() { Msg = "ClientAccountPositionRecordBatch", messages = positionsList.ToArray() };
+            DoLog(string.Format("Sending ClientAccountPositionRecordBatch "), MessageType.Information);
+            DoSend<ClientAccountPositionRecordBatch>(socket, positionsBatch);
         }
 
         private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
@@ -3107,6 +3124,40 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse>(socket, resp);
         }
 
+        private void CurrentPriceThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            Subscribe subscrMsg = (Subscribe)paramArray[1];
+            ClientInstrument instr = (ClientInstrument)paramArray[2];
+
+            bool subscResp = false;
+
+            try
+            {
+                int i = 0;
+                while (true)
+                {
+                    LastSale legacyLastSale = LastSales.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                    TranslateAndSendLastSaleToCurrentPrice(socket, subscrMsg.Uuid, legacyLastSale, instr);
+                    Thread.Sleep(3000);//3 seconds
+                    if (!subscResp)
+                    {
+                        ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid);
+                        Thread.Sleep(2000);
+                        subscResp = true;
+                    }
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error processing current price message: {0}...", ex.Message), MessageType.Error);
+            }
+        
+        
+        }
+
         private void LastSaleThread(object param)
         {
             object[] paramArray = (object[])param;
@@ -3176,6 +3227,38 @@ namespace DGTLBackendMock.DataAccessLayer
                 };
 
                 DoSend<ClientLastSale>(socket, lastSale);
+            }
+        }
+
+        private void TranslateAndSendLastSaleToCurrentPrice(IWebSocketConnection socket, string UUID, LastSale legacyLastSale, ClientInstrument instr)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            if (legacyLastSale != null)
+            {
+                ClientCurrentPrice currPrice = new ClientCurrentPrice()
+                {
+                    Msg = "ClientCurrentPrice",
+                    ChangePercentage = legacyLastSale.DiffPrevDay,
+                    InstrumentId = instr.InstrumentId,
+                    CurrentPrice =  legacyLastSale.LastPrice,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    Uuid = UUID,
+                };
+
+                //EmulatePriceChanges(i, lastSale, ref initialPrice);
+                DoSend<ClientCurrentPrice>(socket, currPrice);
+            }
+            else
+            {
+                ClientCurrentPrice currentPrice = new ClientCurrentPrice()
+                {
+                    Msg = "ClientCurrentPrice",
+                    InstrumentId = instr.InstrumentId,
+                    Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
+                    Uuid = UUID,
+                };
+
+                DoSend<ClientCurrentPrice>(socket, currentPrice);
             }
         }
 
@@ -3607,6 +3690,38 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+        protected void ProcessClientCurrentPrice(IWebSocketConnection socket, Subscribe subscrMsg)
+        {
+            if (!ProcessCurrentPriceThreads.ContainsKey(subscrMsg.ServiceKey))
+            {
+                lock (tLock)
+                {
+
+                    try
+                    {
+                        ClientInstrument instr = GetInstrumentByServiceKey(subscrMsg.ServiceKey);
+                        Thread ProcessCurrentPriceThread = new Thread(CurrentPriceThread);
+                        ProcessCurrentPriceThread.Start(new object[] { socket, subscrMsg, instr });
+                        ProcessCurrentPriceThreads.Add(subscrMsg.ServiceKey, ProcessCurrentPriceThread);
+                    }
+                    catch (Exception ex)
+                    {
+                        DoLog(string.Format(ex.Message), MessageType.Error);
+                        ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                DoLog(string.Format("Double subscription for service SM for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
+                ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "Double subscription");
+
+            }
+
+        }
+
+
+
         protected void ProcessQuote(IWebSocketConnection socket, Subscribe subscrMsg)
         {
 
@@ -3904,7 +4019,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected void ProcessAccountBalance(IWebSocketConnection socket, Subscribe subscrMsg)
         {
-            ProcessSubscriptionResponse(socket, "SC", subscrMsg.ServiceKey, subscrMsg.Uuid);
+            ProcessSubscriptionResponse(socket, "SB", subscrMsg.ServiceKey, subscrMsg.Uuid);
 
             DoSendAccountBalance(socket, subscrMsg.Uuid);
         }
@@ -4061,13 +4176,17 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessMyTrades(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "SC")
+                else if (subscrMsg.Service == "SB")
                 {
                     ProcessAccountBalance(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "RC")
                 {
                     ProcessFirmsCreditRecord(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "SM")
+                {
+                    ProcessClientCurrentPrice(socket, subscrMsg);
                 }
                 else if (subscrMsg.Service == "rt")
                 {

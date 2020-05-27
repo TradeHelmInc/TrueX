@@ -48,11 +48,13 @@
     <Compile Include="DTO\Account\FirmRecord.cs" />
     <Compile Include="DTO\Account\V2\AccountBalance.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountPositionRecord.cs" />
+    <Compile Include="DTO\Account\V2\ClientAccountPositionRecordBatch.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
     <Compile Include="DTO\Account\V2\ClientGetAccountPositions.cs" />
     <Compile Include="DTO\Account\V2\ClientPosition.cs" />
     <Compile Include="DTO\Account\V2\ClientSettlementStatus.cs" />
+    <Compile Include="DTO\Account\V2\ClientSettlementStatusBatch.cs" />
     <Compile Include="DTO\Account\V2\ClientSettlementStatusReq.cs" />
     <Compile Include="DTO\Account\V2\ClientSettlementStatusUpdate.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditRequest.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="DTO\MarketData\LegacyTradeHistory.cs" />
     <Compile Include="DTO\MarketData\Quote.cs" />
     <Compile Include="DTO\MarketData\V2\ClientBestBidOffer.cs" />
+    <Compile Include="DTO\MarketData\V2\ClientCurrentPrice.cs" />
     <Compile Include="DTO\MarketData\V2\ClientDepthOfBook.cs" />
     <Compile Include="DTO\MarketData\V2\ClientDepthOfBookBatch.cs" />
     <Compile Include="DTO\MarketData\V2\ClientLastSale.cs" />

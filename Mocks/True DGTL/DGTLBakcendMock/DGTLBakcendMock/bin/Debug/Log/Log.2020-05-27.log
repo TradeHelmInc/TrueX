@@ -1,0 +1,97 @@
+2020-05-27 19:28:10  :: Initializing Mock Server...
+2020-05-27 19:28:10  :: Initializing all collections...
+2020-05-27 19:28:11  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-27 19:28:11  :: Collections Initialized...
+2020-05-27 19:28:20  :: Connecting for the first time to client 36177
+2020-05-27 19:28:20  :: Connected for the first time to client 36177
+2020-05-27 19:28:23  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-27 19:28:24  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-27 19:28:24  :: Sending ClientLoginResponse with UUID 33e1ff34-5534-4957-aa60-ab410633278a
+2020-05-27 19:28:24  :: Sending Instrument Batch 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientInstrumentState 
+2020-05-27 19:28:24  :: Sending ClientUserRecord
+2020-05-27 19:28:24  :: Sending ClientMarketStateBatch
+2020-05-27 19:28:24  :: Sending ClientAccountRecordBatch 
+2020-05-27 19:28:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:28:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:28:31  :: OnMessage Subscribe from IP -> 127.0.0.1
+2020-05-27 19:28:31  :: Incoming subscription for serviceXX SM - ServiceKey:2
+2020-05-27 19:28:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:28:34  :: SubscriptionResponse UUID:33e1ff34-5534-4957-aa60-ab410633278a Service:SM ServiceKey:2 Success:True
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:29:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:32:00  :: Initializing Mock Server...
+2020-05-27 19:32:00  :: Initializing all collections...
+2020-05-27 19:32:00  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-27 19:32:00  :: Collections Initialized...
+2020-05-27 19:32:09  :: Connecting for the first time to client 36298
+2020-05-27 19:32:09  :: Connected for the first time to client 36298
+2020-05-27 19:32:13  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-27 19:32:13  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-27 19:32:13  :: Sending ClientLoginResponse with UUID 2d4c06a7-4bd3-4e29-902a-2b670c83aabe
+2020-05-27 19:32:13  :: Sending Instrument Batch 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientInstrumentState 
+2020-05-27 19:32:13  :: Sending ClientUserRecord
+2020-05-27 19:32:13  :: Sending ClientMarketStateBatch
+2020-05-27 19:32:13  :: Sending ClientAccountRecordBatch 
+2020-05-27 19:32:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:32:20  :: OnMessage Subscribe from IP -> 127.0.0.1
+2020-05-27 19:32:20  :: Incoming subscription for serviceXX SM - ServiceKey:2
+2020-05-27 19:32:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:32:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-27 19:32:27  :: SubscriptionResponse UUID:2d4c06a7-4bd3-4e29-902a-2b670c83aabe Service:SM ServiceKey:2 Success:True

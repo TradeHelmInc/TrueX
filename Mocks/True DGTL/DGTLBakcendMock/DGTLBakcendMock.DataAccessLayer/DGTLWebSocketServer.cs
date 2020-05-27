@@ -43,6 +43,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected Config Config { get; set; }
 
+        protected Dictionary<string, Thread> ProcessCurrentPriceThreads { get; set; }
+
         protected Dictionary<string, Thread> ProcessLastSaleThreads { get; set; }
 
         protected Dictionary<string, Thread> ProcessLastQuoteThreads { get; set; }
@@ -77,6 +79,8 @@ namespace DGTLBackendMock.DataAccessLayer
             ConnectedClients = new List<int>();
 
             ProcessLastSaleThreads = new Dictionary<string, Thread>();
+
+            ProcessCurrentPriceThreads = new Dictionary<string, Thread>();
 
             ProcessLastQuoteThreads = new Dictionary<string, Thread>();
 

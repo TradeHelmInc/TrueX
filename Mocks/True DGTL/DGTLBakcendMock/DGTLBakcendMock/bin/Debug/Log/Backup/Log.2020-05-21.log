@@ -1,0 +1,2451 @@
+2020-05-21 10:03:13  :: Initializing Mock Server...
+2020-05-21 10:03:13  :: Initializing all collections...
+2020-05-21 10:03:13  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-21 10:03:14  :: Collections Initialized...
+2020-05-21 10:03:24  :: Connecting for the first time to client 37069
+2020-05-21 10:03:24  :: Connected for the first time to client 37069
+2020-05-21 10:06:56  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-21 10:06:56  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-21 10:06:56  :: Sending ClientLoginResponse with UUID e262190c-a3f9-49e1-8d51-f554c065342f
+2020-05-21 10:06:56  :: Sending Instrument Batch 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientInstrumentState 
+2020-05-21 10:06:56  :: Sending ClientUserRecord
+2020-05-21 10:06:56  :: Sending ClientMarketStateBatch
+2020-05-21 10:06:56  :: Sending ClientAccountRecordBatch 
+2020-05-21 10:06:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 10:07:00  :: OnMessage ClientSettlementStatusReq from IP -> 127.0.0.1
+2020-05-21 10:07:00  :: Sending ClientSettlementStatusBatch 
+2020-05-21 10:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 10:07:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 10:07:08  :: OnMessage ClientGetAccountPositions from IP -> 127.0.0.1
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 10:07:08  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 10:07:08  :: Sending ClientAccountPositionRecordBatch 
+2020-05-21 10:07:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 10:07:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 10:07:14  :: Turning threads off on socket disconnection
+2020-05-21 11:53:24  :: Initializing Mock Server...
+2020-05-21 11:53:24  :: Initializing all collections...
+2020-05-21 11:53:25  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-21 11:53:26  :: Collections Initialized...
+2020-05-21 11:53:36  :: Connecting for the first time to client 41037
+2020-05-21 11:53:36  :: Connected for the first time to client 41037
+2020-05-21 11:54:10  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-21 11:54:10  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-21 11:54:10  :: Sending ClientLoginResponse with UUID 017ae7bc-2432-4dde-a05f-6e985fe112d5
+2020-05-21 11:54:10  :: Sending Instrument Batch 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientInstrumentState 
+2020-05-21 11:54:10  :: Sending ClientUserRecord
+2020-05-21 11:54:10  :: Sending ClientMarketStateBatch
+2020-05-21 11:54:10  :: Sending ClientAccountRecordBatch 
+2020-05-21 11:54:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 11:54:14  :: OnMessage ClientGetAccountPositions from IP -> 127.0.0.1
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 11:54:14  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 11:54:14  :: Sending ClientAccountPositionRecordBatch 
+2020-05-21 11:54:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 11:57:01  :: Turning threads off on socket disconnection
+2020-05-21 11:57:04  :: Turning threads off on socket disconnection
+2020-05-21 11:57:07  :: Turning threads off on socket disconnection
+2020-05-21 11:57:10  :: Turning threads off on socket disconnection
+2020-05-21 11:57:13  :: Turning threads off on socket disconnection
+2020-05-21 11:57:16  :: Turning threads off on socket disconnection
+2020-05-21 11:57:19  :: Turning threads off on socket disconnection
+2020-05-21 11:57:22  :: Turning threads off on socket disconnection
+2020-05-21 11:57:25  :: Turning threads off on socket disconnection
+2020-05-21 11:57:28  :: Turning threads off on socket disconnection
+2020-05-21 11:57:31  :: Turning threads off on socket disconnection
+2020-05-21 11:57:34  :: Turning threads off on socket disconnection
+2020-05-21 11:57:37  :: Turning threads off on socket disconnection
+2020-05-21 11:57:40  :: Turning threads off on socket disconnection
+2020-05-21 11:57:44  :: Turning threads off on socket disconnection
+2020-05-21 11:57:47  :: Turning threads off on socket disconnection
+2020-05-21 11:57:50  :: Turning threads off on socket disconnection
+2020-05-21 11:57:53  :: Turning threads off on socket disconnection
+2020-05-21 11:57:56  :: Turning threads off on socket disconnection
+2020-05-21 11:57:59  :: Turning threads off on socket disconnection
+2020-05-21 11:58:02  :: Turning threads off on socket disconnection
+2020-05-21 11:58:05  :: Turning threads off on socket disconnection
+2020-05-21 11:58:08  :: Turning threads off on socket disconnection
+2020-05-21 11:58:11  :: Turning threads off on socket disconnection
+2020-05-21 11:58:14  :: Turning threads off on socket disconnection
+2020-05-21 11:58:17  :: Turning threads off on socket disconnection
+2020-05-21 11:58:20  :: Turning threads off on socket disconnection
+2020-05-21 11:58:23  :: Turning threads off on socket disconnection
+2020-05-21 11:58:26  :: Turning threads off on socket disconnection
+2020-05-21 11:58:29  :: Turning threads off on socket disconnection
+2020-05-21 11:58:32  :: Turning threads off on socket disconnection
+2020-05-21 11:58:35  :: Turning threads off on socket disconnection
+2020-05-21 11:58:38  :: Turning threads off on socket disconnection
+2020-05-21 11:58:41  :: Turning threads off on socket disconnection
+2020-05-21 11:58:44  :: Turning threads off on socket disconnection
+2020-05-21 11:58:47  :: Turning threads off on socket disconnection
+2020-05-21 11:58:50  :: Turning threads off on socket disconnection
+2020-05-21 11:58:53  :: Turning threads off on socket disconnection
+2020-05-21 11:58:56  :: Turning threads off on socket disconnection
+2020-05-21 11:58:59  :: Turning threads off on socket disconnection
+2020-05-21 11:59:02  :: Turning threads off on socket disconnection
+2020-05-21 11:59:05  :: Turning threads off on socket disconnection
+2020-05-21 11:59:08  :: Turning threads off on socket disconnection
+2020-05-21 11:59:11  :: Turning threads off on socket disconnection
+2020-05-21 11:59:14  :: Turning threads off on socket disconnection
+2020-05-21 11:59:17  :: Turning threads off on socket disconnection
+2020-05-21 11:59:20  :: Turning threads off on socket disconnection
+2020-05-21 11:59:23  :: Turning threads off on socket disconnection
+2020-05-21 11:59:26  :: Turning threads off on socket disconnection
+2020-05-21 11:59:29  :: Turning threads off on socket disconnection
+2020-05-21 11:59:32  :: Turning threads off on socket disconnection
+2020-05-21 11:59:35  :: Turning threads off on socket disconnection
+2020-05-21 11:59:38  :: Turning threads off on socket disconnection
+2020-05-21 11:59:41  :: Turning threads off on socket disconnection
+2020-05-21 11:59:44  :: Turning threads off on socket disconnection
+2020-05-21 11:59:47  :: Turning threads off on socket disconnection
+2020-05-21 11:59:50  :: Turning threads off on socket disconnection
+2020-05-21 11:59:53  :: Turning threads off on socket disconnection
+2020-05-21 11:59:56  :: Turning threads off on socket disconnection
+2020-05-21 11:59:59  :: Turning threads off on socket disconnection
+2020-05-21 12:00:02  :: Turning threads off on socket disconnection
+2020-05-21 12:00:05  :: Turning threads off on socket disconnection
+2020-05-21 12:00:08  :: Turning threads off on socket disconnection
+2020-05-21 12:00:11  :: Turning threads off on socket disconnection
+2020-05-21 12:00:14  :: Turning threads off on socket disconnection
+2020-05-21 12:00:17  :: Turning threads off on socket disconnection
+2020-05-21 12:00:20  :: Turning threads off on socket disconnection
+2020-05-21 12:00:23  :: Turning threads off on socket disconnection
+2020-05-21 12:00:26  :: Turning threads off on socket disconnection
+2020-05-21 12:00:29  :: Turning threads off on socket disconnection
+2020-05-21 12:00:32  :: Turning threads off on socket disconnection
+2020-05-21 12:00:35  :: Turning threads off on socket disconnection
+2020-05-21 12:00:38  :: Turning threads off on socket disconnection
+2020-05-21 12:00:41  :: Turning threads off on socket disconnection
+2020-05-21 12:00:44  :: Turning threads off on socket disconnection
+2020-05-21 12:00:47  :: Turning threads off on socket disconnection
+2020-05-21 12:00:50  :: Turning threads off on socket disconnection
+2020-05-21 12:00:53  :: Turning threads off on socket disconnection
+2020-05-21 12:00:56  :: Turning threads off on socket disconnection
+2020-05-21 12:00:59  :: Turning threads off on socket disconnection
+2020-05-21 12:01:03  :: Turning threads off on socket disconnection
+2020-05-21 12:01:06  :: Turning threads off on socket disconnection
+2020-05-21 12:01:09  :: Turning threads off on socket disconnection
+2020-05-21 12:01:12  :: Turning threads off on socket disconnection
+2020-05-21 12:01:15  :: Turning threads off on socket disconnection
+2020-05-21 12:01:18  :: Turning threads off on socket disconnection
+2020-05-21 12:01:21  :: Turning threads off on socket disconnection
+2020-05-21 12:01:24  :: Turning threads off on socket disconnection
+2020-05-21 12:01:27  :: Turning threads off on socket disconnection
+2020-05-21 12:01:30  :: Turning threads off on socket disconnection
+2020-05-21 12:01:33  :: Turning threads off on socket disconnection
+2020-05-21 12:01:36  :: Turning threads off on socket disconnection
+2020-05-21 12:01:39  :: Turning threads off on socket disconnection
+2020-05-21 12:01:42  :: Turning threads off on socket disconnection
+2020-05-21 12:01:45  :: Turning threads off on socket disconnection
+2020-05-21 12:01:48  :: Turning threads off on socket disconnection
+2020-05-21 12:01:51  :: Turning threads off on socket disconnection
+2020-05-21 12:01:54  :: Turning threads off on socket disconnection
+2020-05-21 12:01:57  :: Turning threads off on socket disconnection
+2020-05-21 12:02:00  :: Turning threads off on socket disconnection
+2020-05-21 12:02:03  :: Turning threads off on socket disconnection
+2020-05-21 12:02:06  :: Turning threads off on socket disconnection
+2020-05-21 12:02:09  :: Turning threads off on socket disconnection
+2020-05-21 12:02:12  :: Turning threads off on socket disconnection
+2020-05-21 12:02:15  :: Turning threads off on socket disconnection
+2020-05-21 12:02:18  :: Turning threads off on socket disconnection
+2020-05-21 12:02:21  :: Turning threads off on socket disconnection
+2020-05-21 12:02:24  :: Turning threads off on socket disconnection
+2020-05-21 12:02:27  :: Turning threads off on socket disconnection
+2020-05-21 12:02:30  :: Turning threads off on socket disconnection
+2020-05-21 12:02:33  :: Turning threads off on socket disconnection
+2020-05-21 12:02:36  :: Turning threads off on socket disconnection
+2020-05-21 12:02:39  :: Turning threads off on socket disconnection
+2020-05-21 12:02:42  :: Turning threads off on socket disconnection
+2020-05-21 12:02:45  :: Turning threads off on socket disconnection
+2020-05-21 12:02:48  :: Turning threads off on socket disconnection
+2020-05-21 12:02:51  :: Turning threads off on socket disconnection
+2020-05-21 12:02:54  :: Turning threads off on socket disconnection
+2020-05-21 12:02:57  :: Turning threads off on socket disconnection
+2020-05-21 12:03:00  :: Turning threads off on socket disconnection
+2020-05-21 12:03:03  :: Turning threads off on socket disconnection
+2020-05-21 12:03:06  :: Turning threads off on socket disconnection
+2020-05-21 12:03:09  :: Turning threads off on socket disconnection
+2020-05-21 12:03:12  :: Turning threads off on socket disconnection
+2020-05-21 12:03:15  :: Turning threads off on socket disconnection
+2020-05-21 12:03:18  :: Turning threads off on socket disconnection
+2020-05-21 12:03:21  :: Turning threads off on socket disconnection
+2020-05-21 12:03:24  :: Turning threads off on socket disconnection
+2020-05-21 12:03:27  :: Turning threads off on socket disconnection
+2020-05-21 12:03:30  :: Turning threads off on socket disconnection
+2020-05-21 12:03:33  :: Turning threads off on socket disconnection
+2020-05-21 12:03:36  :: Turning threads off on socket disconnection
+2020-05-21 12:03:39  :: Turning threads off on socket disconnection
+2020-05-21 12:03:42  :: Turning threads off on socket disconnection
+2020-05-21 12:03:45  :: Turning threads off on socket disconnection
+2020-05-21 12:03:48  :: Turning threads off on socket disconnection
+2020-05-21 12:03:51  :: Turning threads off on socket disconnection
+2020-05-21 12:03:54  :: Turning threads off on socket disconnection
+2020-05-21 12:03:57  :: Turning threads off on socket disconnection
+2020-05-21 12:04:00  :: Turning threads off on socket disconnection
+2020-05-21 12:04:03  :: Turning threads off on socket disconnection
+2020-05-21 12:04:06  :: Turning threads off on socket disconnection
+2020-05-21 12:04:09  :: Turning threads off on socket disconnection
+2020-05-21 12:04:12  :: Turning threads off on socket disconnection
+2020-05-21 12:04:15  :: Turning threads off on socket disconnection
+2020-05-21 12:04:18  :: Turning threads off on socket disconnection
+2020-05-21 12:04:21  :: Turning threads off on socket disconnection
+2020-05-21 12:04:24  :: Turning threads off on socket disconnection
+2020-05-21 12:04:27  :: Turning threads off on socket disconnection
+2020-05-21 12:04:30  :: Turning threads off on socket disconnection
+2020-05-21 12:04:33  :: Turning threads off on socket disconnection
+2020-05-21 12:04:36  :: Turning threads off on socket disconnection
+2020-05-21 12:04:39  :: Turning threads off on socket disconnection
+2020-05-21 12:04:42  :: Turning threads off on socket disconnection
+2020-05-21 12:04:45  :: Turning threads off on socket disconnection
+2020-05-21 12:04:48  :: Turning threads off on socket disconnection
+2020-05-21 12:04:51  :: Turning threads off on socket disconnection
+2020-05-21 12:04:54  :: Turning threads off on socket disconnection
+2020-05-21 12:04:57  :: Turning threads off on socket disconnection
+2020-05-21 12:05:00  :: Turning threads off on socket disconnection
+2020-05-21 12:05:03  :: Turning threads off on socket disconnection
+2020-05-21 12:05:06  :: Turning threads off on socket disconnection
+2020-05-21 12:05:09  :: Turning threads off on socket disconnection
+2020-05-21 12:05:12  :: Turning threads off on socket disconnection
+2020-05-21 12:05:15  :: Turning threads off on socket disconnection
+2020-05-21 12:05:18  :: Turning threads off on socket disconnection
+2020-05-21 12:05:21  :: Turning threads off on socket disconnection
+2020-05-21 12:05:24  :: Turning threads off on socket disconnection
+2020-05-21 12:05:28  :: Turning threads off on socket disconnection
+2020-05-21 12:05:30  :: Turning threads off on socket disconnection
+2020-05-21 12:05:33  :: Turning threads off on socket disconnection
+2020-05-21 12:05:36  :: Turning threads off on socket disconnection
+2020-05-21 12:05:39  :: Turning threads off on socket disconnection
+2020-05-21 12:05:43  :: Turning threads off on socket disconnection
+2020-05-21 12:05:46  :: Turning threads off on socket disconnection
+2020-05-21 12:05:49  :: Turning threads off on socket disconnection
+2020-05-21 12:05:52  :: Turning threads off on socket disconnection
+2020-05-21 12:05:55  :: Turning threads off on socket disconnection
+2020-05-21 12:05:58  :: Turning threads off on socket disconnection
+2020-05-21 12:06:01  :: Turning threads off on socket disconnection
+2020-05-21 12:06:04  :: Turning threads off on socket disconnection
+2020-05-21 12:06:07  :: Turning threads off on socket disconnection
+2020-05-21 12:06:10  :: Turning threads off on socket disconnection
+2020-05-21 12:06:13  :: Turning threads off on socket disconnection
+2020-05-21 12:06:16  :: Turning threads off on socket disconnection
+2020-05-21 12:06:19  :: Turning threads off on socket disconnection
+2020-05-21 12:06:22  :: Turning threads off on socket disconnection
+2020-05-21 12:06:25  :: Turning threads off on socket disconnection
+2020-05-21 12:06:28  :: Turning threads off on socket disconnection
+2020-05-21 12:06:31  :: Turning threads off on socket disconnection
+2020-05-21 12:06:34  :: Turning threads off on socket disconnection
+2020-05-21 12:06:37  :: Turning threads off on socket disconnection
+2020-05-21 12:06:40  :: Turning threads off on socket disconnection
+2020-05-21 12:06:43  :: Turning threads off on socket disconnection
+2020-05-21 12:06:46  :: Turning threads off on socket disconnection
+2020-05-21 12:06:49  :: Turning threads off on socket disconnection
+2020-05-21 12:06:52  :: Turning threads off on socket disconnection
+2020-05-21 12:06:55  :: Turning threads off on socket disconnection
+2020-05-21 12:06:58  :: Turning threads off on socket disconnection
+2020-05-21 12:07:01  :: Turning threads off on socket disconnection
+2020-05-21 12:07:04  :: Turning threads off on socket disconnection
+2020-05-21 12:07:07  :: Turning threads off on socket disconnection
+2020-05-21 12:07:10  :: Turning threads off on socket disconnection
+2020-05-21 12:07:13  :: Turning threads off on socket disconnection
+2020-05-21 12:07:16  :: Turning threads off on socket disconnection
+2020-05-21 12:07:19  :: Turning threads off on socket disconnection
+2020-05-21 12:07:22  :: Turning threads off on socket disconnection
+2020-05-21 12:07:25  :: Turning threads off on socket disconnection
+2020-05-21 12:07:28  :: Turning threads off on socket disconnection
+2020-05-21 12:07:31  :: Turning threads off on socket disconnection
+2020-05-21 12:07:34  :: Turning threads off on socket disconnection
+2020-05-21 12:07:37  :: Turning threads off on socket disconnection
+2020-05-21 12:07:40  :: Turning threads off on socket disconnection
+2020-05-21 12:07:43  :: Turning threads off on socket disconnection
+2020-05-21 12:07:46  :: Turning threads off on socket disconnection
+2020-05-21 12:07:49  :: Turning threads off on socket disconnection
+2020-05-21 12:07:52  :: Turning threads off on socket disconnection
+2020-05-21 12:07:55  :: Turning threads off on socket disconnection
+2020-05-21 12:07:58  :: Turning threads off on socket disconnection
+2020-05-21 12:08:01  :: Turning threads off on socket disconnection
+2020-05-21 12:08:04  :: Turning threads off on socket disconnection
+2020-05-21 12:08:07  :: Turning threads off on socket disconnection
+2020-05-21 12:08:10  :: Turning threads off on socket disconnection
+2020-05-21 12:08:13  :: Turning threads off on socket disconnection
+2020-05-21 12:08:16  :: Turning threads off on socket disconnection
+2020-05-21 12:08:19  :: Turning threads off on socket disconnection
+2020-05-21 12:08:22  :: Turning threads off on socket disconnection
+2020-05-21 12:08:25  :: Turning threads off on socket disconnection
+2020-05-21 12:08:28  :: Turning threads off on socket disconnection
+2020-05-21 12:08:31  :: Turning threads off on socket disconnection
+2020-05-21 12:08:34  :: Turning threads off on socket disconnection
+2020-05-21 12:08:37  :: Turning threads off on socket disconnection
+2020-05-21 12:08:40  :: Turning threads off on socket disconnection
+2020-05-21 12:08:43  :: Turning threads off on socket disconnection
+2020-05-21 12:08:46  :: Turning threads off on socket disconnection
+2020-05-21 12:08:49  :: Turning threads off on socket disconnection
+2020-05-21 12:08:52  :: Turning threads off on socket disconnection
+2020-05-21 12:08:55  :: Turning threads off on socket disconnection
+2020-05-21 12:08:58  :: Turning threads off on socket disconnection
+2020-05-21 12:09:01  :: Turning threads off on socket disconnection
+2020-05-21 12:09:04  :: Turning threads off on socket disconnection
+2020-05-21 12:09:07  :: Turning threads off on socket disconnection
+2020-05-21 12:09:10  :: Turning threads off on socket disconnection
+2020-05-21 12:09:13  :: Turning threads off on socket disconnection
+2020-05-21 12:09:16  :: Turning threads off on socket disconnection
+2020-05-21 12:09:19  :: Turning threads off on socket disconnection
+2020-05-21 12:09:22  :: Turning threads off on socket disconnection
+2020-05-21 12:09:25  :: Turning threads off on socket disconnection
+2020-05-21 12:09:28  :: Turning threads off on socket disconnection
+2020-05-21 12:09:31  :: Turning threads off on socket disconnection
+2020-05-21 12:09:34  :: Turning threads off on socket disconnection
+2020-05-21 12:09:37  :: Turning threads off on socket disconnection
+2020-05-21 12:09:40  :: Turning threads off on socket disconnection
+2020-05-21 12:09:43  :: Turning threads off on socket disconnection
+2020-05-21 12:09:46  :: Turning threads off on socket disconnection
+2020-05-21 12:09:49  :: Turning threads off on socket disconnection
+2020-05-21 12:09:52  :: Turning threads off on socket disconnection
+2020-05-21 12:09:55  :: Turning threads off on socket disconnection
+2020-05-21 12:09:58  :: Turning threads off on socket disconnection
+2020-05-21 12:10:01  :: Turning threads off on socket disconnection
+2020-05-21 12:10:04  :: Turning threads off on socket disconnection
+2020-05-21 12:10:07  :: Turning threads off on socket disconnection
+2020-05-21 12:10:10  :: Turning threads off on socket disconnection
+2020-05-21 12:10:13  :: Turning threads off on socket disconnection
+2020-05-21 12:10:17  :: Turning threads off on socket disconnection
+2020-05-21 12:10:19  :: Turning threads off on socket disconnection
+2020-05-21 12:10:22  :: Turning threads off on socket disconnection
+2020-05-21 12:10:26  :: Turning threads off on socket disconnection
+2020-05-21 12:10:29  :: Turning threads off on socket disconnection
+2020-05-21 12:10:32  :: Turning threads off on socket disconnection
+2020-05-21 12:10:35  :: Turning threads off on socket disconnection
+2020-05-21 12:10:38  :: Turning threads off on socket disconnection
+2020-05-21 12:10:41  :: Turning threads off on socket disconnection
+2020-05-21 12:10:44  :: Turning threads off on socket disconnection
+2020-05-21 12:10:47  :: Turning threads off on socket disconnection
+2020-05-21 12:10:50  :: Turning threads off on socket disconnection
+2020-05-21 12:10:53  :: Turning threads off on socket disconnection
+2020-05-21 12:10:56  :: Turning threads off on socket disconnection
+2020-05-21 12:10:59  :: Turning threads off on socket disconnection
+2020-05-21 12:11:02  :: Turning threads off on socket disconnection
+2020-05-21 12:11:05  :: Turning threads off on socket disconnection
+2020-05-21 12:11:08  :: Turning threads off on socket disconnection
+2020-05-21 12:11:11  :: Turning threads off on socket disconnection
+2020-05-21 12:11:14  :: Turning threads off on socket disconnection
+2020-05-21 12:11:17  :: Turning threads off on socket disconnection
+2020-05-21 12:11:20  :: Turning threads off on socket disconnection
+2020-05-21 12:11:23  :: Turning threads off on socket disconnection
+2020-05-21 12:11:26  :: Turning threads off on socket disconnection
+2020-05-21 12:11:29  :: Turning threads off on socket disconnection
+2020-05-21 12:11:32  :: Turning threads off on socket disconnection
+2020-05-21 12:11:35  :: Turning threads off on socket disconnection
+2020-05-21 12:11:38  :: Turning threads off on socket disconnection
+2020-05-21 12:11:41  :: Turning threads off on socket disconnection
+2020-05-21 12:11:44  :: Turning threads off on socket disconnection
+2020-05-21 12:11:47  :: Turning threads off on socket disconnection
+2020-05-21 12:11:50  :: Turning threads off on socket disconnection
+2020-05-21 12:11:53  :: Turning threads off on socket disconnection
+2020-05-21 12:11:56  :: Turning threads off on socket disconnection
+2020-05-21 12:11:59  :: Turning threads off on socket disconnection
+2020-05-21 12:12:02  :: Turning threads off on socket disconnection
+2020-05-21 12:12:05  :: Turning threads off on socket disconnection
+2020-05-21 12:12:08  :: Turning threads off on socket disconnection
+2020-05-21 12:12:11  :: Turning threads off on socket disconnection
+2020-05-21 12:12:14  :: Turning threads off on socket disconnection
+2020-05-21 12:12:17  :: Turning threads off on socket disconnection
+2020-05-21 12:12:20  :: Turning threads off on socket disconnection
+2020-05-21 12:12:23  :: Turning threads off on socket disconnection
+2020-05-21 12:12:26  :: Turning threads off on socket disconnection
+2020-05-21 12:12:29  :: Turning threads off on socket disconnection
+2020-05-21 12:12:32  :: Turning threads off on socket disconnection
+2020-05-21 12:12:35  :: Turning threads off on socket disconnection
+2020-05-21 12:12:38  :: Turning threads off on socket disconnection
+2020-05-21 12:12:41  :: Turning threads off on socket disconnection
+2020-05-21 12:12:44  :: Turning threads off on socket disconnection
+2020-05-21 12:12:47  :: Turning threads off on socket disconnection
+2020-05-21 12:12:50  :: Turning threads off on socket disconnection
+2020-05-21 12:12:53  :: Turning threads off on socket disconnection
+2020-05-21 12:12:56  :: Turning threads off on socket disconnection
+2020-05-21 12:12:59  :: Turning threads off on socket disconnection
+2020-05-21 12:13:02  :: Turning threads off on socket disconnection
+2020-05-21 12:13:05  :: Turning threads off on socket disconnection
+2020-05-21 12:13:08  :: Turning threads off on socket disconnection
+2020-05-21 12:13:11  :: Turning threads off on socket disconnection
+2020-05-21 12:13:14  :: Turning threads off on socket disconnection
+2020-05-21 12:13:17  :: Turning threads off on socket disconnection
+2020-05-21 12:13:20  :: Turning threads off on socket disconnection
+2020-05-21 12:13:23  :: Turning threads off on socket disconnection
+2020-05-21 12:13:26  :: Turning threads off on socket disconnection
+2020-05-21 12:13:29  :: Turning threads off on socket disconnection
+2020-05-21 12:13:32  :: Turning threads off on socket disconnection
+2020-05-21 12:13:35  :: Turning threads off on socket disconnection
+2020-05-21 12:13:38  :: Turning threads off on socket disconnection
+2020-05-21 12:13:41  :: Turning threads off on socket disconnection
+2020-05-21 12:13:44  :: Turning threads off on socket disconnection
+2020-05-21 12:13:47  :: Turning threads off on socket disconnection
+2020-05-21 12:13:50  :: Turning threads off on socket disconnection
+2020-05-21 12:13:53  :: Turning threads off on socket disconnection
+2020-05-21 12:13:56  :: Turning threads off on socket disconnection
+2020-05-21 12:13:59  :: Turning threads off on socket disconnection
+2020-05-21 12:14:02  :: Turning threads off on socket disconnection
+2020-05-21 12:14:05  :: Turning threads off on socket disconnection
+2020-05-21 12:14:08  :: Turning threads off on socket disconnection
+2020-05-21 12:14:11  :: Turning threads off on socket disconnection
+2020-05-21 12:14:14  :: Turning threads off on socket disconnection
+2020-05-21 12:14:17  :: Turning threads off on socket disconnection
+2020-05-21 12:14:20  :: Turning threads off on socket disconnection
+2020-05-21 12:14:23  :: Turning threads off on socket disconnection
+2020-05-21 12:14:26  :: Turning threads off on socket disconnection
+2020-05-21 12:14:29  :: Turning threads off on socket disconnection
+2020-05-21 12:14:32  :: Turning threads off on socket disconnection
+2020-05-21 12:14:35  :: Turning threads off on socket disconnection
+2020-05-21 12:14:38  :: Turning threads off on socket disconnection
+2020-05-21 12:14:41  :: Turning threads off on socket disconnection
+2020-05-21 12:14:44  :: Turning threads off on socket disconnection
+2020-05-21 12:14:47  :: Turning threads off on socket disconnection
+2020-05-21 12:14:50  :: Turning threads off on socket disconnection
+2020-05-21 12:14:53  :: Turning threads off on socket disconnection
+2020-05-21 12:14:56  :: Turning threads off on socket disconnection
+2020-05-21 12:14:59  :: Turning threads off on socket disconnection
+2020-05-21 12:15:02  :: Turning threads off on socket disconnection
+2020-05-21 12:15:05  :: Turning threads off on socket disconnection
+2020-05-21 12:15:08  :: Turning threads off on socket disconnection
+2020-05-21 12:15:11  :: Turning threads off on socket disconnection
+2020-05-21 12:15:14  :: Turning threads off on socket disconnection
+2020-05-21 12:15:17  :: Turning threads off on socket disconnection
+2020-05-21 12:15:20  :: Turning threads off on socket disconnection
+2020-05-21 12:15:23  :: Turning threads off on socket disconnection
+2020-05-21 12:15:26  :: Turning threads off on socket disconnection
+2020-05-21 12:15:29  :: Turning threads off on socket disconnection
+2020-05-21 12:15:32  :: Turning threads off on socket disconnection
+2020-05-21 12:15:35  :: Turning threads off on socket disconnection
+2020-05-21 12:15:38  :: Turning threads off on socket disconnection
+2020-05-21 12:15:41  :: Turning threads off on socket disconnection
+2020-05-21 12:15:44  :: Turning threads off on socket disconnection
+2020-05-21 12:15:47  :: Turning threads off on socket disconnection
+2020-05-21 12:15:50  :: Turning threads off on socket disconnection
+2020-05-21 12:15:53  :: Turning threads off on socket disconnection
+2020-05-21 12:15:56  :: Turning threads off on socket disconnection
+2020-05-21 12:15:59  :: Turning threads off on socket disconnection
+2020-05-21 12:16:02  :: Turning threads off on socket disconnection
+2020-05-21 12:16:05  :: Turning threads off on socket disconnection
+2020-05-21 12:16:08  :: Turning threads off on socket disconnection
+2020-05-21 12:16:11  :: Turning threads off on socket disconnection
+2020-05-21 12:16:14  :: Turning threads off on socket disconnection
+2020-05-21 12:16:17  :: Turning threads off on socket disconnection
+2020-05-21 12:16:20  :: Turning threads off on socket disconnection
+2020-05-21 12:16:23  :: Turning threads off on socket disconnection
+2020-05-21 12:16:26  :: Turning threads off on socket disconnection
+2020-05-21 12:16:29  :: Turning threads off on socket disconnection
+2020-05-21 12:16:32  :: Turning threads off on socket disconnection
+2020-05-21 12:16:35  :: Turning threads off on socket disconnection
+2020-05-21 12:16:38  :: Turning threads off on socket disconnection
+2020-05-21 12:16:41  :: Turning threads off on socket disconnection
+2020-05-21 12:16:44  :: Turning threads off on socket disconnection
+2020-05-21 12:16:47  :: Turning threads off on socket disconnection
+2020-05-21 12:16:50  :: Turning threads off on socket disconnection
+2020-05-21 12:16:53  :: Turning threads off on socket disconnection
+2020-05-21 12:16:56  :: Turning threads off on socket disconnection
+2020-05-21 12:16:59  :: Turning threads off on socket disconnection
+2020-05-21 12:17:02  :: Turning threads off on socket disconnection
+2020-05-21 12:17:05  :: Turning threads off on socket disconnection
+2020-05-21 12:17:08  :: Turning threads off on socket disconnection
+2020-05-21 12:17:11  :: Turning threads off on socket disconnection
+2020-05-21 12:17:14  :: Turning threads off on socket disconnection
+2020-05-21 12:17:17  :: Turning threads off on socket disconnection
+2020-05-21 12:17:20  :: Turning threads off on socket disconnection
+2020-05-21 12:17:23  :: Turning threads off on socket disconnection
+2020-05-21 12:17:26  :: Turning threads off on socket disconnection
+2020-05-21 12:17:29  :: Turning threads off on socket disconnection
+2020-05-21 12:17:32  :: Turning threads off on socket disconnection
+2020-05-21 12:17:35  :: Turning threads off on socket disconnection
+2020-05-21 12:17:38  :: Turning threads off on socket disconnection
+2020-05-21 12:17:41  :: Turning threads off on socket disconnection
+2020-05-21 12:17:44  :: Turning threads off on socket disconnection
+2020-05-21 12:17:47  :: Turning threads off on socket disconnection
+2020-05-21 12:17:50  :: Turning threads off on socket disconnection
+2020-05-21 12:17:53  :: Turning threads off on socket disconnection
+2020-05-21 12:17:56  :: Turning threads off on socket disconnection
+2020-05-21 12:18:00  :: Turning threads off on socket disconnection
+2020-05-21 12:18:03  :: Turning threads off on socket disconnection
+2020-05-21 12:18:06  :: Turning threads off on socket disconnection
+2020-05-21 12:18:09  :: Turning threads off on socket disconnection
+2020-05-21 12:18:12  :: Turning threads off on socket disconnection
+2020-05-21 12:18:15  :: Turning threads off on socket disconnection
+2020-05-21 12:18:18  :: Turning threads off on socket disconnection
+2020-05-21 12:18:21  :: Turning threads off on socket disconnection
+2020-05-21 12:18:24  :: Turning threads off on socket disconnection
+2020-05-21 12:18:27  :: Turning threads off on socket disconnection
+2020-05-21 12:18:30  :: Turning threads off on socket disconnection
+2020-05-21 12:18:33  :: Turning threads off on socket disconnection
+2020-05-21 12:18:36  :: Turning threads off on socket disconnection
+2020-05-21 12:18:39  :: Turning threads off on socket disconnection
+2020-05-21 12:18:42  :: Turning threads off on socket disconnection
+2020-05-21 12:18:45  :: Turning threads off on socket disconnection
+2020-05-21 12:18:48  :: Turning threads off on socket disconnection
+2020-05-21 12:18:51  :: Turning threads off on socket disconnection
+2020-05-21 12:18:54  :: Turning threads off on socket disconnection
+2020-05-21 12:18:57  :: Turning threads off on socket disconnection
+2020-05-21 12:19:00  :: Turning threads off on socket disconnection
+2020-05-21 12:19:03  :: Turning threads off on socket disconnection
+2020-05-21 12:19:06  :: Turning threads off on socket disconnection
+2020-05-21 12:19:09  :: Turning threads off on socket disconnection
+2020-05-21 12:19:12  :: Turning threads off on socket disconnection
+2020-05-21 12:19:15  :: Turning threads off on socket disconnection
+2020-05-21 12:19:18  :: Turning threads off on socket disconnection
+2020-05-21 12:19:21  :: Turning threads off on socket disconnection
+2020-05-21 12:19:24  :: Turning threads off on socket disconnection
+2020-05-21 12:19:27  :: Turning threads off on socket disconnection
+2020-05-21 12:19:30  :: Turning threads off on socket disconnection
+2020-05-21 12:19:33  :: Turning threads off on socket disconnection
+2020-05-21 12:19:36  :: Turning threads off on socket disconnection
+2020-05-21 12:19:39  :: Turning threads off on socket disconnection
+2020-05-21 12:19:42  :: Turning threads off on socket disconnection
+2020-05-21 12:19:45  :: Turning threads off on socket disconnection
+2020-05-21 12:19:48  :: Turning threads off on socket disconnection
+2020-05-21 12:19:51  :: Turning threads off on socket disconnection
+2020-05-21 12:19:54  :: Turning threads off on socket disconnection
+2020-05-21 12:19:57  :: Turning threads off on socket disconnection
+2020-05-21 12:20:00  :: Turning threads off on socket disconnection
+2020-05-21 12:20:03  :: Turning threads off on socket disconnection
+2020-05-21 12:20:06  :: Turning threads off on socket disconnection
+2020-05-21 12:20:09  :: Turning threads off on socket disconnection
+2020-05-21 12:20:12  :: Turning threads off on socket disconnection
+2020-05-21 12:20:15  :: Turning threads off on socket disconnection
+2020-05-21 12:20:18  :: Turning threads off on socket disconnection
+2020-05-21 12:20:21  :: Turning threads off on socket disconnection
+2020-05-21 12:20:24  :: Turning threads off on socket disconnection
+2020-05-21 12:20:27  :: Turning threads off on socket disconnection
+2020-05-21 12:20:30  :: Turning threads off on socket disconnection
+2020-05-21 12:20:33  :: Turning threads off on socket disconnection
+2020-05-21 12:20:36  :: Turning threads off on socket disconnection
+2020-05-21 12:20:39  :: Turning threads off on socket disconnection
+2020-05-21 12:20:42  :: Turning threads off on socket disconnection
+2020-05-21 12:20:45  :: Turning threads off on socket disconnection
+2020-05-21 12:20:48  :: Turning threads off on socket disconnection
+2020-05-21 12:20:51  :: Turning threads off on socket disconnection
+2020-05-21 12:20:54  :: Turning threads off on socket disconnection
+2020-05-21 12:20:57  :: Turning threads off on socket disconnection
+2020-05-21 12:21:00  :: Turning threads off on socket disconnection
+2020-05-21 12:21:03  :: Turning threads off on socket disconnection
+2020-05-21 12:21:06  :: Turning threads off on socket disconnection
+2020-05-21 12:21:09  :: Turning threads off on socket disconnection
+2020-05-21 12:21:12  :: Turning threads off on socket disconnection
+2020-05-21 12:21:15  :: Turning threads off on socket disconnection
+2020-05-21 12:21:18  :: Turning threads off on socket disconnection
+2020-05-21 12:21:21  :: Turning threads off on socket disconnection
+2020-05-21 12:21:24  :: Turning threads off on socket disconnection
+2020-05-21 12:21:27  :: Turning threads off on socket disconnection
+2020-05-21 12:21:30  :: Turning threads off on socket disconnection
+2020-05-21 12:21:33  :: Turning threads off on socket disconnection
+2020-05-21 12:21:36  :: Turning threads off on socket disconnection
+2020-05-21 12:21:39  :: Turning threads off on socket disconnection
+2020-05-21 12:21:42  :: Turning threads off on socket disconnection
+2020-05-21 12:21:45  :: Turning threads off on socket disconnection
+2020-05-21 12:21:48  :: Turning threads off on socket disconnection
+2020-05-21 12:21:51  :: Turning threads off on socket disconnection
+2020-05-21 12:21:54  :: Turning threads off on socket disconnection
+2020-05-21 12:21:57  :: Turning threads off on socket disconnection
+2020-05-21 12:22:00  :: Turning threads off on socket disconnection
+2020-05-21 12:22:03  :: Turning threads off on socket disconnection
+2020-05-21 12:22:06  :: Turning threads off on socket disconnection
+2020-05-21 12:22:09  :: Turning threads off on socket disconnection
+2020-05-21 12:22:12  :: Turning threads off on socket disconnection
+2020-05-21 12:22:15  :: Turning threads off on socket disconnection
+2020-05-21 12:22:18  :: Turning threads off on socket disconnection
+2020-05-21 12:22:21  :: Turning threads off on socket disconnection
+2020-05-21 12:22:24  :: Turning threads off on socket disconnection
+2020-05-21 12:22:27  :: Turning threads off on socket disconnection
+2020-05-21 12:22:30  :: Turning threads off on socket disconnection
+2020-05-21 12:22:33  :: Turning threads off on socket disconnection
+2020-05-21 12:22:36  :: Turning threads off on socket disconnection
+2020-05-21 12:22:39  :: Turning threads off on socket disconnection
+2020-05-21 12:22:42  :: Turning threads off on socket disconnection
+2020-05-21 12:22:45  :: Turning threads off on socket disconnection
+2020-05-21 12:22:48  :: Turning threads off on socket disconnection
+2020-05-21 12:22:51  :: Turning threads off on socket disconnection
+2020-05-21 12:22:54  :: Turning threads off on socket disconnection
+2020-05-21 12:22:57  :: Turning threads off on socket disconnection
+2020-05-21 12:23:00  :: Turning threads off on socket disconnection
+2020-05-21 12:23:03  :: Turning threads off on socket disconnection
+2020-05-21 12:23:06  :: Turning threads off on socket disconnection
+2020-05-21 12:23:09  :: Turning threads off on socket disconnection
+2020-05-21 12:23:12  :: Turning threads off on socket disconnection
+2020-05-21 12:23:15  :: Turning threads off on socket disconnection
+2020-05-21 12:23:18  :: Turning threads off on socket disconnection
+2020-05-21 12:23:21  :: Turning threads off on socket disconnection
+2020-05-21 12:23:24  :: Turning threads off on socket disconnection
+2020-05-21 12:23:27  :: Turning threads off on socket disconnection
+2020-05-21 12:23:30  :: Turning threads off on socket disconnection
+2020-05-21 12:23:33  :: Turning threads off on socket disconnection
+2020-05-21 12:23:36  :: Turning threads off on socket disconnection
+2020-05-21 12:23:39  :: Turning threads off on socket disconnection
+2020-05-21 12:23:42  :: Turning threads off on socket disconnection
+2020-05-21 12:23:45  :: Turning threads off on socket disconnection
+2020-05-21 12:23:48  :: Turning threads off on socket disconnection
+2020-05-21 12:23:51  :: Turning threads off on socket disconnection
+2020-05-21 12:23:54  :: Turning threads off on socket disconnection
+2020-05-21 12:23:57  :: Turning threads off on socket disconnection
+2020-05-21 12:24:00  :: Turning threads off on socket disconnection
+2020-05-21 12:24:03  :: Turning threads off on socket disconnection
+2020-05-21 12:24:06  :: Turning threads off on socket disconnection
+2020-05-21 12:24:09  :: Turning threads off on socket disconnection
+2020-05-21 12:24:12  :: Turning threads off on socket disconnection
+2020-05-21 12:24:15  :: Turning threads off on socket disconnection
+2020-05-21 12:24:18  :: Turning threads off on socket disconnection
+2020-05-21 12:24:21  :: Turning threads off on socket disconnection
+2020-05-21 12:24:24  :: Turning threads off on socket disconnection
+2020-05-21 12:24:27  :: Turning threads off on socket disconnection
+2020-05-21 12:24:30  :: Turning threads off on socket disconnection
+2020-05-21 12:24:33  :: Turning threads off on socket disconnection
+2020-05-21 12:24:36  :: Turning threads off on socket disconnection
+2020-05-21 12:24:39  :: Turning threads off on socket disconnection
+2020-05-21 12:24:42  :: Turning threads off on socket disconnection
+2020-05-21 12:24:45  :: Turning threads off on socket disconnection
+2020-05-21 12:24:48  :: Turning threads off on socket disconnection
+2020-05-21 12:24:51  :: Turning threads off on socket disconnection
+2020-05-21 12:24:54  :: Turning threads off on socket disconnection
+2020-05-21 12:24:57  :: Turning threads off on socket disconnection
+2020-05-21 12:25:00  :: Turning threads off on socket disconnection
+2020-05-21 12:25:03  :: Turning threads off on socket disconnection
+2020-05-21 12:25:06  :: Turning threads off on socket disconnection
+2020-05-21 12:25:09  :: Turning threads off on socket disconnection
+2020-05-21 12:25:12  :: Turning threads off on socket disconnection
+2020-05-21 12:25:15  :: Turning threads off on socket disconnection
+2020-05-21 12:25:18  :: Turning threads off on socket disconnection
+2020-05-21 12:25:21  :: Turning threads off on socket disconnection
+2020-05-21 12:25:24  :: Turning threads off on socket disconnection
+2020-05-21 12:25:27  :: Turning threads off on socket disconnection
+2020-05-21 12:25:30  :: Turning threads off on socket disconnection
+2020-05-21 12:25:33  :: Turning threads off on socket disconnection
+2020-05-21 12:25:36  :: Turning threads off on socket disconnection
+2020-05-21 12:25:39  :: Turning threads off on socket disconnection
+2020-05-21 12:25:42  :: Turning threads off on socket disconnection
+2020-05-21 12:25:45  :: Turning threads off on socket disconnection
+2020-05-21 12:25:48  :: Turning threads off on socket disconnection
+2020-05-21 12:25:51  :: Turning threads off on socket disconnection
+2020-05-21 12:25:54  :: Turning threads off on socket disconnection
+2020-05-21 12:25:57  :: Turning threads off on socket disconnection
+2020-05-21 12:26:00  :: Turning threads off on socket disconnection
+2020-05-21 12:26:03  :: Turning threads off on socket disconnection
+2020-05-21 12:26:06  :: Turning threads off on socket disconnection
+2020-05-21 12:26:09  :: Turning threads off on socket disconnection
+2020-05-21 12:26:12  :: Turning threads off on socket disconnection
+2020-05-21 12:26:15  :: Turning threads off on socket disconnection
+2020-05-21 12:26:18  :: Turning threads off on socket disconnection
+2020-05-21 12:26:21  :: Turning threads off on socket disconnection
+2020-05-21 12:26:24  :: Turning threads off on socket disconnection
+2020-05-21 12:26:27  :: Turning threads off on socket disconnection
+2020-05-21 12:26:30  :: Turning threads off on socket disconnection
+2020-05-21 12:26:33  :: Turning threads off on socket disconnection
+2020-05-21 12:26:36  :: Turning threads off on socket disconnection
+2020-05-21 12:26:39  :: Turning threads off on socket disconnection
+2020-05-21 12:26:42  :: Turning threads off on socket disconnection
+2020-05-21 12:26:45  :: Turning threads off on socket disconnection
+2020-05-21 12:26:48  :: Turning threads off on socket disconnection
+2020-05-21 12:26:51  :: Turning threads off on socket disconnection
+2020-05-21 12:26:54  :: Turning threads off on socket disconnection
+2020-05-21 12:26:57  :: Turning threads off on socket disconnection
+2020-05-21 12:27:01  :: Turning threads off on socket disconnection
+2020-05-21 12:27:04  :: Turning threads off on socket disconnection
+2020-05-21 12:27:07  :: Turning threads off on socket disconnection
+2020-05-21 12:27:10  :: Turning threads off on socket disconnection
+2020-05-21 12:27:13  :: Turning threads off on socket disconnection
+2020-05-21 12:27:16  :: Turning threads off on socket disconnection
+2020-05-21 12:27:19  :: Turning threads off on socket disconnection
+2020-05-21 12:27:22  :: Turning threads off on socket disconnection
+2020-05-21 12:27:25  :: Turning threads off on socket disconnection
+2020-05-21 12:27:28  :: Turning threads off on socket disconnection
+2020-05-21 12:27:31  :: Turning threads off on socket disconnection
+2020-05-21 12:27:34  :: Turning threads off on socket disconnection
+2020-05-21 12:27:37  :: Turning threads off on socket disconnection
+2020-05-21 12:27:40  :: Turning threads off on socket disconnection
+2020-05-21 12:27:43  :: Turning threads off on socket disconnection
+2020-05-21 12:27:46  :: Turning threads off on socket disconnection
+2020-05-21 12:27:49  :: Turning threads off on socket disconnection
+2020-05-21 12:27:52  :: Turning threads off on socket disconnection
+2020-05-21 12:27:55  :: Turning threads off on socket disconnection
+2020-05-21 12:27:58  :: Turning threads off on socket disconnection
+2020-05-21 12:28:01  :: Turning threads off on socket disconnection
+2020-05-21 12:28:04  :: Turning threads off on socket disconnection
+2020-05-21 12:28:07  :: Turning threads off on socket disconnection
+2020-05-21 12:28:10  :: Turning threads off on socket disconnection
+2020-05-21 12:28:13  :: Turning threads off on socket disconnection
+2020-05-21 12:28:16  :: Turning threads off on socket disconnection
+2020-05-21 12:28:19  :: Turning threads off on socket disconnection
+2020-05-21 12:28:22  :: Turning threads off on socket disconnection
+2020-05-21 12:28:25  :: Turning threads off on socket disconnection
+2020-05-21 12:28:28  :: Turning threads off on socket disconnection
+2020-05-21 12:28:31  :: Turning threads off on socket disconnection
+2020-05-21 12:28:34  :: Turning threads off on socket disconnection
+2020-05-21 12:28:37  :: Turning threads off on socket disconnection
+2020-05-21 12:28:40  :: Turning threads off on socket disconnection
+2020-05-21 12:28:43  :: Turning threads off on socket disconnection
+2020-05-21 12:28:46  :: Turning threads off on socket disconnection
+2020-05-21 12:28:49  :: Turning threads off on socket disconnection
+2020-05-21 12:28:52  :: Turning threads off on socket disconnection
+2020-05-21 12:28:55  :: Turning threads off on socket disconnection
+2020-05-21 12:28:58  :: Turning threads off on socket disconnection
+2020-05-21 12:29:01  :: Turning threads off on socket disconnection
+2020-05-21 12:29:04  :: Turning threads off on socket disconnection
+2020-05-21 12:29:07  :: Turning threads off on socket disconnection
+2020-05-21 12:29:10  :: Turning threads off on socket disconnection
+2020-05-21 12:29:13  :: Turning threads off on socket disconnection
+2020-05-21 12:29:16  :: Turning threads off on socket disconnection
+2020-05-21 12:29:19  :: Turning threads off on socket disconnection
+2020-05-21 12:29:22  :: Turning threads off on socket disconnection
+2020-05-21 12:29:25  :: Turning threads off on socket disconnection
+2020-05-21 12:29:28  :: Turning threads off on socket disconnection
+2020-05-21 12:29:31  :: Turning threads off on socket disconnection
+2020-05-21 12:29:34  :: Turning threads off on socket disconnection
+2020-05-21 12:29:37  :: Turning threads off on socket disconnection
+2020-05-21 12:29:40  :: Turning threads off on socket disconnection
+2020-05-21 12:29:43  :: Turning threads off on socket disconnection
+2020-05-21 12:29:46  :: Turning threads off on socket disconnection
+2020-05-21 12:29:49  :: Turning threads off on socket disconnection
+2020-05-21 12:29:52  :: Turning threads off on socket disconnection
+2020-05-21 12:29:55  :: Turning threads off on socket disconnection
+2020-05-21 12:29:58  :: Turning threads off on socket disconnection
+2020-05-21 12:30:01  :: Turning threads off on socket disconnection
+2020-05-21 12:30:04  :: Turning threads off on socket disconnection
+2020-05-21 12:30:07  :: Turning threads off on socket disconnection
+2020-05-21 12:30:10  :: Turning threads off on socket disconnection
+2020-05-21 12:30:13  :: Turning threads off on socket disconnection
+2020-05-21 12:30:16  :: Turning threads off on socket disconnection
+2020-05-21 12:30:19  :: Turning threads off on socket disconnection
+2020-05-21 12:30:22  :: Turning threads off on socket disconnection
+2020-05-21 12:30:25  :: Turning threads off on socket disconnection
+2020-05-21 12:30:28  :: Turning threads off on socket disconnection
+2020-05-21 12:30:31  :: Turning threads off on socket disconnection
+2020-05-21 12:30:34  :: Turning threads off on socket disconnection
+2020-05-21 12:30:37  :: Turning threads off on socket disconnection
+2020-05-21 12:30:40  :: Turning threads off on socket disconnection
+2020-05-21 12:30:43  :: Turning threads off on socket disconnection
+2020-05-21 12:30:46  :: Turning threads off on socket disconnection
+2020-05-21 12:30:49  :: Turning threads off on socket disconnection
+2020-05-21 12:30:52  :: Turning threads off on socket disconnection
+2020-05-21 12:30:55  :: Turning threads off on socket disconnection
+2020-05-21 12:30:58  :: Turning threads off on socket disconnection
+2020-05-21 12:31:01  :: Turning threads off on socket disconnection
+2020-05-21 12:31:04  :: Turning threads off on socket disconnection
+2020-05-21 12:31:08  :: Turning threads off on socket disconnection
+2020-05-21 12:31:11  :: Turning threads off on socket disconnection
+2020-05-21 12:31:14  :: Turning threads off on socket disconnection
+2020-05-21 12:31:17  :: Turning threads off on socket disconnection
+2020-05-21 12:31:20  :: Turning threads off on socket disconnection
+2020-05-21 12:31:35  :: Initializing Mock Server...
+2020-05-21 12:31:35  :: Initializing all collections...
+2020-05-21 12:31:36  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-21 12:31:37  :: Collections Initialized...
+2020-05-21 12:31:46  :: Connecting for the first time to client 43485
+2020-05-21 12:31:46  :: Connected for the first time to client 43485
+2020-05-21 12:32:09  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-21 12:32:09  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-21 12:32:09  :: Sending ClientLoginResponse with UUID f3ebf1ab-6b1b-4d4b-af62-e475850177b6
+2020-05-21 12:32:09  :: Sending Instrument Batch 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientInstrumentState 
+2020-05-21 12:32:09  :: Sending ClientUserRecord
+2020-05-21 12:32:09  :: Sending ClientMarketStateBatch
+2020-05-21 12:32:09  :: Sending ClientAccountRecordBatch 
+2020-05-21 12:32:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:32:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:32:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:32:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:32:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:32:35  :: Initializing Mock Server...
+2020-05-21 12:32:35  :: Initializing all collections...
+2020-05-21 12:32:36  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-21 12:32:36  :: Collections Initialized...
+2020-05-21 12:32:42  :: Connecting for the first time to client 43527
+2020-05-21 12:32:42  :: Connected for the first time to client 43527
+2020-05-21 12:32:59  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-21 12:32:59  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-21 12:32:59  :: Sending ClientLoginResponse with UUID b41573b6-d52c-4cde-a350-dd28d2c79951
+2020-05-21 12:32:59  :: Sending Instrument Batch 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientInstrumentState 
+2020-05-21 12:32:59  :: Sending ClientUserRecord
+2020-05-21 12:32:59  :: Sending ClientMarketStateBatch
+2020-05-21 12:32:59  :: Sending ClientAccountRecordBatch 
+2020-05-21 12:33:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:33:05  :: OnMessage ClientGetAccountPositions from IP -> 127.0.0.1
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 12:33:05  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 12:33:05  :: Sending ClientAccountPositionRecordBatch 
+2020-05-21 12:33:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 12:33:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:06:32  :: Initializing Mock Server...
+2020-05-21 13:06:32  :: Initializing all collections...
+2020-05-21 13:06:33  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-05-21 13:06:34  :: Collections Initialized...
+2020-05-21 13:06:41  :: Connecting for the first time to client 44566
+2020-05-21 13:06:41  :: Connected for the first time to client 44566
+2020-05-21 13:06:47  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-05-21 13:06:47  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-05-21 13:06:47  :: Sending ClientLoginResponse with UUID 1eec4dbc-4839-4ca2-b036-9656f113fe0d
+2020-05-21 13:06:47  :: Sending Instrument Batch 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientInstrumentState 
+2020-05-21 13:06:47  :: Sending ClientUserRecord
+2020-05-21 13:06:47  :: Sending ClientMarketStateBatch
+2020-05-21 13:06:47  :: Sending ClientAccountRecordBatch 
+2020-05-21 13:06:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:06:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:06:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:06:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:07:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:05  :: OnMessage Subscribe from IP -> 127.0.0.1
+2020-05-21 13:08:05  :: Incoming subscription for serviceXX SC - ServiceKey:*
+2020-05-21 13:08:05  :: SubscriptionResponse UUID:1eec4dbc-4839-4ca2-b036-9656f113fe0d Service:SC ServiceKey:* Success:True
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id ETH-USD:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id XMR-USD:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id XRP-USD:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id ADA-USD:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id XBT-USD:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-05-21 13:08:05  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-05-21 13:08:05  :: Sending AccountBalance 
+2020-05-21 13:08:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:08:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:09:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:10:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:11:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:12:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:13:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:14:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:15:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:16:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:17:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:18:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:19:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:20:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:21:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:22:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:23:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:24:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:25:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:26:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:27:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:28:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:29:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:30:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:31:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:32:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:33:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:34:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:35:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:36:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:37:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:38:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:39:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:40:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:41:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:42:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:43:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:44:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:45:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:46:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:47:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:48:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:49:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:50:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:14  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:17  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:20  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:23  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:26  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:29  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:32  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:35  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:38  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:41  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:44  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:47  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:50  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:53  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:56  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:51:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:05  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:08  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:11  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:52:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:53:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:54:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:55:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:56:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:57:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:58:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 13:59:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:00:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:01:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:02:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:03:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:04:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:05:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:06:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:07:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:08:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:09:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:24  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:27  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:30  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:33  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:36  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:39  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:54  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:10:57  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:00  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:03  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:31  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:34  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:37  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:40  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:43  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:46  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:49  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:52  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:55  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:11:58  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:01  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:04  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:07  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:10  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:13  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:16  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:22  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:25  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-05-21 14:12:28  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
