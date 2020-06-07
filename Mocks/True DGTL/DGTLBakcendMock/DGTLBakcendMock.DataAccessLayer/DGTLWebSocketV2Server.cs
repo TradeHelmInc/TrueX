@@ -111,7 +111,8 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to)
+        protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to, int pageNo = 1, 
+                                                   int recordPage = 1, string sort = null, string filter = null)
         {
             if (InstrBatch == null)
                 InstrBatch = LoadInstrBatch();
@@ -134,11 +135,12 @@ namespace DGTLBackendMock.DataAccessLayer
             
             }
 
-            return orderList.ToArray();
+            return orderList.OrderByDescending(x => Convert.ToInt64(x.CreateAt)).Skip(pageNo).Take(recordPage).ToArray();
         
         }
 
-        protected ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to)
+        protected ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to, int pageNo = 1, int recordPage = 1,
+                                                  string sort = null, string filter = null)
         {
 
             if(InstrBatch==null)
@@ -160,7 +162,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
             }
 
-            return tradeList.ToArray();
+            //we wil always order by the Created At, and filters will be just ignored for the moment
+            return tradeList.OrderByDescending(x => Convert.ToInt64(x.CreatedAt)).Skip(pageNo).Take(recordPage).ToArray();
         }
 
         protected override void LoadHistoryService()
@@ -3293,7 +3296,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 cSide = legacyTradeHistory.cMySide,
                 cStatus = ClientTradeRecord._STATUS_OPEN,
                 ExchangeFees = 0.005 * (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
-                FirmId = Convert.ToInt64(LoggedFirmId),
+                FirmId = LoggedFirmId,
                 Symbol = instr.InstrumentName,
                 InstrumentId = instr.InstrumentId,
                 Notional = (legacyTradeHistory.TradePrice * legacyTradeHistory.TradeQuantity),
@@ -3378,7 +3381,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 CumQty = legacyOrderRecord.FillQty,
                 ExchangeFees = 0,
                 //Fees = 0,
-                //FirmId = Convert.ToInt64(LoggedFirmId),
+                FirmId = LoggedFirmId,
                 UserId = LoggedUserId,
                 InstrumentId = instr.InstrumentId,
                 LeavesQty = legacyOrderRecord.LvsQty,
@@ -4184,7 +4187,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessFirmsCreditRecord(socket, subscrMsg);
                 }
-                else if (subscrMsg.Service == "SM")
+                else if (subscrMsg.Service == "Sy")
                 {
                     ProcessClientCurrentPrice(socket, subscrMsg);
                 }

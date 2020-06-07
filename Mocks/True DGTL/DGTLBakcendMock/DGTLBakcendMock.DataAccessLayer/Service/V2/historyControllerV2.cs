@@ -14,9 +14,11 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
 {
     public delegate void OnLog(string msg, MessageType type);
 
-    public delegate ClientOrderRecord[] GetAllOrders(DateTime from,DateTime to);
+    public delegate ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to, int pageNo = 1, int recordPage = 1, 
+                                                     string sort = null, string filter = null);
 
-    public delegate ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to);
+    public delegate ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to, int pageNo = 1, int recordPage = 1,
+                                                     string sort = null, string filter = null);
 
     public class historyControllerV2 : ApiController
     {
@@ -70,21 +72,23 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
 
         [HttpGet]
         public static HttpResponseMessage Get(HttpRequestMessage Request, string userid, string uuid, string recordtype, string condition = null,
-                               string receivedate = null, string fromDate = null, string toDate = null)
+                                              string receivedate = null, string fromDate = null, string toDate = null,
+                                              int pageNo=1,int recordPage=1,string sort=null,string filter=null)
 
         //public static HttpResponseMessage Get(HttpRequestMessage Request,string requesterid, string userid, string uuid, string recordtype, string condition=null,
         //                               string receivedate=null, bool export=true, string fromDate=null, string toDate=null)
         {
             try
             {
-                OnLog(string.Format("Received REST request for record type {0} fromDate={1} toDate={2}", recordtype, fromDate, toDate), MessageType.Information);
+                OnLog(string.Format("Received REST request for record type {0} fromDate={1} toDate={2} pageNo={3} recordPage={4} sort={5} filter={6}",
+                                      recordtype, fromDate, toDate, pageNo, recordPage, sort, filter), MessageType.Information);
                 DateTime from = ConverDateTime(fromDate, true);
                 DateTime to = ConverDateTime(toDate, false);
 
                 if (recordtype == "O")//RecordType O --> Orders
                 {
                     ValidateDateTimes(fromDate, toDate);
-                    ClientOrderRecord[] allOrders = OnGetAllOrders(from,to);
+                    ClientOrderRecord[] allOrders = OnGetAllOrders(from, to, pageNo, recordPage, sort, filter);
                     allOrders.ToList().ForEach(x => x.Uuid = uuid);
                     allOrders.ToList().ForEach(x => x.UserId = userid);
                     
@@ -101,7 +105,7 @@ namespace DGTLBackendMock.DataAccessLayer.Service.V2
                 else if (recordtype == "T") //RecordType T --> Executions
                 {
                     ValidateDateTimes(fromDate, toDate);
-                    ClientTradeRecord[] allTrades = OnGetAllTrades(from, to);
+                    ClientTradeRecord[] allTrades = OnGetAllTrades(from, to, pageNo, recordPage, sort, filter);
                     
                     //GetExecutionsBlotterResponse execResp = new GetExecutionsBlotterResponse() { Success = true, Uuid = uuid, Msg = "GetExecutionsBlotterResponse", data = allTrades };
                     //HttpResponseMessage resp = Request.CreateResponse(HttpStatusCode.OK);
