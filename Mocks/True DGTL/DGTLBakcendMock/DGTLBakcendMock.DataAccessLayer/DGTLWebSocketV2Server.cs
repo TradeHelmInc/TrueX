@@ -8,6 +8,7 @@ using DGTLBackendMock.Common.DTO.Auth.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.MarketData;
 using DGTLBackendMock.Common.DTO.MarketData.V2;
 using DGTLBackendMock.Common.DTO.OrderRouting;
+using DGTLBackendMock.Common.DTO.OrderRouting.Blotters;
 using DGTLBackendMock.Common.DTO.OrderRouting.V2;
 using DGTLBackendMock.Common.DTO.SecurityList;
 using DGTLBackendMock.Common.DTO.SecurityList.V2;
@@ -111,7 +112,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        protected ClientOrderRecord[] GetAllOrders(DateTime from, DateTime to, int pageNo = 1, 
+        protected BlotterOrderList GetAllOrders(DateTime from, DateTime to, int pageNo = 1, 
                                                    int recordPage = 1, string sort = null, string filter = null)
         {
             if (InstrBatch == null)
@@ -135,11 +136,19 @@ namespace DGTLBackendMock.DataAccessLayer
             
             }
 
-            return orderList.OrderByDescending(x => Convert.ToInt64(x.CreateAt)).Skip(pageNo).Take(recordPage).ToArray();
+            BlotterOrderList orderRespList = new BlotterOrderList()
+            {
+                content = orderList.OrderByDescending(x => Convert.ToInt64(x.CreateAt)).Skip(pageNo).Take(recordPage).ToArray(),
+                pageNo=pageNo,
+                recordPerPage=recordPage,
+                totalCount=orderList.Count
+            };
+
+            return orderRespList;
         
         }
 
-        protected ClientTradeRecord[] GetAllTrades(DateTime from, DateTime to, int pageNo = 1, int recordPage = 1,
+        protected BlotterExecutionsList GetAllTrades(DateTime from, DateTime to, int pageNo = 1, int recordPage = 1,
                                                   string sort = null, string filter = null)
         {
 
@@ -162,8 +171,16 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
             }
 
-            //we wil always order by the Created At, and filters will be just ignored for the moment
-            return tradeList.OrderByDescending(x => Convert.ToInt64(x.CreatedAt)).Skip(pageNo).Take(recordPage).ToArray();
+            BlotterExecutionsList execBlotterList = new BlotterExecutionsList()
+            {
+                content = tradeList.OrderByDescending(x => Convert.ToInt64(x.CreatedAt)).Skip(pageNo).Take(recordPage).ToArray(),
+                pageNo = pageNo,
+                recordPerPage = recordPage,
+                totalCount = tradeList.Count
+
+            };
+
+            return execBlotterList;
         }
 
         protected override void LoadHistoryService()

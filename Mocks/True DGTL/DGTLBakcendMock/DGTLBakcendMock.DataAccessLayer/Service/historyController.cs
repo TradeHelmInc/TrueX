@@ -47,7 +47,7 @@ namespace DGTLBackendMock.DataAccessLayer.Service
         [HttpGet]
         public HttpResponseMessage Get( string userid, string uuid, string recordtype, string condition = null,
                                         string receivedate = null,  string fromDate = null, string toDate = null,
-                                        int pageNo = 1, int recordPage = 1, string sort = null, string filter = null)
+                                        int pageNo = 1, int recordPerPage = 1, string sort = null, string filter = null)
 
         //public HttpResponseMessage Get(string requesterid, string userid, string uuid, string recordtype, string condition = null,
         //                               string receivedate = null, bool export = true, string fromDate = null, string toDate = null)
@@ -58,7 +58,7 @@ namespace DGTLBackendMock.DataAccessLayer.Service
                 //RecordType O --> Orders
                 if (OverridenGet != null)
                 {
-                    return OverridenGet(Request, userid, uuid, recordtype, condition, receivedate,fromDate, toDate,pageNo,recordPage,sort,filter);
+                    return OverridenGet(Request, userid, uuid, recordtype, condition, receivedate,fromDate, toDate,pageNo,recordPerPage,sort,filter);
 
                     //return OverridenGet(Request,requesterid, userid, uuid, recordtype, condition, receivedate, export, fromDate, toDate);
                 }

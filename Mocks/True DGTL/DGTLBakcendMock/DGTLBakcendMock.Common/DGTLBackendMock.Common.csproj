@@ -114,6 +114,8 @@
     <Compile Include="DTO\MarketData\V2\ClientDepthOfBookBatch.cs" />
     <Compile Include="DTO\MarketData\V2\ClientLastSale.cs" />
     <Compile Include="DTO\MarketData\V2\DailySettlementPrice.cs" />
+    <Compile Include="DTO\OrderRouting\Blotters\BlotterOrderList.cs" />
+    <Compile Include="DTO\OrderRouting\Blotters\BlotterExecutionsList.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetExecutionsBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\GetOrdersBlotterFulFilled.cs" />
     <Compile Include="DTO\OrderRouting\Blotters\LegacyOrderBlotter.cs" />
