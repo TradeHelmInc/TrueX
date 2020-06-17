@@ -119,3 +119,4 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\Positions.json
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\backups_v1\CreditRecordUpdate.json
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\FundedMargins.json
+C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBakcendMock\bin\Debug\input\Collaterals.json

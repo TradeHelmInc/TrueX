@@ -26,7 +26,11 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public string UserId { get; set; }
 
-        public decimal Collateral { get; set; }
+        public string AccountId { get; set; }
+
+        public double Collateral { get; set; }
+
+        public double PendingCollateral { get; set; }
 
         public double TodaysIM { get; set; }
 
@@ -37,6 +41,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
         public double VMRequirement { get; set; }
 
         public bool MarginCall { get; set; }
+
+        public long LastUpdateTime { get; set; }
 
         private byte status;
         public byte Status

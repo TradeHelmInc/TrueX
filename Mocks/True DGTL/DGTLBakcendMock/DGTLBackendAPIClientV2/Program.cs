@@ -66,6 +66,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("ClientCreditRequest <firm> <InstrumentId> <Side> <Quantity>");
             Console.WriteLine("ClientGetAccountPositions <FirmId>");
             Console.WriteLine("ClientSettlementStatusReq <FirmId>");
+            Console.WriteLine("ClientMarginCallReq [uses logged user]>");
             //Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Available> <Used> <MaxNotional>");
             Console.WriteLine("EmailNotificationsListRequest <SettlementFirmId>");
@@ -219,6 +220,10 @@ namespace DGTLBackendAPIClientV2
             else if (mainCmd == "ClientSettlementStatusReq")
             {
                 ProcessClientSettlementStatusReq(param);
+            }
+            else if (mainCmd == "ClientMarginCallReq")
+            {
+                ProcessClientMarginCallReq(param);
             }
             else if (mainCmd == "RouteOrder")
             {
@@ -888,6 +893,25 @@ namespace DGTLBackendAPIClientV2
             else
                 DoLog(string.Format("Missing mandatory parameters for logout message"));
         
+        }
+
+        private static void ProcessClientMarginCallReq(string[] param)
+        {
+            if (Token == null)
+            {
+                DoLog("Missing authentication token in memory!. User not logged");
+                return;
+            }
+
+            ClientMarginCallReq mrgCallReq = new ClientMarginCallReq()
+            {
+                Msg = "ClientMarginCallReq",
+                UserId = UserId.ToString(),
+                Uuid = UUID,
+                AccountId = null,
+            };
+
+            DoSend<ClientMarginCallReq>(mrgCallReq);
         }
 
         private static void ProcessClientSettlementStatusReq(string[] param)

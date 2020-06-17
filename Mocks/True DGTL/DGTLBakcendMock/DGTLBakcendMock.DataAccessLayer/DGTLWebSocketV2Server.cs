@@ -47,6 +47,8 @@ namespace DGTLBackendMock.DataAccessLayer
             LoadPositions();
 
             LoadFundedMargins();
+
+            LoadCollaterals();
         }
 
         #endregion
@@ -85,6 +87,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected FundedMargin[] FundedMargins { get; set; }
 
+        protected CollateralAcc[] Collaterals { get; set; }
+
+
         #endregion
 
         #region Private Methods
@@ -109,6 +114,14 @@ namespace DGTLBackendMock.DataAccessLayer
             string strFundedMargins = File.ReadAllText(@".\input\FundedMargins.json");
 
             FundedMargins = JsonConvert.DeserializeObject<FundedMargin[]>(strFundedMargins);
+
+        }
+
+        private void LoadCollaterals()
+        {
+            string strCollateral = File.ReadAllText(@".\input\Collaterals.json");
+
+            Collaterals = JsonConvert.DeserializeObject<CollateralAcc[]>(strCollateral);
 
         }
 
@@ -2245,6 +2258,55 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientSettlementStatusBatch>(socket, sttlBatch);
         }
 
+        private void ProcessClientMarginCallReq(IWebSocketConnection socket, string msg)
+        {
+            ClientMarginCallReq mrgCallReq = JsonConvert.DeserializeObject<ClientMarginCallReq>(msg);
+
+            try
+            {
+                if (mrgCallReq.UserId == LoggedUserId)
+                {
+                    TimeSpan elapsed = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0) - new DateTime(1970, 1, 1) ;
+
+                    double prevMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+                    double initMargin = GetUsedCredit(LoggedFirmId) * Config.MarginPct;
+
+                    CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
+                    double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
+
+                    ClientMarginCallResp marginResp = new ClientMarginCallResp();
+                    marginResp.Msg = "ClientMarginCallResp";
+                    marginResp.AccountId = null;
+                    marginResp.UserId = mrgCallReq.UserId;
+                    marginResp.Uuid = mrgCallReq.Uuid;
+                    marginResp.Success = true;
+                    marginResp.MarginRegulationTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+
+                    if ((initMargin - prevMargin) > collateralAcc.Collateral)
+                    {
+                        marginResp.Amount = (initMargin - prevMargin) - collateralAcc.Collateral;
+                        marginResp.SignetTDPWallet = Guid.NewGuid().ToString();
+                    }
+                    DoSend<ClientMarginCallResp>(socket, marginResp);
+                }
+                else
+                {
+                    throw new Exception(string.Format("Unknown user id {0}", mrgCallReq.UserId));
+                }
+            }
+            catch (Exception ex)
+            {
+                ClientMarginCallResp errorMargin = new ClientMarginCallResp();
+                errorMargin.Msg = "ClientMarginCallResp";
+                errorMargin.Success = false;
+                errorMargin.Message = ex.Message;
+                errorMargin.UserId = mrgCallReq.UserId;
+                errorMargin.Uuid = mrgCallReq.Uuid;
+                DoSend<ClientMarginCallResp>(socket, errorMargin);
+            
+            }
+        }
+
         private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
         {
 
@@ -2298,11 +2360,19 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientAccountPositionRecordBatch>(socket, positionsBatch);
         }
 
+        private CollateralAcc DoFindCollateral(string firmId)
+        {
+            return Collaterals.Where(x => x.FirmId == firmId).FirstOrDefault();
+        }
+
         private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
         {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             double prevMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
             double initMargin = GetUsedCredit(LoggedFirmId)* Config.MarginPct;
 
+            CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
+            double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
 
             AccountBalance balance = new AccountBalance()
             {
@@ -2310,13 +2380,16 @@ namespace DGTLBackendMock.DataAccessLayer
                 Uuid = Uuid,
                 FirmId = LoggedFirmId,
                 UserId = LoggedUserId,
-                Collateral = 0,
-                TodaysIM = prevMargin,
+                AccountId = "testAcc",
+                Collateral = fundedCollateral,
+                PendingCollateral = 0,
+                TodaysIM = initMargin,
                 PriorDaysIM = prevMargin,
-                IMRequirement = initMargin,
+                IMRequirement = initMargin - prevMargin,
                 VMRequirement = initMargin - prevMargin,
                 cStatus = AccountBalance._ACTIVE_STATUS,
-                MarginCall = prevMargin < 0
+                MarginCall = (initMargin - prevMargin) > fundedCollateral,
+                LastUpdateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds)
             };
 
             DoLog(string.Format("Sending AccountBalance "), MessageType.Information);
@@ -3158,16 +3231,26 @@ namespace DGTLBackendMock.DataAccessLayer
                 int i = 0;
                 while (true)
                 {
-                    LastSale legacyLastSale = LastSales.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
-                    TranslateAndSendLastSaleToCurrentPrice(socket, subscrMsg.Uuid, legacyLastSale, instr);
-                    Thread.Sleep(3000);//3 seconds
-                    if (!subscResp)
+                    if (instr != null)
                     {
-                        ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid);
+                        LastSale legacyLastSale = LastSales.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                        TranslateAndSendLastSaleToCurrentPrice(socket, subscrMsg.Uuid, legacyLastSale, instr);
+                        Thread.Sleep(3000);//3 seconds
+                        if (!subscResp)
+                        {
+                            ProcessSubscriptionResponse(socket, "Sy", subscrMsg.ServiceKey, subscrMsg.Uuid);
+                            Thread.Sleep(2000);
+                            subscResp = true;
+                        }
+                        i++;
+                    }
+                    else
+                    {
+                        ProcessSubscriptionResponse(socket, "Sy", subscrMsg.ServiceKey, subscrMsg.Uuid,success:false,msg:"No security found");
                         Thread.Sleep(2000);
                         subscResp = true;
+                    
                     }
-                    i++;
                 }
             }
             catch (Exception ex)
@@ -3258,9 +3341,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 ClientCurrentPrice currPrice = new ClientCurrentPrice()
                 {
                     Msg = "ClientCurrentPrice",
-                    ChangePercentage = legacyLastSale.DiffPrevDay,
+                    ChangePercentage = legacyLastSale.Open > 0 ? ((legacyLastSale.LastPrice / legacyLastSale.Open) - 1) * 100 : null,
                     InstrumentId = instr.InstrumentId,
-                    CurrentPrice =  legacyLastSale.LastPrice,
+                    CurrentPrice = legacyLastSale.LastPrice,
                     Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds),
                     Uuid = UUID,
                 };
@@ -3727,14 +3810,14 @@ namespace DGTLBackendMock.DataAccessLayer
                     catch (Exception ex)
                     {
                         DoLog(string.Format(ex.Message), MessageType.Error);
-                        ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
+                        ProcessSubscriptionResponse(socket, "Sy", subscrMsg.ServiceKey, subscrMsg.Uuid, false, ex.Message);
                     }
                 }
             }
             else
             {
                 DoLog(string.Format("Double subscription for service SM for symbol {0}...", subscrMsg.ServiceKey), MessageType.Information);
-                ProcessSubscriptionResponse(socket, "SM", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "Double subscription");
+                ProcessSubscriptionResponse(socket, "Sy", subscrMsg.ServiceKey, subscrMsg.Uuid, false, "Double subscription");
 
             }
 
@@ -4347,10 +4430,15 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessClientGetAccountPositions(socket, m);
                 }
+                else if (wsResp.Msg == "ClientMarginCallReq")
+                {
+                    ProcessClientMarginCallReq(socket, m);
+                }
                 else if (wsResp.Msg == "ClientSettlementStatusReq")
                 {
                     ProcessClientSettlementStatusReq(socket, m);
                 }
+
                 else if (wsResp.Msg == "ForgotPasswordRequest")
                 {
                     ProcessForgotPasswordRequest(socket, m);

@@ -59,6 +59,9 @@
     <Compile Include="DTO\Account\V2\ClientSettlementStatusUpdate.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditRequest.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditResponse.cs" />
+    <Compile Include="DTO\Account\V2\Credit UI\ClientMarginCallReq.cs" />
+    <Compile Include="DTO\Account\V2\Credit UI\ClientMarginCallResp.cs" />
+    <Compile Include="DTO\Account\V2\Credit UI\CollateralAcc.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\CreditLimit.cs" />
     <Compile Include="DTO\Account\V2\ClientCreditUpdate.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientFirmRecord.cs" />
