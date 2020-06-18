@@ -32,9 +32,9 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public double PendingCollateral { get; set; }
 
-        public double TodaysIM { get; set; }
+        public double TodaysMargin { get; set; }
 
-        public double PriorDaysIM { get; set; }
+        public double PriorMargin { get; set; }
 
         public double IMRequirement { get; set; }
 

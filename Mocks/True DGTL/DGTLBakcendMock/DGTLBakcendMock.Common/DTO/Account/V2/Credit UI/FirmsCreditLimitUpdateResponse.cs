@@ -16,7 +16,7 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 
         public string Uuid { get; set; }
 
-        public long FirmId { get; set; }
+        public string FirmId { get; set; }
 
         public bool Success { get; set; }
 

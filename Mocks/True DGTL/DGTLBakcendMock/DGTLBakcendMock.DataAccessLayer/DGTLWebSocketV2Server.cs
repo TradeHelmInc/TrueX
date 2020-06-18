@@ -3,6 +3,7 @@ using DGTLBackendMock.Common.DTO;
 using DGTLBackendMock.Common.DTO.Account;
 using DGTLBackendMock.Common.DTO.Account.V2;
 using DGTLBackendMock.Common.DTO.Account.V2.Credit_UI;
+using DGTLBackendMock.Common.DTO.Account.V2.Settlement;
 using DGTLBackendMock.Common.DTO.Auth.V2;
 using DGTLBackendMock.Common.DTO.Auth.V2.Credit_UI;
 using DGTLBackendMock.Common.DTO.MarketData;
@@ -16,6 +17,9 @@ using DGTLBackendMock.Common.DTO.Subscription;
 using DGTLBackendMock.Common.DTO.Subscription.V2;
 using DGTLBackendMock.Common.DTO.Temp.Positions;
 using DGTLBackendMock.Common.Util;
+using DGTLBackendMock.Common.Util.Margin;
+using DGTLBackendMock.Common.Util.Security;
+using DGTLBackendMock.Common.Util.Settlement;
 using DGTLBackendMock.DataAccessLayer.Service;
 using DGTLBackendMock.DataAccessLayer.Service.V2;
 using Fleck;
@@ -49,6 +53,9 @@ namespace DGTLBackendMock.DataAccessLayer
             LoadFundedMargins();
 
             LoadCollaterals();
+
+            CreditCalculator = new CreditCalculator(SecurityMasterRecords, DailySettlementPrices, UserRecords, Positions, Orders, 
+                                                    FundedMargins, Config, Logger);
         }
 
         #endregion
@@ -62,6 +69,8 @@ namespace DGTLBackendMock.DataAccessLayer
         private static decimal _MARKET_HALTING_THRESHOLD = 20m;
 
         private static decimal _MARKET_CLOSED_THRESHOLD = 30m;
+
+        private static string _REJECTED_SECURITY_ID = "1";
 
         #endregion
 
@@ -89,10 +98,14 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected CollateralAcc[] Collaterals { get; set; }
 
+        protected CreditCalculator CreditCalculator { get; set; }
+
 
         #endregion
 
         #region Private Methods
+
+        #region Loaders
 
         private void LoadTestEmails()
         {
@@ -142,7 +155,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 if (legOrder.UpdateTime >= epochFrom && legOrder.UpdateTime <= epochTo)
                 {
 
-                    ClientInstrument instr = GetInstrumentBySymbol(legOrder.InstrumentId);
+                    ClientInstrument instr = SecurityHandler.GetInstrumentBySymbol(InstrBatch,legOrder.InstrumentId);
                     ClientOrderRecord clOrder = TranslateOldLegacyOrderRecord(legOrder, instr, false, null);
                     orderList.Add(clOrder);
                 }
@@ -178,7 +191,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 if (trade.TradeTimeStamp >= epochFrom && trade.TradeTimeStamp <= epochTo)
                 {
-                    ClientInstrument instr = GetInstrumentBySymbol(trade.Symbol);
+                    ClientInstrument instr = SecurityHandler.GetInstrumentBySymbol(InstrBatch,trade.Symbol);
                     ClientTradeRecord clTrade = TranslateOldLegacyTradeHistory(trade, instr, null);
                     tradeList.Add(clTrade);
                 }
@@ -241,6 +254,249 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+        #endregion
+
+        #region Aux
+
+        public ClientInstrument GetInstrumentByServiceKey(string serviceKey)
+        {
+            return SecurityHandler.GetInstrumentByServiceKey(InstrBatch, serviceKey);
+        }
+
+        public ClientInstrument GetInstrumentBySymbol(string symbol)
+        {
+            return SecurityHandler.GetInstrumentBySymbol(InstrBatch, symbol);
+        }
+
+        public ClientInstrument GetInstrumentByIntInstrumentId(string instrumentId)
+        {
+            return SecurityHandler.GetInstrumentByIntInstrumentId(InstrBatch, instrumentId);
+        
+        }
+
+        private CollateralAcc DoFindCollateral(string firmId)
+        {
+            return Collaterals.Where(x => x.FirmId == firmId).FirstOrDefault();
+        }
+
+        #endregion
+
+        #region CLOB
+
+        private void ProcessFakeCancellationRejection(IWebSocketConnection socket, ClientOrderCancelReq ordCxlReq, ClientInstrument instr)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            DoLog(string.Format("Processing Fake cancellation Rejection for security {0}", instr.InstrumentName), MessageType.Information);
+
+            ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+            //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+            ack.OrderId = ordCxlReq.OrderId;
+            ack.FirmId = ordCxlReq.FirmId;
+            ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.OrderId);
+            ack.Msg = "ClientOrderCancelResponse";
+            ack.OrderId = "0";
+            ack.Success = false;
+            ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
+            ack.UserId = ordCxlReq.UserId;
+            ack.Uuid = ordCxlReq.Uuid;
+
+            DoSend<ClientOrderCancelResponse>(socket, ack);
+        }
+
+        protected void ProcessClientMassCancelReq(IWebSocketConnection socket, string m)
+        {
+            DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
+            ClientMassCancelReq clientMassCxlReq = JsonConvert.DeserializeObject<ClientMassCancelReq>(m);
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList())
+                    {
+                        //1-Manamos el ClientOrderCancelResponse
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        ack.ClientOrderId = order.ClientOrderId;
+                        ack.FirmId = Convert.ToInt64(LoggedFirmId);
+                        //ack.Message = "Just cancelled @ mock v2 after mass cancellation";
+                        ack.Message = null;
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = order.OrderId;
+                        ack.Success = true;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
+                        ack.UserId = clientMassCxlReq.UserId;
+                        ack.Uuid = clientMassCxlReq.Uuid;
+
+                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
+                        ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
+                        ClientOrderRecord newOrder = new ClientOrderRecord() { InstrumentId = instr.InstrumentId, cSide = order.cSide, Price = order.Price, LeavesQty = order.LvsQty };
+                        EvalPriceLevels(socket, newOrder, clientMassCxlReq.Uuid);
+
+                        //2.1 We update the order status
+                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        order.LvsQty = 0;
+                        TranslateAndSendOldLegacyOrderRecord(socket, clientMassCxlReq.Uuid, order, newOrder: false);
+                        TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, clientMassCxlReq.Uuid, order, newOrder: false);
+
+                        //3-Upd Quotes
+                        UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
+
+                        //4-We update the trade for potentail exposures
+                        UpdateCredit(socket, null, clientMassCxlReq.Uuid);
+
+                    }
+
+
+                    //4-We send the final response
+                    ClientMassCancelResponse resp = new ClientMassCancelResponse();
+                    resp.Msg = "ClientMassCancelResponse";
+                    resp.UserId = clientMassCxlReq.UserId;
+                    resp.Success = true;
+                    resp.Message = "";
+                    resp.Uuid = clientMassCxlReq.UserId;
+                    DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
+                    DoSend<ClientMassCancelResponse>(socket, resp);
+
+                    //5-We send the final response
+                    RefreshOpenOrders(socket, "*", clientMassCxlReq.UserId);
+                }
+            }
+            catch (Exception ex)
+            {
+                ClientMassCancelResponse resp = new ClientMassCancelResponse();
+                resp.Msg = "ClientMassCancelResponse";
+                resp.UserId = clientMassCxlReq.UserId;
+                resp.Success = false;
+                resp.Message = ex.Message;
+                resp.Uuid = clientMassCxlReq.UserId;
+                DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
+                DoSend<ClientMassCancelResponse>(socket, resp);
+                DoLog(string.Format("Exception processing LegacyOrderMassCancelReq: {0}", ex.Message), MessageType.Error);
+            }
+
+        }
+
+        protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
+        {
+            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            DoLog(string.Format("Processing ClientOrderCancelReq"), MessageType.Information);
+            ClientOrderCancelReq ordCxlReq = JsonConvert.DeserializeObject<ClientOrderCancelReq>(m);
+
+            //TODO: Implement cancellation rejections
+            try
+            {
+                lock (Orders)
+                {
+
+
+                    DoLog(string.Format("Searching order by OrderId={0}", ordCxlReq.OrderId), MessageType.Information);
+
+                    //TKT 1183
+                    LegacyOrderRecord order = Orders.Where(x => x.OrderId.Trim() == ordCxlReq.OrderId.ToString()).FirstOrDefault();
+                    //LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
+
+                    if (order != null)
+                    {
+
+
+                        ClientInstrument instr = SecurityHandler.GetInstrumentBySymbol(InstrBatch,order.InstrumentId);
+
+                        if (instr.InstrumentName == "SWP-XBT-USD-Z19")
+                        {
+                            ProcessFakeCancellationRejection(socket, ordCxlReq, instr);
+                            return;
+                        }
+
+                        //1-We send el CancelAck
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.OrderId = ordCxlReq.OrderId;
+                        ack.FirmId = ordCxlReq.FirmId;
+                        //ack.Message = "Just cancelled @ mock v2";
+                        ack.Message = null;
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = order.OrderId;
+                        ack.Success = true;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
+                        ack.UserId = ordCxlReq.UserId;
+                        ack.Uuid = ordCxlReq.Uuid;
+
+                        DoLog(string.Format("Sending cancellation ack for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
+
+
+                        //2-Actualizamos el PL
+                        DoLog(string.Format("Evaluating price levels for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
+                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Symbol = instr.InstrumentName, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty, AccountId = "testAccount" }, ordCxlReq.Uuid);
+
+                        //3-Upd orders in mem
+                        DoLog(string.Format("Updating orders in mem"), MessageType.Information);
+                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
+                        order.LvsQty = 0;
+                        //Orders.Remove(order);
+
+                        //4- Update Quotes
+                        DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
+                        UpdateQuotes(socket, instr, ordCxlReq.Uuid);
+
+                        //5-Refreshing open orders
+                        RefreshOpenOrders(socket, ordCxlReq.UserId, ordCxlReq.Uuid);
+
+                        //6-Send LegacyOrderRecord
+                        CanceledLegacyOrderRecord(socket, order, ordCxlReq.Uuid);
+
+                        //7-we update the credit for potential exposures
+                        UpdateCredit(socket, null, ordCxlReq.Uuid);
+
+                    }
+                    else
+                    {
+
+                        DoLog(string.Format("Last OrderId existing : {0}", Orders.OrderByDescending(x => x.UpdateTime).FirstOrDefault().OrderId), MessageType.Information);
+
+                        //1-Rejecting cancelation because client orderId not found
+                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                        ack.OrderId = ordCxlReq.OrderId;
+                        ack.FirmId = ordCxlReq.FirmId;
+                        ack.Message = string.Format("Rejecting cancelation because orderId {0} not found", ordCxlReq.OrderId);
+                        ack.Msg = "ClientOrderCancelResponse";
+                        ack.OrderId = "0";
+                        ack.Success = false;
+                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
+                        ack.UserId = ordCxlReq.UserId;
+                        ack.Uuid = ordCxlReq.Uuid;
+
+                        DoLog(string.Format("Rejecting cancelation because orderId not found: {0}", ordCxlReq.OrderId), MessageType.Information);
+                        DoSend<ClientOrderCancelResponse>(socket, ack);
+                        //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //1-Rejecting cancelation because  orderId not found
+                ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
+                //ack.ClientOrderId = ordCxlReq.ClientOrderId;
+                ack.OrderId = ordCxlReq.OrderId;
+                ack.FirmId = ordCxlReq.FirmId;
+                ack.Message = string.Format("Rejecting cancelation because of an error: {0}", ex.Message);
+                ack.Msg = "ClientOrderCancelResponse";
+                ack.OrderId = "0";
+                ack.Success = false;
+                ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
+                ack.UserId = ordCxlReq.UserId;
+                ack.Uuid = ordCxlReq.Uuid;
+                DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
+                DoSend<ClientOrderCancelResponse>(socket, ack);
+            }
+        }
 
         protected void CanceledLegacyOrderRecord(IWebSocketConnection socket, LegacyOrderRecord ordRecord,string UUID)
         {
@@ -297,8 +553,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-         //1.2.3-Update and send ClientCreditUpdate
-         private void  UpdateCredit(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
+        //1.2.3-Update and send ClientCreditUpdate
+        private void  UpdateCredit(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
          {
              if (FirmListResp == null)
                  CreateFirmListCreditStructure(UUID, 0, 10000);
@@ -308,7 +564,7 @@ namespace DGTLBackendMock.DataAccessLayer
              if (firm != null)
              {
                  double prevUsedCredit = firm.UsedCredit;
-                 firm.UsedCredit = GetUsedCredit(LoggedFirmId);
+                 firm.UsedCredit = CreditCalculator.GetUsedCredit(LoggedFirmId);
                  firm.AvailableCredit -= firm.UsedCredit-prevUsedCredit;
 
                  TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -318,8 +574,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = firm.UsedCredit,
-                     BuyExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY),
-                     SellExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL),
+                     BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId),
+                     SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -447,19 +703,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private char GetStateOnSymbol(ClientInstrument instr)
-        {
-            if (instr.InstrumentName == "ADA-USD")
-                return ClientInstrumentState._STATE_CLOSE;
-            else if (instr.InstrumentName == "XMR-USD")
-                return ClientInstrumentState._STATE_INACTIVE;
-            else if (instr.InstrumentName == "XRP-USD")
-                return ClientInstrumentState._STATE_UNKNOWN;
-            else
-                return ClientInstrumentState._STATE_HALT;
-        
-        
-        }
+      
 
         //1.2.1.1- If change is more than 5% , we halt the security
         //         If change is more than 20% , we halt the market
@@ -479,7 +723,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     ClientInstrumentState state = new ClientInstrumentState();
                     state.Msg = "ClientInstrumentState";
-                    state.cState = GetStateOnSymbol(instr);
+                    state.cState = SecurityStateHandler.GetStateOnSymbol(instr);
                     state.ExchangeId = "0";
                     state.InstrumentId = instr.InstrumentId;
                     state.cReasonCode = ClientInstrumentState._REASON_CODE_2;
@@ -514,10 +758,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     DoLog(string.Format("Closing market because of price change {0} % ", pctChange), MessageType.Information);
                     DoSend<ClientMarketState>(socket, marketStateMsg);
                 }
-
             }
-        
-        
         }
 
         //1.2.1-We update market data for a new trade
@@ -1113,81 +1354,142 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
+        private void CreatePosition(LegacyTradeHistory newTrade, string userId)
+        {
+            ClientPosition newPos = new ClientPosition()
+            {
+                Contracts = newTrade.cMySide == LegacyTradeHistory._SIDE_BUY ? newTrade.TradeQuantity : newTrade.TradeQuantity * -1,
+                MarginFunded = false,
+                Msg = "Position",
+                Price = newTrade.TradePrice,
+                Symbol = newTrade.Symbol,
+                UserId = userId
+            };
+
+            List<ClientPosition> tempPos = Positions.ToList();
+            tempPos.Add(newPos);
+            Positions = tempPos.ToArray();
+
+        }
+
+        //When updating a firm's credit level, we create a fake position so the Used Credit = Positions Used Credit
+        private void CreateFakePositionToConciliateUsedCredit(string firmId, double usedDiff)
+        {
+
+            DailySettlementPrice firstDSP = DailySettlementPrices.Where(x => x.Price.HasValue).FirstOrDefault();
+            UserRecord firstUser = UserRecords.Where(x => x.FirmId == firmId).FirstOrDefault();
+
+            if (firstDSP != null && firstUser != null)
+            {
+                double price = Convert.ToDouble(firstDSP.Price.Value);
+                ClientPosition unkPos = new ClientPosition()
+                {
+                    Contracts = usedDiff / price,
+                    MarginFunded = false,
+                    Msg = "Position",
+                    Price = price,
+                    Symbol = firstDSP.Symbol + "<conc>",
+                    UserId = firstUser.UserId
+                };
+
+                List<ClientPosition> tempList = Positions.ToList();
+                tempList.Add(unkPos);
+                Positions = tempList.ToArray();
+            }
+        }
+
+        #endregion
+
+        #region Credit UI
+
+        private void ProcessFirmsListRequest(IWebSocketConnection socket, string m)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
+            try
+            {
+
+                if (FirmListResp == null)
+                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, 0, int.MaxValue);
+
+                FirmListResp.Uuid = wsFirmListRq.Uuid;
+
+                DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
+
+                List<FirmsCreditRecord> firmsCreditLimitRecord = new List<FirmsCreditRecord>();
+                foreach (var firm in FirmListResp.Firms)
+                {
+
+                    FirmsCreditRecord firmResp = new FirmsCreditRecord();
+                    firmResp.Msg = "FirmCreditRecord ";
+                    //firmResp.Uuid = wsFirmListRq.Uuid;
+                    firmResp.FirmId = firm.FirmId.ToString();
+                    //firmResp.Name = firm.Name;
+                    //firmResp.ShortName = firm.ShortName;
+                    firmResp.AvailableCredit = firm.AvailableCredit;
+                    firmResp.UsedCredit = firm.UsedCredit;
+                    firmResp.PotentialExposure = firm.PotentialExposure;
+                    firmResp.MaxNotional = firm.MaxNotional;
+                    firmResp.MaxQuantity = firm.MaxQuantity;
+                    //firmResp.CurrencyRootId = firm.CurrencyRootId;
+                    firmResp.TradingStatus = firm.TradingStatus;
+                    firmResp.Time = Convert.ToInt64(epochElapsed.TotalMilliseconds);
+                    firmResp.Accounts = firm.Accounts;
+
+                    firmsCreditLimitRecord.Add(firmResp);
+
+                    //DoSend<FirmsCreditLimitRecord>(socket, thisResp);
+                }
+
+                //double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
+
+                FirmsListResponse thisResp = new FirmsListResponse();
+                thisResp.Firms = firmsCreditLimitRecord.ToArray();
+                thisResp.SettlementAgentId = "DefaultSettlAgent";
+                thisResp.Msg = "FirmsListResponse";
+                thisResp.PageNo = 0;
+                thisResp.PageRecords = 1;
+                thisResp.Uuid = wsFirmListRq.Uuid;
+                thisResp.Success = true;
+
+                DoSend<FirmsListResponse>(socket, thisResp);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Process FirmsListReqest Error: {0} ", ex.Message), MessageType.Error);
+
+                FirmsListResponse firmListResp = new FirmsListResponse()
+                {
+                    Msg = "FirmsListResponse",
+                    Success = false,
+                    SettlementAgentId = "DefaultSettlAgent",
+                    //JsonWebToken = wsFirmListRq.JsonWebToken,
+                    Uuid = wsFirmListRq.Uuid,
+                    //Message = ex.Message,
+                    PageNo = wsFirmListRq.PageNo,
+                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
+                    PageRecords = 0,
+                };
+
+                DoSend<FirmsListResponse>(socket, firmListResp);
+            }
+
+        }
 
         private void ProcessFirmsTradingStatusUpdateRequest(IWebSocketConnection socket, string m)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-            FirmsTradingStatusUpdateRequest wsFirmsTradingStatusUpdateRequest = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateRequest>(m);
+            FirmsTradingStatusUpdateRequest wsUpdateRequest = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateRequest>(m);
             if (FirmListResp != null)
             {
-                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmsTradingStatusUpdateRequest.FirmId.ToString()).FirstOrDefault();
-
-                if (firm != null)
-                {
-                    try
-                    {
-                        firm.cTradingStatus = wsFirmsTradingStatusUpdateRequest.cTradingStatus;
-
-                        FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
-                        {
-                            Success = true,
-                            Firm = firm,
-                            JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
-                            Msg = "FirmsTradingStatusUpdateResponse",
-                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
-                        };
-
-                        DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
-                    }
-                    catch (Exception ex)
-                    {
-                        FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
-                        {
-                            Success = false,
-                            JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
-                            Message = ex.Message,
-                            Msg = "FirmsTradingStatusUpdateResponse",
-                            Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                            Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
-                        };
-
-                        DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
-                    }
-                }
-                else
-                {
-
-                    FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
-                    {
-                        Success = false,
-                        JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
-                        Message = string.Format("FirmId {0} not found", wsFirmsTradingStatusUpdateRequest.FirmId),
-                        Msg = "FirmsTradingStatusUpdateResponse",
-                        Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                        Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
-
-                    };
-
-                    DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
-                }
-            }
-            else
-            {
-                FirmsTradingStatusUpdateResponse resp = new FirmsTradingStatusUpdateResponse()
-                {
-                    Success = false,
-                    JsonWebToken = wsFirmsTradingStatusUpdateRequest.JsonWebToken,
-                    Message = string.Format("You must invoke FirmListRequest before invoking CreditLimitUpdateRequest "),
-                    Msg = "FirmsTradingStatusUpdateResponse",
-                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    Uuid = wsFirmsTradingStatusUpdateRequest.Uuid
-
-                };
+                FirmsTradingStatusUpdateResponse resp =CreditStatusHandler.ProcessFirmsTradingStatusUpdateRequest(FirmListResp.Firms, 
+                                                                                                                 wsUpdateRequest.FirmId,
+                                                                                                                 wsUpdateRequest.cTradingStatus,
+                                                                                                                 wsUpdateRequest.JsonWebToken,
+                                                                                                                 wsUpdateRequest.Uuid);
 
                 DoSend<FirmsTradingStatusUpdateResponse>(socket, resp);
-
             }
         }
 
@@ -1530,7 +1832,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         firm.AvailableCredit = wsFirmCreditLimitUpdRq.AvailableCredit;
                         
                         //Balance = Total - Usage
-                        firm.UsedCredit = GetUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString());
+                        firm.UsedCredit = CreditCalculator.GetUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString());
                         firm.MaxNotional = wsFirmCreditLimitUpdRq.MaxNotional;
                         firm.MaxQuantity = wsFirmCreditLimitUpdRq.MaxQuantity;
                         firm.PotentialExposure = wsFirmCreditLimitUpdRq.PotentialExposure;
@@ -1625,201 +1927,6 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private double GetTotalSideExposure(char side)
-        {
-            //1-Get Base Margin
-            double BM = GetBaseMargin(LoggedFirmId) - GetFundedMargin(LoggedFirmId) ;
-
-            //2-Calculate the exposure for the Buy/Sell orders
-            double PxM = GetPotentialxMargin(side);
-
-            //3- Calculate the potential x Exposure
-            //double exposure = Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
-            double exposure = Convert.ToDouble(PxM - BM) / Config.MarginPct;
-            DoLog(string.Format("Side {0} exposure:{1}", side, exposure), MessageType.Information);
-            return Convert.ToDouble(PxM - BM)/Config.MarginPct;
-        
-        }
-
-        private double  GetBaseMargin(string firmId,string symbol = null)
-        {
-            double acumMargin = 0;
-
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == LoggedFirmId).ToList();
-
-            foreach (SecurityMasterRecord security in SecurityMasterRecords.Where(x=> (symbol==null || x.Symbol==symbol) ))
-            {
-                double netContracts = 0;
-                foreach (UserRecord userForFirms in usersForFirm)
-                {
-                    
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                                .ForEach(x => netContracts += x.Contracts);
-
-
-                    
-                }
-
-                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
-
-                if (DSP != null && DSP.Price.HasValue)
-                {
-                    acumMargin += Math.Abs(netContracts) * DSP.Price.Value * Config.MarginPct;
-                }
-
-                DoLog(string.Format("Net Contracts for Security {0} :{1}", security.Symbol, netContracts), MessageType.Information);
-
-            }
-           
-            //TODO : implement the calendar spreads margin calculation
-            DoLog(string.Format("Base Margin for FirmId {0}:{1}", LoggedFirmId, acumMargin), MessageType.Information);
-
-            return acumMargin;
-        }
-
-        //here I can work with just 1 security
-        private double GetSecurityPotentialExposure(char side,double qty,string symbol,string firmId)
-        {
-            double finalExposure = 0;
-            double currentExposure = 0;
-            double netContracts = 0;
-            qty = (ClientOrderRecord._SIDE_BUY == side) ? qty : -1 * qty;
-
-            
-
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
-
-            foreach (UserRecord user in usersForFirm)
-            {
-                Positions.Where(x => x.Symbol == symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-
-                //open orders too
-                Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN
-                                         && x.InstrumentId == symbol && x.UserId == user.UserId).ToList()
-                            .ForEach(x => netContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
-            }
-
-            DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
-
-            if (DSP != null && DSP.Price.HasValue)
-            {
-                currentExposure = (Math.Abs(netContracts) * DSP.Price.Value);
-                finalExposure = (Math.Abs(netContracts + qty) * DSP.Price.Value);
-            }
-
-
-
-            return finalExposure - currentExposure;
-        }
-
-        private double CalculateSpreadDiscount(NetPositionDTO currContract, NetPositionDTO nextContract, int spreadIndex)
-        {
-            double totalDiscount = 0;
-            if (Math.Sign(nextContract.NetContracts) != Math.Sign(currContract.NetContracts))//we have a spread
-            {
-
-                double netSpread = Math.Min(Math.Abs(currContract.NetContracts), Math.Abs(nextContract.NetContracts));
-
-
-                if (netSpread != 0)
-                {
-                    DailySettlementPrice DSP1 = DailySettlementPrices.Where(x => x.Symbol == currContract.Symbol).FirstOrDefault();
-                    DailySettlementPrice DSP2 = DailySettlementPrices.Where(x => x.Symbol == nextContract.Symbol).FirstOrDefault();
-
-                    if (spreadIndex == 1)//1-wide spread
-                        totalDiscount += netSpread * Config.MarginPct * Config.OneWideCalDisc * (DSP1.Price.Value + DSP2.Price.Value);
-                    else if (spreadIndex == 2)//2-wide spread
-                        totalDiscount += netSpread * Config.MarginPct * Config.TwoWideCalDisc* (DSP1.Price.Value + DSP2.Price.Value);
-                    else if (spreadIndex >= 3)//3-wide spread or wider
-                        totalDiscount += netSpread * Config.MarginPct * Config.ThreeWideCalDisc* (DSP1.Price.Value + DSP2.Price.Value);;
-
-                    currContract.NetContracts -= (currContract.NetContracts > 0) ? netSpread : (-1 * netSpread);
-                    nextContract.NetContracts -= (nextContract.NetContracts > 0) ? netSpread : (-1 * netSpread);
-                }
-            }
-
-            return totalDiscount;
-        }
-
-        private double CalculateCalendarMarginDiscounts(NetPositionDTO[] netPositionsArr,string assetClass)
-        {
-            double totalDiscount = 0;
-            int spreadIndex = 1;
-            NetPositionDTO[] assetClassNetPositionsArr = netPositionsArr.Where(x => x.AssetClass == assetClass).ToArray();
-
-            for (int i = 0; i < assetClassNetPositionsArr.Length; i++)
-            {
-
-                for (int j = 0; j < assetClassNetPositionsArr.Length; j++)
-                {
-                    NetPositionDTO currContract = assetClassNetPositionsArr.OrderBy(x => x.MaturityDate).ToArray()[j];
-                    if ((j + spreadIndex) < assetClassNetPositionsArr.Length)
-                    {
-                        NetPositionDTO nextContract = assetClassNetPositionsArr.OrderBy(x => x.MaturityDate).ToArray()[j + spreadIndex];
-
-                        totalDiscount += CalculateSpreadDiscount(currContract, nextContract, spreadIndex);
-                    }
-                }
-
-                spreadIndex += 1;
-            }
-
-            return totalDiscount;
-        }
-
-        private double GetFundedMargin(string firmId)
-        {
-            return GetFundedCredit(firmId) * Config.MarginPct;
-        }
-
-
-        private double GetFundedCredit(string firmId)
-        {
-            FundedMargin fundedMargin = FundedMargins.Where(x => x.FirmId == firmId).FirstOrDefault();
-
-            if (fundedMargin != null)
-                return fundedMargin.Margin / Config.MarginPct;
-            else
-                return 0;
-        }
-
-        private double GetUsedCredit(string firmId)
-        {
-
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
-            List<NetPositionDTO> netPositionsArr = new List<NetPositionDTO>();
-
-            double creditUsed = 0;
-          
-                
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
-            {
-                double netContracts = 0;
-                foreach (UserRecord user in usersForFirm)
-                {
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                }
-
-                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
-
-                if(DSP!=null && DSP.Price.HasValue && netContracts!=0)
-                    creditUsed += Math.Abs(netContracts) * DSP.Price.Value;
-
-                if(security.MaturityDate!="")
-                    netPositionsArr.Add(new NetPositionDTO() {AssetClass=security.AssetClass, Symbol = security.Symbol, MaturityDate = security.GetMaturityDate(), NetContracts = netContracts });
-
-                DoLog(string.Format("Final Net Contracts for Security Id {0}:{1}", security.Symbol, netContracts), MessageType.Information);
-            }
-
-            if (Config.ImplementCalendarMarginDiscount)
-            {
-                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "SWP") / Config.MarginPct);
-                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "NDF") / Config.MarginPct);
-            }
-
-            return creditUsed - GetFundedCredit(firmId) ;
-        }
-
         private void CreateFirmListCreditStructure(string UUID, int pageNo,int pageRecords)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -1839,7 +1946,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //2- We creat the credit list
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
 
-                    double creditUsed = GetUsedCredit(accRecord.EPFirmId);
+                    double creditUsed = CreditCalculator.GetUsedCredit(accRecord.EPFirmId);
                     FirmsCreditRecord firm = new FirmsCreditRecord()
                     {
                         FirmId = accRecord.EPFirmId,
@@ -1874,122 +1981,168 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void CreatePosition(LegacyTradeHistory newTrade,string userId)
-        {
-            ClientPosition newPos = new ClientPosition()
-            {
-                Contracts = newTrade.cMySide == LegacyTradeHistory._SIDE_BUY ? newTrade.TradeQuantity : newTrade.TradeQuantity * -1,
-                MarginFunded = false,
-                Msg = "Position",
-                Price = newTrade.TradePrice,
-                Symbol = newTrade.Symbol,
-                UserId = userId
-            };
+        #endregion
 
-            List<ClientPosition> tempPos = Positions.ToList();
-            tempPos.Add(newPos);
-            Positions = tempPos.ToArray();
-        
-        }
+        #region Login
 
-        //When updating a firm's credit level, we create a fake position so the Used Credit = Positions Used Credit
-        private void CreateFakePositionToConciliateUsedCredit(string firmId ,double usedDiff)
+        protected void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
         {
 
-            DailySettlementPrice firstDSP = DailySettlementPrices.Where(x => x.Price.HasValue).FirstOrDefault();
-            UserRecord firstUser = UserRecords.Where(x => x.FirmId == firmId).FirstOrDefault();
+            ResetPasswordRequest resetPwdReq = JsonConvert.DeserializeObject<ResetPasswordRequest>(m);
 
-            if (firstDSP != null && firstUser != null)
-            {
-                double price = Convert.ToDouble(firstDSP.Price.Value);
-                ClientPosition unkPos = new ClientPosition()
-                {
-                    Contracts = usedDiff / price,
-                    MarginFunded = false,
-                    Msg = "Position",
-                    Price = price,
-                    Symbol = firstDSP.Symbol + "<conc>",
-                    UserId = firstUser.UserId
-                };
-
-                List<ClientPosition> tempList = Positions.ToList();
-                tempList.Add(unkPos);
-                Positions = tempList.ToArray();
-            }
-        }
-
-        private void ProcessFirmsListRequest (IWebSocketConnection socket, string m)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            FirmsListRequest wsFirmListRq = JsonConvert.DeserializeObject<FirmsListRequest>(m);
             try
             {
-               
-                if(FirmListResp==null)
-                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, 0,int.MaxValue);
 
-                FirmListResp.Uuid = wsFirmListRq.Uuid;
+                JsonCredentials tempCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.TempSecret, LastTokenGenerated);
 
-                DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
+                JsonCredentials newCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.NewSecret, LastTokenGenerated);
 
-                List<FirmsCreditRecord> firmsCreditLimitRecord = new List<FirmsCreditRecord>();
-                foreach (var firm in FirmListResp.Firms)
+                if (tempCredentials.Password != "temp123")//el tempsecret no tiene el pwd temporal valido
+                    throw new Exception("Invalid Temp password");
+
+                if (newCredentials.Password == "WillReject70$71")//el new no tiene un pwd válido
+                    throw new Exception("Invalid New password!!");
+
+
+                ClientLoginResponse logged = new ClientLoginResponse()
                 {
+                    Msg = "ClientLoginResponse",
+                    Uuid = resetPwdReq.UUID,
+                    JsonWebToken = LastTokenGenerated,
+                    Message = null,
+                    Success = true,
+                    Time = 0,
+                    UserId = ""
+                };
 
-                    FirmsCreditRecord firmResp = new FirmsCreditRecord();
-                    firmResp.Msg = "FirmCreditRecord ";
-                    //firmResp.Uuid = wsFirmListRq.Uuid;
-                    firmResp.FirmId = firm.FirmId.ToString();
-                    //firmResp.Name = firm.Name;
-                    //firmResp.ShortName = firm.ShortName;
-                    firmResp.AvailableCredit = firm.AvailableCredit;
-                    firmResp.UsedCredit = firm.UsedCredit;
-                    firmResp.PotentialExposure = firm.PotentialExposure;
-                    firmResp.MaxNotional = firm.MaxNotional;
-                    firmResp.MaxQuantity = firm.MaxQuantity;
-                    //firmResp.CurrencyRootId = firm.CurrencyRootId;
-                    firmResp.TradingStatus = firm.TradingStatus;
-                    firmResp.Time = Convert.ToInt64(epochElapsed.TotalMilliseconds);
-                    firmResp.Accounts = firm.Accounts;
+                DoSend<ClientLoginResponse>(socket, logged);
 
-                    firmsCreditLimitRecord.Add(firmResp);
-
-                    //DoSend<FirmsCreditLimitRecord>(socket, thisResp);
-                }
-
-                //double totalPages = Math.Ceiling(Convert.ToDouble(FirmListResp.Firms.Length / wsFirmListRq.PageRecords));
-
-                FirmsListResponse thisResp = new FirmsListResponse();
-                thisResp.Firms = firmsCreditLimitRecord.ToArray();
-                thisResp.SettlementAgentId = "DefaultSettlAgent";
-                thisResp.Msg = "FirmsListResponse";
-                thisResp.PageNo = 0;
-                thisResp.PageRecords = 1;
-                thisResp.Uuid = wsFirmListRq.Uuid;
-                thisResp.Success = true;
-
-                DoSend<FirmsListResponse>(socket, thisResp);
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Process FirmsListReqest Error: {0} ", ex.Message), MessageType.Error);
+                DoLog(string.Format("Exception processing ProcessResetPasswordRequest: {0}", ex.Message), MessageType.Error);
 
-                FirmsListResponse firmListResp = new FirmsListResponse()
+
+                ClientLoginResponse logged = new ClientLoginResponse()
                 {
-                    Msg = "FirmsListResponse",
+                    Msg = "ClientLoginResponse",
+                    Uuid = resetPwdReq.UUID,
+                    JsonWebToken = LastTokenGenerated,
+                    Message = ex.Message,
                     Success = false,
-                    SettlementAgentId = "DefaultSettlAgent",
-                    //JsonWebToken = wsFirmListRq.JsonWebToken,
-                    Uuid = wsFirmListRq.Uuid,
-                    //Message = ex.Message,
-                    PageNo = wsFirmListRq.PageNo,
-                    Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                    PageRecords = 0,
+                    Time = 0,
+                    UserId = ""
                 };
 
-                DoSend<FirmsListResponse>(socket, firmListResp);
+                DoSend<ClientLoginResponse>(socket, logged);
             }
-        
+
+        }
+
+        protected void ProcessForgotPasswordRequest(IWebSocketConnection socket, string m)
+        {
+            ForgotPasswordRequest forgotPwdReq = JsonConvert.DeserializeObject<ForgotPasswordRequest>(m);
+
+            try
+            {
+
+
+                if (forgotPwdReq.User == "MM3_CLOBUI2")
+                    throw new Exception("Cannot change password for user MM3_CLOBUI2");
+
+                ForgotPasswordResponse resp = new ForgotPasswordResponse()
+                {
+                    Msg = "ForgotPasswordResponse",
+                    Uuid = forgotPwdReq.Uuid,
+                    Success = true,
+                    Message = null,
+                    JsonWebToken = forgotPwdReq.JsonWebToken,
+                    Sender = 0,
+                    Time = "0"
+                };
+
+                DoSend<ForgotPasswordResponse>(socket, resp);
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Exception processing ProcessForgotPasswordRequest: {0}", ex.Message), MessageType.Error);
+
+                ForgotPasswordResponse resp = new ForgotPasswordResponse()
+                {
+                    Msg = "ForgotPasswordResponse",
+                    Uuid = forgotPwdReq.Uuid,
+                    Success = false,
+                    Message = string.Format("Error updating password:{0}", ex.Message),
+                    JsonWebToken = forgotPwdReq.JsonWebToken,
+                    Sender = 0,
+                    Time = "0"
+                };
+
+                DoSend<ForgotPasswordResponse>(socket, resp);
+            }
+        }
+
+        private void TestClientReject(IWebSocketConnection socket, ClientCreditRequest clientCreditReq, ClientInstrument instr)
+        {
+            if (instr.InstrumentName == "SWP-XBT-USD-X18")
+            {
+                ClientReject reject = new ClientReject()
+                {
+                    Msg = "ClientReject",
+                    RejectCode = ClientReject._GENERIC_REJECT_CODE,
+                    Sender = 0,
+                    Text = "Test Client Reject",
+                    Time = 0,
+                    Uuid = clientCreditReq.Uuid
+                };
+
+                DoSend<ClientReject>(socket, reject);
+
+                return;
+            }
+        }
+
+        private void SendCRMAccounts(IWebSocketConnection socket, string login, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
+
+            if (userRecord != null)
+            {
+                List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
+
+                List<ClientAccountRecord> accRecordList = new List<ClientAccountRecord>();
+                foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
+                {
+                    ClientAccountRecord accountRecordMsg = GetClientAccountRecordFromV1AccountRecord(accountRecord);
+                    accRecordList.Add(accountRecordMsg);
+                }
+
+                ClientAccountRecordBatch accRecordBatch = new ClientAccountRecordBatch()
+                {
+                    Msg = "ClientAccountRecordBatch",
+                    messages = accRecordList.ToArray()
+                };
+
+                DoLog(string.Format("Sending ClientAccountRecordBatch "), MessageType.Information);
+                DoSend<ClientAccountRecordBatch>(socket, accRecordBatch);
+            }
+            else
+                throw new Exception(string.Format("User not found {0}", login));
+
+        }
+
+        private void SendCRMMessages(IWebSocketConnection socket, string login, string Uuid = null)
+        {
+            SendCRMInstruments(socket, Uuid);
+
+            SendInstrumentStates(socket, Uuid);
+
+            SendCRMUsers(socket, login, Uuid);
+
+            SendMarketStatus(socket, Uuid);
+
+            SendCRMAccounts(socket, login, Uuid);
         }
 
         private void ProcessTokenResponse(IWebSocketConnection socket, string m)
@@ -2179,300 +2332,9 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientMarketStateBatch>(socket, marketStateBatch);
         }
 
-        private void ProcessClientSettlementStatusReq(IWebSocketConnection socket, string msg)
-        {
-            ClientSettlementStatusReq settlReq = JsonConvert.DeserializeObject<ClientSettlementStatusReq>(msg);
-
-            List<ClientSettlementStatus> settlStatusList = new List<ClientSettlementStatus>();
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
-            {
-                double netContracts = 0;
-
-                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == settlReq.FirmId).ToList();
-
-                foreach (UserRecord user in usersForFirm)
-                {
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                }
-
-                if (netContracts == 0)
-                    continue;
-
-                //we calculate today's margin and previoys days margin , simulating a 5% increase in BTC price
-                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
-
-                double todayMargin = DSP != null ? netContracts * DSP.Price.Value * Config.MarginPct : 0;
-                double priorMargin = DSP != null ? netContracts * (0.95d * DSP.Price.Value) * Config.MarginPct : 0;
-
-                ClientSettlementStatus settlStatus = new ClientSettlementStatus();
-                settlStatus.Msg = "ClientSettlementStatus";
-                settlStatus.Uuid = settlReq.Uuid;
-                settlStatus.FirmId = LoggedFirmId;
-                settlStatus.UserId = LoggedUserId;
-                settlStatus.AccountId = "settlAccountId";
-                settlStatus.InstrumentId = security.Symbol;
-                settlStatus.SettlementDate = DateTime.Now.ToString("MM-dd-yyyy");
-                
-                settlStatus.FiatDeliveryCurrency = ClientSettlementStatus._FIAT_DELIVERY_CURRENCY;
-                settlStatus.FiatDeliveryWalletAddress = new Guid().ToString();
-                settlStatus.FiatDeliveryAmount = todayMargin - priorMargin;
-
-                double underlCrypto = DSP != null && DSP.Price.HasValue ? Math.Abs(settlStatus.FiatDeliveryAmount) / DSP.Price.Value : 0 ;
-
-                if (settlStatus.FiatDeliveryAmount > 0)//SENDING MONEY
-                {
-                    //just as a temporary test convention we change the sign between the crypto to receive 
-                    //and the money to send
-                    underlCrypto *= -1;
-                    settlStatus.SettlementDirection = ClientSettlementStatus._SETTL_DIRECTION_SEND;
-                    settlStatus.ReceiveAmount = underlCrypto;
-                    settlStatus.ReceiveCurrency = ClientSettlementStatus._CRYPTO_DELIVERY_CURRENCY;
-                    settlStatus.ReceiveAddress = Guid.NewGuid().ToString();
-                    settlStatus.ReceiveStatus = ClientSettlementStatus._STATUS_PENDING_CONFIRMATION;
-                    settlStatus.ReceiveTxId = Guid.NewGuid().ToString() ;
-                }
-                else//RECV MONEY
-                {
-                    settlStatus.SettlementDirection = ClientSettlementStatus._SETTL_DIRECTION_RECEIVE;
-                    settlStatus.SendAmount = underlCrypto;
-                    settlStatus.SendCurrency = ClientSettlementStatus._CRYPTO_DELIVERY_CURRENCY;
-                    settlStatus.SendAddress = Guid.NewGuid().ToString();
-                    settlStatus.SendStatus = ClientSettlementStatus._STATUS_CONFIRMED;
-                    settlStatus.SendTxId = Guid.NewGuid().ToString();
-                }
-
-                settlStatusList.Add(settlStatus);
-
-               
-            }
-
-            ClientSettlementStatusBatch sttlBatch = new ClientSettlementStatusBatch()
-            {
-                Msg = "ClientSettlementStatusBatch",
-                messages = settlStatusList.ToArray()
-
-            };
-
-            DoLog(string.Format("Sending ClientSettlementStatusBatch "), MessageType.Information);
-            DoSend<ClientSettlementStatusBatch>(socket, sttlBatch);
-        }
-
-        private void ProcessClientMarginCallReq(IWebSocketConnection socket, string msg)
-        {
-            ClientMarginCallReq mrgCallReq = JsonConvert.DeserializeObject<ClientMarginCallReq>(msg);
-
-            try
-            {
-                if (mrgCallReq.UserId == LoggedUserId)
-                {
-                    TimeSpan elapsed = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0) - new DateTime(1970, 1, 1) ;
-
-                    double prevMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
-                    double initMargin = GetUsedCredit(LoggedFirmId) * Config.MarginPct;
-
-                    CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
-                    double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
-
-                    ClientMarginCallResp marginResp = new ClientMarginCallResp();
-                    marginResp.Msg = "ClientMarginCallResp";
-                    marginResp.AccountId = null;
-                    marginResp.UserId = mrgCallReq.UserId;
-                    marginResp.Uuid = mrgCallReq.Uuid;
-                    marginResp.Success = true;
-                    marginResp.MarginRegulationTime = Convert.ToInt64(elapsed.TotalMilliseconds);
-
-                    if ((initMargin - prevMargin) > collateralAcc.Collateral)
-                    {
-                        marginResp.Amount = (initMargin - prevMargin) - collateralAcc.Collateral;
-                        marginResp.SignetTDPWallet = Guid.NewGuid().ToString();
-                    }
-                    DoSend<ClientMarginCallResp>(socket, marginResp);
-                }
-                else
-                {
-                    throw new Exception(string.Format("Unknown user id {0}", mrgCallReq.UserId));
-                }
-            }
-            catch (Exception ex)
-            {
-                ClientMarginCallResp errorMargin = new ClientMarginCallResp();
-                errorMargin.Msg = "ClientMarginCallResp";
-                errorMargin.Success = false;
-                errorMargin.Message = ex.Message;
-                errorMargin.UserId = mrgCallReq.UserId;
-                errorMargin.Uuid = mrgCallReq.Uuid;
-                DoSend<ClientMarginCallResp>(socket, errorMargin);
-            
-            }
-        }
-
-        private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
-        {
-
-            ClientAccountPositionRecord accPosReq = JsonConvert.DeserializeObject<ClientAccountPositionRecord>(msg);
-
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            List<ClientAccountPositionRecord> positionsList = new List<ClientAccountPositionRecord>();
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
-            {
-                double netContracts = 0;
-
-                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == accPosReq.FirmId).ToList();
-
-                foreach (UserRecord user in usersForFirm)
-                {
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                }
-
-                if (netContracts == 0)
-                    continue;
-
-                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
-
-                double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
-                double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
-
-                double prevNotional = GetFundedCredit(LoggedFirmId) ;
-                double currNotional = GetUsedCredit(LoggedFirmId) ;
-
-                ClientAccountPositionRecord position = new ClientAccountPositionRecord()
-                {
-                    Msg = "ClientAccountPositionRecord",
-                    Uuid = accPosReq.Uuid,
-                    AccountId = "",
-                    FirmId = LoggedFirmId,
-                    CurrentNetPosition = Convert.ToInt32(netContracts),
-                    Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
-                    Contract = security.Symbol,
-                    CurrentDayDSP = dblTodayDSP,
-                    PriorDayDSP = dblPrevDSP,
-                    ProfitAndLoss = currNotional - prevNotional,
-                    TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
-                };
-
-                positionsList.Add(position);
-               
-            }
-
-            ClientAccountPositionRecordBatch positionsBatch = new ClientAccountPositionRecordBatch() { Msg = "ClientAccountPositionRecordBatch", messages = positionsList.ToArray() };
-            DoLog(string.Format("Sending ClientAccountPositionRecordBatch "), MessageType.Information);
-            DoSend<ClientAccountPositionRecordBatch>(socket, positionsBatch);
-        }
-
-        private CollateralAcc DoFindCollateral(string firmId)
-        {
-            return Collaterals.Where(x => x.FirmId == firmId).FirstOrDefault();
-        }
-
-        private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            double prevMargin = GetFundedCredit(LoggedFirmId) * Config.MarginPct;
-            double initMargin = GetUsedCredit(LoggedFirmId)* Config.MarginPct;
-
-            CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
-            double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
-
-            AccountBalance balance = new AccountBalance()
-            {
-                Msg = "AccountBalance",
-                Uuid = Uuid,
-                FirmId = LoggedFirmId,
-                UserId = LoggedUserId,
-                AccountId = "testAcc",
-                Collateral = fundedCollateral,
-                PendingCollateral = 0,
-                TodaysIM = initMargin,
-                PriorDaysIM = prevMargin,
-                IMRequirement = initMargin - prevMargin,
-                VMRequirement = initMargin - prevMargin,
-                cStatus = AccountBalance._ACTIVE_STATUS,
-                MarginCall = (initMargin - prevMargin) > fundedCollateral,
-                LastUpdateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds)
-            };
-
-            DoLog(string.Format("Sending AccountBalance "), MessageType.Information);
-            DoSend<AccountBalance>(socket, balance);
-        }
-
-        private ClientAccountRecord GetClientAccountRecordFromV1AccountRecord(DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord)
-        {
-            ClientAccountRecord v2AccountRecordMsg = new ClientAccountRecord();
-            v2AccountRecordMsg.Msg = "ClientAccountRecord";
-            v2AccountRecordMsg.AccountId = accountRecord.AccountId;
-            v2AccountRecordMsg.FirmId = Convert.ToInt64(accountRecord.EPFirmId);
-            v2AccountRecordMsg.SettlementFirmId = accountRecord.ClearingFirmId;
-            v2AccountRecordMsg.AccountName = accountRecord.EPNickName;
-            v2AccountRecordMsg.AccountAlias = accountRecord.AccountId;
-
-
-            v2AccountRecordMsg.AccountNumber = "";
-            v2AccountRecordMsg.AccountType = 0;
-            v2AccountRecordMsg.cStatus = ClientAccountRecord._STATUS_ACTIVE;
-            v2AccountRecordMsg.cUserType = ClientAccountRecord._DEFAULT_USER_TYPE;
-            v2AccountRecordMsg.cCti = ClientAccountRecord._CTI_OTHER;
-            v2AccountRecordMsg.Lei = "";
-            v2AccountRecordMsg.Currency = "";
-            v2AccountRecordMsg.IsSuspense = false;
-            v2AccountRecordMsg.UsDomicile = true;
-            v2AccountRecordMsg.UpdatedAt = "0";
-            v2AccountRecordMsg.CreatedAt = "0";
-            v2AccountRecordMsg.LastUpdatedBy = "";
-            v2AccountRecordMsg.WalletAddress = "";
-            v2AccountRecordMsg.Default = accountRecord.Default;
-            //accountRecordMsg.UUID = Uuid;
-
-            return v2AccountRecordMsg;
-        
-        }
-
-        private void SendCRMAccounts(IWebSocketConnection socket, string login, string Uuid)
-        {
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            UserRecord userRecord = UserRecords.Where(x => x.UserId == login).FirstOrDefault();
-
-            if (userRecord != null)
-            {
-                List<DGTLBackendMock.Common.DTO.Account.AccountRecord> accountRecords = AccountRecords.Where(x => x.EPFirmId == userRecord.FirmId).ToList();
-
-                List<ClientAccountRecord> accRecordList = new List<ClientAccountRecord>();
-                foreach (DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord in accountRecords)
-                {
-                    ClientAccountRecord accountRecordMsg = GetClientAccountRecordFromV1AccountRecord(accountRecord);
-                    accRecordList.Add(accountRecordMsg);
-                }
-
-                ClientAccountRecordBatch accRecordBatch = new ClientAccountRecordBatch()
-                {
-                    Msg = "ClientAccountRecordBatch",
-                    messages = accRecordList.ToArray()
-                };
-
-                DoLog(string.Format("Sending ClientAccountRecordBatch "), MessageType.Information);
-                DoSend<ClientAccountRecordBatch>(socket, accRecordBatch);
-            }
-            else
-                throw new Exception(string.Format("User not found {0}", login));
-
-        }
-
-        private void SendCRMMessages(IWebSocketConnection socket, string login, string Uuid = null)
-        {
-            SendCRMInstruments(socket, Uuid);
-
-            SendInstrumentStates(socket, Uuid);
-
-            SendCRMUsers(socket, login, Uuid);
-
-            SendMarketStatus(socket, Uuid);
-
-            SendCRMAccounts(socket, login, Uuid);
-        }
-
         #endregion
 
-        #region Protected Methods
+        #region Threads
 
         protected override void DoCLoseThread(object p)
         {
@@ -2507,77 +2369,6 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        protected void ProcessUnsubscriptions(Subscribe subscrMsg)
-        {
-          
-            lock (SecurityMappings)
-            {
-
-                if (subscrMsg.Service == "LS")
-                {
-                    if (ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
-                    {
-                        ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
-                        ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
-                    }
-                }
-                else if (subscrMsg.Service == "LQ")
-                {
-                    if (ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
-                    {
-                        ProcessLastQuoteThreads[subscrMsg.ServiceKey].Abort();
-                        ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
-                    }
-                }
-                //else if (subscrMsg.Service == "FP")
-                //{
-                //    if (ProcessDailyOfficialFixingPriceThreads.ContainsKey(subscrMsg.ServiceKey))
-                //    {
-                //        ProcessDailyOfficialFixingPriceThreads.Remove(subscrMsg.ServiceKey);
-                //    }
-                //}
-                //else if (subscrMsg.Service == "TI")
-                //{
-                //    if (ProcessSecuritStatusThreads.ContainsKey(subscrMsg.ServiceKey))
-                //    {
-                //        ProcessSecuritStatusThreads[subscrMsg.ServiceKey].Abort();
-                //        ProcessSecuritStatusThreads.Remove(subscrMsg.ServiceKey);
-                //    }
-                //}
-                //else if (subscrMsg.Service == "Ot")
-                //{
-                //    if (OpenOrderCountSubscriptions.Contains(subscrMsg.ServiceKey))
-                //        OpenOrderCountSubscriptions.Add(subscrMsg.ServiceKey);
-                //}
-                //else if (subscrMsg.Service == "TN")
-                //{
-                //    if (NotificationsSubscriptions.Contains(subscrMsg.ServiceKey))
-                //        NotificationsSubscriptions.Add(subscrMsg.ServiceKey);
-                //}
-                //else if (subscrMsg.Service == "FD")
-                //{
-                //    if (ProcessDailySettlementThreads.ContainsKey(subscrMsg.ServiceKey))
-                //    {
-                //        ProcessDailySettlementThreads[subscrMsg.ServiceKey].Abort();
-                //        ProcessDailySettlementThreads.Remove(subscrMsg.ServiceKey);
-                //    }
-                //}
-                //else if (subscrMsg.Service == "Cm")
-                //{
-                //    if (ProcessCreditLimitUpdatesThreads.ContainsKey(subscrMsg.ServiceKey))
-                //    {
-                //        ProcessCreditLimitUpdatesThreads[subscrMsg.ServiceKey].Abort();
-                //        ProcessCreditLimitUpdatesThreads.Remove(subscrMsg.ServiceKey);
-                //    }
-                //}
-                //else if (subscrMsg.Service == "CU")
-                //{
-                //    //ProcessCreditRecordUpdates(socket, subscrMsg);
-                //}
-            }
-
-        }
-
         protected void SendHeartbeat(object param)
         {
             IWebSocketConnection socket = (IWebSocketConnection)((object[])param)[0];
@@ -2605,616 +2396,9 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Error sending heartbeat for token {0}: {1}", token,ex.Message), MessageType.Error);
+                DoLog(string.Format("Error sending heartbeat for token {0}: {1}", token, ex.Message), MessageType.Error);
             }
 
-        }
-        
-        protected void ProcessClientLoginV2(IWebSocketConnection socket, string m)
-        {
-            ClientLoginRequest wsLogin = JsonConvert.DeserializeObject<ClientLoginRequest>(m);
-
-            try
-            {
-
-                JsonCredentials jsonCredentials = AESCryptohandler.DecryptCredentials(wsLogin.Secret, LastTokenGenerated);
-
-                if (!UserRecords.Any(x => x.UserId == jsonCredentials.UserId))
-                {
-                    DoLog(string.Format("Unknown user: {0}", jsonCredentials.UserId), MessageType.Error);
-                    SendLoginRejectReject(socket, wsLogin, string.Format("Unknown user: {0}", jsonCredentials.UserId));
-                    return;
-                
-                }
-
-
-                if (jsonCredentials.UserId == "SIMUSER_3_UI1" && !wsLogin.ReLogin)
-                {
-                    DoLog(string.Format("Sending user already logged in for for user {0}", jsonCredentials.UserId), MessageType.Error);
-                    SendLoginRejectReject(socket, wsLogin, string.Format("Duplicate Login request", jsonCredentials.UserId, jsonCredentials.UserId));
-                    return;
-                }
-
-                if (jsonCredentials.Password == "temp123")
-                {
-                    UserRecord memUsr = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
-
-                    ClientLoginResponse chgPwdResp = new ClientLoginResponse()
-                    {
-                        Msg = "ClientLoginResponse",
-                        Uuid = wsLogin.Uuid,
-                        JsonWebToken = LastTokenGenerated,
-                        Success = true,
-                        Time = wsLogin.Time,
-                        UserId = memUsr != null ? memUsr.UserId : null,
-                        PasswordReset = true
-                    };
-
-                    DoLog(string.Format("Sending ClientLoginResponse<PasswordReset=true> with UUID {0}", wsLogin.Uuid), MessageType.Information);
-
-                    DoSend<ClientLoginResponse>(socket, chgPwdResp);
-                    return;
-                
-                }
-
-
-                if (jsonCredentials .Password!= "Testing123")
-                {
-                    DoLog(string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.Password), MessageType.Error);
-                    SendLoginRejectReject(socket, wsLogin, string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.UserId));
-                    return;
-
-                }
-
-                UserRecord memUserRecord = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
-                LoggedUserId = memUserRecord.UserId;
-                LoggedFirmId = memUserRecord.FirmId;
-
-                ClientLoginResponse loginResp = new ClientLoginResponse()
-                {
-                    Msg = "ClientLoginResponse",
-                    Uuid = wsLogin.Uuid,
-                    JsonWebToken = LastTokenGenerated,
-                    Success = true,
-                    Time = wsLogin.Time,
-                    UserId = memUserRecord.UserId
-                };
-
-                DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.Uuid), MessageType.Information);
-
-                DoSend<ClientLoginResponse>(socket, loginResp);
-
-                SendCRMMessages(socket, jsonCredentials.UserId);
-
-                HeartbeatThread = new Thread(SendHeartbeat);
-                HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.Uuid });
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
-                SendLoginRejectReject(socket, wsLogin,string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message));
-            }
-        }
-
-        //protected long ProcessOrderIdToLong(string orderId)
-        //{
-          
-        //    try
-        //    {
-                
-        //        Guid guidId = new Guid(orderId);
-        //        long fromGuid = GUIDToLongConverter.GUIDToLong(guidId.ToString());
-        //        DoLog(string.Format("brkpnt Converting from OrderId {0} to Long {1}", orderId, fromGuid), MessageType.Information);
-        //        return fromGuid;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        try
-        //        {
-        //            DoLog(string.Format("brkpnt Converting from OrderId {0} as Int 64", orderId), MessageType.Information);
-        //            long longOrderId = Convert.ToInt64(orderId);
-        //            DoLog(string.Format("brkpnt  OrderId {0} converted to Int 64", longOrderId), MessageType.Information);
-        //            return longOrderId;
-        //        }
-        //        catch (Exception ex2)
-        //        {
-        //            throw new Exception(string.Format("Invalid Order Id :{0}", orderId));
-        //        }
-        //    }
-        //}
-
-        private void ProcessFakeCancellationRejection(IWebSocketConnection socket, ClientOrderCancelReq ordCxlReq, ClientInstrument instr)
-        {
-            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-            DoLog(string.Format("Processing Fake cancellation Rejection for security {0}", instr.InstrumentName), MessageType.Information);
-
-            ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-            //ack.ClientOrderId = ordCxlReq.ClientOrderId;
-            ack.OrderId = ordCxlReq.OrderId;
-            ack.FirmId = ordCxlReq.FirmId;
-            ack.Message = string.Format("Rejecting cancelation test for order {0}", ordCxlReq.OrderId);
-            ack.Msg = "ClientOrderCancelResponse";
-            ack.OrderId = "0";
-            ack.Success = false;
-            ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
-            ack.UserId = ordCxlReq.UserId;
-            ack.Uuid = ordCxlReq.Uuid;
-
-            DoSend<ClientOrderCancelResponse>(socket,ack);
-        }
-
-        protected void ProcessClientMassCancelReq(IWebSocketConnection socket, string m)
-        {
-            DoLog(string.Format("Processing ProcessLegacyOrderMassCancelMock"), MessageType.Information);
-            ClientMassCancelReq clientMassCxlReq = JsonConvert.DeserializeObject<ClientMassCancelReq>(m);
-            try
-            {
-                lock (Orders)
-                {
-                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-                    foreach (LegacyOrderRecord order in Orders.Where(x => x.cStatus == LegacyOrderRecord._STATUS_OPEN /*|| x.cStatus == LegacyOrderRecord._STATUS_PARTIALLY_FILLED*/).ToList())
-                    {
-                        //1-Manamos el ClientOrderCancelResponse
-                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                        ack.ClientOrderId = order.ClientOrderId;
-                        ack.FirmId = Convert.ToInt64(LoggedFirmId);
-                        //ack.Message = "Just cancelled @ mock v2 after mass cancellation";
-                        ack.Message = null;
-                        ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = order.OrderId;
-                        ack.Success = true;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
-                        ack.UserId = clientMassCxlReq.UserId;
-                        ack.Uuid = clientMassCxlReq.Uuid;
-
-                        DoLog(string.Format("Sending cancellation ack for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
-                        DoSend<ClientOrderCancelResponse>(socket, ack);
-
-                        //2-Actualizamos el PL
-                        DoLog(string.Format("Evaluating price levels for ClOrdId: {0}", order.ClientOrderId), MessageType.Information);
-                        ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
-                        ClientOrderRecord newOrder = new ClientOrderRecord() { InstrumentId = instr.InstrumentId, cSide = order.cSide, Price = order.Price, LeavesQty = order.LvsQty };
-                        EvalPriceLevels(socket, newOrder, clientMassCxlReq.Uuid);
-
-                        //2.1 We update the order status
-                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
-                        order.LvsQty = 0;
-                        TranslateAndSendOldLegacyOrderRecord(socket, clientMassCxlReq.Uuid, order, newOrder: false);
-                        TranslateAndSendOldLegacyOrderRecordToMyOrders(socket, clientMassCxlReq.Uuid, order, newOrder: false);
-
-                        //3-Upd Quotes
-                        UpdateQuotes(socket, instr, clientMassCxlReq.Uuid);
-
-                        //4-We update the trade for potentail exposures
-                        UpdateCredit(socket, null, clientMassCxlReq.Uuid);
-
-                    }
-
-
-                    //4-We send the final response
-                    ClientMassCancelResponse resp = new ClientMassCancelResponse();
-                    resp.Msg = "ClientMassCancelResponse";
-                    resp.UserId = clientMassCxlReq.UserId;
-                    resp.Success = true;
-                    resp.Message = "";
-                    resp.Uuid = clientMassCxlReq.UserId;
-                    DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
-                    DoSend<ClientMassCancelResponse>(socket, resp);
-
-                    //5-We send the final response
-                    RefreshOpenOrders(socket, "*", clientMassCxlReq.UserId);
-                }
-            }
-            catch (Exception ex)
-            {
-                ClientMassCancelResponse resp = new ClientMassCancelResponse();
-                resp.Msg = "ClientMassCancelResponse";
-                resp.UserId = clientMassCxlReq.UserId;
-                resp.Success = false;
-                resp.Message = ex.Message;
-                resp.Uuid = clientMassCxlReq.UserId;
-                DoLog(string.Format("Sending ClientMassCancelResponse"), MessageType.Information);
-                DoSend<ClientMassCancelResponse>(socket, resp);
-                DoLog(string.Format("Exception processing LegacyOrderMassCancelReq: {0}", ex.Message), MessageType.Error);
-            }
-        
-        }
-
-        protected void ProcessClientOrderCancelReq(IWebSocketConnection socket, string m)
-        {
-            TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            DoLog(string.Format("Processing ClientOrderCancelReq"), MessageType.Information);
-            ClientOrderCancelReq ordCxlReq = JsonConvert.DeserializeObject<ClientOrderCancelReq>(m);
-
-            //TODO: Implement cancellation rejections
-            try
-            {
-                lock (Orders)
-                {
-                    
-
-                    DoLog(string.Format("Searching order by OrderId={0}", ordCxlReq.OrderId), MessageType.Information);
-                    
-                    //TKT 1183
-                    LegacyOrderRecord order = Orders.Where(x => x.OrderId.Trim() == ordCxlReq.OrderId.ToString()).FirstOrDefault();
-                    //LegacyOrderRecord order = Orders.Where(x => x.ClientOrderId == ordCxlReq.ClientOrderId).FirstOrDefault();
-
-                    if (order != null)
-                    {
-
-
-                        ClientInstrument instr = GetInstrumentBySymbol(order.InstrumentId);
-
-                        if (instr.InstrumentName == "SWP-XBT-USD-Z19")
-                        {
-                            ProcessFakeCancellationRejection(socket, ordCxlReq, instr);
-                            return;
-                        }
-
-                        //1-We send el CancelAck
-                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
-                        ack.OrderId = ordCxlReq.OrderId;
-                        ack.FirmId = ordCxlReq.FirmId;
-                        //ack.Message = "Just cancelled @ mock v2";
-                        ack.Message = null;
-                        ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = order.OrderId;
-                        ack.Success = true;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
-                        ack.UserId = ordCxlReq.UserId;
-                        ack.Uuid = ordCxlReq.Uuid;
-
-                        DoLog(string.Format("Sending cancellation ack for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
-                        DoSend<ClientOrderCancelResponse>(socket, ack);
-
-
-                        //2-Actualizamos el PL
-                        DoLog(string.Format("Evaluating price levels for OrderId: {0}", ordCxlReq.OrderId), MessageType.Information);
-                        EvalPriceLevels(socket, new ClientOrderRecord() { InstrumentId = instr.InstrumentId, Symbol = instr.InstrumentName, Price = order.Price, cSide = order.cSide, LeavesQty = order.LvsQty, AccountId = "testAccount" }, ordCxlReq.Uuid);
-
-                        //3-Upd orders in mem
-                        DoLog(string.Format("Updating orders in mem"), MessageType.Information);
-                        order.cStatus = LegacyOrderRecord._STATUS_CANCELED;
-                        order.LvsQty = 0;
-                        //Orders.Remove(order);
-
-                        //4- Update Quotes
-                        DoLog(string.Format("Updating quotes on order cancelation"), MessageType.Information);
-                        UpdateQuotes(socket, instr, ordCxlReq.Uuid);
-
-                        //5-Refreshing open orders
-                        RefreshOpenOrders(socket, ordCxlReq.UserId, ordCxlReq.Uuid);
-
-                        //6-Send LegacyOrderRecord
-                        CanceledLegacyOrderRecord(socket, order, ordCxlReq.Uuid);
-
-                        //7-we update the credit for potential exposures
-                        UpdateCredit(socket, null, ordCxlReq.Uuid);
-
-                    }
-                    else
-                    {
-
-                        DoLog(string.Format("Last OrderId existing : {0}", Orders.OrderByDescending(x => x.UpdateTime).FirstOrDefault().OrderId), MessageType.Information);
-
-                        //1-Rejecting cancelation because client orderId not found
-                        ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                        //ack.ClientOrderId = ordCxlReq.ClientOrderId;
-                        ack.OrderId = ordCxlReq.OrderId;
-                        ack.FirmId = ordCxlReq.FirmId;
-                        ack.Message = string.Format("Rejecting cancelation because orderId {0} not found", ordCxlReq.OrderId);
-                        ack.Msg = "ClientOrderCancelResponse";
-                        ack.OrderId = "0";
-                        ack.Success = false;
-                        ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
-                        ack.UserId = ordCxlReq.UserId;
-                        ack.Uuid = ordCxlReq.Uuid;
-
-                        DoLog(string.Format("Rejecting cancelation because orderId not found: {0}", ordCxlReq.OrderId), MessageType.Information);
-                        DoSend<ClientOrderCancelResponse>(socket, ack);
-                        //RefreshOpenOrders(socket, ordCxlReq.InstrumentId, ordCxlReq.UserId);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //1-Rejecting cancelation because  orderId not found
-                ClientOrderCancelResponse ack = new ClientOrderCancelResponse();
-                //ack.ClientOrderId = ordCxlReq.ClientOrderId;
-                ack.OrderId = ordCxlReq.OrderId;
-                ack.FirmId = ordCxlReq.FirmId;
-                ack.Message = string.Format("Rejecting cancelation because of an error: {0}", ex.Message);
-                ack.Msg = "ClientOrderCancelResponse";
-                ack.OrderId = "0";
-                ack.Success = false;
-                ack.TimeStamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString();
-                ack.UserId = ordCxlReq.UserId;
-                ack.Uuid = ordCxlReq.Uuid;
-                DoLog(string.Format("Rejecting cancelation because of an error: {0}", ex.Message), MessageType.Information);
-                DoSend<ClientOrderCancelResponse>(socket, ack);
-            }
-        }
-
-        private void TestClientReject(IWebSocketConnection socket, ClientCreditRequest clientCreditReq, ClientInstrument instr)
-        {
-            if (instr.InstrumentName == "SWP-XBT-USD-X18")
-            {
-                ClientReject reject = new ClientReject()
-                {
-                    Msg = "ClientReject",
-                    RejectCode = ClientReject._GENERIC_REJECT_CODE,
-                    Sender = 0,
-                    Text = "Test Client Reject",
-                    Time = 0,
-                    Uuid = clientCreditReq.Uuid
-                };
-
-                DoSend<ClientReject>(socket, reject);
-
-                return;
-            }
-        }
-
-        private void ProcessClientCreditRequest(IWebSocketConnection socket, string m)
-        {
-
-            ClientCreditRequest clientCreditReq = JsonConvert.DeserializeObject<ClientCreditRequest>(m);
-
-            ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
-
-            try
-            {
-                TestClientReject(socket,clientCreditReq, instr);
-
-
-                ClientCreditResponse resp = new ClientCreditResponse()
-                {
-                    Msg = "ClientCreditResponse",
-                    UserId = LoggedUserId,
-                    FirmId = clientCreditReq.FirmId,
-                    CreditAvailable = true,//later we will decide if we trully have credit available
-                    ExposureChange = 0,//later we will decide the real exposure change
-                    Success=true,
-                    Uuid = clientCreditReq.Uuid
-                };
-
-                double deltaExp = GetSecurityPotentialExposure(clientCreditReq.cSide,clientCreditReq.Quantity,instr.InstrumentName, LoggedFirmId);
-
-                if (FirmListResp == null)
-                    CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
-                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
-
-                double neededCredit = firm.UsedCredit + GetTotalSideExposure(clientCreditReq.cSide) + deltaExp;
-                double totalCredit = firm.UsedCredit + firm.AvailableCredit;
-                resp.CreditAvailable = neededCredit < totalCredit;
-                resp.ExposureChange = Convert.ToInt64(deltaExp);
-
-                if (!resp.CreditAvailable)
-                    throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",
-                                                      neededCredit, totalCredit));
-
-                DoSend<ClientCreditResponse>(socket, resp);
-            }
-            catch (Exception ex)
-            {
-                double exposure = GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
-                ClientCreditResponse resp = new ClientCreditResponse()
-                {
-                    Msg = "ClientCreditResponse",
-                    UserId = LoggedUserId,
-                    FirmId = clientCreditReq.FirmId,
-                    CreditAvailable = false,//later we will decide if we trully have credit available
-                    ExposureChange = Convert.ToInt64(exposure),//later we will decide the real exposure change
-                    Uuid = clientCreditReq.Uuid,
-                    Success=false,
-                    Message = ex.Message
-                };
-
-                DoSend<ClientCreditResponse>(socket, resp);
-            }
-        }
-
-        protected void ProcessResetPasswordRequest(IWebSocketConnection socket, string m)
-        {
-
-            ResetPasswordRequest resetPwdReq = JsonConvert.DeserializeObject<ResetPasswordRequest>(m);
-
-            try
-            {
-
-                JsonCredentials tempCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.TempSecret, LastTokenGenerated);
-
-                JsonCredentials newCredentials = AESCryptohandler.DecryptCredentials(resetPwdReq.NewSecret, LastTokenGenerated);
-
-                if (tempCredentials.Password != "temp123")//el tempsecret no tiene el pwd temporal valido
-                    throw new Exception("Invalid Temp password");
-
-                if (newCredentials.Password == "WillReject70$71")//el new no tiene un pwd válido
-                    throw new Exception("Invalid New password!!");
-
-
-                ClientLoginResponse logged = new ClientLoginResponse()
-                {
-                    Msg = "ClientLoginResponse",
-                    Uuid = resetPwdReq.UUID,
-                    JsonWebToken = LastTokenGenerated,
-                    Message = null,
-                    Success = true,
-                    Time = 0,
-                    UserId = ""
-                };
-
-                DoSend<ClientLoginResponse>(socket, logged);
-
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Exception processing ProcessResetPasswordRequest: {0}", ex.Message), MessageType.Error);
-
-
-                ClientLoginResponse logged = new ClientLoginResponse()
-                {
-                    Msg = "ClientLoginResponse",
-                    Uuid = resetPwdReq.UUID,
-                    JsonWebToken = LastTokenGenerated,
-                    Message = ex.Message,
-                    Success = false,
-                    Time = 0,
-                    UserId = ""
-                };
-
-                DoSend<ClientLoginResponse>(socket, logged);
-            }
-        
-        }
-
-        protected void ProcessForgotPasswordRequest(IWebSocketConnection socket, string m)
-        {
-            ForgotPasswordRequest forgotPwdReq = JsonConvert.DeserializeObject<ForgotPasswordRequest>(m);
-
-            try
-            {
-
-
-                if (forgotPwdReq.User == "MM3_CLOBUI2")
-                    throw new Exception("Cannot change password for user MM3_CLOBUI2");
-
-                ForgotPasswordResponse resp = new ForgotPasswordResponse()
-                {
-                    Msg = "ForgotPasswordResponse",
-                    Uuid = forgotPwdReq.Uuid,
-                    Success = true,
-                    Message = null,
-                    JsonWebToken = forgotPwdReq.JsonWebToken,
-                    Sender = 0,
-                    Time = "0"
-                };
-
-                DoSend<ForgotPasswordResponse>(socket, resp);
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Exception processing ProcessForgotPasswordRequest: {0}", ex.Message), MessageType.Error);
-
-                ForgotPasswordResponse resp = new ForgotPasswordResponse()
-                {
-                    Msg = "ForgotPasswordResponse",
-                    Uuid = forgotPwdReq.Uuid,
-                    Success = false,
-                    Message = string.Format("Error updating password:{0}", ex.Message),
-                    JsonWebToken = forgotPwdReq.JsonWebToken,
-                    Sender = 0,
-                    Time = "0"
-                };
-
-                DoSend<ForgotPasswordResponse>(socket, resp);
-            }
-        }
-
-        protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
-        {
-            try
-            {
-                lock (Orders)
-                {
-                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
-                    ClientOrderReq clientOrderReq = JsonConvert.DeserializeObject<ClientOrderReq>(m);
-
-                    if (!ProcessRejectionsForNewOrders(clientOrderReq, socket))
-                    {
-
-                        ClientInstrument instr =  GetInstrumentByServiceKey(clientOrderReq.InstrumentId.ToString());
-
-                        ClientOrderResponse clientOrdAck = new ClientOrderResponse()
-                        {
-                            Msg = "ClientOrderResponse",
-                            ClientOrderId = clientOrderReq.ClientOrderId,
-                            InstrumentId = clientOrderReq.InstrumentId,
-                            Message = null,
-                            Success = true,
-                            OrderId = Guid.NewGuid().ToString(),
-                            UserId=clientOrderReq.UserId,
-                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
-                            Uuid = clientOrderReq.Uuid
-                        };
-                        DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
-                        DoSend<ClientOrderResponse>(socket, clientOrdAck);
-
-
-                        if (!EvalTrades(clientOrderReq, clientOrdAck, instr, clientOrderReq.Uuid, socket))
-                        {
-                            DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
-                            EvalPriceLevelsIfNotTrades(socket, clientOrderReq, instr);
-                            DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
-                            EvalNewOrder(socket, clientOrderReq, clientOrdAck.OrderId, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.Uuid);
-                            DoLog(string.Format("Updating quotes ..."), MessageType.Information);
-                            UpdateQuotes(socket, instr, clientOrderReq.Uuid);
-                            DoLog(string.Format("Updating credit ..."), MessageType.Information);
-                            UpdateCredit(socket, null, clientOrderReq.Uuid);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Exception processing ClientOrderReq: {0}", ex.Message), MessageType.Error);
-            }
-
-
-        }
-
-
-        #endregion
-
-        #region Private Static Consts
-
-        private static string _REJECTED_SECURITY_ID = "1";
-
-        #endregion
-
-        #region Protected Methods
-
-        protected ClientInstrument GetInstrumentBySymbol(string symbol)
-        {
-            return  InstrBatch.messages.Where(x => x.InstrumentName == symbol).FirstOrDefault();
-        }
-
-
-        protected ClientInstrument GetInstrumentByIntInstrumentId(string instrumentId)
-        {
-
-            ClientInstrument instr = InstrBatch.messages.Where(x => x.InstrumentId == instrumentId).FirstOrDefault();
-            return instr;
-        }
-
-
-        protected ClientInstrument GetInstrumentByServiceKey(string serviceKey)
-        {
-            if (InstrBatch == null)
-                throw new Exception("Initial load for instrument not finished!");
-
-            return GetInstrumentByIntInstrumentId(serviceKey);
-        }
-
-        protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, string UUID, bool success = true, string msg = "success")
-        {
-            DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse resp = new DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse()
-            {
-                Message = msg,
-                Success = success,
-                Service = service,
-                ServiceKey = serviceKey,
-                Uuid = UUID,
-                Msg = "SubscriptionResponse"
-
-            };
-
-            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}", resp.Uuid, resp.Service, resp.ServiceKey, resp.Success), MessageType.Information);
-            DoSend<DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse>(socket, resp);
         }
 
         private void CurrentPriceThread(object param)
@@ -3291,6 +2475,153 @@ namespace DGTLBackendMock.DataAccessLayer
             {
                 DoLog(string.Format("Critical error processing last sales message: {0}...", ex.Message), MessageType.Error);
             }
+        }
+
+        private void QuoteThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            Subscribe subscrMsg = (Subscribe)paramArray[1];
+            ClientInstrument instr = (ClientInstrument)paramArray[2];
+            bool subscResp = false;
+            //DoLog(string.Format("chkpnt @QuoteThread"), MessageType.Information);
+            try
+            {
+                while (true)
+                {
+                    //DoLog(string.Format("chkpnt @QuoteThread2"), MessageType.Information);
+                    Quote legacyLastQuote = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+
+                    if (legacyLastQuote != null)
+                    {
+                        DoLog(string.Format("Sending Quote for instrument {0}", instr.InstrumentName), MessageType.Information);
+
+                        TranslateAndSendOldQuote(socket, subscrMsg.Uuid, legacyLastQuote, instr);
+                        Thread.Sleep(3000);//3 seconds
+                    }
+                    //DoLog(string.Format("chkpnt @QuoteThread3"), MessageType.Information);
+                    if (!subscResp)
+                    {
+                        //DoLog(string.Format("chkpnt @QuoteThread4"), MessageType.Information);
+                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid);
+                        Thread.Sleep(2000);
+                        subscResp = true;
+                        SubscribedLQ = true;
+                    }
+
+                    if (legacyLastQuote == null)
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error processing quote message: {0}...", ex.Message), MessageType.Error);
+            }
+        }
+
+        private void NewQuoteThread(object param)
+        {
+            object[] paramArray = (object[])param;
+            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
+            ClientInstrument instr = (ClientInstrument)paramArray[1];
+            string UUID = (string)paramArray[2];
+
+            try
+            {
+                while (true)
+                {
+                    Quote quote = null;
+                    lock (Quotes)
+                    {
+                        DoLog(string.Format("Searching quotes for symbol {0}. ", instr.InstrumentName), MessageType.Information);
+                        quote = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                    }
+
+                    if (quote != null)
+                    {
+                        DoLog(string.Format("Sending LQ for symbol {0}. Best bid={1} Best ask={2}", instr.InstrumentName, quote.Bid, quote.Ask), MessageType.Information);
+
+                        TranslateAndSendOldQuote(socket, UUID, quote, instr);
+                        //DoSend<Quote>(socket, quote);
+
+                    }
+                    else
+                    {
+                        DoLog(string.Format("quotes for symbol {0} not found ", instr.InstrumentName), MessageType.Information);
+                    }
+                    Thread.Sleep(3000);//3 seconds
+                }
+            }
+            catch (Exception ex)
+            {
+                DoLog(string.Format("Critical error processing quote message for symbol {1}: {0}...", ex.Message, instr.InstrumentName), MessageType.Error);
+            }
+        }
+
+        #endregion
+
+        #region Translators
+
+        private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
+        {
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+            double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId) * Config.MarginPct;
+
+            CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
+            double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
+
+            AccountBalance balance = new AccountBalance()
+            {
+                Msg = "AccountBalance",
+                Uuid = Uuid,
+                FirmId = LoggedFirmId,
+                UserId = LoggedUserId,
+                AccountId = "testAcc",
+                Collateral = fundedCollateral,
+                PendingCollateral = 0,
+                TodaysMargin = initMargin,
+                PriorMargin = prevMargin,
+                IMRequirement = initMargin - prevMargin,
+                VMRequirement = initMargin - prevMargin,
+                cStatus = AccountBalance._ACTIVE_STATUS,
+                MarginCall = (initMargin - prevMargin) > fundedCollateral,
+                LastUpdateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds)
+            };
+
+            DoLog(string.Format("Sending AccountBalance "), MessageType.Information);
+            DoSend<AccountBalance>(socket, balance);
+        }
+
+        private ClientAccountRecord GetClientAccountRecordFromV1AccountRecord(DGTLBackendMock.Common.DTO.Account.AccountRecord accountRecord)
+        {
+            ClientAccountRecord v2AccountRecordMsg = new ClientAccountRecord();
+            v2AccountRecordMsg.Msg = "ClientAccountRecord";
+            v2AccountRecordMsg.AccountId = accountRecord.AccountId;
+            v2AccountRecordMsg.FirmId = Convert.ToInt64(accountRecord.EPFirmId);
+            v2AccountRecordMsg.SettlementFirmId = accountRecord.ClearingFirmId;
+            v2AccountRecordMsg.AccountName = accountRecord.EPNickName;
+            v2AccountRecordMsg.AccountAlias = accountRecord.AccountId;
+
+
+            v2AccountRecordMsg.AccountNumber = "";
+            v2AccountRecordMsg.AccountType = 0;
+            v2AccountRecordMsg.cStatus = ClientAccountRecord._STATUS_ACTIVE;
+            v2AccountRecordMsg.cUserType = ClientAccountRecord._DEFAULT_USER_TYPE;
+            v2AccountRecordMsg.cCti = ClientAccountRecord._CTI_OTHER;
+            v2AccountRecordMsg.Lei = "";
+            v2AccountRecordMsg.Currency = "";
+            v2AccountRecordMsg.IsSuspense = false;
+            v2AccountRecordMsg.UsDomicile = true;
+            v2AccountRecordMsg.UpdatedAt = "0";
+            v2AccountRecordMsg.CreatedAt = "0";
+            v2AccountRecordMsg.LastUpdatedBy = "";
+            v2AccountRecordMsg.WalletAddress = "";
+            v2AccountRecordMsg.Default = accountRecord.Default;
+            //accountRecordMsg.UUID = Uuid;
+
+            return v2AccountRecordMsg;
+
         }
 
         private void TranslateAndSendOldSale(IWebSocketConnection socket, string UUID, LastSale legacyLastSale, ClientInstrument instr)
@@ -3383,7 +2714,6 @@ namespace DGTLBackendMock.DataAccessLayer
             return trade;
         }
 
-
         protected ClientTradeRecord TranslateOldLegacyTradeHistory(LegacyTradeHistory legacyTradeHistory, ClientInstrument instr,string UUID)
         {
             TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -3424,18 +2754,16 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-
         private void TranslateAndSendOldLegacyTradeHistoryToMarketActivity(IWebSocketConnection socket, string UUID, LegacyTradeHistory legacyTradeHistory)
         {
 
             if (legacyTradeHistory != null)
             {
-                ClientInstrument instr = GetInstrumentBySymbol(legacyTradeHistory.Symbol);
+                ClientInstrument instr = SecurityHandler.GetInstrumentBySymbol(InstrBatch,legacyTradeHistory.Symbol);
                 ClientMarketActivity trade = TranslateOldLegacyTradeHistoryForMarketActivity(legacyTradeHistory, instr, UUID);
                 DoSend<ClientMarketActivity>(socket, trade);
             }
         }
-
 
         protected ClientMyOrders TranslateOldLegacyOrderRecordToMyOrders(LegacyOrderRecord legacyOrderRecord, ClientInstrument instr, bool newOrder, string UUID)
         {
@@ -3608,46 +2936,6 @@ namespace DGTLBackendMock.DataAccessLayer
             DoSend<ClientDepthOfBook>(socket, depthOfBook);
         }
 
-        private double GetPotentialxMargin(char side)
-        {
-            double acumMargin = 0;
-
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == LoggedFirmId).ToList();
-
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
-            {
-                double potentialNetContracts = 0;
-
-                foreach (UserRecord userForFirms in usersForFirm)
-                {
-
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                            .ForEach(x => potentialNetContracts += x.Contracts);
-
-                    
-                    Orders.Where(x => x.cSide == side && x.cStatus == LegacyOrderRecord._STATUS_OPEN
-                                        && x.InstrumentId == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                        .ForEach(x => potentialNetContracts += (x.cSide == LegacyOrderRecord._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
-
-                    
-                }
-
-                DoLog(string.Format("Potential Contracts for Security {0}  after Orders:{1}", security.Symbol, potentialNetContracts), MessageType.Information);
-
-                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
-
-                if (DSP != null && DSP.Price.HasValue)
-                {
-                    acumMargin += Math.Abs(potentialNetContracts) * DSP.Price.Value * Config.MarginPct;
-                }
-            }
-            
-
-            //TODO : implement the calendar spreads margin calculation
-            DoLog(string.Format("Acum Margin for FirmId {0} after Orders:{1}", LoggedFirmId, acumMargin), MessageType.Information);
-            return acumMargin - GetFundedMargin(LoggedFirmId);
-        }
-
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
             if(FirmListResp==null)
@@ -3666,8 +2954,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     AccountId = 0,
                     CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                     CreditUsed = firm.UsedCredit,
-                    BuyExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY),
-                    SellExposure = GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL),
+                    BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId),
+                    SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId),
                     cStatus = firm.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = Convert.ToInt32(firm.FirmId),
@@ -3682,85 +2970,466 @@ namespace DGTLBackendMock.DataAccessLayer
                 throw new Exception(string.Format("Unknown firm {0}", subscrMsg.ServiceKey));
         }
 
-        private void QuoteThread(object param)
+        #endregion
+
+        #region Process Requests
+
+        protected void ProcessUnsubscriptions(Subscribe subscrMsg)
         {
-            object[] paramArray = (object[])param;
-            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            Subscribe subscrMsg = (Subscribe)paramArray[1];
-            ClientInstrument instr = (ClientInstrument)paramArray[2];
-            bool subscResp = false;
-            //DoLog(string.Format("chkpnt @QuoteThread"), MessageType.Information);
+
+            lock (SecurityMappings)
+            {
+
+                if (subscrMsg.Service == "LS")
+                {
+                    if (ProcessLastSaleThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessLastSaleThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessLastSaleThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                else if (subscrMsg.Service == "LQ")
+                {
+                    if (ProcessLastQuoteThreads.ContainsKey(subscrMsg.ServiceKey))
+                    {
+                        ProcessLastQuoteThreads[subscrMsg.ServiceKey].Abort();
+                        ProcessLastQuoteThreads.Remove(subscrMsg.ServiceKey);
+                    }
+                }
+                //else if (subscrMsg.Service == "FP")
+                //{
+                //    if (ProcessDailyOfficialFixingPriceThreads.ContainsKey(subscrMsg.ServiceKey))
+                //    {
+                //        ProcessDailyOfficialFixingPriceThreads.Remove(subscrMsg.ServiceKey);
+                //    }
+                //}
+                //else if (subscrMsg.Service == "TI")
+                //{
+                //    if (ProcessSecuritStatusThreads.ContainsKey(subscrMsg.ServiceKey))
+                //    {
+                //        ProcessSecuritStatusThreads[subscrMsg.ServiceKey].Abort();
+                //        ProcessSecuritStatusThreads.Remove(subscrMsg.ServiceKey);
+                //    }
+                //}
+                //else if (subscrMsg.Service == "Ot")
+                //{
+                //    if (OpenOrderCountSubscriptions.Contains(subscrMsg.ServiceKey))
+                //        OpenOrderCountSubscriptions.Add(subscrMsg.ServiceKey);
+                //}
+                //else if (subscrMsg.Service == "TN")
+                //{
+                //    if (NotificationsSubscriptions.Contains(subscrMsg.ServiceKey))
+                //        NotificationsSubscriptions.Add(subscrMsg.ServiceKey);
+                //}
+                //else if (subscrMsg.Service == "FD")
+                //{
+                //    if (ProcessDailySettlementThreads.ContainsKey(subscrMsg.ServiceKey))
+                //    {
+                //        ProcessDailySettlementThreads[subscrMsg.ServiceKey].Abort();
+                //        ProcessDailySettlementThreads.Remove(subscrMsg.ServiceKey);
+                //    }
+                //}
+                //else if (subscrMsg.Service == "Cm")
+                //{
+                //    if (ProcessCreditLimitUpdatesThreads.ContainsKey(subscrMsg.ServiceKey))
+                //    {
+                //        ProcessCreditLimitUpdatesThreads[subscrMsg.ServiceKey].Abort();
+                //        ProcessCreditLimitUpdatesThreads.Remove(subscrMsg.ServiceKey);
+                //    }
+                //}
+                //else if (subscrMsg.Service == "CU")
+                //{
+                //    //ProcessCreditRecordUpdates(socket, subscrMsg);
+                //}
+            }
+
+        }
+
+        protected void ProcessClientLoginV2(IWebSocketConnection socket, string m)
+        {
+            ClientLoginRequest wsLogin = JsonConvert.DeserializeObject<ClientLoginRequest>(m);
+
             try
             {
-                while (true)
+
+                JsonCredentials jsonCredentials = AESCryptohandler.DecryptCredentials(wsLogin.Secret, LastTokenGenerated);
+
+                if (!UserRecords.Any(x => x.UserId == jsonCredentials.UserId))
                 {
-                    //DoLog(string.Format("chkpnt @QuoteThread2"), MessageType.Information);
-                    Quote legacyLastQuote  = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
+                    DoLog(string.Format("Unknown user: {0}", jsonCredentials.UserId), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Unknown user: {0}", jsonCredentials.UserId));
+                    return;
 
-                    if (legacyLastQuote != null)
-                    {
-                        DoLog(string.Format("Sending Quote for instrument {0}", instr.InstrumentName), MessageType.Information);
-
-                        TranslateAndSendOldQuote(socket, subscrMsg.Uuid, legacyLastQuote, instr);
-                        Thread.Sleep(3000);//3 seconds
-                    }
-                    //DoLog(string.Format("chkpnt @QuoteThread3"), MessageType.Information);
-                    if (!subscResp)
-                    {
-                        //DoLog(string.Format("chkpnt @QuoteThread4"), MessageType.Information);
-                        ProcessSubscriptionResponse(socket, "LQ", subscrMsg.ServiceKey, subscrMsg.Uuid);
-                        Thread.Sleep(2000);
-                        subscResp = true;
-                        SubscribedLQ = true;
-                    }
-
-                    if (legacyLastQuote == null)
-                        break;
                 }
+
+
+                if (jsonCredentials.UserId == "SIMUSER_3_UI1" && !wsLogin.ReLogin)
+                {
+                    DoLog(string.Format("Sending user already logged in for for user {0}", jsonCredentials.UserId), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Duplicate Login request", jsonCredentials.UserId, jsonCredentials.UserId));
+                    return;
+                }
+
+                if (jsonCredentials.Password == "temp123")
+                {
+                    UserRecord memUsr = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
+
+                    ClientLoginResponse chgPwdResp = new ClientLoginResponse()
+                    {
+                        Msg = "ClientLoginResponse",
+                        Uuid = wsLogin.Uuid,
+                        JsonWebToken = LastTokenGenerated,
+                        Success = true,
+                        Time = wsLogin.Time,
+                        UserId = memUsr != null ? memUsr.UserId : null,
+                        PasswordReset = true
+                    };
+
+                    DoLog(string.Format("Sending ClientLoginResponse<PasswordReset=true> with UUID {0}", wsLogin.Uuid), MessageType.Information);
+
+                    DoSend<ClientLoginResponse>(socket, chgPwdResp);
+                    return;
+
+                }
+
+
+                if (jsonCredentials.Password != "Testing123")
+                {
+                    DoLog(string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.Password), MessageType.Error);
+                    SendLoginRejectReject(socket, wsLogin, string.Format("Wrong password {1} for user {0}", jsonCredentials.UserId, jsonCredentials.UserId));
+                    return;
+
+                }
+
+                UserRecord memUserRecord = UserRecords.Where(x => x.UserId == jsonCredentials.UserId).FirstOrDefault();
+                LoggedUserId = memUserRecord.UserId;
+                LoggedFirmId = memUserRecord.FirmId;
+
+                ClientLoginResponse loginResp = new ClientLoginResponse()
+                {
+                    Msg = "ClientLoginResponse",
+                    Uuid = wsLogin.Uuid,
+                    JsonWebToken = LastTokenGenerated,
+                    Success = true,
+                    Time = wsLogin.Time,
+                    UserId = memUserRecord.UserId
+                };
+
+                DoLog(string.Format("Sending ClientLoginResponse with UUID {0}", loginResp.Uuid), MessageType.Information);
+
+                DoSend<ClientLoginResponse>(socket, loginResp);
+
+                SendCRMMessages(socket, jsonCredentials.UserId);
+
+                HeartbeatThread = new Thread(SendHeartbeat);
+                HeartbeatThread.Start(new object[] { socket, loginResp.JsonWebToken, loginResp.Uuid });
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Critical error processing quote message: {0}...", ex.Message), MessageType.Error);
+                DoLog(string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message), MessageType.Error);
+                SendLoginRejectReject(socket, wsLogin, string.Format("Exception unencrypting secret {0}: {1}", wsLogin.Secret, ex.Message));
             }
         }
 
-        private void NewQuoteThread(object param)
+        private void ProcessClientCreditRequest(IWebSocketConnection socket, string m)
         {
-            object[] paramArray = (object[])param;
-            IWebSocketConnection socket = (IWebSocketConnection)paramArray[0];
-            ClientInstrument instr = (ClientInstrument)paramArray[1];
-            string UUID = (string)paramArray[2];
+
+            ClientCreditRequest clientCreditReq = JsonConvert.DeserializeObject<ClientCreditRequest>(m);
+
+            ClientInstrument instr = GetInstrumentByServiceKey(clientCreditReq.InstrumentId);
 
             try
             {
-                while (true)
+                TestClientReject(socket, clientCreditReq, instr);
+
+
+                ClientCreditResponse resp = new ClientCreditResponse()
                 {
-                    Quote quote = null;
-                    lock (Quotes)
-                    {
-                        DoLog(string.Format("Searching quotes for symbol {0}. ", instr.InstrumentName), MessageType.Information);
-                        quote = Quotes.Where(x => x.Symbol == instr.InstrumentName).FirstOrDefault();
-                    }
+                    Msg = "ClientCreditResponse",
+                    UserId = LoggedUserId,
+                    FirmId = clientCreditReq.FirmId,
+                    CreditAvailable = true,//later we will decide if we trully have credit available
+                    ExposureChange = 0,//later we will decide the real exposure change
+                    Success = true,
+                    Uuid = clientCreditReq.Uuid
+                };
 
-                    if (quote != null)
-                    {
-                        DoLog(string.Format("Sending LQ for symbol {0}. Best bid={1} Best ask={2}", instr.InstrumentName, quote.Bid, quote.Ask), MessageType.Information);
+                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
 
-                        TranslateAndSendOldQuote(socket, UUID, quote,instr);
-                        //DoSend<Quote>(socket, quote);
+                if (FirmListResp == null)
+                    CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
+                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
-                    }
-                    else
+                double neededCredit = firm.UsedCredit + CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId) + deltaExp;
+                double totalCredit = firm.UsedCredit + firm.AvailableCredit;
+                resp.CreditAvailable = neededCredit < totalCredit;
+                resp.ExposureChange = Convert.ToInt64(deltaExp);
+
+                if (!resp.CreditAvailable)
+                    throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",
+                                                      neededCredit, totalCredit));
+
+                DoSend<ClientCreditResponse>(socket, resp);
+            }
+            catch (Exception ex)
+            {
+                double exposure = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
+                ClientCreditResponse resp = new ClientCreditResponse()
+                {
+                    Msg = "ClientCreditResponse",
+                    UserId = LoggedUserId,
+                    FirmId = clientCreditReq.FirmId,
+                    CreditAvailable = false,//later we will decide if we trully have credit available
+                    ExposureChange = Convert.ToInt64(exposure),//later we will decide the real exposure change
+                    Uuid = clientCreditReq.Uuid,
+                    Success = false,
+                    Message = ex.Message
+                };
+
+                DoSend<ClientCreditResponse>(socket, resp);
+            }
+        }
+
+        protected void ProcessOrderReqMock(IWebSocketConnection socket, string m)
+        {
+            try
+            {
+                lock (Orders)
+                {
+                    TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                    ClientOrderReq clientOrderReq = JsonConvert.DeserializeObject<ClientOrderReq>(m);
+
+                    if (!ProcessRejectionsForNewOrders(clientOrderReq, socket))
                     {
-                        DoLog(string.Format("quotes for symbol {0} not found ", instr.InstrumentName), MessageType.Information);
+
+                        ClientInstrument instr = GetInstrumentByServiceKey(clientOrderReq.InstrumentId.ToString());
+
+                        ClientOrderResponse clientOrdAck = new ClientOrderResponse()
+                        {
+                            Msg = "ClientOrderResponse",
+                            ClientOrderId = clientOrderReq.ClientOrderId,
+                            InstrumentId = clientOrderReq.InstrumentId,
+                            Message = null,
+                            Success = true,
+                            OrderId = Guid.NewGuid().ToString(),
+                            UserId = clientOrderReq.UserId,
+                            Timestamp = Convert.ToInt64(elapsed.TotalMilliseconds).ToString(),
+                            Uuid = clientOrderReq.Uuid
+                        };
+                        DoLog(string.Format("Sending ClientOrderResponse ..."), MessageType.Information);
+                        DoSend<ClientOrderResponse>(socket, clientOrdAck);
+
+
+                        if (!EvalTrades(clientOrderReq, clientOrdAck, instr, clientOrderReq.Uuid, socket))
+                        {
+                            DoLog(string.Format("Evaluating price levels ..."), MessageType.Information);
+                            EvalPriceLevelsIfNotTrades(socket, clientOrderReq, instr);
+                            DoLog(string.Format("Evaluating LegacyOrderRecord ..."), MessageType.Information);
+                            EvalNewOrder(socket, clientOrderReq, clientOrdAck.OrderId, LegacyOrderRecord._STATUS_OPEN, 0, instr, clientOrderReq.Uuid);
+                            DoLog(string.Format("Updating quotes ..."), MessageType.Information);
+                            UpdateQuotes(socket, instr, clientOrderReq.Uuid);
+                            DoLog(string.Format("Updating credit ..."), MessageType.Information);
+                            UpdateCredit(socket, null, clientOrderReq.Uuid);
+                        }
                     }
-                    Thread.Sleep(3000);//3 seconds
                 }
             }
             catch (Exception ex)
             {
-                DoLog(string.Format("Critical error processing quote message for symbol {1}: {0}...", ex.Message, instr.InstrumentName), MessageType.Error);
+                DoLog(string.Format("Exception processing ClientOrderReq: {0}", ex.Message), MessageType.Error);
             }
+
+
+        }
+
+        private void ProcessClientSubscribeForSettlement(IWebSocketConnection socket, string msg)
+        {
+            ClientSubscribeForSettlement subscrReq = JsonConvert.DeserializeObject<ClientSubscribeForSettlement>(msg);
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+            NetPositionDTO netPosSettl = SettlementCalculator.GetNetPositionsToSettl(SecurityMasterRecords, UserRecords, Positions,
+                                                                                     subscrReq.FirmId, subscrReq.InstrumentId);
+            
+
+            ClientFiatSettlementStatus fiatSettl = new ClientFiatSettlementStatus();
+            fiatSettl.Msg = "ClientFiatSettlementStatus";
+            fiatSettl.AccountId = subscrReq.AccountId;
+            fiatSettl.FirmId = subscrReq.FirmId;
+            fiatSettl.UserId = subscrReq.UserId;
+            fiatSettl.Uuid = subscrReq.Uuid;
+            fiatSettl.cFundingStatus = ClientFiatSettlementStatus._FUNDING_STATUS_N;
+
+            if (netPosSettl != null)
+            {
+                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == netPosSettl.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
+
+                if (todayDSP != null && todayDSP.Price.HasValue)
+                {
+
+                    if (netPosSettl.NetContracts > 0)
+                        fiatSettl.FiatDeliveryAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
+                    else if (netPosSettl.NetContracts < 0)
+                        fiatSettl.FiatReceivedAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
+                }
+
+                fiatSettl.CoinDeliverAddress = netPosSettl != null ? Guid.NewGuid().ToString() : null;
+                fiatSettl.CoinSenderCount = 0;
+                fiatSettl.FiatDeliveryCurrency = ClientFiatSettlementStatus._DELIVERY_CURRENCY;
+                fiatSettl.InstrumentId = netPosSettl.Symbol;
+                fiatSettl.FiatDeliveryWalletAddress = Guid.NewGuid().ToString();
+            }
+
+
+            if (netPosSettl != null)
+            {
+                List<ClientCoinSettlementStatus> cointSettlements = new List<ClientCoinSettlementStatus>();
+
+                NetPositionDTO[] counterparties = SettlementCalculator.GetMatchingCounterparties(netPosSettl, SecurityMasterRecords, UserRecords, Positions);
+
+                foreach (NetPositionDTO counterparty in counterparties)
+                {
+                    ClientCoinSettlementStatus coinSettl = new ClientCoinSettlementStatus();
+                    coinSettl.Msg = "ClientCoinSettlementStatus";
+                    coinSettl.AccountId = Guid.NewGuid().ToString();
+                    coinSettl.FirmId = subscrReq.FirmId;
+                    coinSettl.InstrumentId = netPosSettl != null ? netPosSettl.Symbol : null;
+                    coinSettl.SettlementId = Guid.NewGuid().ToString();
+                    coinSettl.SettlementSubId = Guid.NewGuid().ToString();
+
+                    if (netPosSettl.NetContracts > 0)
+                    {
+                        coinSettl.cReceiveStatus = ClientCoinSettlementStatus._STATUS_WAITING;
+                        coinSettl.ReceiveAddress = Guid.NewGuid().ToString();
+                        coinSettl.ReceiveAmount = Math.Abs( counterparty.NetContracts);
+                        coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_RECEIVE;
+                        coinSettl.ReceiveTxId = null;
+                        coinSettl.ReceiveCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
+                    }
+
+                    if (netPosSettl.NetContracts < 0)
+                    {
+                        coinSettl.cSendStatus = ClientCoinSettlementStatus._STATUS_WAITING;
+                        coinSettl.SendAddress = Guid.NewGuid().ToString();
+                        coinSettl.SendAmount = Math.Abs(counterparty.NetContracts);
+                        coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_SEND;
+                        coinSettl.SendTxId = null;
+                        coinSettl.SendCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
+                    }
+
+                    cointSettlements.Add(coinSettl);
+                }
+
+                DoLog(string.Format("Sending ClientCoinSettlementStatus"), MessageType.Information);
+                ClientCoinSettlementStatusBatch coinSettlBatch = new ClientCoinSettlementStatusBatch() { Msg = "ClientCoinSettlementStatusBatch", messages = cointSettlements.ToArray() };
+                DoSend<ClientCoinSettlementStatusBatch>(socket, coinSettlBatch);
+
+            }
+
+            DoLog(string.Format("Sending ClientFiatSettlementStatus"), MessageType.Information);
+            DoSend<ClientFiatSettlementStatus>(socket, fiatSettl);
+
+        }
+
+        private void ProcessClientMarginCallReq(IWebSocketConnection socket, string msg)
+        {
+            ClientMarginCallReq mrgCallReq = JsonConvert.DeserializeObject<ClientMarginCallReq>(msg);
+
+            try
+            {
+                if (mrgCallReq.UserId == LoggedUserId)
+                {
+                    TimeSpan elapsed = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0) - new DateTime(1970, 1, 1);
+
+                    double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+                    double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId) * Config.MarginPct;
+
+                    CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
+                    double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
+
+                    ClientMarginCallResp marginResp = new ClientMarginCallResp();
+                    marginResp.Msg = "ClientMarginCallResp";
+                    marginResp.AccountId = null;
+                    marginResp.UserId = mrgCallReq.UserId;
+                    marginResp.Uuid = mrgCallReq.Uuid;
+                    marginResp.Success = true;
+                    marginResp.MarginRegulationTime = Convert.ToInt64(elapsed.TotalMilliseconds);
+
+                    if ((initMargin - prevMargin) > collateralAcc.Collateral)
+                    {
+                        marginResp.Amount = (initMargin - prevMargin) - collateralAcc.Collateral;
+                        marginResp.SignetTDPWallet = Guid.NewGuid().ToString();
+                    }
+                    DoSend<ClientMarginCallResp>(socket, marginResp);
+                }
+                else
+                {
+                    throw new Exception(string.Format("Unknown user id {0}", mrgCallReq.UserId));
+                }
+            }
+            catch (Exception ex)
+            {
+                ClientMarginCallResp errorMargin = new ClientMarginCallResp();
+                errorMargin.Msg = "ClientMarginCallResp";
+                errorMargin.Success = false;
+                errorMargin.Message = ex.Message;
+                errorMargin.UserId = mrgCallReq.UserId;
+                errorMargin.Uuid = mrgCallReq.Uuid;
+                DoSend<ClientMarginCallResp>(socket, errorMargin);
+
+            }
+        }
+
+        private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
+        {
+
+            ClientAccountPositionRecord accPosReq = JsonConvert.DeserializeObject<ClientAccountPositionRecord>(msg);
+
+            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+            List<ClientAccountPositionRecord> positionsList = new List<ClientAccountPositionRecord>();
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = 0;
+
+                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == accPosReq.FirmId).ToList();
+
+                foreach (UserRecord user in usersForFirm)
+                {
+                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                }
+
+                if (netContracts == 0)
+                    continue;
+
+                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
+
+                double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
+                double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
+
+                double prevNotional = CreditCalculator.GetFundedCredit(LoggedFirmId);
+                double currNotional = CreditCalculator.GetUsedCredit(LoggedFirmId);
+
+                ClientAccountPositionRecord position = new ClientAccountPositionRecord()
+                {
+                    Msg = "ClientAccountPositionRecord",
+                    Uuid = accPosReq.Uuid,
+                    AccountId = "",
+                    FirmId = LoggedFirmId,
+                    CurrentNetPosition = Convert.ToInt32(netContracts),
+                    Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
+                    Contract = security.Symbol,
+                    CurrentDayDSP = dblTodayDSP,
+                    PriorDayDSP = dblPrevDSP,
+                    ProfitAndLoss = currNotional - prevNotional,
+                    TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
+                };
+
+                positionsList.Add(position);
+
+            }
+
+            ClientAccountPositionRecordBatch positionsBatch = new ClientAccountPositionRecordBatch() { Msg = "ClientAccountPositionRecordBatch", messages = positionsList.ToArray() };
+            DoLog(string.Format("Sending ClientAccountPositionRecordBatch "), MessageType.Information);
+            DoSend<ClientAccountPositionRecordBatch>(socket, positionsBatch);
         }
 
         protected void ProcessLastSale(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3822,8 +3491,6 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
         }
-
-
 
         protected void ProcessQuote(IWebSocketConnection socket, Subscribe subscrMsg)
         {
@@ -4188,53 +3855,6 @@ namespace DGTLBackendMock.DataAccessLayer
                 HeartbeatThread.Abort();
         }
 
-        protected  override void OnOpen(IWebSocketConnection socket)
-        {
-            try
-            {
-                if (!Connected)
-                {
-                    DoLog(string.Format("Connecting for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
-
-                    Connected = true;
-
-                    DoLog(string.Format("Connected for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
-
-                }
-                else
-                {
-                    DoLog(string.Format("Closing previous client "), MessageType.Information);
-
-                    DoClose(); //We close previous client
-                }
-            }
-            catch (Exception ex)
-            {
-                if (socket != null && socket.ConnectionInfo.ClientPort != null && socket.ConnectionInfo != null)
-                    DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
-                else
-                    DoLog(string.Format("Exception at  OnOpen for unknown client {0}", ex.Message), MessageType.Error);
-            }
-        }
-
-        protected override void OnClose(IWebSocketConnection socket)
-        {
-            try
-            {
-                DoLog(string.Format(" OnClose for client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
-                Connected = false;
-                DoClose(); 
-            }
-            catch (Exception ex)
-            {
-                if (socket != null && socket.ConnectionInfo != null && socket.ConnectionInfo.ClientPort != null)
-                    DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
-                else
-                    DoLog(string.Format("Exception at  OnClose for unknown client: {0}", ex.Message), MessageType.Error);
-
-            }
-        }
-
         protected void ProcessSubscriptions(IWebSocketConnection socket, string m)
         {
             Subscribe subscrMsg = JsonConvert.DeserializeObject<Subscribe>(m);
@@ -4243,7 +3863,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             if (subscrMsg.SubscriptionType == Subscribe._ACTION_SUBSCRIBE)
             {
-              
+
                 if (subscrMsg.Service == "LS")
                 {
                     if (subscrMsg.ServiceKey != null)
@@ -4322,7 +3942,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 //    if (subscrMsg.ServiceKey != null)
                 //        ProcessDailySettlement(socket, subscrMsg);
                 //}
-         
+
                 //else if (subscrMsg.Service == "FO")
                 //{
                 //    ProcessFillOffers(socket, subscrMsg);
@@ -4331,7 +3951,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 //{
                 //    ProcessPlatformStatus(socket, subscrMsg);
                 //}
-             
+
                 //else if (subscrMsg.Service == "rt")
                 //{
                 //    ProcessBlotterTrades(socket, subscrMsg);
@@ -4343,6 +3963,73 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
+        protected void ProcessSubscriptionResponse(IWebSocketConnection socket, string service, string serviceKey, string UUID, bool success = true, string msg = "success")
+        {
+            DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse resp = new DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse()
+            {
+                Message = msg,
+                Success = success,
+                Service = service,
+                ServiceKey = serviceKey,
+                Uuid = UUID,
+                Msg = "SubscriptionResponse"
+
+            };
+
+            DoLog(string.Format("SubscriptionResponse UUID:{0} Service:{1} ServiceKey:{2} Success:{3}", resp.Uuid, resp.Service, resp.ServiceKey, resp.Success), MessageType.Information);
+            DoSend<DGTLBackendMock.Common.DTO.Subscription.V2.SubscriptionResponse>(socket, resp);
+        }
+
+        #endregion
+
+        #region Websocket Methods
+
+        protected  override void OnOpen(IWebSocketConnection socket)
+        {
+            try
+            {
+                if (!Connected)
+                {
+                    DoLog(string.Format("Connecting for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                    Connected = true;
+
+                    DoLog(string.Format("Connected for the first time to client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+
+                }
+                else
+                {
+                    DoLog(string.Format("Closing previous client "), MessageType.Information);
+
+                    DoClose(); //We close previous client
+                }
+            }
+            catch (Exception ex)
+            {
+                if (socket != null && socket.ConnectionInfo.ClientPort != null && socket.ConnectionInfo != null)
+                    DoLog(string.Format("Exception at  OnOpen for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnOpen for unknown client {0}", ex.Message), MessageType.Error);
+            }
+        }
+
+        protected override void OnClose(IWebSocketConnection socket)
+        {
+            try
+            {
+                DoLog(string.Format(" OnClose for client {0}", socket.ConnectionInfo.ClientPort), MessageType.Information);
+                Connected = false;
+                DoClose(); 
+            }
+            catch (Exception ex)
+            {
+                if (socket != null && socket.ConnectionInfo != null && socket.ConnectionInfo.ClientPort != null)
+                    DoLog(string.Format("Exception at  OnClose for client {0}: {1}", socket.ConnectionInfo.ClientPort, ex.Message), MessageType.Error);
+                else
+                    DoLog(string.Format("Exception at  OnClose for unknown client: {0}", ex.Message), MessageType.Error);
+
+            }
+        }
 
         protected override void OnMessage(IWebSocketConnection socket, string m)
         {
@@ -4399,11 +4086,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 }
                 else if (wsResp.Msg == "ClientOrderReq")
                 {
-
                     ProcessOrderReqMock(socket, m);
-
                 }
-                
                 else if (wsResp.Msg == "ClientOrderCancelReq")
                 {
                     ProcessClientOrderCancelReq(socket, m);
@@ -4434,9 +4118,9 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessClientMarginCallReq(socket, m);
                 }
-                else if (wsResp.Msg == "ClientSettlementStatusReq")
+                else if (wsResp.Msg == "ClientSubscribeForSettlement")
                 {
-                    ProcessClientSettlementStatusReq(socket, m);
+                    ProcessClientSubscribeForSettlement(socket, m);
                 }
 
                 else if (wsResp.Msg == "ForgotPasswordRequest")
@@ -4475,6 +4159,8 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
         }
+
+        #endregion
 
         #endregion
     }

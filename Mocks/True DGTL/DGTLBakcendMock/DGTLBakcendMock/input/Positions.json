@@ -1,11 +1,17 @@
 ﻿[
+
+{UserId:"MM1_LONGSETT","Symbol":"SWP-XBT-USD-N19","Msg":"Position","Contracts":100,"Price":8567.12,"MarginFunded":false},
+{UserId:"MM1_SHORTSETT1","Symbol":"SWP-XBT-USD-N19","Msg":"Position","Contracts":-50,"Price":8567.12,"MarginFunded":false},
+{UserId:"MM1_SHORTSETT2","Symbol":"SWP-XBT-USD-N19","Msg":"Position","Contracts":-50,"Price":8567.12,"MarginFunded":false},
+
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-N19","Msg":"Position","Contracts":-200,"Price":8145.12,"MarginFunded":false},
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-Q19","Msg":"Position","Contracts":200,"Price":8133.40,"MarginFunded":false},
-
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-V19","Msg":"Position","Contracts":-100,"Price":7915.23,"MarginFunded": false},
 {UserId:"MM1_CLOBUI","Symbol":"SWP-XBT-USD-X19","Msg":"Position","Contracts":300,"Price":7658.87,"MarginFunded":false},
 {UserId:"MM_FUNDEDUSER","Symbol":"SWP-XBT-USD-Z19","Msg":"Position","Contracts":100,"Price":7658.87,"MarginFunded":true},
 
 {UserId:"MM_MARGINCALLUSER","Symbol":"SWP-XBT-USD-N19","Msg":"Position","Contracts":30,"Price":7658.87,"MarginFunded":false},
+
+
 
 ]

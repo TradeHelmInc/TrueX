@@ -31,9 +31,9 @@ namespace DGTLBackendMock.Common.Util
 
         }
 
-        private Security BuildSecurity(Wrapper wrapper)
+        private zHFT.Main.BusinessEntities.Securities.Security BuildSecurity(Wrapper wrapper)
         {
-            Security sec = new Security();
+            zHFT.Main.BusinessEntities.Securities.Security sec = new zHFT.Main.BusinessEntities.Securities.Security();
             sec.Symbol = (ValidateField(wrapper, MarketDataFields.Symbol) ? Convert.ToString(wrapper.GetField(MarketDataFields.Symbol)) : null);
             sec.SecType = (ValidateField(wrapper, MarketDataFields.SecurityType) ? (SecurityType)wrapper.GetField(MarketDataFields.SecurityType) : SecurityType.OTH);
             sec.Currency = (ValidateField(wrapper, MarketDataFields.Currency) ? Convert.ToString(wrapper.GetField(MarketDataFields.Currency)) : null);

@@ -58,9 +58,11 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
         public DateTime GetMaturityDate()
         {
+            if (!string.IsNullOrEmpty(MaturityDate))
+                return DateTime.ParseExact(MaturityDate, "yyyyMMdd", null);
+            else
+                return DateTime.MinValue;
 
-            return DateTime.ParseExact(MaturityDate, "yyyyMMdd", null);
-        
         }
 
         #endregion

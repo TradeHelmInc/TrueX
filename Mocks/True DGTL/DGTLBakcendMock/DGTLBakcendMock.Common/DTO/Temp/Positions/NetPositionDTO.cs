@@ -10,6 +10,8 @@ namespace DGTLBackendMock.Common.DTO.Temp.Positions
     {
         #region Public Attributes
 
+        public string FirmId { get; set; }
+
         public string AssetClass { get; set; }
 
         public string Symbol { get; set; }

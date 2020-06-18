@@ -38,7 +38,7 @@ namespace DGTLBackendAPIClientV2
 
         protected static string UserId { get; set; }
 
-        protected static long FirmId { get; set; }
+        protected static string FirmId { get; set; }
 
         protected static string TempUser { get; set; }
 
@@ -65,7 +65,7 @@ namespace DGTLBackendAPIClientV2
             Console.WriteLine("FirmListRequest");
             Console.WriteLine("ClientCreditRequest <firm> <InstrumentId> <Side> <Quantity>");
             Console.WriteLine("ClientGetAccountPositions <FirmId>");
-            Console.WriteLine("ClientSettlementStatusReq <FirmId>");
+            Console.WriteLine("ClientSubscribeForSettlement <FirmId>");
             Console.WriteLine("ClientMarginCallReq [uses logged user]>");
             //Console.WriteLine("FirmsTradingStatusUpdateRequest <FirmId> <Status>");
             Console.WriteLine("CreditLimitUpdateRequest <FirmId> <Status> <Available> <Used> <MaxNotional>");
@@ -217,9 +217,9 @@ namespace DGTLBackendAPIClientV2
             {
                 ProcessClientGetAccountPositions(param);
             }
-            else if (mainCmd == "ClientSettlementStatusReq")
+            else if (mainCmd == "ClientSubscribeForSettlement")
             {
-                ProcessClientSettlementStatusReq(param);
+                ProcessClientSubscrSettl(param);
             }
             else if (mainCmd == "ClientMarginCallReq")
             {
@@ -368,7 +368,7 @@ namespace DGTLBackendAPIClientV2
                     UUID = loginResp.Uuid;
                     UserId = loginResp.UserId;
                     Token = loginResp.JsonWebToken;
-                    FirmId = 0;
+                    FirmId = null;
                 }
 
                 ProcessJsonMessage<ClientLoginResponse>(loginResp);
@@ -383,7 +383,7 @@ namespace DGTLBackendAPIClientV2
 
                 Token = null;
                 UserId = UserId;
-                FirmId = 0;
+                FirmId = null;
                 UUID = null;
 
                 ProcessJsonMessage<ClientLogout>((ClientLogout)msg);
@@ -673,7 +673,7 @@ namespace DGTLBackendAPIClientV2
                     Msg = "FirmsTradingStatusUpdateRequest",
                     Time = 0,
                     cTradingStatus = Convert.ToChar(param[2]),
-                    FirmId = Convert.ToInt64(param[1]),
+                    FirmId = param[1],
                     JsonWebToken = Token,
                     Uuid = UUID
                 };
@@ -701,7 +701,7 @@ namespace DGTLBackendAPIClientV2
                     MaxNotional = Convert.ToDouble(param[5]),
                     MaxQuantity = Convert.ToDouble(param[5]) / 7000,//We use BTC price as reference
                     cTradingStatus = Convert.ToChar(param[2]),
-                    FirmId = Convert.ToInt64(param[1]),
+                    FirmId = param[1],
                     Time = Convert.ToInt64(elapsed.TotalSeconds),
                     SettlementAgentId = SettlementAgentDict.ContainsKey(param[1]) ? SettlementAgentDict[param[1]] : null,
                     JsonWebToken = Token,
@@ -914,7 +914,7 @@ namespace DGTLBackendAPIClientV2
             DoSend<ClientMarginCallReq>(mrgCallReq);
         }
 
-        private static void ProcessClientSettlementStatusReq(string[] param)
+        private static void ProcessClientSubscrSettl(string[] param)
         {
             if (Token == null)
             {
@@ -924,9 +924,9 @@ namespace DGTLBackendAPIClientV2
 
             if (param.Length == 2)
             {
-                ClientSettlementStatusReq sttlStatus = new ClientSettlementStatusReq()
+                ClientSubscribeForSettlement subscrSettl = new ClientSubscribeForSettlement()
                 {
-                    Msg = "ClientSettlementStatusReq",
+                    Msg = "ClientSubscribeForSettlement",
                     UserId = UserId.ToString(),
                     Uuid = UUID,
                     FirmId = param[1],
@@ -935,7 +935,7 @@ namespace DGTLBackendAPIClientV2
                     SettlmentDate=DateTime.Now.ToString("MM-dd-yyyy"),
                 };
 
-                DoSend<ClientSettlementStatusReq>(sttlStatus);
+                DoSend<ClientSubscribeForSettlement>(subscrSettl);
             }
             else
                 DoLog(string.Format("Missing mandatory parameters for logout message"));

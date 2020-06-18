@@ -40,23 +40,30 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToolsShared">
+      <HintPath>..\packages\ToolsShared.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Account\AccountRecord.cs" />
     <Compile Include="DTO\Account\CreditLimitUpdate.cs" />
     <Compile Include="DTO\Account\CreditRecordUpdate.cs" />
     <Compile Include="DTO\Account\FirmRecord.cs" />
-    <Compile Include="DTO\Account\V2\AccountBalance.cs" />
-    <Compile Include="DTO\Account\V2\ClientAccountPositionRecord.cs" />
-    <Compile Include="DTO\Account\V2\ClientAccountPositionRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\Margin\AccountBalance.cs" />
+    <Compile Include="DTO\Account\V2\Positions\ClientAccountPositionRecord.cs" />
+    <Compile Include="DTO\Account\V2\Positions\ClientAccountPositionRecordBatch.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecord.cs" />
     <Compile Include="DTO\Account\V2\ClientAccountRecordBatch.cs" />
+    <Compile Include="DTO\Account\V2\Settlement\ClientCoinSettlementStatus .cs" />
+    <Compile Include="DTO\Account\V2\Settlement\ClientCoinSettlementStatusBatch.cs" />
+    <Compile Include="DTO\Account\V2\Settlement\ClientFiatSettlementStatus.cs" />
     <Compile Include="DTO\Account\V2\ClientGetAccountPositions.cs" />
-    <Compile Include="DTO\Account\V2\ClientPosition.cs" />
-    <Compile Include="DTO\Account\V2\ClientSettlementStatus.cs" />
-    <Compile Include="DTO\Account\V2\ClientSettlementStatusBatch.cs" />
-    <Compile Include="DTO\Account\V2\ClientSettlementStatusReq.cs" />
-    <Compile Include="DTO\Account\V2\ClientSettlementStatusUpdate.cs" />
+    <Compile Include="DTO\Account\V2\Positions\ClientPosition.cs" />
+    <Compile Include="DTO\Account\V2\_old\ClientSettlementStatus.cs" />
+    <Compile Include="DTO\Account\V2\_old\ClientSettlementStatusBatch.cs" />
+    <Compile Include="DTO\Account\V2\_old\ClientSettlementStatusReq.cs" />
+    <Compile Include="DTO\Account\V2\_old\ClientSettlementStatusUpdate.cs" />
+    <Compile Include="DTO\Account\V2\Settlement\ClientSubscribeForSettlement.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditRequest.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientCreditResponse.cs" />
     <Compile Include="DTO\Account\V2\Credit UI\ClientMarginCallReq.cs" />
@@ -182,8 +189,13 @@
     <Compile Include="Util\AESCryptohandler.cs" />
     <Compile Include="Util\AttributeConverter.cs" />
     <Compile Include="Util\GUIDToLongConverter.cs" />
-    <Compile Include="Util\HexaConverter.cs" />
+    <Compile Include="Util\Margin\CreditCalculator.cs" />
+    <Compile Include="Util\Margin\CreditStatusHandler.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
+    <Compile Include="Util\Security\SecurityHandler.cs" />
+    <Compile Include="Util\Security\SecurityStateHandler.cs" />
+    <Compile Include="Util\Settlement\PositionsCalculator.cs" />
+    <Compile Include="Util\Settlement\SettlementCalculator.cs" />
     <Compile Include="Wrappers\GetOrdersRequestWrapper.cs" />
     <Compile Include="Wrappers\GetTradesRequestWrapper.cs" />
     <Compile Include="Wrappers\LegacyOrderMassCancelReqWrapper.cs" />
