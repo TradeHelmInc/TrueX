@@ -21,13 +21,9 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         protected UserRecord[] UserRecords { get; set; }
 
-        protected ClientPosition[] Positions { get; set; }
-
         protected SecurityMasterRecord[] SecurityMasterRecords { get; set; }
 
         protected DailySettlementPrice[] DailySettlementPrices { get; set; }
-
-        protected List<LegacyOrderRecord> Orders { get; set; }
 
         protected FundedMargin[] FundedMargins { get; set; }
 
@@ -39,12 +35,9 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         #region Constructor
 
-        public CreditCalculator(SecurityMasterRecord[] securities,DailySettlementPrice[] prices ,UserRecord[] users, ClientPosition[] positions,
-                                List<LegacyOrderRecord> orders, FundedMargin[] fundedMargins, Config config, ILogSource logger)
+        public CreditCalculator(SecurityMasterRecord[] securities,DailySettlementPrice[] prices ,UserRecord[] users,  FundedMargin[] fundedMargins, Config config, ILogSource logger)
         {
             UserRecords = users;
-            Positions = positions;
-            Orders = orders;
             SecurityMasterRecords = securities;
             DailySettlementPrices = prices;
             FundedMargins = fundedMargins;
@@ -66,7 +59,7 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         #region Private Methods
 
-        private double GetPotentialxMargin(char side,string firmId)
+        private double GetPotentialxMargin(char side, string firmId, ClientPosition[] Positions, List<LegacyOrderRecord> Orders)
         {
             double acumMargin = 0;
 
@@ -106,7 +99,7 @@ namespace DGTLBackendMock.Common.Util.Margin
             return acumMargin - GetFundedMargin(firmId);
         }
 
-        private double GetBaseMargin(string firmId, string symbol = null)
+        private double GetBaseMargin(string firmId, ClientPosition[] Positions, string symbol = null)
         {
             double acumMargin = 0;
 
@@ -202,7 +195,8 @@ namespace DGTLBackendMock.Common.Util.Margin
         #region Public Methods
 
         //here I can work with just 1 security
-        public double GetSecurityPotentialExposure(char side, double qty, string symbol, string firmId)
+        public double GetSecurityPotentialExposure(char side, double qty, string symbol, string firmId, ClientPosition[] Positions,
+                                                   List<LegacyOrderRecord> Orders)
         {
             double finalExposure = 0;
             double currentExposure = 0;
@@ -236,13 +230,13 @@ namespace DGTLBackendMock.Common.Util.Margin
             return finalExposure - currentExposure;
         }
 
-        public double GetTotalSideExposure(char side, string firmId)
+        public double GetTotalSideExposure(char side, string firmId, ClientPosition[] Positions, List<LegacyOrderRecord> Orders)
         {
             //1-Get Base Margin
-            double BM = GetBaseMargin(firmId) - GetFundedMargin(firmId);
+            double BM = GetBaseMargin(firmId,Positions) - GetFundedMargin(firmId);
 
             //2-Calculate the exposure for the Buy/Sell orders
-            double PxM = GetPotentialxMargin(side, firmId);
+            double PxM = GetPotentialxMargin(side, firmId,Positions,Orders);
 
             //3- Calculate the potential x Exposure
             //double exposure = Math.Max(Convert.ToDouble(PxM - BM), 0) / Config.MarginPct;
@@ -267,7 +261,7 @@ namespace DGTLBackendMock.Common.Util.Margin
                 return 0;
         }
 
-        public double GetUsedCredit(string firmId)
+        public double GetUsedCredit(string firmId, ClientPosition[] Positions)
         {
 
             List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();

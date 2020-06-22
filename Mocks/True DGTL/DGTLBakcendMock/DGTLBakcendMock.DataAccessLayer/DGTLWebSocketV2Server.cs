@@ -54,7 +54,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
             LoadCollaterals();
 
-            CreditCalculator = new CreditCalculator(SecurityMasterRecords, DailySettlementPrices, UserRecords, Positions, Orders, 
+            CreditCalculator = new CreditCalculator(SecurityMasterRecords,DailySettlementPrices, UserRecords, 
                                                     FundedMargins, Config, Logger);
         }
 
@@ -564,7 +564,7 @@ namespace DGTLBackendMock.DataAccessLayer
              if (firm != null)
              {
                  double prevUsedCredit = firm.UsedCredit;
-                 firm.UsedCredit = CreditCalculator.GetUsedCredit(LoggedFirmId);
+                 firm.UsedCredit = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions);
                  firm.AvailableCredit -= firm.UsedCredit-prevUsedCredit;
 
                  TimeSpan elapsed = DateTime.Now - new DateTime(1970, 1, 1);
@@ -574,8 +574,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = firm.UsedCredit,
-                     BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId),
-                     SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId),
+                     BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId,Positions,Orders),
+                     SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId,Positions,Orders),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -1832,7 +1832,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         firm.AvailableCredit = wsFirmCreditLimitUpdRq.AvailableCredit;
                         
                         //Balance = Total - Usage
-                        firm.UsedCredit = CreditCalculator.GetUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString());
+                        firm.UsedCredit = CreditCalculator.GetUsedCredit(wsFirmCreditLimitUpdRq.FirmId.ToString(),Positions);
                         firm.MaxNotional = wsFirmCreditLimitUpdRq.MaxNotional;
                         firm.MaxQuantity = wsFirmCreditLimitUpdRq.MaxQuantity;
                         firm.PotentialExposure = wsFirmCreditLimitUpdRq.PotentialExposure;
@@ -1946,7 +1946,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     //2- We creat the credit list
                     DGTLBackendMock.Common.DTO.Account.AccountRecord defaultAccount = AccountRecords.Where(x => x.EPFirmId == accRecord.EPFirmId && x.Default).FirstOrDefault();
 
-                    double creditUsed = CreditCalculator.GetUsedCredit(accRecord.EPFirmId);
+                    double creditUsed = CreditCalculator.GetUsedCredit(accRecord.EPFirmId,Positions);
                     FirmsCreditRecord firm = new FirmsCreditRecord()
                     {
                         FirmId = accRecord.EPFirmId,
@@ -2566,10 +2566,11 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
-            double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId) * Config.MarginPct;
+            double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions) * Config.MarginPct;
 
             CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
             double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
+            bool marginCall = (initMargin - prevMargin) > fundedCollateral;
 
             AccountBalance balance = new AccountBalance()
             {
@@ -2584,8 +2585,8 @@ namespace DGTLBackendMock.DataAccessLayer
                 PriorMargin = prevMargin,
                 IMRequirement = initMargin - prevMargin,
                 VMRequirement = initMargin - prevMargin,
-                cStatus = AccountBalance._ACTIVE_STATUS,
-                MarginCall = (initMargin - prevMargin) > fundedCollateral,
+                cStatus = marginCall ? AccountBalance._MARGIN_CALL_STATUS : AccountBalance._OK_STATUS,
+                MarginCall = marginCall,
                 LastUpdateTime = Convert.ToInt64(epochElapsed.TotalMilliseconds)
             };
 
@@ -2954,8 +2955,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     AccountId = 0,
                     CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                     CreditUsed = firm.UsedCredit,
-                    BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId),
-                    SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId),
+                    BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId,Positions,Orders),
+                    SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId, Positions, Orders),
                     cStatus = firm.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = Convert.ToInt32(firm.FirmId),
@@ -3154,13 +3155,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
+                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
 
                 if (FirmListResp == null)
                     CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
                 FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
-                double neededCredit = firm.UsedCredit + CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId) + deltaExp;
+                double neededCredit = firm.UsedCredit + CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId,Positions,Orders) + deltaExp;
                 double totalCredit = firm.UsedCredit + firm.AvailableCredit;
                 resp.CreditAvailable = neededCredit < totalCredit;
                 resp.ExposureChange = Convert.ToInt64(deltaExp);
@@ -3173,7 +3174,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                double exposure = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId);
+                double exposure = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",
@@ -3242,92 +3243,116 @@ namespace DGTLBackendMock.DataAccessLayer
 
         }
 
-        private void ProcessClientSubscribeForSettlement(IWebSocketConnection socket, string msg)
+        protected void ProcessClientFiatSettlementStatus(IWebSocketConnection socket, Subscribe subscrReq)
         {
-            ClientSubscribeForSettlement subscrReq = JsonConvert.DeserializeObject<ClientSubscribeForSettlement>(msg);
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-
-            NetPositionDTO netPosSettl = SettlementCalculator.GetNetPositionsToSettl(SecurityMasterRecords, UserRecords, Positions,
-                                                                                     subscrReq.FirmId, subscrReq.InstrumentId);
-            
-
-            ClientFiatSettlementStatus fiatSettl = new ClientFiatSettlementStatus();
-            fiatSettl.Msg = "ClientFiatSettlementStatus";
-            fiatSettl.AccountId = subscrReq.AccountId;
-            fiatSettl.FirmId = subscrReq.FirmId;
-            fiatSettl.UserId = subscrReq.UserId;
-            fiatSettl.Uuid = subscrReq.Uuid;
-            fiatSettl.cFundingStatus = ClientFiatSettlementStatus._FUNDING_STATUS_N;
-
-            if (netPosSettl != null)
+            try
             {
-                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == netPosSettl.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
+                TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
-                if (todayDSP != null && todayDSP.Price.HasValue)
+                NetPositionDTO netPosSettl = SettlementCalculator.GetNetPositionsToSettl(SecurityMasterRecords, UserRecords, Positions,
+                                                                                         subscrReq.ServiceKey, null);
+
+                ClientFiatSettlementStatus fiatSettl = new ClientFiatSettlementStatus();
+                fiatSettl.Msg = "ClientFiatSettlementStatus";
+                fiatSettl.AccountId = "defAcc";
+                fiatSettl.FirmId = subscrReq.ServiceKey;
+                fiatSettl.UserId = subscrReq.UserId;
+                fiatSettl.Uuid = subscrReq.Uuid;
+                fiatSettl.cFundingStatus = ClientFiatSettlementStatus._FUNDING_STATUS_N;
+
+                if (netPosSettl != null)
                 {
+                    DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == netPosSettl.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
 
-                    if (netPosSettl.NetContracts > 0)
-                        fiatSettl.FiatDeliveryAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
-                    else if (netPosSettl.NetContracts < 0)
-                        fiatSettl.FiatReceivedAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
-                }
-
-                fiatSettl.CoinDeliverAddress = netPosSettl != null ? Guid.NewGuid().ToString() : null;
-                fiatSettl.CoinSenderCount = 0;
-                fiatSettl.FiatDeliveryCurrency = ClientFiatSettlementStatus._DELIVERY_CURRENCY;
-                fiatSettl.InstrumentId = netPosSettl.Symbol;
-                fiatSettl.FiatDeliveryWalletAddress = Guid.NewGuid().ToString();
-            }
-
-
-            if (netPosSettl != null)
-            {
-                List<ClientCoinSettlementStatus> cointSettlements = new List<ClientCoinSettlementStatus>();
-
-                NetPositionDTO[] counterparties = SettlementCalculator.GetMatchingCounterparties(netPosSettl, SecurityMasterRecords, UserRecords, Positions);
-
-                foreach (NetPositionDTO counterparty in counterparties)
-                {
-                    ClientCoinSettlementStatus coinSettl = new ClientCoinSettlementStatus();
-                    coinSettl.Msg = "ClientCoinSettlementStatus";
-                    coinSettl.AccountId = Guid.NewGuid().ToString();
-                    coinSettl.FirmId = subscrReq.FirmId;
-                    coinSettl.InstrumentId = netPosSettl != null ? netPosSettl.Symbol : null;
-                    coinSettl.SettlementId = Guid.NewGuid().ToString();
-                    coinSettl.SettlementSubId = Guid.NewGuid().ToString();
-
-                    if (netPosSettl.NetContracts > 0)
+                    if (todayDSP != null && todayDSP.Price.HasValue)
                     {
-                        coinSettl.cReceiveStatus = ClientCoinSettlementStatus._STATUS_WAITING;
-                        coinSettl.ReceiveAddress = Guid.NewGuid().ToString();
-                        coinSettl.ReceiveAmount = Math.Abs( counterparty.NetContracts);
-                        coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_RECEIVE;
-                        coinSettl.ReceiveTxId = null;
-                        coinSettl.ReceiveCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
+
+                        if (netPosSettl.NetContracts > 0)
+                            fiatSettl.FiatDeliveryAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
+                        else if (netPosSettl.NetContracts < 0)
+                            fiatSettl.FiatReceivedAmount = todayDSP.Price.Value * Math.Abs(netPosSettl.NetContracts);
                     }
 
-                    if (netPosSettl.NetContracts < 0)
-                    {
-                        coinSettl.cSendStatus = ClientCoinSettlementStatus._STATUS_WAITING;
-                        coinSettl.SendAddress = Guid.NewGuid().ToString();
-                        coinSettl.SendAmount = Math.Abs(counterparty.NetContracts);
-                        coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_SEND;
-                        coinSettl.SendTxId = null;
-                        coinSettl.SendCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
-                    }
-
-                    cointSettlements.Add(coinSettl);
+                    fiatSettl.CoinDeliverAddress = netPosSettl != null ? Guid.NewGuid().ToString() : null;
+                    fiatSettl.CoinSenderCount = 0;
+                    fiatSettl.FiatDeliveryCurrency = ClientFiatSettlementStatus._DELIVERY_CURRENCY;
+                    fiatSettl.InstrumentId = netPosSettl.Symbol;
+                    fiatSettl.FiatDeliveryWalletAddress = Guid.NewGuid().ToString();
                 }
 
-                DoLog(string.Format("Sending ClientCoinSettlementStatus"), MessageType.Information);
-                ClientCoinSettlementStatusBatch coinSettlBatch = new ClientCoinSettlementStatusBatch() { Msg = "ClientCoinSettlementStatusBatch", messages = cointSettlements.ToArray() };
-                DoSend<ClientCoinSettlementStatusBatch>(socket, coinSettlBatch);
+                DoLog(string.Format("Sending ClientFiatSettlementStatus"), MessageType.Information);
+                DoSend<ClientFiatSettlementStatus>(socket, fiatSettl);
+                ProcessSubscriptionResponse(socket, "ru", subscrReq.ServiceKey, subscrReq.Uuid);
 
             }
+            catch (Exception ex)
+            {
 
-            DoLog(string.Format("Sending ClientFiatSettlementStatus"), MessageType.Information);
-            DoSend<ClientFiatSettlementStatus>(socket, fiatSettl);
+                ProcessSubscriptionResponse(socket, "ru", subscrReq.ServiceKey, subscrReq.Uuid, success: false, msg: ex.Message);
+            }
+        }
 
+        protected void ProcessClientCoinSettlementStatus(IWebSocketConnection socket, Subscribe subscrReq)
+        {
+
+            try
+            {
+                TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+
+                NetPositionDTO netPosSettl = SettlementCalculator.GetNetPositionsToSettl(SecurityMasterRecords, UserRecords, Positions,
+                                                                                         subscrReq.ServiceKey, null);
+
+                if (netPosSettl != null)
+                {
+                    List<ClientCoinSettlementStatus> cointSettlements = new List<ClientCoinSettlementStatus>();
+
+                    NetPositionDTO[] counterparties = SettlementCalculator.GetMatchingCounterparties(netPosSettl, SecurityMasterRecords, UserRecords, Positions);
+
+                    foreach (NetPositionDTO counterparty in counterparties)
+                    {
+                        ClientCoinSettlementStatus coinSettl = new ClientCoinSettlementStatus();
+                        coinSettl.Msg = "ClientCoinSettlementStatus";
+                        coinSettl.AccountId = Guid.NewGuid().ToString();
+                        coinSettl.FirmId = subscrReq.ServiceKey;
+                        coinSettl.InstrumentId = netPosSettl != null ? netPosSettl.Symbol : null;
+                        coinSettl.SettlementId = Guid.NewGuid().ToString();
+                        coinSettl.SettlementSubId = Guid.NewGuid().ToString();
+
+                        if (netPosSettl.NetContracts > 0)
+                        {
+                            coinSettl.cReceiveStatus = ClientCoinSettlementStatus._STATUS_WAITING;
+                            coinSettl.ReceiveAddress = Guid.NewGuid().ToString();
+                            coinSettl.ReceiveAmount = Math.Abs(counterparty.NetContracts);
+                            coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_RECEIVE;
+                            coinSettl.ReceiveTxId = null;
+                            coinSettl.ReceiveCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
+                        }
+
+                        if (netPosSettl.NetContracts < 0)
+                        {
+                            coinSettl.cSendStatus = ClientCoinSettlementStatus._STATUS_WAITING;
+                            coinSettl.SendAddress = Guid.NewGuid().ToString();
+                            coinSettl.SendAmount = Math.Abs(counterparty.NetContracts);
+                            coinSettl.cSettlementDirection = ClientCoinSettlementStatus._DIRECTION_SEND;
+                            coinSettl.SendTxId = null;
+                            coinSettl.SendCurrency = ClientCoinSettlementStatus._DELIVERY_CRYPTO_CURR;
+                        }
+
+                        cointSettlements.Add(coinSettl);
+                    }
+
+                    DoLog(string.Format("Sending ClientCoinSettlementStatus"), MessageType.Information);
+                    ClientCoinSettlementStatusBatch coinSettlBatch = new ClientCoinSettlementStatusBatch() { Msg = "ClientCoinSettlementStatusBatch", messages = cointSettlements.ToArray() };
+                    DoSend<ClientCoinSettlementStatusBatch>(socket, coinSettlBatch);
+
+                }
+
+                ProcessSubscriptionResponse(socket, "rv", subscrReq.ServiceKey, subscrReq.Uuid);
+            }
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "rv", subscrReq.ServiceKey, subscrReq.Uuid, success: false, msg: ex.Message);
+            }
         }
 
         private void ProcessClientMarginCallReq(IWebSocketConnection socket, string msg)
@@ -3341,7 +3366,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     TimeSpan elapsed = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0) - new DateTime(1970, 1, 1);
 
                     double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
-                    double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId) * Config.MarginPct;
+                    double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions) * Config.MarginPct;
 
                     CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
                     double fundedCollateral = collateralAcc != null ? collateralAcc.Collateral : 0;
@@ -3379,57 +3404,65 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        private void ProcessClientGetAccountPositions(IWebSocketConnection socket, string msg)
+        private void ProcessClientGetAccountPositions(IWebSocketConnection socket, Subscribe subscrMsg)
         {
 
-            ClientAccountPositionRecord accPosReq = JsonConvert.DeserializeObject<ClientAccountPositionRecord>(msg);
-
-            TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            List<ClientAccountPositionRecord> positionsList = new List<ClientAccountPositionRecord>();
-            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            try
             {
-                double netContracts = 0;
-
-                List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == accPosReq.FirmId).ToList();
-
-                foreach (UserRecord user in usersForFirm)
+                TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
+                List<ClientAccountPositionRecord> positionsList = new List<ClientAccountPositionRecord>();
+                foreach (SecurityMasterRecord security in SecurityMasterRecords)
                 {
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                    double netContracts = 0;
+
+                    List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == subscrMsg.ServiceKey).ToList();
+
+                    foreach (UserRecord user in usersForFirm)
+                    {
+                        Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
+                    }
+
+                    if (netContracts == 0)
+                        continue;
+
+                    DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
+
+                    double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
+                    double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
+
+                    double prevNotional = CreditCalculator.GetFundedCredit(LoggedFirmId);
+                    double currNotional = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions);
+
+                    ClientAccountPositionRecord position = new ClientAccountPositionRecord()
+                    {
+                        //Msg = "ClientAccountPositionRecord",
+                        Msg = "ClientPositionRecord",
+                        Uuid = subscrMsg.Uuid,
+                        AccountId = "",
+                        FirmId = LoggedFirmId,
+                        Contract = security.Symbol,
+                        PriorDayNetPosition = 0,
+                        PriorDayDSP = dblPrevDSP,
+                        CurrentNetPosition = Convert.ToInt32(netContracts),
+                        CurrentDayDSP = dblTodayDSP,
+                        CurrentPrice = dblTodayDSP,
+                        Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
+                        ProfitAndLoss = currNotional - prevNotional,
+                        TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
+                    };
+
+                    positionsList.Add(position);
+
                 }
 
-                if (netContracts == 0)
-                    continue;
-
-                DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
-
-                double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
-                double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
-
-                double prevNotional = CreditCalculator.GetFundedCredit(LoggedFirmId);
-                double currNotional = CreditCalculator.GetUsedCredit(LoggedFirmId);
-
-                ClientAccountPositionRecord position = new ClientAccountPositionRecord()
-                {
-                    Msg = "ClientAccountPositionRecord",
-                    Uuid = accPosReq.Uuid,
-                    AccountId = "",
-                    FirmId = LoggedFirmId,
-                    CurrentNetPosition = Convert.ToInt32(netContracts),
-                    Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
-                    Contract = security.Symbol,
-                    CurrentDayDSP = dblTodayDSP,
-                    PriorDayDSP = dblPrevDSP,
-                    ProfitAndLoss = currNotional - prevNotional,
-                    TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
-                };
-
-                positionsList.Add(position);
-
+                DoLog(string.Format("Sending ClientAccountPositionRecord"), MessageType.Information);
+                positionsList.ForEach(x => DoSend<ClientAccountPositionRecord>(socket, x));
+                ProcessSubscriptionResponse(socket, "rp", subscrMsg.ServiceKey, subscrMsg.Uuid);
             }
-
-            ClientAccountPositionRecordBatch positionsBatch = new ClientAccountPositionRecordBatch() { Msg = "ClientAccountPositionRecordBatch", messages = positionsList.ToArray() };
-            DoLog(string.Format("Sending ClientAccountPositionRecordBatch "), MessageType.Information);
-            DoSend<ClientAccountPositionRecordBatch>(socket, positionsBatch);
+            catch (Exception ex)
+            {
+                ProcessSubscriptionResponse(socket, "rp", subscrMsg.ServiceKey, subscrMsg.Uuid, success: false, msg: ex.Message);
+            }
         }
 
         protected void ProcessLastSale(IWebSocketConnection socket, Subscribe subscrMsg)
@@ -3911,6 +3944,18 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessClientCurrentPrice(socket, subscrMsg);
                 }
+                else if (subscrMsg.Service == "rp")
+                {
+                    ProcessClientGetAccountPositions(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "ru")
+                {
+                    ProcessClientFiatSettlementStatus(socket, subscrMsg);
+                }
+                else if (subscrMsg.Service == "rv")
+                {
+                    ProcessClientCoinSettlementStatus(socket, subscrMsg);
+                }
                 else if (subscrMsg.Service == "rt")
                 {
                     ProcessMyTradesForBlotter(socket, subscrMsg);
@@ -4110,17 +4155,13 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     ProcessSubscriptions(socket, m);
                 }
-                else if (wsResp.Msg == "ClientGetAccountPositions")
-                {
-                    ProcessClientGetAccountPositions(socket, m);
-                }
+                //else if (wsResp.Msg == "ClientGetAccountPositions")
+                //{
+                //    ProcessClientGetAccountPositions(socket, m);
+                //}
                 else if (wsResp.Msg == "ClientMarginCallReq")
                 {
                     ProcessClientMarginCallReq(socket, m);
-                }
-                else if (wsResp.Msg == "ClientSubscribeForSettlement")
-                {
-                    ProcessClientSubscribeForSettlement(socket, m);
                 }
 
                 else if (wsResp.Msg == "ForgotPasswordRequest")

@@ -30,6 +30,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public double ProfitAndLoss { get; set; }
 
+        public double? CurrentPrice { get; set; }
+
         public long TimeStamp { get; set; }
 
         #endregion

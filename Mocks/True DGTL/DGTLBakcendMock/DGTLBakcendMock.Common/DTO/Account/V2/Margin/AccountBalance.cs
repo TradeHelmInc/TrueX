@@ -11,9 +11,15 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
     {
         #region Public Static Consts
 
-        public static char _ACTIVE_STATUS = 'A';
+        public static char _OK_STATUS = 'K';
 
-        public static char _INACTIVE_STATUS = 'I';
+        public static char _ERROR_STATUS = 'E';
+
+        public static char _MARGIN_CALL_STATUS = 'M';
+
+        public static char _MISMATCH_STATUS = 'T';
+
+        public static char _DEFAULTED_STATUS = 'D';
 
         #endregion
 
