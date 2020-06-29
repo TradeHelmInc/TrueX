@@ -16,6 +16,8 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
 
         public string AccountId { get; set; }
 
+        public int InstrumentId { get; set; }
+
         public string Contract { get; set; }
 
         public int PriorDayNetPosition { get; set; }

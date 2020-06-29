@@ -3424,6 +3424,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     if (netContracts == 0)
                         continue;
+                    DoLog(string.Format("Found {0} net contrats for security {1}", netContracts, security.Symbol), MessageType.Information);
 
                     DailySettlementPrice todayDSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).OrderByDescending(x => x.DSPDate).FirstOrDefault();
 
@@ -3433,21 +3434,25 @@ namespace DGTLBackendMock.DataAccessLayer
                     double prevNotional = CreditCalculator.GetFundedCredit(LoggedFirmId);
                     double currNotional = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions);
 
+                    DoLog(string.Format("Found {0} DSP/{1} prev. DSP for security {2}", dblTodayDSP,dblPrevDSP, security.Symbol), MessageType.Information);
+
+
                     ClientAccountPositionRecord position = new ClientAccountPositionRecord()
                     {
-                        //Msg = "ClientAccountPositionRecord",
                         Msg = "ClientPositionRecord",
+                        //Msg = "ClientAccountPositionRecord",
                         Uuid = subscrMsg.Uuid,
                         AccountId = "",
                         FirmId = LoggedFirmId,
+                        InstrumentId = security.InstrumentId,
                         Contract = security.Symbol,
                         PriorDayNetPosition = 0,
                         PriorDayDSP = dblPrevDSP,
                         CurrentNetPosition = Convert.ToInt32(netContracts),
                         CurrentDayDSP = dblTodayDSP,
                         CurrentPrice = dblTodayDSP,
-                        Change = ((dblTodayDSP - dblPrevDSP) - 1) * 10,
-                        ProfitAndLoss = currNotional - prevNotional,
+                        Change = dblTodayDSP - dblPrevDSP,
+                        ProfitAndLoss = (currNotional - prevNotional) * Config.MarginPct,
                         TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
                     };
 
@@ -3892,7 +3897,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             Subscribe subscrMsg = JsonConvert.DeserializeObject<Subscribe>(m);
 
-            DoLog(string.Format("Incoming subscription for serviceXX {0} - ServiceKey:{1}", subscrMsg.Service, subscrMsg.ServiceKey), MessageType.Information);
+            DoLog(string.Format("Incoming subscription for service {0} - ServiceKey:{1}", subscrMsg.Service, subscrMsg.ServiceKey), MessageType.Information);
 
             if (subscrMsg.SubscriptionType == Subscribe._ACTION_SUBSCRIBE)
             {

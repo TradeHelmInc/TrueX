@@ -1,0 +1,187 @@
+2020-06-25 9:49:06  :: Initializing Mock Server...
+2020-06-25 9:49:06  :: Initializing all collections...
+2020-06-25 9:49:07  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-06-25 9:49:07  :: Collections Initialized...
+2020-06-25 9:49:32  :: Connecting for the first time to client 2171
+2020-06-25 9:49:32  :: Connected for the first time to client 2171
+2020-06-25 9:49:55  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-06-25 9:49:55  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-06-25 9:49:55  :: Sending ClientLoginResponse with UUID 0cb06ccc-dc51-4a02-8cfa-3fc9a4f648f6
+2020-06-25 9:49:55  :: Sending Instrument Batch 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientInstrumentState 
+2020-06-25 9:49:56  :: Sending ClientUserRecord
+2020-06-25 9:49:56  :: Sending ClientMarketStateBatch
+2020-06-25 9:49:56  :: Sending ClientAccountRecordBatch 
+2020-06-25 9:49:59  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-06-25 9:50:01  :: OnMessage Subscribe from IP -> 127.0.0.1
+2020-06-25 9:50:01  :: Incoming subscription for serviceXX rp - ServiceKey:548346919
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-06-25 9:50:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-06-25 9:50:01  :: Sending ClientAccountPositionRecord
+2020-06-25 9:50:01  :: SubscriptionResponse UUID:0cb06ccc-dc51-4a02-8cfa-3fc9a4f648f6 Service:rp ServiceKey:548346919 Success:True
+2020-06-25 9:50:02  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-06-25 9:50:14  :: Turning threads off on socket disconnection
+2020-06-25 9:50:17  :: Turning threads off on socket disconnection
+2020-06-25 9:50:20  :: Turning threads off on socket disconnection
+2020-06-25 9:50:23  :: Turning threads off on socket disconnection
+2020-06-25 9:50:26  :: Turning threads off on socket disconnection
+2020-06-25 9:50:29  :: Turning threads off on socket disconnection
+2020-06-25 9:50:32  :: Turning threads off on socket disconnection
+2020-06-25 9:50:35  :: Turning threads off on socket disconnection
+2020-06-25 9:50:38  :: Turning threads off on socket disconnection
+2020-06-25 9:50:41  :: Turning threads off on socket disconnection
+2020-06-25 9:50:44  :: Turning threads off on socket disconnection
+2020-06-25 9:50:47  :: Turning threads off on socket disconnection
+2020-06-25 9:50:50  :: Turning threads off on socket disconnection
+2020-06-25 9:50:53  :: Turning threads off on socket disconnection
+2020-06-25 9:50:56  :: Turning threads off on socket disconnection
+2020-06-25 9:50:59  :: Turning threads off on socket disconnection
+2020-06-25 9:51:02  :: Turning threads off on socket disconnection
+2020-06-25 9:51:05  :: Turning threads off on socket disconnection
+2020-06-25 9:51:08  :: Turning threads off on socket disconnection
+2020-06-25 9:51:11  :: Turning threads off on socket disconnection
+2020-06-25 9:51:14  :: Turning threads off on socket disconnection
+2020-06-25 9:51:17  :: Turning threads off on socket disconnection
+2020-06-25 9:51:20  :: Turning threads off on socket disconnection
+2020-06-25 9:51:23  :: Turning threads off on socket disconnection
+2020-06-25 9:51:26  :: Turning threads off on socket disconnection
+2020-06-25 9:51:29  :: Turning threads off on socket disconnection
+2020-06-25 9:51:32  :: Turning threads off on socket disconnection
+2020-06-25 9:51:35  :: Turning threads off on socket disconnection
+2020-06-25 9:51:38  :: Turning threads off on socket disconnection
+2020-06-25 9:51:41  :: Turning threads off on socket disconnection
+2020-06-25 9:51:44  :: Turning threads off on socket disconnection
+2020-06-25 9:51:47  :: Turning threads off on socket disconnection
+2020-06-25 9:51:50  :: Turning threads off on socket disconnection
+2020-06-25 9:51:53  :: Turning threads off on socket disconnection
+2020-06-25 9:51:56  :: Turning threads off on socket disconnection
+2020-06-25 9:51:59  :: Turning threads off on socket disconnection
+2020-06-25 9:52:02  :: Turning threads off on socket disconnection
+2020-06-25 9:52:05  :: Turning threads off on socket disconnection
+2020-06-25 9:52:08  :: Turning threads off on socket disconnection
+2020-06-25 9:52:11  :: Turning threads off on socket disconnection
+2020-06-25 9:52:14  :: Turning threads off on socket disconnection
+2020-06-25 9:52:17  :: Turning threads off on socket disconnection
+2020-06-25 9:52:20  :: Turning threads off on socket disconnection
+2020-06-25 9:52:23  :: Turning threads off on socket disconnection
+2020-06-25 9:52:26  :: Turning threads off on socket disconnection
+2020-06-25 9:52:29  :: Turning threads off on socket disconnection
+2020-06-25 9:52:32  :: Turning threads off on socket disconnection
+2020-06-25 9:52:35  :: Turning threads off on socket disconnection
+2020-06-25 9:52:38  :: Turning threads off on socket disconnection
+2020-06-25 9:52:41  :: Turning threads off on socket disconnection
+2020-06-25 9:52:44  :: Turning threads off on socket disconnection
+2020-06-25 9:52:47  :: Turning threads off on socket disconnection
+2020-06-25 9:52:50  :: Turning threads off on socket disconnection
+2020-06-25 9:52:53  :: Turning threads off on socket disconnection
+2020-06-25 9:52:56  :: Turning threads off on socket disconnection
+2020-06-25 9:52:59  :: Turning threads off on socket disconnection
+2020-06-25 9:53:02  :: Turning threads off on socket disconnection
+2020-06-25 9:53:05  :: Turning threads off on socket disconnection
+2020-06-25 9:53:08  :: Turning threads off on socket disconnection
+2020-06-25 9:53:11  :: Turning threads off on socket disconnection
+2020-06-25 9:53:14  :: Turning threads off on socket disconnection
+2020-06-25 9:53:17  :: Turning threads off on socket disconnection
+2020-06-25 9:53:20  :: Turning threads off on socket disconnection
+2020-06-25 9:53:23  :: Turning threads off on socket disconnection
+2020-06-25 9:53:26  :: Turning threads off on socket disconnection
+2020-06-25 9:53:29  :: Turning threads off on socket disconnection
+2020-06-25 9:53:32  :: Turning threads off on socket disconnection
+2020-06-25 9:53:35  :: Turning threads off on socket disconnection
