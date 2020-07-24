@@ -88,7 +88,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         public string LoggedUserId { get; set; }
 
-        protected FirmsListResponse FirmListResp { get; set; }
+        protected FirmsListResponse FirmsList { get; set; }
 
         protected Dictionary<string, string[]> NotificationEmails { get; set; }
 
@@ -556,10 +556,10 @@ namespace DGTLBackendMock.DataAccessLayer
         //1.2.3-Update and send ClientCreditUpdate
         private void  UpdateCredit(IWebSocketConnection socket, LegacyTradeHistory newTrade, string UUID)
          {
-             if (FirmListResp == null)
-                 CreateFirmListCreditStructure(UUID, 0, 10000);
+             if (FirmsList == null)
+                 CreateFirmListCreditStructure(UUID);
 
-             FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId.ToString() == LoggedFirmId).FirstOrDefault();
+             FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId.ToString() == LoggedFirmId).FirstOrDefault();
 
              if (firm != null)
              {
@@ -1409,15 +1409,15 @@ namespace DGTLBackendMock.DataAccessLayer
             try
             {
 
-                if (FirmListResp == null)
-                    CreateFirmListCreditStructure(wsFirmListRq.Uuid, 0, int.MaxValue);
+                if (FirmsList == null)
+                    CreateFirmListCreditStructure(wsFirmListRq.Uuid);
 
-                FirmListResp.Uuid = wsFirmListRq.Uuid;
+                FirmsList.Uuid = wsFirmListRq.Uuid;
 
-                DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmListResp.Firms.Length), MessageType.Information);
+                DoLog(string.Format("Process FirmsListReqest: {0} firms loaded", FirmsList.Firms.Length), MessageType.Information);
 
                 List<FirmsCreditRecord> firmsCreditLimitRecord = new List<FirmsCreditRecord>();
-                foreach (var firm in FirmListResp.Firms)
+                foreach (var firm in FirmsList.Firms)
                 {
 
                     FirmsCreditRecord firmResp = new FirmsCreditRecord();
@@ -1481,9 +1481,9 @@ namespace DGTLBackendMock.DataAccessLayer
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
 
             FirmsTradingStatusUpdateRequest wsUpdateRequest = JsonConvert.DeserializeObject<FirmsTradingStatusUpdateRequest>(m);
-            if (FirmListResp != null)
+            if (FirmsList != null)
             {
-                FirmsTradingStatusUpdateResponse resp =CreditStatusHandler.ProcessFirmsTradingStatusUpdateRequest(FirmListResp.Firms, 
+                FirmsTradingStatusUpdateResponse resp =CreditStatusHandler.ProcessFirmsTradingStatusUpdateRequest(FirmsList.Firms, 
                                                                                                                  wsUpdateRequest.FirmId,
                                                                                                                  wsUpdateRequest.cTradingStatus,
                                                                                                                  wsUpdateRequest.JsonWebToken,
@@ -1814,10 +1814,10 @@ namespace DGTLBackendMock.DataAccessLayer
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             FirmsCreditLimitUpdateRequest wsFirmCreditLimitUpdRq = JsonConvert.DeserializeObject<FirmsCreditLimitUpdateRequest>(m);
 
-            if (FirmListResp != null)
+            if (FirmsList != null)
             {
                 DoLog(string.Format("Looking form Firm with Id {0} to update its credit limit", wsFirmCreditLimitUpdRq.FirmId), MessageType.Information);
-                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == wsFirmCreditLimitUpdRq.FirmId.ToString()).FirstOrDefault();
+                FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId == wsFirmCreditLimitUpdRq.FirmId.ToString()).FirstOrDefault();
 
                 if (firm != null)
                 {
@@ -1927,7 +1927,7 @@ namespace DGTLBackendMock.DataAccessLayer
         
         }
 
-        private void CreateFirmListCreditStructure(string UUID, int pageNo,int pageRecords)
+        private void CreateFirmListCreditStructure(string UUID=null)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
             Dictionary<string, FirmsCreditRecord> firms = new Dictionary<string, FirmsCreditRecord>();
@@ -1965,18 +1965,17 @@ namespace DGTLBackendMock.DataAccessLayer
             }
 
 
-            double totalPages = Math.Ceiling(Convert.ToDouble(finalList.Count / pageRecords));
-            FirmListResp = new FirmsListResponse()
+            FirmsList = new FirmsListResponse()
             {
                 Msg = "FirmsListResponse",
                 Success = true,
-                Firms = finalList.Skip(pageNo * pageRecords).Take(pageRecords).ToArray(),
+                Firms = finalList.ToArray(),
                 //JsonWebToken = token,
                 Uuid = UUID,
                 //Message = null,
-                PageNo = pageNo,
+                PageNo = 0,
                 Time = Convert.ToInt64(epochElapsed.TotalMilliseconds),
-                PageRecords = Convert.ToInt32(totalPages),
+                PageRecords = 1,
             };
         
         }
@@ -2939,10 +2938,10 @@ namespace DGTLBackendMock.DataAccessLayer
 
         private void TranslateAndSendOldCreditRecordUpdate(IWebSocketConnection socket, Subscribe subscrMsg)
         {
-            if(FirmListResp==null)
-                CreateFirmListCreditStructure(subscrMsg.Uuid, 0, 10000);
+            if(FirmsList==null)
+                CreateFirmListCreditStructure(subscrMsg.Uuid);
 
-            FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId ==subscrMsg.ServiceKey).FirstOrDefault();
+            FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId ==subscrMsg.ServiceKey).FirstOrDefault();
 
             if (firm != null)
             {
@@ -3157,9 +3156,9 @@ namespace DGTLBackendMock.DataAccessLayer
 
                 double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
 
-                if (FirmListResp == null)
-                    CreateFirmListCreditStructure(clientCreditReq.Uuid, 0, 10000);
-                FirmsCreditRecord firm = FirmListResp.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
+                if (FirmsList == null)
+                    CreateFirmListCreditStructure(clientCreditReq.Uuid);
+                FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
                 double neededCredit = firm.UsedCredit + CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId,Positions,Orders) + deltaExp;
                 double totalCredit = firm.UsedCredit + firm.AvailableCredit;
@@ -3436,7 +3435,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
                     DoLog(string.Format("Found {0} DSP/{1} prev. DSP for security {2}", dblTodayDSP,dblPrevDSP, security.Symbol), MessageType.Information);
 
-
+                    double pAndL = (netContracts > 0) ? (dblTodayDSP - dblPrevDSP) * netContracts : (dblPrevDSP - dblTodayDSP) * Math.Abs(netContracts);
                     ClientAccountPositionRecord position = new ClientAccountPositionRecord()
                     {
                         Msg = "ClientPositionRecord",
@@ -3452,7 +3451,7 @@ namespace DGTLBackendMock.DataAccessLayer
                         CurrentDayDSP = dblTodayDSP,
                         CurrentPrice = dblTodayDSP,
                         Change = dblTodayDSP - dblPrevDSP,
-                        ProfitAndLoss = (currNotional - prevNotional) * Config.MarginPct,
+                        ProfitAndLoss = pAndL,
                         TimeStamp = Convert.ToInt64(epochElapsed.TotalMilliseconds)
                     };
 

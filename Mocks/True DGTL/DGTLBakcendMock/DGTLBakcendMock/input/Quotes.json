@@ -15,4 +15,9 @@
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-x18",  "Bid" : 8400.00,  "BidSize" : 200.0,  "Ask" : 9600.00, "MidPoint":9000.00,  "AskSize" : 100.00},
 {  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "NDF-XBT-USD-x19",  "Bid" : 8300.00,  "BidSize" : 10.0,  "Ask" : 9700.00, "MidPoint":9000.00,  "AskSize" : 5.00},
 
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-N19",  "Bid" : 9125.32,  "BidSize" : 10.0,  "Ask" : 9523.00, "MidPoint":9000.00,  "AskSize" : 5.00},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-Q19",  "Bid" : 9329.12,  "BidSize" : 10.0,  "Ask" : 9438.55, "MidPoint":9000.00,  "AskSize" : 5.00},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-V19",  "Bid" : 9428.11,  "BidSize" : 10.0,  "Ask" : 9625.25, "MidPoint":9000.00,  "AskSize" : 5.00},
+{  "Msg" : "Quote",   "Sender" : 0,   "Time" : 0,   "Symbol" : "SWP-XBT-USD-X19",  "Bid" : 9424.11,  "BidSize" : 10.0,  "Ask" : 9626.25, "MidPoint":9000.00,  "AskSize" : 5.00},
+
 ]
