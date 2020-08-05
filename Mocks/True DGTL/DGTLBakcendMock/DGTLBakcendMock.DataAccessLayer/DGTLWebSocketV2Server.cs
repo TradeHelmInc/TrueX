@@ -3740,27 +3740,27 @@ namespace DGTLBackendMock.DataAccessLayer
             }
         }
 
-        protected void ProcessDailySettlementPriceThread(object param)
-        {
-            DailySettlementPrice v1SettlPrice = (DailySettlementPrice)((object[])param)[0];
-            IWebSocketConnection socket = (IWebSocketConnection)((object[])param)[1];
-            ClientInstrument instr = (ClientInstrument)((object[])param)[2];
-            string UUID = (string)((object[])param)[3];
+        //protected void ProcessDailySettlementPriceThread(object param)
+        //{
+        //    DailySettlementPrice v1SettlPrice = (DailySettlementPrice)((object[])param)[0];
+        //    IWebSocketConnection socket = (IWebSocketConnection)((object[])param)[1];
+        //    ClientInstrument instr = (ClientInstrument)((object[])param)[2];
+        //    string UUID = (string)((object[])param)[3];
 
-            try
-            {
-                while (true)
-                {
-                    Thread.Sleep(10 * 1000);
-                    v1SettlPrice.Price += (double?) 0.01;
-                    TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, UUID);
-                }
-            }
-            catch (Exception ex)
-            {
-                DoLog(string.Format("Error updating Daily Settlement Thread:{0}", ex.Message), MessageType.Error);
-            }
-        }
+        //    try
+        //    {
+        //        while (true)
+        //        {
+        //            Thread.Sleep(10 * 1000);
+        //            v1SettlPrice.Price += (double?) 0.01;
+        //            TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, UUID);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        DoLog(string.Format("Error updating Daily Settlement Thread:{0}", ex.Message), MessageType.Error);
+        //    }
+        //}
 
         protected void ProcessDailySettlementPrice(IWebSocketConnection socket, Subscribe subscrMsg) 
         {
@@ -3772,11 +3772,11 @@ namespace DGTLBackendMock.DataAccessLayer
                     TranslateAndSendOldDailySettlementPrice(socket, v1SettlPrice, instr, subscrMsg.Uuid);
                 ProcessSubscriptionResponse(socket, "DS", subscrMsg.ServiceKey, subscrMsg.Uuid);
 
-                if (v1SettlPrice != null)
-                {
-                    Thread processDailySettlementPriceThread = new Thread(ProcessDailySettlementPriceThread);
-                    processDailySettlementPriceThread.Start(new object[] { v1SettlPrice, socket, instr, subscrMsg.Uuid });
-                }
+                //if (v1SettlPrice != null)
+                //{
+                //    Thread processDailySettlementPriceThread = new Thread(ProcessDailySettlementPriceThread);
+                //    processDailySettlementPriceThread.Start(new object[] { v1SettlPrice, socket, instr, subscrMsg.Uuid });
+                //}
             }
             catch (Exception ex)
             {

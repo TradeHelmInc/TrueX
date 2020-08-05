@@ -1,0 +1,1129 @@
+2020-08-05 18:57:00  :: Initializing Mock Server...
+2020-08-05 18:57:00  :: Initializing all collections...
+2020-08-05 18:57:01  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-08-05 18:57:02  :: Collections Initialized...
+2020-08-05 18:57:10  :: Connecting for the first time to client 10354
+2020-08-05 18:57:10  :: Connected for the first time to client 10354
+2020-08-05 18:57:14  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-08-05 18:57:14  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-08-05 18:57:14  :: Sending ClientLoginResponse with UUID cf95efb9-fbac-4835-b2e6-08c6044db125
+2020-08-05 18:57:14  :: Sending Instrument Batch 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:57:14  :: Sending ClientInstrumentState 
+2020-08-05 18:59:07  :: Initializing Mock Server...
+2020-08-05 18:59:07  :: Initializing all collections...
+2020-08-05 18:59:08  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-08-05 18:59:08  :: Collections Initialized...
+2020-08-05 18:59:14  :: Connecting for the first time to client 10407
+2020-08-05 18:59:14  :: Connected for the first time to client 10407
+2020-08-05 18:59:16  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-08-05 18:59:16  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-08-05 18:59:16  :: Sending ClientLoginResponse with UUID d928ccfb-8d43-4e4c-825a-b1557ff129db
+2020-08-05 18:59:16  :: Sending Instrument Batch 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientInstrumentState 
+2020-08-05 18:59:16  :: Sending ClientUserRecord
+2020-08-05 18:59:16  :: Sending ClientMarketStateBatch
+2020-08-05 18:59:16  :: Sending ClientAccountRecordBatch 
+2020-08-05 18:59:19  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 18:59:21  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:30
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:100
+2020-08-05 18:59:21  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 18:59:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 18:59:45  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 18:59:48  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 18:59:49  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-08-05 19:00:29  :: Initializing Mock Server...
+2020-08-05 19:00:29  :: Initializing all collections...
+2020-08-05 19:00:29  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-08-05 19:00:30  :: Collections Initialized...
+2020-08-05 19:00:36  :: Connecting for the first time to client 10417
+2020-08-05 19:00:36  :: Connected for the first time to client 10417
+2020-08-05 19:00:39  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-08-05 19:00:39  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-08-05 19:00:39  :: Sending ClientLoginResponse with UUID a76a365b-3d25-4fc3-b0bd-27d675bbca3f
+2020-08-05 19:00:39  :: Sending Instrument Batch 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientInstrumentState 
+2020-08-05 19:00:39  :: Sending ClientUserRecord
+2020-08-05 19:00:39  :: Sending ClientMarketStateBatch
+2020-08-05 19:00:39  :: Sending ClientAccountRecordBatch 
+2020-08-05 19:00:42  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:00:43  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:00:54  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:30
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:100
+2020-08-05 19:01:01  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:38  :: Initializing Mock Server...
+2020-08-05 19:02:38  :: Initializing all collections...
+2020-08-05 19:02:38  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-08-05 19:02:38  :: Collections Initialized...
+2020-08-05 19:02:46  :: Connecting for the first time to client 10433
+2020-08-05 19:02:46  :: Connected for the first time to client 10433
+2020-08-05 19:02:48  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-08-05 19:02:48  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-08-05 19:02:48  :: Sending ClientLoginResponse with UUID 0795422d-6196-4fcf-9d11-f39ddaccabf6
+2020-08-05 19:02:48  :: Sending Instrument Batch 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientInstrumentState 
+2020-08-05 19:02:48  :: Sending ClientUserRecord
+2020-08-05 19:02:48  :: Sending ClientMarketStateBatch
+2020-08-05 19:02:48  :: Sending ClientAccountRecordBatch 
+2020-08-05 19:02:51  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:02:52  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:30
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:100
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:100
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:02:52  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:03:02  :: Net Contracts for Security SPOT-TEST :0
+2020-08-05 19:03:02  :: Net Contracts for Security ETH-USD :0
+2020-08-05 19:03:02  :: Net Contracts for Security XMR-USD :0
+2020-08-05 19:03:02  :: Net Contracts for Security XRP-USD :0
+2020-08-05 19:03:02  :: Net Contracts for Security ADA-USD :0
+2020-08-05 19:03:02  :: Net Contracts for Security NDF-XBT-USD-V19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security NDF-XBT-USD-X19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security NDF-XBT-USD-Z19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security NDF-XBT-USD-X18 :0
+2020-08-05 19:03:02  :: Net Contracts for Security XBT-USD :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-X18 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-SPOT-TEST-TST :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-V18 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-G19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-N19 :100
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-Q19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-V19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-X19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security SWP-XBT-USD-Z19 :0
+2020-08-05 19:03:02  :: Net Contracts for Security ZEC-USD :0
+2020-08-05 19:03:02  :: Base Margin for FirmId 541111111:244000
+2020-08-05 19:03:02  :: Potential Contracts for Security SPOT-TEST  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security ETH-USD  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security XMR-USD  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security XRP-USD  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security ADA-USD  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security NDF-XBT-USD-V19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security NDF-XBT-USD-X19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security NDF-XBT-USD-Z19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security NDF-XBT-USD-X18  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security XBT-USD  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-X18  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-SPOT-TEST-TST  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-V18  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-G19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-N19  after Orders:100
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-Q19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-V19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-X19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security SWP-XBT-USD-Z19  after Orders:0
+2020-08-05 19:03:02  :: Potential Contracts for Security ZEC-USD  after Orders:0
+2020-08-05 19:03:02  :: Acum Margin for FirmId 541111111 after Orders:244000
+2020-08-05 19:03:02  :: Side B exposure:0
+2020-08-05 19:03:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:03:09  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:03:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:03:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:03:18  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:03:21  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:04:41  :: Initializing Mock Server...
+2020-08-05 19:04:41  :: Initializing all collections...
+2020-08-05 19:04:41  :: Creating history service for controller HistoryServiceController on URL http://localhost:29400/
+2020-08-05 19:04:41  :: Collections Initialized...
+2020-08-05 19:04:49  :: Connecting for the first time to client 10477
+2020-08-05 19:04:49  :: Connected for the first time to client 10477
+2020-08-05 19:05:03  :: OnMessage TokenRequest from IP -> 127.0.0.1
+2020-08-05 19:05:03  :: OnMessage ClientLoginRequest from IP -> 127.0.0.1
+2020-08-05 19:05:03  :: Sending ClientLoginResponse with UUID 6483ee75-b8c0-4a16-976d-1d2f4559eade
+2020-08-05 19:05:03  :: Sending Instrument Batch 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientInstrumentState 
+2020-08-05 19:05:03  :: Sending ClientUserRecord
+2020-08-05 19:05:03  :: Sending ClientMarketStateBatch
+2020-08-05 19:05:03  :: Sending ClientAccountRecordBatch 
+2020-08-05 19:05:06  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:05:07  :: OnMessage ClientCreditRequest from IP -> 127.0.0.1
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-200
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:200
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:-100
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:300
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:30
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:100
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:100
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SPOT-TEST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ETH-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XMR-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XRP-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ADA-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id NDF-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id XBT-USD:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-SPOT-TEST-TST:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V18:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-G19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-N19:-100
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Q19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-V19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-X19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id SWP-XBT-USD-Z19:0
+2020-08-05 19:05:07  :: Final Net Contracts for Security Id ZEC-USD:0
+2020-08-05 19:05:09  :: Net Contracts for Security SPOT-TEST :0
+2020-08-05 19:05:09  :: Net Contracts for Security ETH-USD :0
+2020-08-05 19:05:09  :: Net Contracts for Security XMR-USD :0
+2020-08-05 19:05:09  :: Net Contracts for Security XRP-USD :0
+2020-08-05 19:05:09  :: Net Contracts for Security ADA-USD :0
+2020-08-05 19:05:09  :: Net Contracts for Security NDF-XBT-USD-V19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security NDF-XBT-USD-X19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security NDF-XBT-USD-Z19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security NDF-XBT-USD-X18 :0
+2020-08-05 19:05:09  :: Net Contracts for Security XBT-USD :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-X18 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-SPOT-TEST-TST :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-V18 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-G19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-N19 :100
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-Q19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-V19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-X19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security SWP-XBT-USD-Z19 :0
+2020-08-05 19:05:09  :: Net Contracts for Security ZEC-USD :0
+2020-08-05 19:05:09  :: Base Margin for FirmId 541111111:244000
+2020-08-05 19:05:09  :: Potential Contracts for Security SPOT-TEST  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security ETH-USD  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security XMR-USD  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security XRP-USD  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security ADA-USD  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security NDF-XBT-USD-V19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security NDF-XBT-USD-X19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security NDF-XBT-USD-Z19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security NDF-XBT-USD-X18  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security XBT-USD  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-X18  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-SPOT-TEST-TST  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-V18  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-G19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-N19  after Orders:100
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-Q19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-V19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-X19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security SWP-XBT-USD-Z19  after Orders:0
+2020-08-05 19:05:09  :: Potential Contracts for Security ZEC-USD  after Orders:0
+2020-08-05 19:05:09  :: Acum Margin for FirmId 541111111 after Orders:244000
+2020-08-05 19:05:09  :: Side B exposure:0
+2020-08-05 19:05:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:05:12  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
+2020-08-05 19:05:15  :: OnMessage ClientHeartbeat from IP -> 127.0.0.1
