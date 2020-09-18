@@ -3440,8 +3440,9 @@ namespace DGTLBackendMock.DataAccessLayer
                     {
                         Msg = "ClientPositionRecord",
                         //Msg = "ClientAccountPositionRecord",
-                        Uuid = subscrMsg.Uuid,
-                        AccountId = "",
+                        //Uuid = subscrMsg.Uuid,
+                        Uuid = "",
+                        AccountId = "acc" + LoggedFirmId,
                         FirmId = LoggedFirmId,
                         InstrumentId = security.InstrumentId,
                         Contract = security.Symbol,
