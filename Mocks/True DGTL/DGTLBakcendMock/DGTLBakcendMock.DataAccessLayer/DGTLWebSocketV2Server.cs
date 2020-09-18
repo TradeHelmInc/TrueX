@@ -3154,16 +3154,20 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
+                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, Orders);
 
                 if (FirmsList == null)
                     CreateFirmListCreditStructure(clientCreditReq.Uuid);
                 FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
-                double neededCredit = firm.UsedCredit + CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId,Positions,Orders) + deltaExp;
+                double sideExposure = CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId, Positions, Orders);
+                double neededCredit = firm.UsedCredit + sideExposure + deltaExp;
                 double totalCredit = firm.UsedCredit + firm.AvailableCredit;
+
                 resp.CreditAvailable = neededCredit < totalCredit;
                 resp.ExposureChange = Convert.ToInt64(deltaExp);
+                resp.BuyExposure = clientCreditReq.cSide == LegacyOrderRecord._SIDE_BUY ? sideExposure + deltaExp : 0;//now we count from the Credit Used position
+                resp.SellExposure = clientCreditReq.cSide == LegacyOrderRecord._SIDE_SELL ? sideExposure + deltaExp : 0;//now we count from the Credit Used position
 
                 if (!resp.CreditAvailable)
                     throw new Exception(string.Format("No credit available for the operation. Credit Needed={0} USD (used + exposure + new order exposure). Total Credit={1} USD",

@@ -19,6 +19,10 @@ namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
       
         public long ExposureChange { get; set; }
 
+        public double BuyExposure { get; set; }
+
+        public double SellExposure { get; set; }
+
 
         public bool CreditAvailable { get; set; }
 

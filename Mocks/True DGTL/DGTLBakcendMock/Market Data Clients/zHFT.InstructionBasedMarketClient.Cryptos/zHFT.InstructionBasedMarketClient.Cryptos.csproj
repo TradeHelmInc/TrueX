@@ -48,10 +48,6 @@
       <Project>{38d7aa3e-b1a2-4678-8725-e9c13b15553f}</Project>
       <Name>zHFT.InstructionBasedMarketClient.BusinessEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\zHFT.InstructionBasedMarketClient.Cryptos.DataAccessLayer\zHFT.InstructionBasedMarketClient.Cryptos.DataAccessLayer.csproj">
-      <Project>{2d4a56cb-b881-4189-b360-db0b2ab27c9f}</Project>
-      <Name>zHFT.InstructionBasedMarketClient.Cryptos.DataAccessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Fwk\zHFT.Main.BusinessEntities\zHFT.Main.BusinessEntities.csproj">
       <Project>{97f7f85d-864c-44ed-8901-547f2f693427}</Project>
       <Name>zHFT.Main.BusinessEntities</Name>
@@ -59,6 +55,10 @@
     <ProjectReference Include="..\..\Fwk\zHFT.Main.Common\zHFT.Main.Common.csproj">
       <Project>{4a57ed3b-774d-4344-b091-3328838f57f5}</Project>
       <Name>zHFT.Main.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zHFT.InstructionBasedMarketClient.Cryptos.DataAccessLayer\zHFT.InstructionBasedMarketClient.Cryptos.DAL.csproj">
+      <Project>{23fb7629-4b90-4b73-83f8-155a3ecbafb6}</Project>
+      <Name>zHFT.InstructionBasedMarketClient.Cryptos.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
