@@ -1,44 +1,317 @@
-﻿[ 
-  {"OrderId":"857c1799-f06e-49e7-84e0-ed6b76168476","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561489159770,"Side":66,"TimeInForce":48,"OrdQty":3.0,"Price":7490.0,"LvsQty":3.0,"FillQty":0.0,"Status":79,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"fd6cad71-bd75-b36c-ff96-8b85060a5434","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561489159770,"Side":66,"TimeInForce":48,"OrdQty":5.0,"Price":7468.0,"LvsQty":5.0,"FillQty":0.0,"Status":79,"Msg":"LegacyOrderRecord","Sender":0}
-
-
-, {"OrderId":"756a9a7e-c462-1aa5-7d92-149f301056dc","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561402609494,"Side":83,"TimeInForce":48,"OrdQty":1.0,"Price":16000.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"29da505d-0ea9-f270-4be4-e5a7de07a3ec","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561405471513,"Side":83,"TimeInForce":48,"OrdQty":1.0,"Price":8500.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"f742390e-169b-50f2-448d-d56ad8e70d2a","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561404356380,"Side":83,"TimeInForce":48,"OrdQty":2.0,"Price":8500.0,"LvsQty":0.0,"FillQty":2.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"cd873ece-cbb6-d186-bcc6-1050f4b49d22","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561402800783,"Side":83,"TimeInForce":48,"OrdQty":1.0,"Price":9000.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"0f4c35b6-b1e2-d68f-3352-8ec533e06138","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561045466970,"Side":66,"TimeInForce":48,"OrdQty":3.0,"Price":8600.0,"LvsQty":0.0,"FillQty":3.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"326f88f2-877b-8888-baa2-98080dd85d53","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1561035726822,"Side":66,"TimeInForce":48,"OrdQty":11.0,"Price":9298.0,"LvsQty":0.0,"FillQty":11.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"e968efec-6abc-f11a-f0f9-8122bfee1cc6","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560975873633,"Side":66,"TimeInForce":48,"OrdQty":50.0,"Price":8499.0,"LvsQty":0.0,"FillQty":44.0,"Status":67,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"cfeb20dd-6b56-702f-3484-adf1fc9fb78a","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560893687659,"Side":66,"TimeInForce":48,"OrdQty":5.0,"Price":10164.0,"LvsQty":0.0,"FillQty":5.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"103b8213-ecef-0b6b-f891-842265af86a4","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560893675958,"Side":66,"TimeInForce":48,"OrdQty":5.0,"Price":10164.0,"LvsQty":0.0,"FillQty":5.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"3961668f-e435-824e-f449-36a40de36fe6","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560375865527,"Side":66,"TimeInForce":48,"OrdQty":200.0,"Price":7700.0,"LvsQty":0.0,"FillQty":139.0,"Status":67,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"094b8984-fde8-fdc3-ab11-88fd6e8756eb","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560454530543,"Side":83,"TimeInForce":48,"OrdQty":1.0,"Price":8400.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"95937957-0b02-d2f0-f9cd-79175f747a38","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560453377299,"Side":66,"TimeInForce":48,"OrdQty":200.0,"Price":8400.0,"LvsQty":0.0,"FillQty":1.0,"Status":67,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"2773ba9e-6ac6-94da-c01c-3d407fb25224","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560453391108,"Side":83,"TimeInForce":48,"OrdQty":452.0,"Price":8400.0,"LvsQty":0.0,"FillQty":452.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"d7d75eb5-865c-50a6-28c9-1f9de9e5883f","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560453018640,"Side":66,"TimeInForce":48,"OrdQty":1.0,"Price":9500.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"c2579b43-ee82-2a63-7a16-5d7216861570","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560452986632,"Side":66,"TimeInForce":48,"OrdQty":1.0,"Price":9000.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"3bc871d2-d5db-5e59-8e27-44fec16c4dbc","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560452944429,"Side":66,"TimeInForce":48,"OrdQty":1.0,"Price":9000.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"3accaa8a-70df-a4f8-17ab-7c898efe1eb0","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560452169503,"Side":83,"TimeInForce":48,"OrdQty":1.0,"Price":8400.0,"LvsQty":0.0,"FillQty":1.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"de88989c-467b-a6fd-77cf-6bc10b81f813","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560449026241,"Side":66,"TimeInForce":48,"OrdQty":4.0,"Price":8400.0,"LvsQty":0.0,"FillQty":4.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
-
-, {"OrderId":"0a004a01-e7ea-e7ab-3292-7972249c9964","ClientOrderId":"","InstrumentId":"ETH-USD","UpdateTime":1560438046018,"Side":66,"TimeInForce":48,"OrdQty":4.0,"Price":8208.0,"LvsQty":0.0,"FillQty":4.0,"Status":70,"Msg":"LegacyOrderRecord","Sender":0}
+﻿[
+  {
+    "OrderId": "857c1799-f06e-49e7-84e0-ed6b76168476",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561489159770,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 3,
+    "Price": 7490,
+    "LvsQty": 3,
+    "FillQty": 0,
+    "Status": 79,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "fd6cad71-bd75-b36c-ff96-8b85060a5434",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561489159770,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 5,
+    "Price": 7468,
+    "LvsQty": 5,
+    "FillQty": 0,
+    "Status": 79,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "756a9a7e-c462-1aa5-7d92-149f301056dc",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561402609494,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 16000,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "29da505d-0ea9-f270-4be4-e5a7de07a3ec",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561405471513,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 8500,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "f742390e-169b-50f2-448d-d56ad8e70d2a",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561404356380,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 2,
+    "Price": 8500,
+    "LvsQty": 0,
+    "FillQty": 2,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "cd873ece-cbb6-d186-bcc6-1050f4b49d22",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561402800783,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 9000,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "0f4c35b6-b1e2-d68f-3352-8ec533e06138",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561045466970,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 3,
+    "Price": 8600,
+    "LvsQty": 0,
+    "FillQty": 3,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "326f88f2-877b-8888-baa2-98080dd85d53",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1561035726822,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 11,
+    "Price": 9298,
+    "LvsQty": 0,
+    "FillQty": 11,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "e968efec-6abc-f11a-f0f9-8122bfee1cc6",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560975873633,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 50,
+    "Price": 8499,
+    "LvsQty": 0,
+    "FillQty": 44,
+    "Status": 67,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "cfeb20dd-6b56-702f-3484-adf1fc9fb78a",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560893687659,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 5,
+    "Price": 10164,
+    "LvsQty": 0,
+    "FillQty": 5,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "103b8213-ecef-0b6b-f891-842265af86a4",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560893675958,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 5,
+    "Price": 10164,
+    "LvsQty": 0,
+    "FillQty": 5,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "3961668f-e435-824e-f449-36a40de36fe6",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560375865527,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 200,
+    "Price": 7700,
+    "LvsQty": 0,
+    "FillQty": 139,
+    "Status": 67,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "094b8984-fde8-fdc3-ab11-88fd6e8756eb",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560454530543,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 8400,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "95937957-0b02-d2f0-f9cd-79175f747a38",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560453377299,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 200,
+    "Price": 8400,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 67,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "2773ba9e-6ac6-94da-c01c-3d407fb25224",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560453391108,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 452,
+    "Price": 8400,
+    "LvsQty": 0,
+    "FillQty": 452,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "d7d75eb5-865c-50a6-28c9-1f9de9e5883f",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560453018640,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 9500,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "c2579b43-ee82-2a63-7a16-5d7216861570",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560452986632,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 9000,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "3bc871d2-d5db-5e59-8e27-44fec16c4dbc",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560452944429,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 9000,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "3accaa8a-70df-a4f8-17ab-7c898efe1eb0",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560452169503,
+    "Side": 83,
+    "TimeInForce": 48,
+    "OrdQty": 1,
+    "Price": 8400,
+    "LvsQty": 0,
+    "FillQty": 1,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "de88989c-467b-a6fd-77cf-6bc10b81f813",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560449026241,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 4,
+    "Price": 8400,
+    "LvsQty": 0,
+    "FillQty": 4,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  },
+  {
+    "OrderId": "0a004a01-e7ea-e7ab-3292-7972249c9964",
+    "ClientOrderId": "",
+    "InstrumentId": "ETH-USD",
+    "UpdateTime": 1560438046018,
+    "Side": 66,
+    "TimeInForce": 48,
+    "OrdQty": 4,
+    "Price": 8208,
+    "LvsQty": 0,
+    "FillQty": 4,
+    "Status": 70,
+    "Msg": "LegacyOrderRecord",
+    "Sender": 0
+  }
 ]
