@@ -25,7 +25,7 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         protected DailySettlementPrice[] DailySettlementPrices { get; set; }
 
-        protected FundedMargin[] FundedMargins { get; set; }
+        protected PriorDayMargin[] FundedMargins { get; set; }
 
         protected Config Config { get; set; }
 
@@ -35,12 +35,12 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         #region Constructor
 
-        public CreditCalculator(SecurityMasterRecord[] securities,DailySettlementPrice[] prices ,UserRecord[] users,  FundedMargin[] fundedMargins, Config config, ILogSource logger)
+        public CreditCalculator(SecurityMasterRecord[] securities,DailySettlementPrice[] prices ,UserRecord[] users,  PriorDayMargin[] priorDayMargins, Config config, ILogSource logger)
         {
             UserRecords = users;
             SecurityMasterRecords = securities;
             DailySettlementPrices = prices;
-            FundedMargins = fundedMargins;
+            FundedMargins = priorDayMargins;
             Config=config;
             Logger = logger;
         
@@ -55,9 +55,29 @@ namespace DGTLBackendMock.Common.Util.Margin
             Logger.Debug(msg, type);
         }
 
+        protected string[] GetAvailableAssetClasses()
+        {
+            List<string> assetClasses = new List<string>();
+
+            foreach (SecurityMasterRecord sec in SecurityMasterRecords)
+            {
+                if (!assetClasses.Contains(sec.AssetClass) && sec.AssetClass != SecurityMasterRecord._AS_SPOT)
+                {
+                    assetClasses.Add(sec.AssetClass);
+                }
+            }
+
+            return assetClasses.ToArray();
+        }
+
         #endregion
 
         #region Private Methods
+
+        private double GetFundedMargin(string firmId)
+        {
+            return GetPriorDayCredit(firmId) * Config.MarginPct;
+        }
 
         private double GetPotentialxMargin(char side, string firmId, ClientPosition[] Positions, List<LegacyOrderRecord> Orders)
         {
@@ -195,7 +215,7 @@ namespace DGTLBackendMock.Common.Util.Margin
         #region Public Methods
 
         //here I can work with just 1 security
-        public double GetSecurityPotentialExposure(char side, double qty, string symbol, string firmId, ClientPosition[] Positions,
+        public double GetExposureChange(char side, double qty, string symbol, string firmId, ClientPosition[] Positions,
                                                    List<LegacyOrderRecord> Orders)
         {
             double finalExposure = 0;
@@ -246,21 +266,6 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         }
 
-        public double GetFundedMargin(string firmId)
-        {
-            return GetFundedCredit(firmId) * Config.MarginPct;
-        }
-
-        public double GetFundedCredit(string firmId)
-        {
-            FundedMargin fundedMargin = FundedMargins.Where(x => x.FirmId == firmId).FirstOrDefault();
-
-            if (fundedMargin != null)
-                return fundedMargin.Margin / Config.MarginPct;
-            else
-                return 0;
-        }
-
         public double GetUsedCredit(string firmId, ClientPosition[] Positions)
         {
 
@@ -291,11 +296,25 @@ namespace DGTLBackendMock.Common.Util.Margin
 
             if (Config.ImplementCalendarMarginDiscount)
             {
-                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "SWP") / Config.MarginPct);
-                creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), "NDF") / Config.MarginPct);
+                string[] assetClasses = GetAvailableAssetClasses();
+
+                foreach (string assetClass in assetClasses)
+                {
+                    creditUsed -= (CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), assetClass) / Config.MarginPct);
+                }
             }
 
-            return creditUsed - GetFundedCredit(firmId);
+            return creditUsed - GetPriorDayCredit(firmId);
+        }
+
+        public double GetPriorDayCredit(string firmId)
+        {
+            PriorDayMargin fundedMargin = FundedMargins.Where(x => x.FirmId == firmId).FirstOrDefault();
+
+            if (fundedMargin != null)
+                return fundedMargin.Margin / Config.MarginPct;
+            else
+                return 0;
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DGTLBackendMock.Common.DTO.Account.V2.Credit_UI
 {
-    public class FundedMargin
+    public class PriorDayMargin
     {
         public string FirmId { get; set; }
 

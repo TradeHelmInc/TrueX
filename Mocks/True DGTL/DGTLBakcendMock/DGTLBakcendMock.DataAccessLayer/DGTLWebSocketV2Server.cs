@@ -94,7 +94,7 @@ namespace DGTLBackendMock.DataAccessLayer
 
         protected ClientPosition[] Positions { get; set; }
 
-        protected FundedMargin[] FundedMargins { get; set; }
+        protected PriorDayMargin[] FundedMargins { get; set; }
 
         protected CollateralAcc[] Collaterals { get; set; }
 
@@ -126,7 +126,7 @@ namespace DGTLBackendMock.DataAccessLayer
         {
             string strFundedMargins = File.ReadAllText(@".\input\FundedMargins.json");
 
-            FundedMargins = JsonConvert.DeserializeObject<FundedMargin[]>(strFundedMargins);
+            FundedMargins = JsonConvert.DeserializeObject<PriorDayMargin[]>(strFundedMargins);
 
         }
 
@@ -2564,7 +2564,7 @@ namespace DGTLBackendMock.DataAccessLayer
         private void DoSendAccountBalance(IWebSocketConnection socket, string Uuid)
         {
             TimeSpan epochElapsed = DateTime.Now - new DateTime(1970, 1, 1);
-            double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+            double prevMargin = CreditCalculator.GetPriorDayCredit(LoggedFirmId) * Config.MarginPct;
             double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions) * Config.MarginPct;
 
             CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
@@ -3154,7 +3154,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                double deltaExp = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, Orders);
+                double deltaExp = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, Orders);
 
                 if (FirmsList == null)
                     CreateFirmListCreditStructure(clientCreditReq.Uuid);
@@ -3177,7 +3177,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                double exposure = CreditCalculator.GetSecurityPotentialExposure(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
+                double exposure = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",
@@ -3368,7 +3368,7 @@ namespace DGTLBackendMock.DataAccessLayer
                 {
                     TimeSpan elapsed = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0) - new DateTime(1970, 1, 1);
 
-                    double prevMargin = CreditCalculator.GetFundedCredit(LoggedFirmId) * Config.MarginPct;
+                    double prevMargin = CreditCalculator.GetPriorDayCredit(LoggedFirmId) * Config.MarginPct;
                     double initMargin = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions) * Config.MarginPct;
 
                     CollateralAcc collateralAcc = DoFindCollateral(LoggedFirmId);
@@ -3434,7 +3434,7 @@ namespace DGTLBackendMock.DataAccessLayer
                     double dblTodayDSP = todayDSP != null && todayDSP.Price.HasValue ? todayDSP.Price.Value : 0;
                     double dblPrevDSP = dblTodayDSP * Convert.ToDouble(0.9d); //10% lower
 
-                    double prevNotional = CreditCalculator.GetFundedCredit(LoggedFirmId);
+                    double prevNotional = CreditCalculator.GetPriorDayCredit(LoggedFirmId);
                     double currNotional = CreditCalculator.GetUsedCredit(LoggedFirmId,Positions);
 
                     DoLog(string.Format("Found {0} DSP/{1} prev. DSP for security {2}", dblTodayDSP,dblPrevDSP, security.Symbol), MessageType.Information);
