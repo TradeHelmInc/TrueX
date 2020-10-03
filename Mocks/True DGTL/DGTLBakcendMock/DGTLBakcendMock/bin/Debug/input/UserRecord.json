@@ -1,40 +1,272 @@
 ﻿[
-
-{"UserKey":"0","UserId":"MM1_CLOBUI2","FirmId":"548346913","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81832","FirstName":"CLOBUI2","LastName":"MM1","NickName":"CLOBUI2","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM1_CLOBUI","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81832","FirstName":"MM1","LastName":"CLOB","NickName":"MM1UI","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM2_CLOBUI2","FirmId":"271058668","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c20","FirstName":"MM2","LastName":"CLOBUI1","NickName":"MM2CLOBUI2","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM2_CLOBUI1","FirmId":"271058655","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c20","FirstName":"CLOBUI2","LastName":"MM2","NickName":"MM2CLOBUI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM3_CLOBUI1","FirmId":"271058670","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c21","FirstName":"MM3","LastName":"CLOBUI1","NickName":"MM3CLOBUI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM3_CLOBUI2","FirmId":"271058656","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c22","FirstName":"MM3","LastName":"CLOBUI2","NickName":"MM3CLOBUI2","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"QAONE","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"QAONE","LastName":"CLOB","NickName":"QAONE","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"QATWO","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"QATWO","LastName":"CLOB","NickName":"QATWO","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"SIMUSER_3_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"SIMUSER_3_UI1","LastName":"CLOB","NickName":"SIMUSER_3_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"SIMUSER_4_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"SIMUSER_4_UI1","LastName":"CLOB","NickName":"SIMUSER_4_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"SIMUSER_16_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81872","FirstName":"SIMUSER_16_UI1","LastName":"CLOB","NickName":"SIMUSER_16_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"SIMUSER_17_UI1","FirmId":"548346919","DeskId":"677d99c4-1bb5-58d4-99da-e225b9d81873","FirstName":"SIMUSER_17_UI1","LastName":"CLOB","NickName":"SIMUSER_17_UI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM4_CLOBUI1","FirmId":"271058657","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c21","FirstName":"MM3","LastName":"CLOBUI1","NickName":"MM3_CLOBUI1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM_FUNDEDUSER","FirmId":"548349999","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c31","FirstName":"MM","LastName":"FUNDEDUSER","NickName":"MM_FUNDEDUSER","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM_MARGINCALLUSER","FirmId":"271058657","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58","FirstName":"Margin","LastName":"Call","NickName":"MM_MARGINCALLUSER","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-
-,{"UserKey":"0","UserId":"MM1_LONGSETT","FirmId":"541111111","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58","FirstName":"Margin","LastName":"Call","NickName":"MM1_LONGSETT","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM1_SHORTSETT1","FirmId":"542222222","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58","FirstName":"Margin","LastName":"Call","NickName":"MM1_SHORTSETT1","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-,{"UserKey":"0","UserId":"MM1_SHORTSETT2","FirmId":"542222222","DeskId":"f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58","FirstName":"Margin","LastName":"Call","NickName":"MM1_SHORTSETT2","UserType":"ui","Status":"69","Email":"IGNORE.ME@VIRTUOSO.IO","GatewayType":"web","Msg":"UserRecord","Sender":0}
-
-]
+    {
+      "UserKey": "0",
+      "UserId": "MM1_CLOBUI2",
+      "FirmId": "548346913",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81832",
+      "FirstName": "CLOBUI2",
+      "LastName": "MM1",
+      "NickName": "CLOBUI2",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM1_CLOBUI",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81832",
+      "FirstName": "MM1",
+      "LastName": "CLOB",
+      "NickName": "MM1UI",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM2_CLOBUI2",
+      "FirmId": "271058668",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c20",
+      "FirstName": "MM2",
+      "LastName": "CLOBUI1",
+      "NickName": "MM2CLOBUI2",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM2_CLOBUI1",
+      "FirmId": "271058655",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c20",
+      "FirstName": "CLOBUI2",
+      "LastName": "MM2",
+      "NickName": "MM2CLOBUI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM3_CLOBUI1",
+      "FirmId": "271058670",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c21",
+      "FirstName": "MM3",
+      "LastName": "CLOBUI1",
+      "NickName": "MM3CLOBUI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM3_CLOBUI2",
+      "FirmId": "271058656",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c22",
+      "FirstName": "MM3",
+      "LastName": "CLOBUI2",
+      "NickName": "MM3CLOBUI2",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "QAONE",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81872",
+      "FirstName": "QAONE",
+      "LastName": "CLOB",
+      "NickName": "QAONE",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "QATWO",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81873",
+      "FirstName": "QATWO",
+      "LastName": "CLOB",
+      "NickName": "QATWO",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "SIMUSER_3_UI1",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81872",
+      "FirstName": "SIMUSER_3_UI1",
+      "LastName": "CLOB",
+      "NickName": "SIMUSER_3_UI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "SIMUSER_4_UI1",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81873",
+      "FirstName": "SIMUSER_4_UI1",
+      "LastName": "CLOB",
+      "NickName": "SIMUSER_4_UI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "SIMUSER_16_UI1",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81872",
+      "FirstName": "SIMUSER_16_UI1",
+      "LastName": "CLOB",
+      "NickName": "SIMUSER_16_UI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "SIMUSER_17_UI1",
+      "FirmId": "548346919",
+      "DeskId": "677d99c4-1bb5-58d4-99da-e225b9d81873",
+      "FirstName": "SIMUSER_17_UI1",
+      "LastName": "CLOB",
+      "NickName": "SIMUSER_17_UI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM4_CLOBUI1",
+      "FirmId": "271058657",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c21",
+      "FirstName": "MM3",
+      "LastName": "CLOBUI1",
+      "NickName": "MM3_CLOBUI1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM_FUNDEDUSER",
+      "FirmId": "548349999",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c31",
+      "FirstName": "MM",
+      "LastName": "FUNDEDUSER",
+      "NickName": "MM_FUNDEDUSER",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM_MARGINCALLUSER",
+      "FirmId": "271058657",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58",
+      "FirstName": "Margin",
+      "LastName": "Call",
+      "NickName": "MM_MARGINCALLUSER",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM1_LONGSETT",
+      "FirmId": "541111111",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58",
+      "FirstName": "Margin",
+      "LastName": "Call",
+      "NickName": "MM1_LONGSETT",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM1_SHORTSETT1",
+      "FirmId": "542222222",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58",
+      "FirstName": "Margin",
+      "LastName": "Call",
+      "NickName": "MM1_SHORTSETT1",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    },
+    {
+      "UserKey": "0",
+      "UserId": "MM1_SHORTSETT2",
+      "FirmId": "542222222",
+      "DeskId": "f10ffd32-5bb5-b0b4-c5d8-a1e0e20f0c58",
+      "FirstName": "Margin",
+      "LastName": "Call",
+      "NickName": "MM1_SHORTSETT2",
+      "UserType": "ui",
+      "Status": "69",
+      "Email": "IGNORE.ME@VIRTUOSO.IO",
+      "GatewayType": "web",
+      "Msg": "UserRecord",
+      "Sender": 0
+    }
+  ]

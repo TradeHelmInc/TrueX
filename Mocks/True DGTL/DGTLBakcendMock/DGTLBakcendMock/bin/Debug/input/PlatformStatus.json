@@ -1,1 +1,4 @@
-﻿{"Msg":"PlatformStatus","sState":"2"}
+﻿{
+    "Msg": "PlatformStatus",
+    "sState": "2"
+}
