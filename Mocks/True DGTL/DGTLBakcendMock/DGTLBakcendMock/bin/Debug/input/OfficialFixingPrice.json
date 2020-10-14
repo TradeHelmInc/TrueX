@@ -1,33 +1,5 @@
 ﻿[
-    {
-      "FixingDate": "2019-04-01T00:00:00",
-      "FixingTime": "20:30:00",
-      "Price": 4131.77,
-      "Change": 49.5,
-      "Sender": 0,
-      "Expected": 0,
-      "Service": "FP",
-      "Symbol": "XBT-USD",
-      "Msg": "OfficialFixingPrice"
-    },
-    {
-      "FixingDate": "2019-06-30T00:00:00",
-      "FixingTime": "20:30:00",
-      "Sender": 0,
-      "Expected": 0,
-      "Service": "FP",
-      "Symbol": "USD-ETH",
-      "Msg": "OfficialFixingPrice"
-    },
-    {
-      "FixingDate": "2019-06-30T00:00:00",
-      "FixingTime": "20:30:00",
-      "Price": null,
-      "Change": null,
-      "Sender": 0,
-      "Expected": 0,
-      "Service": "FP",
-      "Symbol": "USD-XRP",
-      "Msg": "OfficialFixingPrice"
-    }
-  ]
+{"FixingDate":"2019-04-01T00:00:00","FixingTime":"20:30:00","Price":4131.77,"Change":49.5,"Sender":0,"Expected":0,"Service":"FP","Symbol":"XBT-USD","Msg":"OfficialFixingPrice"},
+{"FixingDate":"2019-06-30T00:00:00","FixingTime":"20:30:00","Sender":0,"Expected":0,"Service":"FP","Symbol":"USD-ETH","Msg":"OfficialFixingPrice"},
+{"FixingDate":"2019-06-30T00:00:00","FixingTime":"20:30:00","Price":null,"Change":null,"Sender":0,"Expected":0,"Service":"FP","Symbol":"USD-XRP","Msg":"OfficialFixingPrice"}
+]

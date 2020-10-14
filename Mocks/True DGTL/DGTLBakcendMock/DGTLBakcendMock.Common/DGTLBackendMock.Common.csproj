@@ -179,6 +179,8 @@
     <Compile Include="DTO\Subscription\V2\Subscribe.cs" />
     <Compile Include="DTO\Subscription\V2\SubscriptionResponse.cs" />
     <Compile Include="DTO\Temp\Positions\NetPositionDTO.cs" />
+    <Compile Include="DTO\Temp\Positions\OrderDTO.cs" />
+    <Compile Include="DTO\Temp\Positions\TradeDTO.cs" />
     <Compile Include="DTO\UnknownMessageV2.cs" />
     <Compile Include="DTO\WebSocketMessage.cs" />
     <Compile Include="DTO\ErrorMessage.cs" />
@@ -189,9 +191,11 @@
     <Compile Include="Util\AESCryptohandler.cs" />
     <Compile Include="Util\AttributeConverter.cs" />
     <Compile Include="Util\GUIDToLongConverter.cs" />
+    <Compile Include="Util\Margin\BaseCreditLogic.cs" />
     <Compile Include="Util\Margin\CreditCalculator.cs" />
     <Compile Include="Util\Margin\CreditStatusHandler.cs" />
     <Compile Include="Util\MarketDataConverter.cs" />
+    <Compile Include="Util\Portfolio\PortfolioCalculator.cs" />
     <Compile Include="Util\Security\SecurityHandler.cs" />
     <Compile Include="Util\Security\SecurityStateHandler.cs" />
     <Compile Include="Util\Settlement\PositionsCalculator.cs" />

@@ -1,14 +1,8 @@
 ﻿[
-    {
-      "IncomingSymbol": "XBT-USD",
-      "OutgoingSymbol": "XBTU19"
-    },
-    {
-      "IncomingSymbol": "SWP-XBT-USD-G19",
-      "OutgoingSymbol": "XBTM19"
-    },
-    {
-      "IncomingSymbol": "NDF-XBT-USD-X19",
-      "OutgoingSymbol": "XBTUSD"
-    }
-  ]
+{"IncomingSymbol":"XBT-USD","OutgoingSymbol":"XBTU19"}
+,
+{"IncomingSymbol":"SWP-XBT-USD-G21","OutgoingSymbol":"XBTM21"}
+,
+{"IncomingSymbol":"NDF-XBT-USD-X21","OutgoingSymbol":"XBTUSD"}
+
+]

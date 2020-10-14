@@ -1,12 +1,4 @@
 ﻿[
-    {
-      "FirmId": "548346919",
-      "Collateral": 1000000,
-      "PriorCollateral": 1000000
-    },
-    {
-      "FirmId": "271058657",
-      "Collateral": 50000,
-      "PriorCollateral": 150000
-    }
-  ]
+{FirmId:"548346919","Collateral":1000000.00,"PriorCollateral":1000000.00},
+{FirmId:"271058657","Collateral":50000.00,"PriorCollateral":150000.00}
+]

@@ -1,0 +1,17 @@
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\DGTLProfitsAndLossesPOC.exe.config
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\DGTLProfitsAndLossesPOC.exe
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\DGTLProfitsAndLossesPOC.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\DGTLBackendMock.Common.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\zHFT.Main.Common.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\zHFT.Main.BusinessEntities.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\ToolsShared.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\MDFShared.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\quickfix_net.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\quickfix_net_messages.dll
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\DGTLBackendMock.Common.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\zHFT.Main.Common.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\zHFT.Main.BusinessEntities.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.csprojResolveAssemblyReference.cache
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.exe
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.pdb

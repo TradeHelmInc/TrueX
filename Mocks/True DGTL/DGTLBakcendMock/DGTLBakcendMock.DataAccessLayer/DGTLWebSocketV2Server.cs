@@ -574,8 +574,8 @@ namespace DGTLBackendMock.DataAccessLayer
                      AccountId = 0,
                      CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                      CreditUsed = firm.UsedCredit,
-                     BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId,Positions,Orders),
-                     SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId,Positions,Orders),
+                     BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders)),
+                     SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders)),
                      cStatus = firm.cTradingStatus,
                      cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                      FirmId = Convert.ToInt64(firm.FirmId),
@@ -2954,8 +2954,8 @@ namespace DGTLBackendMock.DataAccessLayer
                     AccountId = 0,
                     CreditLimit = firm.AvailableCredit + firm.UsedCredit,
                     CreditUsed = firm.UsedCredit,
-                    BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId,Positions,Orders),
-                    SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId, Positions, Orders),
+                    BuyExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_BUY, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders)),
+                    SellExposure = CreditCalculator.GetTotalSideExposure(LegacyOrderRecord._SIDE_SELL, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders)),
                     cStatus = firm.cTradingStatus,
                     cUpdateReason = ClientCreditUpdate._UPDATE_REASON_DEFAULT,
                     FirmId = Convert.ToInt32(firm.FirmId),
@@ -3154,13 +3154,13 @@ namespace DGTLBackendMock.DataAccessLayer
                     Uuid = clientCreditReq.Uuid
                 };
 
-                double deltaExp = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, Orders);
+                double deltaExp = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders));
 
                 if (FirmsList == null)
                     CreateFirmListCreditStructure(clientCreditReq.Uuid);
                 FirmsCreditRecord firm = FirmsList.Firms.Where(x => x.FirmId == clientCreditReq.FirmId).FirstOrDefault();
 
-                double sideExposure = CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId, Positions, Orders);
+                double sideExposure = CreditCalculator.GetTotalSideExposure(clientCreditReq.cSide, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders));
                 double neededCredit = firm.UsedCredit + sideExposure + deltaExp;
                 double totalCredit = firm.UsedCredit + firm.AvailableCredit;
 
@@ -3177,7 +3177,7 @@ namespace DGTLBackendMock.DataAccessLayer
             }
             catch (Exception ex)
             {
-                double exposure = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId,Positions,Orders);
+                double exposure = CreditCalculator.GetExposureChange(clientCreditReq.cSide, clientCreditReq.Quantity, instr.InstrumentName, LoggedFirmId, Positions, OrderDTO.GetOrders(Orders));
                 ClientCreditResponse resp = new ClientCreditResponse()
                 {
                     Msg = "ClientCreditResponse",

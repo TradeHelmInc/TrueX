@@ -1,925 +1,148 @@
 ﻿[
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253942,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9013.5,
-      "Size": 302841,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253948,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9013,
-      "Size": 60,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253948,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9011.5,
-      "Size": 200,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253949,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9008,
-      "Size": 1870649,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253950,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8135,
-      "Size": 10995,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253950,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8125,
-      "Size": 151,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8000,
-      "Size": 207,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7546,
-      "Size": 1457,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253952,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7543,
-      "Size": 1000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253952,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7490,
-      "Size": 1000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253953,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7468,
-      "Size": 1600,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253953,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7344,
-      "Size": 50000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253954,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6834,
-      "Size": 10,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253954,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6740.5,
-      "Size": 100000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253955,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6500,
-      "Size": 5000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253955,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6353,
-      "Size": 150000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253956,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6205.5,
-      "Size": 100000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253957,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6144.5,
-      "Size": 74045,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253957,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 6000,
-      "Size": 5000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253958,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 5122,
-      "Size": 20,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253959,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 5101,
-      "Size": 1000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253959,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 4977,
-      "Size": 15000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253960,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 4000,
-      "Size": 1,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253961,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 3952.5,
-      "Size": 25,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253961,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 3009.5,
-      "Size": 20000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253962,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 3006.5,
-      "Size": 10000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253963,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 2191,
-      "Size": 166,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253963,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 2025,
-      "Size": 260,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253964,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 1680,
-      "Size": 509,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253965,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 1600,
-      "Size": 625,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253965,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 1588,
-      "Size": 401,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253966,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 7,
-      "Size": 1,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253967,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 14999,
-      "Size": 500,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253967,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 18027,
-      "Size": 518,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253968,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 19999.5,
-      "Size": 30000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253969,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 20000,
-      "Size": 200552,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253970,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 32446,
-      "Size": 982,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253972,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 36210,
-      "Size": 513,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253973,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 38682,
-      "Size": 697,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "ETH-USD",
-      "DepthTime": 1561479253974,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 40525,
-      "Size": 95,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "XMR-USD",
-      "DepthTime": 1561479253973,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 95.8,
-      "Size": 25.12,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "XMR-USD",
-      "DepthTime": 1561479253974,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 90.5,
-      "Size": 51.3,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253942,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9017.5,
-      "Size": 100,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253948,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9013,
-      "Size": 160.55,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253948,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9011.5,
-      "Size": 340.2,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253949,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9008,
-      "Size": 1870649,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253950,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9135,
-      "Size": 10995,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253950,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9145,
-      "Size": 151,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 10000,
-      "Size": 207,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SPOT-TEST",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 5213.88,
-      "Size": 107,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "XBT-USD",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 100.36,
-      "Size": 12,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "XBT-USD",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 100.38,
-      "Size": 13,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-V18",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 5233.88,
-      "Size": 11.22,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-X18",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 5433.22,
-      "Size": 11.12,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9135,
-      "Size": 11.12,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Z19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9058.5,
-      "Size": 112.12,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-G19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9102,
-      "Size": 20,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-Z19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9500,
-      "Size": 100,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-Z19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8500,
-      "Size": 200,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-X18",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9600,
-      "Size": 100,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-X18",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8400,
-      "Size": 200,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-X19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9700,
-      "Size": 5,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "NDF-XBT-USD-X19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 8300,
-      "Size": 10,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-N19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9523.55,
-      "Size": 550,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-N19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9125.32,
-      "Size": 452,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Q19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9438.55,
-      "Size": 1550,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-Q19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9329.12,
-      "Size": 1452,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-V19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9625.25,
-      "Size": 1550,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-V19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9428.11,
-      "Size": 1728,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-V19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 65,
-      "cBidOrAsk": "A",
-      "Index": 0,
-      "Price": 9623.25,
-      "Size": 2000,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    },
-    {
-      "Symbol": "SWP-XBT-USD-V19",
-      "DepthTime": 1561479253951,
-      "Action": 65,
-      "cAction": "A",
-      "BidOrAsk": 66,
-      "cBidOrAsk": "B",
-      "Index": 0,
-      "Price": 9424.11,
-      "Size": 2100,
-      "Msg": "DepthOfBook",
-      "Sender": 0
-    }
-  ]
+{"Symbol":"ETH-USD","DepthTime":1561479253942,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9013.5,"Size":302841.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253948,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9013.0,"Size":60.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253948,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9011.5,"Size":200.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253949,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9008.0,"Size":1870649.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253950,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8135.0,"Size":10995.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253950,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8125.0,"Size":151.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8000.0,"Size":207.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7546.0,"Size":1457.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253952,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7543.0,"Size":1000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253952,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7490.0,"Size":1000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253953,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7468.0,"Size":1600.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253953,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7344.0,"Size":50000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253954,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6834.0,"Size":10.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253954,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6740.5,"Size":100000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253955,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6500.0,"Size":5000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253955,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6353.0,"Size":150000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253956,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6205.5,"Size":100000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253957,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6144.5,"Size":74045.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253957,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":6000.0,"Size":5000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253958,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":5122.0,"Size":20.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253959,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":5101.0,"Size":1000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253959,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":4977.0,"Size":15000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253960,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":4000.0,"Size":1.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253961,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":3952.5,"Size":25.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253961,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":3009.5,"Size":20000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253962,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":3006.5,"Size":10000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253963,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":2191.0,"Size":166.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253963,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":2025.0,"Size":260.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253964,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":1680.0,"Size":509.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253965,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":1600.0,"Size":625.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253965,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":1588.0,"Size":401.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253966,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":7.0,"Size":1.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253967,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":14999.0,"Size":500.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253967,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":18027.0,"Size":518.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253968,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":19999.5,"Size":30000.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253969,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":20000.0,"Size":200552.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253970,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":32446.0,"Size":982.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253972,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":36210.0,"Size":513.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253973,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":38682.0,"Size":697.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"ETH-USD","DepthTime":1561479253974,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":40525.0,"Size":95.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"XMR-USD","DepthTime":1561479253973,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":95.8,"Size":25.12,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"XMR-USD","DepthTime":1561479253974,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":90.5,"Size":51.3,"Msg":"DepthOfBook","Sender":0}
+
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253942,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9017.5,"Size":100.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253948,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9013.0,"Size":160.55,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253948,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9011.5,"Size":340.2,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253949,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9008.0,"Size":1870649.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253950,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9135.0,"Size":10995.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253950,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9145.0,"Size":151.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":10000.0,"Size":207.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SPOT-TEST","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":5213.88,"Size":107.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"XBT-USD","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":100.36,"Size":12.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"XBT-USD","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":100.38,"Size":13.0,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-V18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":5233.88,"Size":11.22,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-X18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":5433.22,"Size":11.12,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9135.00,"Size":11.12,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9058.50,"Size":112.12,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-G19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9102,"Size":20,"Msg":"DepthOfBook","Sender":0}
+
+
+,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9500.00,"Size":100,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-Z19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8500.00,"Size":200,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9600.00,"Size":100,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X18","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8400.00,"Size":200,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9700.00,"Size":5,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"NDF-XBT-USD-X19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":8300.00,"Size":10,"Msg":"DepthOfBook","Sender":0}
+
+
+,{"Symbol":"SWP-XBT-USD-N19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9523.55,"Size":550,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-N19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9125.32,"Size":452,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Q19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9438.55,"Size":1550,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-Q19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9329.12,"Size":1452,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-V19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9625.25,"Size":1550,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-V19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9428.11,"Size":1728,"Msg":"DepthOfBook","Sender":0}
+
+
+,{"Symbol":"SWP-XBT-USD-V19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":65,"cBidOrAsk":"A","Index":0,"Price":9623.25,"Size":2000,"Msg":"DepthOfBook","Sender":0}
+
+,{"Symbol":"SWP-XBT-USD-V19","DepthTime":1561479253951,"Action":65,"cAction":"A","BidOrAsk":66,"cBidOrAsk":"B","Index":0,"Price":9424.11,"Size":2100,"Msg":"DepthOfBook","Sender":0}
+
+]

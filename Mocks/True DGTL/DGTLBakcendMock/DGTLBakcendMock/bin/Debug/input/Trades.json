@@ -1,1102 +1,200 @@
-﻿[
-    {
-      "TradeId": "d142cd29-6415-f488-9a19-a883002229cd",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15751,
-      "TradeQuantity": 1997,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561471189373,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "1e1f36a5-f2f5-ec75-2b10-fe7afd12b394",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 1988,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561468558685,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "1b60f185-d89a-6eab-e58d-ac7b172040da",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 100000,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561468552400,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "99ed7664-bb45-5fe2-b22d-a281c70624cb",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15500,
-      "TradeQuantity": 3,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561468042376,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "fcafe15c-71ec-e02e-a5f9-456e8062be24",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 2,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561467550076,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "bbf6ebb9-a482-d2da-04ef-024921ed428d",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 3,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561467545071,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "3833a73b-8282-7f70-b162-bdb52861fa19",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 8,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561466671235,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "16791453-951c-3c74-d2cd-799b79c53216",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 6,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561466624065,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "4b5d6225-eea9-7977-ff47-b7255c6874ab",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 2000,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561466592973,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "cb41a9f8-cd49-fb9a-2230-384de56a6583",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 2,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561466190136,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "3eae9ec2-7daa-aace-eba4-82d143fae682",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 1479,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561466008089,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "450f462e-b3bb-02c2-219e-ecccdda33c3a",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 8,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561465638066,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "e9c05598-a63b-7c7e-dc3c-caf6223d3320",
-      "Symbol": "ETH-USD",
-      "TradePrice": 18027,
-      "TradeQuantity": 166,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561465404128,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "703f7182-3daa-1d64-7cf2-7aa981dd835b",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 34,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561465404128,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "15db322e-2369-c934-1ca9-80d0a09d46a2",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 5,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561464303402,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "d03a89b6-4c48-e10b-e76f-41d60b365c77",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 5,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561464256847,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "d79f78c6-cfbe-0ff1-9666-1bbf48470e1a",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 100,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561463773929,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "80a080f3-9e4a-143a-75b1-909b0e87d3ee",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 87,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561463666171,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "9e424d54-5c08-285f-0cd7-f6b60b7e93a0",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15999.5,
-      "TradeQuantity": 13,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561463666171,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "fb2c4a81-56e1-30b0-3afb-9e8c039c31f0",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15999.5,
-      "TradeQuantity": 300,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561463498438,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c8d969a8-60db-ec63-d009-cc1a412d0af6",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 300,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561463382260,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "67eb8b9d-e6c9-6542-873c-4c64a40ba008",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15999.5,
-      "TradeQuantity": 1,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561463329066,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c33fca16-076e-353f-b35d-98c92858ff52",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 99,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561463215933,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c19eae01-4384-9d14-8ad2-58c573abb87c",
-      "Symbol": "ETH-USD",
-      "TradePrice": 16000,
-      "TradeQuantity": 1,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561463215933,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "5a199dcc-eead-0e71-5675-2ab2a55e00f3",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15999.5,
-      "TradeQuantity": 6,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561462568080,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8cca055c-8dba-d0ae-b111-38e78d2094b8",
-      "Symbol": "ETH-USD",
-      "TradePrice": 15000,
-      "TradeQuantity": 1,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561462338066,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "bf438848-9b95-4d5f-0b35-7f8f87bed980",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14750.5,
-      "TradeQuantity": 18313,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462091938,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8c804b64-2da4-5453-5ebf-07a677aee037",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14750,
-      "TradeQuantity": 5195,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462091938,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "e3b07ff7-235a-7c67-85ed-79bd51b00101",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14316.5,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462091938,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8656608f-90c2-15d3-c344-7db4600457ce",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14132,
-      "TradeQuantity": 100,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462091938,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "151d93bc-09f6-f41b-cc60-7421534b5908",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14132,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462091938,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "4af20e1b-c30d-ff45-7ce1-da348762e674",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13881.5,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "324fff52-7d74-8503-d0aa-5f70fe60f388",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13670.5,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "2ffe35e0-396e-b514-a04d-b7cc4620bdf2",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "dcf3dd63-f267-a355-9aea-3008ac88ff8b",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "ed20aaa5-7b3b-59cc-7b41-f43dc6285a1c",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "f164b3f0-6f99-d3bc-6968-52aaf4802666",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8de17690-6b3e-e7bf-6301-3cf71592dc93",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "032f28ed-acbc-1c35-a90a-440ea2beda37",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "4403274c-1cb1-b0ab-a501-259635d206c6",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "512e2d0f-22a3-2f94-5853-d63f4e485de2",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "27bd0ef8-7cf7-e9a1-b372-7e04e90d0413",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "27b20210-6166-7ad5-3eb5-11387eb36507",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8fda7e98-c268-f9b1-a704-2665f63afb40",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13500,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "75444f5e-5c6b-ea31-8dc7-2d4e8c079d7c",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13394,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "20c21123-2d9f-132b-6141-936e08209722",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13262,
-      "TradeQuantity": 300,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "e44cbf79-719d-7ded-6e2e-f2fc9ec13965",
-      "Symbol": "ETH-USD",
-      "TradePrice": 13262,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561462032752,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "80fab5f2-9961-c497-9d9a-4d08de59320d",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 313,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561461472379,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "9d5d601f-f650-9848-96aa-0b581c697675",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 2,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561461317066,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "9cc64bf8-bec6-085e-ec45-589d5698233e",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9340.5,
-      "TradeQuantity": 190,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561461301888,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "d2b2fba7-d87f-9190-9d34-3b3a2d82c063",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 5,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460769066,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "bc147802-4e22-dd0f-1212-0ad30c9b0c38",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 2,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460753067,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "d0af34b9-c3de-7bb1-391f-ec63ff94ea1f",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 90,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460702685,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c02db427-9500-008a-21f9-65b078e04577",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 1059,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460700687,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "a476de89-c71e-2372-c628-20ce54ea82cb",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 80,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460698676,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "b359b9e4-6013-40fb-a366-458e42aa08b8",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11803,
-      "TradeQuantity": 8449,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460696677,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "31f5c4a9-4e06-7ef8-b88f-712b3b3b86ed",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11642.5,
-      "TradeQuantity": 874,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460694659,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "822b2995-f063-6067-f3e6-84ba62b974fa",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11642.5,
-      "TradeQuantity": 336,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460692658,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "884daf73-4b75-2319-bb3e-9d40a7dc93de",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11642.5,
-      "TradeQuantity": 9664,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460690653,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "5ca8efd2-f4fd-0270-7d42-cf87d03a1663",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11642.5,
-      "TradeQuantity": 336,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561460689431,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "5942ea3f-812e-8d5d-89e0-e3d295ade063",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9340,
-      "TradeQuantity": 100,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561460097083,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "375e882f-9188-7223-306d-92c48264e0d3",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14750.5,
-      "TradeQuantity": 1687,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457675948,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c335b4c6-3c43-0fe0-8479-3dc6b723691d",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14750.5,
-      "TradeQuantity": 100,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457675838,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "de73e714-3921-6faf-a317-517010fe2f04",
-      "Symbol": "ETH-USD",
-      "TradePrice": 14750.5,
-      "TradeQuantity": 9900,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457675742,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "d8a1341b-b8cf-b99a-f365-3995fd86a89b",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12050,
-      "TradeQuantity": 100,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457675640,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "59068273-8d56-ab01-ce9b-4c20251c1d00",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12049.5,
-      "TradeQuantity": 847,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457675592,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "dcb92091-4a51-db88-2cd6-b0a3130c6370",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12049,
-      "TradeQuantity": 5195,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457610496,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "cbecdfd0-8a92-9435-29c8-87af0feb980c",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12049,
-      "TradeQuantity": 5195,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457587927,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "105a8aaa-a08a-b01c-bc2a-6424d3e8333d",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12049,
-      "TradeQuantity": 5195,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457576557,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "9bfa0896-3ec6-5b8b-342c-f5acb33e190f",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12000,
-      "TradeQuantity": 618,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457544527,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "32de5c0d-f744-5f9c-3754-809a216eb5b6",
-      "Symbol": "ETH-USD",
-      "TradePrice": 12000,
-      "TradeQuantity": 7805,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457542533,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "260b774c-b6ef-e05a-efaf-0271869615ad",
-      "Symbol": "ETH-USD",
-      "TradePrice": 11999.5,
-      "TradeQuantity": 2195,
-      "MyTrade": true,
-      "MySide": 66,
-      "TradeTimeStamp": 1561457542533,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "ed553736-ccaf-9568-59cf-b2d31852002f",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 10000,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457529842,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "4d62d9e5-11e8-16b2-4f46-aeec6dd2d357",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 491,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457526048,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "e927d592-bc5a-7b4a-b6cd-470fcb25235e",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 4467,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457523842,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "b585e074-8778-9468-e9b8-a266ea9f7073",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 2608,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457523842,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c6617822-8ac9-01d8-fad1-da3b7a3143a6",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 168,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457519445,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "acba4c24-a26d-05ae-e5c1-8644ac5320dd",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 381,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457517294,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "7bcaff5d-22ec-e325-3c4e-216f9b1be839",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 42,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457516255,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "ce7df560-bfd0-1c0b-3d98-2e85657a2286",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 65,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457515146,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "a3eabbb8-8efc-c734-d100-d4fdaeacb979",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 411,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457514046,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c137c0c1-715e-f380-a078-f600f08ba40d",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 261,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457512945,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "93397233-7260-1aa4-705f-af0b7d8d5997",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 1674,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457511850,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "84f341cd-5b44-caea-5281-a26066e8e446",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 249,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457510743,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "4f480e04-3b74-0112-4c88-b3f4ac7f9217",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 2530,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457509645,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "8f659920-6dfb-dac3-f47b-cd064eb99088",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 79,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457508547,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "43c0bf18-699f-e706-9ebb-b5d228012140",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 41,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457507507,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "5092c6e3-dfa8-f145-dfe7-56c0119eba6a",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 605,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457506347,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "a70f18a0-1abd-623e-6c38-8110b05d1a78",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 30,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457504258,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "a6df7d4d-cb52-2d80-dd9e-2b0ecd29f147",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013.5,
-      "TradeQuantity": 1051,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457503047,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "07ce87d3-4a91-c3dc-b6db-4db3c7941d57",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 1965,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457501941,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "6b5d6294-f2a3-217f-4881-3d088743bcf8",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 321,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457500840,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "b2469c43-b7c8-e297-9ad6-d59140630af6",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 975,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457498644,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "64f8cecd-f233-d95d-d9ab-190214183221",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 110,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457497576,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "6feca789-1a72-12b0-1005-08a557149a93",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 5000,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457496344,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "5f459b2f-7ddd-94d7-1d78-8ec6e5b3d9c9",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 92,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457495253,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "244dfc38-c621-e791-10c7-e4e7469ed1ae",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 1,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457494147,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "c397aaa3-9bde-050e-1e1c-60ec843a48fb",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 211,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457493059,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "a8a4d311-2e90-7c6a-99cf-ea7669dd0ba2",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 1436,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457490854,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    },
-    {
-      "TradeId": "bcddac21-f7d6-cdbd-16f4-133cea85dcbe",
-      "Symbol": "ETH-USD",
-      "TradePrice": 9013,
-      "TradeQuantity": 54,
-      "MyTrade": true,
-      "MySide": 83,
-      "TradeTimeStamp": 1561457489749,
-      "Msg": "LegacyTradeHistory",
-      "Sender": 0
-    }
-  ]
+﻿[ {"TradeId":"d142cd29-6415-f488-9a19-a883002229cd","Symbol":"ETH-USD","TradePrice":15751.0,"TradeQuantity":1997.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561471189373,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"1e1f36a5-f2f5-ec75-2b10-fe7afd12b394","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":1988.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561468558685,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"1b60f185-d89a-6eab-e58d-ac7b172040da","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":100000.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561468552400,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"99ed7664-bb45-5fe2-b22d-a281c70624cb","Symbol":"ETH-USD","TradePrice":15500.0,"TradeQuantity":3.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561468042376,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"fcafe15c-71ec-e02e-a5f9-456e8062be24","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":2.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561467550076,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"bbf6ebb9-a482-d2da-04ef-024921ed428d","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":3.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561467545071,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"3833a73b-8282-7f70-b162-bdb52861fa19","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":8.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561466671235,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"16791453-951c-3c74-d2cd-799b79c53216","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":6.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561466624065,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"4b5d6225-eea9-7977-ff47-b7255c6874ab","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":2000.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561466592973,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"cb41a9f8-cd49-fb9a-2230-384de56a6583","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":2.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561466190136,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"3eae9ec2-7daa-aace-eba4-82d143fae682","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":1479.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561466008089,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"450f462e-b3bb-02c2-219e-ecccdda33c3a","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":8.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561465638066,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"e9c05598-a63b-7c7e-dc3c-caf6223d3320","Symbol":"ETH-USD","TradePrice":18027.0,"TradeQuantity":166.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561465404128,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"703f7182-3daa-1d64-7cf2-7aa981dd835b","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":34.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561465404128,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"15db322e-2369-c934-1ca9-80d0a09d46a2","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":5.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561464303402,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"d03a89b6-4c48-e10b-e76f-41d60b365c77","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":5.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561464256847,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"d79f78c6-cfbe-0ff1-9666-1bbf48470e1a","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":100.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561463773929,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"80a080f3-9e4a-143a-75b1-909b0e87d3ee","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":87.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561463666171,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"9e424d54-5c08-285f-0cd7-f6b60b7e93a0","Symbol":"ETH-USD","TradePrice":15999.5,"TradeQuantity":13.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561463666171,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"fb2c4a81-56e1-30b0-3afb-9e8c039c31f0","Symbol":"ETH-USD","TradePrice":15999.5,"TradeQuantity":300.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561463498438,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c8d969a8-60db-ec63-d009-cc1a412d0af6","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":300.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561463382260,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"67eb8b9d-e6c9-6542-873c-4c64a40ba008","Symbol":"ETH-USD","TradePrice":15999.5,"TradeQuantity":1.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561463329066,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c33fca16-076e-353f-b35d-98c92858ff52","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":99.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561463215933,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c19eae01-4384-9d14-8ad2-58c573abb87c","Symbol":"ETH-USD","TradePrice":16000.0,"TradeQuantity":1.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561463215933,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"5a199dcc-eead-0e71-5675-2ab2a55e00f3","Symbol":"ETH-USD","TradePrice":15999.5,"TradeQuantity":6.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561462568080,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8cca055c-8dba-d0ae-b111-38e78d2094b8","Symbol":"ETH-USD","TradePrice":15000.0,"TradeQuantity":1.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561462338066,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"bf438848-9b95-4d5f-0b35-7f8f87bed980","Symbol":"ETH-USD","TradePrice":14750.5,"TradeQuantity":18313.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462091938,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8c804b64-2da4-5453-5ebf-07a677aee037","Symbol":"ETH-USD","TradePrice":14750.0,"TradeQuantity":5195.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462091938,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"e3b07ff7-235a-7c67-85ed-79bd51b00101","Symbol":"ETH-USD","TradePrice":14316.5,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462091938,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8656608f-90c2-15d3-c344-7db4600457ce","Symbol":"ETH-USD","TradePrice":14132.0,"TradeQuantity":100.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462091938,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"151d93bc-09f6-f41b-cc60-7421534b5908","Symbol":"ETH-USD","TradePrice":14132.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462091938,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"4af20e1b-c30d-ff45-7ce1-da348762e674","Symbol":"ETH-USD","TradePrice":13881.5,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"324fff52-7d74-8503-d0aa-5f70fe60f388","Symbol":"ETH-USD","TradePrice":13670.5,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"2ffe35e0-396e-b514-a04d-b7cc4620bdf2","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"dcf3dd63-f267-a355-9aea-3008ac88ff8b","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"ed20aaa5-7b3b-59cc-7b41-f43dc6285a1c","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"f164b3f0-6f99-d3bc-6968-52aaf4802666","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8de17690-6b3e-e7bf-6301-3cf71592dc93","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"032f28ed-acbc-1c35-a90a-440ea2beda37","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"4403274c-1cb1-b0ab-a501-259635d206c6","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"512e2d0f-22a3-2f94-5853-d63f4e485de2","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"27bd0ef8-7cf7-e9a1-b372-7e04e90d0413","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"27b20210-6166-7ad5-3eb5-11387eb36507","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8fda7e98-c268-f9b1-a704-2665f63afb40","Symbol":"ETH-USD","TradePrice":13500.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"75444f5e-5c6b-ea31-8dc7-2d4e8c079d7c","Symbol":"ETH-USD","TradePrice":13394.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"20c21123-2d9f-132b-6141-936e08209722","Symbol":"ETH-USD","TradePrice":13262.0,"TradeQuantity":300.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"e44cbf79-719d-7ded-6e2e-f2fc9ec13965","Symbol":"ETH-USD","TradePrice":13262.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561462032752,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"80fab5f2-9961-c497-9d9a-4d08de59320d","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":313.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561461472379,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"9d5d601f-f650-9848-96aa-0b581c697675","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":2.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561461317066,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"9cc64bf8-bec6-085e-ec45-589d5698233e","Symbol":"ETH-USD","TradePrice":9340.5,"TradeQuantity":190.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561461301888,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"d2b2fba7-d87f-9190-9d34-3b3a2d82c063","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":5.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460769066,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"bc147802-4e22-dd0f-1212-0ad30c9b0c38","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":2.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460753067,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"d0af34b9-c3de-7bb1-391f-ec63ff94ea1f","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":90.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460702685,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c02db427-9500-008a-21f9-65b078e04577","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":1059.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460700687,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"a476de89-c71e-2372-c628-20ce54ea82cb","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":80.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460698676,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"b359b9e4-6013-40fb-a366-458e42aa08b8","Symbol":"ETH-USD","TradePrice":11803.0,"TradeQuantity":8449.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460696677,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"31f5c4a9-4e06-7ef8-b88f-712b3b3b86ed","Symbol":"ETH-USD","TradePrice":11642.5,"TradeQuantity":874.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460694659,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"822b2995-f063-6067-f3e6-84ba62b974fa","Symbol":"ETH-USD","TradePrice":11642.5,"TradeQuantity":336.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460692658,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"884daf73-4b75-2319-bb3e-9d40a7dc93de","Symbol":"ETH-USD","TradePrice":11642.5,"TradeQuantity":9664.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460690653,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"5ca8efd2-f4fd-0270-7d42-cf87d03a1663","Symbol":"ETH-USD","TradePrice":11642.5,"TradeQuantity":336.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561460689431,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"5942ea3f-812e-8d5d-89e0-e3d295ade063","Symbol":"ETH-USD","TradePrice":9340.0,"TradeQuantity":100.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561460097083,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"375e882f-9188-7223-306d-92c48264e0d3","Symbol":"ETH-USD","TradePrice":14750.5,"TradeQuantity":1687.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457675948,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c335b4c6-3c43-0fe0-8479-3dc6b723691d","Symbol":"ETH-USD","TradePrice":14750.5,"TradeQuantity":100.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457675838,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"de73e714-3921-6faf-a317-517010fe2f04","Symbol":"ETH-USD","TradePrice":14750.5,"TradeQuantity":9900.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457675742,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"d8a1341b-b8cf-b99a-f365-3995fd86a89b","Symbol":"ETH-USD","TradePrice":12050.0,"TradeQuantity":100.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457675640,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"59068273-8d56-ab01-ce9b-4c20251c1d00","Symbol":"ETH-USD","TradePrice":12049.5,"TradeQuantity":847.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457675592,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"dcb92091-4a51-db88-2cd6-b0a3130c6370","Symbol":"ETH-USD","TradePrice":12049.0,"TradeQuantity":5195.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457610496,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"cbecdfd0-8a92-9435-29c8-87af0feb980c","Symbol":"ETH-USD","TradePrice":12049.0,"TradeQuantity":5195.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457587927,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"105a8aaa-a08a-b01c-bc2a-6424d3e8333d","Symbol":"ETH-USD","TradePrice":12049.0,"TradeQuantity":5195.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457576557,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"9bfa0896-3ec6-5b8b-342c-f5acb33e190f","Symbol":"ETH-USD","TradePrice":12000.0,"TradeQuantity":618.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457544527,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"32de5c0d-f744-5f9c-3754-809a216eb5b6","Symbol":"ETH-USD","TradePrice":12000.0,"TradeQuantity":7805.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457542533,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"260b774c-b6ef-e05a-efaf-0271869615ad","Symbol":"ETH-USD","TradePrice":11999.5,"TradeQuantity":2195.0,"MyTrade":true,"MySide":66,"TradeTimeStamp":1561457542533,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"ed553736-ccaf-9568-59cf-b2d31852002f","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":10000.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457529842,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"4d62d9e5-11e8-16b2-4f46-aeec6dd2d357","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":491.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457526048,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"e927d592-bc5a-7b4a-b6cd-470fcb25235e","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":4467.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457523842,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"b585e074-8778-9468-e9b8-a266ea9f7073","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":2608.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457523842,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c6617822-8ac9-01d8-fad1-da3b7a3143a6","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":168.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457519445,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"acba4c24-a26d-05ae-e5c1-8644ac5320dd","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":381.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457517294,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"7bcaff5d-22ec-e325-3c4e-216f9b1be839","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":42.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457516255,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"ce7df560-bfd0-1c0b-3d98-2e85657a2286","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":65.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457515146,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"a3eabbb8-8efc-c734-d100-d4fdaeacb979","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":411.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457514046,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c137c0c1-715e-f380-a078-f600f08ba40d","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":261.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457512945,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"93397233-7260-1aa4-705f-af0b7d8d5997","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":1674.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457511850,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"84f341cd-5b44-caea-5281-a26066e8e446","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":249.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457510743,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"4f480e04-3b74-0112-4c88-b3f4ac7f9217","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":2530.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457509645,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"8f659920-6dfb-dac3-f47b-cd064eb99088","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":79.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457508547,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"43c0bf18-699f-e706-9ebb-b5d228012140","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":41.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457507507,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"5092c6e3-dfa8-f145-dfe7-56c0119eba6a","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":605.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457506347,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"a70f18a0-1abd-623e-6c38-8110b05d1a78","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":30.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457504258,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"a6df7d4d-cb52-2d80-dd9e-2b0ecd29f147","Symbol":"ETH-USD","TradePrice":9013.5,"TradeQuantity":1051.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457503047,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"07ce87d3-4a91-c3dc-b6db-4db3c7941d57","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":1965.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457501941,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"6b5d6294-f2a3-217f-4881-3d088743bcf8","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":321.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457500840,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"b2469c43-b7c8-e297-9ad6-d59140630af6","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":975.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457498644,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"64f8cecd-f233-d95d-d9ab-190214183221","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":110.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457497576,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"6feca789-1a72-12b0-1005-08a557149a93","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":5000.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457496344,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"5f459b2f-7ddd-94d7-1d78-8ec6e5b3d9c9","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":92.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457495253,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"244dfc38-c621-e791-10c7-e4e7469ed1ae","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":1.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457494147,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"c397aaa3-9bde-050e-1e1c-60ec843a48fb","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":211.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457493059,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"a8a4d311-2e90-7c6a-99cf-ea7669dd0ba2","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":1436.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457490854,"Msg":"LegacyTradeHistory","Sender":0}
+
+, {"TradeId":"bcddac21-f7d6-cdbd-16f4-133cea85dcbe","Symbol":"ETH-USD","TradePrice":9013.0,"TradeQuantity":54.0,"MyTrade":true,"MySide":83,"TradeTimeStamp":1561457489749,"Msg":"LegacyTradeHistory","Sender":0}
+]
