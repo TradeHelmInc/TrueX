@@ -19,6 +19,8 @@ namespace DGTLBackendMock.Common.DTO.Temp.Positions
 
         #region Public Attributes
 
+        public DateTime Date { get; set; }
+
         public string Symbol { get; set; }
 
         public double ExecutionPrice { get; set; }

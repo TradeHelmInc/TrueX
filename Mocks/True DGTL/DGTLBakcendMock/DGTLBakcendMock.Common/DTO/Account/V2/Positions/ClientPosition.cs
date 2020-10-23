@@ -21,5 +21,22 @@ namespace DGTLBackendMock.Common.DTO.Account.V2
         public bool MarginFunded { get; set; }
 
         #endregion
+
+        #region Public Static Methods
+
+        public ClientPosition Clone()
+        {
+            return new ClientPosition()
+            {
+                Symbol = Symbol,
+                UserId = UserId,
+                Contracts = Contracts,
+                Price = Price,
+                MarginFunded = MarginFunded
+            };
+        
+        }
+
+        #endregion
     }
 }

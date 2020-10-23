@@ -15,3 +15,4 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.csprojResolveAssemblyReference.cache
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.exe
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\obj\Debug\DGTLProfitsAndLossesPOC.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLProfitsAndLossesPOC\bin\Debug\input files\V20_trades.csv

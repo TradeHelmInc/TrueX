@@ -42,29 +42,53 @@ namespace DGTLBackendMock.Common.Util.Margin
             return GetPriorDayCredit(firmId) * Config.MarginPct;
         }
 
+        //If Orders!=null , we get the potential
+        protected double GetNetContracts( string firmId,string symbol,ClientPosition[] Positions,char? side=null, List<OrderDTO> Orders=null)
+        {
+            List<UserRecord> usersForFirm = UserRecords != null ? UserRecords.Where(x => x.FirmId == firmId).ToList() : null;
+            double potentialNetContracts = 0;
+
+            if (usersForFirm != null)
+            {
+                foreach (UserRecord userForFirms in usersForFirm)
+                {
+
+                    Positions.Where(x => x.Symbol == symbol && x.UserId == userForFirms.UserId).ToList()
+                            .ForEach(x => potentialNetContracts += x.Contracts);
+
+
+                    if (Orders != null && side.HasValue)
+                    {
+                        Orders.Where(x => x.cSide == side.Value && x.cStatus == OrderDTO._STATUS_OPEN
+                                            && x.InstrumentId == symbol && x.UserId == userForFirms.UserId).ToList()
+                            .ForEach(x => potentialNetContracts += (x.cSide == OrderDTO._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
+                    }
+
+
+                }
+            }
+            else
+            {
+            
+                    Positions.Where(x => x.Symbol == symbol ).ToList().ForEach(x => potentialNetContracts += x.Contracts);
+
+                    if (Orders != null && side.HasValue)
+                    {
+                        Orders.Where(x => x.cSide == side.Value && x.cStatus == OrderDTO._STATUS_OPEN && x.InstrumentId == symbol).ToList()
+                            .ForEach(x => potentialNetContracts += (x.cSide == OrderDTO._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
+                    }
+            }
+            return potentialNetContracts;
+        
+        }
+
         protected double GetPotentialxMargin(char side, string firmId, ClientPosition[] Positions, List<OrderDTO> Orders)
         {
             double acumMargin = 0;
 
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
-
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
-                double potentialNetContracts = 0;
-
-                foreach (UserRecord userForFirms in usersForFirm)
-                {
-
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                            .ForEach(x => potentialNetContracts += x.Contracts);
-
-
-                    Orders.Where(x => x.cSide == side && x.cStatus == OrderDTO._STATUS_OPEN
-                                        && x.InstrumentId == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                        .ForEach(x => potentialNetContracts += (x.cSide == OrderDTO._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
-
-
-                }
+                double potentialNetContracts = GetNetContracts(firmId, security.Symbol, Positions,side, Orders);
 
                 DoLog(string.Format("Potential Contracts for Security {0}  after Orders:{1}", security.Symbol, potentialNetContracts), zHFT.Main.Common.Util.Constants.MessageType.Information);
 
@@ -82,23 +106,15 @@ namespace DGTLBackendMock.Common.Util.Margin
             return acumMargin - GetFundedMargin(firmId);
         }
 
-        protected double GetBaseMargin(string firmId, ClientPosition[] Positions, string symbol = null)
+        protected double GetBaseMargin(string firmId, ClientPosition[] Positions, string symbol = null, DailySettlementPrice[] DSPsToUse=null)
         {
             double acumMargin = 0;
 
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
-
             foreach (SecurityMasterRecord security in SecurityMasterRecords.Where(x => (symbol == null || x.Symbol == symbol)))
             {
-                double netContracts = 0;
-                foreach (UserRecord userForFirms in usersForFirm)
-                {
+                double netContracts = GetNetContracts(firmId, security.Symbol, Positions) ;
 
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == userForFirms.UserId).ToList()
-                                .ForEach(x => netContracts += x.Contracts);
-                }
-
-                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+                DailySettlementPrice DSP = DSPsToUse == null ? DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault() : DSPsToUse.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
 
                 if (DSP != null && DSP.Price.HasValue)
                 {

@@ -6,3 +6,4 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendMock.BusinessEntities\bin\Debug\DGTLBackendMock.BusinessEntities.pdb
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendMock.BusinessEntities\obj\Debug\DGTLBackendMock.BusinessEntities.dll
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendMock.BusinessEntities\obj\Debug\DGTLBackendMock.BusinessEntities.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLBackendMock.BusinessEntities\obj\Debug\DGTLBackendMock.BusinessEntities.csprojResolveAssemblyReference.cache

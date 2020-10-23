@@ -65,6 +65,43 @@ namespace DGTLBackendMock.Common.DTO.SecurityList
 
         }
 
+        public string GetMaturityDateFromSymbol()
+        {
+
+            string monthCode = Symbol.Substring(0, 1);
+            string year = Symbol.Substring(1, 2);
+            string month = "";
+
+            if (monthCode == "F")
+                month= "01";
+            else if (monthCode == "G")
+                month = "02";
+            else if (monthCode == "H")
+                month = "03";
+            else if (monthCode == "J")
+                month = "04";
+            else if (monthCode == "K")
+                month = "05";
+            else if (monthCode == "M")
+                month = "06";
+            else if (monthCode == "N")
+                month = "07";
+            else if (monthCode == "Q")
+                month = "08";
+            else if (monthCode == "U")
+                month = "09";
+            else if (monthCode == "V")
+                month = "10";
+            else if (monthCode == "X")
+                month = "11";
+            else if (monthCode == "Z")
+                month = "12";
+
+
+            return "20" + year + month + "15";
+        
+        }
+
         #endregion
     }
 }

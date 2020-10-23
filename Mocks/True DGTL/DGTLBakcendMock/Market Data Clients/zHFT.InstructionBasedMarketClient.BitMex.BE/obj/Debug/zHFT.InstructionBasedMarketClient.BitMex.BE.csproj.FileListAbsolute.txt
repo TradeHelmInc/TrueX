@@ -11,3 +11,4 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.BE\bin\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.pdb
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.BE\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.dll
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.BE\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Market Data Clients\zHFT.InstructionBasedMarketClient.BitMex.BE\obj\Debug\zHFT.InstructionBasedMarketClient.BitMex.BE.csprojResolveAssemblyReference.cache

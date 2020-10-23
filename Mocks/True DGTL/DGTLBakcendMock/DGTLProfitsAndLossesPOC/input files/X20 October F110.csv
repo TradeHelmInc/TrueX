@@ -1,0 +1,3 @@
+﻿"Execution Time","Side","Contract","Status","Qty","Execution Price","Notional","Exchange Fees","Trade ID","Order ID","Account","Firm","User"
+"10-05-20 - 3:49:41 PM","Sell","SWP-XBT-USD-X20","Open","60","6,200.00","372,000.00","372.00","""20201005180001490""","""20201005180001488""","ACCT1110","F110","FF10TRAD"
+"10-06-20 - 10:30:57 AM","Buy","SWP-XBT-USD-X20","Open","50","2,005.00","100,250.00","100.25","""20201006030006275""","""20201006030006259""","ACCT1110","F110","FF10TRAD"

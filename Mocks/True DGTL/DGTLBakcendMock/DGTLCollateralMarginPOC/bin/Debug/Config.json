@@ -1,0 +1,1 @@
+﻿{"SendMinOrdQty":true,"SendMaxOrdQty":true,"SendLotSize":true,"SendMinPriceIncrement":true,"ImplementCalendarMarginDiscount":true,"SendMaxNotionalValue":true, "MarginPct":0.305, "OneWideCalDisc":0.85, "TwoWideCalDisc":0.825, "ThreeWideCalDisc":0.80}

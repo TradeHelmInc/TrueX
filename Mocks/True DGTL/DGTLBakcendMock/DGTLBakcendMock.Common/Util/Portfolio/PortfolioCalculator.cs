@@ -53,7 +53,7 @@ namespace DGTLBackendMock.Common.Util.Portfolio
 
         #endregion
 
-        public double CalculateProfitsAndLosses(List<TradeDTO> executions, double currentPrice)
+        public double CalculateTotalProfitsAndLosses(List<TradeDTO> executions, double currentPrice)
         {
 
             ValidateExecutions(executions);
@@ -128,6 +128,25 @@ namespace DGTLBackendMock.Common.Util.Portfolio
             }
 
             return pandL;
+        }
+
+        public double? CalculateIncrementalProfitsAndLosses(double netContracts,double prevDSP, double? currentPrice)
+        {
+
+            if (!currentPrice.HasValue)
+                return null;
+
+            if (netContracts > 0)
+            {
+                return netContracts * (currentPrice.Value - prevDSP);
+            }
+            else
+            {
+
+                return Math.Abs(netContracts) * (prevDSP - currentPrice.Value);
+            }
+        
+        
         }
     }
 }

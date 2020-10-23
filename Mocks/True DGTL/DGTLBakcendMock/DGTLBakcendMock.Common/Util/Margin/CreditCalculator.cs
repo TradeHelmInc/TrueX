@@ -42,18 +42,7 @@ namespace DGTLBackendMock.Common.Util.Margin
             double netContracts = 0;
             qty = (ClientOrderRecord._SIDE_BUY == side) ? qty : -1 * qty;
 
-
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
-
-            foreach (UserRecord user in usersForFirm)
-            {
-                Positions.Where(x => x.Symbol == symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-
-                //open orders too
-                Orders.Where(x => x.cSide == side && x.cStatus == OrderDTO._STATUS_OPEN
-                                         && x.InstrumentId == symbol && x.UserId == user.UserId).ToList()
-                            .ForEach(x => netContracts += (x.cSide == OrderDTO._SIDE_BUY) ? x.LvsQty : (-1 * x.LvsQty));
-            }
+            netContracts = GetNetContracts(firmId, symbol, Positions, side, Orders);
 
             DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == symbol).FirstOrDefault();
 
@@ -62,7 +51,6 @@ namespace DGTLBackendMock.Common.Util.Margin
                 currentExposure = (Math.Abs(netContracts) * DSP.Price.Value);
                 finalExposure = (Math.Abs(netContracts + qty) * DSP.Price.Value);
             }
-
 
 
             return finalExposure - currentExposure;
@@ -87,19 +75,13 @@ namespace DGTLBackendMock.Common.Util.Margin
         public double GetUsedCredit(string firmId, ClientPosition[] Positions)
         {
 
-            List<UserRecord> usersForFirm = UserRecords.Where(x => x.FirmId == firmId).ToList();
             List<NetPositionDTO> netPositionsArr = new List<NetPositionDTO>();
 
             double creditUsed = 0;
 
-
             foreach (SecurityMasterRecord security in SecurityMasterRecords)
             {
-                double netContracts = 0;
-                foreach (UserRecord user in usersForFirm)
-                {
-                    Positions.Where(x => x.Symbol == security.Symbol && x.UserId == user.UserId).ToList().ForEach(x => netContracts += x.Contracts);
-                }
+                double netContracts = GetNetContracts(firmId, security.Symbol, Positions); ;
 
                 DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
 

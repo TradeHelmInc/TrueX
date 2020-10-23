@@ -11,3 +11,4 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\bin\Debug\zHFT.FullMrktConnectivity.BitMex.Common.pdb
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.dll
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Full Market Connectivity\zHFT.FullMrktConnectivity.BitMex.Common\obj\Debug\zHFT.FullMrktConnectivity.BitMex.Common.csprojResolveAssemblyReference.cache
