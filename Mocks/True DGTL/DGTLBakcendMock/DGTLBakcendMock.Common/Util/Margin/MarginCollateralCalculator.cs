@@ -11,7 +11,7 @@ using ToolsShared.Logging;
 
 namespace DGTLBackendMock.Common.Util.Margin
 {
-    public class MarginCollateralCalculator : BaseCreditLogic
+    public class MarginCollateralCalculator : CreditCalculator
     {
         #region Protected Attributes
 
@@ -23,16 +23,10 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         public MarginCollateralCalculator(SecurityMasterRecord[] pSecurities, DailySettlementPrice[] pTodayDSPs, DailySettlementPrice[] pPrevDSPs,
                                          DGTLBackendMock.Common.DTO.Auth.Config pConfig, ILogSource pLogger)
+            : base(pSecurities, pPrevDSPs, null, null, pConfig, pLogger)
+        
         {
-            SecurityMasterRecords = pSecurities;
-
-            DailySettlementPrices = pPrevDSPs;
-
             TodayDailySettlementPrices = pTodayDSPs;
-
-            Config = pConfig;
-
-            Logger = pLogger;
         }
 
 
@@ -68,24 +62,27 @@ namespace DGTLBackendMock.Common.Util.Margin
             {
                 double netChange = 0;
 
-                todayTrades.ForEach(x => netChange += x.GetSignedExecutionSize());
+                todayTrades.Where(x=> x.GetMaturityCode()==pos.Symbol).ToList().ForEach(x => netChange += x.GetSignedExecutionSize());
 
-                pos.Contracts += netChange;
+                pos.Contracts -= netChange;
             
             }
 
             return prevPositions;
         }
 
-
         protected double? GetIMRequirement(string firmId, double priorIM, double IMToday, List<ClientPosition> todayPositions)
         {
 
             if (DailySettlementPrices.Length == TodayDailySettlementPrices.Length)
             {
+                DailySettlementPrice[] tempDailySettlPr = DailySettlementPrices;
 
+                DailySettlementPrices = TodayDailySettlementPrices;
 
-                double todayMargin = GetBaseMargin(firmId, todayPositions.ToArray(), DSPsToUse: TodayDailySettlementPrices);
+                double todayMargin = GetMargin(firmId, todayPositions.ToArray());
+
+                DailySettlementPrices = tempDailySettlPr;
 
                 return todayMargin - (priorIM + IMToday);
             }
@@ -138,7 +135,7 @@ namespace DGTLBackendMock.Common.Util.Margin
 
         protected double GetIMToday(string firmId, double priorIM, List<ClientPosition> todayPositions)
         {
-            double newPositionsMargin = GetBaseMargin(firmId, todayPositions.ToArray());
+            double newPositionsMargin = GetMargin(firmId, todayPositions.ToArray());
 
             double IMtoday = newPositionsMargin > priorIM ? newPositionsMargin - priorIM : 0;
 
@@ -162,7 +159,7 @@ namespace DGTLBackendMock.Common.Util.Margin
             List<ClientPosition> prevPositions = GetPreviousDayPositions(todayPositions, todayTrades);
         
             //////Calculations
-            double priorIM = GetBaseMargin(firmId, prevPositions.ToArray());
+            double priorIM = GetMargin(firmId, prevPositions.ToArray());
 
             double IMToday = GetIMToday(firmId, priorIM, todayPositions);
 
@@ -170,7 +167,7 @@ namespace DGTLBackendMock.Common.Util.Margin
 
             double? vmRequirement = GetVMRequirement(prevPositions, todayTrades);
 
-            double? pendingCollateral = (imRequirement.HasValue && vmRequirement.HasValue) ? (double?)(todayCollateral + vmRequirement.Value + imRequirement.Value) : null;
+            double? pendingCollateral = (imRequirement.HasValue && vmRequirement.HasValue) ? (double?)(todayCollateral + vmRequirement.Value + imRequirement.Value) : todayCollateral;
 
             bool marginCall = pendingCollateral < 0;
 

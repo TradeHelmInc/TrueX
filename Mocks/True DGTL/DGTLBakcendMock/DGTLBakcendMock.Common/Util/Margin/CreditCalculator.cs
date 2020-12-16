@@ -106,6 +106,42 @@ namespace DGTLBackendMock.Common.Util.Margin
 
             return creditUsed - GetPriorDayCredit(firmId);
         }
+
+
+        public double GetMargin(string firmId, ClientPosition[] Positions)
+        {
+
+            List<NetPositionDTO> netPositionsArr = new List<NetPositionDTO>();
+
+            double margin = 0;
+
+            foreach (SecurityMasterRecord security in SecurityMasterRecords)
+            {
+                double netContracts = GetNetContracts(firmId, security.Symbol, Positions); ;
+
+                DailySettlementPrice DSP = DailySettlementPrices.Where(x => x.Symbol == security.Symbol).FirstOrDefault();
+
+                if (DSP != null && DSP.Price.HasValue && netContracts != 0)
+                    margin += Math.Abs(netContracts) * DSP.Price.Value * Config.MarginPct ;
+
+                if (security.MaturityDate != "")
+                    netPositionsArr.Add(new NetPositionDTO() { AssetClass = security.AssetClass, Symbol = security.Symbol, MaturityDate = security.GetMaturityDate(), NetContracts = netContracts });
+
+                DoLog(string.Format("Final Net Contracts for Security Id {0}:{1}", security.Symbol, netContracts), zHFT.Main.Common.Util.Constants.MessageType.Information);
+            }
+
+            if (Config.ImplementCalendarMarginDiscount)
+            {
+                string[] assetClasses = GetAvailableAssetClasses();
+
+                foreach (string assetClass in assetClasses)
+                {
+                    margin -= CalculateCalendarMarginDiscounts(netPositionsArr.ToArray(), assetClass);
+                }
+            }
+
+            return margin ;
+        }
         
         #endregion
     }

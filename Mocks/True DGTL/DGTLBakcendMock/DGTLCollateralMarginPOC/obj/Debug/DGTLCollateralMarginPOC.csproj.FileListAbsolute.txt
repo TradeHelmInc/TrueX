@@ -25,3 +25,5 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLCollateralMarginPOC\bin\Debug\input_files\Trades1109.csv
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLCollateralMarginPOC\bin\Debug\input_files\Positions1011.csv
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLCollateralMarginPOC\bin\Debug\input_files\Trades1011.csv
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLCollateralMarginPOC\bin\Debug\input_files\positions1612.csv
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLCollateralMarginPOC\bin\Debug\input_files\trades1612.csv

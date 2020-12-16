@@ -76,8 +76,8 @@ namespace DGTLCollateralMarginPOC
             Console.WriteLine("===================== MARGIN/COLLATERAL grid ===================== ");
             foreach (string firm in positionsDTO.FirmPositions.Keys)
             {
-
-                MarginCollateralDTO marginCollateral= calc.CalculateMargin(firmId: firm, todayCollateral: 0, todayPositions: positionsDTO.FirmPositions[firm], todayTrades: todayTrades);
+                List<TradeDTO> firmTrades = todayTrades.Where(x => x.FirmId == firm).ToList();
+                MarginCollateralDTO marginCollateral = calc.CalculateMargin(firmId: firm, todayCollateral: 0, todayPositions: positionsDTO.FirmPositions[firm], todayTrades: firmTrades);
 
 
                 PrintMarginCollateral(marginCollateral);

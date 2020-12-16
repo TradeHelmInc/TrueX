@@ -1,0 +1,33 @@
+Firm,Account,Contract,Symbol,Prior Day Net Position,Current Net Position,Prior Day DSP,Current Price USD,Today's DSP,Live P&L USD,Variation Margin
+ -> BRADTR,-,-,-,-,-,-,-,-,-,-
+ -> BRADTR -> BRADACC3,BRADACC3,-,-,-,-,-,-,-,-,-
+-,-,Z20,XBT/USD,-,100,20748.59,22156.75,-,115675,-
+-,-,F21,XBT/USD,-,-,-,-,-,-,-
+-,-,G21,XBT/USD,-,-100,11748.59,13156.75,-,-215675,-
+-,-,H21,XBT/USD,-,-,-,-,-,-,-
+-,-,M21,XBT/USD,-,-,-,-,-,-,-
+-,-,Q21,XBT/USD,-,-,-,-,-,-,-
+ -> XBTO01,-,-,-,-,-,-,-,-,-,-
+ -> XBTO01 -> XBTOACC1,XBTOACC1,-,-,-,-,-,-,-,-,-
+-,-,Z20,XBT/USD,-,-100,20748.59,22156.75,-,-115675,-
+-,-,F21,XBT/USD,-,-,-,-,-,-,-
+-,-,G21,XBT/USD,-,100,11748.59,13156.75,-,215675,-
+-,-,H21,XBT/USD,-,-,-,-,-,-,-
+-,-,M21,XBT/USD,-,-,-,-,-,-,-
+-,-,Q21,XBT/USD,-,-,-,-,-,-,-
+ -> GLOBUSA,-,-,-,-,-,-,-,-,-,-
+ -> GLOBUSA -> GLOBACC1,GLOBACC1,-,-,-,-,-,-,-,-,-
+-,-,Z20,XBT/USD,-,100,20748.59,22156.75,-,115675,-
+-,-,F21,XBT/USD,-,-,-,-,-,-,-
+-,-,G21,XBT/USD,-,-,-,-,-,-,-
+-,-,H21,XBT/USD,-,-,-,-,-,-,-
+-,-,M21,XBT/USD,-,-,-,-,-,-,-
+-,-,Q21,XBT/USD,-,-,-,-,-,-,-
+ -> BLKFILLS,-,-,-,-,-,-,-,-,-,-
+ -> BLKFILLS -> BLKFILLS,BLKFILLS,-,-,-,-,-,-,-,-,-
+-,-,Z20,XBT/USD,-,-100,20748.59,22156.75,-,-115675,-
+-,-,F21,XBT/USD,-,-,-,-,-,-,-
+-,-,G21,XBT/USD,-,-,-,-,-,-,-
+-,-,H21,XBT/USD,-,-,-,-,-,-,-
+-,-,M21,XBT/USD,-,-,-,-,-,-,-
+-,-,Q21,XBT/USD,-,-,-,-,-,-,-

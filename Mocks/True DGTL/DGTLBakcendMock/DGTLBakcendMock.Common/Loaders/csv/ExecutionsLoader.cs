@@ -64,7 +64,8 @@ namespace DGTLBackendMock.Common.Loaders.csv
                         Symbol = values[2].Replace("\"", ""),
                         Side = values[1].Replace("\"", "") == _BUY_LABEL ? TradeDTO._TRADE_BUY : TradeDTO._TRADE_SELL,
                         ExecutionSize = Convert.ToDouble(values[4].Replace("\"", "")),
-                        ExecutionPrice = Convert.ToDouble(values[5].Replace("\"", ""))
+                        ExecutionPrice = Convert.ToDouble(values[5].Replace("\"", "")),
+                        FirmId = values[11]
 
 
                     };

@@ -59,4 +59,3 @@ C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBa
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Fwk\zHFT.Main.Common\bin\Debug\ToolsShared.dll
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Fwk\zHFT.Main.Common\obj\Debug\zHFT.Main.Common.dll
 C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Fwk\zHFT.Main.Common\obj\Debug\zHFT.Main.Common.pdb
-C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\Fwk\zHFT.Main.Common\obj\Debug\zHFT.Main.Common.csprojResolveAssemblyReference.cache

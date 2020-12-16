@@ -24,3 +24,5 @@ C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLMarketaDataPOC\bin\Debug\zHFT.MarketClient.Common.dll
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLMarketaDataPOC\bin\Debug\zHFT.StrategyHandler.Common.pdb
 C:\Users\zimzum\Desktop\Projects\Tradehelm\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLMarketaDataPOC\bin\Debug\zHFT.MarketClient.Common.pdb
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLMarketaDataPOC\obj\Debug\DGTLMarketaDataPOC.csprojResolveAssemblyReference.cache
+C:\Users\Compumar\Desktop\Projects\Tradehelm\Tassat\TrueX\Mocks\True DGTL\DGTLBakcendMock\DGTLMarketaDataPOC\obj\Debug\DGTLMarketaDataPOC.exe

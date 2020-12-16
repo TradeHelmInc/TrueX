@@ -29,6 +29,8 @@ namespace DGTLBackendMock.Common.DTO.Temp.Positions
 
         public string Side { get; set; }
 
+        public string FirmId { get; set; }
+
         #endregion
 
         #region Public Methods
@@ -43,6 +45,17 @@ namespace DGTLBackendMock.Common.DTO.Temp.Positions
         {
 
             return Side == _TRADE_BUY ? Math.Abs(tradeSize) : -1 * Math.Abs(tradeSize);
+        }
+
+        public string GetMaturityCode()
+        {
+            if(Symbol==null)
+                throw new Exception("invalid null symbol for trade!");
+
+            string[] symbolFlds=Symbol.Split(new string[] {"-"},StringSplitOptions.RemoveEmptyEntries);
+
+            return symbolFlds[symbolFlds.Length-1];
+
         }
 
 

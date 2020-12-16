@@ -76,6 +76,20 @@ namespace DGTLProfitsAndLossesPOC
 
         }
 
+        private static List<TradeDTO> GetSimplePAndLScenarios()
+        {
+            List<TradeDTO> trades = new List<TradeDTO>();
+
+            TradeDTO trade1 = new TradeDTO() { Date = DateTime.Now, Side = TradeDTO._TRADE_SELL, Symbol = "xxx", ExecutionSize = 10, ExecutionPrice = 21000 };
+            //TradeDTO trade2 = new TradeDTO() { Date = DateTime.Now, Side = TradeDTO._TRADE_SELL, Symbol = "xxx", ExecutionSize = 10, ExecutionPrice = 21000 };
+
+            trades.Add(trade1);
+            //trades.Add(trade2);
+
+            return trades;
+
+        }
+
         #endregion
 
         #region Protected Methods
@@ -131,14 +145,16 @@ namespace DGTLProfitsAndLossesPOC
             double netContracts = Convert.ToDouble(ConfigurationManager.AppSettings["NetContracts"]);
             string csvFile = ConfigurationManager.AppSettings["InputFile"];
 
-            List<TradeDTO> trades = ExecutionsLoader.GetTrades(csvFile);
+            //List<TradeDTO> trades = ExecutionsLoader.GetTrades(csvFile);
+            List<TradeDTO> trades = GetSimplePAndLScenarios();
+            NetPositionDTO prevNetPosition = new NetPositionDTO() { NetContracts = netContracts, Symbol = symbol };
 
             PortfolioCalculator calc = new PortfolioCalculator();
 
-            double? profitsAndLosses = calc.CalculateIncrementalProfitsAndLosses(netContracts, prevDSP,  currentPrice);
-            //Aca intentamos hacer el testing
-
+            double? profitsAndLosses = calc.CalculateIncrementalProfitsAndLosses(prevNetPosition, prevDSP, currentPrice, trades);
+            double? varMargin = calc.CalculateIncrementalVariationMargin(prevNetPosition, prevDSP, null, trades);
             Console.WriteLine(string.Format(" Incremental P&L for symbol {0}:{1}", symbol, profitsAndLosses));
+            Console.WriteLine(string.Format(" Incremental Variation Margin for symbol {0}:{1}", symbol, varMargin));
         }
 
 

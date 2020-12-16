@@ -130,23 +130,65 @@ namespace DGTLBackendMock.Common.Util.Portfolio
             return pandL;
         }
 
-        public double? CalculateIncrementalProfitsAndLosses(double netContracts,double prevDSP, double? currentPrice)
+        public double? CalculateIncrementalProfitsAndLosses(NetPositionDTO prevNetContracts, double prevDSP, double? currentPrice,List<TradeDTO> todayTrades)
         {
-
-            if (!currentPrice.HasValue)
+            if (prevNetContracts == null || todayTrades == null || !currentPrice.HasValue)
                 return null;
 
-            if (netContracts > 0)
-            {
-                return netContracts * (currentPrice.Value - prevDSP);
-            }
-            else
-            {
+            double prevPAndL = prevNetContracts.NetContracts > 0 ? prevNetContracts.NetContracts * (currentPrice.Value - prevDSP)
+                                                                 : prevNetContracts.NetContracts * (prevDSP - currentPrice.Value);
 
-                return Math.Abs(netContracts) * (prevDSP - currentPrice.Value);
+            foreach (TradeDTO trade in todayTrades)
+            {
+                double currPAndL = trade.Side == TradeDTO._TRADE_BUY ? trade.ExecutionSize * (currentPrice.Value - trade.ExecutionPrice)
+                                                                        : trade.ExecutionSize * (trade.ExecutionPrice - currentPrice.Value);
+
+                prevPAndL += currPAndL;
+            
             }
-        
+
+            return prevPAndL;
         
         }
+
+        public double? CalculateIncrementalVariationMargin(NetPositionDTO prevNetContracts, double prevDSP, double? todayDSP, List<TradeDTO> todayTrades)
+        {
+            if (prevNetContracts == null || todayTrades == null || !todayDSP.HasValue)
+                return null;
+
+            double prevPAndL = prevNetContracts.NetContracts > 0 ? prevNetContracts.NetContracts * (todayDSP.Value - prevDSP)
+                                                                 : prevNetContracts.NetContracts * (prevDSP - todayDSP.Value);
+
+            foreach (TradeDTO trade in todayTrades)
+            {
+                double currPAndL = trade.ExecutionSize > 0 ? trade.ExecutionSize * (todayDSP.Value - trade.ExecutionPrice)
+                                                           : trade.ExecutionSize * (trade.ExecutionPrice - todayDSP.Value);
+
+                prevPAndL += currPAndL;
+
+            }
+
+            return prevPAndL;
+
+        }
+
+        //public double? CalculateIncrementalProfitsAndLosses(double netContracts,double prevDSP, double? currentPrice)
+        //{
+
+        //    if (!currentPrice.HasValue)
+        //        return null;
+
+        //    if (netContracts > 0)
+        //    {
+        //        return netContracts * (currentPrice.Value - prevDSP);
+        //    }
+        //    else
+        //    {
+
+        //        return Math.Abs(netContracts) * (prevDSP - currentPrice.Value);
+        //    }
+        
+        
+        //}
     }
 }
